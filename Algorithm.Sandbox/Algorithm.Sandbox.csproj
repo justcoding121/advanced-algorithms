@@ -46,6 +46,7 @@
     <Compile Include="DataStructures\AsArrayList.cs" />
     <Compile Include="DataStructures\AsHashSet.cs" />
     <Compile Include="DataStructures\AsSinglyLinkedList.cs" />
+    <Compile Include="DataStructures\AsStringBuilder.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

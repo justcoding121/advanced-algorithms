@@ -1,4 +1,6 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
     public class AsArrayList<T>
     {
@@ -13,6 +15,18 @@
         {
             arraySize = 2;
             array = new T[arraySize];
+        }
+
+        public T[] ToArray()
+        {
+            var newArray = new T[currentEndPosition];
+
+            for (int i = 0; i < currentEndPosition; i++)
+            {
+                newArray[i] = array[i];
+            }
+
+            return newArray;
         }
 
         //O(1)

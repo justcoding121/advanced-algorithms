@@ -9,7 +9,7 @@ namespace Algorithm.Sandbox
         static void Main(string[] args)
         {
             var linkedList = new AsSinglyLinkedList<string>();
-           
+
 
             linkedList.AddFirst("JT");
             linkedList.AddFirst("JK");
@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox
             arrayList.AddItem("My name is billa");
             arrayList.AddItem("3");
 
-            for (int i=0; i<arrayList.Length; i++)
+            for (int i = 0; i < arrayList.Length; i++)
             {
                 Console.WriteLine(arrayList.ItemAt(i));
             }
@@ -56,7 +56,7 @@ namespace Algorithm.Sandbox
             hashSet.Add("key1", "blah");
             hashSet.Add("key2", "Ya man!");
 
-            if(hashSet.HasKey("key2"))
+            if (hashSet.HasKey("key2"))
             {
                 Console.WriteLine(hashSet.GetValue("key2"));
             }
