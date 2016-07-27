@@ -8,7 +8,7 @@ namespace Algorithm.Sandbox
     {
         static void Main(string[] args)
         {
-            var linkedList = new AsLinkedList<string>();
+            var linkedList = new AsSinglyLinkedList<string>();
            
 
             linkedList.AddFirst("JT");
