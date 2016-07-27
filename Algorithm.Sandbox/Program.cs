@@ -1,4 +1,6 @@
-﻿using Algorithm.Sandbox.DynamicProgramming;
+﻿using Algorithm.Sandbox.DataStructures;
+using Algorithm.Sandbox.DynamicProgramming;
+using System;
 
 namespace Algorithm.Sandbox
 {
@@ -6,8 +8,26 @@ namespace Algorithm.Sandbox
     {
         static void Main(string[] args)
         {
+            var linkedList = new AsLinkedList<string>();
+           
+
+            linkedList.AddFirst("JT");
+            linkedList.AddFirst("JK");
+            linkedList.AddLast("JM");
+
+            linkedList.printAllNodes();
+
+            linkedList.Remove("JT");
+            linkedList.Remove("JM");
+
+            linkedList.printAllNodes();
+
+            linkedList.AddFirst("JT");
+
+
             KnackSackProblems.KnackSack10();
             KnackSackProblems.KnackSack_Fractional();
         }
+
     }
 }

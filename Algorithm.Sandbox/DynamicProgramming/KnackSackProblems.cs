@@ -15,13 +15,14 @@ namespace Algorithm.Sandbox.DynamicProgramming
             //max weight capacity of bag
             int W = 5;
 
-            var result = KnackSack_10_Recursive_Method(W, weights, values, weights.Length, new Dictionary<int, int>());
+            var result = KnackSack_10_Recursive(W, weights, values, weights.Length, new Dictionary<int, int>());
 
             Console.WriteLine(result);
         }
 
-
-        private static int KnackSack_10_Recursive_Method(int W, int[] weights, int[] values, int n, Dictionary<int, int> memozingCache)
+        //costs O(2^n) without recursion
+        //costs O(W*n) in total after all recursion is complete
+        private static int KnackSack_10_Recursive(int W, int[] weights, int[] values, int n, Dictionary<int, int> memozingCache)
         {
             int result;
             var i = n - 1;
@@ -35,15 +36,20 @@ namespace Algorithm.Sandbox.DynamicProgramming
             {
                 result = 0;
             }
-            else
-            if (weights[i] > W)
+            //skip this weight; its even greater than the maximum Weight W
+            else if (weights[i] > W)
             {
-                result = KnackSack_10_Recursive_Method(W, weights, values, n - 1, memozingCache);
+                //skip this weight
+                result = KnackSack_10_Recursive(W, weights, values, n - 1, memozingCache);
             }
             else
             {
-                result = Math.Max(KnackSack_10_Recursive_Method(W - weights[i], weights, values, n - 1, memozingCache) + values[i],
-                    KnackSack_10_Recursive_Method(W, weights, values, n - 1, memozingCache));
+                //compute maximum value for n-1 objects
+                var prev = KnackSack_10_Recursive(W - weights[i], weights, values, n - 1, memozingCache);
+
+                //pick maximum of adding this object and possibility of skipping this object
+                result = Math.Max(prev + values[i],
+                    KnackSack_10_Recursive(W, weights, values, n - 1, memozingCache));
             }
 
             memozingCache[W] = result;
