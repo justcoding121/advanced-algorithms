@@ -6,6 +6,8 @@
         private int currentEndPosition;
         private T[] array;
 
+        public int Length => currentEndPosition;
+
         //constructor init 
         public AsArrayList()
         {
@@ -64,6 +66,8 @@
             {
                 array[j] = array[j+1];
             }
+
+            currentEndPosition--;
         }
 
     }

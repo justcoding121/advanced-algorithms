@@ -34,7 +34,7 @@ namespace Algorithm.Sandbox.DataStructures
         //O(1) time complexity; worst case O(n)
         public bool HasKey(U key)
         {
-            var index = key.GetHashCode() % expectedSize;
+            var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
             if (hashArray[index] == null)
             {
@@ -58,11 +58,37 @@ namespace Algorithm.Sandbox.DataStructures
             return false;
         }
 
+        internal T GetValue(U key)
+        {
+            var index = Math.Abs(key.GetHashCode()) % expectedSize;
+
+            if (hashArray[index] == null)
+            {
+                throw new Exception("Item not found");
+            }
+            else
+            {
+                var current = hashArray[index].Head;
+
+                while (current != null)
+                {
+                    if (current.data.key.Equals(key))
+                    {
+                        return current.data.data;
+                    }
+
+                    current = current.next;
+                }
+            }
+
+            throw new Exception("Item not found");
+        }
+
         //O(1) time complexity; worst case O(n)
         //add an item to this hash table
         public void Add(U key, T data)
         {
-            var index = key.GetHashCode() % expectedSize;
+            var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
             if (hashArray[index] == null)
             {
@@ -90,7 +116,7 @@ namespace Algorithm.Sandbox.DataStructures
         //O(1) time complexity; worst case O(n)
         public void Remove(U key)
         {
-            var index = key.GetHashCode() % expectedSize;
+            var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
             if (hashArray[index] == null)
             {
