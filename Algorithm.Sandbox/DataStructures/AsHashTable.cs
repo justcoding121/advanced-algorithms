@@ -1,6 +1,11 @@
 ﻿namespace Algorithm.Sandbox.DataStructures
 {
-    class AsHashTable
+    public class AsHashNode<T>
+    {
+
+    }
+
+    public class AsHashTable<T>
     {
     }
 }

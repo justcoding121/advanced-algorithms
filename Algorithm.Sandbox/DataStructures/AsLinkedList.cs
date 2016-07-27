@@ -3,12 +3,12 @@
 namespace Algorithm.Sandbox.DataStructures
 {
     //define the generic node
-    public class AsNode<T>
+    public class AsLinkedListNode<T>
     {
-        public AsNode<T> next;
+        public AsLinkedListNode<T> next;
         public T data;
 
-        public AsNode(T data)
+        public AsLinkedListNode(T data)
         {
             this.data = data;
         }
@@ -17,13 +17,13 @@ namespace Algorithm.Sandbox.DataStructures
     //wrap the node inside a generic class
     public class AsLinkedList<T>
     {
-        public AsNode<T> Head;
+        public AsLinkedListNode<T> Head;
 
         //marks this data as the new head
         //cost O(1)
         public void AddFirst(T data)
         {
-            var newNode = new AsNode<T>(data);
+            var newNode = new AsLinkedListNode<T>(data);
 
             newNode.next = Head;
 
@@ -34,11 +34,11 @@ namespace Algorithm.Sandbox.DataStructures
         //costs O(n)
         public void AddLast(T data)
         {
-            var newNode = new AsNode<T>(data);
+            var newNode = new AsLinkedListNode<T>(data);
 
             if (Head == null)
             {
-                Head = new AsNode<T>(data);
+                Head = new AsLinkedListNode<T>(data);
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Nothing to remove");
 
             var current = Head;
-            AsNode<T> prev = null;
+            AsLinkedListNode<T> prev = null;
             while (current.next != null)
             {
                 prev = current;
@@ -87,7 +87,7 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new System.Exception("Empty list");
 
             var current = Head;
-            AsNode<T> prev = null;
+            AsLinkedListNode<T> prev = null;
 
             do
             {
