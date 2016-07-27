@@ -65,6 +65,16 @@ namespace Algorithm.Sandbox
 
             Console.WriteLine(hashSet.HasKey("key2"));
 
+            var builder = new AsStringBuilder();
+
+            for (int i = 0; i < 500; i++)
+            {
+                builder.Append("Haha");
+            }
+
+            Console.WriteLine(builder.ToString());
+
+
             KnackSackProblems.KnackSack10();
             KnackSackProblems.KnackSack_Fractional();
         }
