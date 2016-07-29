@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="DataStructures\AsArrayList.cs" />
     <Compile Include="DataStructures\AsAvlTree.cs" />
+    <Compile Include="DataStructures\AsBST.cs" />
     <Compile Include="DataStructures\AsBTree.cs" />
+    <Compile Include="DataStructures\AsCircularLinkedList.cs" />
     <Compile Include="DataStructures\AsDiGraph.cs" />
     <Compile Include="DataStructures\AsDoublyLinkedList.cs" />
     <Compile Include="DataStructures\AsGraph.cs" />
