@@ -2,37 +2,41 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsHashSetNode<U, T>
-    {
-        public U key;
-        public T data;
-
-        public AsHashSetNode(U key, T data)
-        {
-            this.key = key;
-            this.data = data;
-        }
-    }
 
     /// <summary>
-    /// A hash table implementation
+    /// A hash table implementation (key value dictionary)
     /// </summary>
     /// <typeparam name="U"></typeparam>
     /// <typeparam name="T"></typeparam>
     public class AsHashSet<U, T>
     {
-        private AsSinglyLinkedList<AsHashSetNode<U, T>>[] hashArray;
+        /// <summary>
+        /// key-value set
+        /// </summary>
+        private class AsHashSetNode
+        {
+            public U Key;
+            public T Value;
+
+            public AsHashSetNode(U key, T value)
+            {
+                this.Key = key;
+                this.Value = value;
+            }
+        }
+
+        private AsSinglyLinkedList<AsHashSetNode>[] hashArray;
         private int expectedSize;
 
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
         public AsHashSet(int expectedSize)
         {
             this.expectedSize = expectedSize;
-            hashArray = new AsSinglyLinkedList<AsHashSetNode<U, T>>[expectedSize];
+            hashArray = new AsSinglyLinkedList<AsHashSetNode>[expectedSize];
         }
 
         //O(1) time complexity; worst case O(n)
-        public bool HasKey(U key)
+        public bool ContainsKey(U key)
         {
             var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
@@ -46,19 +50,19 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.data.key.Equals(key))
+                    if (current.Data.Key.Equals(key))
                     {
                         return true;
                     }
 
-                    current = current.next;
+                    current = current.Next;
                 }
             }
 
             return false;
         }
 
-        internal T GetValue(U key)
+        public T GetValue(U key)
         {
             var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
@@ -72,12 +76,12 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.data.key.Equals(key))
+                    if (current.Data.Key.Equals(key))
                     {
-                        return current.data.data;
+                        return current.Data.Value;
                     }
 
-                    current = current.next;
+                    current = current.Next;
                 }
             }
 
@@ -86,14 +90,14 @@ namespace Algorithm.Sandbox.DataStructures
 
         //O(1) time complexity; worst case O(n)
         //add an item to this hash table
-        public void Add(U key, T data)
+        public void Add(U key, T value)
         {
             var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new AsSinglyLinkedList<AsHashSetNode<U, T>>();
-                hashArray[index].AddFirst(new AsHashSetNode<U, T>(key, data));
+                hashArray[index] = new AsSinglyLinkedList<AsHashSetNode>();
+                hashArray[index].AddFirst(new AsHashSetNode(key, value));
             }
             else
             {
@@ -101,15 +105,15 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.data.key.Equals(key))
+                    if (current.Data.Key.Equals(key))
                     {
                         throw new Exception("Duplicate key");
                     }
 
-                    current = current.next;
+                    current = current.Next;
                 }
 
-                hashArray[index].AddFirst(new AsHashSetNode<U, T>(key, data));
+                hashArray[index].AddFirst(new AsHashSetNode(key, value));
             }
         }
 
@@ -127,16 +131,16 @@ namespace Algorithm.Sandbox.DataStructures
                 var current = hashArray[index].Head;
 
                 //TODO merge both search and remove to a single loop here!
-                AsHashSetNode<U, T> item = null;
+                AsHashSetNode item = null;
                 while (current != null)
                 {
-                    if (current.data.key.Equals(key))
+                    if (current.Data.Key.Equals(key))
                     {
-                        item = current.data;
+                        item = current.Data;
                         break;
                     }
 
-                    current = current.next;
+                    current = current.Next;
                 }
 
                 //remove

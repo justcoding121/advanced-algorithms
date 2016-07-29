@@ -5,16 +5,19 @@ namespace Algorithm.Sandbox.DataStructures
     //define the generic node
     public class AsSinglyLinkedListNode<T>
     {
-        public AsSinglyLinkedListNode<T> next;
-        public T data;
+        public AsSinglyLinkedListNode<T> Next;
+        public T Data;
 
         public AsSinglyLinkedListNode(T data)
         {
-            this.data = data;
+            this.Data = data;
         }
     }
 
-    //wrap the node inside a generic class
+    /// <summary>
+    /// A singly linked list implementation
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsSinglyLinkedList<T>
     {
         public AsSinglyLinkedListNode<T> Head;
@@ -25,7 +28,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var newNode = new AsSinglyLinkedListNode<T>(data);
 
-            newNode.next = Head;
+            newNode.Next = Head;
 
             Head = newNode;
         }
@@ -44,12 +47,12 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 var current = Head;
 
-                while (current.next != null)
+                while (current.Next != null)
                 {
-                    current = current.next;
+                    current = current.Next;
                 }
 
-                current.next = newNode;
+                current.Next = newNode;
             }
 
         }
@@ -60,7 +63,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (Head == null)
                 throw new Exception("Nothing to remove");
 
-            Head = Head.next;
+            Head = Head.Next;
         }
 
         //cost O(n)
@@ -71,13 +74,13 @@ namespace Algorithm.Sandbox.DataStructures
 
             var current = Head;
             AsSinglyLinkedListNode<T> prev = null;
-            while (current.next != null)
+            while (current.Next != null)
             {
                 prev = current;
-                current = current.next;
+                current = current.Next;
             }
 
-            prev.next = null;
+            prev.Next = null;
         }
 
         //cost O(n) in worst case O(nlogn) average?
@@ -91,10 +94,10 @@ namespace Algorithm.Sandbox.DataStructures
 
             do
             {
-                if (current.data.Equals(data))
+                if (current.Data.Equals(data))
                 {
                     //last element
-                    if (current.next == null)
+                    if (current.Next == null)
                     {
                         //head is the only node
                         if (prev == null)
@@ -104,7 +107,7 @@ namespace Algorithm.Sandbox.DataStructures
                         else
                         {
                             //last element
-                            prev.next = null;
+                            prev.Next = null;
                         }
                     }
                     else
@@ -112,12 +115,12 @@ namespace Algorithm.Sandbox.DataStructures
                         //current is head
                         if (prev == null)
                         {
-                            Head = current.next;
+                            Head = current.Next;
                         }
                         else
                         {
                             //delete
-                            prev.next = current.next;
+                            prev.Next = current.Next;
                         }
                     }
 
@@ -125,7 +128,7 @@ namespace Algorithm.Sandbox.DataStructures
                 }
 
                 prev = current;
-                current = current.next;
+                current = current.Next;
             }
             while (current != null);
         }
@@ -138,7 +141,7 @@ namespace Algorithm.Sandbox.DataStructures
             while (current != null)
             {
                 i++;
-                current = current.next;
+                current = current.Next;
             }
 
             return i;
@@ -165,8 +168,8 @@ namespace Algorithm.Sandbox.DataStructures
             var current = Head;
             while (current != null)
             {
-                Console.WriteLine(current.data);
-                current = current.next;
+                Console.WriteLine(current.Data);
+                current = current.Next;
             }
         }
     }
