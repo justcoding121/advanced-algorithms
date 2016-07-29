@@ -1,7 +1,9 @@
-﻿using System;
-
-namespace Algorithm.Sandbox.DataStructures
+﻿namespace Algorithm.Sandbox.DataStructures
 {
+    /// <summary>
+    /// A self expanding array (dynamic array)
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsArrayList<T>
     {
         private int arraySize;

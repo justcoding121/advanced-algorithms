@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Algorithm.Sandbox.DataStructures;
+using System;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -9,29 +9,31 @@ namespace Algorithm.Sandbox.DynamicProgramming
         public static void KnackSack10()
         {
             //sample inputs
-            int[] weights = new int[] { 2, 3, 4, 5 };
-            int[] values = new int[] { 3, 7, 2, 9 };
+            int[] weights = new int[] { 10, 20, 30 };
+            int[] values = new int[] { 60, 100, 120 };
 
             //max weight capacity of bag
-            int W = 5;
+            int W = 50;
 
-            var result = KnackSack_10_Recursive(W, weights, values, weights.Length, new Dictionary<int, int>());
+            var result = KnackSack_10_Recursive(W, weights, values, weights.Length, new AsHashSet<string, int>(100));
 
             Console.WriteLine(result);
         }
 
-        //costs O(2^n) without recursion
+        //costs O(2^n) without memoizing
         //costs O(W*n) in total after all recursion is complete
-        private static int KnackSack_10_Recursive(int W, int[] weights, int[] values, int n, Dictionary<int, int> memozingCache)
+        private static int KnackSack_10_Recursive(int W, int[] weights, int[] values, int n, AsHashSet<string, int> memozingCache)
         {
-            int result;
-            var i = n - 1;
+            var cacheKey = W + string.Empty + n;
 
-            if(memozingCache.ContainsKey(W))
+            if (memozingCache.ContainsKey(cacheKey))
             {
-                return memozingCache[W];
+                return memozingCache.GetValue(cacheKey);
             }
 
+            int result;
+            var i = n - 1;
+          
             if (i < 0)
             {
                 result = 0;
@@ -47,12 +49,12 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 //compute maximum value for n-1 objects
                 var prev = KnackSack_10_Recursive(W - weights[i], weights, values, n - 1, memozingCache);
 
-                //pick maximum of adding this object and possibility of skipping this object
+                //pick maximum value of adding this object and possibility of skipping this object
                 result = Math.Max(prev + values[i],
                     KnackSack_10_Recursive(W, weights, values, n - 1, memozingCache));
             }
 
-            memozingCache[W] = result;
+            memozingCache.Add(cacheKey, result);
 
             return result;
         }

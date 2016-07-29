@@ -44,12 +44,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataStructures\AsArrayList.cs" />
+    <Compile Include="DataStructures\AsAvlTree.cs" />
+    <Compile Include="DataStructures\AsBTree.cs" />
+    <Compile Include="DataStructures\AsDiGraph.cs" />
+    <Compile Include="DataStructures\AsDoublyLinkedList.cs" />
+    <Compile Include="DataStructures\AsGraph.cs" />
     <Compile Include="DataStructures\AsHashSet.cs" />
+    <Compile Include="DataStructures\AsMatrix.cs" />
+    <Compile Include="DataStructures\AsMaxHeap.cs" />
+    <Compile Include="DataStructures\AsMinHeap.cs" />
+    <Compile Include="DataStructures\AsPriorityQueue.cs" />
+    <Compile Include="DataStructures\AsQueue.cs" />
+    <Compile Include="DataStructures\AsRedBlackTree.cs" />
     <Compile Include="DataStructures\AsSinglyLinkedList.cs" />
+    <Compile Include="DataStructures\AsSplayTree.cs" />
+    <Compile Include="DataStructures\AsStack.cs" />
     <Compile Include="DataStructures\AsStringBuilder.cs" />
+    <Compile Include="DataStructures\AsTreapTree.cs" />
+    <Compile Include="DataStructures\AsTree.cs" />
+    <Compile Include="DataStructures\AsTrie.cs" />
+    <Compile Include="DynamicProgramming\CoinChangeProblems.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\Permutation.cs" />
+    <Compile Include="String\IsUnique.cs" />
+    <Compile Include="String\URLify.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
