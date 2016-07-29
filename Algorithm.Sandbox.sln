@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm.Sandbox", "Algorithm.Sandbox\Algorithm.Sandbox.csproj", "{0BCBF659-72A2-4F4C-A481-B40D78490C2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm.Sandbox.Example", "Algorithm.Sandbox.Example\Algorithm.Sandbox.Example.csproj", "{BEE9F448-4AB7-40B7-9451-49A9E0D134A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm.Sandbox.Tests", "Algorithm.Sandbox.Tests\Algorithm.Sandbox.Tests.csproj", "{556705BD-1E64-426D-A9CA-08390156FB85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0BCBF659-72A2-4F4C-A481-B40D78490C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BCBF659-72A2-4F4C-A481-B40D78490C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BCBF659-72A2-4F4C-A481-B40D78490C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEE9F448-4AB7-40B7-9451-49A9E0D134A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE9F448-4AB7-40B7-9451-49A9E0D134A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE9F448-4AB7-40B7-9451-49A9E0D134A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE9F448-4AB7-40B7-9451-49A9E0D134A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{556705BD-1E64-426D-A9CA-08390156FB85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{556705BD-1E64-426D-A9CA-08390156FB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{556705BD-1E64-426D-A9CA-08390156FB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{556705BD-1E64-426D-A9CA-08390156FB85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

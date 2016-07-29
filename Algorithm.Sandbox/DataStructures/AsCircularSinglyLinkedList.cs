@@ -3,12 +3,12 @@
 namespace Algorithm.Sandbox.DataStructures
 {
     //define the generic node
-    public class AsSinglyLinkedListNode<T>
+    public class AsCircularSinglyLinkedListNode<T>
     {
-        public AsSinglyLinkedListNode<T> Next;
+        public AsCircularSinglyLinkedListNode<T> Next;
         public T Data;
 
-        public AsSinglyLinkedListNode(T data)
+        public AsCircularSinglyLinkedListNode(T data)
         {
             this.Data = data;
         }
@@ -18,93 +18,33 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsSinglyLinkedList<T>
+    public class AsCircularSinglyLinkedList<T>
     {
-        public AsSinglyLinkedListNode<T> Head;
+        public AsCircularSinglyLinkedListNode<T> ReferenceNode;
 
         //marks this data as the new head
         //cost O(1)
-        public void InsertFirst(T data)
+        public void Insert(T data)
         {
-            var newNode = new AsSinglyLinkedListNode<T>(data);
+            var newNode = new AsCircularSinglyLinkedListNode<T>(data);
 
-            newNode.Next = Head;
+            newNode.Next = ReferenceNode;
+            ReferenceNode.Next = newNode;
 
-            Head = newNode;
+            ReferenceNode = newNode;
         }
 
-        //insert at the end
-        //costs O(n)
-        public void InsertLast(T data)
-        {
-            var newNode = new AsSinglyLinkedListNode<T>(data);
-
-            if (Head == null)
-            {
-                Head = new AsSinglyLinkedListNode<T>(data);
-            }
-            else
-            {
-                var current = Head;
-
-                while (current.Next != null)
-                {
-                    current = current.Next;
-                }
-
-                current.Next = newNode;
-            }
-
-        }
-
-        //cost O(1)
-        public T DeleteFirst()
-        {
-            if (Head == null)
-            {
-                throw new Exception("Nothing to remove");
-            }
-
-            var firstData = Head.Data;
-
-            Head = Head.Next;
-
-            return firstData;
-        }
-
-        //cost O(n)
-        public T DeleteLast()
-        {
-            if (Head == null)
-            {
-                throw new Exception("Nothing to remove");
-            }
-
-            var current = Head;
-            AsSinglyLinkedListNode<T> prev = null;
-            while (current.Next != null)
-            {
-                prev = current;
-                current = current.Next;
-            }
-
-            var lastData = prev.Next.Data;
-
-            prev.Next = null;
-
-            return lastData;
-        }
 
         //cost O(n) in worst case O(nlogn) average?
-        public void Delete(T data)
+        public void Remove(T data)
         {
-            if (Head == null)
+            if (ReferenceNode == null)
             {
                 throw new Exception("Empty list");
             }
 
-            var current = Head;
-            AsSinglyLinkedListNode<T> prev = null;
+            var current = ReferenceNode;
+            AsCircularSinglyLinkedListNode<T> prev = null;
 
             do
             {
@@ -116,7 +56,7 @@ namespace Algorithm.Sandbox.DataStructures
                         //head is the only node
                         if (prev == null)
                         {
-                            Head = null;
+                            ReferenceNode = null;
                         }
                         else
                         {
@@ -129,7 +69,7 @@ namespace Algorithm.Sandbox.DataStructures
                         //current is head
                         if (prev == null)
                         {
-                            Head = current.Next;
+                            ReferenceNode = current.Next;
                         }
                         else
                         {
@@ -151,7 +91,7 @@ namespace Algorithm.Sandbox.DataStructures
         public int Count()
         {
             var i = 0;
-            var current = Head;
+            var current = ReferenceNode;
             while (current != null)
             {
                 i++;
@@ -164,18 +104,18 @@ namespace Algorithm.Sandbox.DataStructures
         //O(1) always
         public bool IsEmpty()
         {
-            return Head == null;
+            return ReferenceNode == null;
         }
 
         //O(1) always
-        public void DeleteAll()
+        public void RemoveAll()
         {
-            if (Head == null)
+            if (ReferenceNode == null)
             {
                 throw new System.Exception("Empty list");
             }
 
-            Head = null;
+            ReferenceNode = null;
         }
 
         //O(n) time complexity
@@ -183,7 +123,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var result = new AsArrayList<T>();
 
-            var current = Head;
+            var current = ReferenceNode;
             while (current != null)
             {
                 result.AddItem(current.Data);

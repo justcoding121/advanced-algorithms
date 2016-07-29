@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm.Sandbox.DataStructures
+namespace Algorithm.Sandbox.Example
 {
-    class AsCircularLinkedList
+    class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }

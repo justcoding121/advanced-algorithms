@@ -97,7 +97,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (hashArray[index] == null)
             {
                 hashArray[index] = new AsSinglyLinkedList<AsHashSetNode>();
-                hashArray[index].AddFirst(new AsHashSetNode(key, value));
+                hashArray[index].InsertFirst(new AsHashSetNode(key, value));
             }
             else
             {
@@ -113,7 +113,7 @@ namespace Algorithm.Sandbox.DataStructures
                     current = current.Next;
                 }
 
-                hashArray[index].AddFirst(new AsHashSetNode(key, value));
+                hashArray[index].InsertFirst(new AsHashSetNode(key, value));
             }
         }
 
@@ -151,7 +151,7 @@ namespace Algorithm.Sandbox.DataStructures
                 else
                 {
 
-                    hashArray[index].Remove(item);
+                    hashArray[index].Delete(item);
                 }
 
             }
