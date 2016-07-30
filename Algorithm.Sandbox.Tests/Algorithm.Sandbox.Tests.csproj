@@ -50,7 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="DataStructures\ArrayList_Tests.cs" />
+    <Compile Include="DataStructures\CircularLinkedList_Tests.cs" />
+    <Compile Include="DataStructures\DoublyLinkedList_Tests.cs" />
+    <Compile Include="DataStructures\HashSet_Tests.cs" />
+    <Compile Include="DataStructures\QueueTests.cs" />
+    <Compile Include="DataStructures\SinglyLinkedList_Tests.cs" />
+    <Compile Include="DataStructures\Stack_Tests.cs" />
+    <Compile Include="DynamicProgramming\KnackSackProblems_Tests.cs" />
+    <Compile Include="DynamicProgramming\CoinChangeProblems_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +67,7 @@
       <Name>Algorithm.Sandbox</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

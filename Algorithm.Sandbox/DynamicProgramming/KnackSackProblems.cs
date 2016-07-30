@@ -5,24 +5,10 @@ namespace Algorithm.Sandbox.DynamicProgramming
 {
     public class KnackSackProblems
     {
-        //1-0 knacksack
-        public static void KnackSack10()
-        {
-            //sample inputs
-            int[] weights = new int[] { 10, 20, 30 };
-            int[] values = new int[] { 60, 100, 120 };
-
-            //max weight capacity of bag
-            int W = 50;
-
-            var result = KnackSack_10_Recursive(W, weights, values, weights.Length, new AsHashSet<string, int>(100));
-
-            Console.WriteLine(result);
-        }
-
+       
         //costs O(2^n) without memoizing
         //costs O(W*n) in total after all recursion is complete
-        private static int KnackSack_10_Recursive(int W, int[] weights, int[] values, int n, AsHashSet<string, int> memozingCache)
+        public static int KnackSack_10_Recursive(int W, int[] weights, int[] values, int n, AsHashSet<string, int> memozingCache)
         {
             var cacheKey = W + string.Empty + n;
 
@@ -60,14 +46,8 @@ namespace Algorithm.Sandbox.DynamicProgramming
         }
 
         //greedy solution for fractional variant
-        public static void KnackSack_Fractional()
+        public static double KnackSack_Fractional(int W, int[] weights, int[] values)
         {
-            //sample inputs
-            int[] weights = new int[] { 5, 20, 10, 12 };
-            int[] values = new int[] { 50, 140, 60, 60 };
-
-            //max weight capacity of bag
-            int W = 30;
 
             //compute ratios to find importance of weights
             var ratios = new double[weights.Length];
@@ -118,7 +98,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
             }
 
             //O(n) + O(nlogn) + O(n) = O(nlogn)
-            Console.WriteLine(resultValue);
+            return resultValue;
         }
     }
 }

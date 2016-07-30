@@ -5,20 +5,10 @@ namespace Algorithm.Sandbox.DynamicProgramming
 {
     public class CoinChangeProblems
     {
-        /// <summary>
-        /// Gets the minimum number of coins to fit in the amount 
-        /// </summary>
-        public static void MinCoinChange()
-        {
-            int[] coins = { 4 };
-            int amount = 30;
-
-            Console.WriteLine(MinCoinChangeRecursive(amount, coins.Length, coins, new AsHashSet<int, int>(100)));
-        }
 
         //O(amount * n^n) without memoization?
         //O(amount * n) with memoization
-        private static int MinCoinChangeRecursive(int amount, int n, int[] coins, AsHashSet<int, int> memoizingCache)
+        public static int MinCoinChangeRecursive(int amount, int n, int[] coins, AsHashSet<int, int> memoizingCache)
         {
             var key = amount;
 

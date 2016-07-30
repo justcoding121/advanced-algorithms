@@ -3,13 +3,12 @@
 namespace Algorithm.Sandbox.DataStructures
 {
     //define the generic node
-    public class AsCircularDoublyLinkedListNode<T>
+    public class AsCircularLinkedListNode<T>
     {
-        public AsCircularDoublyLinkedListNode<T> Previous;
-        public AsCircularDoublyLinkedListNode<T> Next;
+        public AsCircularLinkedListNode<T> Next;
         public T Data;
 
-        public AsCircularDoublyLinkedListNode(T data)
+        public AsCircularLinkedListNode(T data)
         {
             this.Data = data;
         }
@@ -19,20 +18,15 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsCircularDoublyLinkedList<T>
+    public class AsCircularLinkedList<T>
     {
-        public AsCircularDoublyLinkedListNode<T> ReferenceNode;
+        public AsCircularLinkedListNode<T> ReferenceNode;
 
         //marks this data as the new head
         //cost O(1)
         public void Add(T data)
         {
-            var newNode = new AsCircularDoublyLinkedListNode<T>(data);
-
-            if (ReferenceNode != null)
-            {
-                ReferenceNode.Previous = newNode;
-            }
+            var newNode = new AsCircularLinkedListNode<T>(data);
 
             newNode.Next = ReferenceNode;
 
@@ -48,7 +42,41 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new System.Exception("Empty list");
             }
 
-            throw new NotImplementedException();
+            //reference node itself is the search term
+            if (ReferenceNode.Next == ReferenceNode)
+            {
+                if(ReferenceNode.Data.Equals(data))
+                {
+                    ReferenceNode = null;
+                    return;
+                }
+                throw new System.Exception("Item not in list");
+            }
+
+            //atleast two elements at this point
+            var current = ReferenceNode;
+            AsCircularLinkedListNode<T> prev = null;
+            while (current.Next != ReferenceNode)
+            {
+                if (current.Data.Equals(data))
+                {
+                    break;
+                }
+
+                prev = current;
+                current = current.Next;
+            }
+
+            //current is node before reference node
+            if (current.Next == ReferenceNode)
+            {
+                prev.Next = ReferenceNode;
+            }
+            //somewhere in between
+            else
+            {
+                prev.Next = current.Next;
+            }
         }
 
         //O(n) always
@@ -56,7 +84,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var i = 0;
             var current = ReferenceNode;
-            while (current != null && current.Next!=ReferenceNode)
+            while (current != null && current.Next != ReferenceNode)
             {
                 i++;
                 current = current.Next;
@@ -80,7 +108,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             ReferenceNode = null;
-        
+
         }
 
         //O(n) time complexity
@@ -88,8 +116,15 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var result = new AsArrayList<T>();
 
+            if(ReferenceNode == null)
+            {
+                return result;
+            }
+
             var current = ReferenceNode;
-            while (current != null && current.Next != ReferenceNode)
+            result.AddItem(current.Data);
+
+            while (current.Next != ReferenceNode)
             {
                 result.AddItem(current.Data);
                 current = current.Next;
