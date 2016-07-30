@@ -50,12 +50,9 @@
     <Compile Include="DataStructures\AsAvlTree.cs" />
     <Compile Include="DataStructures\AsBST.cs" />
     <Compile Include="DataStructures\AsBTree.cs" />
-<<<<<<< HEAD
     <Compile Include="DataStructures\AsCircularDoublyLinkedList.cs" />
     <Compile Include="DataStructures\AsCircularSinglyLinkedList.cs" />
-=======
     <Compile Include="DataStructures\AsCircularLinkedList.cs" />
->>>>>>> origin/master
     <Compile Include="DataStructures\AsDiGraph.cs" />
     <Compile Include="DataStructures\AsDoublyLinkedList.cs" />
     <Compile Include="DataStructures\AsGraph.cs" />
