@@ -43,48 +43,8 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty list");
             }
 
-            var current = ReferenceNode;
-            AsCircularSinglyLinkedListNode<T> prev = null;
 
-            do
-            {
-                if (current.Data.Equals(data))
-                {
-                    //last element
-                    if (current.Next == null)
-                    {
-                        //head is the only node
-                        if (prev == null)
-                        {
-                            ReferenceNode = null;
-                        }
-                        else
-                        {
-                            //last element
-                            prev.Next = null;
-                        }
-                    }
-                    else
-                    {
-                        //current is head
-                        if (prev == null)
-                        {
-                            ReferenceNode = current.Next;
-                        }
-                        else
-                        {
-                            //delete
-                            prev.Next = current.Next;
-                        }
-                    }
-
-                    break;
-                }
-
-                prev = current;
-                current = current.Next;
-            }
-            while (current != null);
+            throw new NotImplementedException();
         }
 
         //O(n) always
@@ -92,7 +52,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var i = 0;
             var current = ReferenceNode;
-            while (current != null)
+            while (current != null && current.Next != ReferenceNode)
             {
                 i++;
                 current = current.Next;
@@ -116,6 +76,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             ReferenceNode = null;
+
         }
 
         //O(n) time complexity
@@ -124,7 +85,7 @@ namespace Algorithm.Sandbox.DataStructures
             var result = new AsArrayList<T>();
 
             var current = ReferenceNode;
-            while (current != null)
+            while (current != null && current.Next != ReferenceNode)
             {
                 result.AddItem(current.Data);
                 current = current.Next;

@@ -52,7 +52,6 @@
     <Compile Include="DataStructures\AsBTree.cs" />
     <Compile Include="DataStructures\AsCircularDoublyLinkedList.cs" />
     <Compile Include="DataStructures\AsCircularSinglyLinkedList.cs" />
-    <Compile Include="DataStructures\AsCircularLinkedList.cs" />
     <Compile Include="DataStructures\AsDiGraph.cs" />
     <Compile Include="DataStructures\AsDoublyLinkedList.cs" />
     <Compile Include="DataStructures\AsGraph.cs" />

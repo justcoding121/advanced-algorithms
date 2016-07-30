@@ -1,4 +1,6 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
     //define the generic node
     public class AsCircularDoublyLinkedListNode<T>
@@ -46,38 +48,7 @@
                 throw new System.Exception("Empty list");
             }
 
-            //from here logic assumes atleast two elements in list
-
-            var current = ReferenceNode;
-
-            while (current != null)
-            {
-                if (current.Data.Equals(data))
-                {
-                    //current is the first element
-                    if (current.Previous == null)
-                    {
-                        current.Next.Previous = null;
-                        ReferenceNode = current.Next;
-                    }
-                    //current is the last element
-                    else if (current.Next == null)
-                    {
-                        current.Previous.Next = null;
-                      
-                    }
-                    //current is somewhere in the middle
-                    else
-                    {
-                        current.Previous.Next = current.Next;
-                        current.Next.Previous = current.Previous;
-                    }
-                }
-
-                current = current.Next;
-            }
-
-
+            throw new NotImplementedException();
         }
 
         //O(n) always
@@ -85,7 +56,7 @@
         {
             var i = 0;
             var current = ReferenceNode;
-            while (current != null)
+            while (current != null && current.Next!=ReferenceNode)
             {
                 i++;
                 current = current.Next;
@@ -118,7 +89,7 @@
             var result = new AsArrayList<T>();
 
             var current = ReferenceNode;
-            while (current != null)
+            while (current != null && current.Next != ReferenceNode)
             {
                 result.AddItem(current.Data);
                 current = current.Next;
