@@ -22,13 +22,21 @@ namespace Algorithm.Sandbox.DataStructures
     {
         public AsCircularLinkedListNode<T> ReferenceNode;
 
-        //marks this data as the new head
+        //marks this data as the new head (kinda insert first assuming current reference node as head)
         //cost O(1)
         public void Add(T data)
         {
             var newNode = new AsCircularLinkedListNode<T>(data);
 
-            newNode.Next = ReferenceNode;
+            if (ReferenceNode != null)
+            {
+                newNode.Next = ReferenceNode;
+               
+            }
+            else
+            {
+                newNode.Next = newNode;
+            }
 
             ReferenceNode = newNode;
 
@@ -45,7 +53,7 @@ namespace Algorithm.Sandbox.DataStructures
             //reference node itself is the search term
             if (ReferenceNode.Next == ReferenceNode)
             {
-                if(ReferenceNode.Data.Equals(data))
+                if (ReferenceNode.Data.Equals(data))
                 {
                     ReferenceNode = null;
                     return;
@@ -116,7 +124,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var result = new AsArrayList<T>();
 
-            if(ReferenceNode == null)
+            if (ReferenceNode == null)
             {
                 return result;
             }

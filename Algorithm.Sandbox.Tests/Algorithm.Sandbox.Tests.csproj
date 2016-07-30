@@ -54,7 +54,7 @@
     <Compile Include="DataStructures\CircularLinkedList_Tests.cs" />
     <Compile Include="DataStructures\DoublyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\HashSet_Tests.cs" />
-    <Compile Include="DataStructures\QueueTests.cs" />
+    <Compile Include="DataStructures\Queue_Tests.cs" />
     <Compile Include="DataStructures\SinglyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\Stack_Tests.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems_Tests.cs" />
