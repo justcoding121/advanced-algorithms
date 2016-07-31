@@ -39,6 +39,16 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             list.Delete("b");
             Assert.AreEqual(list.Count(), 0);
 
+            list.InsertFirst("a");
+            list.InsertLast("a");
+            list.InsertFirst("c");
+            list.InsertLast("a");
+
+            list.Delete("c");
+            list.Delete("a");
+            list.Delete("a");
+            list.Delete("a");
+            Assert.AreEqual(list.Count(), 0);
         }
     }
 }

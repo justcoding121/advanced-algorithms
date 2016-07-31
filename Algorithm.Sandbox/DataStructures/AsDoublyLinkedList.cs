@@ -117,7 +117,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             if (Head == null)
             {
-                throw new System.Exception("Empty list");
+                throw new Exception("Empty list");
             }
 
             //eliminate single element list possibility
@@ -157,12 +157,12 @@ namespace Algorithm.Sandbox.DataStructures
                         current.Previous.Next = current.Next;
                         current.Next.Previous = current.Previous;
                     }
+                    break;
                 }
 
                 current = current.Next;
             }
-
-
+            
         }
 
         //O(n) always

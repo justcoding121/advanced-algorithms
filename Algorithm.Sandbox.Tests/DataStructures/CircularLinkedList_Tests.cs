@@ -14,24 +14,57 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         {
             var list = new AsCircularLinkedList<string>();
 
-            list.Add("a");
-            list.Add("b");
-            list.Add("c");
+            list.Insert("a");
+            list.Insert("b");
+            list.Insert("c");
+            list.Insert("c");
 
+            Assert.AreEqual(list.Count(), 4);
+            Assert.AreEqual(list.GetAllNodes().Length, 4);
+
+            list.Delete("a");
             Assert.AreEqual(list.Count(), 3);
-            Assert.AreEqual(list.GetAllNodes().Length, 3);
 
-            list.Remove("a");
+            list.Delete("b");
             Assert.AreEqual(list.Count(), 2);
 
-            list.Remove("b");
+            list.Delete("c");
             Assert.AreEqual(list.Count(), 1);
 
-            list.Remove("c");
+            list.Insert("a");
+            Assert.AreEqual(list.Count(), 2);
+
+            list.Delete("a");
+            Assert.AreEqual(list.Count(), 1);
+
+            list.Delete("c");
             Assert.AreEqual(list.Count(), 0);
 
-            list.Add("a");
+            list.Insert("a");
+            list.Insert("b");
+            list.Insert("c");
+            list.Insert("c");
+
+            Assert.AreEqual(list.Count(), 4);
+            Assert.AreEqual(list.GetAllNodes().Length, 4);
+
+            list.Delete("a");
+            Assert.AreEqual(list.Count(), 3);
+
+            list.Delete("b");
+            Assert.AreEqual(list.Count(), 2);
+
+            list.Delete("c");
             Assert.AreEqual(list.Count(), 1);
+
+            list.Insert("a");
+            Assert.AreEqual(list.Count(), 2);
+
+            list.Delete("a");
+            Assert.AreEqual(list.Count(), 1);
+
+            list.Delete("c");
+            Assert.AreEqual(list.Count(), 0);
         }
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="DataStructures\AsStringBuilder.cs" />
     <Compile Include="DataStructures\AsTreapTree.cs" />
     <Compile Include="DataStructures\AsTree.cs" />
+    <Compile Include="DataStructures\AsTreeHashSet.cs" />
     <Compile Include="DataStructures\AsTrie.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
