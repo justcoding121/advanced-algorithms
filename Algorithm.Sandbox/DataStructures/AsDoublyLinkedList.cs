@@ -72,7 +72,7 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty list");
             }
 
-            var firstData = Head.Data;
+            var headData = Head.Data;
 
             if (Head == Tail)
             {
@@ -85,7 +85,7 @@ namespace Algorithm.Sandbox.DataStructures
                 Head = Head.Next;
             }
 
-            return firstData;
+            return headData;
         }
 
         //cost O(1)
@@ -96,7 +96,7 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty list");
             }
 
-            var lastData = Tail.Data;
+            var tailData = Tail.Data;
 
             if (Tail == Head)
             {
@@ -109,7 +109,7 @@ namespace Algorithm.Sandbox.DataStructures
                 Tail = Tail.Previous;
             }
 
-            return lastData;
+            return tailData;
         }
 
         //cost O(n) in worst case O(nlogn) average?
