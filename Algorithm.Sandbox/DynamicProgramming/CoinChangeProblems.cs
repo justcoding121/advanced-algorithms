@@ -54,16 +54,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
         }
 
-        /// <summary>
-        /// Find the maxiumum number of coins to fit in the given amount
-        /// </summary>
-        public static void MaxCoinChange()
-        {
-            int[] coins = { 25, 1, 2, 3, 10, 5 };
-            int amount = 30;
-
-            Console.WriteLine(MaxCoinChangeRecursive(amount, coins.Length, coins, new AsHashSet<int, int>(100)));
-        }
+    
 
         //O(amount * n^n) without memoization?
         //O(amount * n) with memoization
