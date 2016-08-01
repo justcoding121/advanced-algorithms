@@ -48,26 +48,6 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
         }
-
-        //O(1)
-        public void Add(AsTreeNode<I, V> parent, I identifier, V value)
-        {
-            parent.Children.InsertFirst(new AsTreeNode<I, V>(identifier, value));
-        }
-
-        //public void Remove(AsTreeNode<I, V> parent, I identifier)
-        //{
-        //    var children = parent.Children.GetAllNodes();
-
-        //    for (int i = 0; i < children.Length; i++)
-        //    {
-        //        if(children.ItemAt(i).Identifier.Equals(identifier))
-        //        {
-        //            parent.Children.Delete(children.ItemAt(i));
-        //        }
-        //    }
-        //}
-
         //O(n)
         public bool HasItem(I identifier)
         {
@@ -76,7 +56,7 @@ namespace Algorithm.Sandbox.DataStructures
                 return false;
             }
 
-            return Find(Root, identifier) != null;
+            return Root.Find(identifier) != null;
         }
 
         //O(n)
@@ -87,10 +67,41 @@ namespace Algorithm.Sandbox.DataStructures
                 return null;
             }
 
-            return Find(Root, identifier);
+            return Root.Find(identifier);
         }
+    }
+    public static class AsTreeExtensions
+    {
+        //O(1)
+        public static void Add<I, V>(this AsTreeNode<I, V> parent, I identifier, V value)
+        {
+            parent.Children.InsertFirst(new AsTreeNode<I, V>(identifier, value));
+        }
+
+        public static void Remove<I, V>(this AsTreeNode<I, V> parent, I identifier)
+        {
+            var parentNode = FindParent(parent, identifier);
+
+            RemoveFromImmediateChildren(parentNode, identifier);
+           
+        }
+
+        public static void RemoveFromImmediateChildren<I,V>(this AsTreeNode<I, V> parent, I identifier)
+        {
+            var children = parent.Children.GetAllNodes();
+
+            for (int i = 0; i < children.Length; i++)
+            {
+                if (children.ItemAt(i).Identifier.Equals(identifier))
+                {
+                    parent.Children.Delete(children.ItemAt(i));
+                }
+            }
+        }
+
+
         //O(n)
-        public AsTreeNode<I, V> Find(AsTreeNode<I, V> node, I identifier)
+        public static AsTreeNode<I, V> Find<I,V>(this AsTreeNode<I, V> node, I identifier)
         {
 
             if (node.Identifier.Equals(identifier))
@@ -105,6 +116,30 @@ namespace Algorithm.Sandbox.DataStructures
                 var result = Find(children.ItemAt(i), identifier);
 
                 if (result != null)
+                {
+                    return result;
+                }
+            }
+
+            return null;
+        }
+
+        //O(n)
+        public static AsTreeNode<I, V> FindParent<I, V>(this AsTreeNode<I, V> node, I identifier)
+        {
+
+            var children = node.Children.GetAllNodes();
+
+            for (int i = 0; i < children.Length; i++)
+            {
+                if(children.ItemAt(i).Identifier.Equals(identifier))
+                {
+                    return node;
+                }
+
+                var result = children.ItemAt(i).FindParent(identifier);
+
+                if(result!=null)
                 {
                     return result;
                 }

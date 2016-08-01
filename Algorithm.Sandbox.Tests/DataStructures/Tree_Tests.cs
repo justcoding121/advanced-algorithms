@@ -14,7 +14,6 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         {
             var tree = new AsTree<int, object>(5, 15);
 
-            tree.AddToRoot(11, null);
             tree.AddToRoot(10, null);
 
             var result = tree.Find(10);
@@ -22,6 +21,9 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             Assert.IsNotNull(result);
             Assert.IsTrue(tree.HasItem(result.Identifier));
 
+            tree.Root.Remove(10);
+
+            Assert.IsFalse(tree.HasItem(result.Identifier));
         }
     }
 }
