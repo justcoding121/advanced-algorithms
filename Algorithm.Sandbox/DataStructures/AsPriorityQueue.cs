@@ -2,7 +2,7 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsPriorityQueueItem<P,V>
+    public class AsPriorityQueueItem<P,V> where P : IComparable
     {
         public P Priority { get; set; }
         public V Value { get; set; }
@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// </summary>
     /// <typeparam name="P"></typeparam>
     /// <typeparam name="V"></typeparam>
-    public class AsPriorityQueue<P, V>
+    public class AsPriorityQueue<P, V> where P : IComparable
     {
         private AsBMinHeap<P, V> minHeap = new AsBMinHeap<P, V>();
 
