@@ -1,12 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    class AsPriorityQueue
+    public class AsPriorityQueueItem<P,V>
     {
+        public P Priority { get; set; }
+        public V Value { get; set; }
+    }
+    /// <summary>
+    /// priority queue implementation using min heap
+    /// assuming lower values of P have higher priority
+    /// </summary>
+    /// <typeparam name="P"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    public class AsPriorityQueue<P, V>
+    {
+        private AsBMinHeap<P, V> minHeap = new AsBMinHeap<P, V>();
+
+        public void Enqueue(AsPriorityQueueItem<P, V> queueItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public AsPriorityQueueItem<P, V> Dequeue()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

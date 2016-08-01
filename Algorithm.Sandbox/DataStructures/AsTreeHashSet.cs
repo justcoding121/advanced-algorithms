@@ -4,7 +4,7 @@ namespace Algorithm.Sandbox.DataStructures
 {
     /// <summary>
     /// A hashSet implementation using binary search tree (log(n) operations in worst case)
-    /// This can be better than regular hashSet implementation which can give o(n) in worst case (but O(1) mostly)
+    /// This may be better than regular hashSet implementation which can give o(K) in worst case (but O(1) when collisions K is avoided )
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>

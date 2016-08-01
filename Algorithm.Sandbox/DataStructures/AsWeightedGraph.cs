@@ -1,31 +1,30 @@
 ﻿namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsWeightedGraphEdge<T, U>
+    public class AsWeightedGraphEdge<I, V, W>
     {
-        public U Weight { get; set; }
-        public AsWeightedGraphVertex<T, U> Target { get; set; }
+        public W Weight { get; set; }
+        public AsWeightedGraphVertex<I, V, W> Target { get; set; }
     }
 
-    public class AsWeightedGraphVertex<T, U>
+    public class AsWeightedGraphVertex<I, V, W>
     {
-        public T Identifier { get; set; }
-        public AsSinglyLinkedList<AsWeightedGraphEdge<T, U>> Edges { get; set; }
+        public I Identifier { get; set; }
+        public V Value { get; set; }
 
-        public AsWeightedGraphVertex(T identifier)
+        public AsSinglyLinkedList<AsWeightedGraphEdge<I, V, W>> Edges { get; set; }
+
+        public AsWeightedGraphVertex(I identifier, V value)
         {
             this.Identifier = identifier;
-            Edges = new AsSinglyLinkedList<AsWeightedGraphEdge<T, U>>();
+            this.Value = value;
+
+            Edges = new AsSinglyLinkedList<AsWeightedGraphEdge<I, V, W>>();
         }
 
     }
 
-    public class AsWeightedGraph<T, U>
+    public class AsWeightedGraph<I, V, W>
     {
-        public AsWeightedGraphVertex<T, U> ReferenceVertex { get; set; }
-
-        public AsWeightedGraph(T referenceNodeData)
-        {
-            ReferenceVertex = new AsWeightedGraphVertex<T, U>(referenceNodeData);
-        }
+        public AsWeightedGraphVertex<I, V, W> ReferenceVertex { get; set; }  
     }
 }

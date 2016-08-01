@@ -1,33 +1,33 @@
 ﻿namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsWeightedDiGraphEdge<T, U>
+    public class AsWeightedDiGraphEdge<I, V, W>
     {
-        public U Weight { get; set; }
-        public AsWeightedDiGraphVertex<T, U> Target { get; set; }
+        public W Weight { get; set; }
+        public AsWeightedDiGraphVertex<I, V, W> Target { get; set; }
     }
 
-    public class AsWeightedDiGraphVertex<T, U>
+    public class AsWeightedDiGraphVertex<I, V, W>
     {
-        public T Identifier { get; set; }
-        public AsSinglyLinkedList<AsWeightedDiGraphEdge<T, U>> OutEdges { get; set; }
-        public AsSinglyLinkedList<AsWeightedDiGraphEdge<T, U>> InEdges { get; set; }
+        public I Identifier { get; set; }
+        public V Value { get; private set; }
 
-        public AsWeightedDiGraphVertex(T identifier)
+        public AsSinglyLinkedList<AsWeightedDiGraphEdge<I, V, W>> OutEdges { get; set; }
+        public AsSinglyLinkedList<AsWeightedDiGraphEdge<I, V, W>> InEdges { get; set; }
+        
+        public AsWeightedDiGraphVertex(I identifier, V value)
         {
             this.Identifier = identifier;
-            OutEdges = new AsSinglyLinkedList<AsWeightedDiGraphEdge<T, U>>();
-            InEdges = new AsSinglyLinkedList<AsWeightedDiGraphEdge<T, U>>();
+            this.Value = Value;
+
+            OutEdges = new AsSinglyLinkedList<AsWeightedDiGraphEdge<I, V, W>>();
+            InEdges = new AsSinglyLinkedList<AsWeightedDiGraphEdge<I, V, W>>();
         }
 
     }
 
-    public class AsWeightedDiGraph<T, U>
+    public class AsWeightedDiGraph<I, V, W>
     {
-        public AsWeightedDiGraphVertex<T, U> ReferenceVertex { get; set; }
+        public AsWeightedDiGraphVertex<I, V, W> ReferenceVertex { get; set; }
 
-        public AsWeightedDiGraph(T referenceNodeData)
-        {
-            ReferenceVertex = new AsWeightedDiGraphVertex<T, U>(referenceNodeData);
-        }
     }
 }

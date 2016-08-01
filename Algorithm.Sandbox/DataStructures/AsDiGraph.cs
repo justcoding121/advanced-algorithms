@@ -1,27 +1,27 @@
 ﻿namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsDiGraphVertex<T>
+    public class AsDiGraphVertex<I,V>
     {
-        public T data { get; set; }
-        public AsSinglyLinkedList<AsDiGraphVertex<T>> OutNeighbours { get; set; }
-        public AsSinglyLinkedList<AsDiGraphVertex<T>> InNeighbours { get; set; }
+        public I Identifier { get; set; }
+        public V Value { get; set; }
 
-        public AsDiGraphVertex(T data)
+        public AsSinglyLinkedList<AsDiGraphVertex<I,V>> OutVertices { get; set; }
+        public AsSinglyLinkedList<AsDiGraphVertex<I,V>> InVertices { get; set; }
+
+        public AsDiGraphVertex(I identifier, V value)
         {
-            this.data = data;
-            OutNeighbours = new AsSinglyLinkedList<AsDiGraphVertex<T>>();
-            InNeighbours = new AsSinglyLinkedList<AsDiGraphVertex<T>>();
+            this.Identifier = identifier;
+            this.Value = value;
+
+            OutVertices = new AsSinglyLinkedList<AsDiGraphVertex<I,V>>();
+            InVertices = new AsSinglyLinkedList<AsDiGraphVertex<I, V>>();
         }
 
     }
 
-    public class AsDiGraph<T>
+    public class AsDiGraph<I, V>
     {
-        public AsDiGraphVertex<T> ReferenceVertex { get; set; }
+        public AsDiGraphVertex<I, V> ReferenceVertex { get; set; }
 
-        public AsDiGraph(T referenceNodeData)
-        {
-            ReferenceVertex = new AsDiGraphVertex<T>(referenceNodeData);
-        }
     }
 }

@@ -1,29 +1,26 @@
 ﻿namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsBMaxHeapNode<T>
+    public class AsBMaxHeapNode<I, V>
     {
-        public T data { get; set; }
+        public I Identifier { get; set; }
+        public V Value { get; set; }
 
-        public AsBMaxHeap<T> Left { get; set; }
-        public AsBMaxHeap<T> Right { get; set; }
+        public AsBMaxHeap<I, V> Left { get; set; }
+        public AsBMaxHeap<I, V> Right { get; set; }
 
         public bool IsLeaf => Left == null && Right == null;
 
-        public AsBMaxHeapNode(T data)
+        public AsBMaxHeapNode(I identifier, V value)
         {
-            this.data = data;
+            this.Identifier = identifier;
+            this.Value = value;
         }
 
     }
 
-    public class AsBMaxHeap<T>
+    public class AsBMaxHeap<I, V>
     {
-        public AsBMaxHeapNode<T> Root { get; set; }
-
-        public AsBMaxHeap(T rootData)
-        {
-            Root = new AsBMaxHeapNode<T>(rootData);
-        }
+        public AsBMaxHeapNode<I, V> Root { get; set; }
 
     }
 }

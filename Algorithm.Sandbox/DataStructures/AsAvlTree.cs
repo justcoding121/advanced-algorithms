@@ -1,29 +1,26 @@
 ﻿namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsAVLTreeNode<T>
+    public class AsAVLTreeNode<I, V>
     {
-        public T data { get; set; }
+        public I Identifier { get; set; }
+        public V Value { get; set; }
 
-        public AsAVLTree<T> Left { get; set; }
-        public AsAVLTree<T> Right { get; set; }
+        public AsAVLTree<I,V> Left { get; set; }
+        public AsAVLTree<I,V> Right { get; set; }
 
         public bool IsLeaf => Left == null && Right == null;
 
-        public AsAVLTreeNode(T data)
+        public AsAVLTreeNode(I identifier, V value)
         {
-            this.data = data;
+            this.Identifier = identifier;
+            this.Value = value;
         }
 
     }
 
-    public class AsAVLTree<T>
+    public class AsAVLTree<I, V>
     {
-        public AsAVLTreeNode<T> Root { get; set; }
-
-        public AsAVLTree(T rootData)
-        {
-            Root = new AsAVLTreeNode<T>(rootData);
-        }
+        public AsAVLTreeNode<I, V> Root { get; set; }
 
     }
 }

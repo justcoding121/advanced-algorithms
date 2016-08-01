@@ -2,7 +2,6 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-
     /// <summary>
     /// A hash table implementation (key value dictionary)
     /// </summary>

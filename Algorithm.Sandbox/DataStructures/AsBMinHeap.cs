@@ -1,29 +1,26 @@
 ﻿namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsBMinHeapNode<T>
+    public class AsBMinHeapNode<I, V>
     {
-        public T data { get; set; }
+        public I Identifier { get; set; }
+        public V Value { get; set; }
 
-        public AsBMinHeap<T> Left { get; set; }
-        public AsBMinHeap<T> Right { get; set; }
+        public AsBMinHeap<I, V> Left { get; set; }
+        public AsBMinHeap<I, V> Right { get; set; }
 
         public bool IsLeaf => Left == null && Right == null;
 
-        public AsBMinHeapNode(T data)
+        public AsBMinHeapNode(I identifier, V value)
         {
-            this.data = data;
+            this.Identifier = identifier;
+            this.Value = value;
         }
 
     }
 
-    public class AsBMinHeap<T>
+    public class AsBMinHeap<I, V>
     {
-        public AsBMinHeapNode<T> Root { get; set; }
-
-        public AsBMinHeap(T rootData)
-        {
-            Root = new AsBMinHeapNode<T>(rootData);
-        }
+        public AsBMinHeapNode<I, V> Root { get; set; }
 
     }
 }
