@@ -2,31 +2,34 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsWeightedGraphEdge<I, V, W> where W : IComparable
+    public class AsWeightedGraphEdge<T, W> : IComparable where W : IComparable
     {
         public W Weight { get; set; }
-        public AsWeightedGraphVertex<I, V, W> Target { get; set; }
+        public AsWeightedGraphVertex<T, W> Target { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 
-    public class AsWeightedGraphVertex<I, V, W> where W : IComparable
+    public class AsWeightedGraphVertex<T, W> where W : IComparable
     {
-        public I Identifier { get; set; }
-        public V Value { get; set; }
+        public T Value { get; set; }
 
-        public AsSinglyLinkedList<AsWeightedGraphEdge<I, V, W>> Edges { get; set; }
+        public AsSinglyLinkedList<AsWeightedGraphEdge<T, W>> Edges { get; set; }
 
-        public AsWeightedGraphVertex(I identifier, V value)
+        public AsWeightedGraphVertex(T value)
         {
-            this.Identifier = identifier;
             this.Value = value;
 
-            Edges = new AsSinglyLinkedList<AsWeightedGraphEdge<I, V, W>>();
+            Edges = new AsSinglyLinkedList<AsWeightedGraphEdge<T, W>>();
         }
 
     }
 
-    public class AsWeightedGraph<I, V, W> where W : IComparable
+    public class AsWeightedGraph<T, W> where W : IComparable
     {
-        public AsWeightedGraphVertex<I, V, W> ReferenceVertex { get; set; }  
+        public AsWeightedGraphVertex<T, W> ReferenceVertex { get; set; }  
     }
 }

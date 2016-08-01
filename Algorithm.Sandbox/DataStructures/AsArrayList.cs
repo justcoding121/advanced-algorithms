@@ -1,10 +1,12 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
     /// <summary>
     /// A self expanding array (dynamic array)
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsArrayList<T>
+    public class AsArrayList<T> where T : IComparable
     {
         private int arraySize;
         private int currentEndPosition;
@@ -76,14 +78,44 @@
         {
             if (i > array.Length)
                 throw new System.Exception("Index exeeds array size");
-           
+
             //shift elements
-            for (int j = i; j < arraySize-1; j++)
+            for (int j = i; j < arraySize - 1; j++)
             {
-                array[j] = array[j+1];
+                array[j] = array[j + 1];
             }
 
             currentEndPosition--;
+        }
+
+        //O(n) 
+        public int Find(T item)
+        {
+            //shift elements
+            for (int i = 0; i < arraySize - 1; i++)
+            {
+                if (array[i].CompareTo(item) == 0)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        //O(n) 
+        public void RemoveItem(T item)
+        {
+            //shift elements
+            for (int i = 0; i < arraySize - 1; i++)
+            {
+                if (array[i].CompareTo(item) == 0)
+                {
+                    RemoveItem(i);
+                    return;
+                }
+            }
+
         }
 
     }

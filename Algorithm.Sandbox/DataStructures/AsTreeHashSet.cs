@@ -2,6 +2,17 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
+    public class AsTreeHashSetNode<K, V> : IComparable 
+                                 where K : IComparable
+    {
+        public K Key { get; set; }
+        public V Value { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            throw new NotImplementedException();
+        }
+    }
     /// <summary>
     /// A hashSet implementation using binary search tree (log(n) operations in worst case)
     /// This may be better than regular hashSet implementation which can give o(K) in worst case (but O(1) when collisions K is avoided )
@@ -10,7 +21,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// <typeparam name="V"></typeparam>
     public class AsTreeHashSet<K, V> where K : IComparable
     {
-        private AsRedBlackTree<K, V> binarySearchTree = new AsRedBlackTree<K, V>();
+        private AsRedBlackTree<AsTreeHashSetNode<K, V>> binarySearchTree = new AsRedBlackTree<AsTreeHashSetNode<K, V>>();
 
         //O(logn) time complexity; 
         public bool ContainsKey(K key)

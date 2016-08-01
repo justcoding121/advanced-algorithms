@@ -2,23 +2,23 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsTrieNode<I> where I : IComparable
+    public class AsTrieNode<T> where T : IComparable
     {
-        public I Identifier { get; set; }
+        public T Value { get; set; }
 
-        public AsTreeHashSet<I, AsTrieNode<I>> Children { get; set; }
+        public AsTreeHashSet<T, AsTrieNode<T>> Children { get; set; }
 
-        public AsTrieNode(I identifier)
+        public AsTrieNode(T value)
         {
-            this.Identifier = identifier;
-            Children = new AsTreeHashSet<I, AsTrieNode<I>>();
+            this.Value = value;
+            Children = new AsTreeHashSet<T, AsTrieNode<T>>();
         }
 
     }
 
-    public class AsTrie<I> where I : IComparable
+    public class AsTrie<T> where T : IComparable
     {
-        public AsTrieNode<I> Root { get; set; }
+        public AsTrieNode<T> Root { get; set; }
 
     }
 }

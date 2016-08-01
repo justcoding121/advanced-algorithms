@@ -5,22 +5,32 @@ namespace Algorithm.Sandbox.DataStructures
     /// <summary>
     /// A hash table implementation (key value dictionary)
     /// </summary>
-    /// <typeparam name="U"></typeparam>
-    /// <typeparam name="T"></typeparam>
-    public class AsHashSet<U, T>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    public class AsHashSet<K, V> where K : IComparable
     {
         /// <summary>
         /// key-value set
         /// </summary>
-        private class AsHashSetNode
+        private class AsHashSetNode : IComparable
         {
-            public U Key;
-            public T Value;
+            public K Key;
+            public V Value;
 
-            public AsHashSetNode(U key, T value)
+            public AsHashSetNode(K key, V value)
             {
                 this.Key = key;
                 this.Value = value;
+            }
+
+            public int CompareTo(object obj)
+            {
+                return CompareTo(obj as AsHashSetNode);
+            }
+
+            private int CompareTo(AsHashSetNode node)
+            {
+                return Key.CompareTo(node.Key);
             }
         }
 
@@ -35,7 +45,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //O(1) time complexity; worst case O(n)
-        public bool ContainsKey(U key)
+        public bool ContainsKey(K key)
         {
             var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
@@ -49,7 +59,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Data.Key.Equals(key))
+                    if (current.Data.Key.CompareTo(key)==0)
                     {
                         return true;
                     }
@@ -61,7 +71,7 @@ namespace Algorithm.Sandbox.DataStructures
             return false;
         }
 
-        public T GetValue(U key)
+        public V GetValue(K key)
         {
             var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
@@ -75,7 +85,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Data.Key.Equals(key))
+                    if (current.Data.Key.CompareTo(key)==0)
                     {
                         return current.Data.Value;
                     }
@@ -89,7 +99,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         //O(1) time complexity; worst case O(n)
         //add an item to this hash table
-        public void Add(U key, T value)
+        public void Add(K key, V value)
         {
             var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
@@ -104,7 +114,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Data.Key.Equals(key))
+                    if (current.Data.Key.CompareTo(key)==0)
                     {
                         throw new Exception("Duplicate key");
                     }
@@ -117,7 +127,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //O(1) time complexity; worst case O(n)
-        public void Remove(U key)
+        public void Remove(K key)
         {
             var index = Math.Abs(key.GetHashCode()) % expectedSize;
 
@@ -129,11 +139,11 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 var current = hashArray[index].Head;
 
-                //TODO merge both search and remove to a single loop here!
+                //VODO merge both search and remove to a single loop here!
                 AsHashSetNode item = null;
                 while (current != null)
                 {
-                    if (current.Data.Key.Equals(key))
+                    if (current.Data.Key.CompareTo(key)==0)
                     {
                         item = current.Data;
                         break;

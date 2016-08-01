@@ -3,7 +3,7 @@
 namespace Algorithm.Sandbox.DataStructures
 {
     //define the generic node
-    public class AsDoublyLinkedListNode<T>
+    public class AsDoublyLinkedListNode<T> where T : IComparable
     {
         public AsDoublyLinkedListNode<T> Previous;
         public AsDoublyLinkedListNode<T> Next;
@@ -19,7 +19,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsDoublyLinkedList<T>
+    public class AsDoublyLinkedList<T> where T : IComparable
     {
         public AsDoublyLinkedListNode<T> Head;
         public AsDoublyLinkedListNode<T> Tail;
@@ -123,7 +123,7 @@ namespace Algorithm.Sandbox.DataStructures
             //eliminate single element list possibility
             if (Head == Tail)
             {
-                if (Head.Data.Equals(data))
+                if (Head.Data.CompareTo(data)==0)
                 {
                     DeleteFirst();
                 }
@@ -137,7 +137,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             while (current != null)
             {
-                if (current.Data.Equals(data))
+                if (current.Data.CompareTo(data)==0)
                 {
                     //current is the first element
                     if (current.Previous == null)

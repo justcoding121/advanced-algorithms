@@ -3,7 +3,7 @@
 namespace Algorithm.Sandbox.DataStructures
 {
     //define the generic node
-    public class AsSinglyLinkedListNode<T>
+    public class AsSinglyLinkedListNode<T> where T : IComparable
     {
         public AsSinglyLinkedListNode<T> Next;
         public T Data;
@@ -18,7 +18,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsSinglyLinkedList<T>
+    public class AsSinglyLinkedList<T> where T : IComparable
     {
         public AsSinglyLinkedListNode<T> Head;
 
@@ -108,7 +108,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             do
             {
-                if (current.Data.Equals(data))
+                if (current.Data.CompareTo(data)==0)
                 {
                     //last element
                     if (current.Next == null)

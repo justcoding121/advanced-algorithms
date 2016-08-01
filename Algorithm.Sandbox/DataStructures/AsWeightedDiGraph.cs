@@ -2,34 +2,37 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsWeightedDiGraphEdge<I, V, W> where W : IComparable
+    public class AsWeightedDiGraphEdge<T, W> : IComparable where W : IComparable
     {
         public W Weight { get; set; }
-        public AsWeightedDiGraphVertex<I, V, W> Target { get; set; }
+        public AsWeightedDiGraphVertex<T, W> Target { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            throw new NotImplementedException();
+        }
     }
      
-    public class AsWeightedDiGraphVertex<I, V, W> where W : IComparable
+    public class AsWeightedDiGraphVertex<T, W> where W : IComparable
     {
-        public I Identifier { get; set; }
-        public V Value { get; private set; }
+        public T Value { get; private set; }
 
-        public AsSinglyLinkedList<AsWeightedDiGraphEdge<I, V, W>> OutEdges { get; set; }
-        public AsSinglyLinkedList<AsWeightedDiGraphEdge<I, V, W>> InEdges { get; set; }
+        public AsSinglyLinkedList<AsWeightedDiGraphEdge<T, W>> OutEdges { get; set; }
+        public AsSinglyLinkedList<AsWeightedDiGraphEdge<T, W>> InEdges { get; set; }
         
-        public AsWeightedDiGraphVertex(I identifier, V value)
+        public AsWeightedDiGraphVertex(T value)
         {
-            this.Identifier = identifier;
             this.Value = Value;
 
-            OutEdges = new AsSinglyLinkedList<AsWeightedDiGraphEdge<I, V, W>>();
-            InEdges = new AsSinglyLinkedList<AsWeightedDiGraphEdge<I, V, W>>();
+            OutEdges = new AsSinglyLinkedList<AsWeightedDiGraphEdge<T, W>>();
+            InEdges = new AsSinglyLinkedList<AsWeightedDiGraphEdge<T, W>>();
         }
 
     }
 
-    public class AsWeightedDiGraph<I, V, W> where W : IComparable
+    public class AsWeightedDiGraph<T, W> where W : IComparable
     {
-        public AsWeightedDiGraphVertex<I, V, W> ReferenceVertex { get; set; }
+        public AsWeightedDiGraphVertex<T, W> ReferenceVertex { get; set; }
 
     }
 }

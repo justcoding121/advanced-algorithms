@@ -2,27 +2,19 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsPriorityQueueItem<P,V> where P : IComparable
-    {
-        public P Priority { get; set; }
-        public V Value { get; set; }
-    }
-    /// <summary>
+
     /// priority queue implementation using min heap
     /// assuming lower values of P have higher priority
-    /// </summary>
-    /// <typeparam name="P"></typeparam>
-    /// <typeparam name="V"></typeparam>
-    public class AsPriorityQueue<P, V> where P : IComparable
+    public class AsPriorityQueue<T> where T : IComparable
     {
-        private AsBMinHeap<P, V> minHeap = new AsBMinHeap<P, V>();
+        private AsBMinHeap<T> minHeap = new AsBMinHeap<T>();
 
-        public void Enqueue(AsPriorityQueueItem<P, V> queueItem)
+        public void Enqueue(T queueItem)
         {
             throw new NotImplementedException();
         }
 
-        public AsPriorityQueueItem<P, V> Dequeue()
+        public T Dequeue()
         {
             throw new NotImplementedException();
         }

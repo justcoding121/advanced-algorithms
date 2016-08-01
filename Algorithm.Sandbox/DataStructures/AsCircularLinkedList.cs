@@ -3,11 +3,11 @@
 namespace Algorithm.Sandbox.DataStructures
 {
     //define the generic node
-    public class AsCircularLinkedListNode<T>
+    public class AsCircularLinkedListNode<T> where T : IComparable
     {
         public AsCircularLinkedListNode<T> Prev;
         public AsCircularLinkedListNode<T> Next;
-        
+
         public T Data;
 
         public AsCircularLinkedListNode(T data)
@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsCircularLinkedList<T>
+    public class AsCircularLinkedList<T> where T : IComparable
     {
         public AsCircularLinkedListNode<T> ReferenceNode;
 
@@ -36,12 +36,12 @@ namespace Algorithm.Sandbox.DataStructures
                 //attach the item after reference node
                 newNode.Next = newNode;
                 newNode.Prev = newNode;
-              
+
             }
             else
             {
                 //attach the item after reference node
-                newNode.Prev  = ReferenceNode;
+                newNode.Prev = ReferenceNode;
                 newNode.Next = ReferenceNode.Next;
 
                 ReferenceNode.Next.Prev = newNode;
@@ -61,9 +61,9 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             //only one element on list
-            if(ReferenceNode.Next == ReferenceNode)
+            if (ReferenceNode.Next == ReferenceNode)
             {
-                if(ReferenceNode.Data.Equals(data))
+                if (ReferenceNode.Data.CompareTo(data)==0)
                 {
                     ReferenceNode = null;
                     return;
@@ -76,13 +76,13 @@ namespace Algorithm.Sandbox.DataStructures
             var found = false;
             while (true)
             {
-                if (current.Data.Equals(data))
-                {                  
+                if (current.Data.CompareTo(data)==0)
+                {
                     current.Prev.Next = current.Next;
                     current.Next.Prev = current.Prev;
 
                     //match is a reference node
-                    if(current == ReferenceNode)
+                    if (current == ReferenceNode)
                     {
                         ReferenceNode = current.Next;
                     }
@@ -92,7 +92,7 @@ namespace Algorithm.Sandbox.DataStructures
                 }
 
                 //terminate loop if we are about to cycle
-                if(current.Next == ReferenceNode)
+                if (current.Next == ReferenceNode)
                 {
                     break;
                 }
@@ -101,7 +101,7 @@ namespace Algorithm.Sandbox.DataStructures
                 current = current.Next;
             }
 
-            if(found == false)
+            if (found == false)
             {
                 throw new Exception("Not found");
             }
@@ -114,7 +114,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             var current = ReferenceNode;
 
-            if(current==null)
+            if (current == null)
             {
                 return 0;
             }

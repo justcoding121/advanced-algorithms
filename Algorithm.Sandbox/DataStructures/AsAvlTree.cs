@@ -2,27 +2,25 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsAVLTreeNode<I, V> where I : IComparable
+    public class AsAVLTreeNode<T> where T : IComparable
     {
-        public I Identifier { get; set; }
-        public V Value { get; set; }
+        public T Value { get; set; }
 
-        public AsAVLTree<I, V> Left { get; set; }
-        public AsAVLTree<I, V> Right { get; set; }
+        public AsAVLTree<T> Left { get; set; }
+        public AsAVLTree<T> Right { get; set; }
 
         public bool IsLeaf => Left == null && Right == null;
 
-        public AsAVLTreeNode(I identifier, V value)
+        public AsAVLTreeNode(T value)
         {
-            this.Identifier = identifier;
             this.Value = value;
         }
 
     }
 
-    public class AsAVLTree<I, V> where I : IComparable
+    public class AsAVLTree<T> where T : IComparable
     {
-        public AsAVLTreeNode<I, V> Root { get; set; }
+        public AsAVLTreeNode<T> Root { get; set; }
 
     }
 }
