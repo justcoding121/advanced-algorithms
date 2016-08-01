@@ -1,6 +1,8 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsRedBlackTreeNode<I, V>
+    public class AsRedBlackTreeNode<I, V> where I : IComparable
     {
         public I Identifier { get; set; }
         public V Value { get; set; }
@@ -18,7 +20,7 @@
 
     }
 
-    public class AsRedBlackTree<I, V>
+    public class AsRedBlackTree<I, V> where I : IComparable
     {
         public AsRedBlackTreeNode<I, V> Root { get; set; }
 

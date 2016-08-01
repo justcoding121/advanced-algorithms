@@ -10,7 +10,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// <typeparam name="V"></typeparam>
     public class AsTreeHashSet<K,V>
     {
-        private AsBST<K, V> binarySearchTree = new AsBST<K, V>();
+        private AsRedBlackTree<K, V> binarySearchTree = new AsRedBlackTree<K, V>();
 
         //O(logn) time complexity; 
         public bool ContainsKey(K key)

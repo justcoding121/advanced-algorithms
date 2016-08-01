@@ -1,6 +1,8 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsSplayTreeNode<I, V>
+    public class AsSplayTreeNode<I, V> where I : IComparable
     {
         public I Identifier { get; set; }
         public V Value { get; set; }
@@ -18,7 +20,7 @@
 
     }
 
-    public class AsSplayTree<I, V>
+    public class AsSplayTree<I, V> where I : IComparable
     {
         public AsSplayTreeNode<I, V> Root { get; set; }
 

@@ -1,6 +1,8 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsBSTNode<I, V>
+    public class AsBSTNode<I, V> where I : IComparable
     {
         public I Identifier { get; set; }
         public V Value { get; set; }
@@ -18,7 +20,7 @@
 
     }
 
-    public class AsBST<I, V>
+    public class AsBST<I, V> where I : IComparable
     {
         public AsBSTNode<I, V> Root { get; set; }
 

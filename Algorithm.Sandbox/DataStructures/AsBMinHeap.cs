@@ -1,6 +1,8 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsBMinHeapNode<I, V>
+    public class AsBMinHeapNode<I, V> where I : IComparable
     {
         public I Identifier { get; set; }
         public V Value { get; set; }
@@ -18,7 +20,7 @@
 
     }
 
-    public class AsBMinHeap<I, V>
+    public class AsBMinHeap<I, V> where I : IComparable
     {
         public AsBMinHeapNode<I, V> Root { get; set; }
 

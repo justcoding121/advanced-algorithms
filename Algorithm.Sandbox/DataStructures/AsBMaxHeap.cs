@@ -1,6 +1,8 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsBMaxHeapNode<I, V>
+    public class AsBMaxHeapNode<I, V> where I : IComparable
     {
         public I Identifier { get; set; }
         public V Value { get; set; }
@@ -18,7 +20,7 @@
 
     }
 
-    public class AsBMaxHeap<I, V>
+    public class AsBMaxHeap<I, V> where I : IComparable
     {
         public AsBMaxHeapNode<I, V> Root { get; set; }
 

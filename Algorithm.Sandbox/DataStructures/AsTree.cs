@@ -1,27 +1,27 @@
 ﻿namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsTreeNode<T>
+    public class AsTreeNode<I, V>
     {
-        public T data { get; set; }
-        public AsSinglyLinkedList<AsTreeNode<T>> Children { get; set; }
+        public I Indentifier { get; set; }
+        public V Value { get; set; }
+
+        public AsSinglyLinkedList<AsTreeNode<I,V>> Children { get; set; }
 
         public bool IsLeaf => Children.Count() == 0;
 
-        public AsTreeNode(T data)
+        public AsTreeNode(I identifier, V value)
         {
-            this.data = data;
-            Children = new AsSinglyLinkedList<AsTreeNode<T>>();
+            this.Indentifier = identifier;
+            this.Value = value;
+
+            Children = new AsSinglyLinkedList<AsTreeNode<I,V>>();
         } 
 
     }
 
-    public class AsTree<T>
+    public class AsTree<I, V> 
     {
-        public AsTreeNode<T> Root { get; set; }
+        public AsTreeNode<I,V> Root { get; set; }
 
-        public AsTree(T rootData)
-        {
-            Root = new AsTreeNode<T>(rootData);
-        }
     }
 }

@@ -1,12 +1,14 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsWeightedDiGraphEdge<I, V, W>
+    public class AsWeightedDiGraphEdge<I, V, W> where W : IComparable
     {
         public W Weight { get; set; }
         public AsWeightedDiGraphVertex<I, V, W> Target { get; set; }
     }
-
-    public class AsWeightedDiGraphVertex<I, V, W>
+     
+    public class AsWeightedDiGraphVertex<I, V, W> where W : IComparable
     {
         public I Identifier { get; set; }
         public V Value { get; private set; }
@@ -25,7 +27,7 @@
 
     }
 
-    public class AsWeightedDiGraph<I, V, W>
+    public class AsWeightedDiGraph<I, V, W> where W : IComparable
     {
         public AsWeightedDiGraphVertex<I, V, W> ReferenceVertex { get; set; }
 

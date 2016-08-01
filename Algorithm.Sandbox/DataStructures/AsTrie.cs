@@ -1,6 +1,8 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System;
+
+namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsTrieNode<I>
+    public class AsTrieNode<I> where I : IComparable
     {
         public I Identifier { get; set; }
 
@@ -14,7 +16,7 @@
 
     }
 
-    public class AsTrie<I>
+    public class AsTrie<I> where I : IComparable
     {
         public AsTrieNode<I> Root { get; set; }
 
