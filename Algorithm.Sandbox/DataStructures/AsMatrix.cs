@@ -1,6 +1,12 @@
 ﻿namespace Algorithm.Sandbox.DataStructures
 {
-    class AsMatrix
+    public class AsMatrix<T>
     {
+        private T[,] matrix;
+
+        public AsMatrix(int rows, int coloums)
+        {
+            matrix = new T[rows,coloums];
+        }
     }
 }

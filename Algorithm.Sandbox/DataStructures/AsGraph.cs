@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorithm.Sandbox.DataStructures
+﻿namespace Algorithm.Sandbox.DataStructures
 {
-    class AsGraph
+    public class AsGraphVertex<T>
     {
+        public T identifier { get; set; }
+        public AsSinglyLinkedList<AsGraphVertex<T>> Neighbours { get; set; }
+
+        public AsGraphVertex(T identifier)
+        {
+            this.identifier = identifier;
+            Neighbours = new AsSinglyLinkedList<AsGraphVertex<T>>();
+        }
+
+    }
+
+    public class AsGraph<T>
+    {
+        public AsGraphVertex<T> ReferenceVertex { get; set; }
+
+        public AsGraph(T referenceVertexIdentifier)
+        {
+            ReferenceVertex = new AsGraphVertex<T>(referenceVertexIdentifier);
+        }
     }
 }

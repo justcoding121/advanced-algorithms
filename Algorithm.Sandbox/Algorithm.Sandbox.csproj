@@ -51,13 +51,14 @@
     <Compile Include="DataStructures\AsBST.cs" />
     <Compile Include="DataStructures\AsBTree.cs" />
     <Compile Include="DataStructures\AsCircularLinkedList.cs" />
+    <Compile Include="DataStructures\AsWeightedDiGraph.cs" />
     <Compile Include="DataStructures\AsDiGraph.cs" />
     <Compile Include="DataStructures\AsDoublyLinkedList.cs" />
     <Compile Include="DataStructures\AsGraph.cs" />
     <Compile Include="DataStructures\AsHashSet.cs" />
     <Compile Include="DataStructures\AsMatrix.cs" />
-    <Compile Include="DataStructures\AsMaxHeap.cs" />
-    <Compile Include="DataStructures\AsMinHeap.cs" />
+    <Compile Include="DataStructures\AsBMaxHeap.cs" />
+    <Compile Include="DataStructures\AsBMinHeap.cs" />
     <Compile Include="DataStructures\AsPriorityQueue.cs" />
     <Compile Include="DataStructures\AsQueue.cs" />
     <Compile Include="DataStructures\AsRedBlackTree.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="DataStructures\AsTree.cs" />
     <Compile Include="DataStructures\AsTreeHashSet.cs" />
     <Compile Include="DataStructures\AsTrie.cs" />
+    <Compile Include="DataStructures\AsWeightedGraph.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
