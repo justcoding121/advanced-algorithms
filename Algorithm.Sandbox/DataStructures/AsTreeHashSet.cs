@@ -8,7 +8,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>
-    public class AsTreeHashSet<K,V>
+    public class AsTreeHashSet<K, V> where K : IComparable
     {
         private AsRedBlackTree<K, V> binarySearchTree = new AsRedBlackTree<K, V>();
 
