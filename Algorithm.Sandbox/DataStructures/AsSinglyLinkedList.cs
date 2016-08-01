@@ -147,6 +147,7 @@ namespace Algorithm.Sandbox.DataStructures
             while (current != null);
         }
 
+
         //O(n) always
         public int Count()
         {
