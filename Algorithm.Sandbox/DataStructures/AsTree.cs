@@ -95,7 +95,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //add the new child under this parent
-        public void AddAsDirectChild(AsTreeNode<T> parent, T value) 
+        public void Add(AsTreeNode<T> parent, T value) 
         {
             if (parent == null)
             {
@@ -113,7 +113,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //remove the node with the given identifier from the descendants 
-        public void RemoveFromDescendents(AsTreeNode<T> parent, T value)
+        public void Remove(AsTreeNode<T> parent, T value)
         {
             if (parent == null)
             {

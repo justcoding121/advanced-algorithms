@@ -16,17 +16,17 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             var tree = new AsTree<int>(0);
             Assert.AreEqual(tree.GetHeight(), 0);
 
-            tree.AddAsDirectChild(tree.Root, 1);
+            tree.Add(tree.Root, 1);
             Assert.AreEqual(tree.GetHeight(), 1);
 
             var child = tree.Find(1);
-            tree.AddAsDirectChild(child, 2);
+            tree.Add(child, 2);
             Assert.AreEqual(tree.GetHeight(), 2);
 
-            tree.RemoveFromDescendents(tree.Root, 0);
+            tree.Remove(tree.Root, 0);
             Assert.AreEqual(tree.GetHeight(), 1);
 
-            tree.RemoveFromDescendents(tree.Root, 1);
+            tree.Remove(tree.Root, 1);
             Assert.AreEqual(tree.GetHeight(), 0);
         }
     }
