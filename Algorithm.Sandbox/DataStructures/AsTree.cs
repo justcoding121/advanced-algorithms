@@ -6,8 +6,8 @@ namespace Algorithm.Sandbox.DataStructures
     {
         public T Value { get; set; }
 
-        public AsTreeNode<T> Parent { get; private set; }
-        public AsSinglyLinkedList<AsTreeNode<T>> Children { get; private set; }
+        public AsTreeNode<T> Parent { get; set; }
+        public AsSinglyLinkedList<AsTreeNode<T>> Children { get; set; }
 
         public bool IsLeaf => Children.Count() == 0;
 
@@ -49,7 +49,7 @@ namespace Algorithm.Sandbox.DataStructures
                 return false;
             }
 
-            return Root.Find(value) != null;
+            return Find(Root, value) != null;
         }
 
         //O(n)
@@ -60,18 +60,15 @@ namespace Algorithm.Sandbox.DataStructures
                 return null;
             }
 
-            return Root.Find(value);
+            return Find(Root, value);
         }
 
         public int GetHeight()
         {
-            return Root.GetHeight();
+            return GetHeight(Root);
         }
 
-    }
-    public static class AsTreeExtensions
-    {
-        public static int GetHeight<T>(this AsTreeNode<T> node) where T : IComparable
+        public int GetHeight(AsTreeNode<T> node)
         {
             if (node == null)
             {
@@ -98,14 +95,14 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //add the new child under this parent
-        public static void AddAsDirectChild<T>(this AsTreeNode<T> parent, AsTreeNode<T> treeRoot, T value) where T : IComparable
+        public void AddAsDirectChild(AsTreeNode<T> parent, T value) 
         {
             if (parent == null)
             {
                 throw new ArgumentNullException("parent");
             }
 
-            var exists = Find(treeRoot, value) != null;
+            var exists = Find(Root, value) != null;
 
             if (exists)
             {
@@ -116,7 +113,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //remove the node with the given identifier from the descendants 
-        public static void RemoveFromDescendents<T>(this AsTreeNode<T> parent, AsTreeNode<T> treeRoot, T value) where T : IComparable
+        public void RemoveFromDescendents(AsTreeNode<T> parent, T value)
         {
             if (parent == null)
             {
@@ -130,7 +127,29 @@ namespace Algorithm.Sandbox.DataStructures
                 //if item is root
                 if (itemToRemove.Parent == null)
                 {
-                    treeRoot = null;
+                    if(itemToRemove.Children.Count() == 0)
+                    {
+                        Root = null;
+                        return;
+                    }
+                    else
+                    {
+                        //pick a child as root
+                        Root = itemToRemove.Children.DeleteFirst();
+
+                        //now add remaining children to root
+                        var childrens = itemToRemove.Children.GetAllNodes();
+
+                        for (int i = 0; i < childrens.Length; i++)
+                        {
+                            Root.Children.InsertFirst(childrens.ItemAt(i));
+                        }
+
+                        Root.Parent = null;
+
+                        return;
+                    }
+                  
                 }
                 else
                 {
@@ -139,6 +158,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                     for (int i = 0; i < childrens.Length; i++)
                     {
+                        childrens.ItemAt(i).Parent = itemToRemove.Parent;
                         itemToRemove.Parent.Children.InsertFirst(childrens.ItemAt(i));
                     }
 
@@ -153,7 +173,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //find the node with the given identifier among descendants of parent
-        public static AsTreeNode<T> Find<T>(this AsTreeNode<T> parent, T value) where T : IComparable
+        public AsTreeNode<T> Find(AsTreeNode<T> parent, T value) 
         {
 
             if (parent.Value.CompareTo(value) == 0)
@@ -177,4 +197,5 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
     }
+   
 }
