@@ -2,37 +2,41 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsBTreeNode<T> : IComparable where T : IComparable
-    {
-        public T Value { get; set; }
-
-        public AsBTreeNode<T> Parent { get; set; }
-
-        public AsBTreeNode<T> Left { get; set; }
-        public AsBTreeNode<T> Right { get; set; }
-
-        public bool IsLeaf => Left == null && Right == null;
-
-        public AsBTreeNode(AsBTreeNode<T> parent, T value)
-        {
-            this.Parent = parent;
-            this.Value = value;
-        }
-
-        public int CompareTo(object obj)
-        {
-            return CompareTo(obj as AsBTreeNode<T>);
-        }
-
-        public int CompareTo(AsBTreeNode<T> node)
-        {
-            return Value.CompareTo(node.Value);
-        }
-    }
-
+    /// <summary>
+    /// A complete binary tree implementation using pointers
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsBTree<T> where T : IComparable
     {
-        public AsBTreeNode<T> Root { get; set; }
+        private class AsBTreeNode<T> : IComparable where T : IComparable
+        {
+            public T Value { get; set; }
+
+            public AsBTreeNode<T> Parent { get; set; }
+
+            public AsBTreeNode<T> Left { get; set; }
+            public AsBTreeNode<T> Right { get; set; }
+
+            public bool IsLeaf => Left == null && Right == null;
+
+            public AsBTreeNode(AsBTreeNode<T> parent, T value)
+            {
+                this.Parent = parent;
+                this.Value = value;
+            }
+
+            public int CompareTo(object obj)
+            {
+                return CompareTo(obj as AsBTreeNode<T>);
+            }
+
+            public int CompareTo(AsBTreeNode<T> node)
+            {
+                return Value.CompareTo(node.Value);
+            }
+        }
+
+        private AsBTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
         private AsBTreeNode<T> lastInsertionNode { get; set; }
@@ -61,7 +65,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //O(logn)
-        public int GetHeight(AsBTreeNode<T> node)
+        private int GetHeight(AsBTreeNode<T> node)
         {
             if (node == null)
             {
@@ -74,7 +78,7 @@ namespace Algorithm.Sandbox.DataStructures
         //O(1) amortized (worst O(logn))
         public void Insert(T value)
         {
-            if(Count == 0)
+            if (Count == 0)
             {
                 Root = new AsBTreeNode<T>(Root, value);
                 lastInsertionNode = Root;
@@ -204,7 +208,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             }
 
-            if(nodeToDelete.Parent.Left == nodeToDelete)
+            if (nodeToDelete.Parent.Left == nodeToDelete)
             {
                 nodeToDelete.Parent.Left = null;
             }
@@ -217,7 +221,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //O(logn)
-        public AsBTreeNode<T> Find(T value)
+        private AsBTreeNode<T> Find(T value)
         {
             if (Root == null)
             {
@@ -231,9 +235,9 @@ namespace Algorithm.Sandbox.DataStructures
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(logn)
-        public AsBTreeNode<T> Find(AsBTreeNode<T> parent, T value)
+        private AsBTreeNode<T> Find(AsBTreeNode<T> parent, T value)
         {
-            if(parent == null)
+            if (parent == null)
             {
                 return null;
             }

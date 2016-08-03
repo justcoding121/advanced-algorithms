@@ -2,38 +2,41 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsTreeNode<T> : IComparable where T : IComparable
-    {
-        public T Value { get; set; }
-
-        public AsTreeNode<T> Parent { get; set; }
-        public AsSinglyLinkedList<AsTreeNode<T>> Children { get; set; }
-
-        public bool IsLeaf => Children.Count() == 0;
-
-        public AsTreeNode(AsTreeNode<T> parent, T value)
-        {
-            this.Parent = parent;
-            this.Value = value;
-
-            Children = new AsSinglyLinkedList<AsTreeNode<T>>();
-        }
-
-        public int CompareTo(object obj)
-        {
-            return CompareTo(obj as AsTreeNode<T>);
-        }
-
-        public int CompareTo(AsTreeNode<T> treeNode)
-        {
-            return Value.CompareTo(treeNode.Value);
-        }
-
-    }
 
     public class AsTree<T> where T : IComparable
     {
-        public AsTreeNode<T> Root { get; set; }
+        private class AsTreeNode<T> : IComparable where T : IComparable
+        {
+            public T Value { get; set; }
+
+            public AsTreeNode<T> Parent { get; set; }
+            public AsSinglyLinkedList<AsTreeNode<T>> Children { get; set; }
+
+            public bool IsLeaf => Children.Count() == 0;
+
+            public AsTreeNode(AsTreeNode<T> parent, T value)
+            {
+                this.Parent = parent;
+                this.Value = value;
+
+                Children = new AsSinglyLinkedList<AsTreeNode<T>>();
+            }
+
+            public int CompareTo(object obj)
+            {
+                return CompareTo(obj as AsTreeNode<T>);
+            }
+
+            public int CompareTo(AsTreeNode<T> treeNode)
+            {
+                return Value.CompareTo(treeNode.Value);
+            }
+
+        }
+
+  
+
+        private AsTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
         //constructor
@@ -55,7 +58,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //O(n)
-        public AsTreeNode<T> Find(T value)
+        private AsTreeNode<T> Find(T value)
         {
             if (Root == null)
             {
@@ -71,7 +74,7 @@ namespace Algorithm.Sandbox.DataStructures
             return GetHeight(Root);
         }
         //O(n)
-        public int GetHeight(AsTreeNode<T> node)
+        private int GetHeight(AsTreeNode<T> node)
         {
             if (node == null)
             {
@@ -99,13 +102,15 @@ namespace Algorithm.Sandbox.DataStructures
 
         //O(1)
         //add the new child under this parent
-        public void Add(AsTreeNode<T> parent, T value) 
+        public void Add(T parentValue, T value) 
         {
+            var parent = Find(parentValue);
+
             if (parent == null)
             {
                 throw new ArgumentNullException("parent");
             }
-
+           
             var exists = Find(Root, value) != null;
 
             if (exists)
@@ -117,10 +122,17 @@ namespace Algorithm.Sandbox.DataStructures
             Count++;
         }
 
+        public void Remove(T value)
+        {
+            Remove(Root.Value, value);
+        }
+
         //O(n)
         //remove the node with the given identifier from the descendants 
-        public void Remove(AsTreeNode<T> parent, T value)
+        public void Remove(T parentValue, T value)
         {
+            var parent = Find(parentValue);
+
             if (parent == null)
             {
                 throw new ArgumentNullException("parent");
@@ -177,7 +189,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         //O(n)
         //find the node with the given identifier among descendants of parent
-        public AsTreeNode<T> Find(AsTreeNode<T> parent, T value) 
+        private AsTreeNode<T> Find(AsTreeNode<T> parent, T value) 
         {
 
             if (parent.Value.CompareTo(value) == 0)
