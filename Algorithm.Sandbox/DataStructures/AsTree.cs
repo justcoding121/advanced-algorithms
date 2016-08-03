@@ -34,11 +34,13 @@ namespace Algorithm.Sandbox.DataStructures
     public class AsTree<T> where T : IComparable
     {
         public AsTreeNode<T> Root { get; set; }
+        public int Count { get; private set; }
 
         //constructor
         public AsTree(T value)
         {
             Root = new AsTreeNode<T>(null, value);
+            Count++;
         }
 
         //O(n)
@@ -63,11 +65,12 @@ namespace Algorithm.Sandbox.DataStructures
             return Find(Root, value);
         }
 
+        //O(n)
         public int GetHeight()
         {
             return GetHeight(Root);
         }
-
+        //O(n)
         public int GetHeight(AsTreeNode<T> node)
         {
             if (node == null)
@@ -94,6 +97,7 @@ namespace Algorithm.Sandbox.DataStructures
             return currentHeight;
         }
 
+        //O(1)
         //add the new child under this parent
         public void Add(AsTreeNode<T> parent, T value) 
         {
@@ -110,8 +114,10 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             parent.Children.InsertFirst(new AsTreeNode<T>(parent, value));
+            Count++;
         }
 
+        //O(n)
         //remove the node with the given identifier from the descendants 
         public void Remove(AsTreeNode<T> parent, T value)
         {
@@ -130,7 +136,6 @@ namespace Algorithm.Sandbox.DataStructures
                     if(itemToRemove.Children.Count() == 0)
                     {
                         Root = null;
-                        return;
                     }
                     else
                     {
@@ -146,8 +151,6 @@ namespace Algorithm.Sandbox.DataStructures
                         }
 
                         Root.Parent = null;
-
-                        return;
                     }
                   
                 }
@@ -165,13 +168,14 @@ namespace Algorithm.Sandbox.DataStructures
                     itemToRemove.Parent.Children.Delete(itemToRemove);
                     itemToRemove = null;
                 }
-
+                Count--;
                 return;
             }
 
             throw new Exception("Item not found");
         }
 
+        //O(n)
         //find the node with the given identifier among descendants of parent
         public AsTreeNode<T> Find(AsTreeNode<T> parent, T value) 
         {
