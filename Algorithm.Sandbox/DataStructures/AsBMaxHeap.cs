@@ -4,7 +4,7 @@ namespace Algorithm.Sandbox.DataStructures
 {
     public class AsBMaxHeap<T> where T : IComparable
     {
-        
+
         private T[] heapArray;
 
         public int Count = 0;
@@ -21,15 +21,14 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 doubleArray();
             }
-
             heapArray[Count] = newItem;
 
-            for (int i = Count; i > 0; i = i / 2)
+            for (int i = Count; i > 0; i = (i - 1) / 2)
             {
-                if (heapArray[i].CompareTo(heapArray[i / 2]) > 0)
+                if (heapArray[i].CompareTo(heapArray[(i - 1) / 2]) > 0)
                 {
-                    var temp = heapArray[i / 2];
-                    heapArray[i / 2] = heapArray[i];
+                    var temp = heapArray[(i - 1) / 2];
+                    heapArray[(i - 1) / 2] = heapArray[i];
                     heapArray[i] = temp;
                 }
                 else
@@ -97,7 +96,7 @@ namespace Algorithm.Sandbox.DataStructures
                         break;
                     }
                 }
-                else if (leftIndex < Count && rightIndex > Count)
+                else if (leftIndex < Count)
                 {
                     if (heapArray[leftIndex].CompareTo(parent) > 0)
                     {
@@ -112,7 +111,7 @@ namespace Algorithm.Sandbox.DataStructures
                         break;
                     }
                 }
-                else if (rightIndex < Count && leftIndex > Count)
+                else if (rightIndex < Count)
                 {
                     if (heapArray[rightIndex].CompareTo(parent) > 0)
                     {
