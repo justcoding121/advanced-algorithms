@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DataStructures\ArrayList_Tests.cs" />
+    <Compile Include="DataStructures\BST_Tests.cs" />
     <Compile Include="DataStructures\CircularLinkedList_Tests.cs" />
     <Compile Include="DataStructures\DoublyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\HashSet_Tests.cs" />

@@ -23,26 +23,26 @@ namespace Algorithm.Sandbox.DataStructures
     {
         private AsRedBlackTree<AsTreeHashSetNode<K, V>> binarySearchTree = new AsRedBlackTree<AsTreeHashSetNode<K, V>>();
 
-        //O(logn) time complexity; 
+        //O(log(n) time complexity; 
         public bool ContainsKey(K key)
         {
             throw new NotImplementedException();
         }
 
-        //O(logn) time complexity; 
+        //O(log(n) time complexity; 
         public V GetValue(K key)
         {
             throw new NotImplementedException();
         }
 
-        //O(logn) time complexity; 
+        //O(log(n) time complexity; 
         //add an item to this hash table
         public void Add(K key, V value)
         {
             throw new NotImplementedException();
         }
 
-        //O(logn) time complexity; worst case O(n)
+        //O(log(n) time complexity; worst case O(n)
         public void Remove(K key)
         {
             throw new NotImplementedException();

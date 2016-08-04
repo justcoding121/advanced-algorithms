@@ -2,52 +2,48 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
+    public class AsBTreeNode<T> : IComparable where T : IComparable
+    {
+        public T Value { get; set; }
+
+        public AsBTreeNode<T> Parent { get; set; }
+
+        public AsBTreeNode<T> Left { get; set; }
+        public AsBTreeNode<T> Right { get; set; }
+
+        public bool IsLeaf => Left == null && Right == null;
+
+        public AsBTreeNode(AsBTreeNode<T> parent, T value)
+        {
+            this.Parent = parent;
+            this.Value = value;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return CompareTo(obj as AsBTreeNode<T>);
+        }
+
+        public int CompareTo(AsBTreeNode<T> node)
+        {
+            return Value.CompareTo(node.Value);
+        }
+    }
+
     /// <summary>
     /// A complete binary tree implementation using pointers
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class AsBTree<T> where T : IComparable
     {
-        private class AsBTreeNode<T> : IComparable where T : IComparable
-        {
-            public T Value { get; set; }
 
-            public AsBTreeNode<T> Parent { get; set; }
-
-            public AsBTreeNode<T> Left { get; set; }
-            public AsBTreeNode<T> Right { get; set; }
-
-            public bool IsLeaf => Left == null && Right == null;
-
-            public AsBTreeNode(AsBTreeNode<T> parent, T value)
-            {
-                this.Parent = parent;
-                this.Value = value;
-            }
-
-            public int CompareTo(object obj)
-            {
-                return CompareTo(obj as AsBTreeNode<T>);
-            }
-
-            public int CompareTo(AsBTreeNode<T> node)
-            {
-                return Value.CompareTo(node.Value);
-            }
-        }
-
-        private AsBTreeNode<T> Root { get; set; }
+        public AsBTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
         private AsBTreeNode<T> lastInsertionNode { get; set; }
 
-        //constructor
-        public AsBTree(T value)
-        {
-            Insert(value);
-        }
 
-        //O(logn)
+        //O(log(n))
         public bool HasItem(T value)
         {
             if (Root == null)
@@ -58,13 +54,13 @@ namespace Algorithm.Sandbox.DataStructures
             return Find(Root, value) != null;
         }
 
-        //O(logn)
+        //O(log(n)) worst O(n) for unbalanced tree
         public int GetHeight()
         {
             return GetHeight(Root);
         }
 
-        //O(logn)
+        //O(log(n)) worst O(n) for unbalanced tree
         private int GetHeight(AsBTreeNode<T> node)
         {
             if (node == null)
@@ -75,152 +71,7 @@ namespace Algorithm.Sandbox.DataStructures
             return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
         }
 
-        //O(1) amortized (worst O(logn))
-        public void Insert(T value)
-        {
-            if (Count == 0)
-            {
-                Root = new AsBTreeNode<T>(Root, value);
-                lastInsertionNode = Root;
-                Count++;
-                return;
-            }
-
-            if (Count == 1)
-            {
-                Root.Left = new AsBTreeNode<T>(Root, value);
-                lastInsertionNode = Root.Left;
-                Count++;
-                return;
-            }
-
-            //check if its a perfect binary tree
-            //insert all the way to left then
-            if ((Math.Log(Count + 1, 2)) % 1 == 0)
-            {
-                var left = Root.Left == null ? Root : Root.Left;
-
-                while (left != null && left.Left != null)
-                {
-                    left = left.Left;
-                }
-
-                left.Left = new AsBTreeNode<T>(left, value);
-
-                lastInsertionNode = left.Left;
-            }
-            //has even number of nodes (visualize to understand logic)
-            else if (Count % 2 == 0)
-            {
-                lastInsertionNode.Parent.Right = new AsBTreeNode<T>(lastInsertionNode.Parent, value);
-
-                lastInsertionNode = lastInsertionNode.Parent.Right;
-            }
-            //has odd number of nodes (visualize to understand logic)
-            else
-            {
-                var visited = lastInsertionNode.Value;
-
-                lastInsertionNode = lastInsertionNode.Parent;
-
-                //backtrack to next empty sibling parent
-                while (visited.CompareTo(lastInsertionNode.Right.Value) == 0)
-                {
-                    visited = lastInsertionNode.Value;
-                    lastInsertionNode = lastInsertionNode.Parent;
-                }
-
-                lastInsertionNode = lastInsertionNode.Right;
-
-                while (lastInsertionNode.Left != null)
-                {
-                    lastInsertionNode = lastInsertionNode.Left;
-                }
-
-                lastInsertionNode.Left = new AsBTreeNode<T>(lastInsertionNode, value);
-
-                lastInsertionNode = lastInsertionNode.Left;
-            }
-
-            //todo
-            Count++;
-        }
-
-        //remove the node with the given identifier from the descendants 
-        //O(log(n))
-        public void Delete(T value)
-        {
-
-            if (Count == 1)
-            {
-                Root = null;
-                lastInsertionNode = null;
-                Count--;
-                return;
-            }
-
-            var node = Find(value);
-
-            //update the node with the last inserted node value
-            node.Value = lastInsertionNode.Value;
-
-            var nodeToDelete = lastInsertionNode;
-
-            //now delete the last inserted node and update the last inserted node pointer to previous insertion location
-            //check if deleting a node will make this a perfect binary tree
-            //set last insert node all the way to right
-            if ((Math.Log((Count - 1) + 1, 2)) % 1 == 0)
-            {
-                var right = Root.Right == null ? Root : Root.Right;
-
-                while (right != null && right.Right != null)
-                {
-                    right = right.Right;
-                }
-                lastInsertionNode = right;
-            }
-            //deletion causes even number of rows (visualize about reversing the last insertion)
-            else if ((Count - 1) % 2 == 0)
-            {
-                lastInsertionNode = lastInsertionNode.Parent.Left;
-
-            }
-            //deletion causes odd number of rows (visualize about reversing the last insertion)
-            else
-            {
-                var visited = lastInsertionNode.Value;
-
-                lastInsertionNode = lastInsertionNode.Parent;
-
-                //backtrack to next empty sibling parent
-                while (visited.CompareTo(lastInsertionNode.Left.Value) == 0)
-                {
-                    visited = lastInsertionNode.Value;
-                    lastInsertionNode = lastInsertionNode.Parent;
-                }
-
-                lastInsertionNode = lastInsertionNode.Left;
-
-                while (lastInsertionNode.Right != null)
-                {
-                    lastInsertionNode = lastInsertionNode.Right;
-                }
-
-            }
-
-            if (nodeToDelete.Parent.Left == nodeToDelete)
-            {
-                nodeToDelete.Parent.Left = null;
-            }
-            else
-            {
-                nodeToDelete.Parent.Right = null;
-            }
-
-            Count--;
-        }
-
-        //O(logn)
+        //O(log(n)) worst O(n) for unbalanced tree
         private AsBTreeNode<T> Find(T value)
         {
             if (Root == null)
@@ -234,7 +85,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(logn)
+        //O(log(n)) worst O(n) for unbalanced tree
         private AsBTreeNode<T> Find(AsBTreeNode<T> parent, T value)
         {
             if (parent == null)
@@ -265,5 +116,128 @@ namespace Algorithm.Sandbox.DataStructures
 
         }
 
+        /// <summary>
+        /// only inserts to unambiguous nodes (a node with two children cannot be inserted with a new child unambiguously)
+        ///  O(log(n)) worst O(n) for unbalanced tree
+        /// </summary>
+        /// <param name="value"></param>
+        public void Insert(T parentValue, T newValue)
+        {
+           
+            if(Root == null)
+            {
+                Root = new AsBTreeNode<T>(null, newValue);
+                Count++;
+                return;
+            }
+
+            var parent = Find(parentValue);
+
+            if (parent == null)
+            {
+                throw new Exception("Cannot find parent node");
+            }
+
+            var exists = Find(Root, newValue) != null;
+
+            if (exists)
+            {
+                throw new ArgumentNullException("value already exists");
+            }
+
+            if (parent.Left == null && parent.Right == null)
+            {
+                parent.Left = new AsBTreeNode<T>(parent, newValue);
+            }
+            else
+            {
+                if (parent.Left == null)
+                {
+                    parent.Left = new AsBTreeNode<T>(parent, newValue);
+                }
+                else if (parent.Right == null)
+                {
+                    parent.Right = new AsBTreeNode<T>(parent, newValue);
+                }
+                else
+                {
+                    throw new Exception("Cannot insert to a parent with two child node unambiguosly");
+                }
+            }
+
+            Count++;
+        }
+
+        /// <summary>
+        /// only deletes unambiguous nodes (a node with two children cannot be deleted unambiguously)
+        ///  O(log(n)) worst O(n) for unbalanced tree
+        /// </summary>
+        /// <param name="value"></param>
+        public void Delete(T value)
+        {
+            var node = Find(value);
+
+            if (node == null)
+            {
+                throw new Exception("Cannot find node");
+            }
+
+            if (node.Left == null && node.Right == null)
+            {
+                if (node.Parent == null)
+                {
+                    Root = null;
+                }
+                else
+                {
+                    if (node.Parent.Left == node)
+                    {
+                        node.Parent.Left = null;
+                    }
+                    else
+                    {
+                        node.Parent.Right = null;
+                    }
+                }
+
+            }
+            else
+            {
+                if (node.Left == null && node.Right != null)
+                {
+                    node.Right.Parent = node.Parent;
+
+                    if (node.Parent.Left == node)
+                    {
+                        node.Parent.Left = node.Right;
+                    }
+                    else
+                    {
+                        node.Parent.Right = node.Right;
+                    }
+                }
+                else if (node.Right == null && node.Left != null)
+                {
+                    node.Left.Parent = node.Parent;
+
+                    if (node.Parent.Left == node)
+                    {
+                        node.Parent.Left = node.Left;
+                    }
+                    else
+                    {
+                        node.Parent.Right = node.Left;
+                    }
+                }
+                else
+                {
+                    throw new Exception("Cannot delete two child node unambiguosly");
+                }
+   
+            }
+
+            Count--;
+
+        }
     }
 }

@@ -56,7 +56,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
             {
                 ratios[i] = values[i] / weights[i];
             }
-            //(o(nlogn)
+            //(o(nlog(n)
             //quick sort by desc weights
             for (int i = 0; i < weights.Length; i++)
             {
@@ -97,7 +97,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 k++;
             }
 
-            //O(n) + O(nlogn) + O(n) = O(nlogn)
+            //O(n) + O(nlog(n) + O(n) = O(nlog(n)
             return resultValue;
         }
     }

@@ -112,7 +112,7 @@ namespace Algorithm.Sandbox.DataStructures
             return tailData;
         }
 
-        //cost O(n) in worst case O(nlogn) average?
+        //cost O(n) in worst case O(nlog(n) average?
         public void Delete(T data)
         {
             if (Head == null)

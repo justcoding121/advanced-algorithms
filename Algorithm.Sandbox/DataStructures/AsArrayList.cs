@@ -3,7 +3,7 @@
 namespace Algorithm.Sandbox.DataStructures
 {
     /// <summary>
-    /// A self expanding array (dynamic array)
+    /// A self expanding array (dynamic array) aka array vector
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class AsArrayList<T> where T : IComparable
@@ -13,7 +13,6 @@ namespace Algorithm.Sandbox.DataStructures
         private T[] array;
 
         public int Length => currentEndPosition;
-
         //constructor init 
         public AsArrayList()
         {
@@ -86,6 +85,21 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             currentEndPosition--;
+
+            if (currentEndPosition == arraySize / 2)
+            {
+                //reduce array by half 
+                arraySize /= 2;
+
+                var smallerArray = new T[arraySize];
+
+                for (int j = 0; j < currentEndPosition; j++)
+                {
+                    smallerArray[j] = array[j];
+                }
+
+                array = smallerArray;
+            }
         }
 
         //O(n) 

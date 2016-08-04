@@ -52,7 +52,7 @@ namespace Algorithm.Sandbox.DataStructures
             ReferenceNode = newNode;
         }
 
-        //cost O(n) in worst case O(nlogn) average?
+        //cost O(n) in worst case O(nlog(n) average?
         public void Delete(T data)
         {
             if (ReferenceNode == null)
