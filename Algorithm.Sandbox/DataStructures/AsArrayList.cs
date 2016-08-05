@@ -86,7 +86,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             currentEndPosition--;
 
-            if (currentEndPosition == arraySize / 2)
+            if (currentEndPosition == arraySize / 2 && arraySize/2 !=0)
             {
                 //reduce array by half 
                 arraySize /= 2;

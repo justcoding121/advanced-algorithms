@@ -21,10 +21,11 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             Assert.AreEqual(arrayList.Length, 3);
 
             arrayList.RemoveItem(0);
+            arrayList.RemoveItem(0);
+            arrayList.RemoveItem(0);
+            Assert.AreEqual(arrayList.Length, 0);
 
-            Assert.AreEqual(arrayList.Length, 2);
-
-            arrayList.SetItem(0, "a");
+            arrayList.AddItem("a");
             Assert.AreEqual(arrayList.ItemAt(0), "a");
 
         }
