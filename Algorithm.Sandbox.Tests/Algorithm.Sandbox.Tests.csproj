@@ -51,11 +51,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DataStructures\ArrayList_Tests.cs" />
+    <Compile Include="DataStructures\BMinHeap_Tests.cs" />
     <Compile Include="DataStructures\BMaxHeap_Tests.cs" />
     <Compile Include="DataStructures\BST_Tests.cs" />
     <Compile Include="DataStructures\CircularLinkedList_Tests.cs" />
     <Compile Include="DataStructures\DoublyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\HashSet_Tests.cs" />
+    <Compile Include="DataStructures\PriorityQueue_Tests.cs" />
     <Compile Include="DataStructures\Queue_Tests.cs" />
     <Compile Include="DataStructures\SinglyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\Stack_Tests.cs" />

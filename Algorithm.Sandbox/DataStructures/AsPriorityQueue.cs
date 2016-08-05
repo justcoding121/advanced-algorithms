@@ -11,12 +11,12 @@ namespace Algorithm.Sandbox.DataStructures
 
         public void Enqueue(T queueItem)
         {
-            throw new NotImplementedException();
+            minHeap.Insert(queueItem);
         }
 
         public T Dequeue()
         {
-            throw new NotImplementedException();
+            return minHeap.ExtractMin();
         }
     }
 }

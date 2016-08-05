@@ -4,7 +4,6 @@ namespace Algorithm.Sandbox.DataStructures
 {
     public class AsBMaxHeap<T> where T : IComparable
     {
-
         private T[] heapArray;
 
         public int Count = 0;
@@ -21,6 +20,7 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 doubleArray();
             }
+
             heapArray[Count] = newItem;
 
             for (int i = Count; i > 0; i = (i - 1) / 2)
@@ -51,15 +51,15 @@ namespace Algorithm.Sandbox.DataStructures
             heapArray[0] = heapArray[Count - 1];
             Count--;
 
-            int i = 0;
+            int parentIndex = 0;
 
             //percolate down
             while (true)
             {
-                var leftIndex = 2 * i + 1;
-                var rightIndex = 2 * i + 2;
+                var leftIndex = 2 * parentIndex + 1;
+                var rightIndex = 2 * parentIndex + 2;
 
-                var parent = heapArray[i];
+                var parent = heapArray[parentIndex];
 
                 if (leftIndex < Count && rightIndex < Count)
                 {
@@ -77,17 +77,17 @@ namespace Algorithm.Sandbox.DataStructures
 
                     if (heapArray[maxChildIndex].CompareTo(parent) > 0)
                     {
-                        var temp = heapArray[i];
-                        heapArray[i] = heapArray[maxChildIndex];
+                        var temp = heapArray[parentIndex];
+                        heapArray[parentIndex] = heapArray[maxChildIndex];
                         heapArray[maxChildIndex] = temp;
 
                         if (leftIsMax)
                         {
-                            i = 2 * i + 1;
+                            parentIndex = leftIndex;
                         }
                         else
                         {
-                            i = 2 * i + 2;
+                            parentIndex = rightIndex;
                         }
 
                     }
@@ -100,11 +100,11 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     if (heapArray[leftIndex].CompareTo(parent) > 0)
                     {
-                        var temp = heapArray[i];
-                        heapArray[i] = heapArray[leftIndex];
+                        var temp = heapArray[parentIndex];
+                        heapArray[parentIndex] = heapArray[leftIndex];
                         heapArray[leftIndex] = temp;
 
-                        i = 2 * i + 1;
+                        parentIndex = leftIndex;
                     }
                     else
                     {
@@ -115,11 +115,11 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     if (heapArray[rightIndex].CompareTo(parent) > 0)
                     {
-                        var temp = heapArray[i];
-                        heapArray[i] = heapArray[rightIndex];
+                        var temp = heapArray[parentIndex];
+                        heapArray[parentIndex] = heapArray[rightIndex];
                         heapArray[rightIndex] = temp;
 
-                        i = 2 * i + 2;
+                        parentIndex = rightIndex;
                     }
                     else
                     {
@@ -131,6 +131,11 @@ namespace Algorithm.Sandbox.DataStructures
                     break;
                 }
 
+            }
+
+            if (heapArray.Length / 2 == Count && heapArray.Length > 2)
+            {
+                halfArray();
             }
 
             return max;
@@ -147,11 +152,23 @@ namespace Algorithm.Sandbox.DataStructures
             return heapArray[0];
         }
 
+        private void halfArray()
+        {
+            var smallerArray = new T[heapArray.Length / 2];
+
+            for (int i = 0; i < Count; i++)
+            {
+                smallerArray[i] = heapArray[i];
+            }
+
+            heapArray = smallerArray;
+        }
+
         private void doubleArray()
         {
             var biggerArray = new T[heapArray.Length * 2];
 
-            for (int i = 0; i < heapArray.Length; i++)
+            for (int i = 0; i < Count; i++)
             {
                 biggerArray[i] = heapArray[i];
             }

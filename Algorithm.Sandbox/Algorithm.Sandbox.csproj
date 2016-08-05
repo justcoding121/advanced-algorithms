@@ -49,7 +49,7 @@
     <Compile Include="DataStructures\AsArrayList.cs" />
     <Compile Include="DataStructures\AsAvlTree.cs" />
     <Compile Include="DataStructures\AsBST.cs" />
-    <Compile Include="DataStructures\AsBTree.cs" />
+    <Compile Include="DataStructures\AsBinaryTree.cs" />
     <Compile Include="DataStructures\AsCircularLinkedList.cs" />
     <Compile Include="DataStructures\AsN-aryTree.cs" />
     <Compile Include="DataStructures\AsWeightedDiGraph.cs" />

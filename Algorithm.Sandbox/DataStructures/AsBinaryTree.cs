@@ -2,18 +2,18 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsBTreeNode<T> : IComparable where T : IComparable
+    public class AsBinaryTreeNode<T> : IComparable where T : IComparable
     {
         public T Value { get; set; }
 
-        public AsBTreeNode<T> Parent { get; set; }
+        public AsBinaryTreeNode<T> Parent { get; set; }
 
-        public AsBTreeNode<T> Left { get; set; }
-        public AsBTreeNode<T> Right { get; set; }
+        public AsBinaryTreeNode<T> Left { get; set; }
+        public AsBinaryTreeNode<T> Right { get; set; }
 
         public bool IsLeaf => Left == null && Right == null;
 
-        public AsBTreeNode(AsBTreeNode<T> parent, T value)
+        public AsBinaryTreeNode(AsBinaryTreeNode<T> parent, T value)
         {
             this.Parent = parent;
             this.Value = value;
@@ -21,10 +21,10 @@ namespace Algorithm.Sandbox.DataStructures
 
         public int CompareTo(object obj)
         {
-            return CompareTo(obj as AsBTreeNode<T>);
+            return CompareTo(obj as AsBinaryTreeNode<T>);
         }
 
-        public int CompareTo(AsBTreeNode<T> node)
+        public int CompareTo(AsBinaryTreeNode<T> node)
         {
             return Value.CompareTo(node.Value);
         }
@@ -34,13 +34,13 @@ namespace Algorithm.Sandbox.DataStructures
     /// A complete binary tree implementation using pointers
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsBTree<T> where T : IComparable
+    public class AsBinaryTree<T> where T : IComparable
     {
 
-        public AsBTreeNode<T> Root { get; set; }
+        public AsBinaryTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
-        private AsBTreeNode<T> lastInsertionNode { get; set; }
+        private AsBinaryTreeNode<T> lastInsertionNode { get; set; }
 
 
         //O(log(n))
@@ -61,7 +61,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
-        private int GetHeight(AsBTreeNode<T> node)
+        private int GetHeight(AsBinaryTreeNode<T> node)
         {
             if (node == null)
             {
@@ -72,7 +72,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
-        private AsBTreeNode<T> Find(T value)
+        private AsBinaryTreeNode<T> Find(T value)
         {
             if (Root == null)
             {
@@ -86,7 +86,7 @@ namespace Algorithm.Sandbox.DataStructures
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(log(n)) worst O(n) for unbalanced tree
-        private AsBTreeNode<T> Find(AsBTreeNode<T> parent, T value)
+        private AsBinaryTreeNode<T> Find(AsBinaryTreeNode<T> parent, T value)
         {
             if (parent == null)
             {
@@ -126,7 +126,7 @@ namespace Algorithm.Sandbox.DataStructures
            
             if(Root == null)
             {
-                Root = new AsBTreeNode<T>(null, newValue);
+                Root = new AsBinaryTreeNode<T>(null, newValue);
                 Count++;
                 return;
             }
@@ -147,17 +147,17 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (parent.Left == null && parent.Right == null)
             {
-                parent.Left = new AsBTreeNode<T>(parent, newValue);
+                parent.Left = new AsBinaryTreeNode<T>(parent, newValue);
             }
             else
             {
                 if (parent.Left == null)
                 {
-                    parent.Left = new AsBTreeNode<T>(parent, newValue);
+                    parent.Left = new AsBinaryTreeNode<T>(parent, newValue);
                 }
                 else if (parent.Right == null)
                 {
-                    parent.Right = new AsBTreeNode<T>(parent, newValue);
+                    parent.Right = new AsBinaryTreeNode<T>(parent, newValue);
                 }
                 else
                 {

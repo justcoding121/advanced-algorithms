@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void BTree_Test()
         {
-            var tree = new AsBTree<int>();
+            var tree = new AsBinaryTree<int>();
             Assert.AreEqual(tree.GetHeight(), -1);
 
             tree.Insert(0, 0);
