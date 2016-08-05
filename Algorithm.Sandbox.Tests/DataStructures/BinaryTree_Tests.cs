@@ -5,13 +5,13 @@ using System;
 namespace Algorithm.Sandbox.Tests.DataStructures
 {
     [TestClass]
-    public class BTree_Tests
+    public class BinaryTree_Tests
     {
         /// <summary>
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void BTree_Test()
+        public void BinaryTree_Test()
         {
             var tree = new AsBinaryTree<int>();
             Assert.AreEqual(tree.GetHeight(), -1);

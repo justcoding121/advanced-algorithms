@@ -63,7 +63,7 @@
     <Compile Include="DataStructures\Stack_Tests.cs" />
     <Compile Include="DataStructures\StringBuilder_Tests.cs" />
     <Compile Include="DataStructures\Tree_Tests.cs" />
-    <Compile Include="DataStructures\BTree_Tests.cs" />
+    <Compile Include="DataStructures\BinaryTree_Tests.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems_Tests.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
