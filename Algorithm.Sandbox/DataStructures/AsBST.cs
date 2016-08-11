@@ -26,8 +26,6 @@ namespace Algorithm.Sandbox.DataStructures
         private AsBSTNode<T> Root { get; set; }
         public int Count { get; private set; }
 
-        private AsBSTNode<T> lastInsertionNode { get; set; }
-
         //O(log(n)) worst O(n) for unbalanced tree
         public bool HasItem(T value)
         {

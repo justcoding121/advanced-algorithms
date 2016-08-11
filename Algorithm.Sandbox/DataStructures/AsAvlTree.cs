@@ -11,6 +11,8 @@ namespace Algorithm.Sandbox.DataStructures
 
         public bool IsLeaf => Left == null && Right == null;
 
+        public int Height { get; set; }
+
         public AsAVLTreeNode(T value)
         {
             this.Value = value;
@@ -22,5 +24,14 @@ namespace Algorithm.Sandbox.DataStructures
     {
         public AsAVLTreeNode<T> Root { get; set; }
 
+        public void Insert(T data)
+        {
+
+        }
+
+        public void Delete(T data)
+        {
+
+        }
     }
 }
