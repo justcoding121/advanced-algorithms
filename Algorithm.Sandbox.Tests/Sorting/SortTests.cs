@@ -47,5 +47,31 @@ namespace Algorithm.Sandbox.Tests.Sorting
                 Assert.AreEqual(i, result[i]);
             }
         }
+
+        /// <summary>
+        /// </summary>
+        [TestMethod]
+        public void QuickSort_Test()
+        {
+            var result = QuickSort<int>.Sort(TestArray);
+
+            for (int i = 0; i <= 8; i++)
+            {
+                Assert.AreEqual(i, result[i]);
+            }
+        }
+
+        /// <summary>
+        /// </summary>
+        [TestMethod]
+        public void MergeSort_Test()
+        {
+            var result = MergeSort<int>.Sort(TestArray);
+
+            for (int i = 0; i <= 8; i++)
+            {
+                Assert.AreEqual(i, result[i]);
+            }
+        }
     }
 }
