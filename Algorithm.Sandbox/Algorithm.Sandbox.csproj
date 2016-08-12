@@ -118,6 +118,7 @@
     <Compile Include="GraphAlgorithms\Matching\BiPartiteMatching.cs" />
     <Compile Include="GraphAlgorithms\MinimumSpanningTree\Kruskals.cs" />
     <Compile Include="GraphAlgorithms\MinimumSpanningTree\Prims.cs" />
+    <Compile Include="GraphAlgorithms\Search\BiDirectional.cs" />
     <Compile Include="GraphAlgorithms\Search\BreadFirst.cs" />
     <Compile Include="GraphAlgorithms\Search\DepthFirst.cs" />
     <Compile Include="GraphAlgorithms\ShortestPath\Bellman-Ford.cs" />

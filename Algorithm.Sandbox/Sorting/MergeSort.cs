@@ -8,12 +8,12 @@ namespace Algorithm.Sandbox.Sorting
         //O(n) memory
         public static T[] Sort(T[] array)
         {
-            MergeSortR(array, 0, array.Length - 1);
+            PartitionMerge(array, 0, array.Length - 1);
 
             return array;
         }
 
-        private static void MergeSortR(T[] array, int leftIndex, int rightIndex)
+        private static void PartitionMerge(T[] array, int leftIndex, int rightIndex)
         {
             if (leftIndex < 0 || rightIndex < 0 || (rightIndex - leftIndex + 1) < 2)
             {
@@ -22,8 +22,8 @@ namespace Algorithm.Sandbox.Sorting
 
             int middle = (leftIndex + rightIndex) / 2;
 
-            MergeSortR(array, leftIndex, middle);
-            MergeSortR(array, middle + 1, rightIndex);
+            PartitionMerge(array, leftIndex, middle);
+            PartitionMerge(array, middle + 1, rightIndex);
 
             Merge(array, leftIndex, middle, rightIndex);
         }
