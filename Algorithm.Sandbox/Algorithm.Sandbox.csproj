@@ -51,6 +51,8 @@
     <Compile Include="DataStructures\AsArrayList.cs" />
     <Compile Include="DataStructures\AsAvlTree.cs" />
     <Compile Include="DataStructures\AsBinaryIndexedTree.cs" />
+    <Compile Include="DataStructures\AsFibornacciMinHeap.cs" />
+    <Compile Include="DataStructures\AsBinomialMinHeap.cs" />
     <Compile Include="DataStructures\AsBST.cs" />
     <Compile Include="DataStructures\AsBinaryTree.cs" />
     <Compile Include="DataStructures\AsCircularLinkedList.cs" />
@@ -64,7 +66,6 @@
     <Compile Include="DataStructures\AsGraph.cs" />
     <Compile Include="DataStructures\AsHashSet.cs" />
     <Compile Include="DataStructures\AsMatrix.cs" />
-    <Compile Include="DataStructures\AsBMaxHeap.cs" />
     <Compile Include="DataStructures\AsBMinHeap.cs" />
     <Compile Include="DataStructures\AsPriorityQueue.cs" />
     <Compile Include="DataStructures\AsQueue.cs" />

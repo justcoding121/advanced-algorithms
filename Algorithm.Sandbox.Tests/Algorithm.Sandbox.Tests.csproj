@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="DataStructures\ArrayList_Tests.cs" />
     <Compile Include="DataStructures\BMinHeap_Tests.cs" />
-    <Compile Include="DataStructures\BMaxHeap_Tests.cs" />
     <Compile Include="DataStructures\BST_Tests.cs" />
     <Compile Include="DataStructures\CircularLinkedList_Tests.cs" />
     <Compile Include="DataStructures\DoublyLinkedList_Tests.cs" />

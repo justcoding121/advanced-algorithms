@@ -7,15 +7,14 @@ namespace Algorithm.Sandbox.Sorting
         //O(nlog(n)), worst O(n^2)
         public static T[] Sort(T[] array)
         {
-
-            MergeSortR(array, 0, array.Length);
+            MergeSortR(array, 0, array.Length-1);
 
             return array;
         }
 
         private static void MergeSortR(T[] array, int leftIndex, int rightIndex)
         {
-            if (leftIndex < 0 || rightIndex < 0 || (rightIndex - leftIndex) < 1)
+            if (leftIndex < 0 || rightIndex < 0 || (rightIndex - leftIndex + 1) < 2)
             {
                 return;
             }
@@ -25,7 +24,7 @@ namespace Algorithm.Sandbox.Sorting
             MergeSortR(array, leftIndex, middle);
             MergeSortR(array, middle + 1, rightIndex);
 
-            Merge(array, leftIndex, middle, middle + 1, rightIndex);
+            Merge(array, leftIndex, middle, rightIndex);
         }
 
         /// <summary>
@@ -34,41 +33,55 @@ namespace Algorithm.Sandbox.Sorting
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        private static void Merge(T[] array, int leftStart, int leftEnd, int rightStart, int rightEnd)
+        private static void Merge(T[] array, int leftStart, int middle, int rightEnd)
         {
+            var newLength = rightEnd - leftStart + 1;
 
-            int i = leftStart, j = rightStart, k = 0;
-            while (i > 0 && j > 0)
+            var result = new T[newLength];
+
+            int i = leftStart, j = middle+1, k = 0;
+            //iteratively compare and pick min to result
+            while (i <= middle && j <= rightEnd)
             {
-                if (left[i].CompareTo(right[j]) < 0)
+                if (array[i].CompareTo(array[j]) < 0)
                 {
-                    result[k] = left[i];
+                    result[k] = array[i];
                     i++;
                 }
                 else
                 {
-                    result[k] = right[j];
+                    result[k] = array[j];
                     j++;
                 }
                 k++;
             }
 
-            if (i > 0)
+            //copy left overs
+            if (i <= middle)
             {
-                for (int l = i; l < left.Length; l++)
+                for (int l = i; l <= middle; l++)
                 {
-                    result[k] = left[l];
+                    result[k] = array[l];
+                    k++;
                 }
             }
             else
             {
-                for (int l = j; l < right.Length; l++)
+                for (int l = j; l <= rightEnd; l++)
                 {
-                    result[k] = right[l];
+                    result[k] = array[l];
+                    k++;
                 }
             }
 
-            return result;
+            k = 0;
+            //now write back result
+            for (int g = leftStart; g <= rightEnd; g++)
+            {
+                array[g] = result[k];
+                k++;
+            }
+
         }
     }
 }
