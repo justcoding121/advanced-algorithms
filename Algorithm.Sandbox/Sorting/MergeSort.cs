@@ -4,10 +4,11 @@ namespace Algorithm.Sandbox.Sorting
 {
     public class MergeSort<T> where T : IComparable
     {
-        //O(nlog(n)), worst O(n^2)
+        //O(nlog(n)) time complexity always
+        //O(n) memory
         public static T[] Sort(T[] array)
         {
-            MergeSortR(array, 0, array.Length-1);
+            MergeSortR(array, 0, array.Length - 1);
 
             return array;
         }
@@ -39,7 +40,7 @@ namespace Algorithm.Sandbox.Sorting
 
             var result = new T[newLength];
 
-            int i = leftStart, j = middle+1, k = 0;
+            int i = leftStart, j = middle + 1, k = 0;
             //iteratively compare and pick min to result
             while (i <= middle && j <= rightEnd)
             {
