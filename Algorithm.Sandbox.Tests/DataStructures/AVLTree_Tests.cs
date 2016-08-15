@@ -60,7 +60,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             Assert.AreEqual(3, tree.GetHeight());
 
             tree.Delete(4);
-            Assert.AreEqual(3, tree.GetHeight());
+            Assert.AreEqual(2, tree.GetHeight());
 
             tree.Delete(5);
             Assert.AreEqual(2, tree.GetHeight());
@@ -72,17 +72,17 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             Assert.AreEqual(2, tree.GetHeight());
 
             tree.Delete(8);
-            Assert.AreEqual(2, tree.GetHeight());
+            Assert.AreEqual(1, tree.GetHeight());
 
             tree.Delete(9);
             Assert.AreEqual(1, tree.GetHeight());
 
             tree.Delete(10);
-            Assert.AreEqual(1, tree.GetHeight());
+            Assert.AreEqual(0, tree.GetHeight());
 
             tree.Delete(11);
-
             Assert.AreEqual(tree.GetHeight(), -1);
+
             Assert.AreEqual(tree.Count, 0);
 
             tree.Insert(31);

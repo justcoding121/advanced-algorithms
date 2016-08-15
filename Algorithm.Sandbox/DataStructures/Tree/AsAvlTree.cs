@@ -124,6 +124,8 @@ namespace Algorithm.Sandbox.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         private void delete(AsAVLTreeNode<T> node, T value)
         {
+            var deleted = false;
+
             if (HasItem(value) == false)
             {
                 throw new Exception("Item do not exist");
@@ -150,6 +152,7 @@ namespace Algorithm.Sandbox.DataStructures
                     {
                         node.Parent.Right = null;
                     }
+                    deleted = true;
                     Count--;
                 }
                 else
@@ -178,7 +181,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                             node.Left.Parent = node.Parent;
                         }
-
+                        deleted = true;
                         Count--;
                     }
                     //case two - left tree is null  (move sub tree up)
@@ -205,6 +208,7 @@ namespace Algorithm.Sandbox.DataStructures
                             node.Right.Parent = node.Parent;
 
                         }
+                        deleted = true;
                         Count--;
                     }
                     //case three - two child trees 
@@ -233,7 +237,15 @@ namespace Algorithm.Sandbox.DataStructures
                 delete(node.Left, value);
             }
 
-            UpdateHeight(node);
+            if(deleted)
+            {
+                UpdateHeight(node.Parent);
+            }
+            else
+            {
+                UpdateHeight(node);
+            }
+         
             Balance(node);
         }
 
@@ -324,9 +336,10 @@ namespace Algorithm.Sandbox.DataStructures
             var leftHeight = node.Left != null ? node.Left.Height + 1 : 0;
             var rightHeight = node.Right != null ? node.Right.Height + 1 : 0;
 
+            var balanceFactor = leftHeight - rightHeight;
             //tree is left heavy
             //differance >=2 then do rotations
-            if (leftHeight - rightHeight >= 2)
+            if (balanceFactor >= 2)
             {
                 leftHeight = node.Left.Left != null ? node.Left.Left.Height + 1 : 0;
                 rightHeight = node.Left.Right != null ? node.Left.Right.Height + 1 : 0;
@@ -344,8 +357,8 @@ namespace Algorithm.Sandbox.DataStructures
                 }
             }
             //tree is right heavy
-            //differance >=2 then do rotations
-            else if (rightHeight - leftHeight >= 2)
+            //differance <=-2 then do rotations
+            else if (balanceFactor <= -2)
             {
                 leftHeight = node.Right.Left != null ? node.Right.Left.Height + 1 : 0;
                 rightHeight = node.Right.Right != null ? node.Right.Right.Height + 1 : 0;
@@ -449,22 +462,27 @@ namespace Algorithm.Sandbox.DataStructures
             }
         }
 
-        private void UpdateHeight(AsAVLTreeNode<T> newRoot)
+        private void UpdateHeight(AsAVLTreeNode<T> node)
         {
-            if (newRoot.Left != null)
+            if(node==null)
             {
-                newRoot.Left.Height = Math.Max(newRoot.Left.Left == null ? 0 : newRoot.Left.Left.Height + 1,
-                                                 newRoot.Left.Right == null ? 0 : newRoot.Left.Right.Height + 1);
+                return;
             }
 
-            if(newRoot.Right!=null)
+            if (node.Left != null)
             {
-                newRoot.Right.Height = Math.Max(newRoot.Right.Left == null ? 0 : newRoot.Right.Left.Height + 1,
-                                  newRoot.Right.Right == null ? 0 : newRoot.Right.Right.Height + 1);
+                node.Left.Height = Math.Max(node.Left.Left == null ? 0 : node.Left.Left.Height + 1,
+                                                 node.Left.Right == null ? 0 : node.Left.Right.Height + 1);
             }
 
-            newRoot.Height = Math.Max(newRoot.Left == null ? 0 : newRoot.Left.Height + 1,
-                                      newRoot.Right == null ? 0 : newRoot.Right.Height + 1);
+            if(node.Right!=null)
+            {
+                node.Right.Height = Math.Max(node.Right.Left == null ? 0 : node.Right.Left.Height + 1,
+                                  node.Right.Right == null ? 0 : node.Right.Right.Height + 1);
+            }
+
+            node.Height = Math.Max(node.Left == null ? 0 : node.Left.Height + 1,
+                                      node.Right == null ? 0 : node.Right.Height + 1);
         }
     }
 }
