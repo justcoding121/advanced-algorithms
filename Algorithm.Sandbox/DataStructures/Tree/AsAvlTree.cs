@@ -330,15 +330,15 @@ namespace Algorithm.Sandbox.DataStructures
             if (node.Left == null && node.Right == null)
                 return;
 
-            var leftHeight = node.Left != null ? node.Left.Height() : 0;
-            var rightHeight = node.Right != null ? node.Right.Height() : 0;
+            var leftHeight = node.Left != null ? node.Left.Height() + 1 : 0;
+            var rightHeight = node.Right != null ? node.Right.Height() + 1 : 0;
 
             //tree is left heavy
             //differance >=2 then do rotations
             if (leftHeight - rightHeight >= 2)
             {
-                leftHeight = node.Left.Left != null ? node.Left.Left.Height() : 0;
-                rightHeight = node.Left.Right != null ? node.Left.Right.Height() : 0;
+                leftHeight = node.Left.Left != null ? node.Left.Left.Height() + 1 : 0;
+                rightHeight = node.Left.Right != null ? node.Left.Right.Height() + 1 : 0;
 
                 //left child is left heavy
                 if (leftHeight > rightHeight)
@@ -356,8 +356,8 @@ namespace Algorithm.Sandbox.DataStructures
             //differance >=2 then do rotations
             else if (rightHeight - leftHeight >= 2)
             {
-                leftHeight = node.Right.Left != null ? node.Right.Left.Height() : 0;
-                rightHeight = node.Right.Right != null ? node.Right.Right.Height() : 0;
+                leftHeight = node.Right.Left != null ? node.Right.Left.Height() + 1 : 0;
+                rightHeight = node.Right.Right != null ? node.Right.Right.Height() + 1 : 0;
 
                 //right child is right heavy
                 if (rightHeight > leftHeight)
@@ -379,6 +379,8 @@ namespace Algorithm.Sandbox.DataStructures
             var prevRoot = node;
             var leftRightChild = prevRoot.Left.Right;
 
+            var newRoot = node.Left;
+
             //make left child as root
             prevRoot.Left.Parent = prevRoot.Parent;
 
@@ -395,16 +397,20 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             //move prev root as right child of current root
-            node.Right = prevRoot;
-            prevRoot.Parent = node;
+            newRoot.Right = prevRoot;
+            prevRoot.Parent = newRoot;
 
             //move right child of left child of prev root to left child of right child of new root
-            node.Right.Left = leftRightChild;
-            if (node.Right.Left != null)
+            newRoot.Right.Left = leftRightChild;
+            if (newRoot.Right.Left != null)
             {
-                node.Right.Left.Parent = node.Right;
+                newRoot.Right.Left.Parent = newRoot.Right;
             }
 
+            if (prevRoot == Root)
+            {
+                Root = newRoot;
+            }
 
         }
 
@@ -412,6 +418,8 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var prevRoot = node;
             var rightLeftChild = prevRoot.Right.Left;
+
+            var newRoot = node.Right;
 
             //make right child as root
             prevRoot.Right.Parent = prevRoot.Parent;
@@ -428,15 +436,21 @@ namespace Algorithm.Sandbox.DataStructures
                 }
             }
 
+
             //move prev root as left child of current root
-            node.Left = prevRoot;
-            prevRoot.Parent = node;
+            newRoot.Left = prevRoot;
+            prevRoot.Parent = newRoot;
 
             //move left child of right child of prev root to right child of left child of new root
-            node.Left.Right = rightLeftChild;
-            if (node.Left.Right != null)
+            newRoot.Left.Right = rightLeftChild;
+            if (newRoot.Left.Right != null)
             {
-                node.Left.Right.Parent = node.Left;
+                newRoot.Left.Right.Parent = newRoot.Left;
+            }
+
+            if (prevRoot == Root)
+            {
+                Root = newRoot;
             }
         }
     }
