@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorithm.Sandbox.DynamicProgramming
+﻿namespace Algorithm.Sandbox.DynamicProgramming
 {
-    class BalancedPartition
+    public class BalancedPartition
     {
+       // public bool CanPartition(int[] arr, int sum)
+        //{
+           
+        //}
+
+        //private void Partition(int[] arr, int i, int j, int sum)
+        //{
+
+
+        //}
     }
 }

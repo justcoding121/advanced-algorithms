@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm.Sandbox.DataStructures
+namespace Algorithm.Sandbox.Sorting
 {
-    class SuffixTree
+    class AsHeapSort
     {
     }
 }

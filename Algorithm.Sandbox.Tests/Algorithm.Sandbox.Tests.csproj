@@ -65,8 +65,11 @@
     <Compile Include="DataStructures\BinaryTree_Tests.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems_Tests.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems_Tests.cs" />
+    <Compile Include="DynamicProgramming\TowerOfHanoi_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\SortTests.cs" />
+    <Compile Include="String\Permutate.cs" />
+    <Compile Include="String\SubSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithm.Sandbox\Algorithm.Sandbox.csproj">

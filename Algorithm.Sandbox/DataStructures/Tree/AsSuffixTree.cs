@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm.Sandbox.DynamicProgramming
+namespace Algorithm.Sandbox.DataStructures
 {
-    class DistinctBinaryStrings
+    class AsSuffixTree
     {
-
     }
 }
