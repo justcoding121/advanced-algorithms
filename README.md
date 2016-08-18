@@ -8,8 +8,8 @@ Various important computer science algorithms implemented in C#
 * SkipList
 
 ### Hash Dictionaries
-* HashSet
-* [TreeHashSet](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/HashSet/AsHashSet.cs)
+* [HashSet](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/HashSet/AsHashSet.cs)
+* TreeHashSet
 
 ### Stack
 * [Stack](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Stack/AsStack.cs)
