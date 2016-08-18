@@ -16,6 +16,7 @@ Various important computer science algorithms implemented in C#
 
 ### Queue
 * [Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/AsQueue.cs)
+
 #### PriorityQueue
 * [MinPriority Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/PriorityQueue/Min/AsPriorityQueue.cs)
  
