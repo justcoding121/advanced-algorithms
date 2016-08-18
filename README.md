@@ -7,6 +7,9 @@ Various important computer science algorithms implemented in C#
 * ArrayList (dynamic array)
 * SkipList
 
+### Hash Dictionaries
+* HashSet
+* TreeHashSet
 ### Stack
 * Stack
 
@@ -18,6 +21,11 @@ Various important computer science algorithms implemented in C#
 * Doubly linked list
 * Circular linked list
 
+###Heap
+* BinomialMinHeap
+* BinaryMinHeap
+* FibornacciMinHeap
+* PairingHeap
 ### Tree
 * AVL Tree
 * Binary Indexed Tree
@@ -34,3 +42,17 @@ Various important computer science algorithms implemented in C#
 * Treap Tree
 * Tree
 * Trie
+
+### Graph
+
+#### Adjacency List
+*DiGraph
+*Graph
+*Weighted DiGraph
+*Weighted Graph
+
+#### Adjacency Matrix
+*DiGraph
+*Graph
+*Weighted DiGraph
+*Weighted Graph
