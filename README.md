@@ -26,10 +26,12 @@ Various important computer science algorithms implemented in C#
 * [Circular linked list](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/LinkedList/AsCircularLinkedList.cs)
 
 ###Heap
+
+####Min
 * BinomialMinHeap
 * [BinaryMinHeap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsBMinHeap.cs)
 * FibornacciMinHeap
-* PairingHeap
+* PairingMinHeap
 
 ### Tree
 * [AVL Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsAvlTree.cs)
