@@ -175,4 +175,4 @@ Various important computer science algorithms implemented in C#
 * [SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs)
 
 ##Compression
-* [Huffman Coding](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Compression/Huffman.cs)
+* Huffman Coding
