@@ -4,34 +4,35 @@ Various important computer science algorithms implemented in C#
 
 ##Data Structures
 ### List
-* ArrayList (dynamic array)
+* [ArrayList](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/List/AsArrayList.cs) (dynamic array)
 * SkipList
 
 ### Hash Dictionaries
 * HashSet
-* TreeHashSet
+* [TreeHashSet](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/HashSet/AsHashSet.cs)
 
 ### Stack
-* Stack
+* [Stack](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Stack/AsStack.cs)
 
 ### Queue
-* Queue
+* [Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/AsQueue.cs)
+* [Priority Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/AsPriorityQueue.cs)
  
 ###Linked List
-* Singly linked list
-* Doubly linked list
-* Circular linked list
+* [Singly linked list](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/LinkedList/AsSinglyLinkedList.cs)
+* [Doubly linked list](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/LinkedList/AsDoublyLinkedList.cs)
+* [Circular linked list](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/LinkedList/AsCircularLinkedList.cs)
 
 ###Heap
 * BinomialMinHeap
-* BinaryMinHeap
+* [BinaryMinHeap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/AsBMinHeap.cs)
 * FibornacciMinHeap
 * PairingHeap
 
 ### Tree
-* AVL Tree
+* [AVL Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsAvlTree.cs)
 * Binary Indexed Tree
-* Binary Tree
+* [Binary Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBinaryTree.cs)
 * Binary Search Tree
 * Interval Tree
 * K-D Tree
@@ -42,7 +43,7 @@ Various important computer science algorithms implemented in C#
 * Splay Tree
 * Suffic Tree
 * Treap Tree
-* Tree
+* [Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTree.cs)
 * Trie
 
 ### Graph
