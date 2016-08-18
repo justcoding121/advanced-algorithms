@@ -48,18 +48,19 @@
   <ItemGroup>
     <Compile Include="BackTracking\HamiltonianCycle.cs" />
     <Compile Include="Compression\Huffman.cs" />
+    <Compile Include="DataStructures\Heap\Min\AsBinomialMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\Min\AsBMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\Min\AsFibornacciMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\Min\AsPairingMinHeap.cs" />
     <Compile Include="DataStructures\List\AsArrayList.cs" />
     <Compile Include="DataStructures\Tree\AsAvlTree.cs" />
     <Compile Include="DataStructures\Tree\AsBinaryIndexedTree.cs" />
-    <Compile Include="DataStructures\Heap\AsFibornacciMinHeap.cs" />
-    <Compile Include="DataStructures\Heap\AsBinomialMinHeap.cs" />
     <Compile Include="DataStructures\Tree\AsBST.cs" />
     <Compile Include="DataStructures\Tree\AsBinaryTree.cs" />
     <Compile Include="DataStructures\LinkedList\AsCircularLinkedList.cs" />
     <Compile Include="DataStructures\Tree\AsIntervalTree.cs" />
     <Compile Include="DataStructures\Tree\AsK_DTree.cs" />
     <Compile Include="DataStructures\Tree\AsN_aryTree.cs" />
-    <Compile Include="DataStructures\Heap\AsPairingHeap.cs" />
     <Compile Include="DataStructures\Tree\AsRangeTree.cs" />
     <Compile Include="DataStructures\Tree\AsSegmentTree.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\AsWeightedDiGraph.cs" />
@@ -68,8 +69,7 @@
     <Compile Include="DataStructures\Graph\AdjacencyList\AsGraph.cs" />
     <Compile Include="DataStructures\HashSet\AsHashSet.cs" />
     <Compile Include="DataStructures\Matrix\AsMatrix.cs" />
-    <Compile Include="DataStructures\Heap\AsBMinHeap.cs" />
-    <Compile Include="DataStructures\Queue\AsPriorityQueue.cs" />
+    <Compile Include="DataStructures\Queue\PriorityQueue\Min\AsPriorityQueue.cs" />
     <Compile Include="DataStructures\Queue\AsQueue.cs" />
     <Compile Include="DataStructures\Tree\AsRedBlackTree.cs" />
     <Compile Include="DataStructures\LinkedList\AsSinglyLinkedList.cs" />
@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataStructures\Graph\AdjancencyMatrix\" />
+    <Folder Include="DataStructures\Heap\Max\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
