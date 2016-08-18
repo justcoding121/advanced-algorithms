@@ -29,7 +29,7 @@ namespace Algorithm.Sandbox.DataStructures
         private AsAVLTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //O(log(n)) always
         public bool HasItem(T value)
         {
             if (Root == null)
@@ -40,7 +40,7 @@ namespace Algorithm.Sandbox.DataStructures
             return Find(Root, value) != null;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //O(1)
         public int GetHeight()
         {
             if (Root == null)
@@ -50,7 +50,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //O(log(n)) always
         public void Insert(T value)
         {
             if (Root == null)
@@ -63,7 +63,7 @@ namespace Algorithm.Sandbox.DataStructures
             insert(Root, value);
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //O(log(n)) always
         private void insert(AsAVLTreeNode<T> node, T value)
         {
             if (HasItem(value))
@@ -108,9 +108,8 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
 
-
         //remove the node with the given identifier from the descendants 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //O(log(n)) always
         public void Delete(T value)
         {
             if (Root == null)
@@ -121,10 +120,10 @@ namespace Algorithm.Sandbox.DataStructures
             delete(Root, value);
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //O(log(n)) always
         private void delete(AsAVLTreeNode<T> node, T value)
         {
-            var deleted = false;
+            var baseCase = false;
 
             if (HasItem(value) == false)
             {
@@ -133,7 +132,17 @@ namespace Algorithm.Sandbox.DataStructures
 
             var compareResult = node.Value.CompareTo(value);
 
-            if (compareResult == 0)
+            //node is less than the search value so move right to find the deletion node
+            if (compareResult < 0)
+            {
+                delete(node.Right, value);
+            }
+            //node is less than the search value so move left to find the deletion node
+            else if (compareResult > 0)
+            {
+                delete(node.Left, value);
+            }
+            else
             {
                 //node is a leaf node
                 if (node.IsLeaf)
@@ -152,7 +161,7 @@ namespace Algorithm.Sandbox.DataStructures
                     {
                         node.Parent.Right = null;
                     }
-                    deleted = true;
+                    baseCase = true;
                     Count--;
                 }
                 else
@@ -181,7 +190,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                             node.Left.Parent = node.Parent;
                         }
-                        deleted = true;
+                        baseCase = true;
                         Count--;
                     }
                     //case two - left tree is null  (move sub tree up)
@@ -208,7 +217,7 @@ namespace Algorithm.Sandbox.DataStructures
                             node.Right.Parent = node.Parent;
 
                         }
-                        deleted = true;
+                        baseCase = true;
                         Count--;
                     }
                     //case three - two child trees 
@@ -224,20 +233,9 @@ namespace Algorithm.Sandbox.DataStructures
                         delete(node.Left, maxLeftNode.Value);
                     }
                 }
-
-            }
-            //node is less than the search value so move right to find the deletion node
-            else if (compareResult < 0)
-            {
-                delete(node.Right, value);
-            }
-            //node is less than the search value so move left to find the deletion node
-            else
-            {
-                delete(node.Left, value);
             }
 
-            if(deleted)
+            if (baseCase)
             {
                 UpdateHeight(node.Parent);
             }
@@ -245,7 +243,7 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 UpdateHeight(node);
             }
-         
+
             Balance(node);
         }
 
@@ -464,7 +462,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         private void UpdateHeight(AsAVLTreeNode<T> node)
         {
-            if(node==null)
+            if (node == null)
             {
                 return;
             }
@@ -475,7 +473,7 @@ namespace Algorithm.Sandbox.DataStructures
                                                  node.Left.Right == null ? 0 : node.Left.Right.Height + 1);
             }
 
-            if(node.Right!=null)
+            if (node.Right != null)
             {
                 node.Right.Height = Math.Max(node.Right.Left == null ? 0 : node.Right.Left.Height + 1,
                                   node.Right.Right == null ? 0 : node.Right.Right.Height + 1);

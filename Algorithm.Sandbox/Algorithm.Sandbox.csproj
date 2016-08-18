@@ -62,10 +62,10 @@
     <Compile Include="DataStructures\Heap\AsPairingHeap.cs" />
     <Compile Include="DataStructures\Tree\AsRangeTree.cs" />
     <Compile Include="DataStructures\Tree\AsSegmentTree.cs" />
-    <Compile Include="DataStructures\Graph\AsWeightedDiGraph.cs" />
-    <Compile Include="DataStructures\Graph\AsDiGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\AsWeightedDiGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\AsDiGraph.cs" />
     <Compile Include="DataStructures\LinkedList\AsDoublyLinkedList.cs" />
-    <Compile Include="DataStructures\Graph\AsGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\AsGraph.cs" />
     <Compile Include="DataStructures\HashSet\AsHashSet.cs" />
     <Compile Include="DataStructures\Matrix\AsMatrix.cs" />
     <Compile Include="DataStructures\Heap\AsBMinHeap.cs" />
@@ -80,7 +80,7 @@
     <Compile Include="DataStructures\Tree\AsTree.cs" />
     <Compile Include="DataStructures\HashSet\AsTreeHashSet.cs" />
     <Compile Include="DataStructures\Tree\AsTrie.cs" />
-    <Compile Include="DataStructures\Graph\AsWeightedGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\AsWeightedGraph.cs" />
     <Compile Include="DataStructures\List\AsSkipList.cs" />
     <Compile Include="DataStructures\String\AsSuffixArray.cs" />
     <Compile Include="DataStructures\Tree\AsSuffixTree.cs" />
@@ -147,7 +147,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DataStructures\Graph\AdjancencyMatrix\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
