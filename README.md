@@ -94,8 +94,8 @@ Various important computer science algorithms implemented in C#
 
 ##Geometry
 
-*Closest point pair
-*Convex Hull
+* Closest point pair
+* Convex Hull
 
 ##Image Processing
 
@@ -118,47 +118,47 @@ Various important computer science algorithms implemented in C#
 
 ###Flow
 
-*Maximum Flow
-*Minimum Flow
+* Maximum Flow
+* Minimum Flow
 
 ###Matching
 
-*BiPartite Matching
+* BiPartite Matching
 
 ###Minimum Spanning Tree
 
-*Kruskals
-*Prims
+* Kruskals
+* Prims
 
 ###Search
 
-*Bi-Directional
-*Breadth First
-*Depth First
+* Bi-Directional
+* Breadth First
+* Depth First
 
 ###Shortest Path
 
-*Bellman-Ford algorithm
-*Dijikstras algorithm
-*Floyd-Warshall algorithm
-*Johnsons algorithm
+* Bellman-Ford algorithm
+* Dijikstras algorithm
+* Floyd-Warshall algorithm
+* Johnsons algorithm
 
 ##Sets
 
-*[SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sets/SubSets.cs)
+* [SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sets/SubSets.cs)
 
 ##Sorting
 
-*Bucket Sort
-*Counting Sort
-*Heap Sort
-*Shell Sort
-*Tree Sort
-*[Bubble Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/BubbleSort.cs)
-*[Insertion Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/InsertionSort.cs)
-*[Merge Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/MergeSort.cs)
-*Radix Sort
-*[Selection Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/SelectionSort.cs)
+* Bucket Sort
+* Counting Sort
+* Heap Sort
+* Shell Sort
+* Tree Sort
+* [Bubble Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/BubbleSort.cs)
+* [Insertion Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/InsertionSort.cs)
+* [Merge Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/MergeSort.cs)
+* Radix Sort
+* [Selection Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/SelectionSort.cs)
 
 ##String
 
