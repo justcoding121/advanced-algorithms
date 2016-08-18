@@ -35,7 +35,7 @@ Various important computer science algorithms implemented in C#
 * [AVL Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsAvlTree.cs)
 * Binary Indexed Tree
 * [Binary Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBinaryTree.cs)
-* Binary Search Tree
+* [Binary Search Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBST.cs)
 * Interval Tree
 * K-D Tree
 * N-ary Tree
@@ -47,6 +47,7 @@ Various important computer science algorithms implemented in C#
 * Treap Tree
 * [Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTree.cs)
 * Trie
+* Decision Tree
 
 ### Graph
 
@@ -96,9 +97,16 @@ Various important computer science algorithms implemented in C#
 
 * Closest point pair
 * Convex Hull
+* K-Means clustering
+* Line Clipping
+* Rotation
+* Translation
+* Scale
 
 ##Image Processing
 
+* Thresholding
+* Smoothing
 * Edge Detection
 * Circle/Line detection
 
@@ -135,6 +143,7 @@ Various important computer science algorithms implemented in C#
 * Bi-Directional
 * Breadth First
 * Depth First
+* A* Search
 
 ###Shortest Path
 
