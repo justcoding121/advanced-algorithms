@@ -62,7 +62,9 @@ Various important computer science algorithms implemented in C#
 * Weighted DiGraph
 * Weighted Graph
 
-#Dynamic Programming
+#Algorithms
+
+##Dynamic Programming
 
 * Balannced Partition
 * [Coin Change Problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs)
@@ -90,49 +92,49 @@ Various important computer science algorithms implemented in C#
 * Word Break problem
 * [KnapSack problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs)
 
-#Geometry
+##Geometry
 *Closest point pair
 *Convex Hull
 
-#Image Processing
+##Image Processing
 * Edge Detection
 * Circle/Line detection
 
-#Graph Algorithms
+##Graph Algorithms
 
-##Coloring
+###Coloring
 * MColoring
 
-##Connectivity
+###Connectivity
 *Eulerian Path
 
-##Cover
+###Cover
 *Min Vertex Cover
 
-##Flow
+###Flow
 *Maximum Flow
 *Minimum Flow
 
-##Matching
+###Matching
 *BiPartite Matching
 
-##Minimum Spanning Tree
+###Minimum Spanning Tree
 *Kruskals
 *Prims
 
-##Search
+###Search
 
 *Bi-Directional
 *Breadth First
 *Depth First
 
-##Shortest Path
+###Shortest Path
 *Bellman-Ford algorithm
 *Dijikstras algorithm
 *Floyd-Warshall algorithm
 *Johnsons algorithm
 
-#Sets
+##Sets
 *[SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sets/SubSets.cs)
 
 ##Sorting
@@ -147,6 +149,6 @@ Various important computer science algorithms implemented in C#
 *Radix Sort
 *[Selection Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/SelectionSort.cs)
 
-#String
+##String
 * Permutation
 * Rabin-Karp sub string search
