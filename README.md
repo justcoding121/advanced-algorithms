@@ -52,10 +52,10 @@ Various important computer science algorithms implemented in C#
 ### Graph
 
 #### Adjacency List
-* DiGraph
-* Graph
-* Weighted DiGraph
-* Weighted Graph
+* [DiGraph](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyList/AsDiGraph.cs)
+* [Graph](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyList/AsGraph.cs)
+* [Weighted DiGraph](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyList/AsWeightedDiGraph.cs)
+* [Weighted Graph](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyList/AsWeightedGraph.cs)
 
 #### Adjacency Matrix
 * DiGraph
