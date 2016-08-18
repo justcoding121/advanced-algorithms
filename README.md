@@ -160,6 +160,7 @@ Various important computer science algorithms implemented in C#
 
 ##Sorting
 
+* [Quick Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/QuickSort.cs)
 * Bucket Sort
 * Counting Sort
 * Heap Sort
