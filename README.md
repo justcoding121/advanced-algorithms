@@ -10,6 +10,7 @@ Various important computer science algorithms implemented in C#
 ### Hash Dictionaries
 * HashSet
 * TreeHashSet
+
 ### Stack
 * Stack
 
@@ -26,6 +27,7 @@ Various important computer science algorithms implemented in C#
 * BinaryMinHeap
 * FibornacciMinHeap
 * PairingHeap
+
 ### Tree
 * AVL Tree
 * Binary Indexed Tree
