@@ -61,3 +61,92 @@ Various important computer science algorithms implemented in C#
 * Graph
 * Weighted DiGraph
 * Weighted Graph
+
+#Dynamic Programming
+
+* Balannced Partition
+* [Coin Change Problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs)
+* Count Bool Parathesization
+* Count Decodings
+* Dice Throw
+* Distinct Binary Strings
+* Longest Common Sub Sequence
+* Longest Increasing Sub Sequence
+* Longest Palindrome
+* Matrix Multiplication
+* Maximum Sub Matrix
+* Maximum Value Sub Sequence
+* Min Edit Distance
+* Min Array Jumps
+* Optimal Game Strategy
+* Palindrome Min Cut
+* Print Max As
+* Shortest Palindrome
+* Sub Set Sum
+* Text Justification
+* [Tower Of Hanoi](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs)
+* Two Person City Traversal
+* Unique Binary Search Tree
+* Word Break problem
+* [KnapSack problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs)
+
+#Geometry
+*Closest point pair
+*Convex Hull
+
+#Image Processing
+* Edge Detection
+* Circle/Line detection
+
+#Graph Algorithms
+
+##Coloring
+* MColoring
+
+##Connectivity
+*Eulerian Path
+
+##Cover
+*Min Vertex Cover
+
+##Flow
+*Maximum Flow
+*Minimum Flow
+
+##Matching
+*BiPartite Matching
+
+##Minimum Spanning Tree
+*Kruskals
+*Prims
+
+##Search
+
+*Bi-Directional
+*Breadth First
+*Depth First
+
+##Shortest Path
+*Bellman-Ford algorithm
+*Dijikstras algorithm
+*Floyd-Warshall algorithm
+*Johnsons algorithm
+
+#Sets
+*[SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sets/SubSets.cs)
+
+##Sorting
+*Bucket Sort
+*Counting Sort
+*Heap Sort
+*Shell Sort
+*Tree Sort
+*[Bubble Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/BubbleSort.cs)
+*[Insertion Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/InsertionSort.cs)
+*[Merge Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/MergeSort.cs)
+*Radix Sort
+*[Selection Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/SelectionSort.cs)
+
+#String
+* Permutation
+* Rabin-Karp sub string search
