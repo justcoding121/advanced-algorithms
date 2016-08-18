@@ -110,11 +110,11 @@ Various important computer science algorithms implemented in C#
 
 ###Connectivity
 
-*Eulerian Path
+* Eulerian Path
 
 ###Cover
 
-*Min Vertex Cover
+* Min Vertex Cover
 
 ###Flow
 
