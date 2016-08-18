@@ -16,7 +16,8 @@ Various important computer science algorithms implemented in C#
 
 ### Queue
 * [Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/AsQueue.cs)
-* [Priority Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/AsPriorityQueue.cs)
+#### PriorityQueue
+* [MinPriority Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/PriorityQueue/Min/AsPriorityQueue.cs)
  
 ###Linked List
 * [Singly linked list](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/LinkedList/AsSinglyLinkedList.cs)
@@ -25,7 +26,7 @@ Various important computer science algorithms implemented in C#
 
 ###Heap
 * BinomialMinHeap
-* [BinaryMinHeap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/AsBMinHeap.cs)
+* [BinaryMinHeap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsBMinHeap.cs)
 * FibornacciMinHeap
 * PairingHeap
 
