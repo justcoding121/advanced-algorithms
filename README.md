@@ -46,13 +46,13 @@ Various important computer science algorithms implemented in C#
 ### Graph
 
 #### Adjacency List
-*DiGraph
-*Graph
-*Weighted DiGraph
-*Weighted Graph
+* DiGraph
+* Graph
+* Weighted DiGraph
+* Weighted Graph
 
 #### Adjacency Matrix
-*DiGraph
-*Graph
-*Weighted DiGraph
-*Weighted Graph
+* DiGraph
+* Graph
+* Weighted DiGraph
+* Weighted Graph
