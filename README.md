@@ -93,32 +93,40 @@ Various important computer science algorithms implemented in C#
 * [KnapSack problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs)
 
 ##Geometry
+
 *Closest point pair
 *Convex Hull
 
 ##Image Processing
+
 * Edge Detection
 * Circle/Line detection
 
 ##Graph Algorithms
 
 ###Coloring
+
 * MColoring
 
 ###Connectivity
+
 *Eulerian Path
 
 ###Cover
+
 *Min Vertex Cover
 
 ###Flow
+
 *Maximum Flow
 *Minimum Flow
 
 ###Matching
+
 *BiPartite Matching
 
 ###Minimum Spanning Tree
+
 *Kruskals
 *Prims
 
@@ -129,15 +137,18 @@ Various important computer science algorithms implemented in C#
 *Depth First
 
 ###Shortest Path
+
 *Bellman-Ford algorithm
 *Dijikstras algorithm
 *Floyd-Warshall algorithm
 *Johnsons algorithm
 
 ##Sets
+
 *[SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sets/SubSets.cs)
 
 ##Sorting
+
 *Bucket Sort
 *Counting Sort
 *Heap Sort
@@ -150,5 +161,6 @@ Various important computer science algorithms implemented in C#
 *[Selection Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/SelectionSort.cs)
 
 ##String
+
 * Permutation
 * Rabin-Karp sub string search
