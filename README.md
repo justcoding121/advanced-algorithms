@@ -154,10 +154,6 @@ Various important computer science algorithms implemented in C#
 * Floyd-Warshall algorithm
 * Johnsons algorithm
 
-##Sets
-
-* [SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sets/SubSets.cs)
-
 ##Sorting
 
 * [Quick Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/QuickSort.cs)
@@ -176,3 +172,4 @@ Various important computer science algorithms implemented in C#
 
 * Permutation
 * Rabin-Karp sub string search
+* [SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs)
