@@ -4,11 +4,11 @@ Various important computer science algorithms implemented in C#
 
 ##Data Structures
 ### List
-* [ArrayList](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/List/AsArrayList.cs) (dynamic array)
+* [Array List](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/List/AsArrayList.cs) (dynamic array)
 * SkipList
 
 ### Hash Dictionaries
-* [HashSet](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/HashSet/AsHashSet.cs)
+* [Hash Set](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/HashSet/AsHashSet.cs)
 * TreeHashSet
 
 ### Stack
@@ -17,8 +17,8 @@ Various important computer science algorithms implemented in C#
 ### Queue
 * [Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/AsQueue.cs)
 
-#### PriorityQueue
-* [MinPriority Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/PriorityQueue/Min/AsPriorityQueue.cs)
+#### Priority Queue
+* [Min Priority Queue](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/PriorityQueue/Min/AsPriorityQueue.cs)
  
 ###Linked List
 * [Singly linked list](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/LinkedList/AsSinglyLinkedList.cs)
@@ -28,10 +28,10 @@ Various important computer science algorithms implemented in C#
 ###Heap
 
 ####Min
-* BinomialMinHeap
-* [BinaryMinHeap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsBMinHeap.cs)
-* FibornacciMinHeap
-* PairingMinHeap
+* Binomial Min Heap
+* [Binary Min Heap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsBMinHeap.cs)
+* Fibornacci Min Heap
+* Pairing Min Heap
 
 ### Tree
 * [AVL Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsAvlTree.cs)
@@ -45,7 +45,7 @@ Various important computer science algorithms implemented in C#
 * Red Black Tree
 * Segment Tree
 * Splay Tree
-* Suffic Tree
+* Suffix Tree
 * Treap Tree
 * [Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTree.cs)
 * Trie
@@ -69,7 +69,8 @@ Various important computer science algorithms implemented in C#
 
 ##Dynamic Programming
 
-* Balannced Partition
+* Fibornacci Number Generator
+* Balanced Partition
 * [Coin Change Problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs)
 * Count Bool Parathesization
 * Count Decodings
@@ -104,6 +105,7 @@ Various important computer science algorithms implemented in C#
 * Rotation
 * Translation
 * Scale
+* Eucledian plane
 
 ##Image Processing
 
@@ -147,6 +149,10 @@ Various important computer science algorithms implemented in C#
 * Depth First
 * A* Search
 
+###Sorting
+
+* Topological Sort
+
 ###Shortest Path
 
 * Bellman-Ford algorithm
@@ -176,3 +182,45 @@ Various important computer science algorithms implemented in C#
 
 ##Compression
 * Huffman Coding
+
+##Numbers
+
+* Check Primality
+* Generate Primes
+* Greatest Common Divisor
+* Least Common Multiplier
+* Fast Exponentiation
+* Discrete Fourier Transform
+* Median
+* Mode
+* Matrix multiplication
+* Matrix Addition
+* Matrix Substraction
+* Matrix division
+* Matrix determinant
+* Arithmetric progression generator
+* Geometrix progression generator
+* Fast Multiplication
+
+##Bit algorithms
+
+* Base Conversion
+* Clear Bit
+* Update Bit
+* Get Bit
+* Set Bit
+* Shift and Add Multiplication
+*
+##Probability and Statistics
+
+* Probility Density Function
+* Probabilty Mass Function
+* Cumilative distribution Function
+* Random Number Generation 
+* Variance
+* Poisson Distribution
+* Kalman Filter
+
+##Calculus
+
+* 
