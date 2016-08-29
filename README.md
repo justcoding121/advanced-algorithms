@@ -210,7 +210,7 @@ Various important computer science algorithms implemented in C#
 * Get Bit
 * Set Bit
 * Shift and Add Multiplication
-*
+
 ##Probability and Statistics
 
 * Probility Density Function
@@ -221,6 +221,3 @@ Various important computer science algorithms implemented in C#
 * Poisson Distribution
 * Kalman Filter
 
-##Calculus
-
-* 
