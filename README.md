@@ -183,7 +183,7 @@ Various important computer science algorithms implemented in C#
 ##Compression
 * Huffman Coding
 
-##Numbers
+##Numerical Methods
 
 * Check Primality
 * Generate Primes
@@ -200,7 +200,19 @@ Various important computer science algorithms implemented in C#
 * Matrix determinant
 * Arithmetric progression generator
 * Geometrix progression generator
+* Harmonic progression generator
 * Fast Multiplication
+* Shuffiling
+* Interpolation
+* Fast Division
+* Linear Equations
+* Non-Linear Equations
+* Numerical Integration
+* Numberical Differentiation
+* Ordinary Differential Equations
+* Partial Differential Equations
+* Curve Fitting Methods
+ 
 
 ##Bit algorithms
 
