@@ -5,11 +5,11 @@ Various important computer science algorithms implemented in C#
 ##Data Structures
 ### List
 * [Array List](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/List/AsArrayList.cs) (dynamic array)
-* SkipList
+* Skip List
 
 ### Hash Dictionaries
 * [Hash Set](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/HashSet/AsHashSet.cs)
-* TreeHashSet
+* Tree HashSet
 
 ### Stack
 * [Stack](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Stack/AsStack.cs)
@@ -30,7 +30,7 @@ Various important computer science algorithms implemented in C#
 ####Min
 * Binomial Min Heap
 * [Binary Min Heap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsBMinHeap.cs)
-* Fibornacci Min Heap
+* Fibonacci Min Heap
 * Pairing Min Heap
 
 ### Tree
@@ -69,11 +69,11 @@ Various important computer science algorithms implemented in C#
 
 ##Dynamic Programming
 
-* Fibornacci Number Generator
+* Fibonacci Number Generator
 * Balanced Partition
 * [Coin Change Problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs)
-* Count Bool Parathesization
-* Count Decodings
+* Count Bool Parenthesization
+* Count Decoding
 * Dice Throw
 * Distinct Binary Strings
 * Longest Common Sub Sequence
@@ -94,7 +94,7 @@ Various important computer science algorithms implemented in C#
 * Two Person City Traversal
 * Unique Binary Search Tree
 * Word Break problem
-* [KnapSack problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs)
+* [Knapsack problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs)
 
 ##Geometry
 
@@ -105,7 +105,7 @@ Various important computer science algorithms implemented in C#
 * Rotation
 * Translation
 * Scale
-* Eucledian plane
+* Euclidian plane
 
 ##Image Processing
 
@@ -118,7 +118,7 @@ Various important computer science algorithms implemented in C#
 
 ###Coloring
 
-* MColoring
+* M-Coloring
 
 ###Connectivity
 
@@ -135,7 +135,7 @@ Various important computer science algorithms implemented in C#
 
 ###Matching
 
-* BiPartite Matching
+* Bipartite Matching
 
 ###Minimum Spanning Tree
 
@@ -195,20 +195,20 @@ Various important computer science algorithms implemented in C#
 * Mode
 * Matrix multiplication
 * Matrix Addition
-* Matrix Substraction
+* Matrix Subtraction
 * Matrix division
 * Matrix determinant
-* Arithmetric progression generator
-* Geometrix progression generator
+* Arithmetic progression generator
+* Geometric progression generator
 * Harmonic progression generator
 * Fast Multiplication
-* Shuffiling
+* Shuffling
 * Interpolation
 * Fast Division
 * Linear Equations
 * Non-Linear Equations
 * Numerical Integration
-* Numberical Differentiation
+* Numerical Differentiation
 * Ordinary Differential Equations
 * Partial Differential Equations
 * Curve Fitting Methods
@@ -225,9 +225,9 @@ Various important computer science algorithms implemented in C#
 
 ##Probability and Statistics
 
-* Probility Density Function
-* Probabilty Mass Function
-* Cumilative distribution Function
+* Probability Density Function
+* Probability Mass Function
+* Cumulative distribution Function
 * Random Number Generation 
 * Variance
 * Poisson Distribution
