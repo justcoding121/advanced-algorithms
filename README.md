@@ -198,20 +198,11 @@ Various important computer science algorithms implemented in C#
 * Matrix Subtraction
 * Matrix division
 * Matrix determinant
-* Arithmetic progression generator
-* Geometric progression generator
-* Harmonic progression generator
 * Fast Multiplication
 * Shuffling
 * Interpolation
 * Fast Division
-* Linear Equations
-* Non-Linear Equations
-* Numerical Integration
-* Numerical Differentiation
-* Ordinary Differential Equations
-* Partial Differential Equations
-* Curve Fitting Methods
+* Curve Fitting 
  
 
 ##Bit algorithms
@@ -225,11 +216,8 @@ Various important computer science algorithms implemented in C#
 
 ##Probability and Statistics
 
-* Probability Density Function
-* Probability Mass Function
-* Cumulative distribution Function
 * Random Number Generation 
-* Variance
-* Poisson Distribution
-* Kalman Filter
+
+
+
 
