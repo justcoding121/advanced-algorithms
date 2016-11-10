@@ -1,5 +1,6 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Algorithm.Sandbox.Tests.DataStructures
 {
@@ -7,7 +8,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
     public class AVLTree_Tests
     {
         /// <summary>
-        /// A tree test
+        /// Smoke test
         /// </summary>
         [TestMethod]
         public void AVLTree_Test()
@@ -86,6 +87,30 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             Assert.AreEqual(tree.Count, 0);
 
             tree.Insert(31);
+        }
+
+        [TestMethod]
+        public void AVLTree_StressTest()
+        {
+            var nodeCount = 1000 * 10;
+
+            var tree = new AsAVLTree<int>();
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Insert(i);
+            }
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                Assert.IsTrue(tree.HasItem(i));
+            }
+
+            var actualHeight = tree.GetHeight();
+
+            var maxHeight = Math.Log(nodeCount, 2);
+
+            Assert.IsTrue(actualHeight < maxHeight);
         }
     }
 }

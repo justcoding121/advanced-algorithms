@@ -129,7 +129,6 @@
     <Compile Include="GraphAlgorithms\ShortestPath\Floyd-Warshall.cs" />
     <Compile Include="GraphAlgorithms\ShortestPath\Johnsons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sets\SubSets.cs" />
     <Compile Include="Sorting\AsBucketSort.cs" />
     <Compile Include="Sorting\AsCountingSort.cs" />
     <Compile Include="Sorting\AsHeapSort.cs" />

@@ -60,16 +60,17 @@ namespace Algorithm.Sandbox.DataStructures
                 return;
             }
 
+            if (HasItem(value))
+            {
+                throw new Exception("Item exists");
+            }
             insert(Root, value);
         }
 
         //O(log(n)) always
         private void insert(AsAVLTreeNode<T> node, T value)
         {
-            if (HasItem(value))
-            {
-                throw new Exception("Item exists");
-            }
+           
 
             var compareResult = node.Value.CompareTo(value);
 

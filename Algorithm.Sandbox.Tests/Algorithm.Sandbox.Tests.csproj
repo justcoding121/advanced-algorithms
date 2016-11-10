@@ -59,6 +59,7 @@
     <Compile Include="DataStructures\HashSet_Tests.cs" />
     <Compile Include="DataStructures\PriorityQueue_Tests.cs" />
     <Compile Include="DataStructures\Queue_Tests.cs" />
+    <Compile Include="DataStructures\RedBlackTree_Tests.cs" />
     <Compile Include="DataStructures\SinglyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\Stack_Tests.cs" />
     <Compile Include="DataStructures\StringBuilder_Tests.cs" />
@@ -70,7 +71,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\SortTests.cs" />
     <Compile Include="String\Permutate.cs" />
-    <Compile Include="String\SubSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithm.Sandbox\Algorithm.Sandbox.csproj">
