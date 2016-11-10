@@ -412,11 +412,11 @@ namespace Algorithm.Sandbox.DataStructures
             nodeToBalance = nodeToBalance.Parent;
         }
 
-        private void swapColors(AsRedBlackTreeNode<T> parent1, AsRedBlackTreeNode<T> parent2)
+        private void swapColors(AsRedBlackTreeNode<T> node1, AsRedBlackTreeNode<T> node2)
         {
-            var tmpColor = parent2.NodeColor;
-            parent2.NodeColor = parent1.NodeColor;
-            parent1.NodeColor = tmpColor;
+            var tmpColor = node2.NodeColor;
+            node2.NodeColor = node1.NodeColor;
+            node1.NodeColor = tmpColor;
         }
 
         //O(log(n)) always
@@ -427,15 +427,17 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty Tree");
             }
 
+            if (HasItem(value) == false)
+            {
+                throw new Exception("Item do not exist");
+            }
+
             delete(Root, value);
         }
         //O(log(n)) always
         private void delete(AsRedBlackTreeNode<T> node, T value)
         {
-            if (HasItem(value) == false)
-            {
-                throw new Exception("Item do not exist");
-            }
+          
         }
     }
 }
