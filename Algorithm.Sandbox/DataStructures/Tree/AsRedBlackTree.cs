@@ -319,7 +319,8 @@ namespace Algorithm.Sandbox.DataStructures
                 if (nodeToBalance.Parent.NodeColor == RedBlackTreeNodeColor.Red)
                 {
                     //red sibling
-                    if (nodeToBalance.Parent.Sibling != null && nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Red)
+                    if (nodeToBalance.Parent.Sibling != null 
+                        && nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Red)
                     {
                         //mark both children of parent as black and move up balancing 
                         nodeToBalance.Parent.Sibling.NodeColor = RedBlackTreeNodeColor.Black;
