@@ -45,6 +45,37 @@ namespace Algorithm.Sandbox.DataStructures
             return GetHeight(Root);
         }
 
+        public bool VerifyIsBinarySearchTree()
+        {
+            return VerifyIsBinarySearchTree(Root);
+        }
+
+        private bool VerifyIsBinarySearchTree(AsRedBlackTreeNode<T> node)
+        {
+            if (node == null)
+            {
+                return true;
+            }
+
+            if(node.Left!=null)
+            {
+                if (node.Left.Value.CompareTo(node.Value) > 0)
+                {
+                    return false;
+                }
+            }
+
+            if (node.Right != null)
+            {
+                if (node.Right.Value.CompareTo(node.Value) < 0)
+                {
+                    return false;
+                }
+            }
+            return VerifyIsBinarySearchTree(node.Left) &&
+                VerifyIsBinarySearchTree(node.Right);
+        }
+
         //O(log(n)) worst O(n) for unbalanced tree
         private int GetHeight(AsRedBlackTreeNode<T> node)
         {
@@ -251,8 +282,10 @@ namespace Algorithm.Sandbox.DataStructures
         {
             nodeToBalance = currentNode;
 
+            var compareResult = currentNode.Value.CompareTo(newNodeValue);
+
             //current node is less than new item
-            if (currentNode.Value.CompareTo(currentNode.Value) < 0)
+            if (compareResult < 0)
             {
                 //no right child
                 if (currentNode.Right == null)
@@ -263,7 +296,7 @@ namespace Algorithm.Sandbox.DataStructures
                 }
                 else
                 {
-                    insert(Root.Left, newNodeValue);
+                    insert(currentNode.Right, newNodeValue);
                 }
 
             }

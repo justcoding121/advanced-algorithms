@@ -48,6 +48,36 @@ namespace Algorithm.Sandbox.DataStructures
 
             return Root.Height;
         }
+        public bool VerifyIsBinarySearchTree()
+        {
+            return VerifyIsBinarySearchTree(Root);
+        }
+
+        private bool VerifyIsBinarySearchTree(AsAVLTreeNode<T> node)
+        {
+            if (node == null)
+            {
+                return true;
+            }
+
+            if (node.Left != null)
+            {
+                if (node.Left.Value.CompareTo(node.Value) > 0)
+                {
+                    return false;
+                }
+            }
+
+            if (node.Right != null)
+            {
+                if (node.Right.Value.CompareTo(node.Value) < 0)
+                {
+                    return false;
+                }
+            }
+            return VerifyIsBinarySearchTree(node.Left) &&
+                VerifyIsBinarySearchTree(node.Right);
+        }
 
 
         //O(log(n)) always

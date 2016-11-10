@@ -1,6 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace Algorithm.Sandbox.Tests.DataStructures
 {
@@ -26,35 +27,42 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             tree.Insert(3);
             tree.Insert(4);
             tree.Insert(5);
-            tree.Insert(6);          
-            tree.Insert(7);          
-            tree.Insert(8);  
-            tree.Insert(9);  
+            tree.Insert(6);
+            tree.Insert(7);
+            tree.Insert(8);
+            tree.Insert(9);
             tree.Insert(10);
             tree.Insert(11);
-           
-  
+
+
         }
 
         [TestMethod]
         public void RedBlackTree_StressTest()
         {
             var nodeCount = 1000 * 10;
-           
+
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .Take(nodeCount).ToList();
+
             var tree = new AsRedBlackTree<int>();
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Insert(i);
+                tree.Insert(randomNumbers[i]);
             }
 
             for (int i = 0; i < nodeCount; i++)
             {
-                Assert.IsTrue(tree.HasItem(i));
+                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
 
+            Assert.IsTrue(tree.VerifyIsBinarySearchTree());
+
             var actualHeight = tree.GetHeight();
-          
+
             //http://doctrina.org/maximum-height-of-red-black-tree.html
             var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
 

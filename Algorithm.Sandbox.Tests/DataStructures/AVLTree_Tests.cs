@@ -1,6 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace Algorithm.Sandbox.Tests.DataStructures
 {
@@ -94,21 +95,29 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         {
             var nodeCount = 1000 * 10;
 
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .Take(nodeCount).ToList();
+
             var tree = new AsAVLTree<int>();
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Insert(i);
+                tree.Insert(randomNumbers[i]);
             }
 
             for (int i = 0; i < nodeCount; i++)
             {
-                Assert.IsTrue(tree.HasItem(i));
+                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
+
+            Assert.IsTrue(tree.VerifyIsBinarySearchTree());
 
             var actualHeight = tree.GetHeight();
 
-            var maxHeight = Math.Log(nodeCount, 2);
+            //http://stackoverflow.com/questions/30769383/finding-the-minimum-and-maximum-height-in-a-avl-tree-given-a-number-of-nodes
+            var maxHeight = 1.44 * Math.Log(nodeCount + 2, 2) - 0.328;
 
             Assert.IsTrue(actualHeight < maxHeight);
         }
