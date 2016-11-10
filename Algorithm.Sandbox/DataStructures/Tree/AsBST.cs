@@ -64,17 +64,17 @@ namespace Algorithm.Sandbox.DataStructures
                 return;
             }
 
+            if (HasItem(value))
+            {
+                throw new Exception("Item exists");
+            }
+
             insert(Root, value);
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
         private void insert(AsBSTNode<T> node, T value)
         {
-            if (HasItem(value))
-            {
-                throw new Exception("Item exists");
-            }
-
             var compareResult = node.Value.CompareTo(value);
 
             //node is less than the value so move right for insertion
@@ -116,16 +116,18 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty BST");
             }
 
+            if (HasItem(value) == false)
+            {
+                throw new Exception("Item do not exist");
+            }
+
             delete(Root, value);
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
         private void delete(AsBSTNode<T> node, T value)
         {
-            if(HasItem(value) == false)
-            {
-                throw new Exception("Item do not exist");
-            }
+           
 
             var compareResult = node.Value.CompareTo(value);
 

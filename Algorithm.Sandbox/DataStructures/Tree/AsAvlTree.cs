@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Algorithm.Sandbox.DataStructures.Tree;
+using System;
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsAVLTreeNode<T> where T : IComparable
+    public class AsAVLTreeNode<T> : AsIBSTNode<T> where T : IComparable
     {
         public T Value { get; set; }
 
@@ -22,11 +23,29 @@ namespace Algorithm.Sandbox.DataStructures
 
         public int Height { get; set; }
 
+        //exposed to do common tests for Binary Trees
+        AsIBSTNode<T> AsIBSTNode<T>.Left
+        {
+            get
+            {
+                return Left; 
+            }
+           
+        }
+
+        AsIBSTNode<T> AsIBSTNode<T>.Right
+        {
+            get
+            {
+                return Right;
+            }
+   
+        }
     }
 
     public class AsAVLTree<T> where T : IComparable
     {
-        private AsAVLTreeNode<T> Root { get; set; }
+        public AsAVLTreeNode<T> Root { get; private set; }
         public int Count { get; private set; }
 
         //O(log(n)) always
@@ -48,37 +67,6 @@ namespace Algorithm.Sandbox.DataStructures
 
             return Root.Height;
         }
-        public bool VerifyIsBinarySearchTree()
-        {
-            return VerifyIsBinarySearchTree(Root);
-        }
-
-        private bool VerifyIsBinarySearchTree(AsAVLTreeNode<T> node)
-        {
-            if (node == null)
-            {
-                return true;
-            }
-
-            if (node.Left != null)
-            {
-                if (node.Left.Value.CompareTo(node.Value) > 0)
-                {
-                    return false;
-                }
-            }
-
-            if (node.Right != null)
-            {
-                if (node.Right.Value.CompareTo(node.Value) < 0)
-                {
-                    return false;
-                }
-            }
-            return VerifyIsBinarySearchTree(node.Left) &&
-                VerifyIsBinarySearchTree(node.Right);
-        }
-
 
         //O(log(n)) always
         public void Insert(T value)
@@ -148,6 +136,11 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty AVLTree");
             }
 
+            if (HasItem(value) == false)
+            {
+                throw new Exception("Item do not exist");
+            }
+
             delete(Root, value);
         }
 
@@ -156,10 +149,6 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var baseCase = false;
 
-            if (HasItem(value) == false)
-            {
-                throw new Exception("Item do not exist");
-            }
 
             var compareResult = node.Value.CompareTo(value);
 

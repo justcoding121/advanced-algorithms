@@ -1,4 +1,5 @@
 ﻿using Algorithm.Sandbox.DataStructures;
+using Algorithm.Sandbox.Tests.DataStructures.Tree.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         ///  Smoke test
         /// </summary>
         [TestMethod]
-        public void RedBlackTree_Test()
+        public void RedBlackTree_Smoke_Test()
         {
             //insert test
             var tree = new AsRedBlackTree<int>();
@@ -45,7 +46,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount)
                                 .OrderBy(x => rnd.Next())
-                                .Take(nodeCount).ToList();
+                                .ToList();
 
             var tree = new AsRedBlackTree<int>();
 
@@ -59,7 +60,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
 
-            Assert.IsTrue(tree.VerifyIsBinarySearchTree());
+            Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
 
             var actualHeight = tree.GetHeight();
 

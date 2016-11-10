@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algorithm.Sandbox.DataStructures.Tree;
+using System;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -8,7 +9,7 @@ namespace Algorithm.Sandbox.DataStructures
         Red
     }
 
-    public class AsRedBlackTreeNode<T> where T : IComparable
+    public class AsRedBlackTreeNode<T> : AsIBSTNode<T> where T : IComparable
     {
         public T Value { get; set; }
 
@@ -26,6 +27,25 @@ namespace Algorithm.Sandbox.DataStructures
         public bool IsLeftChild => this.Parent.Left == this;
         public bool IsRightChild => this.Parent.Right == this;
 
+        //exposed to do common tests for Binary Trees
+        AsIBSTNode<T> AsIBSTNode<T>.Left
+        {
+            get
+            {
+                return Left;
+            }
+
+        }
+
+        AsIBSTNode<T> AsIBSTNode<T>.Right
+        {
+            get
+            {
+                return Right;
+            }
+
+        }
+
         public AsRedBlackTreeNode(AsRedBlackTreeNode<T> parent, T value)
         {
             Parent = parent;
@@ -36,7 +56,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsRedBlackTree<T> where T : IComparable
     {
-        public AsRedBlackTreeNode<T> Root { get; set; }
+        public AsRedBlackTreeNode<T> Root { get; private set; }
         public int Count { get; private set; }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -45,36 +65,6 @@ namespace Algorithm.Sandbox.DataStructures
             return GetHeight(Root);
         }
 
-        public bool VerifyIsBinarySearchTree()
-        {
-            return VerifyIsBinarySearchTree(Root);
-        }
-
-        private bool VerifyIsBinarySearchTree(AsRedBlackTreeNode<T> node)
-        {
-            if (node == null)
-            {
-                return true;
-            }
-
-            if(node.Left!=null)
-            {
-                if (node.Left.Value.CompareTo(node.Value) > 0)
-                {
-                    return false;
-                }
-            }
-
-            if (node.Right != null)
-            {
-                if (node.Right.Value.CompareTo(node.Value) < 0)
-                {
-                    return false;
-                }
-            }
-            return VerifyIsBinarySearchTree(node.Left) &&
-                VerifyIsBinarySearchTree(node.Right);
-        }
 
         //O(log(n)) worst O(n) for unbalanced tree
         private int GetHeight(AsRedBlackTreeNode<T> node)

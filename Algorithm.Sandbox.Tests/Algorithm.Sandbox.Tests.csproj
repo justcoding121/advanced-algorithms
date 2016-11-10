@@ -51,20 +51,21 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DataStructures\ArrayList_Tests.cs" />
-    <Compile Include="DataStructures\BMinHeap_Tests.cs" />
-    <Compile Include="DataStructures\AVLTree_Tests.cs" />
-    <Compile Include="DataStructures\BST_Tests.cs" />
+    <Compile Include="DataStructures\Heap\BMinHeap_Tests.cs" />
+    <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\BST_Tests.cs" />
     <Compile Include="DataStructures\CircularLinkedList_Tests.cs" />
     <Compile Include="DataStructures\DoublyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\HashSet_Tests.cs" />
     <Compile Include="DataStructures\PriorityQueue_Tests.cs" />
     <Compile Include="DataStructures\Queue_Tests.cs" />
-    <Compile Include="DataStructures\RedBlackTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\RedBlackTree_Tests.cs" />
     <Compile Include="DataStructures\SinglyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\Stack_Tests.cs" />
     <Compile Include="DataStructures\StringBuilder_Tests.cs" />
-    <Compile Include="DataStructures\Tree_Tests.cs" />
-    <Compile Include="DataStructures\BinaryTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
+    <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems_Tests.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems_Tests.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi_Tests.cs" />
