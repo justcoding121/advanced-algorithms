@@ -42,7 +42,7 @@ Various important computer science algorithms implemented in C#
 * K-D Tree
 * N-ary Tree
 * Range Tree
-* Red Black Tree
+* [Red Black Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsRedBlackTree.cs)
 * Segment Tree
 * Splay Tree
 * Suffix Tree
