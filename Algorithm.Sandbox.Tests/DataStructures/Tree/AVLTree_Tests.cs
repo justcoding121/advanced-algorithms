@@ -106,29 +106,39 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
-               // Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
-            }
 
-            for (int i = 0; i < nodeCount; i++)
-            {
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
+
+                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
+
+                var actualHeight = tree.GetHeight();
+
+                //http://stackoverflow.com/questions/30769383/finding-the-minimum-and-maximum-height-in-a-avl-tree-given-a-number-of-nodes
+                var maxHeight = 1.44 * Math.Log(nodeCount + 2, 2) - 0.328;
+
+                Assert.IsTrue(actualHeight < maxHeight);
+                Assert.IsTrue(tree.Count == i + 1);
             }
 
-            Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
-
-            var actualHeight = tree.GetHeight();
-
-            //http://stackoverflow.com/questions/30769383/finding-the-minimum-and-maximum-height-in-a-avl-tree-given-a-number-of-nodes
-            var maxHeight = 1.44 * Math.Log(nodeCount + 2, 2) - 0.328;
-
-            Assert.IsTrue(actualHeight < maxHeight);
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .ToList();
 
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
-               // Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
+
+                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
+
+                var actualHeight = tree.GetHeight();
+
+                //http://stackoverflow.com/questions/30769383/finding-the-minimum-and-maximum-height-in-a-avl-tree-given-a-number-of-nodes
+                var maxHeight = 1.44 * Math.Log(nodeCount + 2, 2) - 0.328;
+
+                Assert.IsTrue(actualHeight < maxHeight);
             }
 
+            Assert.IsTrue(tree.Count == 0);
         }
     }
 }

@@ -148,7 +148,6 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var baseCase = false;
 
-
             var compareResult = node.Value.CompareTo(value);
 
             //node is less than the search value so move right to find the deletion node
@@ -257,13 +256,15 @@ namespace Algorithm.Sandbox.DataStructures
             if (baseCase)
             {
                 UpdateHeight(node.Parent);
+                Balance(node.Parent);
             }
             else
             {
                 UpdateHeight(node);
+                Balance(node);
             }
 
-            Balance(node);
+            
         }
 
         public T FindMax()

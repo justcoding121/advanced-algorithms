@@ -509,6 +509,24 @@ namespace Algorithm.Sandbox.DataStructures
 
         }
 
+        private void deleteLeaf(AsRedBlackTreeNode<T> node)
+        {
+            //if node is root
+            if (node.Parent == null)
+            {
+                Root = null;
+            }
+            //assign nodes parent.left/right to null
+            else if (node.IsLeftChild)
+            {
+                node.Parent.Left = null;
+            }
+            else
+            {
+                node.Parent.Right = null;
+            }
+        }
+
         private void deleteRightNode(AsRedBlackTreeNode<T> node)
         {
             //root
@@ -723,22 +741,6 @@ namespace Algorithm.Sandbox.DataStructures
             return null;
         }
 
-        private void deleteLeaf(AsRedBlackTreeNode<T> node)
-        {
-            //if node is root
-            if (node.Parent == null)
-            {
-                Root = null;
-            }
-            //assign nodes parent.left/right to null
-            else if (node.IsLeftChild)
-            {
-                node.Parent.Left = null;
-            }
-            else
-            {
-                node.Parent.Right = null;
-            }
-        }
+       
     }
 }
