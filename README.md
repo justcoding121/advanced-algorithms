@@ -107,13 +107,6 @@ Various important computer science algorithms implemented in C#
 * Scale
 * Euclidian plane
 
-##Image Processing
-
-* Thresholding
-* Smoothing
-* Edge Detection
-* Circle/Line detection
-
 ##Graph Algorithms
 
 ###Coloring
