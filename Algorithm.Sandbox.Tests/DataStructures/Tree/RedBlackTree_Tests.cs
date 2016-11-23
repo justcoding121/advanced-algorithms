@@ -64,11 +64,6 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
-                Assert.IsTrue(tree.Count == i + 1);
-            }
-
-            for (int i = 0; i < nodeCount; i++)
-            {
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
                 Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
 
@@ -78,7 +73,9 @@ namespace Algorithm.Sandbox.Tests.DataStructures
                 var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
 
                 Assert.IsTrue(actualHeight < maxHeight);
+                Assert.IsTrue(tree.Count == i + 1);
             }
+
 
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
