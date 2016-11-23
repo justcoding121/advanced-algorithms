@@ -17,14 +17,11 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         {
             //insert test
             var tree = new AsRedBlackTree<int>();
+
             Assert.AreEqual(-1, tree.GetHeight());
 
             tree.Insert(1);
-            Assert.AreEqual(0, tree.GetHeight());
-
             tree.Insert(2);
-            Assert.AreEqual(1, tree.GetHeight());
-
             tree.Insert(3);
             tree.Insert(4);
             tree.Insert(5);
@@ -35,7 +32,21 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             tree.Insert(10);
             tree.Insert(11);
 
+            Assert.AreEqual(11, tree.Count);
+            //delete
+            tree.Delete(1);
+            tree.Delete(2);
+            tree.Delete(3);
+            tree.Delete(4);
+            tree.Delete(5);
+            tree.Delete(6);
+            tree.Delete(7);
+            tree.Delete(8);
+            tree.Delete(9);
+            tree.Delete(10);
+            tree.Delete(11);
 
+            Assert.AreEqual(0, tree.Count);
         }
 
         [TestMethod]
@@ -53,21 +64,42 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
+                Assert.IsTrue(tree.Count == i + 1);
             }
 
             for (int i = 0; i < nodeCount; i++)
             {
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
+                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
+
+                var actualHeight = tree.GetHeight();
+
+                //http://doctrina.org/maximum-height-of-red-black-tree.html
+                var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
+
+                Assert.IsTrue(actualHeight < maxHeight);
             }
 
-            Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
+            //shuffle again before deletion tests
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                                   .OrderBy(x => rnd.Next())
+                                   .ToList();
 
-            var actualHeight = tree.GetHeight();
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
+                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
 
-            //http://doctrina.org/maximum-height-of-red-black-tree.html
-            var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
+                var actualHeight = tree.GetHeight();
 
-            Assert.IsTrue(actualHeight < maxHeight);
+                //http://doctrina.org/maximum-height-of-red-black-tree.html
+                var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
+
+                Assert.IsTrue(actualHeight < maxHeight);
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
+
+            Assert.IsTrue(tree.Count == 0);
         }
     }
 }

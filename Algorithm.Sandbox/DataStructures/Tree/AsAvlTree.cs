@@ -83,13 +83,13 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Item exists");
             }
             insert(Root, value);
+            Count++;
         }
 
         //O(log(n)) always
         private void insert(AsAVLTreeNode<T> node, T value)
         {
            
-
             var compareResult = node.Value.CompareTo(value);
 
             //node is less than the value so move right for insertion
@@ -98,7 +98,6 @@ namespace Algorithm.Sandbox.DataStructures
                 if (node.Right == null)
                 {
                     node.Right = new AsAVLTreeNode<T>(node, value);
-                    Count++;
                 }
                 else
                 {
@@ -111,7 +110,6 @@ namespace Algorithm.Sandbox.DataStructures
                 if (node.Left == null)
                 {
                     node.Left = new AsAVLTreeNode<T>(node, value);
-                    Count++;
                 }
                 else
                 {
@@ -142,6 +140,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             delete(Root, value);
+            Count--;
         }
 
         //O(log(n)) always
@@ -182,7 +181,7 @@ namespace Algorithm.Sandbox.DataStructures
                         node.Parent.Right = null;
                     }
                     baseCase = true;
-                    Count--;
+                   
                 }
                 else
                 {
@@ -211,7 +210,7 @@ namespace Algorithm.Sandbox.DataStructures
                             node.Left.Parent = node.Parent;
                         }
                         baseCase = true;
-                        Count--;
+                        
                     }
                     //case two - left tree is null  (move sub tree up)
                     else if (node.Right != null && node.Left == null)
@@ -238,7 +237,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                         }
                         baseCase = true;
-                        Count--;
+                       
                     }
                     //case three - two child trees 
                     //replace the node value with maximum element of left subtree (left max node)

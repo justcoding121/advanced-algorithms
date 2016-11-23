@@ -436,6 +436,7 @@ namespace Algorithm.Sandbox.DataStructures
             delete(Root, value);
             Count--;
         }
+
         //O(log(n)) always
         private void delete(AsRedBlackTreeNode<T> node, T value)
         {
@@ -457,99 +458,32 @@ namespace Algorithm.Sandbox.DataStructures
                 //node is a leaf node
                 if (node.IsLeaf)
                 {
-                    //if node is root
-                    if (node.Parent == null)
-                    {
-                        Root = null;
-                    }
-                    //assign nodes parent.left/right to null
-                    else if (node.IsLeftChild)
-                    {
-                        node.Parent.Left = null;
-                    }
-                    else
-                    {
-                        node.Parent.Right = null;
-                    }
 
                     //if color is red, we are good; no need to balance
-                    if(node.NodeColor == RedBlackTreeNodeColor.Red)
+                    if (node.NodeColor == RedBlackTreeNodeColor.Red)
                     {
+                        deleteLeaf(node);
                         return;
                     }
 
-                    nodeToBalance = node;
+                    nodeToBalance = handleDoubleBlack(node);
+                    deleteLeaf(node);
                 }
                 else
                 {
                     //case one - right tree is null (move sub tree up)
                     if (node.Left != null && node.Right == null)
                     {
-                        //root
-                        if (node.Parent == null)
-                        {
-                            Root.Left.Parent = null;
-                            Root = Root.Left;
-                        }
-                        else
-                        {
-                            //node is left child of parent
-                            if (node.IsLeftChild)
-                            {
-                                node.Parent.Left = node.Left;
-                            }
-                            //node is right child of parent
-                            else
-                            {
-                                node.Parent.Right = node.Left;
-                            }
+                        nodeToBalance = handleDoubleBlack(node);
+                        deleteLeftNode(node);
 
-                            node.Left.Parent = node.Parent;
-
-                            if (node.NodeColor == RedBlackTreeNodeColor.Black
-                                && node.Left.NodeColor == RedBlackTreeNodeColor.Red)
-                            {
-                                //black deletion! But we can take its red child and recolor it to black
-                                //and we are done!
-                                node.Left.NodeColor = RedBlackTreeNodeColor.Black;
-                                return;
-                            }
-                        }
-                        nodeToBalance = node;
                     }
                     //case two - left tree is null  (move sub tree up)
                     else if (node.Right != null && node.Left == null)
                     {
-                        //root
-                        if (node.Parent == null)
-                        {
-                            Root.Right.Parent = null;
-                            Root = Root.Right;
-                        }
-                        else
-                        {
-                            //node is left child of parent
-                            if (node.IsLeftChild)
-                            {
-                                node.Parent.Left = node.Right;
-                            }
-                            //node is right child of parent
-                            else
-                            {
-                                node.Parent.Right = node.Right;
-                            }
-                            node.Right.Parent = node.Parent;
+                        nodeToBalance = handleDoubleBlack(node);
+                        deleteRightNode(node);
 
-                            if (node.NodeColor == RedBlackTreeNodeColor.Black
-                                && node.Right.NodeColor == RedBlackTreeNodeColor.Red)
-                            {
-                                //black deletion! But we can take its red child and recolor it to black
-                                //and we are done!
-                                node.Right.NodeColor = RedBlackTreeNodeColor.Black;
-                                return;
-                            }
-                        }
-                        nodeToBalance = node;
                     }
                     //case three - two child trees 
                     //replace the node value with maximum element of left subtree (left max node)
@@ -566,13 +500,245 @@ namespace Algorithm.Sandbox.DataStructures
                 }
             }
 
-            //double-black node
-            //handle six cases
-            if (nodeToBalance != null)
-            {
 
+            //handle six cases
+            while (nodeToBalance != null)
+            {
+                nodeToBalance = handleDoubleBlack(nodeToBalance);
             }
 
+        }
+
+        private void deleteRightNode(AsRedBlackTreeNode<T> node)
+        {
+            //root
+            if (node.Parent == null)
+            {
+                Root.Right.Parent = null;
+                Root = Root.Right;
+                Root.NodeColor = RedBlackTreeNodeColor.Black;
+                return;
+            }
+            else
+            {
+                //node is left child of parent
+                if (node.IsLeftChild)
+                {
+                    node.Parent.Left = node.Right;
+                }
+                //node is right child of parent
+                else
+                {
+                    node.Parent.Right = node.Right;
+                }
+
+                node.Right.Parent = node.Parent;
+
+                if (node.Right.NodeColor == RedBlackTreeNodeColor.Red)
+                {
+                    //black deletion! But we can take its red child and recolor it to black
+                    //and we are done!
+                    node.Right.NodeColor = RedBlackTreeNodeColor.Black;
+                    return;
+                }
+            }
+        }
+
+        private void deleteLeftNode(AsRedBlackTreeNode<T> node)
+        {
+            //root
+            if (node.Parent == null)
+            {
+                Root.Left.Parent = null;
+                Root = Root.Left;
+                Root.NodeColor = RedBlackTreeNodeColor.Black;
+                return;
+            }
+            else
+            {
+                //node is left child of parent
+                if (node.IsLeftChild)
+                {
+                    node.Parent.Left = node.Left;
+                }
+                //node is right child of parent
+                else
+                {
+                    node.Parent.Right = node.Left;
+                }
+
+                node.Left.Parent = node.Parent;
+
+                if (node.Left.NodeColor == RedBlackTreeNodeColor.Red)
+                {
+                    //black deletion! But we can take its red child and recolor it to black
+                    //and we are done!
+                    node.Left.NodeColor = RedBlackTreeNodeColor.Black;
+                    return;
+                }
+            }
+        }
+
+        private AsRedBlackTreeNode<T> handleDoubleBlack(AsRedBlackTreeNode<T> node)
+        {
+            //case 1
+            if (node == Root)
+            {
+                node.NodeColor = RedBlackTreeNodeColor.Black;
+                return null;
+            }
+
+            //case 2
+            if (node.Parent != null
+                 && node.Parent.NodeColor == RedBlackTreeNodeColor.Black
+                 && node.Sibling != null
+                 && node.Sibling.NodeColor == RedBlackTreeNodeColor.Red
+                 && ((node.Sibling.Left == null && node.Sibling.Right == null)
+                 || (node.Sibling.Left != null && node.Sibling.Right != null
+                   && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
+                   && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black)))
+            {
+                node.Parent.NodeColor = RedBlackTreeNodeColor.Red;
+                node.Sibling.NodeColor = RedBlackTreeNodeColor.Black;
+
+                if (node.Sibling.IsRightChild)
+                {
+                    LeftRotate(node.Parent);
+                }
+                else
+                {
+                    RightRotate(node.Parent);
+                }
+
+                return node;
+            }
+            //case 3
+            if (node.Parent != null
+             && node.Parent.NodeColor == RedBlackTreeNodeColor.Black
+             && node.Sibling != null
+             && node.Sibling.NodeColor == RedBlackTreeNodeColor.Black
+             && ((node.Sibling.Left == null && node.Sibling.Right == null)
+             || (node.Sibling.Left != null && node.Sibling.Right != null
+               && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
+               && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black)))
+            {
+                //pushed up the double black problem up to parent
+                //so now it needs to be fixed
+                node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
+                return node.Parent;
+            }
+
+
+            //case 4
+            if (node.Parent != null
+                 && node.Parent.NodeColor == RedBlackTreeNodeColor.Red
+                 && node.Sibling != null
+                 && node.Sibling.NodeColor == RedBlackTreeNodeColor.Black
+                 && ((node.Sibling.Left == null && node.Sibling.Right == null)
+                 || (node.Sibling.Left != null && node.Sibling.Right != null
+                   && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
+                   && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black)))
+            {
+                //just swap the color of parent and sibling
+                //which will compensate the loss of black count 
+                node.Parent.NodeColor = RedBlackTreeNodeColor.Black;
+                node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
+
+                return null;
+            }
+
+
+            //case 5
+            if (node.Parent != null
+                && node.Parent.NodeColor == RedBlackTreeNodeColor.Black
+                && node.Sibling != null
+                && node.Sibling.IsRightChild
+                && node.Sibling.NodeColor == RedBlackTreeNodeColor.Black
+                && node.Sibling.Left != null
+                && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Red
+                && node.Sibling.Right != null
+                && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black)
+            {
+                node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
+                node.Sibling.Left.NodeColor = RedBlackTreeNodeColor.Black;
+                RightRotate(node.Sibling);
+
+                return node;
+            }
+
+            //case 5 mirror
+            if (node.Parent != null
+               && node.Parent.NodeColor == RedBlackTreeNodeColor.Black
+               && node.Sibling != null
+               && node.Sibling.IsLeftChild
+               && node.Sibling.NodeColor == RedBlackTreeNodeColor.Black
+               && node.Sibling.Left != null
+               && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
+               && node.Sibling.Right != null
+               && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Red)
+            {
+                node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
+                node.Sibling.Right.NodeColor = RedBlackTreeNodeColor.Black;
+                LeftRotate(node.Sibling);
+
+                return node;
+            }
+
+            //case 6
+            if (node.Parent != null
+                && node.Parent.NodeColor == RedBlackTreeNodeColor.Black
+                && node.Sibling != null
+                && node.Sibling.IsRightChild
+                && node.Sibling.NodeColor == RedBlackTreeNodeColor.Black
+                && node.Sibling.Right != null
+                && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Red)
+            {
+                //left rotate to increase the black count on left side by one
+                //and mark the red right child of sibling to black 
+                //to compensate the loss of Black on right side of parent
+                node.Sibling.Right.NodeColor = RedBlackTreeNodeColor.Black;
+                LeftRotate(node.Parent);
+
+                return null;
+            }
+
+            //case 6 mirror
+            if (node.Parent != null
+              && node.Parent.NodeColor == RedBlackTreeNodeColor.Black
+              && node.Sibling != null
+              && node.Sibling.IsLeftChild
+              && node.Sibling.NodeColor == RedBlackTreeNodeColor.Black
+              && node.Sibling.Left != null
+              && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Red)
+            {
+                //right rotate to increase the black count on right side by one
+                //and mark the red left child of sibling to black
+                //to compensate the loss of Black on right side of parent
+                node.Sibling.Left.NodeColor = RedBlackTreeNodeColor.Black;
+                RightRotate(node.Parent);
+
+                return null;
+            }
+
+            return null;
+        }
+
+        private void deleteLeaf(AsRedBlackTreeNode<T> node)
+        {
+            //if node is root
+            if (node.Parent == null)
+            {
+                Root = null;
+            }
+            //assign nodes parent.left/right to null
+            else if (node.IsLeftChild)
+            {
+                node.Parent.Left = null;
+            }
+            else
+            {
+                node.Parent.Right = null;
+            }
         }
     }
 }
