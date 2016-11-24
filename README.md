@@ -9,7 +9,7 @@ Various important computer science algorithms implemented in C#
 
 ### Hash Dictionaries
 * [Hash Set](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/HashSet/AsHashSet.cs)
-* Tree HashSet
+* [Tree HashSet](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/HashSet/AsTreeHashSet.cs)
 
 ### Stack
 * [Stack](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Stack/AsStack.cs)
@@ -158,9 +158,9 @@ Various important computer science algorithms implemented in C#
 * [Quick Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/QuickSort.cs)
 * Bucket Sort
 * Counting Sort
-* Heap Sort
+* [Heap Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/HeapSort.cs)
 * Shell Sort
-* Tree Sort
+* [Tree Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/TreeSort.cs)
 * [Bubble Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/BubbleSort.cs)
 * [Insertion Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/InsertionSort.cs)
 * [Merge Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/MergeSort.cs)
