@@ -132,9 +132,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\AsBucketSort.cs" />
     <Compile Include="Sorting\AsCountingSort.cs" />
-    <Compile Include="Sorting\AsHeapSort.cs" />
+    <Compile Include="Sorting\HeapSort.cs" />
     <Compile Include="Sorting\AsShellSort.cs" />
-    <Compile Include="Sorting\AsTreeSort.cs" />
+    <Compile Include="Sorting\TreeSort.cs" />
     <Compile Include="Sorting\BubbleSort.cs" />
     <Compile Include="Sorting\InsertionSort.cs" />
     <Compile Include="Sorting\MergeSort.cs" />

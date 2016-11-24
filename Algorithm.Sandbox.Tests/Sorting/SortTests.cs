@@ -73,5 +73,31 @@ namespace Algorithm.Sandbox.Tests.Sorting
                 Assert.AreEqual(i, result[i]);
             }
         }
+
+        /// <summary>
+        /// </summary>
+        [TestMethod]
+        public void HeapSort_Test()
+        {
+            var result = HeapSort<int>.Sort(TestArray);
+
+            for (int i = 0; i <= 8; i++)
+            {
+                Assert.AreEqual(i, result[i]);
+            }
+        }
+
+        /// <summary>
+        /// </summary>
+        [TestMethod]
+        public void TreeSort_Test()
+        {
+            var result = TreeSort<int>.Sort(TestArray);
+
+            for (int i = 0; i <= 8; i++)
+            {
+                Assert.AreEqual(i, result[i]);
+            }
+        }
     }
 }

@@ -117,8 +117,10 @@ namespace Algorithm.Sandbox.DataStructures
             return FindMin(node.Left);
         }
 
+      
+
         //O(log(n)) worst O(n) for unbalanced tree
-        private AsRedBlackTreeNode<T> Find(T value)
+        public AsRedBlackTreeNode<T> Find(T value)
         {
             if (Root == null)
             {
