@@ -50,9 +50,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DataStructures\ArrayList_Tests.cs" />
+    <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
     <Compile Include="DataStructures\HashSets\TreeHashSet_Tests.cs" />
     <Compile Include="DataStructures\Heap\BMinHeap_Tests.cs" />
+    <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
     <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BST_Tests.cs" />
     <Compile Include="DataStructures\CircularLinkedList_Tests.cs" />
