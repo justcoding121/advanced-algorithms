@@ -2,12 +2,12 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsSkipListNode<T> where T : IComparable
+    internal class AsSkipListNode<T> where T : IComparable
     {
-        public AsSkipListNode<T> Prev { get; set; }
-        public AsSkipListNode<T>[] Next { get; set; }
+        internal AsSkipListNode<T> Prev { get; set; }
+        internal AsSkipListNode<T>[] Next { get; set; }
 
-        public T value { get; set; }
+        internal T value { get; set; }
     }
 
     public class AsSkipList<T> where T : IComparable
@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         public int MaxHeight { get; private set; }
 
-        public AsSkipListNode<T> Head { get; set; }
+        internal AsSkipListNode<T> Head { get; set; }
 
         public AsSkipList(int maxHeight = 32)
         {
