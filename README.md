@@ -5,7 +5,7 @@ Various important computer science algorithms implemented in C#
 ##Data Structures
 ### List
 * [Array List](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/List/AsArrayList.cs) (dynamic array)
-* Skip List
+* [Skip List](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/List/AsSkipList.cs)
 
 ### Hash Dictionaries
 * [Hash Set](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/HashSet/AsHashSet.cs)
