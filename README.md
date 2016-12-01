@@ -50,6 +50,9 @@ Various important computer science algorithms implemented in C#
 * [Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTree.cs)
 * Trie
 * Decision Tree
+* B Tree
+* B+ Tree
+* Ternary search tree
 
 ### Graph
 
