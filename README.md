@@ -52,7 +52,7 @@ Various important computer science algorithms implemented in C#
 * Decision Tree
 * B Tree
 * B+ Tree
-* Ternary search tree
+* Ternary Search Tree
 
 ### Graph
 
