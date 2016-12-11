@@ -35,20 +35,20 @@ Various important computer science algorithms implemented in C#
 * Pairing Min Heap
 
 ### Tree
+* [Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTree.cs)
 * [AVL Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsAvlTree.cs)
-* Binary Indexed Tree
+* [Red Black Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsRedBlackTree.cs)
 * [Binary Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBinaryTree.cs)
 * [Binary Search Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBST.cs)
 * Interval Tree
 * K-D Tree
 * N-ary Tree
 * Range Tree
-* [Red Black Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsRedBlackTree.cs)
+* Binary Indexed Tree
 * Segment Tree
 * Splay Tree
 * Suffix Tree
 * Treap Tree
-* [Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTree.cs)
 * Trie
 * Decision Tree
 * B Tree
@@ -73,9 +73,11 @@ Various important computer science algorithms implemented in C#
 
 ##Dynamic Programming
 
+* [Coin Change Problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs)
+* [Tower Of Hanoi](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs)
+* [Knapsack problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs)
 * Fibonacci Number Generator
 * Balanced Partition
-* [Coin Change Problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs)
 * Count Bool Parenthesization
 * Count Decoding
 * Dice Throw
@@ -94,11 +96,10 @@ Various important computer science algorithms implemented in C#
 * Shortest Palindrome
 * Sub Set Sum
 * Text Justification
-* [Tower Of Hanoi](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs)
 * Two Person City Traversal
 * Unique Binary Search Tree
 * Word Break problem
-* [Knapsack problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs)
+
 
 ##Geometry
 
@@ -160,22 +161,22 @@ Various important computer science algorithms implemented in C#
 ##Sorting
 
 * [Quick Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/QuickSort.cs)
-* Bucket Sort
-* Counting Sort
 * [Heap Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/HeapSort.cs)
-* Shell Sort
 * [Tree Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/TreeSort.cs)
 * [Bubble Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/BubbleSort.cs)
 * [Insertion Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/InsertionSort.cs)
 * [Merge Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/MergeSort.cs)
-* Radix Sort
 * [Selection Sort](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/SelectionSort.cs)
+* Radix Sort
+* Shell Sort
+* Bucket Sort
+* Counting Sort
 
 ##String
 
+* [SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs)
 * Permutation
 * Rabin-Karp sub string search
-* [SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs)
 
 ##Compression
 * Huffman Coding
