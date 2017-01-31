@@ -106,7 +106,7 @@ namespace Algorithm.Sandbox.DataStructures
         public int Find(T item)
         {
             //shift elements
-            for (int i = 0; i < arraySize - 1; i++)
+            for (int i = 0; i < arraySize; i++)
             {
                 if (array[i].CompareTo(item) == 0)
                 {
@@ -121,7 +121,7 @@ namespace Algorithm.Sandbox.DataStructures
         public void RemoveItem(T item)
         {
             //shift elements
-            for (int i = 0; i < arraySize - 1; i++)
+            for (int i = 0; i < arraySize; i++)
             {
                 if (array[i].CompareTo(item) == 0)
                 {

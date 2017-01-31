@@ -50,6 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataStructures\Heap\BinomialHeap_Tests.cs" />
+    <Compile Include="DataStructures\Heap\D-aryHeap_Tests.cs" />
     <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
     <Compile Include="DataStructures\HashSets\TreeHashSet_Tests.cs" />
     <Compile Include="DataStructures\Heap\BMinHeap_Tests.cs" />

@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void AsD_aryTree_Test()
+        public void AsD_aryHeap_Test()
         {
             //insert test
             var tree = new AsD_aryMinHeap<int>(2);

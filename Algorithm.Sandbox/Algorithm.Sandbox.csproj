@@ -50,6 +50,7 @@
     <Compile Include="Compression\Huffman.cs" />
     <Compile Include="DataStructures\Heap\Min\AsBinomialMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\AsBMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\Min\Asd-aryMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\AsFibornacciMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\AsPairingMinHeap.cs" />
     <Compile Include="DataStructures\List\AsArrayList.cs" />
