@@ -156,6 +156,9 @@ namespace Algorithm.Sandbox.DataStructures
 
         public T ExtractMin()
         {
+            if (heapForest.Length == 0)
+                throw new Exception("Empty heap"); 
+
             var minTree = heapForest.ItemAt(0);
             var current = heapForest.ItemAt(0);
 
@@ -187,6 +190,9 @@ namespace Algorithm.Sandbox.DataStructures
 
         public T PeekMin()
         {
+            if (heapForest.Length == 0)
+                throw new Exception("Empty heap");
+
             var minTree = heapForest.ItemAt(0);
             var current = heapForest.ItemAt(0);
 
