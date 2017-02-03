@@ -24,6 +24,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsBinomialMinHeap<T> where T : IComparable
     {
+        //TODO use a linked list in future to improve memory complexity
         internal AsArrayList<AsBinomialTreeNode<T>> heapForest
             = new AsArrayList<AsBinomialTreeNode<T>>();
 

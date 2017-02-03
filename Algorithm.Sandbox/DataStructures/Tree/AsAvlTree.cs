@@ -28,9 +28,9 @@ namespace Algorithm.Sandbox.DataStructures
         {
             get
             {
-                return Left; 
+                return Left;
             }
-           
+
         }
 
         AsIBSTNode<T> AsIBSTNode<T>.Right
@@ -39,7 +39,7 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 return Right;
             }
-   
+
         }
     }
 
@@ -78,10 +78,6 @@ namespace Algorithm.Sandbox.DataStructures
                 return;
             }
 
-            if (HasItem(value))
-            {
-                throw new Exception("Item exists");
-            }
             insert(Root, value);
             Count++;
         }
@@ -89,8 +85,9 @@ namespace Algorithm.Sandbox.DataStructures
         //O(log(n)) always
         private void insert(AsAVLTreeNode<T> node, T value)
         {
-           
+
             var compareResult = node.Value.CompareTo(value);
+
 
             //node is less than the value so move right for insertion
             if (compareResult < 0)
@@ -105,7 +102,7 @@ namespace Algorithm.Sandbox.DataStructures
                 }
             }
             //node is greater than the value so move left for insertion
-            else
+            else if (compareResult > 0)
             {
                 if (node.Left == null)
                 {
@@ -116,6 +113,10 @@ namespace Algorithm.Sandbox.DataStructures
                     insert(node.Left, value);
                 }
 
+            }
+            else
+            {
+                throw new Exception("Item exists");
             }
 
             UpdateHeight(node);
@@ -134,11 +135,6 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty AVLTree");
             }
 
-            if (HasItem(value) == false)
-            {
-                throw new Exception("Item do not exist");
-            }
-
             delete(Root, value);
             Count--;
         }
@@ -153,11 +149,20 @@ namespace Algorithm.Sandbox.DataStructures
             //node is less than the search value so move right to find the deletion node
             if (compareResult < 0)
             {
+                if (node.Right == null)
+                {
+                    throw new Exception("Item do not exist");
+                }
                 delete(node.Right, value);
             }
             //node is less than the search value so move left to find the deletion node
             else if (compareResult > 0)
             {
+                if (node.Left == null)
+                {
+                    throw new Exception("Item do not exist");
+                }
+
                 delete(node.Left, value);
             }
             else
@@ -180,7 +185,7 @@ namespace Algorithm.Sandbox.DataStructures
                         node.Parent.Right = null;
                     }
                     baseCase = true;
-                   
+
                 }
                 else
                 {
@@ -209,7 +214,7 @@ namespace Algorithm.Sandbox.DataStructures
                             node.Left.Parent = node.Parent;
                         }
                         baseCase = true;
-                        
+
                     }
                     //case two - left tree is null  (move sub tree up)
                     else if (node.Right != null && node.Left == null)
@@ -236,7 +241,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                         }
                         baseCase = true;
-                       
+
                     }
                     //case three - two child trees 
                     //replace the node value with maximum element of left subtree (left max node)
@@ -264,7 +269,7 @@ namespace Algorithm.Sandbox.DataStructures
                 Balance(node);
             }
 
-            
+
         }
 
         public T FindMax()

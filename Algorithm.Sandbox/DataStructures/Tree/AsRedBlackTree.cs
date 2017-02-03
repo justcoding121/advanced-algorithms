@@ -117,7 +117,7 @@ namespace Algorithm.Sandbox.DataStructures
             return FindMin(node.Left);
         }
 
-      
+
 
         //O(log(n)) worst O(n) for unbalanced tree
         public AsRedBlackTreeNode<T> Find(T value)
@@ -258,21 +258,16 @@ namespace Algorithm.Sandbox.DataStructures
                 return;
             }
 
-            if (HasItem(value))
-            {
-                throw new Exception("Item exists");
-            }
-
             insert(Root, value);
             Count++;
         }
 
-        private AsRedBlackTreeNode<T> nodeToBalance;
+
         //O(log(n)) always
         private void insert(
             AsRedBlackTreeNode<T> currentNode, T newNodeValue)
         {
-            nodeToBalance = currentNode;
+            var nodeToBalance = currentNode;
 
             var compareResult = currentNode.Value.CompareTo(newNodeValue);
 
@@ -293,7 +288,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             }
             //current node is greater than new node
-            else
+            else if (compareResult > 0)
             {
 
                 if (currentNode.Left == null)
@@ -306,6 +301,10 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     insert(currentNode.Left, newNodeValue);
                 }
+            }
+            else
+            {
+                throw new Exception("Item exists");
             }
 
             if (nodeToBalance == Root)
@@ -430,11 +429,6 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty Tree");
             }
 
-            if (HasItem(value) == false)
-            {
-                throw new Exception("Item do not exist");
-            }
-
             delete(Root, value);
             Count--;
         }
@@ -442,17 +436,28 @@ namespace Algorithm.Sandbox.DataStructures
         //O(log(n)) always
         private void delete(AsRedBlackTreeNode<T> node, T value)
         {
+            AsRedBlackTreeNode<T> nodeToBalance = null;
 
             var compareResult = node.Value.CompareTo(value);
 
             //node is less than the search value so move right to find the deletion node
             if (compareResult < 0)
             {
+                if (node.Right == null)
+                {
+                    throw new Exception("Item do not exist");
+                }
+
                 delete(node.Right, value);
             }
             //node is less than the search value so move left to find the deletion node
             else if (compareResult > 0)
             {
+                if (node.Left == null)
+                {
+                    throw new Exception("Item do not exist");
+                }
+
                 delete(node.Left, value);
             }
             else
@@ -743,6 +748,6 @@ namespace Algorithm.Sandbox.DataStructures
             return null;
         }
 
-       
+
     }
 }
