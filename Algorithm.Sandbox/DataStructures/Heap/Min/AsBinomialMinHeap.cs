@@ -31,10 +31,10 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var newNode = new AsBinomialTreeNode<T>(newItem);
 
-            var newHeapTree = new AsArrayList<AsBinomialTreeNode<T>>();
-            newHeapTree.AddItem(newNode);
+            var newHeapForest = new AsArrayList<AsBinomialTreeNode<T>>();
+            newHeapForest.AddItem(newNode);
 
-            MergeSortForest(newHeapTree);
+            MergeSortForest(newHeapForest);
 
             Meld();
         }
