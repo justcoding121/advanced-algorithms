@@ -39,11 +39,6 @@ namespace Algorithm.Sandbox.DataStructures
             Meld();
         }
 
-        private void SortForest(AsArrayList<AsBinomialTreeNode<T>> newHeapTree, AsArrayList<AsBinomialTreeNode<T>> heapForest)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// Merge roots with same degrees in Forest 
         /// </summary>
