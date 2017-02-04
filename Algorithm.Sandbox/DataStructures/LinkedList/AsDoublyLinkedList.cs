@@ -50,7 +50,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// Insert right after this node
         /// </summary>
         /// <param name="node"></param>
-        public void InsertAfter(AsDoublyLinkedListNode<T> node, AsDoublyLinkedListNode<T> data)
+        public AsDoublyLinkedListNode<T> InsertAfter(AsDoublyLinkedListNode<T> node, AsDoublyLinkedListNode<T> data)
         {
             if (node == null)
                 throw new Exception("Empty reference node");
@@ -66,7 +66,7 @@ namespace Algorithm.Sandbox.DataStructures
                 Head = node;
                 Tail = data;
 
-                return;
+                return data;
             }
 
             if (node != Tail)
@@ -85,13 +85,15 @@ namespace Algorithm.Sandbox.DataStructures
                 node.Next = data;
                 Tail = data;
             }
+
+            return data;
         }
 
         /// <summary>
         /// Insert right before this node
         /// </summary>
         /// <param name="node"></param>
-        public void InsertBefore(AsDoublyLinkedListNode<T> node, AsDoublyLinkedListNode<T> data)
+        public AsDoublyLinkedListNode<T> InsertBefore(AsDoublyLinkedListNode<T> node, AsDoublyLinkedListNode<T> data)
         {
             if (node == null)
                 throw new Exception("Empty node");
@@ -107,7 +109,7 @@ namespace Algorithm.Sandbox.DataStructures
                 Tail = Head;
                 Head = data;
 
-                return;
+                return data;
 
             }
 
@@ -131,6 +133,7 @@ namespace Algorithm.Sandbox.DataStructures
                 Head = data;
             }
 
+            return data;
         }
 
         //insert at the end

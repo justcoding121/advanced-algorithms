@@ -2,16 +2,18 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    internal class AsBinomialTreeNode<T> : IComparable where T : IComparable
+    public class AsBinomialTreeNode<T> : IComparable where T : IComparable
     {
         internal T Value { get; set; }
         internal int Degree => Children.Length;
 
+        internal AsBinomialTreeNode<T> Parent { get; set; }
         internal AsArrayList<AsBinomialTreeNode<T>> Children { get; set; }
 
         public AsBinomialTreeNode(T value)
         {
             this.Value = value;
+
             Children = new AsArrayList<AsBinomialTreeNode<T>>();
         }
 
@@ -27,16 +29,23 @@ namespace Algorithm.Sandbox.DataStructures
         internal AsDoublyLinkedList<AsBinomialTreeNode<T>> heapForest
             = new AsDoublyLinkedList<AsBinomialTreeNode<T>>();
 
-        public void Insert(T newItem)
+        /// <summary>
+        /// O(log(n)) complexity
+        /// </summary>
+        /// <param name="newItem"></param>
+        public AsBinomialTreeNode<T> Insert(T newItem)
         {
             var newNode = new AsBinomialTreeNode<T>(newItem);
 
             var newHeapForest = new AsDoublyLinkedList<AsBinomialTreeNode<T>>();
             newHeapForest.InsertFirst(newNode);
 
-            MergeSortedForests(newHeapForest);
+            //updated pointer
+            newNode = MergeSortedForests(newHeapForest);
 
             Meld();
+
+            return newNode;
         }
 
         /// <summary>
@@ -92,7 +101,7 @@ namespace Algorithm.Sandbox.DataStructures
                     {
                         //add next as child of current
                         cur.Data.Children.AddItem(next.Data);
-
+                        next.Data.Parent = cur.Data;
                         heapForest.Delete(next);
 
                         if (cur.Next != null)
@@ -112,6 +121,7 @@ namespace Algorithm.Sandbox.DataStructures
                     {
                         //add current as child of next
                         next.Data.Children.AddItem(cur.Data);
+                        cur.Data.Parent = next.Data;
 
                         heapForest.Delete(cur);
 
@@ -134,7 +144,10 @@ namespace Algorithm.Sandbox.DataStructures
             }
         }
 
-
+        /// <summary>
+        /// O(log(n)) complexity
+        /// </summary>
+        /// <returns></returns>
         public T ExtractMin()
         {
             if (heapForest.Head == null)
@@ -161,6 +174,7 @@ namespace Algorithm.Sandbox.DataStructures
             //add removed roots children as new trees to forest
             for (int i = 0; i < minTree.Data.Children.Length; i++)
             {
+                minTree.Data.Children.ItemAt(i).Parent = null;
                 newHeapForest.InsertLast(minTree.Data.Children.ItemAt(i));
             }
 
@@ -172,18 +186,52 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         /// <summary>
+        /// Update the Heap with new value for this node pointer
+        /// O(log(n)) complexity
+        /// </summary>
+        /// <param name="key"></param>
+        public void DecrementKey(AsBinomialTreeNode<T> node)
+        {
+            var current = node;
+
+            while(current.Parent != null
+                && current.Value.CompareTo(current.Parent.Value) < 0)
+            {
+                var tmp = current.Value;
+                current.Value = current.Parent.Value;
+                current.Parent.Value = tmp;
+
+                current = current.Parent;
+            }
+        }
+
+        /// <summary>
+        /// Unions this heap with another
+        /// O(log(n)) complexity
+        /// </summary>
+        /// <param name="binomialHeap"></param>
+        public void Union(AsBinomialMinHeap<T> binomialHeap)
+        {
+            MergeSortedForests(binomialHeap.heapForest);
+
+            Meld();
+        }
+        /// <summary>
         /// Merges the given sorted forest to current sorted Forest 
+        /// & returns the last inserted node (pointer required for decrement-key)
         /// </summary>
         /// <param name="newHeapForest"></param>
-        private void MergeSortedForests(AsDoublyLinkedList<AsBinomialTreeNode<T>> newHeapForest)
+        private AsBinomialTreeNode<T> MergeSortedForests(AsDoublyLinkedList<AsBinomialTreeNode<T>> newHeapForest)
         {
+
+            AsDoublyLinkedListNode<AsBinomialTreeNode<T>> lastInserted = null;
 
             var @new = newHeapForest.Head;
 
             if (heapForest.Head == null)
             {
                 heapForest = newHeapForest;
-                return;
+                return heapForest.Tail!=null? heapForest.Tail.Data:null;
             }
 
             var current = heapForest.Head;
@@ -197,13 +245,13 @@ namespace Algorithm.Sandbox.DataStructures
                 }
                 else if (current.Data.Degree > @new.Data.Degree)
                 {
-                    heapForest.InsertBefore(current, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
+                    lastInserted = heapForest.InsertBefore(current, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
                     @new = @new.Next;
                 }
                 else
                 {
                     //equal
-                    heapForest.InsertAfter(current, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
+                    lastInserted = heapForest.InsertAfter(current, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
                     current = current.Next;
                     @new = @new.Next;
                 }
@@ -217,9 +265,13 @@ namespace Algorithm.Sandbox.DataStructures
                 @new = @new.Next;
             }
 
-
+            return lastInserted == null? null : lastInserted.Data;
         }
 
+        /// <summary>
+        /// O(log(n)) complexity
+        /// </summary>
+        /// <returns></returns>
         public T PeekMin()
         {
             if (heapForest.Head == null)

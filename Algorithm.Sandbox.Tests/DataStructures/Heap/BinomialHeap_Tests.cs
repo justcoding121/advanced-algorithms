@@ -17,14 +17,16 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
         [TestMethod]
         public void BinomialMinHeap_Test()
         {
-            int nodeCount = 1000 * 10;
+            int nodeCount = 1000;
             //insert test
             var tree = new AsBinomialMinHeap<int>();
 
+            var nodePointers = new AsArrayList<AsBinomialTreeNode<int>>();
+
             for (int i = 0; i <= nodeCount; i++)
             {
-                tree.Insert(i);
-
+                var node = tree.Insert(i);
+                nodePointers.AddItem(node);
                 var theoreticalTreeCount = Convert.ToString(i + 1, 2).Replace("0", "").Length;
                 var actualTreeCount = tree.heapForest.Count();
 
@@ -33,22 +35,37 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                var min = tree.ExtractMin();
-                Assert.AreEqual(min, i);
+                nodePointers.ItemAt(i).Value--;
+                tree.DecrementKey(nodePointers.ItemAt(i));
             }
+
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                var min = tree.ExtractMin();
+                Assert.AreEqual(min, i - 1);
+            }
+
+            nodePointers.Clear();
 
             var rnd = new Random();
             var testSeries = Enumerable.Range(1, nodeCount).OrderBy(x => rnd.Next()).ToList();
 
             foreach (var item in testSeries)
             {
-                tree.Insert(item);
+                nodePointers.AddItem(tree.Insert(item));
+            }
+
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                nodePointers.ItemAt(i).Value--;
+                tree.DecrementKey(nodePointers.ItemAt(i));
             }
 
             for (int i = 1; i <= nodeCount; i++)
             {
                 var min = tree.ExtractMin();
-                Assert.AreEqual(min, i);
+                Assert.AreEqual(min, i-1);
             }
 
         }

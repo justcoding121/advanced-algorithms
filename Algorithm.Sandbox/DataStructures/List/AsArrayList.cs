@@ -62,6 +62,17 @@ namespace Algorithm.Sandbox.DataStructures
             array[currentEndPosition] = item;
             currentEndPosition++;
         }
+        
+
+        /// <summary>
+        /// empty the list
+        /// </summary>
+        internal void Clear()
+        {
+            arraySize = 2;
+            array = new T[arraySize];
+            currentEndPosition = 0;
+        }
 
         //O(1)
         public void SetItem(int i, T item)
