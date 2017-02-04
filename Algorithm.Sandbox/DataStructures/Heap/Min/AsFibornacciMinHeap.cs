@@ -50,7 +50,7 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 minNode = resultNode;
             }
-            else if (minNode.Data.Value.CompareTo(resultNode.Data.Value) > 0)
+            else if (minNode.Data.Value.CompareTo(resultNode.Data.Value) < 0)
             {
                 minNode = resultNode;
             }
@@ -105,6 +105,11 @@ namespace Algorithm.Sandbox.DataStructures
                         current.Data.Children.AddItem(existing);
                     }
 
+                    if (minNode.Data.Value.CompareTo(current.Data.Value) < 0)
+                    {
+                        minNode = current;
+                    }
+
                     hashTable.Remove(currentDegree);
 
                 }
@@ -122,29 +127,14 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     var newNode = heapForest.InsertLast(item.Value);
 
+                    if (minNode.Data.Value.CompareTo(newNode.Data.Value) < 0)
+                    {
+                        minNode = newNode;
+                    }
                 }
 
                 hashTable.Clear();
             }
-
-
-            if (heapForest.Head != null)
-            {
-                minNode = heapForest.Head;
-                current = heapForest.Head;
-
-                //find minimum tree
-                while (current.Next != null)
-                {
-                    current = current.Next;
-
-                    if (minNode.Data.Value.CompareTo(current.Data.Value) > 0)
-                    {
-                        minNode = current;
-                    }
-                }
-            }
-
 
         }
 
@@ -219,12 +209,12 @@ namespace Algorithm.Sandbox.DataStructures
             if (heapForest.Head == null)
             {
                 heapForest = newHeapForest;
-                return heapForest.Tail != null ? heapForest.Tail : null;
+                return heapForest.Head != null ? heapForest.Head: null;
             }
             //copy 
             while (@new != null)
             {
-                lastInserted = heapForest.InsertAfter(heapForest.Tail, new AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>(@new.Data));
+                lastInserted = heapForest.InsertAfter(heapForest.Head, new AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>(@new.Data));
                 @new = @new.Next;
             }
 
