@@ -40,21 +40,19 @@ Various important computer science algorithms implemented in C#
 * [Red Black Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsRedBlackTree.cs)
 * [Binary Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBinaryTree.cs)
 * [Binary Search Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBST.cs)
-* Interval Tree
-* K-D Tree
-* N-ary Tree
-* Range Tree
-* Binary Indexed Tree
-* Segment Tree
 * Splay Tree
-* Suffix Tree
 * Treap Tree
-* Trie
-* Decision Tree
 * B Tree
 * B+ Tree
+* Interval Tree
+* Range Tree
+* Binary Indexed Tree (Fenwick tree)
+* Segment Tree
+* Trie
+* Suffix Tree
 * Ternary Search Tree
-
+* K-D Tree
+* Decision Tree
 ### Graph
 
 #### Adjacency List
