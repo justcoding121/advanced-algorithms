@@ -17,7 +17,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
         [TestMethod]
         public void BinomialMinHeap_Test()
         {
-            int nodeCount = 1000;
+            int nodeCount = 1000 * 10;
             //insert test
             var tree = new AsBinomialMinHeap<int>();
 
