@@ -111,6 +111,8 @@ namespace Algorithm.Sandbox.DataStructures
 
             }
 
+
+
             //copy back trees with unique degrees
             if (hashTable.Count > 0)
             {
@@ -120,29 +122,30 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     var newNode = heapForest.InsertLast(item.Value);
 
-                    if (minNode.Data.Value.CompareTo(newNode.Data.Value) > 0)
-                    {
-                        minNode = newNode;
-                    }
-                    
                 }
 
                 hashTable.Clear();
             }
 
-            minNode = heapForest.Head;
-            current = heapForest.Head;
 
-            //find minimum tree
-            while (current.Next != null)
+            if (heapForest.Head != null)
             {
-                current = current.Next;
+                minNode = heapForest.Head;
+                current = heapForest.Head;
 
-                if (minNode.Data.Value.CompareTo(current.Data.Value) > 0)
+                //find minimum tree
+                while (current.Next != null)
                 {
-                    minNode = current;
+                    current = current.Next;
+
+                    if (minNode.Data.Value.CompareTo(current.Data.Value) > 0)
+                    {
+                        minNode = current;
+                    }
                 }
             }
+
+
         }
 
         /// <summary>
