@@ -26,7 +26,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
                 tree.Insert(i);
 
                 var theoreticalTreeCount = Convert.ToString(i + 1, 2).Replace("0", "").Length;
-                var actualTreeCount = tree.heapForest.Length;
+                var actualTreeCount = tree.heapForest.Count();
 
                 Assert.AreEqual(theoreticalTreeCount, actualTreeCount);
             }

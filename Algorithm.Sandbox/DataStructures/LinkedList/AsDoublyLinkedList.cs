@@ -45,6 +45,94 @@ namespace Algorithm.Sandbox.DataStructures
 
         }
 
+
+        /// <summary>
+        /// Insert right after this node
+        /// </summary>
+        /// <param name="node"></param>
+        public void InsertAfter(AsDoublyLinkedListNode<T> node, AsDoublyLinkedListNode<T> data)
+        {
+            if (node == null)
+                throw new Exception("Empty reference node");
+
+            if (node == Head && node == Tail)
+            {
+                node.Next = data;
+                node.Previous = null;
+
+                data.Previous = node;
+                data.Next = null;
+
+                Head = node;
+                Tail = data;
+
+                return;
+            }
+
+            if (node != Tail)
+            {
+                data.Previous = node;
+                data.Next = node.Next;
+
+                node.Next.Previous = data;
+                node.Next = data;
+            }
+            else
+            {
+                data.Previous = node;
+                data.Next = null;
+
+                node.Next = data;
+                Tail = data;
+            }
+        }
+
+        /// <summary>
+        /// Insert right before this node
+        /// </summary>
+        /// <param name="node"></param>
+        public void InsertBefore(AsDoublyLinkedListNode<T> node, AsDoublyLinkedListNode<T> data)
+        {
+            if (node == null)
+                throw new Exception("Empty node");
+
+            if (node == Head && node == Tail)
+            {
+                Head.Previous = data;
+                Head.Next = null;
+
+                data.Previous = null;
+                data.Next = Head;
+
+                Tail = Head;
+                Head = data;
+
+                return;
+
+            }
+
+            if (node != Head)
+            {
+                node.Previous.Next = data;
+                data.Previous = node.Previous;
+
+                data.Next = node;
+                node.Previous = data;
+
+            }
+            else
+            {
+
+                data.Next = node;
+                data.Previous = null;
+
+                node.Previous = data;
+
+                Head = data;
+            }
+
+        }
+
         //insert at the end
         //costs O(1)
         public void InsertLast(T data)
@@ -63,6 +151,7 @@ namespace Algorithm.Sandbox.DataStructures
             Tail = newNode;
 
         }
+
 
         //cost O(1)
         public T DeleteFirst()
@@ -112,6 +201,10 @@ namespace Algorithm.Sandbox.DataStructures
             return tailData;
         }
 
+        /// <summary>
+        /// search for first T and delete
+        /// </summary>
+        /// <param name="data"></param>
         //cost O(n) in worst case O(nlog(n) average?
         public void Delete(T data)
         {
@@ -123,7 +216,7 @@ namespace Algorithm.Sandbox.DataStructures
             //eliminate single element list possibility
             if (Head == Tail)
             {
-                if (Head.Data.CompareTo(data)==0)
+                if (Head.Data.CompareTo(data) == 0)
                 {
                     DeleteFirst();
                 }
@@ -137,7 +230,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             while (current != null)
             {
-                if (current.Data.CompareTo(data)==0)
+                if (current.Data.CompareTo(data) == 0)
                 {
                     //current is the first element
                     if (current.Previous == null)
@@ -162,9 +255,48 @@ namespace Algorithm.Sandbox.DataStructures
 
                 current = current.Next;
             }
-            
+
         }
 
+        /// <summary>
+        /// deletes this given node
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public void Delete(AsDoublyLinkedListNode<T> node)
+        {
+            if (Head == null)
+            {
+                throw new Exception("Empty list");
+            }
+
+            if (node == Head && node == Tail)
+            {
+               DeleteFirst();
+               return;
+                    
+            }
+
+            //current is the first element
+            if (node.Previous == null)
+            {
+                node.Next.Previous = null;
+                Head = node.Next;
+            }
+            //current is the last element
+            else if (node.Next == null)
+            {
+                node.Previous.Next = null;
+                Tail = node.Previous;
+            }
+            //current is somewhere in the middle
+            else
+            {
+                node.Previous.Next = node.Next;
+                node.Next.Previous = node.Previous;
+            }
+
+        }
         //O(n) always
         public int Count()
         {
@@ -211,5 +343,5 @@ namespace Algorithm.Sandbox.DataStructures
 
             return result;
         }
-    }  
+    }
 }
