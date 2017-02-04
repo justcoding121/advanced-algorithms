@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -25,9 +26,11 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsFibornacciMinHeap<T> where T : IComparable
     {
-        //TODO use a linked list in future to improve memory complexity
+
         internal AsDoublyLinkedList<AsFibornacciTreeNode<T>> heapForest
             = new AsDoublyLinkedList<AsFibornacciTreeNode<T>>();
+
+        internal AsDoublyLinkedListNode<AsFibornacciTreeNode<T>> minNode;
 
         /// <summary>
         /// O(log(n)) complexity
@@ -41,8 +44,18 @@ namespace Algorithm.Sandbox.DataStructures
             newHeapForest.InsertFirst(newNode);
 
             //return pointer to new Node
-            return MergeForests(newHeapForest);
+            var resultNode = MergeForests(newHeapForest);
 
+            if(minNode == null)
+            {
+                minNode = resultNode;
+            }
+            else if (minNode.Data.Value.CompareTo(resultNode.Data.Value) > 0)
+            {
+                minNode = resultNode;
+            }
+
+            return resultNode.Data;
         }
 
         /// <summary>
@@ -53,7 +66,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (heapForest.Head == null)
                 return;
 
-            var hashTable = new AsTreeHashSet<int, AsFibornacciTreeNode<T>>();
+            var hashTable = new Dictionary<int, AsFibornacciTreeNode<T>>();
 
             var current = heapForest.Head;
 
@@ -73,7 +86,7 @@ namespace Algorithm.Sandbox.DataStructures
                 else
                 {
                     var currentDegree = current.Data.Degree;
-                    var existing = hashTable.GetValue(currentDegree);
+                    var existing = hashTable[currentDegree];
 
                     if (existing.Value.CompareTo(current.Data.Value) < 0)
                     {
@@ -101,14 +114,34 @@ namespace Algorithm.Sandbox.DataStructures
             //copy back trees with unique degrees
             if (hashTable.Count > 0)
             {
-                var allNodes = hashTable.GetAll();
+                //var allNodes = hashTable.GetAll();
 
-                for (int i = 0; i < allNodes.Length; i++)
+                foreach (var item in hashTable)
                 {
-                    heapForest.InsertLast(allNodes.ItemAt(i).Value);
+                    var newNode = heapForest.InsertLast(item.Value);
+
+                    if (minNode.Data.Value.CompareTo(newNode.Data.Value) > 0)
+                    {
+                        minNode = newNode;
+                    }
+                    
                 }
 
-                allNodes.Clear();
+                hashTable.Clear();
+            }
+
+            minNode = heapForest.Head;
+            current = heapForest.Head;
+
+            //find minimum tree
+            while (current.Next != null)
+            {
+                current = current.Next;
+
+                if (minNode.Data.Value.CompareTo(current.Data.Value) > 0)
+                {
+                    minNode = current;
+                }
             }
         }
 
@@ -123,34 +156,20 @@ namespace Algorithm.Sandbox.DataStructures
 
             Meld();
 
-            var minTree = heapForest.Head;
-            var current = heapForest.Head;
-
-            //find minimum tree
-            while (current.Next != null)
-            {
-                current = current.Next;
-
-                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
-                {
-                    minTree = current;
-                }
-            }
-
             //remove tree root
-            heapForest.Delete(minTree);
+            heapForest.Delete(minNode);
 
             var newHeapForest = new AsDoublyLinkedList<AsFibornacciTreeNode<T>>();
             //add removed roots children as new trees to forest
-            for (int i = 0; i < minTree.Data.Children.Length; i++)
+            for (int i = 0; i < minNode.Data.Children.Length; i++)
             {
-                minTree.Data.Children.ItemAt(i).Parent = null;
-                newHeapForest.InsertLast(minTree.Data.Children.ItemAt(i));
+                minNode.Data.Children.ItemAt(i).Parent = null;
+                newHeapForest.InsertLast(minNode.Data.Children.ItemAt(i));
             }
 
             MergeForests(newHeapForest);
 
-            return minTree.Data.Value;
+            return minNode.Data.Value;
         }
 
         /// <summary>
@@ -188,7 +207,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// returns the last inserted node (pointer required for decrement-key)
         /// </summary>
         /// <param name="newHeapForest"></param>
-        private AsFibornacciTreeNode<T> MergeForests(AsDoublyLinkedList<AsFibornacciTreeNode<T>> newHeapForest)
+        private AsDoublyLinkedListNode<AsFibornacciTreeNode<T>> MergeForests(AsDoublyLinkedList<AsFibornacciTreeNode<T>> newHeapForest)
         {
             AsDoublyLinkedListNode<AsFibornacciTreeNode<T>> lastInserted = null;
 
@@ -197,7 +216,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (heapForest.Head == null)
             {
                 heapForest = newHeapForest;
-                return heapForest.Tail != null ? heapForest.Tail.Data : null;
+                return heapForest.Tail != null ? heapForest.Tail : null;
             }
             //copy 
             while (@new != null)
@@ -206,7 +225,7 @@ namespace Algorithm.Sandbox.DataStructures
                 @new = @new.Next;
             }
 
-            return lastInserted == null ? null : lastInserted.Data;
+            return lastInserted == null ? null : lastInserted;
         }
 
         /// <summary>
@@ -218,21 +237,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (heapForest.Head == null)
                 throw new Exception("Empty heap");
 
-            var minTree = heapForest.Head;
-            var current = heapForest.Head;
-
-            //find minimum tree
-            while (current.Next != null)
-            {
-                current = current.Next;
-
-                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
-                {
-                    minTree = current;
-                }
-            }
-
-            return minTree.Data.Value;
+            return minNode.Data.Value;
         }
     }
 }

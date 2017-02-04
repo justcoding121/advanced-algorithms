@@ -25,7 +25,7 @@ namespace Algorithm.Sandbox.DataStructures
         public AsDoublyLinkedListNode<T> Tail;
         //marks this data as the new head
         //cost O(1)
-        public void InsertFirst(T data)
+        public AsDoublyLinkedListNode<T> InsertFirst(T data)
         {
             var newNode = new AsDoublyLinkedListNode<T>(data);
 
@@ -43,6 +43,7 @@ namespace Algorithm.Sandbox.DataStructures
                 Tail = Head;
             }
 
+            return newNode;
         }
 
 
@@ -138,21 +139,21 @@ namespace Algorithm.Sandbox.DataStructures
 
         //insert at the end
         //costs O(1)
-        public void InsertLast(T data)
-        {
-            var newNode = new AsDoublyLinkedListNode<T>(data);
-
+        public AsDoublyLinkedListNode<T> InsertLast(T data)
+        {     
             if (Tail == null)
             {
-                InsertFirst(data);
-                return;
+                return InsertFirst(data);
             }
+
+            var newNode = new AsDoublyLinkedListNode<T>(data);
 
             Tail.Next = newNode;
             newNode.Previous = Tail;
 
             Tail = newNode;
 
+            return newNode;
         }
 
 
