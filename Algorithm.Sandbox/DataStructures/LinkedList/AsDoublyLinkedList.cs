@@ -35,6 +35,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             newNode.Next = Head;
+            newNode.Previous = null;
 
             Head = newNode;
 
@@ -101,38 +102,38 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (node == Head && node == Tail)
             {
-                Head.Previous = data;
-                Head.Next = null;
+                node.Previous = data;
+                node.Next = null;
+                Tail = node;
 
                 data.Previous = null;
-                data.Next = Head;
+                data.Next = node;
 
-                Tail = Head;
                 Head = data;
 
                 return data;
 
             }
 
-            if (node != Head)
+            if (node == Head)
             {
-                node.Previous.Next = data;
-                data.Previous = node.Previous;
-
+                data.Previous = null;
                 data.Next = node;
+
                 node.Previous = data;
+                Head = data;
 
             }
             else
             {
-
+                data.Previous = node.Previous;
                 data.Next = node;
-                data.Previous = null;
 
+                node.Previous.Next = data;
                 node.Previous = data;
 
-                Head = data;
             }
+
 
             return data;
         }
@@ -140,7 +141,7 @@ namespace Algorithm.Sandbox.DataStructures
         //insert at the end
         //costs O(1)
         public AsDoublyLinkedListNode<T> InsertLast(T data)
-        {     
+        {
             if (Tail == null)
             {
                 return InsertFirst(data);
@@ -149,7 +150,9 @@ namespace Algorithm.Sandbox.DataStructures
             var newNode = new AsDoublyLinkedListNode<T>(data);
 
             Tail.Next = newNode;
+
             newNode.Previous = Tail;
+            newNode.Next = null;
 
             Tail = newNode;
 
@@ -274,21 +277,24 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty list");
             }
 
+            //only one element
             if (node == Head && node == Tail)
             {
-               DeleteFirst();
-               return;
-                    
+                Head = null;
+                Tail = null;
+                return;
+
             }
 
-            //current is the first element
-            if (node.Previous == null)
+            //node is head
+            if (node == Head)
             {
                 node.Next.Previous = null;
                 Head = node.Next;
+
             }
-            //current is the last element
-            else if (node.Next == null)
+            //node is tail
+            else if (node == Tail)
             {
                 node.Previous.Next = null;
                 Tail = node.Previous;

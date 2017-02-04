@@ -111,6 +111,12 @@ namespace Algorithm.Sandbox.DataStructures
             GetAllNodes(allNodes, currentNode.Right);
         }
 
+        internal void Clear()
+        {
+            Root = null;
+            Count = 0; 
+        }
+
         private AsRedBlackTreeNode<T> FindMax(AsRedBlackTreeNode<T> node)
         {
             if (node.Right == null)

@@ -41,32 +41,33 @@ namespace Algorithm.Sandbox.DataStructures
         //O(log(n) time complexity; 
         public bool ContainsKey(K key)
         {
-            var keyItem = new AsTreeHashSetNode<K, V>(key, default(V));
-            return binarySearchTree.HasItem(keyItem);
+            return binarySearchTree
+                .HasItem(new AsTreeHashSetNode<K, V>(key, default(V)));
         }
 
         //O(log(n) time complexity; 
         public V GetValue(K key)
         {
-            var keyItem = new AsTreeHashSetNode<K, V>(key, default(V));
-            return binarySearchTree.Find(keyItem).Value.Value;
+            return binarySearchTree
+                .Find(new AsTreeHashSetNode<K, V>(key, default(V)))
+                .Value
+                .Value;
         }
 
         //O(log(n) time complexity; 
         //add an item to this hash table
         public void Add(K key, V value)
         {
-            var keyItem = new AsTreeHashSetNode<K, V>(key, value);
-            binarySearchTree.Insert(keyItem);
+            binarySearchTree.Insert(new AsTreeHashSetNode<K, V>(key, value));
         }
 
         //O(log(n) time complexity
         public void Remove(K key)
         {
-            var keyItem = new AsTreeHashSetNode<K, V>(key, default(V));
-            binarySearchTree.Delete(keyItem);
+            binarySearchTree.Delete(new AsTreeHashSetNode<K, V>(key, default(V)));
         }
 
+        //O(n) time complexity
         public AsArrayList<AsTreeHashSetNode<K, V>> GetAll()
         {
             var nodes = binarySearchTree.GetAllNodes();
@@ -81,6 +82,11 @@ namespace Algorithm.Sandbox.DataStructures
             nodes.Clear();
 
             return allNodeValues;
+        }
+
+        internal void Clear()
+        {
+            binarySearchTree.Clear();
         }
     }
 }
