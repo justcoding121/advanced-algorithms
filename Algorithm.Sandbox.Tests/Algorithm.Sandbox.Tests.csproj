@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataStructures\Heap\FibornacciHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\BinomialHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\D-aryHeap_Tests.cs" />
     <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
@@ -58,13 +59,13 @@
     <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
     <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BST_Tests.cs" />
-    <Compile Include="DataStructures\CircularLinkedList_Tests.cs" />
-    <Compile Include="DataStructures\DoublyLinkedList_Tests.cs" />
+    <Compile Include="DataStructures\LinkedList\CircularLinkedList_Tests.cs" />
+    <Compile Include="DataStructures\LinkedList\DoublyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\HashSets\HashSet_Tests.cs" />
     <Compile Include="DataStructures\PriorityQueue_Tests.cs" />
     <Compile Include="DataStructures\Queue_Tests.cs" />
     <Compile Include="DataStructures\Tree\RedBlackTree_Tests.cs" />
-    <Compile Include="DataStructures\SinglyLinkedList_Tests.cs" />
+    <Compile Include="DataStructures\LinkedList\SinglyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\Stack_Tests.cs" />
     <Compile Include="DataStructures\StringBuilder_Tests.cs" />
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />

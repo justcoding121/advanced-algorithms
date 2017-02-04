@@ -194,7 +194,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var current = node;
 
-            while(current.Parent != null
+            while (current.Parent != null
                 && current.Value.CompareTo(current.Parent.Value) < 0)
             {
                 var tmp = current.Value;
@@ -231,7 +231,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (heapForest.Head == null)
             {
                 heapForest = newHeapForest;
-                return heapForest.Tail!=null? heapForest.Tail.Data:null;
+                return heapForest.Tail != null ? heapForest.Tail.Data : null;
             }
 
             var current = heapForest.Head;
@@ -261,11 +261,11 @@ namespace Algorithm.Sandbox.DataStructures
             //copy left overs
             while (@new != null)
             {
-                heapForest.InsertAfter(heapForest.Tail, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
+                lastInserted = heapForest.InsertAfter(heapForest.Tail, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
                 @new = @new.Next;
             }
 
-            return lastInserted == null? null : lastInserted.Data;
+            return lastInserted == null ? null : lastInserted.Data;
         }
 
         /// <summary>
