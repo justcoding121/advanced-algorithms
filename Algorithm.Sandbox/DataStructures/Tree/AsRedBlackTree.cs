@@ -91,6 +91,25 @@ namespace Algorithm.Sandbox.DataStructures
             return FindMax(Root).Value;
         }
 
+        internal AsArrayList<T> GetAllNodes()
+        {
+            var allNodes = new AsArrayList<T>();
+
+            GetAllNodes(allNodes, Root);
+
+            return allNodes;
+        }
+
+        internal void GetAllNodes(AsArrayList<T> allNodes, AsRedBlackTreeNode<T> currentNode)
+        {
+            if (currentNode == null)
+                return;
+
+            allNodes.AddItem(currentNode.Value);
+
+            GetAllNodes(allNodes, currentNode.Left);
+            GetAllNodes(allNodes, currentNode.Right);
+        }
 
         private AsRedBlackTreeNode<T> FindMax(AsRedBlackTreeNode<T> node)
         {

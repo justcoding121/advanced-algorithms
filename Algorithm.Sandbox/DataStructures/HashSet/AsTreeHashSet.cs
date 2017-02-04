@@ -2,7 +2,7 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsTreeHashSetNode<K, V> : IComparable 
+    public class AsTreeHashSetNode<K, V> : IComparable
                                  where K : IComparable
     {
         public K Key { get; private set; }
@@ -31,15 +31,17 @@ namespace Algorithm.Sandbox.DataStructures
         //use red-black tree as our balanced BST since it gives good performance for both deletion/insertion
         private AsRedBlackTree<AsTreeHashSetNode<K, V>> binarySearchTree;
 
+        public int Count => binarySearchTree.Count;
+
         public AsTreeHashSet()
         {
             binarySearchTree = new AsRedBlackTree<AsTreeHashSetNode<K, V>>();
-        }      
+        }
 
         //O(log(n) time complexity; 
         public bool ContainsKey(K key)
         {
-            var keyItem = new AsTreeHashSetNode<K, V>(key,default(V));
+            var keyItem = new AsTreeHashSetNode<K, V>(key, default(V));
             return binarySearchTree.HasItem(keyItem);
         }
 
@@ -63,6 +65,22 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var keyItem = new AsTreeHashSetNode<K, V>(key, default(V));
             binarySearchTree.Delete(keyItem);
+        }
+
+        public AsArrayList<AsTreeHashSetNode<K, V>> GetAll()
+        {
+            var nodes = binarySearchTree.GetAllNodes();
+
+            var allNodeValues = new AsArrayList<AsTreeHashSetNode<K, V>>();
+
+            for (int i = 0; i < nodes.Length; i++)
+            {
+                allNodeValues.AddItem(nodes.ItemAt(i));
+            }
+
+            nodes.Clear();
+
+            return allNodeValues;
         }
     }
 }
