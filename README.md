@@ -53,6 +53,7 @@ Various important computer science algorithms implemented in C#
 * Ternary Search Tree
 * K-D Tree
 * Decision Tree
+
 ### Graph
 
 #### Adjacency List
