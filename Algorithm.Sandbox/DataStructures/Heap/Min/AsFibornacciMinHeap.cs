@@ -46,7 +46,7 @@ namespace Algorithm.Sandbox.DataStructures
             //return pointer to new Node
             var resultNode = MergeForests(newHeapForest);
 
-            if(minNode == null)
+            if (minNode == null)
             {
                 minNode = resultNode;
             }
@@ -99,15 +99,15 @@ namespace Algorithm.Sandbox.DataStructures
                         heapForest.Delete(current);
 
                         current = newNode;
+
+                        if (minNode.Data.Value.CompareTo(current.Data.Value) < 0)
+                        {
+                            minNode = current;
+                        }
                     }
                     else
                     {
                         current.Data.Children.AddItem(existing);
-                    }
-
-                    if (minNode.Data.Value.CompareTo(current.Data.Value) < 0)
-                    {
-                        minNode = current;
                     }
 
                     hashTable.Remove(currentDegree);
@@ -115,8 +115,6 @@ namespace Algorithm.Sandbox.DataStructures
                 }
 
             }
-
-
 
             //copy back trees with unique degrees
             if (hashTable.Count > 0)
@@ -209,7 +207,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (heapForest.Head == null)
             {
                 heapForest = newHeapForest;
-                return heapForest.Head != null ? heapForest.Head: null;
+                return heapForest.Head != null ? heapForest.Head : null;
             }
             //copy 
             while (@new != null)
@@ -229,6 +227,8 @@ namespace Algorithm.Sandbox.DataStructures
         {
             if (heapForest.Head == null)
                 throw new Exception("Empty heap");
+
+            Meld();
 
             return minNode.Data.Value;
         }
