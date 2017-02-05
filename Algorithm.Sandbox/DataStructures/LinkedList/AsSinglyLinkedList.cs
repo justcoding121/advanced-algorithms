@@ -193,6 +193,16 @@ namespace Algorithm.Sandbox.DataStructures
 
             return result;
         }
+
+        /// <summary>
+        /// Inserts this element to the begining
+        /// </summary>
+        /// <param name="current"></param>
+        public void InsertFirst(AsSinglyLinkedListNode<T> current)
+        {
+            current.Next = Head;
+            Head = current;
+        }
     }
 
 

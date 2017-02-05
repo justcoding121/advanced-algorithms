@@ -1,6 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -61,7 +61,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (heapForest.Head == null)
                 return null;
 
-            var hashTable = new AsTreeHashSet<int, AsFibornacciTreeNode<T>>();
+            var hashTable = new AsHashSet<int, AsFibornacciTreeNode<T>>();
 
             var current = heapForest.Head;
             minNode = current;
@@ -74,7 +74,7 @@ namespace Algorithm.Sandbox.DataStructures
                     var next = current.Next;
 
                     hashTable.Add(current.Data.Degree, current.Data);
-
+                  
                     if (minNode == current)
                     {
                         minNode = null;
@@ -88,7 +88,7 @@ namespace Algorithm.Sandbox.DataStructures
                 else
                 {
                     var currentDegree = current.Data.Degree;
-                    var existing = hashTable.GetValue(currentDegree);
+                    var existing = hashTable[currentDegree];
 
                     if (existing.Value.CompareTo(current.Data.Value) < 0)
                     {
@@ -115,7 +115,7 @@ namespace Algorithm.Sandbox.DataStructures
                     }
 
                     hashTable.Remove(currentDegree);
-
+                  
                 }
 
             }
@@ -123,11 +123,9 @@ namespace Algorithm.Sandbox.DataStructures
             //copy back trees with unique degrees
             if (hashTable.Count > 0)
             {
-                var nodes = hashTable.GetAll();
-
-                for (int i = 0; i < nodes.Length; i++)
+                foreach(var node in hashTable) 
                 {
-                    var newNode = heapForest.InsertLast(nodes.ItemAt(i).Value);
+                    var newNode = heapForest.InsertLast(node.Value);
 
                     if (minNode == null
                         || minNode.Data.Value.CompareTo(newNode.Data.Value) > 0)
@@ -160,8 +158,8 @@ namespace Algorithm.Sandbox.DataStructures
             //add removed roots children as new trees to forest
             for (int i = 0; i < minNode.Data.Children.Length; i++)
             {
-                minNode.Data.Children.ItemAt(i).Parent = null;
-                newHeapForest.InsertLast(minNode.Data.Children.ItemAt(i));
+                minNode.Data.Children[i].Parent = null;
+                newHeapForest.InsertLast(minNode.Data.Children[i]);
             }
 
             MergeForests(newHeapForest);

@@ -25,7 +25,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsBinomialMinHeap<T> where T : IComparable
     {
-        //TODO use a linked list in future to improve memory complexity
+        
         internal AsDoublyLinkedList<AsBinomialTreeNode<T>> heapForest
             = new AsDoublyLinkedList<AsBinomialTreeNode<T>>();
 
@@ -174,8 +174,8 @@ namespace Algorithm.Sandbox.DataStructures
             //add removed roots children as new trees to forest
             for (int i = 0; i < minTree.Data.Children.Length; i++)
             {
-                minTree.Data.Children.ItemAt(i).Parent = null;
-                newHeapForest.InsertLast(minTree.Data.Children.ItemAt(i));
+                minTree.Data.Children[i].Parent = null;
+                newHeapForest.InsertLast(minTree.Data.Children[i]);
             }
 
             MergeSortedForests(newHeapForest);

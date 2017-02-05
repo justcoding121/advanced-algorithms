@@ -35,8 +35,8 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                nodePointers.ItemAt(i).Value--;
-                tree.DecrementKey(nodePointers.ItemAt(i));
+                nodePointers[i].Value--;
+                tree.DecrementKey(nodePointers[i]);
             }
 
             for (int i = 0; i <= nodeCount; i++)
@@ -58,8 +58,8 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
 
             for (int i = 0; i < nodeCount; i++)
             {
-                nodePointers.ItemAt(i).Value--;
-                tree.DecrementKey(nodePointers.ItemAt(i));
+                nodePointers[i].Value--;
+                tree.DecrementKey(nodePointers[i]);
             }
 
             for (int i = 1; i <= nodeCount; i++)

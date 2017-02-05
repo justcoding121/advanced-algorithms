@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
             if (memozingCache.ContainsKey(cacheKey))
             {
-                return memozingCache.GetValue(cacheKey);
+                return memozingCache[cacheKey];
             }
 
             int result;

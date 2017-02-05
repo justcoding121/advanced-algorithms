@@ -17,7 +17,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
             int[] coins = { 25, 10, 5 };
             int amount = 30;
 
-            var result = CoinChangeProblems.MinCoinChangeRecursive(amount, coins.Length, coins, new AsHashSet<int, int>(100));
+            var result = CoinChangeProblems.MinCoinChangeRecursive(amount, coins.Length, coins, new AsHashSet<int, int>());
 
             Assert.AreEqual(result, 2);
         }
@@ -32,7 +32,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
             int[] coins = { 1, 2, 3 };
             int amount = 29;
 
-            var result = CoinChangeProblems.MinCoinChangeRecursive(amount, coins.Length, coins, new AsHashSet<int, int>(100));
+            var result = CoinChangeProblems.MinCoinChangeRecursive(amount, coins.Length, coins, new AsHashSet<int, int>());
 
             Assert.AreEqual(result, 10);
         }

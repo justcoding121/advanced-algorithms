@@ -1,4 +1,6 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿using System.Linq;
+
+namespace Algorithm.Sandbox.DataStructures
 {
     public class AsStringBuilder
     {

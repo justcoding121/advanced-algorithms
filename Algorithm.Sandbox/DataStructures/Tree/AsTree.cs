@@ -79,7 +79,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             for (int i = 0; i < children.Length; i++)
             {
-                var childHeight = GetHeight(children.ItemAt(i));
+                var childHeight = GetHeight(children[i]);
 
                 if (currentHeight < childHeight)
                 {
@@ -209,7 +209,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             for (int i = 0; i < children.Length; i++)
             {
-                var result = Find(children.ItemAt(i), value);
+                var result = Find(children[i], value);
 
                 if (result != null)
                 {

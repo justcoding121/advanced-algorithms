@@ -1,5 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
 
 namespace Algorithm.Sandbox.Tests.DataStructures
 {
@@ -12,21 +14,45 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void HashSet_Test()
         {
-            var hashSet = new AsHashSet<string, int>(100);
+            var hashSet = new AsHashSet<int, int>();
+            int nodeCount = 1000 * 10;
+            //insert test
 
-            hashSet.Add("a", 1);
-            hashSet.Add("b", 2);
-            hashSet.Add("c", 3);
 
-            Assert.AreEqual(hashSet.GetValue("a"), 1);
-            Assert.AreEqual(hashSet.GetValue("b"), 2);
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                hashSet.Add(i, i);
+                Assert.AreEqual(true, hashSet.ContainsKey(i));
+            }
 
-            Assert.IsTrue(hashSet.ContainsKey("a"));
-            Assert.IsTrue(hashSet.ContainsKey("b"));
 
-            hashSet.Remove("a");
-            Assert.IsFalse(hashSet.ContainsKey("a"));
-            Assert.IsTrue(hashSet.ContainsKey("b"));
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                hashSet.Remove(i);
+                Assert.AreEqual(false, hashSet.ContainsKey(i));
+            }
+
+
+            var rnd = new Random();
+            var testSeries = Enumerable.Range(1, nodeCount).OrderBy(x => rnd.Next()).ToList();
+
+            
+            foreach (var item in testSeries)
+            {
+                hashSet.Add(item, item);
+                Assert.AreEqual(true, hashSet.ContainsKey(item));
+            }
+
+            foreach (var item in testSeries)
+            {
+                Assert.AreEqual(true, hashSet.ContainsKey(item));
+            }
+
+            for (int i = 1; i <= nodeCount; i++)
+            {
+                hashSet.Remove(i);
+                Assert.AreEqual(false, hashSet.ContainsKey(i));
+            }
 
         }
     }

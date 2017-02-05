@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
             if (memoizingCache.ContainsKey(key))
             {
-                return memoizingCache.GetValue(key);
+                return memoizingCache[key];
             }
 
             int result;
@@ -64,7 +64,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
             if (memoizingCache.ContainsKey(key))
             {
-                return memoizingCache.GetValue(key);
+                return memoizingCache[key];
             }
 
             int result;
