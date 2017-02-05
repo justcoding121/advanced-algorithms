@@ -68,7 +68,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         /// <summary>
-        /// Merge roots with same degrees in Forest and returns the min Pointer
+        /// Merge roots with same degrees in Forest 
         /// </summary>
         private void Meld()
         {

@@ -29,7 +29,8 @@ namespace Algorithm.Sandbox.DataStructures
         }
     }
     /// <summary>
-    /// A hash table implementation (key value dictionary)
+    /// A hash table implementation (key value dictionary) with linear probing
+    /// TODO make optional open addressing and implement it as default
     /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
     /// </summary>
     /// <typeparam name="K"></typeparam>
