@@ -29,16 +29,15 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
                 nodePointers.AddItem(node);
             }
 
+            Assert.IsTrue(tree.PeekMin() == 0);
+
+
             for (int i = 0; i <= nodeCount; i++)
             {
                 nodePointers[i].Value--;
                 tree.DecrementKey(nodePointers[i]);
-            }
-
-            for (int i = 0; i <= nodeCount; i++)
-            {
                 var min = tree.ExtractMin();
-                Assert.AreEqual(min, i-1);
+                Assert.AreEqual(min, i - 1);
             }
 
             nodePointers.Clear();

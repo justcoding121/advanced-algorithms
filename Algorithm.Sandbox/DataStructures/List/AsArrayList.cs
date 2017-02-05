@@ -11,12 +11,14 @@ namespace Algorithm.Sandbox.DataStructures
     public class AsArrayList<T> : IEnumerable<T>
     {
 
-        private int currentEndPosition;
-        private T[] array;
-        private int initArraySize;
+        private int initialArraySize;
+        private int arraySize;
 
-        public int ArraySize { get; private set; }
+        private T[] array;
+        
+        private int currentEndPosition;
         public int Length => currentEndPosition;
+
         //constructor init 
         public AsArrayList(int initalArraySize = 2)
         {
@@ -25,22 +27,11 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Initial array size must be greater than 1");
             }
 
-            initArraySize = initalArraySize;
-            ArraySize = initalArraySize;
-            array = new T[ArraySize];
+            initialArraySize = initalArraySize;
+            arraySize = initalArraySize;
+            array = new T[arraySize];
         }
 
-        //public T[] ToArray()
-        //{
-        //    var newArray = new T[Length];
-
-        //    for (int i = 0; i < Length; i++)
-        //    {
-        //        newArray[i] = array[i];
-        //    }
-
-        //    return newArray;
-        //}
 
         /// <summary>
         /// Expose indexer
@@ -77,8 +68,8 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         internal void Clear()
         {
-            ArraySize = initArraySize;
-            array = new T[ArraySize];
+            arraySize = initialArraySize;
+            array = new T[arraySize];
             currentEndPosition = 0;
         }
 
@@ -98,7 +89,7 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new System.Exception("Index exeeds array size");
 
             //shift elements
-            for (int j = i; j < ArraySize - 1; j++)
+            for (int j = i; j < arraySize - 1; j++)
             {
                 array[j] = array[j + 1];
             }
@@ -114,12 +105,12 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         private void Grow()
         {
-            if (currentEndPosition == ArraySize)
+            if (currentEndPosition == arraySize)
             {
                 //increase array size exponentially on demand
-                ArraySize *= 2;
+                arraySize *= 2;
 
-                var biggerArray = new T[ArraySize];
+                var biggerArray = new T[arraySize];
 
                 for (int i = 0; i < currentEndPosition; i++)
                 {
@@ -135,12 +126,12 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         private void Shrink()
         {
-            if (currentEndPosition == ArraySize / 2 && ArraySize != initArraySize)
+            if (currentEndPosition == arraySize / 2 && arraySize != initialArraySize)
             {
                 //reduce array by half 
-                ArraySize /= 2;
+                arraySize /= 2;
 
-                var smallerArray = new T[ArraySize];
+                var smallerArray = new T[arraySize];
 
                 for (int j = 0; j < currentEndPosition; j++)
                 {
