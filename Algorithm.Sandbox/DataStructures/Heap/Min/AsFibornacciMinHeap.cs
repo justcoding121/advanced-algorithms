@@ -177,19 +177,8 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="key"></param>
         public void DecrementKey(AsFibornacciTreeNode<T> node)
         {
-            var current = node;
-
-            while (current.Parent != null
-                && current.Value.CompareTo(current.Parent.Value) < 0)
-            {
-                var tmp = current.Value;
-                current.Value = current.Parent.Value;
-                current.Parent.Value = tmp;
-
-                current = current.Parent;
-            }
-
-            Count++;
+            //need extra property to keep track or marked nodes
+            throw new NotImplementedException();
         }
 
         /// <summary>
