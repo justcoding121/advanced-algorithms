@@ -95,6 +95,7 @@ namespace Algorithm.Sandbox.DataStructures
             return lastData;
         }
 
+        //search and delete
         //cost O(n) in worst case O(nlog(n) average?
         public void Delete(T data)
         {

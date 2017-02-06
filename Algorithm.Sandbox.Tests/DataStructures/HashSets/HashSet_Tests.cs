@@ -12,9 +12,9 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         /// key value dictionary tests 
         /// </summary>
         [TestMethod]
-        public void HashSet_Test()
+        public void HashSet_SeparateChaining_Test()
         {
-            var hashSet = new AsHashSet<int, int>();
+            var hashSet = new AsHashSet<int, int>(2, HashSetType.SeparateChaining);
             int nodeCount = 1000 * 10;
             //insert test
 
@@ -37,6 +37,52 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             var testSeries = Enumerable.Range(1, nodeCount).OrderBy(x => rnd.Next()).ToList();
 
             
+            foreach (var item in testSeries)
+            {
+                hashSet.Add(item, item);
+                Assert.AreEqual(true, hashSet.ContainsKey(item));
+            }
+
+            foreach (var item in testSeries)
+            {
+                Assert.AreEqual(true, hashSet.ContainsKey(item));
+            }
+
+            for (int i = 1; i <= nodeCount; i++)
+            {
+                hashSet.Remove(i);
+                Assert.AreEqual(false, hashSet.ContainsKey(i));
+            }
+
+        }
+
+
+        [TestMethod]
+        public void HashSet_OpenAddressing_Test()
+        {
+            var hashSet = new AsHashSet<int, int>(2, HashSetType.OpenAddressing);
+            int nodeCount = 1000 * 10;
+            //insert test
+
+
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                hashSet.Add(i, i);
+                Assert.AreEqual(true, hashSet.ContainsKey(i));
+            }
+
+
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                hashSet.Remove(i);
+                Assert.AreEqual(false, hashSet.ContainsKey(i));
+            }
+
+
+            var rnd = new Random();
+            var testSeries = Enumerable.Range(1, nodeCount).OrderBy(x => rnd.Next()).ToList();
+
+
             foreach (var item in testSeries)
             {
                 hashSet.Add(item, item);

@@ -47,6 +47,32 @@ namespace Algorithm.Sandbox.DataStructures
             return newNode;
         }
 
+        /// <summary>
+        /// Inserts the given node
+        /// O(1) time complexity
+        /// </summary>
+        /// <typeparam name="K"></typeparam>
+        /// <typeparam name="V"></typeparam>
+        /// <param name="newNode"></param>
+        internal void InsertFirst(AsDoublyLinkedListNode<T> newNode) 
+        {
+            if (Head != null)
+            {
+                Head.Previous = newNode;
+            }
+
+            newNode.Next = Head;
+            newNode.Previous = null;
+
+            Head = newNode;
+
+            if (Tail == null)
+            {
+                Tail = Head;
+            }
+
+        }
+
 
         /// <summary>
         /// Insert right after this node
@@ -321,6 +347,7 @@ namespace Algorithm.Sandbox.DataStructures
             return i;
         }
 
+  
         //O(1) always
         public bool IsEmpty()
         {
