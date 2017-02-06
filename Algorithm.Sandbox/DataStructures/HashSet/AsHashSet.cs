@@ -58,6 +58,11 @@ namespace Algorithm.Sandbox.DataStructures
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
         public AsHashSet(int initialBucketSize = 2, HashSetType type = HashSetType.OpenAddressing)
         {
+            if(initialBucketSize < 2)
+            {
+                throw new Exception("Bucket Size must be greater than 2.");
+
+            }
             if (type == HashSetType.SeparateChaining)
             {
                 hashSet = new AsSeparateChainingHashSet<K, V>(initialBucketSize);

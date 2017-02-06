@@ -263,7 +263,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         private void Shrink()
         {
-            if (Count <= bucketSize * 0.3 && bucketSize != initialBucketSize)
+            if (Count <= bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
             {
                 //reduce array by half 
                 var newBucketSize = bucketSize / 2;
