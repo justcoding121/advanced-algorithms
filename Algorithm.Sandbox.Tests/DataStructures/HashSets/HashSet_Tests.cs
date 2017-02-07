@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void HashSet_SeparateChaining_Test()
         {
-            var hashSet = new AsHashSet<int, int>(2, HashSetType.SeparateChaining);
+            var hashSet = new AsHashSet<int, int>(HashSetType.SeparateChaining);
             int nodeCount = 1000 * 10;
             //insert test
 
@@ -60,7 +60,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void HashSet_OpenAddressing_Test()
         {
-            var hashSet = new AsHashSet<int, int>(2, HashSetType.OpenAddressing);
+            var hashSet = new AsHashSet<int, int>(HashSetType.OpenAddressing);
             int nodeCount = 1000 * 10;
             //insert test
 

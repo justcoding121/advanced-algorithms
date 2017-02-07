@@ -76,7 +76,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (heapForest.Head == null)
                 return;
 
-            var hashTable = new AsHashSet<int, AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>>((int)Math.Log10(Count));
+            var hashTable = new AsHashSet<int, AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>>();
 
             var current = heapForest.Head;
             minNode = current;

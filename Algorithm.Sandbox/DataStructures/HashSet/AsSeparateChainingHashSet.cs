@@ -22,7 +22,7 @@ namespace Algorithm.Sandbox.DataStructures
         public int Count { get; private set; }
 
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public AsSeparateChainingHashSet(int initialBucketSize = 2)
+        public AsSeparateChainingHashSet(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
             hashArray = new AsDoublyLinkedList<AsHashSetNode<K, V>>[initialBucketSize];
@@ -37,7 +37,7 @@ namespace Algorithm.Sandbox.DataStructures
         //O(1) time complexity; worst case O(n)
         public bool ContainsKey(K key)
         {
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var index = key.GetHashCode() % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -67,7 +67,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             Grow();
 
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var index = key.GetHashCode() % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -98,7 +98,7 @@ namespace Algorithm.Sandbox.DataStructures
         //O(1) time complexity; worst case O(n)
         public void Remove(K key)
         {
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var index = key.GetHashCode() % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -159,7 +159,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         private void SetValue(K key, V value)
         {
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var index = key.GetHashCode() % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -186,7 +186,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         private V GetValue(K key)
         {
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var index = key.GetHashCode() % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -216,6 +216,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             if (filledBuckets >= bucketSize * 0.7)
             {
+                filledBuckets = 0;
                 //increase array size exponentially on demand
                 var newBucketSize = bucketSize * 2;
 
@@ -241,6 +242,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                                 if (biggerArray[newIndex] == null)
                                 {
+                                    filledBuckets++;
                                     biggerArray[newIndex] = new AsDoublyLinkedList<AsHashSetNode<K, V>>();
                                 }
 
@@ -248,7 +250,6 @@ namespace Algorithm.Sandbox.DataStructures
 
                                 current = next;
                             }
-
                         }
 
                     }
@@ -267,6 +268,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             if (filledBuckets == bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
             {
+                filledBuckets = 0;
                 //reduce array by half 
                 var newBucketSize = bucketSize / 2;
 
@@ -292,6 +294,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                                 if (smallerArray[newIndex] == null)
                                 {
+                                    filledBuckets++;
                                     smallerArray[newIndex] = new AsDoublyLinkedList<AsHashSetNode<K, V>>();
                                 }
 

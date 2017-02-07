@@ -17,6 +17,7 @@ namespace Algorithm.Sandbox.DataStructures
         private AsHashSetNode<K, V>[] hashArray;
         private int bucketSize => hashArray.Length;
         private int initialBucketSize;
+      
 
         public int Count { get; private set; }
 
@@ -36,7 +37,8 @@ namespace Algorithm.Sandbox.DataStructures
         //O(1) time complexity; worst case O(n)
         public bool ContainsKey(K key)
         {
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var hashCode = SaltHash(key.GetHashCode());
+            var index = hashCode % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -46,6 +48,9 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 var current = hashArray[index];
 
+                //keep track of this so that we won't circle around infinitely
+                var hitKey = current.Key;
+
                 while (current != null)
                 {
                     if (current.Key.CompareTo(key) == 0)
@@ -53,11 +58,19 @@ namespace Algorithm.Sandbox.DataStructures
                         return true;
                     }
 
-                    //wrap around
-                    if (index == hashArray.Length - 1)
-                        index = -1;
+                    index++;
 
-                    current = hashArray[++index];
+                    //wrap around
+                    if (index == bucketSize)
+                        index = 0;
+
+                    current = hashArray[index];
+
+                    //reached original hit again
+                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    {
+                        break;
+                    }
                 }
             }
 
@@ -68,9 +81,12 @@ namespace Algorithm.Sandbox.DataStructures
         //add an item to this hash table
         public void Add(K key, V value)
         {
+
             Grow();
 
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var hashCode = SaltHash(key.GetHashCode());
+
+            var index = hashCode % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -79,65 +95,117 @@ namespace Algorithm.Sandbox.DataStructures
             else
             {
                 var current = hashArray[index];
+                //keep track of this so that we won't circle around infinitely
+                var hitKey = current.Key;
 
                 while (current != null)
                 {
+
                     if (current.Key.CompareTo(key) == 0)
                     {
                         throw new Exception("Duplicate key");
                     }
 
-                    //wrap around
-                    if (index == hashArray.Length - 1)
-                        index = -1;
+                    index++;
 
-                    current = hashArray[++index];
+                    //wrap around
+                    if (index == bucketSize)
+                        index = 0;
+
+                    current = hashArray[index];
+
+                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    {
+                        throw new Exception("HashSet is full");
+                    }
                 }
 
                 hashArray[index] = new AsHashSetNode<K, V>(key, value);
             }
 
             Count++;
+
         }
 
         //O(1) time complexity; worst case O(n)
         public void Remove(K key)
         {
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var hashCode = SaltHash(key.GetHashCode());
+            var curIndex = hashCode % bucketSize;
 
-            if (hashArray[index] == null)
+            if (hashArray[curIndex] == null)
             {
                 throw new Exception("No such item for given key");
             }
             else
             {
-                var current = hashArray[index];
+                var current = hashArray[curIndex];
 
-                AsHashSetNode<K, V> item = null;
+                //prevent circling around infinitely
+                var hitKey = current.Key;
+
+                AsHashSetNode<K, V> target = null;
+
                 while (current != null)
                 {
                     if (current.Key.CompareTo(key) == 0)
                     {
-                        item = current;
+                        target = current;
                         break;
                     }
 
-                    //wrap around
-                    if (index == hashArray.Length - 1)
-                        index = -1;
+                    curIndex++;
 
-                    current = hashArray[++index];
+                    //wrap around
+                    if (curIndex == bucketSize)
+                        curIndex = 0;
+
+                    current = hashArray[curIndex];
+
+                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    {
+                        throw new Exception("No such item for given key");
+                    }
                 }
 
                 //remove
-                if (item == null)
+                if (target == null)
                 {
                     throw new Exception("No such item for given key");
                 }
                 else
                 {
+                    //delete this element
+                    hashArray[curIndex] = null;
 
-                    hashArray[index] = null;
+                    //now time to cleanup subsequent broken hash elements due to this emptied cell
+                    curIndex++;
+
+                    //wrap around
+                    if (curIndex == bucketSize)
+                        curIndex = 0;
+
+                    current = hashArray[curIndex];
+
+                    //until an empty cell
+                    while (current != null)
+                    {
+                        //delete current
+                        hashArray[curIndex] = null;
+
+                        //add current back to table
+                        Add(current.Key, current.Value);
+                        Count--;
+
+                        curIndex++;
+
+                        //wrap around
+                        if (curIndex == bucketSize)
+                            curIndex = 0;
+
+                        current = hashArray[curIndex];
+                    }
+
                 }
 
             }
@@ -160,7 +228,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         private void SetValue(K key, V value)
         {
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var index = (SaltHash(key.GetHashCode())) % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -169,6 +237,7 @@ namespace Algorithm.Sandbox.DataStructures
             else
             {
                 var current = hashArray[index];
+                var hitKey = current.Key;
 
                 while (current != null)
                 {
@@ -178,11 +247,19 @@ namespace Algorithm.Sandbox.DataStructures
                         return;
                     }
 
-                    //wrap around
-                    if (index == hashArray.Length - 1)
-                        index = -1;
+                    index++;
 
-                    current = hashArray[++index];
+                    //wrap around
+                    if (index == bucketSize)
+                        index = 0;
+
+                    current = hashArray[index];
+
+                    //reached original hit again
+                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    {
+                        throw new Exception("Item not found");
+                    }
                 }
             }
 
@@ -191,7 +268,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         private V GetValue(K key)
         {
-            var index = Math.Abs(key.GetHashCode()) % bucketSize;
+            var index = (SaltHash(key.GetHashCode())) % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -200,6 +277,7 @@ namespace Algorithm.Sandbox.DataStructures
             else
             {
                 var current = hashArray[index];
+                var hitKey = current.Key;
 
                 while (current != null)
                 {
@@ -208,11 +286,19 @@ namespace Algorithm.Sandbox.DataStructures
                         return current.Value;
                     }
 
-                    //wrap around
-                    if (index == hashArray.Length - 1)
-                        index = -1;
+                    index++;
 
-                    current = hashArray[++index];
+                    //wrap around
+                    if (index == bucketSize)
+                        index = 0;
+
+                    current = hashArray[index];
+
+                    //reached original hit again
+                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    {
+                        throw new Exception("Item not found");
+                    }
                 }
             }
 
@@ -225,37 +311,25 @@ namespace Algorithm.Sandbox.DataStructures
         {
             if (bucketSize * 0.7 <= Count)
             {
+                var orgBucketSize = bucketSize;
+                var currentArray = hashArray;
+
                 //increase array size exponentially on demand
-                var newBucketSize = bucketSize * 2;
+                hashArray = new AsHashSetNode<K, V>[bucketSize * 2];
 
-                var biggerArray = new AsHashSetNode<K, V>[newBucketSize];
-
-                for (int i = 0; i < bucketSize; i++)
+                for (int i = 0; i < orgBucketSize; i++)
                 {
-                    var current = hashArray[i];
+                    var current = currentArray[i];
 
                     if (current != null)
                     {
-                        var newIndex = Math.Abs(current.Key.GetHashCode()) % newBucketSize;
-                        var newLocation = biggerArray[newIndex];
-
-                        while (newLocation != null)
-                        {
-                            //wrap around
-                            if (newIndex == biggerArray.Length - 1)
-                                newIndex = -1;
-
-                            newLocation = biggerArray[++newIndex];
-                        }
-
-                        biggerArray[newIndex] = current;
+                        Add(current.Key, current.Value);
+                        Count--;
                     }
                 }
 
-                hashArray = biggerArray;
+                currentArray = null;
             }
-
-
         }
 
         /// <summary>
@@ -265,35 +339,36 @@ namespace Algorithm.Sandbox.DataStructures
         {
             if (Count <= bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
             {
-                //reduce array by half 
-                var newBucketSize = bucketSize / 2;
+                var orgBucketSize = bucketSize;
 
-                var smallerArray = new AsHashSetNode<K, V>[newBucketSize];
+                var currentArray = hashArray;
 
-                for (int i = 0; i < bucketSize; i++)
+                //reduce array by half logarithamic
+                hashArray = new AsHashSetNode<K, V>[bucketSize / 2];
+
+                for (int i = 0; i < orgBucketSize; i++)
                 {
-                    var current = hashArray[i];
+                    var current = currentArray[i];
 
                     if (current != null)
                     {
-                        var newIndex = Math.Abs(current.Key.GetHashCode()) % newBucketSize;
-                        var newLocation = smallerArray[newIndex];
-
-                        while (newLocation != null)
-                        {
-                            //wrap around
-                            if (newIndex == smallerArray.Length - 1)
-                                newIndex = -1;
-
-                            newLocation = smallerArray[++newIndex];
-                        }
-
-                        smallerArray[newIndex] = current;
+                        Add(current.Key, current.Value);
+                        Count--;
                     }
                 }
 
-                hashArray = smallerArray;
+                currentArray = null;
             }
+        }
+
+        /// <summary>
+        /// salt the hash with a random number
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        private int SaltHash(int key)
+        {
+            return key * 3;
         }
 
         //Implementation for the GetEnumerator method.
@@ -304,7 +379,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         public IEnumerator<AsHashSetNode<K, V>> GetEnumerator()
         {
-             return new OpenAddressHashSetEnumerator<K, V>(hashArray, hashArray.Length);
+            return new OpenAddressHashSetEnumerator<K, V>(hashArray, hashArray.Length);
         }
 
     }

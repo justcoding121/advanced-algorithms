@@ -56,7 +56,7 @@ namespace Algorithm.Sandbox.DataStructures
     {
         private AsIHashSetAsHashSet<K, V> hashSet;
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public AsHashSet(int initialBucketSize = 2, HashSetType type = HashSetType.OpenAddressing)
+        public AsHashSet(HashSetType type = HashSetType.OpenAddressing, int initialBucketSize = 2)
         {
             if(initialBucketSize < 2)
             {
@@ -120,9 +120,6 @@ namespace Algorithm.Sandbox.DataStructures
             return hashSet.GetEnumerator();
         }
 
-        
-
     }
-
    
 }
