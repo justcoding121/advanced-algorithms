@@ -17,7 +17,7 @@ namespace Algorithm.Sandbox.DataStructures
         private AsHashSetNode<K, V>[] hashArray;
         private int bucketSize => hashArray.Length;
         private int initialBucketSize;
-      
+
 
         public int Count { get; private set; }
 
@@ -387,24 +387,24 @@ namespace Algorithm.Sandbox.DataStructures
     //  implement IEnumerator.
     public class OpenAddressHashSetEnumerator<K, V> : IEnumerator<AsHashSetNode<K, V>> where K : IComparable
     {
-        internal AsHashSetNode<K, V>[] _array;
+        internal AsHashSetNode<K, V>[] hashArray;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
         int length;
 
-        public OpenAddressHashSetEnumerator(AsHashSetNode<K, V>[] list, int length)
+        public OpenAddressHashSetEnumerator(AsHashSetNode<K, V>[] hashArray, int length)
         {
             this.length = length;
-            _array = list;
+            this.hashArray = hashArray;
         }
 
         public bool MoveNext()
         {
             position++;
 
-            while (position < length && _array[position] == null)
+            while (position < length && hashArray[position] == null)
                 position++;
 
             return (position < length);
@@ -430,7 +430,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 try
                 {
-                    return _array[position];
+                    return hashArray[position];
                 }
                 catch (IndexOutOfRangeException)
                 {

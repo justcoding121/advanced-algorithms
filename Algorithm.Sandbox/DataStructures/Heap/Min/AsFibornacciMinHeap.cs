@@ -1,23 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
     public class AsFibornacciTreeNode<T> : IComparable where T : IComparable
     {
         internal T Value { get; set; }
-        internal int Degree => Children.Length;
+        internal int Degree;
 
         internal AsFibornacciTreeNode<T> Parent { get; set; }
 
         //TODO use a circular linked list to improve performance
-        internal AsArrayList<AsFibornacciTreeNode<T>> Children { get; set; }
+        internal AsCircularLinkedList<AsFibornacciTreeNode<T>> Children { get; set; }
         public bool LostChild { get; internal set; }
 
         public AsFibornacciTreeNode(T value)
         {
             this.Value = value;
 
-            Children = new AsArrayList<AsFibornacciTreeNode<T>>();
+            Children = new AsCircularLinkedList<AsFibornacciTreeNode<T>>();
         }
 
         public int CompareTo(object obj)
@@ -50,13 +51,13 @@ namespace Algorithm.Sandbox.DataStructures
             //return pointer to new Node
             var resultNode = MergeForests(newHeapForest);
 
-            if(minNode == null)
+            if (minNode == null)
             {
                 minNode = resultNode;
             }
             else
             {
-                if(minNode.Data.Value.CompareTo(resultNode.Data.Value) > 0)
+                if (minNode.Data.Value.CompareTo(resultNode.Data.Value) > 0)
                 {
                     minNode = resultNode;
                 }
@@ -76,7 +77,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (heapForest.Head == null)
                 return;
 
-            var hashTable = new AsHashSet<int, AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>>();
+            var hashTable = new Dictionary<int, AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>>();
 
             var current = heapForest.Head;
             minNode = current;
@@ -105,12 +106,27 @@ namespace Algorithm.Sandbox.DataStructures
                     var currentDegree = current.Data.Degree;
                     var existing = hashTable[currentDegree];
 
+                    AsCircularLinkedListNode<AsFibornacciTreeNode<T>> newCLNode;
                     if (existing.Data.Value.CompareTo(current.Data.Value) < 0)
                     {
                         current.Data.Parent = existing.Data;
-                        existing.Data.Children.AddItem(current.Data);
+                        newCLNode = existing.Data.Children.Insert(current.Data);
+
+
+                        //add to index for retrieving the Circular List Node during Decrement Key Operation
+                        if (childrenIndex.ContainsKey(current.Data))
+                        {
+                            childrenIndex[current.Data] = newCLNode;
+                        }
+                        else
+                        {
+                            childrenIndex.Add(current.Data, newCLNode);
+                        }
+
+                        existing.Data.Degree++;
 
                         var newNode = heapForest.InsertBefore(current, existing);
+
 
                         heapForest.Delete(current);
 
@@ -120,8 +136,21 @@ namespace Algorithm.Sandbox.DataStructures
                     else
                     {
                         existing.Data.Parent = current.Data;
-                        current.Data.Children.AddItem(existing.Data);
+                        newCLNode = current.Data.Children.Insert(existing.Data);
+
+                        //add to index for retrieving the Circular List Node during Decrement Key Operation
+                        if (childrenIndex.ContainsKey(existing.Data))
+                        {
+                            childrenIndex[existing.Data] = newCLNode;
+                        }
+                        else
+                        {
+                            childrenIndex.Add(existing.Data, newCLNode);
+                        }
+
+                        current.Data.Degree++;
                     }
+
 
                     if (minNode == null
                         || minNode.Data.Value.CompareTo(current.Data.Value) > 0)
@@ -155,6 +184,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         }
 
+
         /// <summary>
         /// O(log(n)) complexity
         /// </summary>
@@ -171,19 +201,21 @@ namespace Algorithm.Sandbox.DataStructures
 
             var newHeapForest = new AsDoublyLinkedList<AsFibornacciTreeNode<T>>();
             //add removed roots children as new trees to forest
-            for (int i = 0; i < minNode.Data.Children.Length; i++)
+            foreach (var child in minNode.Data.Children)
             {
-                minNode.Data.Children[i].Parent = null;
-                newHeapForest.InsertLast(minNode.Data.Children[i]);
+                child.Parent = null;
+                newHeapForest.InsertLast(child);
             }
 
             MergeForests(newHeapForest);
             Meld();
-            
+
 
             return minValue;
         }
 
+        private Dictionary<AsFibornacciTreeNode<T>, AsCircularLinkedListNode<AsFibornacciTreeNode<T>>> childrenIndex
+            = new Dictionary<AsFibornacciTreeNode<T>, AsCircularLinkedListNode<AsFibornacciTreeNode<T>>>();
         /// <summary>
         /// Update the Heap with new value for this node pointer
         /// O(1) complexity amortized
@@ -196,46 +228,49 @@ namespace Algorithm.Sandbox.DataStructures
             if (current.Parent != null
                 && current.Value.CompareTo(current.Parent.Value) < 0)
             {
-                for (int i = 0; i < current.Parent.Children.Length; i++)
+
+                var parent = current.Parent;
+                if (parent.LostChild)
                 {
-                    if (current.Parent.Children[i] == current)
+                    parent.LostChild = false;
+
+                    var grandParent = parent.Parent;
+                    if (grandParent != null)
                     {
-                        if (current.Parent.LostChild)
-                        {
-                            var parent = current.Parent;
-                            parent.LostChild = false;
 
-                            if (current.Parent.Parent != null)
-                            {  
-                                var grandParent = current.Parent.Parent;
-                                grandParent.LostChild = true;
+                        grandParent.LostChild = true;
 
-                                for (int j = 0; j < grandParent.Children.Length; j++)
-                                {
-                                    if (grandParent.Children[j] == parent)
-                                    {
-                                        heapForest.InsertFirst(parent);
-                                        grandParent.Children.RemoveItem(j);
-                                        grandParent.LostChild = true;
-                                        parent.Parent = null;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        else
+                        heapForest.InsertFirst(parent);
+
+                        var parentNode = childrenIndex[parent];
+                        grandParent.Children.Delete(parentNode);
+
+                        if (childrenIndex.ContainsKey(parent))
                         {
-                            heapForest.InsertFirst(current);
-                            current.Parent.Children.RemoveItem(i);
-                            current.Parent.LostChild = true;
-                            current.Parent = null;
+                            childrenIndex.Remove(parent);
                         }
 
-                        break;
+                        grandParent.LostChild = true;
+                        parent.Parent = null;
+
                     }
                 }
+                else
+                {
+                    heapForest.InsertFirst(current);
 
-               
+                    var currentNode = childrenIndex[current];
+                    current.Parent.Children.Delete(currentNode);
+
+                    if (childrenIndex.ContainsKey(current))
+                    {
+                        childrenIndex.Remove(current);
+                    }
+
+                    current.Parent.LostChild = true;
+                    current.Parent = null;
+                }
+
             }
 
 
@@ -288,4 +323,6 @@ namespace Algorithm.Sandbox.DataStructures
             return minNode.Data.Value;
         }
     }
+
+
 }

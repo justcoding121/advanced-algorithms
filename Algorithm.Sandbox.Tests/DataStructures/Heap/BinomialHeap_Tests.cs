@@ -53,16 +53,16 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
             }
 
 
-            for (int i = 0; i < nodeCount; i++)
+            foreach (var item in testSeries.OrderBy(x => rnd.Next()).ToList())
             {
-                nodePointers[i].Value--;
-                tree.DecrementKey(nodePointers[i]);
+                nodePointers[item - 1].Value--;
+                tree.DecrementKey(nodePointers[item - 1]);
             }
 
             for (int i = 1; i <= nodeCount; i++)
             {
                 var min = tree.ExtractMin();
-                Assert.AreEqual(min, i-1);
+                Assert.AreEqual(min, i - 1);
             }
 
         }

@@ -327,7 +327,7 @@ namespace Algorithm.Sandbox.DataStructures
     //  implement IEnumerator.
     public class SeparateChainingHashSetEnumerator<K, V> : IEnumerator<AsHashSetNode<K, V>> where K : IComparable
     {
-        internal AsDoublyLinkedList<AsHashSetNode<K, V>>[] _array;
+        internal AsDoublyLinkedList<AsHashSetNode<K, V>>[] hashList;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
@@ -336,10 +336,10 @@ namespace Algorithm.Sandbox.DataStructures
 
         int length;
 
-        internal SeparateChainingHashSetEnumerator(AsDoublyLinkedList<AsHashSetNode<K, V>>[] list, int length)
+        internal SeparateChainingHashSetEnumerator(AsDoublyLinkedList<AsHashSetNode<K, V>>[] hashList, int length)
         {
             this.length = length;
-            _array = list;
+            this.hashList = hashList;
         }
 
         public bool MoveNext()
@@ -356,10 +356,10 @@ namespace Algorithm.Sandbox.DataStructures
 
                 if (position < length)
                 {
-                    if (_array[position] == null)
+                    if (hashList[position] == null)
                         continue;
 
-                    currentNode = _array[position].Head;
+                    currentNode = hashList[position].Head;
 
                     if (currentNode == null)
                         continue;

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -20,13 +22,13 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsCircularLinkedList<T> where T : IComparable
+    public class AsCircularLinkedList<T> : IEnumerable<T> where T : IComparable
     {
         public AsCircularLinkedListNode<T> ReferenceNode;
 
         //marks this data as the new head (kinda insert first assuming current reference node as head)
         //cost O(1)
-        public void Insert(T data)
+        public AsCircularLinkedListNode<T> Insert(T data)
         {
             var newNode = new AsCircularLinkedListNode<T>(data);
 
@@ -50,8 +52,34 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             ReferenceNode = newNode;
+
+            return newNode;
         }
 
+        //O(1) delete this item
+        public void Delete(AsCircularLinkedListNode<T> current)
+        {
+            if (ReferenceNode.Next == ReferenceNode)
+            {
+                if (ReferenceNode == current)
+                {
+                    ReferenceNode = null;
+                    return;
+                }
+                throw new Exception("Not found");
+            }
+
+            current.Prev.Next = current.Next;
+            current.Next.Prev = current.Prev;
+
+            //match is a reference node
+            if (current == ReferenceNode)
+            {
+                ReferenceNode = current.Next;
+            }
+        }
+
+        //search and delete
         //cost O(n) in worst case O(nlog(n) average?
         public void Delete(T data)
         {
@@ -63,7 +91,7 @@ namespace Algorithm.Sandbox.DataStructures
             //only one element on list
             if (ReferenceNode.Next == ReferenceNode)
             {
-                if (ReferenceNode.Data.CompareTo(data)==0)
+                if (ReferenceNode.Data.CompareTo(data) == 0)
                 {
                     ReferenceNode = null;
                     return;
@@ -76,7 +104,7 @@ namespace Algorithm.Sandbox.DataStructures
             var found = false;
             while (true)
             {
-                if (current.Data.CompareTo(data)==0)
+                if (current.Data.CompareTo(data) == 0)
                 {
                     current.Prev.Next = current.Next;
                     current.Next.Prev = current.Prev;
@@ -174,5 +202,81 @@ namespace Algorithm.Sandbox.DataStructures
 
             return result;
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new CircularLinkedListEnumerator<T>(ref ReferenceNode);
+        }
+    }
+
+    //  implement IEnumerator.
+    public class CircularLinkedListEnumerator<T> : IEnumerator<T> where T : IComparable
+    {
+        internal AsCircularLinkedListNode<T> referenceNode;
+        internal AsCircularLinkedListNode<T> currentNode;
+
+        internal CircularLinkedListEnumerator(ref AsCircularLinkedListNode<T> referenceNode)
+        {
+            this.referenceNode = referenceNode;
+        }
+
+        public bool MoveNext()
+        {
+            if (referenceNode == null)
+                return false;
+
+            if (currentNode == null)
+            {
+                currentNode = referenceNode;
+                return true;
+            }
+
+            if (currentNode.Next != null && currentNode.Next != referenceNode)
+            {
+                currentNode = currentNode.Next;
+                return true;
+            }
+
+            return false;
+
+        }
+
+        public void Reset()
+        {
+            currentNode = referenceNode;
+        }
+
+
+        object IEnumerator.Current
+        {
+            get
+            {
+                return Current;
+            }
+        }
+
+        public T Current
+        {
+            get
+            {
+                try
+                {
+                    return currentNode.Data;
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+        public void Dispose()
+        {
+        }
+
     }
 }
