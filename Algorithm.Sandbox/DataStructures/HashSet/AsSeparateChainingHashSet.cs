@@ -173,7 +173,8 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     if (current.Data.Key.CompareTo(key) == 0)
                     {
-                        current.Data.Value = value;
+                        Remove(key);
+                        Add(key, value);
                         return;
                     }
 
