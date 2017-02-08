@@ -29,11 +29,18 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsFibornacciMinHeap<T> where T : IComparable
     {
-
+        
         internal AsDoublyLinkedList<AsFibornacciTreeNode<T>> heapForest
             = new AsDoublyLinkedList<AsFibornacciTreeNode<T>>();
 
+        //holds the minimum node at any given time
         private AsDoublyLinkedListNode<AsFibornacciTreeNode<T>> minNode = null;
+
+
+        //keep track of node reference for Circular List Node for each of our Fibornacci Node
+        //This is so that we don't need to search whole heap to find the node during decrement key operation
+        private Dictionary<AsFibornacciTreeNode<T>, AsCircularLinkedListNode<AsFibornacciTreeNode<T>>> childrenIndex
+            = new Dictionary<AsFibornacciTreeNode<T>, AsCircularLinkedListNode<AsFibornacciTreeNode<T>>>();
 
         internal int Count { get; private set; }
 
@@ -214,8 +221,6 @@ namespace Algorithm.Sandbox.DataStructures
             return minValue;
         }
 
-        private Dictionary<AsFibornacciTreeNode<T>, AsCircularLinkedListNode<AsFibornacciTreeNode<T>>> childrenIndex
-            = new Dictionary<AsFibornacciTreeNode<T>, AsCircularLinkedListNode<AsFibornacciTreeNode<T>>>();
         /// <summary>
         /// Update the Heap with new value for this node pointer
         /// O(1) complexity amortized
