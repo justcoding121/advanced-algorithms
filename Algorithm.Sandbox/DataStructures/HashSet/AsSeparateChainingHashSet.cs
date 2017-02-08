@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>
-    internal class AsSeparateChainingHashSet<K, V> : AsIHashSetAsHashSet<K, V>  where K : IComparable
+    internal class AsSeparateChainingHashSet<K, V> : AsIHashSet<K, V>  where K : IComparable
     {
 
         private AsDoublyLinkedList<AsHashSetNode<K, V>>[] hashArray;
