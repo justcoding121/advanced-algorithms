@@ -37,7 +37,7 @@ namespace Algorithm.Sandbox.DataStructures
         //O(1) time complexity; worst case O(n)
         public bool ContainsKey(K key)
         {
-            var hashCode = SaltHash(key.GetHashCode());
+            var hashCode = SaltHash(Math.Abs(key.GetHashCode()));
             var index = hashCode % bucketSize;
 
             if (hashArray[index] == null)
@@ -84,7 +84,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             Grow();
 
-            var hashCode = SaltHash(key.GetHashCode());
+            var hashCode = SaltHash(Math.Abs(key.GetHashCode()));
 
             var index = hashCode % bucketSize;
 
@@ -130,7 +130,7 @@ namespace Algorithm.Sandbox.DataStructures
         //O(1) time complexity; worst case O(n)
         public void Remove(K key)
         {
-            var hashCode = SaltHash(key.GetHashCode());
+            var hashCode = SaltHash(Math.Abs(key.GetHashCode()));
             var curIndex = hashCode % bucketSize;
 
             if (hashArray[curIndex] == null)
@@ -228,7 +228,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         private void SetValue(K key, V value)
         {
-            var index = (SaltHash(key.GetHashCode())) % bucketSize;
+            var index = (SaltHash(Math.Abs(key.GetHashCode()))) % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -268,7 +268,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         private V GetValue(K key)
         {
-            var index = (SaltHash(key.GetHashCode())) % bucketSize;
+            var index = (SaltHash(Math.Abs(key.GetHashCode()))) % bucketSize;
 
             if (hashArray[index] == null)
             {
