@@ -320,13 +320,13 @@ namespace Algorithm.Sandbox.DataStructures
 
         public IEnumerator<AsHashSetNode<K, V>> GetEnumerator()
         {
-            return new SeparateChainingHashSetEnumerator<K, V>(hashArray, bucketSize);
+            return new AsSeparateChainingHashSetEnumerator<K, V>(hashArray, bucketSize);
         }
 
     }
 
     //  implement IEnumerator.
-    public class SeparateChainingHashSetEnumerator<K, V> : IEnumerator<AsHashSetNode<K, V>> where K : IComparable
+    public class AsSeparateChainingHashSetEnumerator<K, V> : IEnumerator<AsHashSetNode<K, V>> where K : IComparable
     {
         internal AsDoublyLinkedList<AsHashSetNode<K, V>>[] hashList;
 
@@ -337,7 +337,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         int length;
 
-        internal SeparateChainingHashSetEnumerator(AsDoublyLinkedList<AsHashSetNode<K, V>>[] hashList, int length)
+        internal AsSeparateChainingHashSetEnumerator(AsDoublyLinkedList<AsHashSetNode<K, V>>[] hashList, int length)
         {
             this.length = length;
             this.hashList = hashList;

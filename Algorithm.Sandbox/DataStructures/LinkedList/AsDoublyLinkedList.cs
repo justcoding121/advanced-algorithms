@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -19,7 +21,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsDoublyLinkedList<T> where T : IComparable
+    public class AsDoublyLinkedList<T> :IEnumerable<T> where T : IComparable
     {
         public AsDoublyLinkedListNode<T> Head;
         public AsDoublyLinkedListNode<T> Tail;
@@ -380,5 +382,81 @@ namespace Algorithm.Sandbox.DataStructures
 
             return result;
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new AsDoublyLinkedListEnumerator<T>(ref Head);
+        }
+    }
+
+    //  implement IEnumerator.
+    public class AsDoublyLinkedListEnumerator<T> : IEnumerator<T> where T : IComparable
+    {
+        internal AsDoublyLinkedListNode<T> headNode;
+        internal AsDoublyLinkedListNode<T> currentNode;
+
+        internal AsDoublyLinkedListEnumerator(ref AsDoublyLinkedListNode<T> headNode)
+        {
+            this.headNode = headNode;
+        }
+
+        public bool MoveNext()
+        {
+            if (headNode == null)
+                return false;
+
+            if (currentNode == null)
+            {
+                currentNode = headNode;
+                return true;
+            }
+
+            if (currentNode.Next != null)
+            {
+                currentNode = currentNode.Next;
+                return true;
+            }
+
+            return false;
+
+        }
+
+        public void Reset()
+        {
+            currentNode = headNode;
+        }
+
+
+        object IEnumerator.Current
+        {
+            get
+            {
+                return Current;
+            }
+        }
+
+        public T Current
+        {
+            get
+            {
+                try
+                {
+                    return currentNode.Data;
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+        public void Dispose()
+        {
+        }
+
     }
 }

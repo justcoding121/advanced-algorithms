@@ -150,13 +150,13 @@ namespace Algorithm.Sandbox.DataStructures
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new ArrayListEnumerator<T>(array, Length);
+            return new AsArrayListEnumerator<T>(array, Length);
         }
 
     }
 
     //  implement IEnumerator.
-    public class ArrayListEnumerator<T> : IEnumerator<T>
+    public class AsArrayListEnumerator<T> : IEnumerator<T>
     {
         private T[] _array;
 
@@ -165,7 +165,7 @@ namespace Algorithm.Sandbox.DataStructures
         int position = -1;
         int length;
 
-        public ArrayListEnumerator(T[] list, int length)
+        public AsArrayListEnumerator(T[] list, int length)
         {
             this.length = length;
             _array = list;

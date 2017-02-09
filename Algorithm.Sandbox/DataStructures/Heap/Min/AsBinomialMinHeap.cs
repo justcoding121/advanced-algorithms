@@ -41,7 +41,7 @@ namespace Algorithm.Sandbox.DataStructures
             newHeapForest.InsertFirst(newNode);
 
             //updated pointer
-            newNode = MergeSortedForests(newHeapForest);
+            MergeSortedForests(newHeapForest);
 
             Meld();
 
@@ -54,7 +54,10 @@ namespace Algorithm.Sandbox.DataStructures
         private void Meld()
         {
             if (heapForest.Head == null)
+            {
                 return;
+            }
+                
 
             int i = 0;
             var cur = heapForest.Head;
@@ -97,7 +100,7 @@ namespace Algorithm.Sandbox.DataStructures
                     }
 
                     //case 3 cur value is less than next
-                    if (cur.Data.Value.CompareTo(next.Data.Value) < 0)
+                    if (cur.Data.Value.CompareTo(next.Data.Value) <= 0)
                     {
                         //add next as child of current
                         cur.Data.Children.AddItem(next.Data);
@@ -221,17 +224,15 @@ namespace Algorithm.Sandbox.DataStructures
         /// & returns the last inserted node (pointer required for decrement-key)
         /// </summary>
         /// <param name="newHeapForest"></param>
-        private AsBinomialTreeNode<T> MergeSortedForests(AsDoublyLinkedList<AsBinomialTreeNode<T>> newHeapForest)
+        private void MergeSortedForests(AsDoublyLinkedList<AsBinomialTreeNode<T>> newHeapForest)
         {
-
-            AsDoublyLinkedListNode<AsBinomialTreeNode<T>> lastInserted = null;
 
             var @new = newHeapForest.Head;
 
             if (heapForest.Head == null)
             {
                 heapForest = newHeapForest;
-                return heapForest.Tail != null ? heapForest.Tail.Data : null;
+                return;
             }
 
             var current = heapForest.Head;
@@ -245,13 +246,13 @@ namespace Algorithm.Sandbox.DataStructures
                 }
                 else if (current.Data.Degree > @new.Data.Degree)
                 {
-                    lastInserted = heapForest.InsertBefore(current, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
+                    heapForest.InsertBefore(current, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
                     @new = @new.Next;
                 }
                 else
                 {
                     //equal
-                    lastInserted = heapForest.InsertAfter(current, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
+                    heapForest.InsertAfter(current, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
                     current = current.Next;
                     @new = @new.Next;
                 }
@@ -261,11 +262,10 @@ namespace Algorithm.Sandbox.DataStructures
             //copy left overs
             while (@new != null)
             {
-                lastInserted = heapForest.InsertAfter(heapForest.Tail, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
+                heapForest.InsertAfter(heapForest.Tail, new AsDoublyLinkedListNode<AsBinomialTreeNode<T>>(@new.Data));
                 @new = @new.Next;
             }
 
-            return lastInserted == null ? null : lastInserted.Data;
         }
 
         /// <summary>

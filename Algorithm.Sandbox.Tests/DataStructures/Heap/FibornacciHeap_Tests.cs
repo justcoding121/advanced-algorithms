@@ -21,49 +21,61 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
             //insert test
             var tree = new AsFibornacciMinHeap<int>();
 
-            var nodePointers = new AsArrayList<AsFibornacciTreeNode<int>>();
-
+            var nodePointers = new List<AsFibornacciTreeNode<int>>();
             for (int i = 0; i <= nodeCount; i++)
             {
                 var node = tree.Insert(i);
-                nodePointers.AddItem(node);
+                nodePointers.Add(node);
+
             }
-
-            Assert.IsTrue(tree.PeekMin() == 0);
-
 
             for (int i = 0; i <= nodeCount; i++)
             {
                 nodePointers[i].Value--;
                 tree.DecrementKey(nodePointers[i]);
-                var min = tree.ExtractMin();
+            }
+
+            int min = 0;
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                min = tree.ExtractMin();
                 Assert.AreEqual(min, i - 1);
             }
 
             nodePointers.Clear();
 
             var rnd = new Random();
-            var testSeries = Enumerable.Range(1, nodeCount).OrderBy(x => rnd.Next()).ToList();
+            var testSeries = Enumerable.Range(0, nodeCount - 1).OrderBy(x => rnd.Next()).ToList();
 
 
             foreach (var item in testSeries)
             {
-                nodePointers.AddItem(tree.Insert(item));
+                nodePointers.Add(tree.Insert(item));
             }
 
+            min = tree.ExtractMin();
+            nodePointers = nodePointers.Where(x => x.Value != min).ToList();
+            var resultSeries = new List<int>();
 
-            foreach (var item in testSeries.OrderBy(x => rnd.Next()).ToList())
+            for (int i = 0; i < nodePointers.Count; i++)
             {
-                nodePointers[item - 1].Value--;
-                tree.DecrementKey(nodePointers[item - 1]);
+                nodePointers[i].Value = nodePointers[i].Value - rnd.Next(0,1000);
+                tree.DecrementKey(nodePointers[i]);
             }
 
-            for (int i = 1; i <= nodeCount; i++)
+            foreach (var item in nodePointers)
             {
-                var min = tree.ExtractMin();
-                Assert.AreEqual(min, i - 1);
+                resultSeries.Add(item.Value);
             }
 
+            var s = resultSeries.Distinct().Count();
+            resultSeries.Sort();
+
+            for (int i = 0; i < nodeCount - 2; i++)
+            {
+                min = tree.ExtractMin();
+                Assert.AreEqual(resultSeries[i], min);
+            }
         }
     }
 }

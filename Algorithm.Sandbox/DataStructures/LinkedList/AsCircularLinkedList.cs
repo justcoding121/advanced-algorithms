@@ -210,17 +210,17 @@ namespace Algorithm.Sandbox.DataStructures
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new CircularLinkedListEnumerator<T>(ref ReferenceNode);
+            return new AsCircularLinkedListEnumerator<T>(ref ReferenceNode);
         }
     }
 
     //  implement IEnumerator.
-    public class CircularLinkedListEnumerator<T> : IEnumerator<T> where T : IComparable
+    public class AsCircularLinkedListEnumerator<T> : IEnumerator<T> where T : IComparable
     {
         internal AsCircularLinkedListNode<T> referenceNode;
         internal AsCircularLinkedListNode<T> currentNode;
 
-        internal CircularLinkedListEnumerator(ref AsCircularLinkedListNode<T> referenceNode)
+        internal AsCircularLinkedListEnumerator(ref AsCircularLinkedListNode<T> referenceNode)
         {
             this.referenceNode = referenceNode;
         }

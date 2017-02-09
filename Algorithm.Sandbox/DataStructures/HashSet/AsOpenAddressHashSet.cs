@@ -380,13 +380,13 @@ namespace Algorithm.Sandbox.DataStructures
 
         public IEnumerator<AsHashSetNode<K, V>> GetEnumerator()
         {
-            return new OpenAddressHashSetEnumerator<K, V>(hashArray, hashArray.Length);
+            return new AsOpenAddressHashSetEnumerator<K, V>(hashArray, hashArray.Length);
         }
 
     }
 
     //  implement IEnumerator.
-    public class OpenAddressHashSetEnumerator<K, V> : IEnumerator<AsHashSetNode<K, V>> where K : IComparable
+    public class AsOpenAddressHashSetEnumerator<K, V> : IEnumerator<AsHashSetNode<K, V>> where K : IComparable
     {
         internal AsHashSetNode<K, V>[] hashArray;
 
@@ -395,7 +395,7 @@ namespace Algorithm.Sandbox.DataStructures
         int position = -1;
         int length;
 
-        public OpenAddressHashSetEnumerator(AsHashSetNode<K, V>[] hashArray, int length)
+        public AsOpenAddressHashSetEnumerator(AsHashSetNode<K, V>[] hashArray, int length)
         {
             this.length = length;
             this.hashArray = hashArray;
