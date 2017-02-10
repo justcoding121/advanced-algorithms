@@ -36,8 +36,6 @@ namespace Algorithm.Sandbox.DataStructures
         //holds the minimum node at any given time
         private AsDoublyLinkedListNode<AsFibornacciTreeNode<T>> minNode = null;
 
-
-
         //keep track of node reference for tree root items in forest
         //This is so that we can directly set new min node during decrement key without iterating roots
         private Dictionary<AsFibornacciTreeNode<T>, AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>> rootIndex
@@ -133,11 +131,10 @@ namespace Algorithm.Sandbox.DataStructures
                     {
                         current.Data.Parent = existing.Data;
                         newCLNode = existing.Data.Children.Insert(current.Data);
+                        existing.Data.Degree++;
 
                         //add to index for retrieving the Circular List Node during Decrement Key Operation
-                        childrenIndex.Add(current.Data, newCLNode);
-
-                        existing.Data.Degree++;
+                        childrenIndex.Add(newCLNode.Data, newCLNode);    
 
                         var newNode = heapForest.InsertBefore(current, existing);
                         rootIndex.Add(newNode.Data, newNode);
@@ -152,11 +149,11 @@ namespace Algorithm.Sandbox.DataStructures
                     {
                         existing.Data.Parent = current.Data;
                         newCLNode = current.Data.Children.Insert(existing.Data);
+                        current.Data.Degree++;
 
                         //add to index for retrieving the Circular List Node during Decrement Key Operation
-                        childrenIndex.Add(existing.Data, newCLNode);
+                        childrenIndex.Add(newCLNode.Data, newCLNode);
 
-                        current.Data.Degree++;
                     }
 
 
@@ -277,6 +274,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                         var parentNode = childrenIndex[parent];
                         grandParent.Children.Delete(parentNode);
+                        grandParent.Degree--;
                         childrenIndex.Remove(parent);
 
                         grandParent.LostChild = true;
@@ -299,6 +297,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                     var currentNode = childrenIndex[current];
                     current.Parent.Children.Delete(currentNode);
+                    current.Parent.Degree--;
                     childrenIndex.Remove(current);
 
                     current.Parent.LostChild = true;
