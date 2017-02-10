@@ -18,35 +18,35 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
         [TestMethod]
         public void FibornacciMinHeap_Test()
         {
-            int nodeCount = 10;
+
+            int nodeCount = 1000 * 10;
             //insert test
             var tree = new AsFibornacciMinHeap<int>();
 
             var nodePointers = new List<AsFibornacciTreeNode<int>>();
-            //for (int i = 0; i <= nodeCount; i++)
-            //{
-            //    var node = tree.Insert(i);
-            //    nodePointers.Add(node);
 
-            //}
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                var node = tree.Insert(i);
+                nodePointers.Add(node);
+            }
 
-            //for (int i = 0; i <= nodeCount; i++)
-            //{
-            //    nodePointers[i].Value--;
-            //    tree.DecrementKey(nodePointers[i]);
-            //}
-
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                nodePointers[i].Value--;
+                tree.DecrementKey(nodePointers[i]);
+            }
             int min = 0;
-            //for (int i = 0; i <= nodeCount; i++)
-            //{
-            //    min = tree.ExtractMin();
-            //    Assert.AreEqual(min, i - 1);
-            //}
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                min = tree.ExtractMin();
+                Assert.AreEqual(min, i - 1);
+            }
 
             nodePointers.Clear();
 
             var rnd = new Random();
-            var testSeries = Enumerable.Range(0, nodeCount - 1).ToList();
+            var testSeries = Enumerable.Range(0, nodeCount - 1).OrderBy(x => rnd.Next()).ToList();
 
 
             foreach (var item in testSeries)
@@ -58,13 +58,9 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
             nodePointers = nodePointers.Where(x => x.Value != min).ToList();
             var resultSeries = new List<int>();
 
-            var testCase = new List<int>() { -590,-82,-897,-700,-154,-485,-846,-692};
-
             for (int i = 0; i < nodePointers.Count; i++)
             {
-                var value = testCase[i];
-                Debug.WriteLine(value);
-                nodePointers[i].Value = value;
+                nodePointers[i].Value = nodePointers[i].Value - rnd.Next(0, 1000);
                 tree.DecrementKey(nodePointers[i]);
             }
 
@@ -73,7 +69,6 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
                 resultSeries.Add(item.Value);
             }
 
-            var s = resultSeries.Distinct().Count();
             resultSeries.Sort();
 
             for (int i = 0; i < nodeCount - 2; i++)
@@ -81,6 +76,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
                 min = tree.ExtractMin();
                 Assert.AreEqual(resultSeries[i], min);
             }
+
         }
     }
 }

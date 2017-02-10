@@ -134,7 +134,7 @@ namespace Algorithm.Sandbox.DataStructures
                         existing.Data.Degree++;
 
                         //add to index for retrieving the Circular List Node during Decrement Key Operation
-                        childrenIndex.Add(newCLNode.Data, newCLNode);    
+                        childrenIndex.Add(newCLNode.Data, newCLNode);
 
                         var newNode = heapForest.InsertBefore(current, existing);
                         rootIndex.Add(newNode.Data, newNode);
@@ -249,7 +249,7 @@ namespace Algorithm.Sandbox.DataStructures
                 var parent = current.Parent;
 
                 //if parent already lost one child
-                //then cut parent from grand parent
+                //then cut current and parent
                 if (parent.LostChild)
                 {
                     parent.LostChild = false;
@@ -259,52 +259,48 @@ namespace Algorithm.Sandbox.DataStructures
                     //mark grand parent
                     if (grandParent != null)
                     {
-                        grandParent.LostChild = true;
-
-                        //cut parent and attach to heap Forest
-                        //and mark parent for lost child
-                        var newNode = heapForest.InsertFirst(parent);
-                        rootIndex.Add(newNode.Data, newNode);
-
-                        //update min
-                        if (minNode.Data.Value.CompareTo(newNode.Data.Value) > 0)
-                        {
-                            minNode = rootIndex[newNode.Data];
-                        }
-
-                        var parentNode = childrenIndex[parent];
-                        grandParent.Children.Delete(parentNode);
-                        grandParent.Degree--;
-                        childrenIndex.Remove(parent);
-
-                        grandParent.LostChild = true;
-                        parent.Parent = null;
-
+                        Cut(parent);
+                        Cut(current);
                     }
                 }
                 else
                 {
-                    //cut child and attach to heap Forest
-                    //and mark parent for lost child
-                    var newNode = heapForest.InsertFirst(current);
-
-                    rootIndex.Add(newNode.Data, newNode);
-                    //update min
-                    if (minNode.Data.Value.CompareTo(newNode.Data.Value) > 0)
-                    {
-                        minNode = rootIndex[newNode.Data];
-                    }
-
-                    var currentNode = childrenIndex[current];
-                    current.Parent.Children.Delete(currentNode);
-                    current.Parent.Degree--;
-                    childrenIndex.Remove(current);
-
-                    current.Parent.LostChild = true;
-                    current.Parent = null;
+                    Cut(current);
                 }
             }
 
+        }
+        /// <summary>
+        /// Delete this node from Heap Tree and adds it to forest as a new tree 
+        /// </summary>
+        /// <param name="node"></param>
+        private void Cut(AsFibornacciTreeNode<T> node)
+        {
+            var parent = node.Parent;
+
+            //cut child and attach to heap Forest
+            //and mark parent for lost child
+            var newNode = heapForest.InsertFirst(node);
+
+            rootIndex.Add(newNode.Data, newNode);
+
+            //update min
+            if (minNode.Data.Value.CompareTo(newNode.Data.Value) > 0)
+            {
+                minNode = rootIndex[newNode.Data];
+            }
+
+            var currentNode = childrenIndex[node];
+            node.Parent.Children.Delete(currentNode);
+            node.Parent.Degree--;
+            childrenIndex.Remove(node);
+
+            if (parent.Parent != null)
+            {
+                parent.LostChild = true;
+            }
+            node.LostChild = false;
+            node.Parent = null;
         }
 
         /// <summary>
