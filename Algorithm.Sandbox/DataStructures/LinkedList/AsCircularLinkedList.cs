@@ -56,6 +56,8 @@ namespace Algorithm.Sandbox.DataStructures
             return newNode;
         }
 
+
+
         //O(1) delete this item
         public void Delete(AsCircularLinkedListNode<T> current)
         {
@@ -138,6 +140,8 @@ namespace Algorithm.Sandbox.DataStructures
         //O(n) always
         public int Count()
         {
+            //re-implement
+            //no need to iterate
             var i = 0;
 
             var current = ReferenceNode;
@@ -211,6 +215,22 @@ namespace Algorithm.Sandbox.DataStructures
         public IEnumerator<T> GetEnumerator()
         {
             return new AsCircularLinkedListEnumerator<T>(ref ReferenceNode);
+        }
+
+        /// <summary>
+        /// O(1) time complexity
+        /// </summary>
+        /// <param name="newList"></param>
+        internal void Union(AsCircularLinkedList<T> newList)
+        {
+           
+            ReferenceNode.Prev.Next = newList.ReferenceNode;
+            ReferenceNode.Prev = newList.ReferenceNode.Prev;
+
+            newList.ReferenceNode.Prev.Next = ReferenceNode;
+            newList.ReferenceNode.Prev = ReferenceNode.Prev;
+
+
         }
     }
 

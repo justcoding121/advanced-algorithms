@@ -9,8 +9,6 @@ namespace Algorithm.Sandbox.DataStructures
         internal int Degree;
 
         internal AsFibornacciTreeNode<T> Parent { get; set; }
-
-        //TODO use a circular linked list to improve performance
         internal AsCircularLinkedList<AsFibornacciTreeNode<T>> Children { get; set; }
         public bool LostChild { get; internal set; }
 
@@ -30,6 +28,9 @@ namespace Algorithm.Sandbox.DataStructures
     public class AsFibornacciMinHeap<T> where T : IComparable
     {
 
+        //TODO use a circular linked list so that when childrens become orphan
+        //we can do a union of Children with Forest in constant time O(1) during ExtractMin
+        //instead of creating new CircularLinked List Nodes for each orphaned child
         internal AsDoublyLinkedList<AsFibornacciTreeNode<T>> heapForest
             = new AsDoublyLinkedList<AsFibornacciTreeNode<T>>();
 
