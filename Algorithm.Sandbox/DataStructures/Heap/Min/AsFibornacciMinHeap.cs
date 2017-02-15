@@ -295,8 +295,6 @@ namespace Algorithm.Sandbox.DataStructures
         private void MergeForests(AsDoublyLinkedList<AsFibornacciTreeNode<T>> newHeapForest)
         {
 
-            var @new = newHeapForest.Head;
-
             if (heapForest.Head == null)
             {
                 heapForest = newHeapForest;
