@@ -1,3 +1,6 @@
+No Pull Requests Please! Just my personal hobby, You are free to fork and play.
+Bugs are welcome!
+
 # Algorithm-Sandbox
 
 Various important computer science algorithms implemented in C#
