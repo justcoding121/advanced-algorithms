@@ -335,6 +335,30 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
         }
+
+        /// <summary>
+        /// O(1) time complexity
+        /// </summary>
+        /// <param name="newList"></param>
+        internal void Union(AsDoublyLinkedList<T> newList)
+        {
+            if (Head == null)
+            {
+                Head = newList.Head;
+                Tail = newList.Tail;
+                return;
+            }
+
+            if (newList.Head == null)
+                return;
+
+            Head.Previous = newList.Tail;
+            newList.Tail.Next = Head;
+
+            Head = newList.Head;
+            
+
+        }
         //O(n) always
         public int Count()
         {
