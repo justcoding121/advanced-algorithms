@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataStructures\Heap\PairingHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\FibornacciHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\BinomialHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\D-aryHeap_Tests.cs" />

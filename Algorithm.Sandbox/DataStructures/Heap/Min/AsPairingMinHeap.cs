@@ -5,14 +5,13 @@ namespace Algorithm.Sandbox.DataStructures
     public class AsPairingTreeNode<T> : IComparable where T : IComparable
     {
         internal T Value { get; set; }
-        internal int Degree;
 
-        internal AsDoublyLinkedList<AsPairingTreeNode<T>> Children { get; set; }
+        internal AsArrayList<AsPairingTreeNode<T>> Children { get; set; }
 
         public AsPairingTreeNode(T value)
         {
             this.Value = value;
-            Children = new AsDoublyLinkedList<AsPairingTreeNode<T>>();
+            Children = new AsArrayList<AsPairingTreeNode<T>>();
         }
 
         public int CompareTo(object obj)
@@ -26,23 +25,108 @@ namespace Algorithm.Sandbox.DataStructures
         internal AsPairingTreeNode<T> Root;
 
         internal int Count { get; private set; }
-
         public AsPairingTreeNode<T> Insert(T newItem)
+        {
+            return Insert(ref Root, newItem);
+        }
+
+        private AsPairingTreeNode<T> Insert(ref AsPairingTreeNode<T> Parent, T newItem)
         {
             var newNode = new AsPairingTreeNode<T>(newItem);
 
-            throw new NotImplementedException();
+            if (Parent == null)
+            {
+                Parent = newNode;
+                Count++;
 
+                return newNode;
+            }
+
+            if (Parent.Value.CompareTo(newNode.Value) <= 0)
+            {
+                Parent.Children.AddItem(newNode);
+            }
+            else
+            {
+                newNode.Children.AddItem(Parent);
+                Parent = newNode;
+            }
+
+            Count++;
+
+            return newNode;
         }
-        private void Meld()
+
+        /// <summary>
+        ///  O(n), Amortized O(log(n))
+        /// </summary>
+        /// <param name="nodes"></param>
+        private void Meld(AsArrayList<AsPairingTreeNode<T>> nodes)
         {
-            throw new NotImplementedException();
+            if (nodes.Length == 0)
+                return;
+
+            var passOneResult = new AsArrayList<AsPairingTreeNode<T>>();
+
+            if (nodes.Length == 1)
+            {
+                passOneResult.AddItem(nodes[0]);
+            }
+            else
+            {
+
+                for (int i = 0; i < nodes.Length; i = i + 2)
+                {
+                    var current = nodes[i];
+
+                    if (i == nodes.Length - 1)
+                    {
+                        var lastInserted = passOneResult[passOneResult.Length - 1];
+                        Insert(ref lastInserted, current.Value);
+                        passOneResult[passOneResult.Length - 1] = lastInserted;
+
+                        break;
+                    }
+
+                    var next = nodes[i + 1];
+
+                    if (current.Value.CompareTo(next.Value) <= 0)
+                    {
+                        current.Children.AddItem(next);
+                        passOneResult.AddItem(current);
+                    }
+                    else
+                    {
+                        next.Children.AddItem(current);
+                        passOneResult.AddItem(next);
+                    }
+                }
+
+            }
+
+            Root = null;
+            var passTwoResult = Insert(passOneResult[passOneResult.Length - 1].Value);
+            
+            if(passOneResult.Length == 1)
+            {
+                Root = passTwoResult;
+                return;
+            }
+
+            for (int i = passOneResult.Length - 2; i >= 0; i--)
+            {
+                Insert(ref passTwoResult, passOneResult[i].Value);
+            }
+
+            Root = passTwoResult;
         }
 
         public T ExtractMin()
         {
-
-            throw new NotImplementedException();
+            var min = Root;
+            Meld(Root.Children);
+            Count--;
+            return min.Value;
         }
 
 
