@@ -23,42 +23,21 @@ namespace Algorithm.Sandbox.DataStructures
     public class AsPairingMinHeap<T> where T : IComparable
     {
         internal AsPairingTreeNode<T> Root;
-
         internal int Count { get; private set; }
+
         public AsPairingTreeNode<T> Insert(T newItem)
         {
-            return Insert(ref Root, newItem);
-        }
-
-        private AsPairingTreeNode<T> Insert(ref AsPairingTreeNode<T> Parent, T newItem)
-        {
             var newNode = new AsPairingTreeNode<T>(newItem);
-
-            if (Parent == null)
-            {
-                Parent = newNode;
-                Count++;
-
-                return newNode;
-            }
-
-            if (Parent.Value.CompareTo(newNode.Value) <= 0)
-            {
-                Parent.Children.AddItem(newNode);
-            }
-            else
-            {
-                newNode.Children.AddItem(Parent);
-                Parent = newNode;
-            }
-
+            Root = Meld(Root, newNode);
             Count++;
 
             return newNode;
+
         }
 
         /// <summary>
         ///  O(n), Amortized O(log(n))
+        ///  Melds all the nodes to one single Root Node
         /// </summary>
         /// <param name="nodes"></param>
         private void Meld(AsArrayList<AsPairingTreeNode<T>> nodes)
@@ -82,32 +61,20 @@ namespace Algorithm.Sandbox.DataStructures
                     if (i == nodes.Length - 1)
                     {
                         var lastInserted = passOneResult[passOneResult.Length - 1];
-                        Insert(ref lastInserted, current.Value);
-                        passOneResult[passOneResult.Length - 1] = lastInserted;
-
+                        passOneResult[passOneResult.Length - 1] = Meld(lastInserted, current);
                         break;
                     }
 
                     var next = nodes[i + 1];
+                    passOneResult.AddItem(Meld(current, next));
 
-                    if (current.Value.CompareTo(next.Value) <= 0)
-                    {
-                        current.Children.AddItem(next);
-                        passOneResult.AddItem(current);
-                    }
-                    else
-                    {
-                        next.Children.AddItem(current);
-                        passOneResult.AddItem(next);
-                    }
                 }
 
             }
 
-            Root = null;
-            var passTwoResult = Insert(passOneResult[passOneResult.Length - 1].Value);
-            
-            if(passOneResult.Length == 1)
+            var passTwoResult = passOneResult[passOneResult.Length - 1];
+
+            if (passOneResult.Length == 1)
             {
                 Root = passTwoResult;
                 return;
@@ -115,10 +82,38 @@ namespace Algorithm.Sandbox.DataStructures
 
             for (int i = passOneResult.Length - 2; i >= 0; i--)
             {
-                Insert(ref passTwoResult, passOneResult[i].Value);
+                var current = passOneResult[i];
+                passTwoResult = Meld(passTwoResult, current);
             }
 
             Root = passTwoResult;
+        }
+
+        /// <summary>
+        /// makes the smaller node parent of other and returns the smallest Node
+        /// </summary>
+        /// <param name="node1"></param>
+        /// <param name="node2"></param>
+        private AsPairingTreeNode<T> Meld(AsPairingTreeNode<T> node1,
+            AsPairingTreeNode<T> node2)
+        {
+            if (node1 == null)
+            {
+                node1 = node2;
+                return node1;
+            }
+
+            if (node1.Value.CompareTo(node2.Value) <= 0)
+            {
+                node1.Children.AddItem(node2);
+                return node1;
+            }
+            else
+            {
+                node2.Children.AddItem(node1);
+                node1 = node2;
+                return node2;
+            }
         }
 
         public T ExtractMin()
@@ -137,20 +132,24 @@ namespace Algorithm.Sandbox.DataStructures
 
         public void Union(AsPairingMinHeap<T> PairingHeap)
         {
-            throw new NotImplementedException();
+            var tmpList = new AsArrayList<AsPairingTreeNode<T>>();
+            tmpList.AddItem(PairingHeap.Root);
+
+            Meld(tmpList);
+
+            Count = Count + PairingHeap.Count;
         }
 
-
-        private void MergeForests(AsDoublyLinkedList<AsPairingTreeNode<T>> newHeapForest)
-        {
-
-            throw new NotImplementedException();
-
-        }
-
+        /// <summary>
+        /// O(1) time complexity
+        /// </summary>
+        /// <returns></returns>
         public T PeekMin()
         {
-            throw new NotImplementedException();
+            if (Root == null)
+                throw new Exception("Empty heap");
+
+            return Root.Value;
         }
     }
 
