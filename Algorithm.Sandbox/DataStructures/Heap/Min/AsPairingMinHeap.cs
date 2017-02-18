@@ -199,9 +199,9 @@ namespace Algorithm.Sandbox.DataStructures
                 if (node.Next != null)
                 {
                     node.Next.Previous = parent;
-                    parent.ChildrenHead = node.Next;
                 }
 
+                parent.ChildrenHead = node.Next;
             }
             else
             {
@@ -214,7 +214,7 @@ namespace Algorithm.Sandbox.DataStructures
                 }
             }
 
-            Meld(Root, node);
+            Root = Meld(Root, node);
         }
 
         public void Union(AsPairingMinHeap<T> PairingHeap)
