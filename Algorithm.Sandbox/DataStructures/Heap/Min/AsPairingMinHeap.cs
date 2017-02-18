@@ -6,27 +6,21 @@ namespace Algorithm.Sandbox.DataStructures
     {
         internal T Value { get; set; }
 
-        internal AsPairingLinkedListNode<AsPairingTreeNode<T>> headChild { get; set; }
+        internal AsPairingTreeNode<T> ChildrenHead { get; set; }
+        internal bool IsHeadChild => Previous != null && Previous.ChildrenHead == this;
 
         public AsPairingTreeNode(T value)
         {
             this.Value = value;
         }
 
+        public AsPairingTreeNode<T> Previous;
+        public AsPairingTreeNode<T> Next;
+
         public int CompareTo(object obj)
         {
             return this.Value.CompareTo((obj as AsPairingTreeNode<T>).Value);
         }
-    }
-
-    public class AsPairingLinkedListNode<T> : AsDoublyLinkedListNode<T> where T : IComparable
-    {
-        public AsPairingLinkedListNode(T data) : base(data)
-        {
-        }
-
-        public T Parent { get; internal set; }
-
     }
 
 
@@ -50,18 +44,20 @@ namespace Algorithm.Sandbox.DataStructures
         ///  Melds all the nodes to one single Root Node
         /// </summary>
         /// <param name="headNode"></param>
-        private void Meld(AsPairingLinkedListNode<AsPairingTreeNode<T>> headNode)
+        private void Meld(AsPairingTreeNode<T> headNode)
         {
             if (headNode == null)
                 return;
 
-            var passOneResult = new AsDoublyLinkedList<AsPairingTreeNode<T>>();
+            var passOneResult = new AsArrayList<AsPairingTreeNode<T>>();
 
-            var current = headNode as AsDoublyLinkedListNode<AsPairingTreeNode<T>>;
+            var current = headNode;
 
             if (current.Next == null)
             {
-                passOneResult.InsertFirst(headNode.Data);
+                headNode.Next = null;
+                headNode.Previous = null;
+                passOneResult.AddItem(headNode);
             }
             else
             {
@@ -75,13 +71,14 @@ namespace Algorithm.Sandbox.DataStructures
                     if (current.Next != null)
                     {
                         var next = current.Next;
-                        passOneResult.InsertFirst(Meld(current.Data, next.Data));
-                        current = next.Next;
+                        var nextNext = next.Next;
+                        passOneResult.AddItem(Meld(current, next));
+                        current = nextNext;
                     }
                     else
                     {
-                        var lastInserted = passOneResult.Tail;
-                        passOneResult.Tail.Data = Meld(lastInserted.Data, current.Data);
+                        var lastInserted = passOneResult[passOneResult.Length - 1];
+                        passOneResult[passOneResult.Length - 1] = Meld(lastInserted, current);
                         break;
 
                     }
@@ -90,43 +87,54 @@ namespace Algorithm.Sandbox.DataStructures
 
             }
 
-            var passTwoResult = passOneResult.Tail;
+            var passTwoResult = passOneResult[passOneResult.Length - 1];
 
-            if (passOneResult.Head.Next == null)
+            if (passOneResult.Length == 1)
             {
-                Root = passTwoResult.Data;
+                Root = passTwoResult;
                 return;
             }
 
-            current = passOneResult.Tail.Previous;
-            while (current != null)
+
+            for (int i = passOneResult.Length - 2; i >= 0; i--)
             {
-                passTwoResult.Data = Meld(passTwoResult.Data, current.Data);
-                current = current.Previous;
+                current = passOneResult[i];
+                passTwoResult = Meld(passTwoResult, current);
             }
 
-            Root = passTwoResult.Data;
+            Root = passTwoResult;
         }
 
         /// <summary>
-        /// makes the smaller node parent of other and returns the smallest Node
+        /// makes the smaller node parent of other and returns the Parent
         /// </summary>
         /// <param name="node1"></param>
         /// <param name="node2"></param>
         private AsPairingTreeNode<T> Meld(AsPairingTreeNode<T> node1,
             AsPairingTreeNode<T> node2)
         {
+
+
+            if (node2 != null)
+            {
+                node2.Previous = null;
+                node2.Next = null;
+            }
+
             if (node1 == null)
             {
                 return node2;
             }
 
+            node1.Previous = null;
+            node1.Next = null;
+
             if (node1.Value.CompareTo(node2.Value) <= 0)
             {
-                if (node1.headChild == null)
+                if (node1.ChildrenHead == null)
                 {
-                    node1.headChild = new AsPairingLinkedListNode<AsPairingTreeNode<T>>(node2);
-                    node1.headChild.Parent = node1;
+                    node1.ChildrenHead = node2;
+                    node2.Previous = node1;
                 }
                 else
                 {
@@ -137,10 +145,10 @@ namespace Algorithm.Sandbox.DataStructures
             }
             else
             {
-                if (node2.headChild == null)
+                if (node2.ChildrenHead == null)
                 {
-                    node2.headChild = new AsPairingLinkedListNode<AsPairingTreeNode<T>>(node1);
-                    node2.headChild.Parent = node2;
+                    node2.ChildrenHead = node1;
+                    node1.Previous = node2;
                 }
                 else
                 {
@@ -153,26 +161,25 @@ namespace Algorithm.Sandbox.DataStructures
 
         private void InsertNode(AsPairingTreeNode<T> parent, AsPairingTreeNode<T> child)
         {
-            var head = parent.headChild;
-            var newNode = new AsPairingLinkedListNode<AsPairingTreeNode<T>>(child);
-          
-                newNode.Previous = head;
-                newNode.Next = head.Next;
+            var head = parent.ChildrenHead;
 
-                if (head.Next != null)
-                {
-                    head.Next.Previous = newNode;
-                }
+            child.Previous = head;
+            child.Next = head.Next;
 
-                head.Next = newNode;
-            
+            if (head.Next != null)
+            {
+                head.Next.Previous = child;
+            }
+
+            head.Next = child;
 
         }
+
 
         public T ExtractMin()
         {
             var min = Root;
-            Meld(Root.headChild);
+            Meld(Root.ChildrenHead);
             Count--;
             return min.Value;
         }
@@ -180,7 +187,34 @@ namespace Algorithm.Sandbox.DataStructures
 
         public void DecrementKey(AsPairingTreeNode<T> node)
         {
-            throw new NotImplementedException();
+            if (node == Root)
+                return;
+
+            //if this node is the child head pointer of parent
+            if (node.IsHeadChild)
+            {
+                var parent = node.Previous;
+
+                //use close sibling as new parent child pointer
+                if (node.Next != null)
+                {
+                    node.Next.Previous = parent;
+                    parent.ChildrenHead = node.Next;
+                }
+
+            }
+            else
+            {
+                //just do regular deletion from linked list
+                node.Previous.Next = node.Next;
+
+                if (node.Next != null)
+                {
+                    node.Next.Previous = node.Previous;
+                }
+            }
+
+            Meld(Root, node);
         }
 
         public void Union(AsPairingMinHeap<T> PairingHeap)
