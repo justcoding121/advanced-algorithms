@@ -6,12 +6,11 @@ namespace Algorithm.Sandbox.DataStructures
     {
         internal T Value { get; set; }
 
-        internal AsDoublyLinkedList<AsPairingTreeNode<T>> Children { get; set; }
+        internal AsPairingLinkedListNode<AsPairingTreeNode<T>> headChild { get; set; }
 
         public AsPairingTreeNode(T value)
         {
             this.Value = value;
-            Children = new AsDoublyLinkedList<AsPairingTreeNode<T>>();
         }
 
         public int CompareTo(object obj)
@@ -20,11 +19,22 @@ namespace Algorithm.Sandbox.DataStructures
         }
     }
 
+    public class AsPairingLinkedListNode<T> : AsDoublyLinkedListNode<T> where T : IComparable
+    {
+        public AsPairingLinkedListNode(T data) : base(data)
+        {
+        }
+
+        public T Parent { get; internal set; }
+
+    }
+
+
     public class AsPairingMinHeap<T> where T : IComparable
     {
         internal AsPairingTreeNode<T> Root;
         internal int Count { get; private set; }
-       
+
         public AsPairingTreeNode<T> Insert(T newItem)
         {
             var newNode = new AsPairingTreeNode<T>(newItem);
@@ -39,19 +49,19 @@ namespace Algorithm.Sandbox.DataStructures
         ///  O(n), Amortized O(log(n))
         ///  Melds all the nodes to one single Root Node
         /// </summary>
-        /// <param name="nodes"></param>
-        private void Meld(AsDoublyLinkedList<AsPairingTreeNode<T>> nodes)
+        /// <param name="headNode"></param>
+        private void Meld(AsPairingLinkedListNode<AsPairingTreeNode<T>> headNode)
         {
-            if (nodes.Head == null)
+            if (headNode == null)
                 return;
 
             var passOneResult = new AsDoublyLinkedList<AsPairingTreeNode<T>>();
 
-            var current = nodes.Head;
+            var current = headNode as AsDoublyLinkedListNode<AsPairingTreeNode<T>>;
 
             if (current.Next == null)
             {
-                passOneResult.InsertFirst(nodes.Head);
+                passOneResult.InsertFirst(headNode.Data);
             }
             else
             {
@@ -113,20 +123,56 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (node1.Value.CompareTo(node2.Value) <= 0)
             {
-                node1.Children.InsertFirst(node2);
+                if (node1.headChild == null)
+                {
+                    node1.headChild = new AsPairingLinkedListNode<AsPairingTreeNode<T>>(node2);
+                    node1.headChild.Parent = node1;
+                }
+                else
+                {
+                    InsertNode(node1, node2);
+                }
+
                 return node1;
             }
             else
             {
-                node2.Children.InsertFirst(node1);
+                if (node2.headChild == null)
+                {
+                    node2.headChild = new AsPairingLinkedListNode<AsPairingTreeNode<T>>(node1);
+                    node2.headChild.Parent = node2;
+                }
+                else
+                {
+                    InsertNode(node2, node1);
+                }
+
                 return node2;
             }
+        }
+
+        private void InsertNode(AsPairingTreeNode<T> parent, AsPairingTreeNode<T> child)
+        {
+            var head = parent.headChild;
+            var newNode = new AsPairingLinkedListNode<AsPairingTreeNode<T>>(child);
+          
+                newNode.Previous = head;
+                newNode.Next = head.Next;
+
+                if (head.Next != null)
+                {
+                    head.Next.Previous = newNode;
+                }
+
+                head.Next = newNode;
+            
+
         }
 
         public T ExtractMin()
         {
             var min = Root;
-            Meld(Root.Children);
+            Meld(Root.headChild);
             Count--;
             return min.Value;
         }
@@ -139,11 +185,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         public void Union(AsPairingMinHeap<T> PairingHeap)
         {
-            var tmpList = new AsDoublyLinkedList<AsPairingTreeNode<T>>();
-            tmpList.InsertFirst(PairingHeap.Root);
-
-            Meld(tmpList);
-
+            Root = Meld(Root, PairingHeap.Root);
             Count = Count + PairingHeap.Count;
         }
 
