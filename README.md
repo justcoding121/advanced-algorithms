@@ -35,7 +35,7 @@ Various important computer science algorithms implemented in C#
 * [d-ary Min Heap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/Asd-aryMinHeap.cs)
 * [Binomial Min Heap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsBinomialMinHeap.cs)
 * [Fibornacci Min Heap](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsFibornacciMinHeap.cs)
-* Pairing Min Heap
+* [Pairing Min Heap](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsPairingMinHeap.cs)
 
 ### Tree
 * [Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTree.cs)
