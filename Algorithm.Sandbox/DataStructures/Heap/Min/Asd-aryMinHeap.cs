@@ -87,6 +87,8 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
                 halfArray();
             }
 
+           
+
             return min;
         }
 
@@ -99,16 +101,17 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
 
             for (int i = 2; i <= K; i++)
             {
-                var nextSibling = heapArray[currentParent * K + i];
-
-                if (currentMin >= Count)
+                if (currentParent * K + i >= Count)
                     break;
+
+                var nextSibling = heapArray[currentParent * K + i];
 
                 if (heapArray[currentMin].CompareTo(nextSibling) > 0)
                 {
                     currentMin = currentParent * K + i;
                 }
             }
+
             return currentMin;
         }
 

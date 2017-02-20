@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Algorithm.Sandbox.DataStructures.Tree;
+using System;
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsBSTNode<T> where T : IComparable
+    public class AsBSTNode<T> : AsIBSTNode<T> where T : IComparable
     {
         public T Value { get; set; }
 
@@ -12,6 +13,22 @@ namespace Algorithm.Sandbox.DataStructures
         public AsBSTNode<T> Right { get; set; }
 
         public bool IsLeaf => Left == null && Right == null;
+
+        AsIBSTNode<T> AsIBSTNode<T>.Left
+        {
+            get
+            {
+                return Left;
+            }
+        }
+
+        AsIBSTNode<T> AsIBSTNode<T>.Right
+        {
+            get
+            {
+                return Right;
+            }
+        }
 
         public AsBSTNode(AsBSTNode<T> parent, T value)
         {
@@ -23,7 +40,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsBST<T> where T : IComparable
     {
-        private AsBSTNode<T> Root { get; set; }
+        internal AsBSTNode<T> Root { get; set; }
         public int Count { get; private set; }
 
         //O(log(n)) worst O(n) for unbalanced tree

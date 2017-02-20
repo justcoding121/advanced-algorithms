@@ -7,50 +7,40 @@ using System.Linq;
 namespace Algorithm.Sandbox.Tests.DataStructures
 {
     [TestClass]
-    public class BST_Tests
+    public class SplayTree_Tests
     {
         /// <summary>
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void BST_Test()
+        public void SplayTree__Test()
         {
             //insert test
-            var tree = new AsBST<int>();
-            Assert.AreEqual(tree.GetHeight(), -1);
+            var tree = new AsSplayTree<int>();
+
 
             tree.Insert(11);
-            Assert.AreEqual(tree.GetHeight(), 0);
+
 
             tree.Insert(6);
-            Assert.AreEqual(tree.GetHeight(), 1);
+
 
             tree.Insert(8);
-            Assert.AreEqual(tree.GetHeight(), 2);
-
             tree.Insert(19);
-            Assert.AreEqual(tree.GetHeight(), 2);
 
             tree.Insert(4);
-            Assert.AreEqual(tree.GetHeight(), 2);
 
             tree.Insert(10);
-            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(5);
-            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(17);
-            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(43);
-            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(49);
-            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(31);
-            Assert.AreEqual(tree.GetHeight(), 3);
 
             //delete
             tree.Delete(43);
@@ -65,14 +55,13 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             tree.Delete(49);
             tree.Delete(31);
 
-            Assert.AreEqual(tree.GetHeight(), -1);
             Assert.AreEqual(tree.Count, 0);
 
             tree.Insert(31);
         }
 
         [TestMethod]
-        public void BST_StressTest()
+        public void SplayTree_StressTest()
         {
             var nodeCount = 1000 * 10;
 
@@ -81,7 +70,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new AsBST<int>();
+            var tree = new AsSplayTree<int>();
 
             for (int i = 0; i < nodeCount; i++)
             {
