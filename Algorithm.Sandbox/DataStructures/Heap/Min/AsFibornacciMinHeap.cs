@@ -11,10 +11,10 @@ namespace Algorithm.Sandbox.DataStructures
         internal AsFibornacciTreeNode<T> ChildrenHead { get; set; }
 
         internal AsFibornacciTreeNode<T> Parent { get; set; }
-        public bool LostChild { get; internal set; }
+        internal bool LostChild { get; set; }
 
-        public AsFibornacciTreeNode<T> Previous;
-        public AsFibornacciTreeNode<T> Next;
+        internal AsFibornacciTreeNode<T> Previous;
+        internal AsFibornacciTreeNode<T> Next;
 
         public AsFibornacciTreeNode(T value)
         {
