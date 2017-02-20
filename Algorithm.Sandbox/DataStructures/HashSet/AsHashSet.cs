@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Algorithm.Sandbox.DataStructures
 {
 
-    internal interface AsIHashSet<K, V> : IEnumerable<AsHashSetNode<K, V>> where K : IComparable
+    internal interface AsIHashSet<K, V> : IEnumerable<AsHashSetNode<K, V>>
     {
         V this[K key] { get; set; }
 
@@ -14,12 +14,12 @@ namespace Algorithm.Sandbox.DataStructures
         void Remove(K key);
         void Clear();
 
-        int Count { get;  }
+        int Count { get; }
     }
     /// <summary>
     /// key-value set
     /// </summary>
-    public class AsHashSetNode<K, V> : IComparable where K : IComparable
+    public class AsHashSetNode<K, V> : IComparable
     {
         public K Key;
         public V Value;
@@ -37,7 +37,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         private int CompareTo(AsHashSetNode<K, V> node)
         {
-            return Key.CompareTo(node.Key);
+            return Key.Equals(node.Key) ? 0 : -1;
         }
     }
 
@@ -58,7 +58,7 @@ namespace Algorithm.Sandbox.DataStructures
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
         public AsHashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)
         {
-            if(initialBucketSize < 2)
+            if (initialBucketSize < 2)
             {
                 throw new Exception("Bucket Size must be greater than 2.");
 
@@ -78,7 +78,7 @@ namespace Algorithm.Sandbox.DataStructures
         public V this[K key]
         {
             get { return hashSet[key]; }
-            set { hashSet[key] =  value; }
+            set { hashSet[key] = value; }
 
         }
 
@@ -92,7 +92,7 @@ namespace Algorithm.Sandbox.DataStructures
         //add an item to this hash table
         public void Add(K key, V value)
         {
-           hashSet.Add(key, value);
+            hashSet.Add(key, value);
         }
 
         //O(1) time complexity; worst case O(n)
@@ -108,7 +108,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             hashSet.Clear();
         }
-       
+
         //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -121,5 +121,5 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
     }
-   
+
 }
