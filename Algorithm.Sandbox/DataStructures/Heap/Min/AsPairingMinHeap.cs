@@ -14,8 +14,8 @@ namespace Algorithm.Sandbox.DataStructures
             this.Value = value;
         }
 
-        public AsPairingTreeNode<T> Previous;
-        public AsPairingTreeNode<T> Next;
+        internal AsPairingTreeNode<T> Previous;
+        internal AsPairingTreeNode<T> Next;
 
         public int CompareTo(object obj)
         {
@@ -29,6 +29,11 @@ namespace Algorithm.Sandbox.DataStructures
         internal AsPairingTreeNode<T> Root;
         internal int Count { get; private set; }
 
+        /// <summary>
+        /// Insert a new Node
+        /// </summary>
+        /// <param name="newItem"></param>
+        /// <returns></returns>
         public AsPairingTreeNode<T> Insert(T newItem)
         {
             var newNode = new AsPairingTreeNode<T>(newItem);
@@ -82,7 +87,6 @@ namespace Algorithm.Sandbox.DataStructures
                         break;
 
                     }
-
                 }
 
             }
@@ -131,36 +135,80 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (node1.Value.CompareTo(node2.Value) <= 0)
             {
-                if (node1.ChildrenHead == null)
-                {
-                    node1.ChildrenHead = node2;
-                    node2.Previous = node1;
-                }
-                else
-                {
-                    InsertNode(node1, node2);
-                }
 
+                AddChild(ref node1, node2);
                 return node1;
             }
             else
             {
-                if (node2.ChildrenHead == null)
-                {
-                    node2.ChildrenHead = node1;
-                    node1.Previous = node2;
-                }
-                else
-                {
-                    InsertNode(node2, node1);
-                }
 
+                AddChild(ref node2, node1);
                 return node2;
             }
         }
 
-        private void InsertNode(AsPairingTreeNode<T> parent, AsPairingTreeNode<T> child)
+        /// <summary>
+        /// Returns the min
+        /// </summary>
+        /// <returns></returns>
+        public T ExtractMin()
         {
+            var min = Root;
+            Meld(Root.ChildrenHead);
+            Count--;
+            return min.Value;
+        }
+
+        /// <summary>
+        /// Update heap after a node value was decremented
+        /// </summary>
+        /// <param name="node"></param>
+        public void DecrementKey(AsPairingTreeNode<T> node)
+        {
+            if (node == Root)
+                return;
+
+            DeleteChild(node);
+
+            Root = Meld(Root, node);
+        }
+
+        /// <summary>
+        /// Merge another heap with this heap
+        /// </summary>
+        /// <param name="PairingHeap"></param>
+        public void Merge(AsPairingMinHeap<T> PairingHeap)
+        {
+            Root = Meld(Root, PairingHeap.Root);
+            Count = Count + PairingHeap.Count;
+        }
+
+        /// <summary>
+        /// O(1) time complexity
+        /// </summary>
+        /// <returns></returns>
+        public T PeekMin()
+        {
+            if (Root == null)
+                throw new Exception("Empty heap");
+
+            return Root.Value;
+        }
+
+        /// <summary>
+        /// Add new child to parent node
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <param name="child"></param>
+        private void AddChild(ref AsPairingTreeNode<T> parent, AsPairingTreeNode<T> child)
+        {
+            if (parent.ChildrenHead == null)
+            {
+                parent.ChildrenHead = child;
+                child.Previous = parent;
+                return;
+            }
+
             var head = parent.ChildrenHead;
 
             child.Previous = head;
@@ -175,21 +223,12 @@ namespace Algorithm.Sandbox.DataStructures
 
         }
 
-
-        public T ExtractMin()
+        /// <summary>
+        /// delete node from parent
+        /// </summary>
+        /// <param name="node"></param>
+        private void DeleteChild(AsPairingTreeNode<T> node)
         {
-            var min = Root;
-            Meld(Root.ChildrenHead);
-            Count--;
-            return min.Value;
-        }
-
-
-        public void DecrementKey(AsPairingTreeNode<T> node)
-        {
-            if (node == Root)
-                return;
-
             //if this node is the child head pointer of parent
             if (node.IsHeadChild)
             {
@@ -213,27 +252,9 @@ namespace Algorithm.Sandbox.DataStructures
                     node.Next.Previous = node.Previous;
                 }
             }
-
-            Root = Meld(Root, node);
         }
 
-        public void Union(AsPairingMinHeap<T> PairingHeap)
-        {
-            Root = Meld(Root, PairingHeap.Root);
-            Count = Count + PairingHeap.Count;
-        }
 
-        /// <summary>
-        /// O(1) time complexity
-        /// </summary>
-        /// <returns></returns>
-        public T PeekMin()
-        {
-            if (Root == null)
-                throw new Exception("Empty heap");
-
-            return Root.Value;
-        }
     }
 
 

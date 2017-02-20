@@ -6,17 +6,19 @@ namespace Algorithm.Sandbox.DataStructures
     public class AsFibornacciTreeNode<T> : IComparable where T : IComparable
     {
         internal T Value { get; set; }
+
         internal int Degree;
+        internal AsFibornacciTreeNode<T> ChildrenHead { get; set; }
 
         internal AsFibornacciTreeNode<T> Parent { get; set; }
-        internal AsDoublyLinkedList<AsFibornacciTreeNode<T>> Children { get; set; }
         public bool LostChild { get; internal set; }
+
+        public AsFibornacciTreeNode<T> Previous;
+        public AsFibornacciTreeNode<T> Next;
 
         public AsFibornacciTreeNode(T value)
         {
             this.Value = value;
-
-            Children = new AsDoublyLinkedList<AsFibornacciTreeNode<T>>();
         }
 
         public int CompareTo(object obj)
@@ -31,18 +33,10 @@ namespace Algorithm.Sandbox.DataStructures
         //TODO use a Doubly linked list so that when childrens become orphan
         //we can do a union of Children with Forest in constant time O(1) during ExtractMin
         //instead of creating new DoublyLinked List Nodes for each orphaned child
-        internal AsDoublyLinkedList<AsFibornacciTreeNode<T>> heapForest
-            = new AsDoublyLinkedList<AsFibornacciTreeNode<T>>();
+        internal AsFibornacciTreeNode<T> heapForestHead;
 
         //holds the minimum node at any given time
-        private AsDoublyLinkedListNode<AsFibornacciTreeNode<T>> minNode = null;
-
-        //keep track of node reference for tree root items in forest
-        //This is so that we can directly set new min node during decrement key without iterating roots
-        private Dictionary<AsFibornacciTreeNode<T>, AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>> heapIndex
-          = new Dictionary<AsFibornacciTreeNode<T>, AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>>();
-
-
+        private AsFibornacciTreeNode<T> minNode = null;
         internal int Count { get; private set; }
 
         /// <summary>
@@ -53,29 +47,24 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var newNode = new AsFibornacciTreeNode<T>(newItem);
 
-            var newHeapForest = new AsDoublyLinkedList<AsFibornacciTreeNode<T>>();
-            var newDllNode = newHeapForest.InsertFirst(newNode);
-
             //return pointer to new Node
-            MergeForests(newHeapForest);
+            MergeForests(newNode);
 
             if (minNode == null)
             {
-                minNode = newDllNode;
+                minNode = newNode;
             }
             else
             {
-                if (minNode.Data.Value.CompareTo(newDllNode.Data.Value) > 0)
+                if (minNode.Value.CompareTo(newNode.Value) > 0)
                 {
-                    minNode = newDllNode;
+                    minNode = newNode;
                 }
             }
 
             Count++;
 
-            heapIndex.Add(newDllNode.Data, newDllNode);
-
-            return newDllNode.Data;
+            return newNode;
         }
 
         /// <summary>
@@ -84,35 +73,35 @@ namespace Algorithm.Sandbox.DataStructures
         private void Meld()
         {
 
-            if (heapForest.Head == null)
+            if (heapForestHead == null)
             {
                 minNode = null;
                 return;
             }
 
             //degree - node dictionary
-            var mergeDictionary = new Dictionary<int, AsDoublyLinkedListNode<AsFibornacciTreeNode<T>>>();
+            var mergeDictionary = new Dictionary<int, AsFibornacciTreeNode<T>>();
 
-            var current = heapForest.Head;
+            var current = heapForestHead;
             minNode = current;
             while (current != null)
             {
-                current.Data.Parent = null;
+                current.Parent = null;
 
                 //no same degree already in merge dictionary
                 //add to hash table
-                if (!mergeDictionary.ContainsKey(current.Data.Degree))
+                if (!mergeDictionary.ContainsKey(current.Degree))
                 {
                     var next = current.Next;
 
-                    mergeDictionary.Add(current.Data.Degree, current);
+                    mergeDictionary.Add(current.Degree, current);
 
                     if (minNode == current)
                     {
                         minNode = null;
                     }
 
-                    heapForest.Delete(current);
+                    DeleteNode(ref heapForestHead, current);
 
                     current = next;
                     continue;
@@ -121,32 +110,39 @@ namespace Algorithm.Sandbox.DataStructures
                 //with existing tree in merge dictionary
                 else
                 {
-                    var currentDegree = current.Data.Degree;
+                    var currentDegree = current.Degree;
                     var existing = mergeDictionary[currentDegree];
 
-                    if (existing.Data.Value.CompareTo(current.Data.Value) < 0)
+                    if (existing.Value.CompareTo(current.Value) < 0)
                     {
-                        current.Data.Parent = existing.Data;
-                        heapForest.Delete(current);
-                        existing.Data.Children.InsertFirst(current);
-                        existing.Data.Degree++;
+                        current.Parent = existing;
 
-                        heapForest.InsertFirst(existing);
+                        DeleteNode(ref heapForestHead, current);
 
+                        var childHead = existing.ChildrenHead;
+                        InsertNode(ref childHead, current);
+                        existing.ChildrenHead = childHead;
+
+                        existing.Degree++;
+
+                        InsertNode(ref heapForestHead, existing);
                         current = existing;
 
                     }
                     else
                     {
-                        existing.Data.Parent = current.Data;
-                        current.Data.Children.InsertFirst(existing);
-                        current.Data.Degree++;
+                        existing.Parent = current;
 
+                        var childHead = current.ChildrenHead;
+                        InsertNode(ref childHead, existing);
+                        current.ChildrenHead = childHead;
+
+                        current.Degree++;
                     }
 
 
                     if (minNode == null
-                        || minNode.Data.Value.CompareTo(current.Data.Value) > 0)
+                        || minNode.Value.CompareTo(current.Value) > 0)
                     {
                         minNode = current;
                     }
@@ -162,11 +158,10 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 foreach (var node in mergeDictionary)
                 {
-                  
-                    heapForest.InsertFirst(node.Value);
+                    InsertNode(ref heapForestHead, node.Value);
 
                     if (minNode == null
-                        || minNode.Data.Value.CompareTo(node.Value.Data.Value) > 0)
+                        || minNode.Value.CompareTo(node.Value.Value) > 0)
                     {
                         minNode = node.Value;
                     }
@@ -184,22 +179,22 @@ namespace Algorithm.Sandbox.DataStructures
         /// <returns></returns>
         public T ExtractMin()
         {
-            if (heapForest.Head == null)
+            if (heapForestHead == null)
                 throw new Exception("Empty heap");
 
-            var minValue = minNode.Data.Value;
+            var minValue = minNode.Value;
 
             //remove tree root
-            heapForest.Delete(minNode);
-            heapIndex.Remove(minNode.Data);
+            DeleteNode(ref heapForestHead, minNode);
 
-            MergeForests(minNode.Data.Children);
+            MergeForests(minNode.ChildrenHead);
             Meld();
 
             Count--;
 
             return minValue;
         }
+
 
         /// <summary>
         /// Update the Heap with new value for this node pointer
@@ -210,9 +205,9 @@ namespace Algorithm.Sandbox.DataStructures
         {
 
             if (node.Parent == null
-                && minNode.Data.Value.CompareTo(node.Value) > 0)
+                && minNode.Value.CompareTo(node.Value) > 0)
             {
-                minNode = heapIndex[node];
+                minNode = node;
             }
 
             var current = node;
@@ -253,11 +248,12 @@ namespace Algorithm.Sandbox.DataStructures
         {
             var parent = node.Parent;
 
-            var currentNode = heapIndex[node];
-
             //cut child and attach to heap Forest
             //and mark parent for lost child
-            node.Parent.Children.Delete(currentNode);
+            var childHead = node.Parent.ChildrenHead;
+            DeleteNode(ref childHead, node);
+            node.Parent.ChildrenHead = childHead;
+
             node.Parent.Degree--;
             if (parent.Parent != null)
             {
@@ -266,14 +262,14 @@ namespace Algorithm.Sandbox.DataStructures
             node.LostChild = false;
             node.Parent = null;
 
-            heapForest.InsertFirst(currentNode);
+            InsertNode(ref heapForestHead, node);
 
             //update min
-            if (minNode.Data.Value.CompareTo(currentNode.Data.Value) > 0)
+            if (minNode.Value.CompareTo(node.Value) > 0)
             {
-                minNode = heapIndex[currentNode.Data];
+                minNode = node;
             }
-         
+
         }
 
         /// <summary>
@@ -283,26 +279,66 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="FibornacciHeap"></param>
         public void Union(AsFibornacciMinHeap<T> FibornacciHeap)
         {
-            MergeForests(FibornacciHeap.heapForest);
+            MergeForests(FibornacciHeap.heapForestHead);
             Count = Count + FibornacciHeap.Count;
         }
 
         /// <summary>
-        /// Merges the given forest to current Forest 
-        /// returns the last inserted node (pointer required for decrement-key)
+        /// Merges the given fibornacci node list to current Forest 
         /// </summary>
-        /// <param name="newHeapForest"></param>
-        private void MergeForests(AsDoublyLinkedList<AsFibornacciTreeNode<T>> newHeapForest)
+        /// <param name="headPointer"></param>
+        private void MergeForests(AsFibornacciTreeNode<T> headPointer)
         {
-
-            if (heapForest.Head == null)
+            var current = headPointer;
+            while (current != null)
             {
-                heapForest = newHeapForest;
+                var next = current.Next;
+                InsertNode(ref heapForestHead, current);
+                current = next;
+            }
+
+        }
+
+        private void InsertNode(ref AsFibornacciTreeNode<T> head, AsFibornacciTreeNode<T> newNode)
+        {
+            newNode.Next = newNode.Previous = null;
+
+            if (head == null)
+            {
+                head = newNode;
                 return;
             }
 
-            heapForest.Union(newHeapForest);
+            newNode.Previous = head;
+            newNode.Next = head.Next;
 
+            if (head.Next != null)
+            {
+                head.Next.Previous = newNode;
+            }
+
+            head.Next = newNode;
+        }
+
+        private void DeleteNode(ref AsFibornacciTreeNode<T> heapForestHead, AsFibornacciTreeNode<T> deletionNode)
+        {
+            if (deletionNode == heapForestHead)
+            {
+                if (deletionNode.Next != null)
+                {
+                    deletionNode.Next.Previous = null;
+                }
+
+                heapForestHead = deletionNode.Next;
+                return;
+            }
+
+            deletionNode.Previous.Next = deletionNode.Next;
+
+            if (deletionNode.Next != null)
+            {
+                deletionNode.Next.Previous = deletionNode.Previous;
+            }
         }
 
         /// <summary>
@@ -310,10 +346,10 @@ namespace Algorithm.Sandbox.DataStructures
         /// <returns></returns>
         public T PeekMin()
         {
-            if (heapForest.Head == null)
+            if (heapForestHead == null)
                 throw new Exception("Empty heap");
 
-            return minNode.Data.Value;
+            return minNode.Value;
         }
     }
 
