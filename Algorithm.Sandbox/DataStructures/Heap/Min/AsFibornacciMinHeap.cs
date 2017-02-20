@@ -87,12 +87,12 @@ namespace Algorithm.Sandbox.DataStructures
             while (current != null)
             {
                 current.Parent = null;
-
+                var next = current.Next;
                 //no same degree already in merge dictionary
                 //add to hash table
                 if (!mergeDictionary.ContainsKey(current.Degree))
                 {
-                    var next = current.Next;
+                  
 
                     mergeDictionary.Add(current.Degree, current);
 
@@ -127,6 +127,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                         InsertNode(ref heapForestHead, existing);
                         current = existing;
+                        current.Next = next;
 
                     }
                     else
@@ -309,15 +310,10 @@ namespace Algorithm.Sandbox.DataStructures
                 return;
             }
 
-            newNode.Previous = head;
-            newNode.Next = head.Next;
+            head.Previous = newNode;
+            newNode.Next = head;
 
-            if (head.Next != null)
-            {
-                head.Next.Previous = newNode;
-            }
-
-            head.Next = newNode;
+            head = newNode;
         }
 
         private void DeleteNode(ref AsFibornacciTreeNode<T> heapForestHead, AsFibornacciTreeNode<T> deletionNode)
@@ -330,6 +326,8 @@ namespace Algorithm.Sandbox.DataStructures
                 }
 
                 heapForestHead = deletionNode.Next;
+                deletionNode.Next = null;
+                deletionNode.Previous = null;
                 return;
             }
 
@@ -339,6 +337,9 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 deletionNode.Next.Previous = deletionNode.Previous;
             }
+
+            deletionNode.Next = null;
+            deletionNode.Previous = null;
         }
 
         /// <summary>
