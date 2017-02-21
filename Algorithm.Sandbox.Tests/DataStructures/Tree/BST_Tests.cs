@@ -87,7 +87,6 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             {
                 tree.Insert(randomNumbers[i]);
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
-                //Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
 
                 Assert.IsTrue(tree.Count == i + 1);
             }
@@ -102,7 +101,6 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
             }
 

@@ -92,7 +92,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         }
 
         [TestMethod]
-        public void AVLTree_StressTest()
+        public void AVLTree_AccuracyTest()
         {
             var nodeCount = 1000 * 10;
 
@@ -136,6 +136,43 @@ namespace Algorithm.Sandbox.Tests.DataStructures
                 var maxHeight = 1.44 * Math.Log(nodeCount + 2, 2) - 0.328;
 
                 Assert.IsTrue(actualHeight < maxHeight);
+            }
+
+            Assert.IsTrue(tree.Count == 0);
+        }
+
+
+        [TestMethod]
+        public void AVLTree_StressTest()
+        {
+            var nodeCount = 1000 * 10;
+
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .ToList();
+
+            var tree = new AsAVLTree<int>();
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Insert(randomNumbers[i]);
+                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
+
+                Assert.IsTrue(tree.Count == i + 1);
+            }
+
+
+            //shuffle again before deletion tests
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                                   .OrderBy(x => rnd.Next())
+                                   .ToList();
+
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
             }
 
             Assert.IsTrue(tree.Count == 0);

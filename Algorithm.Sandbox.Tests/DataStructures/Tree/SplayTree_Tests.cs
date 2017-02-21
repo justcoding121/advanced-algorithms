@@ -13,33 +13,22 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void SplayTree__Test()
+        public void SplayTree_SmokeTest()
         {
             //insert test
             var tree = new AsSplayTree<int>();
 
 
             tree.Insert(11);
-
-
             tree.Insert(6);
-
-
             tree.Insert(8);
             tree.Insert(19);
-
             tree.Insert(4);
-
             tree.Insert(10);
-
             tree.Insert(5);
-
             tree.Insert(17);
-
             tree.Insert(43);
-
             tree.Insert(49);
-
             tree.Insert(31);
 
             //delete
@@ -76,8 +65,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             {
                 tree.Insert(randomNumbers[i]);
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
-                //Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
-
+              
                 Assert.IsTrue(tree.Count == i + 1);
             }
 
@@ -91,7 +79,6 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
             }
 

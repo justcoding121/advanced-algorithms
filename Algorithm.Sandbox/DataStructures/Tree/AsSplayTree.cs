@@ -83,50 +83,55 @@ namespace Algorithm.Sandbox.DataStructures
                 return;
             }
 
-            if (HasItem(value))
+            var newNode = insert(Root, value);
+
+            Splay(newNode);
+            Count++;
+        }
+
+        //O(log(n)) always
+        private AsSplayTreeNode<T> insert(
+            AsSplayTreeNode<T> currentNode, T newNodeValue)
+        {
+
+            var compareResult = currentNode.Value.CompareTo(newNodeValue);
+
+            //current node is less than new item
+            if (compareResult < 0)
+            {
+                //no right child
+                if (currentNode.Right == null)
+                {
+                    //insert
+                    currentNode.Right = new AsSplayTreeNode<T>(currentNode, newNodeValue);
+                    return currentNode.Right;
+                }
+                else
+                {
+                    return insert(currentNode.Right, newNodeValue);
+                }
+
+            }
+            //current node is greater than new node
+            else if (compareResult > 0)
+            {
+
+                if (currentNode.Left == null)
+                {
+                    //insert
+                    currentNode.Left = new AsSplayTreeNode<T>(currentNode, newNodeValue);
+                    return currentNode.Left;
+                }
+                else
+                {
+                    return insert(currentNode.Left, newNodeValue);
+                }
+            }
+            else
             {
                 throw new Exception("Item exists");
             }
 
-            var newNode = insert(Root, value);
-
-            Splay(newNode);
-        }
-
-        //O(log(n)) worst O(n) for unbalanced tree
-        private AsSplayTreeNode<T> insert(AsSplayTreeNode<T> node, T value)
-        {
-            var compareResult = node.Value.CompareTo(value);
-
-            //node is less than the value so move right for insertion
-            if (compareResult < 0)
-            {
-                if (node.Right == null)
-                {
-                    node.Right = new AsSplayTreeNode<T>(node, value);
-                    Count++;
-                    return node.Right;
-                }
-                else
-                {
-                    return insert(node.Right, value);
-                }
-            }
-            //node is greater than the value so move left for insertion
-            else
-            {
-                if (node.Left == null)
-                {
-                    node.Left = new AsSplayTreeNode<T>(node, value);
-                    Count++;
-                    return node.Left;
-                }
-                else
-                {
-                    return insert(node.Left, value);
-                }
-
-            }
 
         }
 
@@ -139,96 +144,55 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty SplayTree");
             }
 
-            if (HasItem(value) == false)
-            {
-                throw new Exception("Item do not exist");
-            }
-
             delete(Root, value);
+            Count--;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
         private void delete(AsSplayTreeNode<T> node, T value)
         {
-
-
             var compareResult = node.Value.CompareTo(value);
 
-            if (compareResult == 0)
+            //node is less than the search value so move right to find the deletion node
+            if (compareResult < 0)
+            {
+                if (node.Right == null)
+                {
+                    throw new Exception("Item do not exist");
+                }
+
+                delete(node.Right, value);
+            }
+            //node is less than the search value so move left to find the deletion node
+            else if (compareResult > 0)
+            {
+                if (node.Left == null)
+                {
+                    throw new Exception("Item do not exist");
+                }
+
+                delete(node.Left, value);
+            }
+            else
             {
                 var parent = node.Parent;
-
                 //node is a leaf node
                 if (node.IsLeaf)
                 {
-                    //if node is root
-                    if (node.Parent == null)
-                    {
-                        Root = null;
-                    }
-                    //assign nodes parent.left/right to null
-                    else if (node.Parent.Left == node)
-                    {
-                        node.Parent.Left = null;
-                    }
-                    else
-                    {
-                        node.Parent.Right = null;
-                    }
+                    deleteLeaf(node);
                 }
                 else
                 {
                     //case one - right tree is null (move sub tree up)
                     if (node.Left != null && node.Right == null)
                     {
-                        //root
-                        if (node.Parent == null)
-                        {
-                            Root.Left.Parent = null;
-                            Root = Root.Left;
-                        }
-                        else
-                        {
-                            //node is left child of parent
-                            if (node.Parent.Left == node)
-                            {
-                                node.Parent.Left = node.Left;
-                            }
-                            //node is right child of parent
-                            else
-                            {
-                                node.Parent.Right = node.Left;
-                            }
-
-                            node.Left.Parent = node.Parent;
-                        }
-
+                        deleteLeftNode(node);
 
                     }
                     //case two - left tree is null  (move sub tree up)
                     else if (node.Right != null && node.Left == null)
                     {
-                        //root
-                        if (node.Parent == null)
-                        {
-                            Root.Right.Parent = null;
-                            Root = Root.Right;
-                        }
-                        else
-                        {
-                            //node is left child of parent
-                            if (node.Parent.Left == node)
-                            {
-                                node.Parent.Left = node.Right;
-                            }
-                            //node is right child of parent
-                            else
-                            {
-                                node.Parent.Right = node.Right;
-                            }
-                            node.Right.Parent = node.Parent;
-
-                        }
+                        deleteRightNode(node);
 
                     }
                     //case three - two child trees 
@@ -241,33 +205,87 @@ namespace Algorithm.Sandbox.DataStructures
                         node.Value = maxLeftNode.Value;
 
                         //delete left max node
-                        if (maxLeftNode.Parent.Right == maxLeftNode)
-                        {
-                            maxLeftNode.Parent.Right = null;
-                        }
-                        else
-                        {
-                            maxLeftNode.Parent.Left = null;
-                        }
+                        delete(node.Left, maxLeftNode.Value);
                     }
                 }
-                Count--;
 
-                if (parent != null)
+                if(parent!=null)
                 {
                     Splay(parent);
                 }
+                
+            }
+        }
 
-            }
-            //node is less than the search value so move right to find the deletion node
-            else if (compareResult < 0)
+        private void deleteLeaf(AsSplayTreeNode<T> node)
+        {
+            //if node is root
+            if (node.Parent == null)
             {
-                delete(node.Right, value);
+                Root = null;
             }
-            //node is less than the search value so move left to find the deletion node
+            //assign nodes parent.left/right to null
+            else if (node.IsLeftChild)
+            {
+                node.Parent.Left = null;
+            }
             else
             {
-                delete(node.Left, value);
+                node.Parent.Right = null;
+            }
+        }
+
+        private void deleteRightNode(AsSplayTreeNode<T> node)
+        {
+            //root
+            if (node.Parent == null)
+            {
+                Root.Right.Parent = null;
+                Root = Root.Right;
+                return;
+            }
+            else
+            {
+                //node is left child of parent
+                if (node.IsLeftChild)
+                {
+                    node.Parent.Left = node.Right;
+                }
+                //node is right child of parent
+                else
+                {
+                    node.Parent.Right = node.Right;
+                }
+
+                node.Right.Parent = node.Parent;
+
+            }
+        }
+
+        private void deleteLeftNode(AsSplayTreeNode<T> node)
+        {
+            //root
+            if (node.Parent == null)
+            {
+                Root.Left.Parent = null;
+                Root = Root.Left;
+                return;
+            }
+            else
+            {
+                //node is left child of parent
+                if (node.IsLeftChild)
+                {
+                    node.Parent.Left = node.Left;
+                }
+                //node is right child of parent
+                else
+                {
+                    node.Parent.Right = node.Left;
+                }
+
+                node.Left.Parent = node.Parent;
+
             }
         }
 
