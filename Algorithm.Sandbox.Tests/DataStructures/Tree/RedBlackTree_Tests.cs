@@ -114,8 +114,6 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
-                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
-
                 Assert.IsTrue(tree.Count == i + 1);
             }
 
