@@ -63,7 +63,6 @@
     <Compile Include="DataStructures\LinkedList\AsCircularLinkedList.cs" />
     <Compile Include="DataStructures\Tree\AsIntervalTree.cs" />
     <Compile Include="DataStructures\Tree\AsK_DTree.cs" />
-    <Compile Include="DataStructures\Tree\AsN_aryTree.cs" />
     <Compile Include="DataStructures\Tree\AsRangeTree.cs" />
     <Compile Include="DataStructures\Tree\AsSegmentTree.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\AsWeightedDiGraph.cs" />

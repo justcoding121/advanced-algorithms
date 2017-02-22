@@ -3,25 +3,25 @@ using System;
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsAVLTreeNode<T> : AsIBSTNode<T> where T : IComparable
+    internal class AsAVLTreeNode<T> : AsIBSTNode<T> where T : IComparable
     {
-        public T Value { get; set; }
+        internal T Value { get; set; }
 
-        public AsAVLTreeNode<T> Parent { get; set; }
+        internal AsAVLTreeNode<T> Parent { get; set; }
 
-        public AsAVLTreeNode<T> Left { get; set; }
-        public AsAVLTreeNode<T> Right { get; set; }
+        internal AsAVLTreeNode<T> Left { get; set; }
+        internal AsAVLTreeNode<T> Right { get; set; }
 
-        public bool IsLeaf => Left == null && Right == null;
+        internal bool IsLeaf => Left == null && Right == null;
 
-        public AsAVLTreeNode(AsAVLTreeNode<T> parent, T value)
+        internal AsAVLTreeNode(AsAVLTreeNode<T> parent, T value)
         {
             Parent = parent;
             Value = value;
             Height = 0;
         }
 
-        public int Height { get; set; }
+        internal int Height { get; set; }
 
         //exposed to do common tests for Binary Trees
         AsIBSTNode<T> AsIBSTNode<T>.Left
@@ -41,11 +41,19 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
         }
+
+        T AsIBSTNode<T>.Value
+        {
+            get
+            {
+                return Value;
+            }
+        }
     }
 
     public class AsAVLTree<T> where T : IComparable
     {
-        public AsAVLTreeNode<T> Root { get; private set; }
+        internal AsAVLTreeNode<T> Root { get; private set; }
         public int Count { get; private set; }
 
         //O(log(n)) always

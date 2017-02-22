@@ -3,18 +3,18 @@ using System;
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsBSTNode<T> : AsIBSTNode<T> where T : IComparable
+    internal class AsBSTNode<T> : AsIBSTNode<T> where T : IComparable
     {
-        public T Value { get; set; }
+        internal T Value { get; set; }
 
-        public AsBSTNode<T> Parent { get; set; }
+        internal AsBSTNode<T> Parent { get; set; }
 
-        public AsBSTNode<T> Left { get; set; }
-        public AsBSTNode<T> Right { get; set; }
+        internal AsBSTNode<T> Left { get; set; }
+        internal AsBSTNode<T> Right { get; set; }
 
-        public bool IsLeaf => Left == null && Right == null;
-        public bool IsLeftChild => this.Parent.Left == this;
-        public bool IsRightChild => this.Parent.Right == this;
+        internal bool IsLeaf => Left == null && Right == null;
+        internal bool IsLeftChild => this.Parent.Left == this;
+        internal bool IsRightChild => this.Parent.Right == this;
 
         AsIBSTNode<T> AsIBSTNode<T>.Left
         {
@@ -32,8 +32,15 @@ namespace Algorithm.Sandbox.DataStructures
             }
         }
 
+        T AsIBSTNode<T>.Value
+        {
+            get
+            {
+                return Value;
+            }
+        }
 
-        public AsBSTNode(AsBSTNode<T> parent, T value)
+        internal AsBSTNode(AsBSTNode<T> parent, T value)
         {
             this.Parent = parent;
             this.Value = value;

@@ -3,29 +3,29 @@ using System;
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public enum RedBlackTreeNodeColor
+    internal enum RedBlackTreeNodeColor
     {
         Black,
         Red
     }
 
-    public class AsRedBlackTreeNode<T> : AsIBSTNode<T> where T : IComparable
+    internal class AsRedBlackTreeNode<T> : AsIBSTNode<T> where T : IComparable
     {
-        public T Value { get; set; }
+        internal T Value { get; set; }
 
-        public AsRedBlackTreeNode<T> Parent { get; set; }
+        internal AsRedBlackTreeNode<T> Parent { get; set; }
 
-        public AsRedBlackTreeNode<T> Left { get; set; }
-        public AsRedBlackTreeNode<T> Right { get; set; }
+        internal AsRedBlackTreeNode<T> Left { get; set; }
+        internal AsRedBlackTreeNode<T> Right { get; set; }
 
-        public bool IsLeaf => Left == null && Right == null;
-        public RedBlackTreeNodeColor NodeColor { get; set; }
+        internal bool IsLeaf => Left == null && Right == null;
+        internal RedBlackTreeNodeColor NodeColor { get; set; }
 
-        public AsRedBlackTreeNode<T> Sibling => this.Parent.Left == this ?
+        internal AsRedBlackTreeNode<T> Sibling => this.Parent.Left == this ?
                                                 this.Parent.Right : this.Parent.Left;
 
-        public bool IsLeftChild => this.Parent.Left == this;
-        public bool IsRightChild => this.Parent.Right == this;
+        internal bool IsLeftChild => this.Parent.Left == this;
+        internal bool IsRightChild => this.Parent.Right == this;
 
         //exposed to do common tests for Binary Trees
         AsIBSTNode<T> AsIBSTNode<T>.Left
@@ -46,7 +46,15 @@ namespace Algorithm.Sandbox.DataStructures
 
         }
 
-        public AsRedBlackTreeNode(AsRedBlackTreeNode<T> parent, T value)
+        T AsIBSTNode<T>.Value
+        {
+            get
+            {
+                return Value;
+            }
+        }
+
+        internal AsRedBlackTreeNode(AsRedBlackTreeNode<T> parent, T value)
         {
             Parent = parent;
             Value = value;
@@ -56,7 +64,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsRedBlackTree<T> where T : IComparable
     {
-        public AsRedBlackTreeNode<T> Root { get; private set; }
+        internal AsRedBlackTreeNode<T> Root { get; private set; }
         public int Count { get; private set; }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -145,7 +153,7 @@ namespace Algorithm.Sandbox.DataStructures
 
 
         //O(log(n)) worst O(n) for unbalanced tree
-        public AsRedBlackTreeNode<T> Find(T value)
+        internal AsRedBlackTreeNode<T> Find(T value)
         {
             if (Root == null)
             {

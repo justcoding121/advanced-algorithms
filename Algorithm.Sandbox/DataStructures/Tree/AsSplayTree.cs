@@ -3,18 +3,18 @@ using System;
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsSplayTreeNode<T> : AsIBSTNode<T>  where T : IComparable
+    internal class AsSplayTreeNode<T> : AsIBSTNode<T>  where T : IComparable
     {
-        public T Value { get; set; }
+        internal T Value { get; set; }
 
-        public AsSplayTreeNode<T> Parent { get; set; }
+        internal AsSplayTreeNode<T> Parent { get; set; }
 
-        public AsSplayTreeNode<T> Left { get; set; }
-        public AsSplayTreeNode<T> Right { get; set; }
+        internal AsSplayTreeNode<T> Left { get; set; }
+        internal AsSplayTreeNode<T> Right { get; set; }
 
-        public bool IsLeaf => Left == null && Right == null;
-        public bool IsLeftChild => this.Parent.Left == this;
-        public bool IsRightChild => this.Parent.Right == this;
+        internal bool IsLeaf => Left == null && Right == null;
+        internal bool IsLeftChild => this.Parent.Left == this;
+        internal bool IsRightChild => this.Parent.Right == this;
 
         AsIBSTNode<T> AsIBSTNode<T>.Left
         {
@@ -32,7 +32,15 @@ namespace Algorithm.Sandbox.DataStructures
             }
         }
 
-        public AsSplayTreeNode(AsSplayTreeNode<T> parent, T value)
+        T AsIBSTNode<T>.Value
+        {
+            get
+            {
+                return Value;
+            }
+        }
+
+        internal AsSplayTreeNode(AsSplayTreeNode<T> parent, T value)
         {
             this.Parent = parent;
             this.Value = value;
@@ -42,7 +50,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsSplayTree<T> where T : IComparable
     {
-        public AsSplayTreeNode<T> Root { get; set; }
+        internal AsSplayTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
         //O(log(n)) worst O(n) for unbalanced tree
