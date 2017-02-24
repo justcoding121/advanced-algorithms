@@ -30,9 +30,6 @@ namespace Algorithm.Sandbox.DataStructures
     public class AsFibornacciMinHeap<T> where T : IComparable
     {
 
-        //TODO use a Doubly linked list so that when childrens become orphan
-        //we can do a union of Children with Forest in constant time O(1) during ExtractMin
-        //instead of creating new DoublyLinked List Nodes for each orphaned child
         internal AsFibornacciTreeNode<T> heapForestHead;
 
         //holds the minimum node at any given time
