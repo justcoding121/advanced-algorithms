@@ -375,19 +375,20 @@ namespace Algorithm.Sandbox.DataStructures
 
         }
 
-        private void Heapify(AsTreapTreeNode<T> x)
+        //reorder the tree node so that heap property is valid
+        private void Heapify(AsTreapTreeNode<T> node)
         {
-            while (x.Parent != null)
+            while (node.Parent != null)
             {
-                if (x.Priority < x.Parent.Priority)
+                if (node.Priority < node.Parent.Priority)
                 {
-                    if (x.IsLeftChild)
+                    if (node.IsLeftChild)
                     {
-                        x = RightRotate(x.Parent);
+                        node = RightRotate(node.Parent);
                     }
                     else
                     {
-                        x = LeftRotate(x.Parent);
+                        node = LeftRotate(node.Parent);
                     }
                 }
                 else
