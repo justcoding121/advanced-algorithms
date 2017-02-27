@@ -8,7 +8,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         public void Append(string s)
         {
-            builder.AddItem(s);
+            builder.Add(s);
         }
         //TODO is there a way to avoid string.Concat (perhaps implement one ourselfves?)
         public override string ToString()

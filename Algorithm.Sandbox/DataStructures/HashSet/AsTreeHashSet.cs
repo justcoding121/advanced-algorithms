@@ -76,7 +76,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             for (int i = 0; i < nodes.Length; i++)
             {
-                allNodeValues.AddItem(nodes[i]);
+                allNodeValues.Add(nodes[i]);
             }
 
             nodes.Clear();

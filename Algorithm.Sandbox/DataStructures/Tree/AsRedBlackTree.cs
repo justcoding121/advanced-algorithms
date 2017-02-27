@@ -113,7 +113,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (currentNode == null)
                 return;
 
-            allNodes.AddItem(currentNode.Value);
+            allNodes.Add(currentNode.Value);
 
             GetAllNodes(allNodes, currentNode.Left);
             GetAllNodes(allNodes, currentNode.Right);

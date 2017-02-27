@@ -195,12 +195,12 @@ namespace Algorithm.Sandbox.DataStructures
             }
             else
             {
-                result.AddItem(current.Data);
+                result.Add(current.Data);
             }
 
             while (current.Next != ReferenceNode)
             {
-                result.AddItem(current.Data);
+                result.Add(current.Data);
                 current = current.Next;
             }
 

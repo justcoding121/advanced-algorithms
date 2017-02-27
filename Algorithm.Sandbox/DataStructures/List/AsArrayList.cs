@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.DataStructures
         private int arraySize;
 
         private T[] array;
-        
+
         private int currentEndPosition;
         public int Length => currentEndPosition;
 
@@ -54,7 +54,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //O(1) amortized 
-        public void AddItem(T item)
+        public void Add(T item)
         {
             Grow();
 
@@ -62,6 +62,26 @@ namespace Algorithm.Sandbox.DataStructures
             currentEndPosition++;
         }
 
+
+        public void InsertAt(int index, T item)
+        {
+            Grow();
+
+            Shift(index);
+
+            array[index] = item;
+            currentEndPosition++;
+        }
+
+        /// <summary>
+        /// shift the position of elements right by one starting at this index
+        /// create a blank field at index
+        /// </summary>
+        /// <param name="index"></param>
+        private void Shift(int index)
+        {
+            Array.Copy(array, index, array, index + 1, Length - index);
+        }
 
         /// <summary>
         /// empty the list
@@ -111,12 +131,7 @@ namespace Algorithm.Sandbox.DataStructures
                 arraySize *= 2;
 
                 var biggerArray = new T[arraySize];
-
-                for (int i = 0; i < currentEndPosition; i++)
-                {
-                    biggerArray[i] = array[i];
-                }
-
+                Array.Copy(array, 0, biggerArray, 0, currentEndPosition);
                 array = biggerArray;
             }
         }
@@ -132,12 +147,7 @@ namespace Algorithm.Sandbox.DataStructures
                 arraySize /= 2;
 
                 var smallerArray = new T[arraySize];
-
-                for (int j = 0; j < currentEndPosition; j++)
-                {
-                    smallerArray[j] = array[j];
-                }
-
+                Array.Copy(array, 0, smallerArray, 0, currentEndPosition);
                 array = smallerArray;
             }
         }
@@ -194,7 +204,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             get
             {
-            
+
                 try
                 {
                     return _array[position];

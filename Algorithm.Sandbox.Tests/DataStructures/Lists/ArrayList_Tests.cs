@@ -19,7 +19,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                arrayList.AddItem(i);
+                arrayList.Add(i);
                 Assert.AreEqual(true, arrayList.Contains(i));
             }
 
@@ -36,15 +36,32 @@ namespace Algorithm.Sandbox.Tests.DataStructures
 
             foreach (var item in testSeries)
             {
-                arrayList.AddItem(item);
+                arrayList.Add(item);
                 Assert.AreEqual(true, arrayList.Contains(item));
             }
 
             for (int i = 1; i <= nodeCount; i++)
             {
                 arrayList.RemoveItem(0);
-  
             }
+
+        }
+
+        [TestMethod]
+        public void ArrayList_InsertAt_Test()
+        {
+            var arrayList = new AsArrayList<int>();
+            int nodeCount = 10;
+
+            for (int i = 0; i <= nodeCount; i++)
+            {
+                arrayList.InsertAt(i, i);
+                Assert.AreEqual(true, arrayList.Contains(i));
+            }
+
+            arrayList.InsertAt(5, 50000);
+            Assert.AreEqual(true, arrayList.Contains(50000));
+            Assert.AreEqual(nodeCount + 2, arrayList.Length);
 
         }
     }

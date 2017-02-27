@@ -62,7 +62,7 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 headNode.Next = null;
                 headNode.Previous = null;
-                passOneResult.AddItem(headNode);
+                passOneResult.Add(headNode);
             }
             else
             {
@@ -77,7 +77,7 @@ namespace Algorithm.Sandbox.DataStructures
                     {
                         var next = current.Next;
                         var nextNext = next.Next;
-                        passOneResult.AddItem(Meld(current, next));
+                        passOneResult.Add(Meld(current, next));
                         current = nextNext;
                     }
                     else

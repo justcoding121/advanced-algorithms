@@ -400,7 +400,7 @@ namespace Algorithm.Sandbox.DataStructures
             var current = Head;
             while (current != null)
             {
-                result.AddItem(current.Data);
+                result.Add(current.Data);
                 current = current.Next;
             }
 

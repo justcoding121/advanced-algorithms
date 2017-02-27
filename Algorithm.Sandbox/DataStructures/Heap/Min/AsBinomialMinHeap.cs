@@ -103,7 +103,7 @@ namespace Algorithm.Sandbox.DataStructures
                     if (cur.Data.Value.CompareTo(next.Data.Value) <= 0)
                     {
                         //add next as child of current
-                        cur.Data.Children.AddItem(next.Data);
+                        cur.Data.Children.Add(next.Data);
                         next.Data.Parent = cur.Data;
                         heapForest.Delete(next);
 
@@ -123,7 +123,7 @@ namespace Algorithm.Sandbox.DataStructures
                     if (cur.Data.Value.CompareTo(next.Data.Value) > 0)
                     {
                         //add current as child of next
-                        next.Data.Children.AddItem(cur.Data);
+                        next.Data.Children.Add(cur.Data);
                         cur.Data.Parent = next.Data;
 
                         heapForest.Delete(cur);
