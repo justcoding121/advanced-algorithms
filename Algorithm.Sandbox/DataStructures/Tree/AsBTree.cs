@@ -61,6 +61,35 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         }
 
         /// <summary>
+        /// gets the height of the tree
+        /// usefull to verify accuracy of this BTree implementation
+        /// </summary>
+        /// <returns></returns>
+        internal int GetHeight()
+        {
+            return GetHeight(Root);
+        }
+
+        /// <summary>
+        /// find height by recursively visiting children
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        private int GetHeight(AsBTreeNode<T> node)
+        {
+            var max = 0;
+
+            for (int i = 0; i <= node.KeyCount; i++)
+            {
+                if (node.Children[i] != null)
+                {
+                    max = Math.Max(GetHeight(node.Children[i]) + 1, max);
+                }
+            }
+
+            return max;
+        }
+        /// <summary>
         /// Find the leaf node to start initial insertion
         /// </summary>
         /// <param name="node"></param>
@@ -119,13 +148,14 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 var left = new AsBTreeNode<T>(maxKeysPerNode, null);
                 var right = new AsBTreeNode<T>(maxKeysPerNode, null);
 
-                //median between left & Right nodes
-                var medianIndex = node.GetMedianIndex();
+                //median of current Node
+                var currentMedianIndex = node.GetMedianIndex();
 
                 //init currentNode under consideration to left
                 var currentNode = left;
                 var currentNodeIndex = 0;
 
+                //new Median also takes new Value in to Account
                 var newMedian = default(T);
                 var newMedianSet = false;
                 var newValueInserted = false;
@@ -140,7 +170,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 {
                     //if reached the median
                     //then start filling right node
-                    if (i == medianIndex)
+                    if (i == currentMedianIndex)
                     {
                         currentNode = right;
                         currentNodeIndex = 0;
@@ -148,7 +178,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
                     //if insertion count reached new median
                     //set the new median by picking the next smallest value
-                    if (!newMedianSet && insertionCount == medianIndex)
+                    if (!newMedianSet && insertionCount == currentMedianIndex)
                     {
                         newMedianSet = true;
 

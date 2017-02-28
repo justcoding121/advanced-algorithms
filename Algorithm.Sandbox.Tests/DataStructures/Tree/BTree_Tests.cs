@@ -50,6 +50,53 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             //tree.Insert(31);
         }
 
+        [TestMethod]
+        public void BTree_AccuracyTest()
+        {
+            var nodeCount = 1000 * 10;
+
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .ToList();
+
+            var tree = new AsBTree<int>(4);
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Insert(randomNumbers[i]);
+
+                var actualHeight = tree.GetHeight();
+
+                //http://cs.stackexchange.com/questions/31990/min-max-height-of-b-tree
+                var maxHeight = Math.Log(nodeCount + 1, 3) + 1;
+
+                Assert.IsTrue(actualHeight <= maxHeight);
+                Assert.IsTrue(tree.Count == i + 1);
+            }
+
+
+            //shuffle again before deletion tests
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                                   .OrderBy(x => rnd.Next())
+                                   .ToList();
+
+            //for (int i = 0; i < nodeCount; i++)
+            //{
+            //    tree.Delete(randomNumbers[i]);
+             
+
+            //    var actualHeight = tree.GetHeight();
+
+            //    var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
+
+            //    Assert.IsTrue(actualHeight < maxHeight);
+            //    Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            //}
+
+            //Assert.IsTrue(tree.Count == 0);
+        }
+
 
         [TestMethod]
         public void BTree_StressTest()
