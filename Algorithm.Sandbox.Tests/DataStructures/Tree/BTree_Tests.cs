@@ -1,4 +1,5 @@
 ﻿using Algorithm.Sandbox.DataStructures.Tree;
+using Algorithm.Sandbox.Tests.DataStructures.Tree.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -53,38 +54,47 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void BTree_AccuracyTest()
         {
+
             var nodeCount = 1000 * 10;
 
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount)
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
+                            .OrderBy(x => rnd.Next())
+                            .ToList();
 
-            var tree = new AsBTree<int>(4);
+            var order = 3;
+            var tree = new AsBTree<int>(order);
 
             for (int i = 0; i < nodeCount; i++)
             {
+
                 tree.Insert(randomNumbers[i]);
 
-                var actualHeight = tree.GetHeight();
+                var actualMaxHeight = BTreeTester.GetMaxHeight(tree.Root);
+                var actualMinHeight = BTreeTester.GetMinHeight(tree.Root);
 
-                //http://cs.stackexchange.com/questions/31990/min-max-height-of-b-tree
-                var maxHeight = Math.Log(nodeCount + 1, 3) + 1;
+                Assert.IsTrue(actualMaxHeight == actualMinHeight);
 
-                Assert.IsTrue(actualHeight <= maxHeight);
+                //https://en.wikipedia.org/wiki/B-tree#Best_case_and_worst_case_heights
+                var theoreticalMaxHeight = Math.Ceiling(Math.Log((i + 2) / 2, (int)Math.Ceiling((double)order / 2)));
+
+                Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
                 Assert.IsTrue(tree.Count == i + 1);
+            }
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
 
 
             //shuffle again before deletion tests
-            randomNumbers = Enumerable.Range(1, nodeCount)
-                                   .OrderBy(x => rnd.Next())
-                                   .ToList();
+            //randomNumbers = c
 
             //for (int i = 0; i < nodeCount; i++)
             //{
             //    tree.Delete(randomNumbers[i]);
-             
+
 
             //    var actualHeight = tree.GetHeight();
 

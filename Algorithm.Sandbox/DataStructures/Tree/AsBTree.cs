@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 
 namespace Algorithm.Sandbox.DataStructures.Tree
 {
@@ -10,10 +12,11 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         internal AsBTreeNode<T> Parent { get; set; }
         internal AsBTreeNode<T>[] Children { get; set; }
 
-        internal bool IsLeaf;
+        internal bool IsLeaf => !Children.Any(x => x != null);
+
         internal AsBTreeNode(int maxKeysPerNode, AsBTreeNode<T> parent)
         {
-            IsLeaf = true;
+         
             Parent = parent;
             Keys = new T[maxKeysPerNode];
             Children = new AsBTreeNode<T>[maxKeysPerNode + 1];
@@ -39,6 +42,51 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             this.maxKeysPerNode = maxKeysPerNode;
         }
 
+        public bool HasItem(T value)
+        {
+            return Find(Root, value) != null;
+        }
+
+        private AsBTreeNode<T> Find(AsBTreeNode<T> node, T value)
+        {
+            //if leaf then its time to insert
+            if (node.IsLeaf)
+            {
+                for (int i = 0; i < node.KeyCount; i++)
+                {
+
+                    if (value.CompareTo(node.Keys[i]) == 0)
+                    {
+                        return node;
+                    }
+                }
+            }
+
+            //if not leaf then drill down to leaf
+            for (int i = 0; i < node.KeyCount; i++)
+            {
+                if (value.CompareTo(node.Keys[i]) == 0)
+                {
+                    return node;
+                }
+
+                //current value is less than new value
+                //drill down to left child of current value
+                if (value.CompareTo(node.Keys[i]) < 0)
+                {
+                    return FindInsertionLeaf(node.Children[i], value);
+                }
+                //current value is grearer than new value
+                //and current value is last element 
+                else if (node.KeyCount == i + 1)
+                {
+                    return FindInsertionLeaf(node.Children[i + 1], value);
+                }
+
+            }
+
+            return null;
+        }
         /// <summary>
         /// Inserts and element to B-Tree
         /// </summary>
@@ -60,35 +108,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             Count++;
         }
 
-        /// <summary>
-        /// gets the height of the tree
-        /// usefull to verify accuracy of this BTree implementation
-        /// </summary>
-        /// <returns></returns>
-        internal int GetHeight()
-        {
-            return GetHeight(Root);
-        }
 
-        /// <summary>
-        /// find height by recursively visiting children
-        /// </summary>
-        /// <param name="node"></param>
-        /// <returns></returns>
-        private int GetHeight(AsBTreeNode<T> node)
-        {
-            var max = 0;
-
-            for (int i = 0; i <= node.KeyCount; i++)
-            {
-                if (node.Children[i] != null)
-                {
-                    max = Math.Max(GetHeight(node.Children[i]) + 1, max);
-                }
-            }
-
-            return max;
-        }
         /// <summary>
         /// Find the leaf node to start initial insertion
         /// </summary>
@@ -162,7 +182,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
                 //keep track of each insertion
                 int insertionCount = 0;
-
+           
                 //insert newValue and existing values in sorted order
                 //to left & right nodes
                 //set new median during sorting
@@ -209,7 +229,14 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                     if (newValueInserted || node.Keys[i].CompareTo(newValue) < 0)
                     {
                         currentNode.Keys[currentNodeIndex] = node.Keys[i];
-                        currentNode.Children[currentNodeIndex] = node.Children[i];
+
+                        //if child is set don't set again
+                        //the child was already set by last newValueRight or last node
+                        if (currentNode.Children[currentNodeIndex]==null)
+                        {
+                            currentNode.Children[currentNodeIndex] = node.Children[i];
+                        }
+                        
                         currentNode.Children[currentNodeIndex + 1] = node.Children[i + 1];
 
                         currentNode.KeyCount++;
@@ -254,7 +281,6 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                     newValueLeft.Parent = node;
                     newValueRight.Parent = node;
 
-                    node.IsLeaf = false;
                 }
 
                 //insert in sorted order

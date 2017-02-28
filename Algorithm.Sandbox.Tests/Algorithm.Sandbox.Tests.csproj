@@ -60,6 +60,7 @@
     <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
     <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\TestHelpers\BTreeTester.cs" />
     <Compile Include="DataStructures\Tree\TreapTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\SplayTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BST_Tests.cs" />
