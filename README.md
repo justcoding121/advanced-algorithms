@@ -45,7 +45,7 @@ Various important computer science algorithms implemented in C#
 * [Binary Search Tree](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBST.cs)
 * [Splay Tree](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsSplayTree.cs)
 * [Treap Tree](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTreapTree.cs)
-* B Tree
+* [B Tree](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBTree.cs)
 * B+ Tree
 * Interval Tree
 * Range Tree
