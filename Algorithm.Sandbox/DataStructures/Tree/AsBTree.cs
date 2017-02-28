@@ -39,7 +39,10 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             this.maxKeysPerNode = maxKeysPerNode;
         }
 
-
+        /// <summary>
+        /// Inserts and element to B-Tree
+        /// </summary>
+        /// <param name="newValue"></param>
         public void Insert(T newValue)
         {
             if (Root == null)
@@ -47,15 +50,22 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 Root = new AsBTreeNode<T>(maxKeysPerNode, null);
                 Root.Keys[0] = newValue;
                 Root.KeyCount++;
+                Count++;
                 return;
             }
 
             var leafToInsert = FindInsertionLeaf(Root, newValue);
 
-            SplitInsert(ref leafToInsert, newValue, null, null);
-
+            InsertAndSplit(ref leafToInsert, newValue, null, null);
+            Count++;
         }
 
+        /// <summary>
+        /// Find the leaf node to start initial insertion
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="newValue"></param>
+        /// <returns></returns>
         private AsBTreeNode<T> FindInsertionLeaf(AsBTreeNode<T> node, T newValue)
         {
             //if leaf then its time to insert
@@ -90,7 +100,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// </summary>
         /// <param name="node"></param>
         /// <param name="newValue"></param>
-        private void SplitInsert(ref AsBTreeNode<T> node, T newValue,
+        private void InsertAndSplit(ref AsBTreeNode<T> node, T newValue,
             AsBTreeNode<T> newValueLeft, AsBTreeNode<T> newValueRight)
         {
             //add new item to current node
@@ -100,58 +110,78 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 Root = node;
             }
 
-
             //if node is full
             //then split node
             //and insert new median to parent
             if (node.KeyCount == maxKeysPerNode)
             {
+                //divide the current node values + new Node as left & right sub nodes
                 var left = new AsBTreeNode<T>(maxKeysPerNode, null);
                 var right = new AsBTreeNode<T>(maxKeysPerNode, null);
 
+                //median between left & Right nodes
                 var medianIndex = node.GetMedianIndex();
+
+                //init currentNode under consideration to left
                 var currentNode = left;
                 var currentNodeIndex = 0;
 
                 var newMedian = default(T);
-                var medianSet = false;
-                var valueTaken = false;
+                var newMedianSet = false;
+                var newValueInserted = false;
 
-                int j = 0;
-                //insert in sorted order
+                //keep track of each insertion
+                int insertionCount = 0;
+
+                //insert newValue and existing values in sorted order
+                //to left & right nodes
+                //set new median during sorting
                 for (int i = 0; i < node.KeyCount; i++)
                 {
+                    //if reached the median
+                    //then start filling right node
                     if (i == medianIndex)
                     {
                         currentNode = right;
                         currentNodeIndex = 0;
                     }
 
-                    if (!medianSet && j == medianIndex)
+                    //if insertion count reached new median
+                    //set the new median by picking the next smallest value
+                    if (!newMedianSet && insertionCount == medianIndex)
                     {
-                        medianSet = true;
+                        newMedianSet = true;
 
-                        if (!valueTaken && newValue.CompareTo(node.Keys[i]) < 0)
+                        //median can be the new value or node.keys[i] (next node key)
+                        //whichever is smaller
+                        if (!newValueInserted && newValue.CompareTo(node.Keys[i]) < 0)
                         {
+                            //median is new value
                             newMedian = newValue;
-                            valueTaken = true;
+                            newValueInserted = true;
                             i--;
-                            j++;
+                            insertionCount++;
                             continue;
                         }
                         else
                         {
+                            //median is next node
                             newMedian = node.Keys[i];
                             continue;
                         }
 
                     }
 
-                    if (valueTaken || node.Keys[i].CompareTo(newValue) < 0)
+                    //pick the smaller among newValue & node.Keys[i]
+                    //and insert in to currentNode (left & right nodes)
+                    //if new Value was already inserted then just copy from node.Keys in sequence
+                    //since node.Keys is already in sorted order it should be fine
+                    if (newValueInserted || node.Keys[i].CompareTo(newValue) < 0)
                     {
                         currentNode.Keys[currentNodeIndex] = node.Keys[i];
                         currentNode.Children[currentNodeIndex] = node.Children[i];
                         currentNode.Children[currentNodeIndex + 1] = node.Children[i + 1];
+
                         currentNode.KeyCount++;
                     }
                     else
@@ -161,25 +191,30 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                         currentNode.Children[currentNodeIndex + 1] = newValueRight;
                         currentNode.KeyCount++;
                         i--;
-                        valueTaken = true;
+                        newValueInserted = true;
                     }
 
                     currentNodeIndex++;
-                    j++;
+                    insertionCount++;
                 }
 
-                if(!valueTaken)
+                //could be that thew newKey is the greatest 
+                //so insert at end
+                if (!newValueInserted)
                 {
                     currentNode.Keys[currentNodeIndex] = newValue;
                     currentNode.Children[currentNodeIndex] = newValueLeft;
                     currentNode.Children[currentNodeIndex + 1] = newValueRight;
                     currentNode.KeyCount++;
                 }
-                //insert overflow to parent
+
+                //insert overflow element (newMedian) to parent
                 var parent = node.Parent;
-                SplitInsert(ref parent, newMedian, left, right);
+                InsertAndSplit(ref parent, newMedian, left, right);
 
             }
+            //newValue have room to fit in this node
+            //so just insert in right spot in asc order of keys
             else
             {
                 var inserted = false;
@@ -200,10 +235,8 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                         InsertAt(node.Keys, i, newValue);
 
                         //Insert children if any
-
                         node.Children[i] = newValueLeft;
-                        InsertAt(node.Children, i+1, newValueRight);
-
+                        InsertAt(node.Children, i + 1, newValueRight);
 
                         node.KeyCount++;
 
@@ -212,6 +245,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                     }
                 }
 
+                //newValue is the greatest
                 //element should be inserted at the end then
                 if (!inserted)
                 {
@@ -224,12 +258,17 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 }
             }
 
-            //if node keys exceed size
-            //split and create a new node
-
-
         }
 
+        /// <summary>
+        /// Shift array right at index to make room for new insertion
+        /// And then insert at index
+        /// Assumes array have atleast one empty index at end
+        /// </summary>
+        /// <typeparam name="S"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="index"></param>
+        /// <param name="newValue"></param>
         private void InsertAt<S>(S[] array, int index, S newValue)
         {
             //shift elements right by one indice from index

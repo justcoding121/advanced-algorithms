@@ -17,7 +17,6 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         {
             //insert test
             var tree = new AsBTree<int>(3);
-           
 
             tree.Insert(5);
             tree.Insert(3);
@@ -67,7 +66,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
-                //Assert.IsTrue(tree.Count == i + 1);
+                Assert.IsTrue(tree.Count == i + 1);
             }
 
 
