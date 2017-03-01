@@ -62,26 +62,28 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                     }
                 }
             }
-
-            //if not leaf then drill down to leaf
-            for (int i = 0; i < node.KeyCount; i++)
+            else
             {
-                if (value.CompareTo(node.Keys[i]) == 0)
+                //if not leaf then drill down to leaf
+                for (int i = 0; i < node.KeyCount; i++)
                 {
-                    return node;
-                }
+                    if (value.CompareTo(node.Keys[i]) == 0)
+                    {
+                        return node;
+                    }
 
-                //current value is less than new value
-                //drill down to left child of current value
-                if (value.CompareTo(node.Keys[i]) < 0)
-                {
-                    return FindInsertionLeaf(node.Children[i], value);
-                }
-                //current value is grearer than new value
-                //and current value is last element 
-                else if (node.KeyCount == i + 1)
-                {
-                    return FindInsertionLeaf(node.Children[i + 1], value);
+                    //current value is less than new value
+                    //drill down to left child of current value
+                    if (value.CompareTo(node.Keys[i]) < 0)
+                    {
+                        return Find(node.Children[i], value);
+                    }
+                    //current value is grearer than new value
+                    //and current value is last element 
+                    else if (node.KeyCount == i + 1)
+                    {
+                        return Find(node.Children[i + 1], value);
+                    }
                 }
 
             }
@@ -500,12 +502,29 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             for (int i = 0; i < leftSibling.KeyCount; i++)
             {
                 newNode.Keys[newIndex] = leftSibling.Keys[i];
-                newNode.Children[newIndex] = leftSibling.Children[i];
-                newNode.Children[newIndex + 1] = leftSibling.Children[i + 1];
+
+                if (leftSibling.Children[i] != null)
+                {
+                    leftSibling.Children[i].Parent = newNode;
+                    newNode.Children[newIndex] = leftSibling.Children[i];
+                }
+
+                if (leftSibling.Children[i + 1] != null)
+                {
+                    leftSibling.Children[i + 1].Parent = newNode;
+                    newNode.Children[newIndex + 1] = leftSibling.Children[i + 1];
+                }
+
 
                 newIndex++;
             }
 
+            //special case when left sibling is empty 
+            if (leftSibling.KeyCount == 0 && leftSibling.Children[0] != null)
+            {
+                leftSibling.Children[0].Parent = newNode;
+                newNode.Children[newIndex] = leftSibling.Children[0];
+            }
 
             newNode.Keys[newIndex] = parent.Keys[separatorIndex];
             newIndex++;
@@ -513,10 +532,30 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             for (int i = 0; i < rightSibling.KeyCount; i++)
             {
                 newNode.Keys[newIndex] = rightSibling.Keys[i];
-                newNode.Children[newIndex] = rightSibling.Children[i];
-                newNode.Children[newIndex+1] = rightSibling.Children[i+1];
+
+                if (rightSibling.Children[i] != null)
+                {
+                    rightSibling.Children[i].Parent = newNode;
+                    newNode.Children[newIndex] = rightSibling.Children[i];
+                }
+
+                if (rightSibling.Children[i + 1] != null)
+                {
+                    rightSibling.Children[i + 1].Parent = newNode;
+                    newNode.Children[newIndex + 1] = rightSibling.Children[i + 1];
+                }
+
                 newIndex++;
             }
+
+            //special case when left sibling is empty 
+            if (rightSibling.KeyCount == 0 && rightSibling.Children[0] != null)
+            {
+                rightSibling.Children[0].Parent = newNode;
+                newNode.Children[newIndex] = rightSibling.Children[0];
+            }
+
+            newNode.KeyCount = newIndex;
 
             parent.Children[separatorIndex] = newNode;
 
@@ -525,7 +564,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             parent.KeyCount--;
 
             if (parent.KeyCount == 0
-                && parent.Parent == null)
+                && parent == Root)
             {
                 Root = newNode;
                 return;
@@ -571,12 +610,12 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             var separatorIndex = GetSeparatorIndex(leftSibling);
 
             leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[separatorIndex];
-            if(!rightSibling.IsLeaf && rightSibling.Children[0].Parent !=null)
+            if (!rightSibling.IsLeaf && rightSibling.Children[0].Parent != null)
             {
                 rightSibling.Children[0].Parent = leftSibling;
             }
             leftSibling.Children[leftSibling.KeyCount + 1] = rightSibling.Children[0];
-            
+
             leftSibling.KeyCount++;
 
             leftSibling.Parent.Keys[separatorIndex] = rightSibling.Keys[0];
@@ -676,28 +715,30 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                     }
                 }
             }
-
-            //if not leaf then drill down to leaf
-            for (int i = 0; i < node.KeyCount; i++)
+            else
             {
-                if (value.CompareTo(node.Keys[i]) == 0)
+                //if not leaf then drill down to leaf
+                for (int i = 0; i < node.KeyCount; i++)
                 {
-                    return node;
-                }
+                    if (value.CompareTo(node.Keys[i]) == 0)
+                    {
+                        return node;
+                    }
 
-                //current value is less than new value
-                //drill down to left child of current value
-                if (value.CompareTo(node.Keys[i]) < 0)
-                {
-                    return FindDeletionNode(node.Children[i], value);
-                }
-                //current value is grearer than new value
-                //and current value is last element 
-                else if (node.KeyCount == i + 1)
-                {
-                    return FindDeletionNode(node.Children[i + 1], value);
-                }
+                    //current value is less than new value
+                    //drill down to left child of current value
+                    if (value.CompareTo(node.Keys[i]) < 0)
+                    {
+                        return FindDeletionNode(node.Children[i], value);
+                    }
+                    //current value is grearer than new value
+                    //and current value is last element 
+                    else if (node.KeyCount == i + 1)
+                    {
+                        return FindDeletionNode(node.Children[i + 1], value);
+                    }
 
+                }
             }
 
             return null;

@@ -49,7 +49,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             Assert.AreEqual(tree.Count, 0);
 
-       
+
         }
 
         [TestMethod]
@@ -81,13 +81,14 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
                 Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
                 Assert.IsTrue(tree.Count == i + 1);
+
+                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
 
             for (int i = 0; i < nodeCount; i++)
             {
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
-
 
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
@@ -132,11 +133,10 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 Assert.IsTrue(tree.Count == i + 1);
             }
 
-
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
-                                   .OrderBy(x => rnd.Next())
-                                   .ToList();
+                               .OrderBy(x => rnd.Next())
+                               .ToList();
 
 
             for (int i = 0; i < nodeCount; i++)
