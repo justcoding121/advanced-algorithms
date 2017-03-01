@@ -34,21 +34,22 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
 
             ////delete
-            //tree.Delete(43);
-            //tree.Delete(11);
-            //tree.Delete(6);
-            //tree.Delete(8);
-            //tree.Delete(19);
-            //tree.Delete(4);
-            //tree.Delete(10);
-            //tree.Delete(5);
-            //tree.Delete(17);
-            //tree.Delete(49);
-            //tree.Delete(31);
+            tree.Delete(2);
+            tree.Delete(21);
+            tree.Delete(10);
+            tree.Delete(3);
+            tree.Delete(4);
+            tree.Delete(7);
+            tree.Delete(9);
+            tree.Delete(1);
+            tree.Delete(5);
+            tree.Delete(8);
+            tree.Delete(13);
+            tree.Delete(12);
 
-            //Assert.AreEqual(tree.Count, 0);
+            Assert.AreEqual(tree.Count, 0);
 
-            //tree.Insert(31);
+       
         }
 
         [TestMethod]
@@ -89,22 +90,27 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
 
             //shuffle again before deletion tests
-            //randomNumbers = c
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                            .OrderBy(x => rnd.Next())
+                            .ToList();
 
-            //for (int i = 0; i < nodeCount; i++)
-            //{
-            //    tree.Delete(randomNumbers[i]);
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
 
+                var actualMaxHeight = BTreeTester.GetMaxHeight(tree.Root);
+                var actualMinHeight = BTreeTester.GetMinHeight(tree.Root);
 
-            //    var actualHeight = tree.GetHeight();
+                Assert.IsTrue(actualMaxHeight == actualMinHeight);
 
-            //    var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
+                //https://en.wikipedia.org/wiki/B-tree#Best_case_and_worst_case_heights
+                var theoreticalMaxHeight = Math.Ceiling(Math.Log((nodeCount - i + 2) / 2, (int)Math.Ceiling((double)order / 2)));
 
-            //    Assert.IsTrue(actualHeight < maxHeight);
-            //    Assert.IsTrue(tree.Count == nodeCount - 1 - i);
-            //}
+                Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
 
-            //Assert.IsTrue(tree.Count == 0);
+            Assert.IsTrue(tree.Count == 0);
         }
 
 
@@ -127,19 +133,19 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             }
 
 
-            ////shuffle again before deletion tests
-            //randomNumbers = Enumerable.Range(1, nodeCount)
-            //                       .OrderBy(x => rnd.Next())
-            //                       .ToList();
+            //shuffle again before deletion tests
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                                   .OrderBy(x => rnd.Next())
+                                   .ToList();
 
 
-            //for (int i = 0; i < nodeCount; i++)
-            //{
-            //    tree.Delete(randomNumbers[i]);
-            //    Assert.IsTrue(tree.Count == nodeCount - 1 - i);
-            //}
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
 
-            //Assert.IsTrue(tree.Count == 0);
+            Assert.IsTrue(tree.Count == 0);
         }
     }
 }

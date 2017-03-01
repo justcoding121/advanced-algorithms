@@ -62,7 +62,11 @@ namespace Algorithm.Sandbox.DataStructures
             currentEndPosition++;
         }
 
-
+        /// <summary>
+        /// Insert element at specified index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="item"></param>
         public void InsertAt(int index, T item)
         {
             Grow();

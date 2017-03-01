@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
         internal AsBTreeNode(int maxKeysPerNode, AsBTreeNode<T> parent)
         {
-         
+
             Parent = parent;
             Keys = new T[maxKeysPerNode];
             Children = new AsBTreeNode<T>[maxKeysPerNode + 1];
@@ -36,6 +36,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         internal AsBTreeNode<T> Root;
 
         private int maxKeysPerNode;
+        private int minKeysPerNode => maxKeysPerNode / 2;
 
         public AsBTree(int maxKeysPerNode)
         {
@@ -182,7 +183,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
                 //keep track of each insertion
                 int insertionCount = 0;
-           
+
                 //insert newValue and existing values in sorted order
                 //to left & right nodes
                 //set new median during sorting
@@ -232,11 +233,11 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
                         //if child is set don't set again
                         //the child was already set by last newValueRight or last node
-                        if (currentNode.Children[currentNodeIndex]==null)
+                        if (currentNode.Children[currentNodeIndex] == null)
                         {
                             currentNode.Children[currentNodeIndex] = node.Children[i];
                         }
-                        
+
                         currentNode.Children[currentNodeIndex + 1] = node.Children[i + 1];
 
                         currentNode.KeyCount++;
@@ -333,14 +334,316 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             array[index] = newValue;
         }
 
+        /// <summary>
+        /// Shift array right at index to make room for new insertion
+        /// And then insert at index
+        /// Assumes array have atleast one empty index at end
+        /// </summary>
+        /// <typeparam name="S"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="index"></param>
+        /// <param name="newValue"></param>
+        private void RemoveAt<S>(S[] array, int index)
+        {
+
+            //shift elements right by one indice from index
+            Array.Copy(array, index + 1, array, index, array.Length - index - 1);
+        }
+
         public void Delete(T value)
         {
+            var node = FindDeletionNode(Root, value);
 
+            if (node == null)
+            {
+                throw new Exception("Item do not exist in this tree.");
+            }
+
+            for (int i = 0; i < node.KeyCount; i++)
+            {
+                if (value.CompareTo(node.Keys[i]) == 0)
+                {
+                    //if node is leaf and no underflow
+                    //then just remove the node
+                    if (node.IsLeaf)
+                    {
+                        RemoveAt(node.Keys, i);
+                        node.KeyCount--;
+
+                        Balance(node);
+
+                    }
+                    else
+                    {
+                        //replace with max node of left tree
+                        var maxNode = FindMaxNode(node.Children[i]);
+                        node.Keys[i] = maxNode.Keys[maxNode.KeyCount - 1];
+
+                        RemoveAt(maxNode.Keys, maxNode.KeyCount - 1);
+                        maxNode.KeyCount--;
+
+                        Balance(maxNode);
+
+                    }
+
+                }
+
+            }
+
+
+            Count--;
         }
 
-        public bool Exists(T value)
+        /// <summary>
+        /// return the node containing max value which will be a leaf at the right most
+        /// </summary>
+        /// <param name="asBTreeNode"></param>
+        /// <returns></returns>
+        private AsBTreeNode<T> FindMaxNode(AsBTreeNode<T> node)
         {
-            throw new NotImplementedException();
+            //if leaf return node
+            if (node.IsLeaf)
+            {
+                return node;
+            }
+
+            //step in to right most child
+            return FindMaxNode(node.Children[node.KeyCount]);
+
         }
+
+        /// <summary>
+        /// Balance a node which is short of Keys by rotations or merge
+        /// </summary>
+        /// <param name="node"></param>
+        private void Balance(AsBTreeNode<T> node)
+        {
+            if (node == Root || node.KeyCount >= minKeysPerNode)
+            {
+                return;
+            }
+
+            var rightSibling = GetRightSibling(node);
+
+            if (rightSibling!=null 
+                &&rightSibling.KeyCount > minKeysPerNode)
+            {
+                LeftRotate(node, rightSibling);
+                return;
+            }
+
+            var leftSibling = GetLeftSibling(node);
+
+            if (leftSibling!=null
+                && leftSibling.KeyCount > minKeysPerNode)
+            {
+                RightRotate(node, leftSibling);
+                return;
+            }
+
+            if (rightSibling != null)
+            {
+                Sandwich(node, rightSibling);
+            }
+            else
+            {
+                Sandwich(leftSibling, node);
+            }
+
+
+        }
+
+        //merge two adjacent siblings to one node
+        private void Sandwich(AsBTreeNode<T> leftSibling, AsBTreeNode<T> rightSibling)
+        {
+            var separatorIndex = GetSeparatorIndex(leftSibling);
+            var parent = leftSibling.Parent;
+
+            var newNode = new AsBTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
+
+            var newIndex = 0;
+
+
+            for (int i = 0; i < leftSibling.KeyCount; i++)
+            {
+                newNode.Keys[newIndex] = leftSibling.Keys[i];
+                newNode.Children[newIndex] = leftSibling.Children[i];
+
+                newIndex++;
+            }
+
+            //copy last child
+            newNode.Children[newIndex] = leftSibling.Children[leftSibling.KeyCount];
+
+            newNode.Keys[newIndex] = parent.Keys[separatorIndex];
+            newIndex++;
+
+
+            for (int i = 0; i < rightSibling.KeyCount; i++)
+            {
+                newNode.Keys[newIndex] = rightSibling.Keys[i];
+                newNode.Children[newIndex] = rightSibling.Children[i];
+
+                newIndex++;
+            }
+
+            //copy last child
+            newNode.Children[newIndex] = rightSibling.Children[rightSibling.KeyCount];
+
+            parent.Children[separatorIndex] = newNode;
+
+            RemoveAt(parent.Keys, separatorIndex);
+            RemoveAt(parent.Children, separatorIndex + 1);
+
+            if (parent.KeyCount == 0)
+            {
+                Root = newNode;
+                return;
+            }
+
+            if (parent.KeyCount < minKeysPerNode)
+            {
+                Balance(parent);
+            }
+        }
+
+        private void RightRotate(AsBTreeNode<T> node, AsBTreeNode<T> leftSibling)
+        {
+            var separatorIndex = GetSeparatorIndex(node);
+
+            InsertAt(node.Keys, 0, node.Parent.Keys[separatorIndex]);
+            InsertAt(node.Children, 0, leftSibling.Children[leftSibling.KeyCount]);
+
+            node.Parent.Keys[separatorIndex] = leftSibling.Keys[leftSibling.KeyCount - 1];
+
+            RemoveAt(leftSibling.Keys, leftSibling.KeyCount - 1);
+            RemoveAt(leftSibling.Children, leftSibling.KeyCount);
+        }
+
+        private void LeftRotate(AsBTreeNode<T> node, AsBTreeNode<T> rightSibling)
+        {
+            var separatorIndex = GetSeparatorIndex(node);
+
+            node.Keys[node.KeyCount] = node.Parent.Keys[separatorIndex];
+            node.Children[node.KeyCount + 1] = rightSibling.Children[0];
+
+            node.Parent.Keys[separatorIndex] = rightSibling.Keys[0];
+
+            RemoveAt(rightSibling.Keys, 0);
+            RemoveAt(rightSibling.Children, 0);
+        }
+
+        private int GetSeparatorIndex(AsBTreeNode<T> node)
+        {
+            var parent = node.Parent;
+
+            for (int i = 0; i <= parent.KeyCount; i++)
+            {
+                if (parent.Children[i] == node)
+                {
+                    if (i == 0)
+                    {
+                        return 0;
+                    }
+                    else if (i == parent.KeyCount)
+                    {
+                        return i - 1;
+                    }
+                    else
+                    {
+                        return i;
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        /// get the right sibling node
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        private AsBTreeNode<T> GetRightSibling(AsBTreeNode<T> node)
+        {
+            var parent = node.Parent;
+
+            for (int i = 0; i < parent.KeyCount; i++)
+            {
+                if (parent.Children[i] == node)
+                {
+                    return parent.Children[i + 1];
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// get left sibling node
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        private AsBTreeNode<T> GetLeftSibling(AsBTreeNode<T> node)
+        {
+            var parent = node.Parent;
+
+            for (int i = 1; i <= parent.KeyCount; i++)
+            {
+                if (parent.Children[i] == node)
+                {
+                    return parent.Children[i - 1];
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Locate the node in which the item to delete exist
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private AsBTreeNode<T> FindDeletionNode(AsBTreeNode<T> node, T value)
+        {
+            //if leaf then its time to insert
+            if (node.IsLeaf)
+            {
+                for (int i = 0; i < node.KeyCount; i++)
+                {
+                    if (value.CompareTo(node.Keys[i]) == 0)
+                    {
+                        return node;
+                    }
+                }
+            }
+
+            //if not leaf then drill down to leaf
+            for (int i = 0; i < node.KeyCount; i++)
+            {
+                if (value.CompareTo(node.Keys[i]) == 0)
+                {
+                    return node;
+                }
+
+                //current value is less than new value
+                //drill down to left child of current value
+                if (value.CompareTo(node.Keys[i]) < 0)
+                {
+                    return FindInsertionLeaf(node.Children[i], value);
+                }
+                //current value is grearer than new value
+                //and current value is last element 
+                else if (node.KeyCount == i + 1)
+                {
+                    return FindInsertionLeaf(node.Children[i + 1], value);
+                }
+
+            }
+
+            return null;
+        }
+
     }
 }
