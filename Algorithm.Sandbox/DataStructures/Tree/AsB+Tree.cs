@@ -621,9 +621,11 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="leftSibling"></param>
         private void RightRotate(AsBPTreeNode<T> leftSibling, AsBPTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetNextSeparatorIndex(leftSibling);
+            var parentIndex = GetNextSeparatorIndex(leftSibling);
 
-            InsertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[separatorIndex]);
+            //move parent value to right
+            InsertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[parentIndex]);
+            //move right child of left sibling as left child of right sibling
             if (!leftSibling.IsLeaf && leftSibling.Children[leftSibling.KeyCount] != null)
             {
                 leftSibling.Children[leftSibling.KeyCount].Parent = rightSibling;
@@ -631,12 +633,18 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             InsertAt(rightSibling.Children, 0, leftSibling.Children[leftSibling.KeyCount]);
             rightSibling.KeyCount++;
 
-            rightSibling.Parent.Keys[separatorIndex] = leftSibling.Keys[leftSibling.KeyCount - 1];
+            //move rightmost element in left sibling to parent
+            rightSibling.Parent.Keys[parentIndex] = leftSibling.Keys[leftSibling.KeyCount - 1];
 
+            //remove rightmost element of left sibling
             RemoveAt(leftSibling.Keys, leftSibling.KeyCount - 1);
             RemoveAt(leftSibling.Children, leftSibling.KeyCount);
             leftSibling.KeyCount--;
 
+            if (rightSibling.IsLeaf)
+            {
+                rightSibling.Keys[0] = leftSibling.Parent.Keys[parentIndex];
+            }
         }
 
         /// <summary>
@@ -646,22 +654,28 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="rightSibling"></param>
         private void LeftRotate(AsBPTreeNode<T> leftSibling, AsBPTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetNextSeparatorIndex(leftSibling);
+            var parentIndex = GetNextSeparatorIndex(leftSibling);
 
-            leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[separatorIndex];
+            //move root to left
+            leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[parentIndex];
             if (!rightSibling.IsLeaf && rightSibling.Children[0].Parent != null)
             {
                 rightSibling.Children[0].Parent = leftSibling;
             }
             leftSibling.Children[leftSibling.KeyCount + 1] = rightSibling.Children[0];
-
             leftSibling.KeyCount++;
 
-            leftSibling.Parent.Keys[separatorIndex] = rightSibling.Keys[0];
-
+            //move right to parent
+            leftSibling.Parent.Keys[parentIndex] = rightSibling.Keys[0];
+            //remove right
             RemoveAt(rightSibling.Keys, 0);
             RemoveAt(rightSibling.Children, 0);
             rightSibling.KeyCount--;
+
+            if (leftSibling.IsLeaf)
+            {
+                leftSibling.Parent.Keys[parentIndex] = rightSibling.Keys[0];
+            }
         }
 
         /// <summary>

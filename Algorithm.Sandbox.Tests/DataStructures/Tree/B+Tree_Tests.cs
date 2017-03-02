@@ -80,7 +80,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             var nodeCount = 10;
 
             var rnd = new Random();
-            var randomNumbers = new List<int>() { 9, 5, 2, 6, 4, 7, 1, 8, 3, 10 };
+            var randomNumbers = new List<int>() { 5, 2, 3, 8, 10, 9, 1, 6, 4, 7 };
 
             var order = 3;
             var tree = new AsBPTree<int>(order);
@@ -116,9 +116,9 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             for (int i = 0; i < nodeCount; i++)
             {
-                if(i==4)
+                if (i == 4)
                 {
-                    
+
                 }
                 tree.Delete(randomNumbers[i]);
                 Assert.IsFalse(tree.HasItem(randomNumbers[i]));
@@ -135,6 +135,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             }
 
             //Assert.IsTrue(tree.Count == 0);
+
 
         }
 

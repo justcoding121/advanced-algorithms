@@ -618,9 +618,9 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="leftSibling"></param>
         private void RightRotate(AsBTreeNode<T> leftSibling, AsBTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetNextSeparatorIndex(leftSibling);
+            var parentIndex = GetNextSeparatorIndex(leftSibling);
 
-            InsertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[separatorIndex]);
+            InsertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[parentIndex]);
             if (!leftSibling.IsLeaf && leftSibling.Children[leftSibling.KeyCount] != null)
             {
                 leftSibling.Children[leftSibling.KeyCount].Parent = rightSibling;
@@ -628,7 +628,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             InsertAt(rightSibling.Children, 0, leftSibling.Children[leftSibling.KeyCount]);
             rightSibling.KeyCount++;
 
-            rightSibling.Parent.Keys[separatorIndex] = leftSibling.Keys[leftSibling.KeyCount - 1];
+            rightSibling.Parent.Keys[parentIndex] = leftSibling.Keys[leftSibling.KeyCount - 1];
 
             RemoveAt(leftSibling.Keys, leftSibling.KeyCount - 1);
             RemoveAt(leftSibling.Children, leftSibling.KeyCount);
@@ -642,9 +642,9 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="rightSibling"></param>
         private void LeftRotate(AsBTreeNode<T> leftSibling, AsBTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetNextSeparatorIndex(leftSibling);
+            var parentIndex = GetNextSeparatorIndex(leftSibling);
 
-            leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[separatorIndex];
+            leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[parentIndex];
             if (!rightSibling.IsLeaf && rightSibling.Children[0].Parent != null)
             {
                 rightSibling.Children[0].Parent = leftSibling;
@@ -653,7 +653,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
             leftSibling.KeyCount++;
 
-            leftSibling.Parent.Keys[separatorIndex] = rightSibling.Keys[0];
+            leftSibling.Parent.Keys[parentIndex] = rightSibling.Keys[0];
 
             RemoveAt(rightSibling.Keys, 0);
             RemoveAt(rightSibling.Children, 0);
