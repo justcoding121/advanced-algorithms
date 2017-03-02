@@ -59,6 +59,7 @@
     <Compile Include="DataStructures\Heap\BMinHeap_Tests.cs" />
     <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
     <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\B+Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\TestHelpers\BTreeTester.cs" />
     <Compile Include="DataStructures\Tree\TreapTree_Tests.cs" />

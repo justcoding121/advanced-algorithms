@@ -54,8 +54,6 @@ Various important computer science algorithms implemented in C#
 * Trie
 * Suffix Tree
 * Ternary Search Tree
-* K-D Tree
-* Decision Tree
 
 ### Graph
 
@@ -73,7 +71,7 @@ Various important computer science algorithms implemented in C#
 
 #Algorithms
 
-##Dynamic Programming
+## Classic Dynamic Programming Problems
 
 * [Coin Change Problem](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs)
 * [Tower Of Hanoi](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs)
@@ -87,14 +85,13 @@ Various important computer science algorithms implemented in C#
 * Longest Common Sub Sequence
 * Longest Increasing Sub Sequence
 * Longest Palindrome
-* Matrix Multiplication
 * Maximum Sub Matrix
 * Maximum Value Sub Sequence
 * Min Edit Distance
 * Min Array Jumps
 * Optimal Game Strategy
 * Palindrome Min Cut
-* Print Max As
+* Print Max A's
 * Shortest Palindrome
 * Sub Set Sum
 * Text Justification
@@ -105,14 +102,10 @@ Various important computer science algorithms implemented in C#
 
 ##Geometry
 
-* Closest point pair
-* Convex Hull
-* K-Means clustering
 * Line Clipping
 * Rotation
 * Translation
 * Scale
-* Euclidian plane
 
 ##Graph Algorithms
 
@@ -120,22 +113,17 @@ Various important computer science algorithms implemented in C#
 
 * M-Coloring
 
-###Connectivity
-
-* Eulerian Path
-
 ###Cover
 
 * Min Vertex Cover
 
 ###Flow
 
-* Maximum Flow
-* Minimum Flow
+* Ford-Fulkerson Max Flow
 
 ###Matching
 
-* Bipartite Matching
+* Max Bipartite Matching
 
 ###Minimum Spanning Tree
 
@@ -147,7 +135,6 @@ Various important computer science algorithms implemented in C#
 * Bi-Directional
 * Breadth First
 * Depth First
-* A* Search
 
 ###Sorting
 
@@ -178,9 +165,10 @@ Various important computer science algorithms implemented in C#
 
 * [SubSets](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs)
 * Permutation
-* Rabin-Karp sub string search
+* Rabin-Karp string search
 
 ##Compression
+
 * Huffman Coding
 
 ##Numerical Methods
@@ -190,7 +178,6 @@ Various important computer science algorithms implemented in C#
 * Greatest Common Divisor
 * Least Common Multiplier
 * Fast Exponentiation
-* Discrete Fourier Transform
 * Median
 * Mode
 * Matrix multiplication
@@ -200,24 +187,9 @@ Various important computer science algorithms implemented in C#
 * Matrix determinant
 * Fast Multiplication
 * Shuffling
-* Interpolation
 * Fast Division
-* Curve Fitting 
  
-
 ##Bit algorithms
 
 * Base Conversion
-* Clear Bit
-* Update Bit
-* Get Bit
-* Set Bit
 * Shift and Add Multiplication
-
-##Probability and Statistics
-
-* Random Number Generation 
-
-
-
-

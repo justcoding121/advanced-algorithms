@@ -57,6 +57,7 @@
     <Compile Include="DataStructures\Heap\Min\AsPairingMinHeap.cs" />
     <Compile Include="DataStructures\List\AsArrayList.cs" />
     <Compile Include="DataStructures\Tree\AsAvlTree.cs" />
+    <Compile Include="DataStructures\Tree\AsB+Tree.cs" />
     <Compile Include="DataStructures\Tree\AsBinaryIndexedTree.cs" />
     <Compile Include="DataStructures\Tree\AsBST.cs" />
     <Compile Include="DataStructures\Tree\AsBinaryTree.cs" />
