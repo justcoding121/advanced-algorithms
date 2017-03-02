@@ -22,6 +22,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             tree.Insert(21);
             tree.Insert(9);
             tree.Insert(1);
+            tree.Insert(5);
             tree.Insert(13);
             tree.Insert(2);
             tree.Insert(7);
@@ -55,6 +56,9 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             tree.Delete(1);
             Assert.IsFalse(tree.HasItem(1));
+
+            tree.Delete(5);
+            Assert.IsTrue(tree.HasItem(5));
 
             tree.Delete(5);
             Assert.IsFalse(tree.HasItem(5));

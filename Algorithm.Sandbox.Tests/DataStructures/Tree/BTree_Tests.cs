@@ -17,6 +17,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             var tree = new AsBTree<int>(3);
 
             tree.Insert(5);
+            tree.Insert(5);
             tree.Insert(3);
             tree.Insert(21);
             tree.Insert(9);
@@ -32,6 +33,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             ////delete
             tree.Delete(2);
+            tree.Delete(5);
             tree.Delete(21);
             tree.Delete(10);
             tree.Delete(3);

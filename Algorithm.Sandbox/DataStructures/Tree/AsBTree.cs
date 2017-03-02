@@ -39,6 +39,11 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
         public AsBTree(int maxKeysPerNode)
         {
+            if(maxKeysPerNode <3)
+            {
+                throw new Exception("Max keys per node should be atleast 3.");
+            }
+
             this.maxKeysPerNode = maxKeysPerNode;
         }
 

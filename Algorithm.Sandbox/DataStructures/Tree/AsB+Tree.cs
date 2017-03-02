@@ -15,6 +15,11 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
         public AsBPTree(int maxKeysPerNode)
         {
+            if (maxKeysPerNode < 3)
+            {
+                throw new Exception("Max keys per node should be atleast 3.");
+            }
+
             this.maxKeysPerNode = maxKeysPerNode;
         }
 
@@ -42,11 +47,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 //if not leaf then drill down to leaf
                 for (int i = 0; i < node.KeyCount; i++)
                 {
-                    if (value.CompareTo(node.Keys[i]) == 0)
-                    {
-                        return node;
-                    }
-
+                   
                     //current value is less than new value
                     //drill down to left child of current value
                     if (value.CompareTo(node.Keys[i]) < 0)
@@ -478,7 +479,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             if (node.KeyCount >= minKeysPerNode)
             {
 
-                UpdateIndex(node, deleteKey);
+                UpdateIndex(node, deleteKey, true);
                 return;
             }
 
@@ -490,7 +491,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 LeftRotate(node, rightSibling);
 
                 var minNode = FindMinNode(node);
-                UpdateIndex(node, deleteKey);
+                UpdateIndex(node, deleteKey, true);
 
                 return;
             }
@@ -502,7 +503,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             {
                 RightRotate(leftSibling, node);
 
-                UpdateIndex(node, deleteKey);
+                UpdateIndex(node, deleteKey, true);
 
                 return;
             }
@@ -520,19 +521,20 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         }
 
         /// <summary>
-        /// recursively update outdated index value after deletion of a value
+        /// optionally recursively update outdated index with new min or right node 
+        /// after deletion of a value
         /// </summary>
         /// <param name="node"></param>
         /// <param name="deleteKey"></param>
         /// <param name="nextMin"></param>
-        private void UpdateIndex(AsBTreeNode<T> node, T deleteKey)
+        private void UpdateIndex(AsBTreeNode<T> node, T deleteKey, bool spiralUp)
         {
             if (node == null)
                 return;
 
             if (node.IsLeaf || node.Children[0].IsLeaf)
             {
-                UpdateIndex(node.Parent, deleteKey);
+                UpdateIndex(node.Parent, deleteKey, spiralUp);
                 return;
             }
 
@@ -544,7 +546,10 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 }
             }
 
-            UpdateIndex(node.Parent, deleteKey);
+            if(spiralUp)
+            {
+                UpdateIndex(node.Parent, deleteKey, true);
+            } 
 
         }
 
@@ -648,7 +653,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 newNode.Parent.Keys[separatorIndex] = newNode.Keys[0];
             }
 
-            UpdateIndex(newNode, deleteKey);
+            UpdateIndex(newNode, deleteKey, false);
 
             if (parent.KeyCount == 0
                 && parent == Root)
@@ -670,7 +675,8 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 Balance(parent, deleteKey);
             }
 
-            
+            UpdateIndex(newNode, deleteKey, true);
+
         }
 
 
