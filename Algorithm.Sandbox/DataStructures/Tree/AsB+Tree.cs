@@ -561,7 +561,8 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
                     //when a left leaf is added as right leaf
                     //we need to push parent key as first node of new leaf
-                    if (i == 0 && rightSibling.Children[i].IsLeaf)
+                    if (i == 0 && rightSibling.Children[i].IsLeaf 
+                        && rightSibling.Children[i].Keys[0].CompareTo(newNode.Keys[newIndex - 1])!=0)
                     {
                         InsertAt(rightSibling.Children[i].Keys, 0, newNode.Keys[newIndex - 1]);
                         rightSibling.Children[i].KeyCount++;

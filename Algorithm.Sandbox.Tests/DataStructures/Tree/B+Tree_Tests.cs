@@ -77,10 +77,12 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         public void BPTree_AccuracyTest()
         {
 
-            var nodeCount = 10;
+            var nodeCount = 13;
 
             var rnd = new Random();
-            var randomNumbers = new List<int>() { 5, 2, 3, 8, 10, 9, 1, 6, 4, 7 };
+            var randomNumbers = new List<int>() {
+                    1,5,7,4,6,2,3,13,8,12,10,11,9 };
+
 
             var order = 3;
             var tree = new AsBPTree<int>(order);
