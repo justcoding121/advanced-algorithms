@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         internal AsBTreeNode<T> Parent { get; set; }
         internal AsBTreeNode<T>[] Children { get; set; }
 
-        internal bool IsLeaf => Children[0] ==null;
+        internal bool IsLeaf => Children[0] == null;
 
         internal AsBTreeNode(int maxKeysPerNode, AsBTreeNode<T> parent)
         {
@@ -49,6 +49,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
         private AsBTreeNode<T> Find(AsBTreeNode<T> node, T value)
         {
+            
             //if leaf then its time to insert
             if (node.IsLeaf)
             {
@@ -414,7 +415,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="value"></param>
         public void Delete(T value)
         {
-            var node = FindDeletionNode(Root, value); 
+            var node = FindDeletionNode(Root, value);
 
             if (node == null)
             {
@@ -454,7 +455,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
             }
 
-           
+
         }
 
         /// <summary>
@@ -597,7 +598,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 Root = newNode;
                 Root.Parent = null;
 
-                if(Root.KeyCount == 0)
+                if (Root.KeyCount == 0)
                 {
                     Root = null;
                 }

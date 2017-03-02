@@ -95,6 +95,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
+                Assert.IsFalse(tree.HasItem(randomNumbers[i]));
 
                 var actualMaxHeight = BTreeTester.GetMaxHeight(tree.Root);
                 var actualMinHeight = BTreeTester.GetMinHeight(tree.Root);
@@ -143,6 +144,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 tree.Delete(randomNumbers[i]);
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
             }
+
 
             Assert.IsTrue(tree.Count == 0);
 
