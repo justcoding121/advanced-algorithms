@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         internal AsBPTreeNode<T> Parent { get; set; }
         internal AsBPTreeNode<T>[] Children { get; set; }
 
-        internal bool IsLeaf => Children[0] ==null;
+        internal bool IsLeaf => Children[0] == null;
 
         internal AsBPTreeNode(int maxKeysPerNode, AsBPTreeNode<T> parent)
         {
@@ -66,10 +66,6 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 //if not leaf then drill down to leaf
                 for (int i = 0; i < node.KeyCount; i++)
                 {
-                    if (value.CompareTo(node.Keys[i]) == 0)
-                    {
-                        return node;
-                    }
 
                     //current value is less than new value
                     //drill down to left child of current value
@@ -312,7 +308,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                     currentNode.KeyCount++;
                 }
 
-                if(node.IsLeaf)
+                if (node.IsLeaf)
                 {
                     InsertAt(right.Keys, 0, newMedian);
                     right.KeyCount++;
@@ -420,7 +416,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="value"></param>
         public void Delete(T value)
         {
-            var node = FindDeletionNode(Root, value); 
+            var node = FindDeletionNode(Root, value);
 
             if (node == null)
             {
@@ -431,36 +427,24 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             {
                 if (value.CompareTo(node.Keys[i]) == 0)
                 {
-                    //if node is leaf and no underflow
-                    //then just remove the node
-                    if (node.IsLeaf)
+
+                    RemoveAt(node.Keys, i);
+                    node.KeyCount--;
+
+                    if (node.Parent != null && node != node.Parent.Children[0] && node.KeyCount > 0)
                     {
-                        RemoveAt(node.Keys, i);
-                        node.KeyCount--;
-
-                        Balance(node);
-
-                    }
-                    else
-                    {
-                        //replace with max node of left tree
-                        var maxNode = FindMaxNode(node.Children[i]);
-                        node.Keys[i] = maxNode.Keys[maxNode.KeyCount - 1];
-
-                        RemoveAt(maxNode.Keys, maxNode.KeyCount - 1);
-                        maxNode.KeyCount--;
-
-                        Balance(maxNode);
-
+                        var separatorIndex = GetPrevSeparatorIndex(node);
+                        node.Parent.Keys[separatorIndex] = node.Keys[0];
                     }
 
+                    Balance(node);
                     Count--;
                     return;
                 }
 
             }
 
-           
+
         }
 
         /// <summary>
@@ -495,7 +479,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             var rightSibling = GetRightSibling(node);
 
             if (rightSibling != null
-                && rightSibling.KeyCount > minKeysPerNode)
+                && (rightSibling.KeyCount) > minKeysPerNode)
             {
                 LeftRotate(node, rightSibling);
                 return;
@@ -504,7 +488,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             var leftSibling = GetLeftSibling(node);
 
             if (leftSibling != null
-                && leftSibling.KeyCount > minKeysPerNode)
+                && (leftSibling.KeyCount) > minKeysPerNode)
             {
                 RightRotate(leftSibling, node);
                 return;
@@ -525,7 +509,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         //merge two adjacent siblings to one node
         private void Sandwich(AsBPTreeNode<T> leftSibling, AsBPTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetSeparatorIndex(leftSibling);
+            var separatorIndex = GetNextSeparatorIndex(leftSibling);
             var parent = leftSibling.Parent;
 
             var newNode = new AsBPTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
@@ -560,8 +544,11 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 newNode.Children[newIndex] = leftSibling.Children[0];
             }
 
-            newNode.Keys[newIndex] = parent.Keys[separatorIndex];
-            newIndex++;
+            if (!rightSibling.IsLeaf)
+            {
+                newNode.Keys[newIndex] = parent.Keys[separatorIndex];
+                newIndex++;
+            }
 
             for (int i = 0; i < rightSibling.KeyCount; i++)
             {
@@ -571,6 +558,15 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 {
                     rightSibling.Children[i].Parent = newNode;
                     newNode.Children[newIndex] = rightSibling.Children[i];
+
+                    //when a left leaf is added as right leaf
+                    //we need to push parent key as first node of new leaf
+                    if (i == 0 && rightSibling.Children[i].IsLeaf)
+                    {
+                        InsertAt(rightSibling.Children[i].Keys, 0, newNode.Keys[newIndex - 1]);
+                        rightSibling.Children[i].KeyCount++;
+                    }
+
                 }
 
                 if (rightSibling.Children[i + 1] != null)
@@ -603,7 +599,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 Root = newNode;
                 Root.Parent = null;
 
-                if(Root.KeyCount == 0)
+                if (Root.KeyCount == 0)
                 {
                     Root = null;
                 }
@@ -617,6 +613,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             }
         }
 
+
         /// <summary>
         /// do a right rotation 
         /// </summary>
@@ -624,7 +621,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="leftSibling"></param>
         private void RightRotate(AsBPTreeNode<T> leftSibling, AsBPTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetSeparatorIndex(leftSibling);
+            var separatorIndex = GetNextSeparatorIndex(leftSibling);
 
             InsertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[separatorIndex]);
             if (!leftSibling.IsLeaf && leftSibling.Children[leftSibling.KeyCount] != null)
@@ -639,6 +636,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             RemoveAt(leftSibling.Keys, leftSibling.KeyCount - 1);
             RemoveAt(leftSibling.Children, leftSibling.KeyCount);
             leftSibling.KeyCount--;
+
         }
 
         /// <summary>
@@ -648,7 +646,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="rightSibling"></param>
         private void LeftRotate(AsBPTreeNode<T> leftSibling, AsBPTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetSeparatorIndex(leftSibling);
+            var separatorIndex = GetNextSeparatorIndex(leftSibling);
 
             leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[separatorIndex];
             if (!rightSibling.IsLeaf && rightSibling.Children[0].Parent != null)
@@ -667,17 +665,17 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         }
 
         /// <summary>
-        /// Get index of this node's key in parent
+        /// Get next separator key of this child Node in parent
         /// </summary>
-        /// <param name="node"></param>
+        /// <param name="leftChildNode"></param>
         /// <returns></returns>
-        private int GetSeparatorIndex(AsBPTreeNode<T> node)
+        private int GetNextSeparatorIndex(AsBPTreeNode<T> leftChildNode)
         {
-            var parent = node.Parent;
+            var parent = leftChildNode.Parent;
 
             for (int i = 0; i <= parent.KeyCount; i++)
             {
-                if (parent.Children[i] == node)
+                if (parent.Children[i] == leftChildNode)
                 {
                     if (i == 0)
                     {
@@ -690,6 +688,37 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                     else
                     {
                         return i;
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        /// Get prev separator key of this child Node in parent
+        /// </summary>
+        /// <param name="leftChildNode"></param>
+        /// <returns></returns>
+        private int GetPrevSeparatorIndex(AsBPTreeNode<T> leftChildNode)
+        {
+            var parent = leftChildNode.Parent;
+
+            for (int i = 0; i <= parent.KeyCount; i++)
+            {
+                if (parent.Children[i] == leftChildNode)
+                {
+                    if (i == 0)
+                    {
+                        return 0;
+                    }
+                    else if (i == parent.KeyCount)
+                    {
+                        return i - 1;
+                    }
+                    else
+                    {
+                        return i - 1;
                     }
                 }
             }
@@ -761,11 +790,6 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 //if not leaf then drill down to leaf
                 for (int i = 0; i < node.KeyCount; i++)
                 {
-                    if (value.CompareTo(node.Keys[i]) == 0)
-                    {
-                        return node;
-                    }
-
                     //current value is less than new value
                     //drill down to left child of current value
                     if (value.CompareTo(node.Keys[i]) < 0)

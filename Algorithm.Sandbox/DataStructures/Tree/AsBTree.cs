@@ -519,7 +519,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         //merge two adjacent siblings to one node
         private void Sandwich(AsBTreeNode<T> leftSibling, AsBTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetSeparatorIndex(leftSibling);
+            var separatorIndex = GetNextSeparatorIndex(leftSibling);
             var parent = leftSibling.Parent;
 
             var newNode = new AsBTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
@@ -618,7 +618,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="leftSibling"></param>
         private void RightRotate(AsBTreeNode<T> leftSibling, AsBTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetSeparatorIndex(leftSibling);
+            var separatorIndex = GetNextSeparatorIndex(leftSibling);
 
             InsertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[separatorIndex]);
             if (!leftSibling.IsLeaf && leftSibling.Children[leftSibling.KeyCount] != null)
@@ -642,7 +642,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="rightSibling"></param>
         private void LeftRotate(AsBTreeNode<T> leftSibling, AsBTreeNode<T> rightSibling)
         {
-            var separatorIndex = GetSeparatorIndex(leftSibling);
+            var separatorIndex = GetNextSeparatorIndex(leftSibling);
 
             leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[separatorIndex];
             if (!rightSibling.IsLeaf && rightSibling.Children[0].Parent != null)
@@ -661,17 +661,17 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         }
 
         /// <summary>
-        /// Get index of this node's key in parent
+        /// Get next key separator index after this child Node in parent 
         /// </summary>
-        /// <param name="node"></param>
+        /// <param name="childNode"></param>
         /// <returns></returns>
-        private int GetSeparatorIndex(AsBTreeNode<T> node)
+        private int GetNextSeparatorIndex(AsBTreeNode<T> childNode)
         {
-            var parent = node.Parent;
+            var parent = childNode.Parent;
 
             for (int i = 0; i <= parent.KeyCount; i++)
             {
-                if (parent.Children[i] == node)
+                if (parent.Children[i] == childNode)
                 {
                     if (i == 0)
                     {
