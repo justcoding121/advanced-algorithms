@@ -27,7 +27,11 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             return (KeyCount / 2) + 1;
         }
     }
-
+    /// <summary>
+    /// A BTree implementation
+    /// TODO Implement IEnumerator
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsBTree<T> where T : IComparable
     {
         public int Count { get; private set; }
@@ -52,6 +56,12 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             return Find(Root, value) != null;
         }
 
+        /// <summary>
+        /// Find the value node under given node
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private AsBTreeNode<T> Find(AsBTreeNode<T> node, T value)
         {
             
@@ -522,7 +532,11 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
         }
 
-        //merge two adjacent siblings to one node
+        /// <summary>
+        ///  merge two adjacent siblings to one node
+        /// </summary>
+        /// <param name="leftSibling"></param>
+        /// <param name="rightSibling"></param>
         private void Sandwich(AsBTreeNode<T> leftSibling, AsBTreeNode<T> rightSibling)
         {
             var separatorIndex = GetNextSeparatorIndex(leftSibling);

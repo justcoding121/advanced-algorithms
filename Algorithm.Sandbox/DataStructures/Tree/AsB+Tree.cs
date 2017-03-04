@@ -3,7 +3,12 @@
 
 namespace Algorithm.Sandbox.DataStructures.Tree
 {
-
+    /// <summary>
+    /// A B+ Tree implementation
+    /// TODO connected leaf nodes via linked list for faster enumeration 
+    /// TODO implement IEnumerator 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsBPTree<T> where T : IComparable
     {
         public int Count { get; private set; }
@@ -27,7 +32,12 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         {
             return Find(Root, value) != null;
         }
-
+        /// <summary>
+        /// Find the given value node under given node
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private AsBTreeNode<T> Find(AsBTreeNode<T> node, T value)
         {
             //if leaf then its time to insert
@@ -430,7 +440,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         }
 
         /// <summary>
-        /// return the node containing max value which will be a leaf at the right most
+        /// return the node containing min value which will be a leaf at the left most
         /// </summary>
         /// <param name="AsBTreeNode"></param>
         /// <returns></returns>
@@ -521,7 +531,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         }
 
         /// <summary>
-        /// optionally recursively update outdated index with new min or right node 
+        /// optionally recursively update outdated index with new min of right node 
         /// after deletion of a value
         /// </summary>
         /// <param name="node"></param>
@@ -554,7 +564,12 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         }
 
 
-        //merge two adjacent siblings to one node
+        /// <summary>
+        /// merge two adjacent siblings to one node
+        /// </summary>
+        /// <param name="leftSibling"></param>
+        /// <param name="rightSibling"></param>
+        /// <param name="deleteKey"></param>
         private void Sandwich(AsBTreeNode<T> leftSibling, AsBTreeNode<T> rightSibling, T deleteKey)
         {
             var separatorIndex = GetNextSeparatorIndex(leftSibling);

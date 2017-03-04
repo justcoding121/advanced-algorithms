@@ -1,5 +1,7 @@
 ﻿using Algorithm.Sandbox.Sorting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
 
 namespace Algorithm.Sandbox.Tests.Sorting
 {
@@ -13,11 +15,17 @@ namespace Algorithm.Sandbox.Tests.Sorting
         [TestMethod]
         public void BubbleSort_Test()
         {
-            var result = BubbleSort<int>.Sort(TestArray);
+            var rnd = new Random();
+            var nodeCount = 1000;
+            var randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .ToList();
 
-            for (int i = 0; i <= 8; i++)
+            var result = BubbleSort<int>.Sort(randomNumbers.ToArray());
+
+            for (int i = 1; i <= nodeCount; i++)
             {
-                Assert.AreEqual(i, result[i]);
+                Assert.AreEqual(i, result[i-1]);
             }
         }
 
