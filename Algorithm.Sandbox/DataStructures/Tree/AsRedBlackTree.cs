@@ -350,11 +350,14 @@ namespace Algorithm.Sandbox.DataStructures
 
         private void BalanceInsertion(AsRedBlackTreeNode<T> nodeToBalance)
         {
+         
             if (nodeToBalance == Root)
             {
+                nodeToBalance.NodeColor = RedBlackTreeNodeColor.Black;
                 return;
             }
 
+    
             //if node to balance is red
             if (nodeToBalance.NodeColor == RedBlackTreeNodeColor.Red)
             {
@@ -377,7 +380,6 @@ namespace Algorithm.Sandbox.DataStructures
                         }
 
                         nodeToBalance = nodeToBalance.Parent.Parent;
-                        return;
                     }
                     //absent sibling or black sibling
                     else if (nodeToBalance.Parent.Sibling == null
@@ -397,7 +399,6 @@ namespace Algorithm.Sandbox.DataStructures
                             }
 
                             nodeToBalance = newRoot;
-                            return;
                         }
                         else if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsRightChild)
                         {
@@ -415,7 +416,7 @@ namespace Algorithm.Sandbox.DataStructures
                             }
 
                             nodeToBalance = newRoot;
-                            return;
+   
                         }
                         else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsRightChild)
                         {
@@ -429,7 +430,7 @@ namespace Algorithm.Sandbox.DataStructures
                                 Root.NodeColor = RedBlackTreeNodeColor.Black;
                             }
                             nodeToBalance = newRoot;
-                            return;
+
                         }
                         else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsLeftChild)
                         {
@@ -446,7 +447,6 @@ namespace Algorithm.Sandbox.DataStructures
                                 Root.NodeColor = RedBlackTreeNodeColor.Black;
                             }
                             nodeToBalance = newRoot;
-                            return;
                         }
                     }
 
@@ -454,7 +454,11 @@ namespace Algorithm.Sandbox.DataStructures
 
             }
 
-            BalanceInsertion(nodeToBalance.Parent);
+            if (nodeToBalance.Parent != null)
+            {
+                BalanceInsertion(nodeToBalance.Parent);
+            }
+
         }
 
         private void swapColors(AsRedBlackTreeNode<T> node1, AsRedBlackTreeNode<T> node2)

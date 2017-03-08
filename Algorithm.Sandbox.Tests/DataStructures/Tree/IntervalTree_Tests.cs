@@ -1,5 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+using System.Collections.Generic;
 using System;
 
 namespace Algorithm.Sandbox.Tests.DataStructures.Tree
@@ -43,34 +45,50 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void IntervalTree_Accuracy_Test()
         {
-            var nodeCount = 1000;
-            var rnd = new Random();
-            var intTree = new AsIntervalTree<int>();
-
-            for (int i = 0; i < nodeCount; i++)
+            while (true)
             {
-                intTree.Insert(new AsInterval<int>(i, i + 1));
+                var nodeCount = 1000;
+                var intTree = new AsIntervalTree<int>();
 
-                for (int j = i; j >= 0; j--)
+                var rnd = new Random();
+                var intervals = new List<AsInterval<int>>();
+
+                for (int i = 1; i <= nodeCount; i++)
                 {
-                    Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(j - rnd.Next(1, 10), j + rnd.Next(1,10))));
+                    var start = i + rnd.Next(0, 10);
+                    var interval = new AsInterval<int>(start, start + rnd.Next(0, 10));
+                    intervals.Add(interval);
+                    intTree.Insert(new AsInterval<int>(interval.Start, interval.End[0]));
+
+                    for (int j = i-1; j >= 0; j--)
+                    {
+                        Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(intervals[j].Start - rnd.Next(1, 10),
+                            intervals[j].End[0] + rnd.Next(1, 10))));
+                    }
+                }
+
+                for (int i = 0; i < nodeCount; i++)
+                {
+                    Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(intervals[i].Start,
+                                                       intervals[i].End[0])));
+
+                    Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(intervals[i].Start - rnd.Next(1, 10),
+                                                        intervals[i].End[0] + rnd.Next(1, 10))));
                 }
             }
 
-            for (int i = 0; i < nodeCount; i++)
-            {
-                Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(i - rnd.Next(1, 10), i + rnd.Next(1, 10))));
-            }
+            //for (int i = 0; i < intervals.Count; i++)
+            //{
+            //    intTree.Delete(new AsInterval<int>(intervals[i].Start, intervals[i].End[0]));
 
-            for (int i = 0; i < nodeCount; i++)
-            {
-                intTree.Delete(new AsInterval<int>(i, i + 1));
+            //    for (int j = i + 1; j < nodeCount; j++)
+            //    {
+            //        Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(intervals[j].Start,
+            //            intervals[j].End[0])));
+            //    }
 
-                for (int j = i + 1; j < nodeCount; j++)
-                {
-                    Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(j - rnd.Next(1, 10), j + rnd.Next(1, 10))));
-                }
-            }
+            
+            //}
         }
 
         /// <summary>
@@ -90,13 +108,12 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             for (int i = 0; i < nodeCount; i++)
             {
-                Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(i - rnd.Next(1, 10), i + rnd.Next(1, 10))));
+                Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(i - rnd.Next(1, 5), i + rnd.Next(1, 5))));
             }
 
             for (int i = 0; i < nodeCount; i++)
             {
                 intTree.Delete(new AsInterval<int>(i, i + 1));
-
             }
         }
     }
