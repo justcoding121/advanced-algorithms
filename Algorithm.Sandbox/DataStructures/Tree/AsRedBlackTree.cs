@@ -9,6 +9,10 @@ namespace Algorithm.Sandbox.DataStructures
         Red
     }
 
+    /// <summary>
+    /// Red black tree node
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     internal class AsRedBlackTreeNode<T> : AsIBSTNode<T> where T : IComparable
     {
         internal T Value { get; set; }
@@ -62,6 +66,10 @@ namespace Algorithm.Sandbox.DataStructures
         }
     }
 
+    /// <summary>
+    /// Red black tree implementation
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsRedBlackTree<T> where T : IComparable
     {
         internal AsRedBlackTreeNode<T> Root { get; private set; }
@@ -300,7 +308,6 @@ namespace Algorithm.Sandbox.DataStructures
         private void insert(
             AsRedBlackTreeNode<T> currentNode, T newNodeValue)
         {
-            var nodeToBalance = currentNode;
 
             var compareResult = currentNode.Value.CompareTo(newNodeValue);
 
@@ -312,7 +319,7 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     //insert
                     currentNode.Right = new AsRedBlackTreeNode<T>(currentNode, newNodeValue);
-                    nodeToBalance = currentNode.Right;
+                    BalanceInsertion(currentNode.Right);
                 }
                 else
                 {
@@ -328,7 +335,7 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     //insert
                     currentNode.Left = new AsRedBlackTreeNode<T>(currentNode, newNodeValue);
-                    nodeToBalance = currentNode.Left;
+                    BalanceInsertion(currentNode.Left);
                 }
                 else
                 {
@@ -338,8 +345,11 @@ namespace Algorithm.Sandbox.DataStructures
             else
             {
                 throw new Exception("Item exists");
-            }
+            }    
+        }
 
+        private void BalanceInsertion(AsRedBlackTreeNode<T> nodeToBalance)
+        {
             if (nodeToBalance == Root)
             {
                 return;
@@ -444,7 +454,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             }
 
-            nodeToBalance = nodeToBalance.Parent;
+            BalanceInsertion(nodeToBalance.Parent);
         }
 
         private void swapColors(AsRedBlackTreeNode<T> node1, AsRedBlackTreeNode<T> node2)

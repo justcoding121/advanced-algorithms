@@ -53,7 +53,7 @@ namespace Algorithm.Sandbox.DataStructures
         internal AsBSTNode<T> Root { get; set; }
         public int Count { get; private set; }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //worst O(n) for unbalanced tree
         public bool HasItem(T value)
         {
             if (Root == null)
@@ -64,13 +64,13 @@ namespace Algorithm.Sandbox.DataStructures
             return Find(Root, value) != null;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //worst O(n) for unbalanced tree
         public int GetHeight()
         {
             return GetHeight(Root);
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //worst O(n) for unbalanced tree
         private int GetHeight(AsBSTNode<T> node)
         {
             if (node == null)
@@ -81,7 +81,24 @@ namespace Algorithm.Sandbox.DataStructures
             return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+
+        internal AsBSTNode<T> InsertAndReturnNewNode(T value)
+        {
+            if (Root == null)
+            {
+                Root = new AsBSTNode<T>(null, value);
+                Count++;
+                return Root;
+            }
+
+            var newNode = insert(Root, value);
+            Count++;
+
+            return newNode;
+        }
+
+
+        //worst O(n) for unbalanced tree
         public void Insert(T value)
         {
             if (Root == null)
@@ -95,8 +112,8 @@ namespace Algorithm.Sandbox.DataStructures
             Count++;
         }
 
-        //O(log(n)) always
-        private void insert(
+        //worst O(n) for unbalanced tree
+        private AsBSTNode<T> insert(
             AsBSTNode<T> currentNode, T newNodeValue)
         {
             var compareResult = currentNode.Value.CompareTo(newNodeValue);
@@ -109,10 +126,11 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     //insert
                     currentNode.Right = new AsBSTNode<T>(currentNode, newNodeValue);
+                    return currentNode.Right;
                 }
                 else
                 {
-                    insert(currentNode.Right, newNodeValue);
+                    return insert(currentNode.Right, newNodeValue);
                 }
 
             }
@@ -124,10 +142,11 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     //insert
                     currentNode.Left = new AsBSTNode<T>(currentNode, newNodeValue);
+                    return currentNode.Left;
                 }
                 else
                 {
-                    insert(currentNode.Left, newNodeValue);
+                    return insert(currentNode.Left, newNodeValue);
                 }
             }
             else
@@ -139,7 +158,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //remove the node with the given identifier from the descendants 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //worst O(n) for unbalanced tree
         public void Delete(T value)
         {
             if (Root == null)
@@ -151,8 +170,22 @@ namespace Algorithm.Sandbox.DataStructures
             Count--;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
-        private void delete(AsBSTNode<T> node, T value)
+        internal AsBSTNode<T> DeleteAndReturnParent(T value)
+        {
+            if (Root == null)
+            {
+                throw new Exception("Empty BST");
+            }
+
+            var parentNode = delete(Root, value);
+
+            Count--;
+
+            return parentNode;
+        }
+
+        //worst O(n) for unbalanced tree
+        private AsBSTNode<T> delete(AsBSTNode<T> node, T value)
         {
             var compareResult = node.Value.CompareTo(value);
 
@@ -164,7 +197,7 @@ namespace Algorithm.Sandbox.DataStructures
                     throw new Exception("Item do not exist");
                 }
 
-                delete(node.Right, value);
+                return delete(node.Right, value);
             }
             //node is less than the search value so move left to find the deletion node
             else if (compareResult > 0)
@@ -174,7 +207,7 @@ namespace Algorithm.Sandbox.DataStructures
                     throw new Exception("Item do not exist");
                 }
 
-                delete(node.Left, value);
+                return delete(node.Left, value);
             }
             else
             {
@@ -182,6 +215,7 @@ namespace Algorithm.Sandbox.DataStructures
                 if (node.IsLeaf)
                 {
                     deleteLeaf(node);
+                    return node.Parent;
                 }
                 else
                 {
@@ -189,12 +223,13 @@ namespace Algorithm.Sandbox.DataStructures
                     if (node.Left != null && node.Right == null)
                     {
                         deleteLeftNode(node);
-
+                        return node.Parent;
                     }
                     //case two - left tree is null  (move sub tree up)
                     else if (node.Right != null && node.Left == null)
                     {
                         deleteRightNode(node);
+                        return node.Parent;
 
                     }
                     //case three - two child trees 
@@ -207,7 +242,7 @@ namespace Algorithm.Sandbox.DataStructures
                         node.Value = maxLeftNode.Value;
 
                         //delete left max node
-                        delete(node.Left, maxLeftNode.Value);
+                        return delete(node.Left, maxLeftNode.Value);
                     }
                 }
             }
@@ -316,7 +351,7 @@ namespace Algorithm.Sandbox.DataStructures
             return FindMin(node.Left);
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        //worst O(n) for unbalanced tree
         private AsBSTNode<T> Find(T value)
         {
             if (Root == null)
@@ -330,7 +365,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
+        //worst O(n) for unbalanced tree
         private AsBSTNode<T> Find(AsBSTNode<T> parent, T value)
         {
             if (parent == null)
