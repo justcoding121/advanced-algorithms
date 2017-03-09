@@ -314,22 +314,6 @@ namespace Algorithm.Sandbox.DataStructures
 
             }
 
-            private void UpdateMaxRight(AsIntervalRedBlackTreeNode<AsInterval<T>> newRoot)
-            {
-                newRoot.Value.MaxEnd = default(T);
-                if (newRoot.Left != null)
-                {
-                    newRoot.Left.Value.MaxEnd = default(T);
-                    UpdateMax(newRoot.Left, newRoot.Left.Value.MaxEnd);
-                }
-
-                if (newRoot.Right != null)
-                {
-                    newRoot.Right.Value.MaxEnd = default(T);
-                    UpdateMax(newRoot.Right, newRoot.Right.Value.MaxEnd);
-                }
-
-            }
 
             /// <summary>
             /// Rotate right

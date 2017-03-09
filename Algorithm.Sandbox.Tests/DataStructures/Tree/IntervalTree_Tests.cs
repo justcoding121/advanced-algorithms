@@ -47,7 +47,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         {
             //while (true)
             //{
-                var nodeCount = 10;
+                var nodeCount = 1000;
                 var intTree = new AsIntervalTree<int>();
 
                 var rnd = new Random();
@@ -62,7 +62,10 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
                     for (int j = i; j >= 0; j--)
                     {
-                        Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(intervals[j].Start - rnd.Next(1, 5),
+                    Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(intervals[j].Start,
+                                                      intervals[j].End[0])));
+
+                    Assert.IsTrue(intTree.DoOverlap(new AsInterval<int>(intervals[j].Start - rnd.Next(1, 5),
                             intervals[j].End[0] + rnd.Next(1, 5))));
                     }
                 }
