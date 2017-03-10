@@ -39,8 +39,7 @@ namespace Algorithm.Sandbox.DataStructures
     }
 
     /// <summary>
-    /// An interval tree implementation in 1-dimension
-    /// TODO support interval start range that collide
+    /// An overlapping interval tree implementation in 1-dimension using Augmentation Tree method
     /// TODO support multiple dimensions
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -212,29 +211,14 @@ namespace Algorithm.Sandbox.DataStructures
                 Root = null;
                 Count = 0;
             }
-
-
-            private void UpdateMax(AsIntervalRedBlackTreeNode<AsInterval<T>> node, AsArrayList<T> currentMax,
-               int timesToRecurse = int.MaxValue)
-            {
-                var max = currentMax[0];
-                for (int i = 0; i < currentMax.Length; i++)
-                {
-                    if (max.CompareTo(currentMax[i]) < 0)
-                    {
-                        max = currentMax[i];
-                    }
-                }
-
-                UpdateMax(node, max, timesToRecurse);
-            }
+            
             /// <summary>
             /// update max end value under each node recursively
             /// </summary>
             /// <param name="node"></param>
             /// <param name="currentMax"></param>
             private void UpdateMax(AsIntervalRedBlackTreeNode<AsInterval<T>> node, T currentMax,
-                int timesToRecurse = int.MaxValue)
+               bool recurseUp = true)
             {
                 if (node == null)
                 {
@@ -283,9 +267,8 @@ namespace Algorithm.Sandbox.DataStructures
 
                 node.Value.MaxEnd = currentMax;
 
-                timesToRecurse--;
-
-                if (timesToRecurse > 0)
+             
+                if (recurseUp)
                 {
                     UpdateMax(node.Parent, currentMax);
                 }
@@ -297,20 +280,26 @@ namespace Algorithm.Sandbox.DataStructures
             /// Update Max on new root after rotations
             /// </summary>
             /// <param name="newRoot"></param>
-            private void UpdateMax(AsIntervalRedBlackTreeNode<AsInterval<T>> newRoot)
+            private void UpdateMax(AsIntervalRedBlackTreeNode<AsInterval<T>> newRoot, bool recurseUp = true)
             {
+                if (newRoot == null)
+                    return;
+
                 newRoot.Value.MaxEnd = default(T);
+
                 if (newRoot.Left != null)
                 {
                     newRoot.Left.Value.MaxEnd = default(T);
-                    UpdateMax(newRoot.Left, newRoot.Left.Value.MaxEnd);
+                    UpdateMax(newRoot.Left, newRoot.Left.Value.MaxEnd, recurseUp);
                 }
 
                 if (newRoot.Right != null)
                 {
                     newRoot.Right.Value.MaxEnd = default(T);
-                    UpdateMax(newRoot.Right, newRoot.Right.Value.MaxEnd);
+                    UpdateMax(newRoot.Right, newRoot.Right.Value.MaxEnd, recurseUp);
                 }
+
+                UpdateMax(newRoot, newRoot.Value.MaxEnd, recurseUp);
 
             }
 
@@ -357,7 +346,7 @@ namespace Algorithm.Sandbox.DataStructures
                     Root = newRoot;
                 }
 
-                UpdateMax(newRoot);
+                UpdateMax(newRoot , false);
             }
 
             /// <summary>
@@ -403,7 +392,7 @@ namespace Algorithm.Sandbox.DataStructures
                     Root = newRoot;
                 }
 
-                UpdateMax(newRoot);
+                UpdateMax(newRoot, false);
             }
 
             /// <summary>
@@ -429,7 +418,7 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     Root = new AsIntervalRedBlackTreeNode<AsInterval<T>>(null, value);
                     Root.NodeColor = RedBlackTreeNodeColor.Black;
-                    UpdateMax(Root, Root.Value.End[0]);
+                    UpdateMax(Root);
                     Count++;
                     return;
                 }
@@ -455,7 +444,7 @@ namespace Algorithm.Sandbox.DataStructures
                         //insert
                         var newNode = new AsIntervalRedBlackTreeNode<AsInterval<T>>(currentNode, newNodeValue);
                         currentNode.Right = newNode;
-                        UpdateMax(newNode, newNode.Value.End);
+                        UpdateMax(newNode);
                         BalanceInsertion(newNode);
                         return newNode;
                     }
@@ -475,7 +464,7 @@ namespace Algorithm.Sandbox.DataStructures
                         //insert
                         var newNode = new AsIntervalRedBlackTreeNode<AsInterval<T>>(currentNode, newNodeValue);
                         currentNode.Left = newNode;
-                        UpdateMax(newNode, newNode.Value.End);
+                        UpdateMax(newNode);
                         BalanceInsertion(newNode);
                         return newNode;
                     }
@@ -488,7 +477,7 @@ namespace Algorithm.Sandbox.DataStructures
                 else
                 {
                     currentNode.Value.End.Add(newNodeValue.End[0]);
-                    UpdateMax(currentNode, currentNode.Value.MaxEnd);
+                    UpdateMax(currentNode);
                     return currentNode;
                 }
 
@@ -504,7 +493,7 @@ namespace Algorithm.Sandbox.DataStructures
                 if (nodeToBalance == Root)
                 {
                     Root.NodeColor = RedBlackTreeNodeColor.Black;
-                    UpdateMax(Root, Root.Value.End[0]);
+                    UpdateMax(Root);
                     return;
                 }
 
@@ -676,6 +665,8 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     AsIntervalRedBlackTreeNode<AsInterval<T>> nodeToBalance = null;
 
+                    //if not a leaf deletion caused by replacement 
+                    //of an ancestor deleted with this node
                     if(!deleteByStartOnly)
                     {
                         var index = GetIndex(node.Value.End, value);
@@ -688,6 +679,7 @@ namespace Algorithm.Sandbox.DataStructures
                         if(node.Value.End.Length > 1)
                         {                  
                             node.Value.End.RemoveItem(index);
+                            UpdateMax(node);
                             return node;
                         }
                     }
@@ -700,11 +692,14 @@ namespace Algorithm.Sandbox.DataStructures
                         {
 
                             deleteLeaf(node);
+                            UpdateMax(node.Parent);
                             return node.Parent;
                         }
 
+                      
                         nodeToBalance = handleDoubleBlack(node);
                         deleteLeaf(node);
+                        UpdateMax(node.Parent);
 
                     }
                     else
@@ -715,6 +710,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                             nodeToBalance = handleDoubleBlack(node);
                             deleteLeftNode(node);
+                            UpdateMax(node.Parent);
 
                         }
                         //case two - left tree is null  (move sub tree up)
@@ -723,6 +719,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                             nodeToBalance = handleDoubleBlack(node);
                             deleteRightNode(node);
+                            UpdateMax(node.Parent);
 
                         }
                         //case three - two child trees 
@@ -744,6 +741,7 @@ namespace Algorithm.Sandbox.DataStructures
                                 var maxLeftNode = FindMax(node.Left);
 
                                 node.Value = maxLeftNode.Value;
+                                node.Value.MaxEnd = default(T);
 
                                 //delete left max node
                                 return delete(node.Left, maxLeftNode.Value, true);
@@ -752,6 +750,7 @@ namespace Algorithm.Sandbox.DataStructures
                             {
                                 //just remove the end
                                 node.Value.End.RemoveItem(index);
+                                UpdateMax(node);
                                 return node;
                             }
                         }
