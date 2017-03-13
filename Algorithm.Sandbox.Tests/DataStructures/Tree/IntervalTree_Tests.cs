@@ -52,7 +52,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             for (int i = 0; i < nodeCount; i++)
             {
-                var start = i + 10 + rnd.Next(1, 10);
+                var start = i - 1000 + rnd.Next(1, 10);
                 var interval = new AsDInterval<int>(new int[] { start }, new int[] { start + rnd.Next(1, 10) });
                 intervals.Add(interval);
                 intTree.Insert(interval.Start, interval.End);
@@ -116,7 +116,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             for (int i = 0; i < nodeCount; i++)
             {
-                var startx = i + 10 + rnd.Next(1, 10);
+                var startx = i - 1000 + rnd.Next(1, 10);
                 var starty = i + 15 + rnd.Next(1, 10);
                 //(x1,y1) and (x2, y2)
                 var interval = new AsDInterval<int>(new int[dimension] { startx, starty },

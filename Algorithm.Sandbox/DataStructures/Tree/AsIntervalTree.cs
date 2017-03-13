@@ -49,7 +49,33 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception(string.Format("Expecting {0} points in start and end values for this interval.",
                     dimensions));
             }
+
+            for (int i = 0; i < start.Length; i++)
+            {
+                if (start[i].Equals(defaultValue.Value)
+                    || end[i].Equals(defaultValue.Value))
+                {
+                    throw new Exception("Points cannot contain Minimum Value or Null values");
+                }
+            }
         }
+
+        /// <summary>
+        /// A cached function to override default(T)
+        /// So that for value types we can return min value as default
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private Lazy<T> defaultValue = new Lazy<T>(() =>
+        {
+            var s = typeof(T);
+            if (s.IsValueType)
+            {
+                return (T)Convert.ChangeType(int.MinValue, s);
+            }
+
+            return default(T);
+        });
 
         /// <summary>
         /// Add a new interval to this interval tree
@@ -67,7 +93,7 @@ namespace Algorithm.Sandbox.DataStructures
             //get all overlaps
             //and insert next dimension value to each overlapping node
             for (int i = 0; i < dimensions; i++)
-            {          
+            {
                 var allOverlaps = new List<AsIntervalTree<T>>();
 
                 foreach (var tree in currentTrees)
@@ -255,8 +281,8 @@ namespace Algorithm.Sandbox.DataStructures
     internal class AsIntervalTree<T> where T : IComparable
     {
         //use a height balanced binary search tree
-        private AsIntervalRedBlackTree<T> RedBlackTree
-            = new AsIntervalRedBlackTree<T>();
+        private AsIntervalRedBlackTree RedBlackTree
+            = new AsIntervalRedBlackTree();
 
         public int Count { get; private set; }
 
@@ -479,11 +505,27 @@ namespace Algorithm.Sandbox.DataStructures
             }
         }
 
-        internal class AsIntervalRedBlackTree<T> where T : IComparable
+        internal class AsIntervalRedBlackTree
         {
             internal AsIntervalRedBlackTreeNode<AsInterval<T>> Root { get; private set; }
             public int Count { get; private set; }
 
+            /// <summary>
+            /// A cached function to override default(T)
+            /// So that for value types we can return min value as default
+            /// </summary>
+            /// <param name="s"></param>
+            /// <returns></returns>
+            private Lazy<T> defaultValue = new Lazy<T>(() =>
+            {
+                var s = typeof(T);
+                if (s.IsValueType)
+                {
+                    return (T)Convert.ChangeType(int.MinValue, s);
+                }
+
+                return default(T);
+            });
 
             internal void Clear()
             {
@@ -564,17 +606,17 @@ namespace Algorithm.Sandbox.DataStructures
                 if (newRoot == null)
                     return;
 
-                newRoot.Value.MaxEnd = default(T);
+                newRoot.Value.MaxEnd = defaultValue.Value;
 
                 if (newRoot.Left != null)
                 {
-                    newRoot.Left.Value.MaxEnd = default(T);
+                    newRoot.Left.Value.MaxEnd = defaultValue.Value;
                     UpdateMax(newRoot.Left, newRoot.Left.Value.MaxEnd, recurseUp);
                 }
 
                 if (newRoot.Right != null)
                 {
-                    newRoot.Right.Value.MaxEnd = default(T);
+                    newRoot.Right.Value.MaxEnd = defaultValue.Value;
                     UpdateMax(newRoot.Right, newRoot.Right.Value.MaxEnd, recurseUp);
                 }
 
@@ -1019,7 +1061,7 @@ namespace Algorithm.Sandbox.DataStructures
                                 var maxLeftNode = FindMax(node.Left);
 
                                 node.Value = maxLeftNode.Value;
-                                node.Value.MaxEnd = default(T);
+                                node.Value.MaxEnd = defaultValue.Value;
 
                                 //delete left max node
                                 return delete(node.Left, maxLeftNode.Value, true);
