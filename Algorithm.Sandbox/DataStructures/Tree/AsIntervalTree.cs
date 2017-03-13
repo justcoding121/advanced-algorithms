@@ -1,6 +1,5 @@
 ﻿using Algorithm.Sandbox.DataStructures.Tree;
 using System;
-using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -86,7 +85,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             validateDimensions(start, end);
 
-            var currentTrees = new List<AsIntervalTree<T>>();
+            var currentTrees = new AsArrayList<AsIntervalTree<T>>();
 
             currentTrees.Add(tree);
 
@@ -94,7 +93,7 @@ namespace Algorithm.Sandbox.DataStructures
             //and insert next dimension value to each overlapping node
             for (int i = 0; i < dimensions; i++)
             {
-                var allOverlaps = new List<AsIntervalTree<T>>();
+                var allOverlaps = new AsArrayList<AsIntervalTree<T>>();
 
                 foreach (var tree in currentTrees)
                 {
@@ -122,10 +121,10 @@ namespace Algorithm.Sandbox.DataStructures
         {
             validateDimensions(start, end);
 
-            var currentTrees = new List<AsIntervalTree<T>>();
+            var currentTrees = new AsArrayList<AsIntervalTree<T>>();
             currentTrees.Add(tree);
 
-            var allOverlaps = new List<AsIntervalTree<T>>();
+            var allOverlaps = new AsArrayList<AsIntervalTree<T>>();
             var overlaps = tree.GetOverlaps(new AsInterval<T>(start[0], end[0]));
 
             foreach (var overlap in overlaps)
@@ -146,13 +145,13 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <param name="index"></param>
-        private void DeleteOverlaps(List<AsIntervalTree<T>> currentTrees, T[] start, T[] end, int index)
+        private void DeleteOverlaps(AsArrayList<AsIntervalTree<T>> currentTrees, T[] start, T[] end, int index)
         {
             //base case
             if (index == start.Length)
                 return;
 
-            var allOverlaps = new List<AsIntervalTree<T>>();
+            var allOverlaps = new AsArrayList<AsIntervalTree<T>>();
 
             foreach (var tree in currentTrees)
             {
@@ -190,7 +189,7 @@ namespace Algorithm.Sandbox.DataStructures
         {
             validateDimensions(start, end);
 
-            var currentTrees = new List<AsIntervalTree<T>>();
+            var currentTrees = new AsArrayList<AsIntervalTree<T>>();
 
             currentTrees.Add(tree);
 
@@ -198,7 +197,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             for (int i = 0; i < dimensions; i++)
             {
-                var allOverlaps = new List<AsIntervalTree<T>>();
+                var allOverlaps = new AsArrayList<AsIntervalTree<T>>();
 
                 //last dimension to check
                 if (i == 0)
@@ -247,7 +246,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// <summary>
         /// End of this interval range
         /// </summary>
-        public List<T> End { get; set; }
+        public AsArrayList<T> End { get; set; }
 
         /// <summary>
         /// Max End interval under this interval
@@ -267,7 +266,7 @@ namespace Algorithm.Sandbox.DataStructures
         public AsInterval(T start, T end)
         {
             Start = start;
-            End = new List<T>();
+            End = new AsArrayList<T>();
             End.Add(end);
             NextDimensionIntervals = new AsIntervalTree<T>();
         }
@@ -327,7 +326,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         /// <param name="searchInterval"></param>
         /// <returns></returns>
-        internal List<AsInterval<T>> GetOverlaps(AsInterval<T> searchInterval)
+        internal AsArrayList<AsInterval<T>> GetOverlaps(AsInterval<T> searchInterval)
         {
             SortInterval(searchInterval);
 
@@ -395,12 +394,12 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         /// <param name="interval"></param>
         /// <returns></returns>
-        private List<AsInterval<T>> GetOverlaps(AsIntervalRedBlackTreeNode<AsInterval<T>> current,
-            AsInterval<T> searchInterval, List<AsInterval<T>> result = null)
+        private AsArrayList<AsInterval<T>> GetOverlaps(AsIntervalRedBlackTreeNode<AsInterval<T>> current,
+            AsInterval<T> searchInterval, AsArrayList<AsInterval<T>> result = null)
         {
             if (result == null)
             {
-                result = new List<AsInterval<T>>();
+                result = new AsArrayList<AsInterval<T>>();
             }
 
             if (current == null)
@@ -435,9 +434,9 @@ namespace Algorithm.Sandbox.DataStructures
         /// <returns></returns>
         private bool doOverlap(AsInterval<T> a, AsInterval<T> b)
         {
-            for (int i = 0; i < a.End.Count; i++)
+            for (int i = 0; i < a.End.Length; i++)
             {
-                for (int j = 0; j < b.End.Count; j++)
+                for (int j = 0; j < b.End.Length; j++)
                 {
                     //a.Start less than b.End and a.End greater than b.Start
                     if (a.Start.CompareTo(b.End[j]) <= 0 && a.End[i].CompareTo(b.Start) >= 0)
@@ -578,7 +577,7 @@ namespace Algorithm.Sandbox.DataStructures
                     }
                 }
 
-                for (int i = 0; i < node.Value.End.Count; i++)
+                for (int i = 0; i < node.Value.End.Length; i++)
                 {
                     if (currentMax.CompareTo(node.Value.End[i]) < 0)
                     {
@@ -996,9 +995,9 @@ namespace Algorithm.Sandbox.DataStructures
                             throw new Exception("Interval do not exist");
                         }
 
-                        if (node.Value.End.Count > 1)
+                        if (node.Value.End.Length > 1)
                         {
-                            node.Value.End.RemoveAt(index);
+                            node.Value.End.RemoveItem(index);
                             UpdateMax(node);
                             return node;
                         }
@@ -1056,7 +1055,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                             //if this is the only element
                             //do regular bst deletion
-                            if (node.Value.End.Count == 1 && index == 0)
+                            if (node.Value.End.Length == 1 && index == 0)
                             {
                                 var maxLeftNode = FindMax(node.Left);
 
@@ -1069,7 +1068,7 @@ namespace Algorithm.Sandbox.DataStructures
                             else
                             {
                                 //just remove the end
-                                node.Value.End.RemoveAt(index);
+                                node.Value.End.RemoveItem(index);
                                 UpdateMax(node);
                                 return node;
                             }
@@ -1090,15 +1089,15 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             /// <summary>
-            /// returns the index of a matching value in this End range list
+            /// returns the index of a matching value in this End range AsArrayList
             /// </summary>
             /// <param name="end"></param>
             /// <param name="value"></param>
             /// <returns></returns>
-            private int GetIndex(List<T> end, AsInterval<T> value)
+            private int GetIndex(AsArrayList<T> end, AsInterval<T> value)
             {
                 var index = -1;
-                for (int i = 0; i < end.Count; i++)
+                for (int i = 0; i < end.Length; i++)
                 {
                     if (end[i].CompareTo(value.End[0]) == 0)
                     {

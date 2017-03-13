@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Heap.Min
 {
