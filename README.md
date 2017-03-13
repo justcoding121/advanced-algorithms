@@ -48,9 +48,10 @@ Various important computer science algorithms implemented in C#
 * B Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsBTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Tree/BTree_Tests.cs))
 * B+ Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsB%2BTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Tree/B%2BTree_Tests.cs))
 * Multi-dimensional Interval Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsIntervalTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Tree/IntervalTree_Tests.cs)) using multi-level Red-black tree
-* Range Tree
-* Binary Indexed Tree (Fenwick tree)
-* Segment Tree
+* Multi-dimensional Kd Tree for range and nearest neigbour and range queries
+* Multi-dimensional Range Tree
+* Multi-dimensional Segment Tree
+* Multi-dimensional Binary Indexed Tree (Fenwick tree)
 * Trie
 * Suffix Tree
 * Ternary Search Tree
@@ -166,6 +167,8 @@ Various important computer science algorithms implemented in C#
 * SubSets ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs) | Tests)
 * Permutation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Permutation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Permutate.cs)
 * Rabin-Karp string search
+* Z algorithm for string search
+* KMP string search
 
 ##Compression
 
