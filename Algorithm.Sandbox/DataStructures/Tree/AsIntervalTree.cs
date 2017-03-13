@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
+    /// <summary>
+    /// An interval object to represent multi-dimensional intervals
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsDInterval<T> where T : IComparable
     {
         public T[] Start { get; set; }
@@ -15,10 +19,18 @@ namespace Algorithm.Sandbox.DataStructures
             this.End = end;
         }
     }
+
+    /// <summary>
+    /// A multi-dimensional interval tree implementation
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsDIntervalTree<T> where T : IComparable
     {
         private int dimensions;
         private AsIntervalTree<T> tree;
+
+        public int Count { get; private set; }
+
         public AsDIntervalTree(int dimensions)
         {
             this.dimensions = dimensions;
@@ -39,6 +51,11 @@ namespace Algorithm.Sandbox.DataStructures
             }
         }
 
+        /// <summary>
+        /// Add a new interval to this interval tree
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
         public void Insert(T[] start, T[] end)
         {
             validateDimensions(start, end);
@@ -47,8 +64,10 @@ namespace Algorithm.Sandbox.DataStructures
 
             currentTrees.Add(tree);
 
+            //get all overlaps
+            //and insert next dimension value to each overlapping node
             for (int i = 0; i < dimensions; i++)
-            {
+            {          
                 var allOverlaps = new List<AsIntervalTree<T>>();
 
                 foreach (var tree in currentTrees)
@@ -56,7 +75,6 @@ namespace Algorithm.Sandbox.DataStructures
                     tree.Insert(new AsInterval<T>(start[i], end[i]));
 
                     var overlaps = tree.GetOverlaps(new AsInterval<T>(start[i], end[i]));
-
                     foreach (var overlap in overlaps)
                     {
                         allOverlaps.Add(overlap.NextDimensionIntervals);
@@ -65,15 +83,83 @@ namespace Algorithm.Sandbox.DataStructures
 
                 currentTrees = allOverlaps;
             }
+
+            Count++;
         }
 
+        /// <summary>
+        /// delete this interval
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
         public void Delete(T[] start, T[] end)
         {
             validateDimensions(start, end);
 
-            throw new NotImplementedException();
+            var currentTrees = new List<AsIntervalTree<T>>();
+            currentTrees.Add(tree);
+
+            var allOverlaps = new List<AsIntervalTree<T>>();
+            var overlaps = tree.GetOverlaps(new AsInterval<T>(start[0], end[0]));
+
+            foreach (var overlap in overlaps)
+            {
+                allOverlaps.Add(overlap.NextDimensionIntervals);
+            }
+
+            DeleteOverlaps(allOverlaps, start, end, 1);
+            tree.Delete(new AsInterval<T>(start[0], end[0]));
+
+            Count--;
         }
 
+        /// <summary>
+        /// recursively delete values from overlaps in next dimension
+        /// </summary>
+        /// <param name="currentTrees"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="index"></param>
+        private void DeleteOverlaps(List<AsIntervalTree<T>> currentTrees, T[] start, T[] end, int index)
+        {
+            //base case
+            if (index == start.Length)
+                return;
+
+            var allOverlaps = new List<AsIntervalTree<T>>();
+
+            foreach (var tree in currentTrees)
+            {
+                var overlaps = tree.GetOverlaps(new AsInterval<T>(start[index], end[index]));
+
+                foreach (var overlap in overlaps)
+                {
+                    allOverlaps.Add(overlap.NextDimensionIntervals);
+                }
+            }
+
+            //dig in to next dimension to 
+            DeleteOverlaps(allOverlaps, start, end, ++index);
+
+            index--;
+
+            //now delete
+            foreach (var tree in allOverlaps)
+            {
+                if (tree.Count > 0)
+                {
+                    tree.Delete(new AsInterval<T>(start[index], end[index]));
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// does this interval overlap with any interval in this interval tree?
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public bool DoOverlap(T[] start, T[] end)
         {
             validateDimensions(start, end);
@@ -82,9 +168,27 @@ namespace Algorithm.Sandbox.DataStructures
 
             currentTrees.Add(tree);
 
+            var doOverap = false;
+
             for (int i = 0; i < dimensions; i++)
             {
                 var allOverlaps = new List<AsIntervalTree<T>>();
+
+                //last dimension to check
+                if (i == 0)
+                {
+                    foreach (var tree in currentTrees)
+                    {
+                        doOverap = tree.DoOverlap(new AsInterval<T>(start[i], end[i]));
+
+                        if (doOverap)
+                        {
+                            break;
+                        }
+                    }
+
+                    break;
+                }
 
                 foreach (var tree in currentTrees)
                 {
@@ -99,7 +203,7 @@ namespace Algorithm.Sandbox.DataStructures
                 currentTrees = allOverlaps;
             }
 
-            return currentTrees.Count != 0;
+            return doOverap;
         }
 
     }
@@ -107,7 +211,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// Interval object
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsInterval<T> : IComparable where T : IComparable
+    internal class AsInterval<T> : IComparable where T : IComparable
     {
         /// <summary>
         /// Start of this interval range
@@ -148,7 +252,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// TODO support multiple dimensions
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsIntervalTree<T> where T : IComparable
+    internal class AsIntervalTree<T> where T : IComparable
     {
         //use a height balanced binary search tree
         private AsIntervalRedBlackTree<T> RedBlackTree
