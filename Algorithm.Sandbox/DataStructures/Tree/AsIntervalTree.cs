@@ -451,7 +451,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
 
-        internal class AsIntervalRedBlackTreeNode<T> : AsIBSTNode<T> where T : IComparable
+        internal class AsIntervalRedBlackTreeNode<T> where T : IComparable
         {
             internal T Value { get; set; }
 
@@ -468,33 +468,6 @@ namespace Algorithm.Sandbox.DataStructures
 
             internal bool IsLeftChild => this.Parent.Left == this;
             internal bool IsRightChild => this.Parent.Right == this;
-
-            //exposed to do common tests for Binary Trees
-            AsIBSTNode<T> AsIBSTNode<T>.Left
-            {
-                get
-                {
-                    return Left;
-                }
-
-            }
-
-            AsIBSTNode<T> AsIBSTNode<T>.Right
-            {
-                get
-                {
-                    return Right;
-                }
-
-            }
-
-            T AsIBSTNode<T>.Value
-            {
-                get
-                {
-                    return Value;
-                }
-            }
 
             internal AsIntervalRedBlackTreeNode(AsIntervalRedBlackTreeNode<T> parent, T value)
             {

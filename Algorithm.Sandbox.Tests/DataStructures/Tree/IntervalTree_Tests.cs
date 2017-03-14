@@ -101,6 +101,37 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             }
         }
 
+        /// </summary>
+        [TestMethod]
+        public void IntervalTree_1D_Stress_Test()
+        {
+            var nodeCount = 10000;
+            var intTree = new AsDIntervalTree<int>(1);
+
+            var rnd = new Random();
+            var intervals = new List<AsDInterval<int>>();
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                var start = i - 1000 + rnd.Next(1, 10);
+                var interval = new AsDInterval<int>(new int[] { start }, new int[] { start + rnd.Next(1, 10) });
+                intervals.Add(interval);
+                intTree.Insert(interval.Start, interval.End);
+
+            }
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                Assert.IsTrue(intTree.DoOverlap(intervals[i].Start,
+                                                       intervals[i].End));             
+            }
+
+            for (int i = 0; i < intervals.Count; i++)
+            {
+                intTree.Delete(intervals[i].Start, intervals[i].End);
+               
+            }
+        }
 
         /// </summary>
         [TestMethod]
@@ -175,6 +206,46 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             }
         }
+
+        /// </summary>
+        [TestMethod]
+        public void IntervalTree_2D_Stress_Test()
+        {
+            var nodeCount = 1000;
+            const int dimension = 2;
+
+            var intTree = new AsDIntervalTree<int>(dimension);
+
+            var rnd = new Random();
+            var intervals = new List<AsDInterval<int>>();
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                var startx = i - 1000 + rnd.Next(1, 10);
+                var starty = i + 15 + rnd.Next(1, 10);
+                //(x1,y1) and (x2, y2)
+                var interval = new AsDInterval<int>(new int[dimension] { startx, starty },
+                    new int[dimension] { startx + rnd.Next(1, 10), starty + rnd.Next(1, 10) });
+
+                intervals.Add(interval);
+                intTree.Insert(interval.Start, interval.End);
+               
+            }
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                Assert.IsTrue(intTree.DoOverlap(intervals[i].Start,
+                                                   intervals[i].End));
+
+            }
+
+
+            for (int i = 0; i < intervals.Count; i++)
+            {
+                intTree.Delete(intervals[i].Start, intervals[i].End);
+            }
+        }
+
 
 
 
