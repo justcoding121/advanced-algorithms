@@ -23,14 +23,14 @@ Various important computer science algorithms implemented in C#
 #### Priority Queue
 * Min Priority Queue ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/PriorityQueue/Min/AsPriorityQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/PriorityQueue_Tests.cs))
  
-###Linked List
+### Linked List
 * Singly linked list ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/LinkedList/AsSinglyLinkedList.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/LinkedList/SinglyLinkedList_Tests.cs))
 * Doubly linked list ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/LinkedList/AsDoublyLinkedList.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/LinkedList/DoublyLinkedList_Tests.cs))
 * Circular linked list ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/LinkedList/AsCircularLinkedList.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/LinkedList/CircularLinkedList_Tests.cs))
 
-###Heap
+### Heap
 
-####Min
+#### Min
 * Binary Min Heap ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsBMinHeap.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Heap/BMinHeap_Tests.cs))
 * d-ary Min Heap ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/Asd-aryMinHeap.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Heap/D-aryHeap_Tests.cs))
 * Binomial Min Heap ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsBinomialMinHeap.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Heap/BinomialHeap_Tests.cs))
@@ -70,7 +70,7 @@ Various important computer science algorithms implemented in C#
 * Weighted DiGraph
 * Weighted Graph
 
-#Algorithms
+# Algorithms
 
 ## Classic Dynamic Programming Problems
 
@@ -101,54 +101,54 @@ Various important computer science algorithms implemented in C#
 * Word Break problem
 
 
-##Geometry
+## Geometry
 
 * Line Clipping
 * Rotation
 * Translation
 * Scale
 
-##Graph Algorithms
+## Graph Algorithms
 
-###Coloring
+### Coloring
 
 * M-Coloring
 
-###Cover
+### Cover
 
 * Min Vertex Cover
 
-###Flow
+### Flow
 
 * Ford-Fulkerson Max Flow
 
-###Matching
+### Matching
 
 * Max Bipartite Matching
 
-###Minimum Spanning Tree
+### Minimum Spanning Tree
 
 * Kruskals
 * Prims
 
-###Search
+### Search
 
 * Bi-Directional
 * Breadth First
 * Depth First
 
-###Sorting
+### Sorting
 
 * Topological Sort
 
-###Shortest Path
+### Shortest Path
 
 * Bellman-Ford algorithm
 * Dijikstras algorithm
 * Floyd-Warshall algorithm
 * Johnsons algorithm
 
-##Sorting
+## Sorting
 
 * Quick Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/QuickSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
 * Heap Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/HeapSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
@@ -162,7 +162,7 @@ Various important computer science algorithms implemented in C#
 * Bucket Sort
 * Counting Sort
 
-##String
+## String
 
 * SubSets ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs) | Tests)
 * Permutation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Permutation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Permutate.cs)
@@ -170,11 +170,11 @@ Various important computer science algorithms implemented in C#
 * Z algorithm for string search
 * KMP string search
 
-##Compression
+## Compression
 
 * Huffman Coding
 
-##Numerical Methods
+## Numerical Methods
 
 * Check Primality
 * Generate Primes
@@ -192,7 +192,7 @@ Various important computer science algorithms implemented in C#
 * Shuffling
 * Fast Division
  
-##Bit algorithms
+## Bit algorithms
 
 * Base Conversion
 * Shift and Add Multiplication
