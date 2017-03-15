@@ -6,30 +6,30 @@ using System.Linq;
 namespace Algorithm.Sandbox.Tests.DataStructures
 {
     [TestClass]
-    public class HashSet_Tests
+    public class Dictionary_Tests
     {
         /// <summary>
         /// key value dictionary tests 
         /// </summary>
         [TestMethod]
-        public void HashSet_SeparateChaining_Test()
+        public void Dictionary_SeparateChaining_Test()
         {
-            var hashSet = new AsHashSet<int, int>(HashSetType.SeparateChaining);
+            var Dictionary = new AsDictionary<int, int>(DictionaryType.SeparateChaining);
             int nodeCount = 1000 * 10;
             //insert test
 
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                hashSet.Add(i, i);
-                Assert.AreEqual(true, hashSet.ContainsKey(i));
+                Dictionary.Add(i, i);
+                Assert.AreEqual(true, Dictionary.ContainsKey(i));
             }
 
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                hashSet.Remove(i);
-                Assert.AreEqual(false, hashSet.ContainsKey(i));
+                Dictionary.Remove(i);
+                Assert.AreEqual(false, Dictionary.ContainsKey(i));
             }
 
 
@@ -39,43 +39,43 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             
             foreach (var item in testSeries)
             {
-                hashSet.Add(item, item);
-                Assert.AreEqual(true, hashSet.ContainsKey(item));
+                Dictionary.Add(item, item);
+                Assert.AreEqual(true, Dictionary.ContainsKey(item));
             }
 
             foreach (var item in testSeries)
             {
-                Assert.AreEqual(true, hashSet.ContainsKey(item));
+                Assert.AreEqual(true, Dictionary.ContainsKey(item));
             }
 
             for (int i = 1; i <= nodeCount; i++)
             {
-                hashSet.Remove(i);
-                Assert.AreEqual(false, hashSet.ContainsKey(i));
+                Dictionary.Remove(i);
+                Assert.AreEqual(false, Dictionary.ContainsKey(i));
             }
 
         }
 
 
         [TestMethod]
-        public void HashSet_OpenAddressing_Test()
+        public void Dictionary_OpenAddressing_Test()
         {
-            var hashSet = new AsHashSet<int, int>(HashSetType.OpenAddressing);
+            var Dictionary = new AsDictionary<int, int>(DictionaryType.OpenAddressing);
             int nodeCount = 1000 * 10;
             //insert test
 
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                hashSet.Add(i, i);
-                Assert.AreEqual(true, hashSet.ContainsKey(i));
+                Dictionary.Add(i, i);
+                Assert.AreEqual(true, Dictionary.ContainsKey(i));
             }
 
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                hashSet.Remove(i);
-                Assert.AreEqual(false, hashSet.ContainsKey(i));
+                Dictionary.Remove(i);
+                Assert.AreEqual(false, Dictionary.ContainsKey(i));
             }
 
 
@@ -85,19 +85,19 @@ namespace Algorithm.Sandbox.Tests.DataStructures
 
             foreach (var item in testSeries)
             {
-                hashSet.Add(item, item);
-                Assert.AreEqual(true, hashSet.ContainsKey(item));
+                Dictionary.Add(item, item);
+                Assert.AreEqual(true, Dictionary.ContainsKey(item));
             }
 
             foreach (var item in testSeries)
             {
-                Assert.AreEqual(true, hashSet.ContainsKey(item));
+                Assert.AreEqual(true, Dictionary.ContainsKey(item));
             }
 
             for (int i = 1; i <= nodeCount; i++)
             {
-                hashSet.Remove(i);
-                Assert.AreEqual(false, hashSet.ContainsKey(i));
+                Dictionary.Remove(i);
+                Assert.AreEqual(false, Dictionary.ContainsKey(i));
             }
 
         }

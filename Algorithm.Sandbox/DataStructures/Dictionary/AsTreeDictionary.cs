@@ -2,13 +2,13 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsTreeHashSetNode<K, V> : IComparable
+    public class AsTreeDictionaryNode<K, V> : IComparable
                                  where K : IComparable
     {
         public K Key { get; private set; }
         public V Value { get; set; }
 
-        public AsTreeHashSetNode(K key, V value)
+        public AsTreeDictionaryNode(K key, V value)
         {
             this.Key = key;
             this.Value = value;
@@ -16,40 +16,40 @@ namespace Algorithm.Sandbox.DataStructures
 
         public int CompareTo(object obj)
         {
-            var itemToComare = obj as AsTreeHashSetNode<K, V>;
+            var itemToComare = obj as AsTreeDictionaryNode<K, V>;
             return Key.CompareTo(itemToComare.Key);
         }
     }
     /// <summary>
-    /// A hashSet implementation using balanced binary search tree (log(n) operations in worst case)
-    /// This may be better than regular hashSet implementation which can give o(K) in worst case (but O(1) when collisions K is avoided )
+    /// A Dictionary implementation using balanced binary search tree (log(n) operations in worst case)
+    /// This may be better than regular Dictionary implementation which can give o(K) in worst case (but O(1) when collisions K is avoided )
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>
-    public class AsTreeHashSet<K, V> where K : IComparable
+    public class AsTreeDictionary<K, V> where K : IComparable
     {
         //use red-black tree as our balanced BST since it gives good performance for both deletion/insertion
-        private AsRedBlackTree<AsTreeHashSetNode<K, V>> binarySearchTree;
+        private AsRedBlackTree<AsTreeDictionaryNode<K, V>> binarySearchTree;
 
         public int Count => binarySearchTree.Count;
 
-        public AsTreeHashSet()
+        public AsTreeDictionary()
         {
-            binarySearchTree = new AsRedBlackTree<AsTreeHashSetNode<K, V>>();
+            binarySearchTree = new AsRedBlackTree<AsTreeDictionaryNode<K, V>>();
         }
 
         //O(log(n) time complexity; 
         public bool ContainsKey(K key)
         {
             return binarySearchTree
-                .HasItem(new AsTreeHashSetNode<K, V>(key, default(V)));
+                .HasItem(new AsTreeDictionaryNode<K, V>(key, default(V)));
         }
 
         //O(log(n) time complexity; 
         public V GetValue(K key)
         {
             return binarySearchTree
-                .Find(new AsTreeHashSetNode<K, V>(key, default(V)))
+                .Find(new AsTreeDictionaryNode<K, V>(key, default(V)))
                 .Value
                 .Value;
         }
@@ -58,21 +58,21 @@ namespace Algorithm.Sandbox.DataStructures
         //add an item to this hash table
         public void Add(K key, V value)
         {
-            binarySearchTree.Insert(new AsTreeHashSetNode<K, V>(key, value));
+            binarySearchTree.Insert(new AsTreeDictionaryNode<K, V>(key, value));
         }
 
         //O(log(n) time complexity
         public void Remove(K key)
         {
-            binarySearchTree.Delete(new AsTreeHashSetNode<K, V>(key, default(V)));
+            binarySearchTree.Delete(new AsTreeDictionaryNode<K, V>(key, default(V)));
         }
 
         //O(n) time complexity
-        public AsArrayList<AsTreeHashSetNode<K, V>> GetAll()
+        public AsArrayList<AsTreeDictionaryNode<K, V>> GetAll()
         {
             var nodes = binarySearchTree.GetAllNodes();
 
-            var allNodeValues = new AsArrayList<AsTreeHashSetNode<K, V>>();
+            var allNodeValues = new AsArrayList<AsTreeDictionaryNode<K, V>>();
 
             for (int i = 0; i < nodes.Length; i++)
             {

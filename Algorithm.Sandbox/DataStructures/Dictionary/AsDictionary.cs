@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Algorithm.Sandbox.DataStructures
 {
 
-    internal interface AsIHashSet<K, V> : IEnumerable<AsHashSetNode<K, V>>
+    internal interface AsIDictionary<K, V> : IEnumerable<AsDictionaryNode<K, V>>
     {
         V this[K key] { get; set; }
 
@@ -19,12 +19,12 @@ namespace Algorithm.Sandbox.DataStructures
     /// <summary>
     /// key-value set
     /// </summary>
-    public class AsHashSetNode<K, V> : IComparable
+    public class AsDictionaryNode<K, V> : IComparable
     {
         public K Key;
         public V Value;
 
-        public AsHashSetNode(K key, V value)
+        public AsDictionaryNode(K key, V value)
         {
             this.Key = key;
             this.Value = value;
@@ -32,16 +32,16 @@ namespace Algorithm.Sandbox.DataStructures
 
         public int CompareTo(object obj)
         {
-            return CompareTo(obj as AsHashSetNode<K, V>);
+            return CompareTo(obj as AsDictionaryNode<K, V>);
         }
 
-        private int CompareTo(AsHashSetNode<K, V> node)
+        private int CompareTo(AsDictionaryNode<K, V> node)
         {
             return Key.Equals(node.Key) ? 0 : -1;
         }
     }
 
-    public enum HashSetType
+    public enum DictionaryType
     {
         SeparateChaining,
         OpenAddressing
@@ -52,53 +52,53 @@ namespace Algorithm.Sandbox.DataStructures
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>
-    public class AsHashSet<K, V> : IEnumerable<AsHashSetNode<K, V>> where K : IComparable
+    public class AsDictionary<K, V> : IEnumerable<AsDictionaryNode<K, V>> 
     {
-        private AsIHashSet<K, V> hashSet;
+        private AsIDictionary<K, V> Dictionary;
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public AsHashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)
+        public AsDictionary(DictionaryType type = DictionaryType.SeparateChaining, int initialBucketSize = 2)
         {
             if (initialBucketSize < 2)
             {
                 throw new Exception("Bucket Size must be greater than 2.");
 
             }
-            if (type == HashSetType.SeparateChaining)
+            if (type == DictionaryType.SeparateChaining)
             {
-                hashSet = new AsSeparateChainingHashSet<K, V>(initialBucketSize);
+                Dictionary = new AsSeparateChainingDictionary<K, V>(initialBucketSize);
             }
             else
             {
-                hashSet = new AsOpenAddressHashSet<K, V>(initialBucketSize);
+                Dictionary = new AsOpenAddressDictionary<K, V>(initialBucketSize);
             }
         }
 
-        public int Count => hashSet.Count;
+        public int Count => Dictionary.Count;
 
         public V this[K key]
         {
-            get { return hashSet[key]; }
-            set { hashSet[key] = value; }
+            get { return Dictionary[key]; }
+            set { Dictionary[key] = value; }
 
         }
 
         //O(1) time complexity; worst case O(n)
         public bool ContainsKey(K key)
         {
-            return hashSet.ContainsKey(key);
+            return Dictionary.ContainsKey(key);
         }
 
         //O(1) time complexity; worst case O(n)
         //add an item to this hash table
         public void Add(K key, V value)
         {
-            hashSet.Add(key, value);
+            Dictionary.Add(key, value);
         }
 
         //O(1) time complexity; worst case O(n)
         public void Remove(K key)
         {
-            hashSet.Remove(key);
+            Dictionary.Remove(key);
         }
 
         /// <summary>
@@ -106,18 +106,18 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         public void Clear()
         {
-            hashSet.Clear();
+            Dictionary.Clear();
         }
 
         //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return hashSet.GetEnumerator();
+            return Dictionary.GetEnumerator();
         }
 
-        public IEnumerator<AsHashSetNode<K, V>> GetEnumerator()
+        public IEnumerator<AsDictionaryNode<K, V>> GetEnumerator()
         {
-            return hashSet.GetEnumerator();
+            return Dictionary.GetEnumerator();
         }
 
     }

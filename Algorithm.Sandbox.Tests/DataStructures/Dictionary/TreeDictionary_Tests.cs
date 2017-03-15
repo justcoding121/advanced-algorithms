@@ -6,15 +6,15 @@ using System.Linq;
 namespace Algorithm.Sandbox.Tests.DataStructures
 {
     [TestClass]
-    public class TreeHashSet_Tests
+    public class TreeDictionary_Tests
     {
         /// <summary>
         /// key value dictionary tests 
         /// </summary>
         [TestMethod]
-        public void TreeHashSet_Test()
+        public void TreeDictionary_Test()
         {
-            var hashSet = new AsTreeHashSet<int, int>();
+            var Dictionary = new AsTreeDictionary<int, int>();
 
             int nodeCount = 1000 * 10;
             //insert test
@@ -22,15 +22,15 @@ namespace Algorithm.Sandbox.Tests.DataStructures
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                hashSet.Add(i, i);
-                Assert.AreEqual(true, hashSet.ContainsKey(i));
+                Dictionary.Add(i, i);
+                Assert.AreEqual(true, Dictionary.ContainsKey(i));
             }
 
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                hashSet.Remove(i);
-                Assert.AreEqual(false, hashSet.ContainsKey(i));
+                Dictionary.Remove(i);
+                Assert.AreEqual(false, Dictionary.ContainsKey(i));
             }
 
 
@@ -39,14 +39,14 @@ namespace Algorithm.Sandbox.Tests.DataStructures
 
             foreach (var item in testSeries)
             {
-                hashSet.Add(item, item);
-                Assert.AreEqual(true, hashSet.ContainsKey(item));
+                Dictionary.Add(item, item);
+                Assert.AreEqual(true, Dictionary.ContainsKey(item));
             }
 
             for (int i = 1; i <= nodeCount; i++)
             {
-                hashSet.Remove(i);
-                Assert.AreEqual(false, hashSet.ContainsKey(i));
+                Dictionary.Remove(i);
+                Assert.AreEqual(false, Dictionary.ContainsKey(i));
             }
 
         }

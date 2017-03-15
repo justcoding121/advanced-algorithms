@@ -11,10 +11,10 @@ namespace Algorithm.Sandbox.DataStructures
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>
-    internal class AsSeparateChainingHashSet<K, V> : AsIHashSet<K, V>  where K : IComparable
+    internal class AsSeparateChainingDictionary<K, V> : AsIDictionary<K, V>  
     {
 
-        private AsDoublyLinkedList<AsHashSetNode<K, V>>[] hashArray;
+        private AsDoublyLinkedList<AsDictionaryNode<K, V>>[] hashArray;
         private int bucketSize => hashArray.Length;
         private int initialBucketSize;
         private int filledBuckets;
@@ -22,10 +22,10 @@ namespace Algorithm.Sandbox.DataStructures
         public int Count { get; private set; }
 
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public AsSeparateChainingHashSet(int initialBucketSize = 3)
+        public AsSeparateChainingDictionary(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new AsDoublyLinkedList<AsHashSetNode<K, V>>[initialBucketSize];
+            hashArray = new AsDoublyLinkedList<AsDictionaryNode<K, V>>[initialBucketSize];
         }
 
         public V this[K key]
@@ -49,7 +49,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Data.Key.CompareTo(key) == 0)
+                    if (current.Data.Key.Equals(key))
                     {
                         return true;
                     }
@@ -71,8 +71,8 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new AsDoublyLinkedList<AsHashSetNode<K, V>>();
-                hashArray[index].InsertFirst(new AsHashSetNode<K, V>(key, value));
+                hashArray[index] = new AsDoublyLinkedList<AsDictionaryNode<K, V>>();
+                hashArray[index].InsertFirst(new AsDictionaryNode<K, V>(key, value));
                 filledBuckets++;
             }
             else
@@ -81,7 +81,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Data.Key.CompareTo(key) == 0)
+                    if (current.Data.Key.Equals(key))
                     {
                         throw new Exception("Duplicate key");
                     }
@@ -89,7 +89,7 @@ namespace Algorithm.Sandbox.DataStructures
                     current = current.Next;
                 }
 
-                hashArray[index].InsertFirst(new AsHashSetNode<K, V>(key, value));
+                hashArray[index].InsertFirst(new AsDictionaryNode<K, V>(key, value));
             }
 
             Count++;
@@ -109,10 +109,10 @@ namespace Algorithm.Sandbox.DataStructures
                 var current = hashArray[index].Head;
 
                 //VODO merge both search and remove to a single loop here!
-                AsDoublyLinkedListNode<AsHashSetNode<K, V>> item = null;
+                AsDoublyLinkedListNode<AsDictionaryNode<K, V>> item = null;
                 while (current != null)
                 {
-                    if (current.Data.Key.CompareTo(key) == 0)
+                    if (current.Data.Key.Equals(key))
                     {
                         item = current;
                         break;
@@ -151,7 +151,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         public void Clear()
         {
-            hashArray = new AsDoublyLinkedList<AsHashSetNode<K, V>>[initialBucketSize];
+            hashArray = new AsDoublyLinkedList<AsDictionaryNode<K, V>>[initialBucketSize];
             Count = 0;
             filledBuckets = 0;
         }
@@ -171,7 +171,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Data.Key.CompareTo(key) == 0)
+                    if (current.Data.Key.Equals(key))
                     {
                         Remove(key);
                         Add(key, value);
@@ -199,7 +199,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Data.Key.CompareTo(key) == 0)
+                    if (current.Data.Key.Equals(key))
                     {
                         return current.Data.Value;
                     }
@@ -221,7 +221,7 @@ namespace Algorithm.Sandbox.DataStructures
                 //increase array size exponentially on demand
                 var newBucketSize = bucketSize * 2;
 
-                var biggerArray = new AsDoublyLinkedList<AsHashSetNode<K, V>>[newBucketSize];
+                var biggerArray = new AsDoublyLinkedList<AsDictionaryNode<K, V>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -244,7 +244,7 @@ namespace Algorithm.Sandbox.DataStructures
                                 if (biggerArray[newIndex] == null)
                                 {
                                     filledBuckets++;
-                                    biggerArray[newIndex] = new AsDoublyLinkedList<AsHashSetNode<K, V>>();
+                                    biggerArray[newIndex] = new AsDoublyLinkedList<AsDictionaryNode<K, V>>();
                                 }
 
                                 biggerArray[newIndex].InsertFirst(current);
@@ -273,7 +273,7 @@ namespace Algorithm.Sandbox.DataStructures
                 //reduce array by half 
                 var newBucketSize = bucketSize / 2;
 
-                var smallerArray = new AsDoublyLinkedList<AsHashSetNode<K, V>>[newBucketSize];
+                var smallerArray = new AsDoublyLinkedList<AsDictionaryNode<K, V>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -296,7 +296,7 @@ namespace Algorithm.Sandbox.DataStructures
                                 if (smallerArray[newIndex] == null)
                                 {
                                     filledBuckets++;
-                                    smallerArray[newIndex] = new AsDoublyLinkedList<AsHashSetNode<K, V>>();
+                                    smallerArray[newIndex] = new AsDoublyLinkedList<AsDictionaryNode<K, V>>();
                                 }
 
                                 smallerArray[newIndex].InsertFirst(current);
@@ -318,26 +318,26 @@ namespace Algorithm.Sandbox.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<AsHashSetNode<K, V>> GetEnumerator()
+        public IEnumerator<AsDictionaryNode<K, V>> GetEnumerator()
         {
-            return new AsSeparateChainingHashSetEnumerator<K, V>(hashArray, bucketSize);
+            return new AsSeparateChainingDictionaryEnumerator<K, V>(hashArray, bucketSize);
         }
 
     }
 
     //  implement IEnumerator.
-    public class AsSeparateChainingHashSetEnumerator<K, V> : IEnumerator<AsHashSetNode<K, V>> where K : IComparable
+    public class AsSeparateChainingDictionaryEnumerator<K, V> : IEnumerator<AsDictionaryNode<K, V>> 
     {
-        internal AsDoublyLinkedList<AsHashSetNode<K, V>>[] hashList;
+        internal AsDoublyLinkedList<AsDictionaryNode<K, V>>[] hashList;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
-        AsDoublyLinkedListNode<AsHashSetNode<K, V>> currentNode = null;
+        AsDoublyLinkedListNode<AsDictionaryNode<K, V>> currentNode = null;
 
         int length;
 
-        internal AsSeparateChainingHashSetEnumerator(AsDoublyLinkedList<AsHashSetNode<K, V>>[] hashList, int length)
+        internal AsSeparateChainingDictionaryEnumerator(AsDoublyLinkedList<AsDictionaryNode<K, V>>[] hashList, int length)
         {
             this.length = length;
             this.hashList = hashList;
@@ -392,7 +392,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
         }
 
-        public AsHashSetNode<K, V> Current
+        public AsDictionaryNode<K, V> Current
         {
             get
             {

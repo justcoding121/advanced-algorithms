@@ -55,7 +55,7 @@
     <Compile Include="DataStructures\Heap\BinomialHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\D-aryHeap_Tests.cs" />
     <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
-    <Compile Include="DataStructures\HashSets\TreeHashSet_Tests.cs" />
+    <Compile Include="DataStructures\Dictionary\TreeDictionary_Tests.cs" />
     <Compile Include="DataStructures\Heap\BMinHeap_Tests.cs" />
     <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
     <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="DataStructures\Tree\BST_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\CircularLinkedList_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\DoublyLinkedList_Tests.cs" />
-    <Compile Include="DataStructures\HashSets\HashSet_Tests.cs" />
+    <Compile Include="DataStructures\Dictionary\Dictionary_Tests.cs" />
     <Compile Include="DataStructures\PriorityQueue_Tests.cs" />
     <Compile Include="DataStructures\Queue_Tests.cs" />
     <Compile Include="DataStructures\Tree\RedBlackTree_Tests.cs" />

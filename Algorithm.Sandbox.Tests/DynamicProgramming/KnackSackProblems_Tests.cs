@@ -17,7 +17,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
             //max weight capacity of bag
             int W = 49;
 
-            var result = KnackSackProblems.KnackSack_10_Recursive(W, weights, values, weights.Length, new AsHashSet<string, int>());
+            var result = KnackSackProblems.KnackSack_10_Recursive(W, weights, values, weights.Length, new AsDictionary<string, int>());
 
             Assert.AreEqual(result, 180);
 

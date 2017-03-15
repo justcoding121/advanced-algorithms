@@ -8,7 +8,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
         //O(amount * n^n) without memoization?
         //O(amount * n) with memoization
-        public static int MinCoinChangeRecursive(int amount, int n, int[] coins, AsHashSet<int, int> memoizingCache)
+        public static int MinCoinChangeRecursive(int amount, int n, int[] coins, AsDictionary<int, int> memoizingCache)
         {
             var key = amount;
 
@@ -58,7 +58,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
         //O(amount * n^n) without memoization?
         //O(amount * n) with memoization
-        private static int MaxCoinChangeRecursive(int amount, int n, int[] coins, AsHashSet<int, int> memoizingCache)
+        private static int MaxCoinChangeRecursive(int amount, int n, int[] coins, AsDictionary<int, int> memoizingCache)
         {
             var key = amount;
 

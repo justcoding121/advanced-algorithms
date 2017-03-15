@@ -14,6 +14,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void KdTree2D_Smoke_Test()
         {
+            var distanceCalculator = new DistanceCalculator2D();
 
             var testPts = new List<int[]> { new int[2]{ 3, 6 }, new int[2] { 17, 15 },
                 new int[2] { 13, 15 }, new int[2] { 6, 12 }, new int[2] { 9, 1 },
@@ -29,8 +30,10 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             int j = testPts.Count - 1;
             while (testPts.Count > 0)
             {
-                var nearestNeigbour = tree.FindNearestNeighbour(new DistanceCalculator2D(), new int[] { 10, 20 });
-                Assert.IsTrue(AreEqual(nearestNeigbour, GetActualNearestNeighbour(testPts, new int[] { 10, 20 })));
+                var testPoint = new int[] { 10, 20 };
+                var nearestNeigbour = tree.FindNearestNeighbour(new DistanceCalculator2D(), testPoint);
+                var actualNeigbour = GetActualNearestNeighbour(testPts, testPoint);
+                Assert.IsTrue(distanceCalculator.Compare(actualNeigbour, nearestNeigbour, testPoint) == 0);
 
                 tree.Delete(testPts[j]);
                 testPts.RemoveAt(j);
@@ -46,47 +49,44 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void KdTree2D_Accuracy_Test()
         {
-            while (true)
+            var distanceCalculator = new DistanceCalculator2D();
+
+            int nodeCount = 1000 * 10;
+            var rnd = new Random();
+
+            var testPts = new List<int[]>();
+
+            for (int i = 0; i < nodeCount; i++)
             {
-                int nodeCount = 10;
-                var rnd = new Random();
+                var start = i + rnd.Next(int.MinValue, int.MaxValue - 100);
+                var end = start + rnd.Next(1, 10);
 
-                var testPts = new List<int[]>();
-
-                for (int i = 0; i < nodeCount; i++)
-                {
-                    var start = i + rnd.Next(1, 10);
-                    var interval = new int[] { start, start + rnd.Next(1, 10) };
-                    testPts.Add(interval);
-                }
-
-                var tree = new AsKDTree<int>(2);
-
-                foreach (var pt in testPts)
-                {
-                    tree.Insert(pt);
-                }
-
-                int j = testPts.Count - 1;
-                while (testPts.Count > 0)
-                {
-                    var nearestNeigbour = tree.FindNearestNeighbour(new DistanceCalculator2D(), new int[] { 10, 20 });
-                    var actualNeigbour = GetActualNearestNeighbour(testPts, new int[] { 10, 20 });
-
-                    try
-                    {
-                        Assert.IsTrue(AreEqual(actualNeigbour, nearestNeigbour));
-                    }
-                    catch
-                    {
-
-                    }
-                    tree.Delete(testPts[j]);
-                    testPts.RemoveAt(j);
-                    j--;
-                }
+                testPts.Add(new int[] { start, end });
             }
 
+            var tree = new AsKDTree<int>(2);
+
+            foreach (var pt in testPts)
+            {
+                tree.Insert(pt);
+            }
+
+            int j = testPts.Count - 1;
+
+            while (testPts.Count > 0)
+            {
+                var testPoint = new int[] { rnd.Next(), rnd.Next() };
+
+                var nearestNeigbour = tree.FindNearestNeighbour(distanceCalculator, testPoint);
+                var actualNeigbour = GetActualNearestNeighbour(testPts, testPoint);
+
+                Assert.IsTrue(distanceCalculator.Compare(actualNeigbour, nearestNeigbour, testPoint) == 0);
+
+
+                tree.Delete(testPts[j]);
+                testPts.RemoveAt(j);
+                j--;
+            }
 
         }
 
@@ -114,7 +114,10 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             /// <returns></returns>
             public int Compare(int[] a, int[] b, int[] point)
             {
-                return GetEucledianDistance(a, point) < GetEucledianDistance(b, point) ? -1 : 1;
+                var distance1 = GetEucledianDistance(a, point);
+                var distance2 = GetEucledianDistance(b, point);
+
+                return distance1 == distance2 ? 0 : distance1 < distance2 ? -1 : 1;
 
             }
 
@@ -128,7 +131,10 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             /// <returns></returns>
             public int Compare(int a, int b, int[] start, int[] end)
             {
-                return GetDistance(a, b) < GetEucledianDistance(start, end) ? -1 : 1;
+                var distance1 = GetDistance(a, b);
+                var distance2 = GetEucledianDistance(start, end);
+
+                return distance1 == distance2 ? 0 : distance1 < distance2 ? -1 : 1;
 
             }
 

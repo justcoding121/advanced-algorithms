@@ -6,12 +6,12 @@ namespace Algorithm.Sandbox.DataStructures
     {
         public T Value { get; set; }
 
-        public AsTreeHashSet<T, AsTrieNode<T>> Children { get; set; }
+        public AsTreeDictionary<T, AsTrieNode<T>> Children { get; set; }
 
         public AsTrieNode(T value)
         {
             this.Value = value;
-            Children = new AsTreeHashSet<T, AsTrieNode<T>>();
+            Children = new AsTreeDictionary<T, AsTrieNode<T>>();
         }
 
     }

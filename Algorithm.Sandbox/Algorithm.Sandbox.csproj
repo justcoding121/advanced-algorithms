@@ -48,8 +48,8 @@
   <ItemGroup>
     <Compile Include="BackTracking\HamiltonianCycle.cs" />
     <Compile Include="Compression\Huffman.cs" />
-    <Compile Include="DataStructures\HashSet\AsHashSet.cs" />
-    <Compile Include="DataStructures\HashSet\AsOpenAddressHashSet.cs" />
+    <Compile Include="DataStructures\Dictionary\AsDictionary.cs" />
+    <Compile Include="DataStructures\Dictionary\AsOpenAddressDictionary.cs" />
     <Compile Include="DataStructures\Heap\Min\AsBinomialMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\AsBMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\Asd-aryMinHeap.cs" />
@@ -71,7 +71,7 @@
     <Compile Include="DataStructures\Graph\AdjacencyList\AsDiGraph.cs" />
     <Compile Include="DataStructures\LinkedList\AsDoublyLinkedList.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\AsGraph.cs" />
-    <Compile Include="DataStructures\HashSet\AsSeparateChainingHashSet.cs" />
+    <Compile Include="DataStructures\Dictionary\AsSeparateChainingDictionary.cs" />
     <Compile Include="DataStructures\Matrix\AsMatrix.cs" />
     <Compile Include="DataStructures\Queue\PriorityQueue\Min\AsPriorityQueue.cs" />
     <Compile Include="DataStructures\Queue\AsQueue.cs" />
@@ -82,7 +82,7 @@
     <Compile Include="DataStructures\String\AsStringBuilder.cs" />
     <Compile Include="DataStructures\Tree\AsTreapTree.cs" />
     <Compile Include="DataStructures\Tree\AsTree.cs" />
-    <Compile Include="DataStructures\HashSet\AsTreeHashSet.cs" />
+    <Compile Include="DataStructures\Dictionary\AsTreeDictionary.cs" />
     <Compile Include="DataStructures\Tree\AsTrie.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\AsWeightedGraph.cs" />
     <Compile Include="DataStructures\List\AsSkipList.cs" />

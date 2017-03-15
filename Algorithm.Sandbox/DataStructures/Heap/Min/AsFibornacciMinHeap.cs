@@ -76,7 +76,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             //degree - node dictionary
-            var mergeDictionary = new AsHashSet<int, AsFibornacciTreeNode<T>>();
+            var mergeDictionary = new AsDictionary<int, AsFibornacciTreeNode<T>>();
 
             var current = heapForestHead;
             minNode = current;

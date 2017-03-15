@@ -11,10 +11,10 @@ namespace Algorithm.Sandbox.DataStructures
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>
-    internal class AsOpenAddressHashSet<K, V> : AsIHashSet<K, V> where K : IComparable
+    internal class AsOpenAddressDictionary<K, V> : AsIDictionary<K, V> 
     {
 
-        private AsHashSetNode<K, V>[] hashArray;
+        private AsDictionaryNode<K, V>[] hashArray;
         private int bucketSize => hashArray.Length;
         private int initialBucketSize;
 
@@ -22,10 +22,10 @@ namespace Algorithm.Sandbox.DataStructures
         public int Count { get; private set; }
 
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public AsOpenAddressHashSet(int initialBucketSize = 2)
+        public AsOpenAddressDictionary(int initialBucketSize = 2)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new AsHashSetNode<K, V>[initialBucketSize];
+            hashArray = new AsDictionaryNode<K, V>[initialBucketSize];
         }
 
         public V this[K key]
@@ -53,7 +53,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Key.CompareTo(key) == 0)
+                    if (current.Key.Equals(key))
                     {
                         return true;
                     }
@@ -67,7 +67,7 @@ namespace Algorithm.Sandbox.DataStructures
                     current = hashArray[index];
 
                     //reached original hit again
-                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    if (current != null && current.Key.Equals(hitKey))
                     {
                         break;
                     }
@@ -90,7 +90,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new AsHashSetNode<K, V>(key, value);
+                hashArray[index] = new AsDictionaryNode<K, V>(key, value);
             }
             else
             {
@@ -101,7 +101,7 @@ namespace Algorithm.Sandbox.DataStructures
                 while (current != null)
                 {
 
-                    if (current.Key.CompareTo(key) == 0)
+                    if (current.Key.Equals(key))
                     {
                         throw new Exception("Duplicate key");
                     }
@@ -114,13 +114,13 @@ namespace Algorithm.Sandbox.DataStructures
 
                     current = hashArray[index];
 
-                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    if (current != null && current.Key.Equals(hitKey))
                     {
-                        throw new Exception("HashSet is full");
+                        throw new Exception("Dictionary is full");
                     }
                 }
 
-                hashArray[index] = new AsHashSetNode<K, V>(key, value);
+                hashArray[index] = new AsDictionaryNode<K, V>(key, value);
             }
 
             Count++;
@@ -144,11 +144,11 @@ namespace Algorithm.Sandbox.DataStructures
                 //prevent circling around infinitely
                 var hitKey = current.Key;
 
-                AsHashSetNode<K, V> target = null;
+                AsDictionaryNode<K, V> target = null;
 
                 while (current != null)
                 {
-                    if (current.Key.CompareTo(key) == 0)
+                    if (current.Key.Equals(key))
                     {
                         target = current;
                         break;
@@ -162,7 +162,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                     current = hashArray[curIndex];
 
-                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    if (current != null && current.Key.Equals(hitKey))
                     {
                         throw new Exception("No such item for given key");
                     }
@@ -221,7 +221,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         public void Clear()
         {
-            hashArray = new AsHashSetNode<K, V>[initialBucketSize];
+            hashArray = new AsDictionaryNode<K, V>[initialBucketSize];
             Count = 0;
         }
 
@@ -241,7 +241,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Key.CompareTo(key) == 0)
+                    if (current.Key.Equals(key))
                     {
                         Remove(key);
                         Add(key, value);
@@ -257,7 +257,7 @@ namespace Algorithm.Sandbox.DataStructures
                     current = hashArray[index];
 
                     //reached original hit again
-                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    if (current != null && current.Key.Equals(hitKey))
                     {
                         throw new Exception("Item not found");
                     }
@@ -282,7 +282,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 while (current != null)
                 {
-                    if (current.Key.CompareTo(key) == 0)
+                    if (current.Key.Equals(key))
                     {
                         return current.Value;
                     }
@@ -296,7 +296,7 @@ namespace Algorithm.Sandbox.DataStructures
                     current = hashArray[index];
 
                     //reached original hit again
-                    if (current != null && current.Key.CompareTo(hitKey) == 0)
+                    if (current != null && current.Key.Equals(hitKey))
                     {
                         throw new Exception("Item not found");
                     }
@@ -316,7 +316,7 @@ namespace Algorithm.Sandbox.DataStructures
                 var currentArray = hashArray;
 
                 //increase array size exponentially on demand
-                hashArray = new AsHashSetNode<K, V>[bucketSize * 2];
+                hashArray = new AsDictionaryNode<K, V>[bucketSize * 2];
 
                 for (int i = 0; i < orgBucketSize; i++)
                 {
@@ -345,7 +345,7 @@ namespace Algorithm.Sandbox.DataStructures
                 var currentArray = hashArray;
 
                 //reduce array by half logarithamic
-                hashArray = new AsHashSetNode<K, V>[bucketSize / 2];
+                hashArray = new AsDictionaryNode<K, V>[bucketSize / 2];
 
                 for (int i = 0; i < orgBucketSize; i++)
                 {
@@ -378,24 +378,24 @@ namespace Algorithm.Sandbox.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<AsHashSetNode<K, V>> GetEnumerator()
+        public IEnumerator<AsDictionaryNode<K, V>> GetEnumerator()
         {
-            return new AsOpenAddressHashSetEnumerator<K, V>(hashArray, hashArray.Length);
+            return new AsOpenAddressDictionaryEnumerator<K, V>(hashArray, hashArray.Length);
         }
 
     }
 
     //  implement IEnumerator.
-    public class AsOpenAddressHashSetEnumerator<K, V> : IEnumerator<AsHashSetNode<K, V>> where K : IComparable
+    public class AsOpenAddressDictionaryEnumerator<K, V> : IEnumerator<AsDictionaryNode<K, V>> 
     {
-        internal AsHashSetNode<K, V>[] hashArray;
+        internal AsDictionaryNode<K, V>[] hashArray;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
         int length;
 
-        public AsOpenAddressHashSetEnumerator(AsHashSetNode<K, V>[] hashArray, int length)
+        public AsOpenAddressDictionaryEnumerator(AsDictionaryNode<K, V>[] hashArray, int length)
         {
             this.length = length;
             this.hashArray = hashArray;
@@ -424,7 +424,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
         }
 
-        public AsHashSetNode<K, V> Current
+        public AsDictionaryNode<K, V> Current
         {
             get
             {
