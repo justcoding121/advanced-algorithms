@@ -50,7 +50,7 @@ namespace Algorithm.Sandbox.DataStructures
         internal AsKDTreeNode<T> Right { get; set; }
         internal bool IsLeaf => Left == null && Right == null;
 
-        internal AsKDTreeNode<T> Parent { get;  set; }
+        internal AsKDTreeNode<T> Parent { get; set; }
         internal bool IsLeftChild => Parent.Left == this;
     }
 
@@ -132,6 +132,10 @@ namespace Algorithm.Sandbox.DataStructures
 
         }
 
+        /// <summary>
+        /// delete point
+        /// </summary>
+        /// <param name="point"></param>
         public void Delete(T[] point)
         {
             if (Root == null)
@@ -143,6 +147,12 @@ namespace Algorithm.Sandbox.DataStructures
             Count--;
         }
 
+        /// <summary>
+        /// delete point by locating it recursively
+        /// </summary>
+        /// <param name="currentNode"></param>
+        /// <param name="point"></param>
+        /// <param name="depth"></param>
         private void Delete(AsKDTreeNode<T> currentNode, T[] point, int depth)
         {
             var currentDimension = depth % dimensions;
@@ -273,7 +283,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         /// <summary>
-        /// Does these two points are matching
+        /// Are these two points matching
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -297,6 +307,12 @@ namespace Algorithm.Sandbox.DataStructures
         private AsDictionary<AsKDTreeNode<T>, bool> visitTracker
             = new AsDictionary<AsKDTreeNode<T>, bool>();
 
+        /// <summary>
+        /// returns the nearest neigbour to point
+        /// </summary>
+        /// <param name="distanceCalculator"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
         public T[] FindNearestNeighbour(IDistanceCalculator<T> distanceCalculator, T[] point)
         {
             if (Root == null)
@@ -408,6 +424,14 @@ namespace Algorithm.Sandbox.DataStructures
             return currentBest;
         }
 
+        /// <summary>
+        /// returns the closest node between currentBest and CurrentNode to point 
+        /// </summary>
+        /// <param name="distanceCalculator"></param>
+        /// <param name="currentBest"></param>
+        /// <param name="currentNode"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
         private AsKDTreeNode<T> GetClosestNeigbour(IDistanceCalculator<T> distanceCalculator,
             AsKDTreeNode<T> currentBest, AsKDTreeNode<T> currentNode, T[] point)
         {
@@ -420,9 +444,109 @@ namespace Algorithm.Sandbox.DataStructures
             return currentNode;
         }
 
+        /// <summary>
+        /// returns a list of nodes that are withing the given
+        /// start and end ranges
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public AsArrayList<T[]> FindRange(T[] start, T[] end)
         {
-            throw new NotImplementedException();
+            var visitTracker = new AsDictionary<AsKDTreeNode<T>,bool>();
+
+            var result = FindRange(new AsArrayList<T[]>(), Root, 
+                visitTracker, start, end, 0);
+
+            Debug.WriteLine(visitTracker.Count);
+
+            return result;
+
+        }
+
+        /// <summary>
+        /// recursively find points in given range
+        /// </summary>
+        /// <param name="found"></param>
+        /// <param name="currentNode"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="depth"></param>
+        /// <returns></returns>
+        private AsArrayList<T[]> FindRange(AsArrayList<T[]> found, 
+            AsKDTreeNode<T> currentNode,
+            AsDictionary<AsKDTreeNode<T>, bool> visited,
+            T[] start, T[] end, int depth)
+        {
+            if (currentNode == null)
+                return found;
+
+            var currentDimension = depth % dimensions;
+
+            if (currentNode.IsLeaf)
+            {
+                //start is less than current node
+                if (InRange(currentNode, start, end))
+                {
+                    found.Add(currentNode.Points);
+                }
+            }
+            //if start is less than current
+            //move left
+            else
+            {
+                if (start[currentDimension].CompareTo(currentNode.Points[currentDimension]) <= 0)
+                {
+                    FindRange(found, currentNode.Left, visited, start, end, ++depth);
+
+                    //start is less than current node
+                    if (!visited.ContainsKey(currentNode)
+                        && InRange(currentNode, start, end))
+                    {
+                        found.Add(currentNode.Points);
+                        visited.Add(currentNode, false);
+                    }
+                }
+                //if start is greater than current
+                //and end is greater than current
+                //move right
+                if (end[currentDimension].CompareTo(currentNode.Points[currentDimension]) >= 0)
+                {
+                    FindRange(found, currentNode.Right, visited, start, end, ++depth);
+
+                    //start is less than current node
+                    if (!visited.ContainsKey(currentNode)
+                        && InRange(currentNode, start, end))
+                    {
+                        found.Add(currentNode.Points);
+                        visited.Add(currentNode, false);
+                    }
+                }
+            }
+
+            return found;
+        }
+
+        /// <summary>
+        /// is the point in node is within start & end points
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        private bool InRange(AsKDTreeNode<T> node, T[] start, T[] end)
+        {
+            for (int i = 0; i < node.Points.Length; i++)
+            {
+                //if not (start is less than node && end is greater than node)
+                if (!(start[i].CompareTo(node.Points[i]) <= 0
+                    && end[i].CompareTo(node.Points[i]) >= 0))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
