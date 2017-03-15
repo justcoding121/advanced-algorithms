@@ -10,11 +10,32 @@ namespace Algorithm.Sandbox.DataStructures
     /// <typeparam name="T"></typeparam>
     public interface IDistanceCalculator<T> where T : IComparable
     {
+        /// <summary>
+        /// Compare eucledian distance between point a to point
+        /// and point b to point
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="point"></param>
+        /// <returns>similar result as IComparable</returns>
         int Compare(T[] a, T[] b, T[] point);
 
+        /// <summary>
+        /// Compare distance between point a to b
+        /// and eucledian distance betwen point start to end
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns>similar result as IComparable</returns>
         int Compare(T a, T b, T[] start, T[] end);
     }
 
+    /// <summary>
+    /// Kd tree node
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     internal class AsKDTreeNode<T> where T : IComparable
     {
         internal T[] Points { get; set; }
@@ -33,6 +54,10 @@ namespace Algorithm.Sandbox.DataStructures
         internal bool IsLeftChild => Parent.Left == this;
     }
 
+    /// <summary>
+    /// A multiDimensional Kd tree implementation (Unbalanced)
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsKDTree<T> where T : IComparable
     {
         private int dimensions;
