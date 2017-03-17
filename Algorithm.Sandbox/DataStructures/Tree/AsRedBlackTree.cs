@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.DataStructures
     /// <typeparam name="T"></typeparam>
     internal class AsRedBlackTreeNode<T> : AsIBSTNode<T> where T : IComparable
     {
-        internal T Value { get; set; }
-
+        internal T Value => Values[0];
+        internal AsArrayList<T> Values { get; set; }
         internal AsRedBlackTreeNode<T> Parent { get; set; }
 
         internal AsRedBlackTreeNode<T> Left { get; set; }
@@ -61,7 +61,8 @@ namespace Algorithm.Sandbox.DataStructures
         internal AsRedBlackTreeNode(AsRedBlackTreeNode<T> parent, T value)
         {
             Parent = parent;
-            Value = value;
+            Values = new AsArrayList<T>();
+            Values.Add(value);
             NodeColor = RedBlackTreeNodeColor.Red;
         }
     }
@@ -344,7 +345,8 @@ namespace Algorithm.Sandbox.DataStructures
             }
             else
             {
-                throw new Exception("Item exists");
+                //duplicate
+                currentNode.Values.Add(newNodeValue);
             }    
         }
 
@@ -509,6 +511,13 @@ namespace Algorithm.Sandbox.DataStructures
             }
             else
             {
+                //duplicate - easy fix
+                if(node.Values.Length >1)
+                {
+                    node.Values.RemoveItem(node.Values.Length - 1);
+                    return;
+                }
+
                 //node is a leaf node
                 if (node.IsLeaf)
                 {
@@ -546,7 +555,8 @@ namespace Algorithm.Sandbox.DataStructures
                     {
                         var maxLeftNode = FindMax(node.Left);
 
-                        node.Value = maxLeftNode.Value;
+                        node.Values.Clear();
+                        node.Values.Add(maxLeftNode.Value);
 
                         //delete left max node
                         delete(node.Left, maxLeftNode.Value);
