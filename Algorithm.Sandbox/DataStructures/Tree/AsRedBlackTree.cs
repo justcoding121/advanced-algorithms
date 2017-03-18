@@ -304,9 +304,25 @@ namespace Algorithm.Sandbox.DataStructures
             Count++;
         }
 
+        //O(log(n)) always
+        internal AsRedBlackTreeNode<T> InsertAndReturnNewNode(T value)
+        {
+            //empty tree
+            if (Root == null)
+            {
+                Root = new AsRedBlackTreeNode<T>(null, value);
+                Root.NodeColor = RedBlackTreeNodeColor.Black;
+                Count++;
+                return Root;
+            }
+
+            var newNode = insert(Root, value);
+            Count++;
+            return newNode;
+        }
 
         //O(log(n)) always
-        private void insert(
+        private AsRedBlackTreeNode<T> insert(
             AsRedBlackTreeNode<T> currentNode, T newNodeValue)
         {
 
@@ -321,10 +337,11 @@ namespace Algorithm.Sandbox.DataStructures
                     //insert
                     currentNode.Right = new AsRedBlackTreeNode<T>(currentNode, newNodeValue);
                     BalanceInsertion(currentNode.Right);
+                    return currentNode.Right;
                 }
                 else
                 {
-                    insert(currentNode.Right, newNodeValue);
+                    return insert(currentNode.Right, newNodeValue);
                 }
 
             }
@@ -337,16 +354,18 @@ namespace Algorithm.Sandbox.DataStructures
                     //insert
                     currentNode.Left = new AsRedBlackTreeNode<T>(currentNode, newNodeValue);
                     BalanceInsertion(currentNode.Left);
+                    return currentNode.Left;
                 }
                 else
                 {
-                    insert(currentNode.Left, newNodeValue);
+                    return insert(currentNode.Left, newNodeValue);
                 }
             }
             else
             {
                 //duplicate
                 currentNode.Values.Add(newNodeValue);
+                return currentNode;
             }    
         }
 

@@ -66,6 +66,10 @@ namespace Algorithm.Sandbox.DataStructures
         public AsKDTree(int dimensions)
         {
             this.dimensions = dimensions;
+            if (dimensions <= 0)
+            {
+                throw new Exception("Dimension should be greater than 0.");
+            }
         }
 
         /// <summary>
@@ -451,11 +455,11 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public AsArrayList<T[]> FindRange(T[] start, T[] end)
+        public AsArrayList<T[]> GetInRange(T[] start, T[] end)
         {
             var visitTracker = new AsDictionary<AsKDTreeNode<T>,bool>();
 
-            var result = FindRange(new AsArrayList<T[]>(), Root, 
+            var result = GetInRange(new AsArrayList<T[]>(), Root, 
                 visitTracker, start, end, 0);
 
             Debug.WriteLine(visitTracker.Count);
@@ -467,19 +471,19 @@ namespace Algorithm.Sandbox.DataStructures
         /// <summary>
         /// recursively find points in given range
         /// </summary>
-        /// <param name="found"></param>
+        /// <param name="result"></param>
         /// <param name="currentNode"></param>
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <param name="depth"></param>
         /// <returns></returns>
-        private AsArrayList<T[]> FindRange(AsArrayList<T[]> found, 
+        private AsArrayList<T[]> GetInRange(AsArrayList<T[]> result, 
             AsKDTreeNode<T> currentNode,
             AsDictionary<AsKDTreeNode<T>, bool> visited,
             T[] start, T[] end, int depth)
         {
             if (currentNode == null)
-                return found;
+                return result;
 
             var currentDimension = depth % dimensions;
 
@@ -488,7 +492,7 @@ namespace Algorithm.Sandbox.DataStructures
                 //start is less than current node
                 if (InRange(currentNode, start, end))
                 {
-                    found.Add(currentNode.Points);
+                    result.Add(currentNode.Points);
                 }
             }
             //if start is less than current
@@ -497,13 +501,13 @@ namespace Algorithm.Sandbox.DataStructures
             {
                 if (start[currentDimension].CompareTo(currentNode.Points[currentDimension]) <= 0)
                 {
-                    FindRange(found, currentNode.Left, visited, start, end, ++depth);
+                    GetInRange(result, currentNode.Left, visited, start, end, ++depth);
 
                     //start is less than current node
                     if (!visited.ContainsKey(currentNode)
                         && InRange(currentNode, start, end))
                     {
-                        found.Add(currentNode.Points);
+                        result.Add(currentNode.Points);
                         visited.Add(currentNode, false);
                     }
                 }
@@ -512,19 +516,19 @@ namespace Algorithm.Sandbox.DataStructures
                 //move right
                 if (end[currentDimension].CompareTo(currentNode.Points[currentDimension]) >= 0)
                 {
-                    FindRange(found, currentNode.Right, visited, start, end, ++depth);
+                    GetInRange(result, currentNode.Right, visited, start, end, ++depth);
 
                     //start is less than current node
                     if (!visited.ContainsKey(currentNode)
                         && InRange(currentNode, start, end))
                     {
-                        found.Add(currentNode.Points);
+                        result.Add(currentNode.Points);
                         visited.Add(currentNode, false);
                     }
                 }
             }
 
-            return found;
+            return result;
         }
 
         /// <summary>

@@ -32,6 +32,11 @@ namespace Algorithm.Sandbox.DataStructures
 
         public AsDIntervalTree(int dimensions)
         {
+            if (dimensions <= 0)
+            {
+                throw new Exception("Dimension should be greater than 0.");
+            }
+
             this.dimensions = dimensions;
             this.tree = new AsIntervalTree<T>();
         }
@@ -193,28 +198,12 @@ namespace Algorithm.Sandbox.DataStructures
 
             currentTrees.Add(tree);
 
-            var doOverap = false;
+            var allOverlaps = new AsArrayList<AsIntervalTree<T>>();
 
-            for (int i = 0; i < dimensions; i++)
+            int i = 0;
+
+            while(true)
             {
-                var allOverlaps = new AsArrayList<AsIntervalTree<T>>();
-
-                //last dimension to check
-                if (i == 0)
-                {
-                    foreach (var tree in currentTrees)
-                    {
-                        doOverap = tree.DoOverlap(new AsInterval<T>(start[i], end[i]));
-
-                        if (doOverap)
-                        {
-                            break;
-                        }
-                    }
-
-                    break;
-                }
-
                 foreach (var tree in currentTrees)
                 {
                     var overlaps = tree.GetOverlaps(new AsInterval<T>(start[i], end[i]));
@@ -226,9 +215,13 @@ namespace Algorithm.Sandbox.DataStructures
                 }
 
                 currentTrees = allOverlaps;
+                i++;
+
+                if (i == dimensions)
+                    break;
             }
 
-            return doOverap;
+            return allOverlaps.Length > 0;
         }
 
     }

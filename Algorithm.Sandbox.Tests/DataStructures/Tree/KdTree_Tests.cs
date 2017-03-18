@@ -106,7 +106,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 tree.Insert(pt);
             }
 
-            var rangePoints = tree.FindRange(new int[2] { 1, 1 }, new int[2] { 9, 9 });
+            var rangePoints = tree.GetInRange(new int[2] { 1, 1 }, new int[2] { 9, 9 });
         }
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                     }
                 }
 
-                var actualResult = tree.FindRange(testStartRange, testEndRange);
+                var actualResult = tree.GetInRange(testStartRange, testEndRange);
 
                 Assert.IsTrue(correctResult.Length == actualResult.Length);
 
