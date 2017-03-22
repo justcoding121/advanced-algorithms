@@ -30,7 +30,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// <typeparam name="T"></typeparam>
     public class AsDRangeTree<T> where T : IComparable
     {
-        private int dimensions;
+        private readonly int dimensions;
         public int Count { get; private set; }
 
         private AsRangeTree<T> tree = new AsRangeTree<T>();
@@ -63,54 +63,110 @@ namespace Algorithm.Sandbox.DataStructures
         public void Delete(T[] value)
         {
             validateDimensions(value);
+            var found = false;
+            DeleteRecursive(tree, value, 0, ref found);
 
-            DeleteRecursive(tree, value, 0);
-
+            if (found == false)
+            {
+                throw new Exception("Item not found.");
+            }
 
             Count--;
         }
 
-        private void DeleteRecursive(AsRangeTree<T> tree, T[] value, int currentDimension)
+        /// <summary>
+        /// recursively move until last dimension and then delete if found
+        /// </summary>
+        /// <param name="tree"></param>
+        /// <param name="value"></param>
+        /// <param name="currentDimension"></param>
+        /// <param name="found"></param>
+        private void DeleteRecursive(AsRangeTree<T> tree, T[] value, int currentDimension, ref bool found)
         {
-            if(currentDimension == this.dimensions)
+            var node = tree.Find(value[currentDimension]);
+
+            if (node != null)
             {
-                return;
+                if (currentDimension + 1 == dimensions)
+                {
+                    found = true;
+                }
+                else
+                {
+                    DeleteRecursive(node.tree, value, currentDimension + 1, ref found);
+                }
             }
 
-            var node = tree.Find(value[currentDimension]);
-            DeleteRecursive(node.tree, value, currentDimension + 1);
-            tree.Delete(value[currentDimension]);
+            //delete node if next dimension has no elements
+            //or when this is the last dimension and we found element
+            if (found && ((currentDimension + 1 == dimensions)
+                || (node.tree.Count == 0 && currentDimension + 1 < dimensions)))
+            {
+                tree.Delete(value[currentDimension]);
+            }
+
         }
 
+        /// <summary>
+        /// Get all points within given range
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public AsArrayList<T[]> GetInRange(T[] start, T[] end)
         {
-            //validateDimensions(start);
-            //validateDimensions(end);
+            validateDimensions(start);
+            validateDimensions(end);
 
-            //var currentTrees = new AsArrayList<AsRangeTree<T>>();
+            return GetInRange(tree, start, end, 0);
 
-            //currentTrees.Add(tree);
+        }
 
-            //var allOverlaps = new AsArrayList<AsRangeTree<T>>();
+        /// <summary>
+        /// recursively visit node and return points within given range
+        /// </summary>
+        /// <param name="currentTree"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="dimension"></param>
+        /// <returns></returns>
+        private AsArrayList<T[]> GetInRange(
+            AsRangeTree<T> currentTree,
+            T[] start, T[] end, int dimension)
+        {
+            var nodes = currentTree.GetInRange(start[dimension], end[dimension]);
 
-            //for (int i = 0; i < dimensions; i++)
-            //{
-            //    allOverlaps = new AsArrayList<AsRangeTree<T>>();
+            if (dimension + 1 == dimensions)
+            {
+                var result = new AsArrayList<T[]>();
 
-            //    foreach (var tree in currentTrees)
-            //    {
-            //        var overlaps = tree.GetInRange(start[i], end[i]);
+                foreach (var node in nodes)
+                {
+                    var thisDimResult = new T[dimensions];
+                    thisDimResult[dimension] = node.Data;
+                    result.Add(thisDimResult);
+                }
 
-            //        foreach (var overlap in overlaps)
-            //        {
-            //            allOverlaps.Add(overlap.tree);
-            //        }
-            //    }
+                return result;
+            }
+            else
+            {
+                var result = new AsArrayList<T[]>();
 
-            //    currentTrees = allOverlaps;
-            //}
-            throw new NotImplementedException();
-            
+                foreach (var node in nodes)
+                {
+                    var nextDimResult = GetInRange(node.tree, start, end, dimension + 1);
+
+                    foreach (var nextResult in nextDimResult)
+                    {
+                        nextResult[dimension] = node.Data;
+                        result.Add(nextResult);
+                    }
+                }
+
+                return result;
+            }
+
         }
 
         /// <summary>
@@ -137,6 +193,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// <typeparam name="T"></typeparam>
     internal class AsRangeTree<T> where T : IComparable
     {
+
         internal AsRedBlackTree<AsRangeTreeNode<T>> tree
             = new AsRedBlackTree<AsRangeTreeNode<T>>();
 

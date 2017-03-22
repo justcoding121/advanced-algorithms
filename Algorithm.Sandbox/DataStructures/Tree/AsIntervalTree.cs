@@ -194,34 +194,72 @@ namespace Algorithm.Sandbox.DataStructures
         {
             validateDimensions(start, end);
 
-            var currentTrees = new AsArrayList<AsIntervalTree<T>>();
+            var allOverlaps = GetOverlaps(tree, start, end, 0);
 
-            currentTrees.Add(tree);
+            return allOverlaps.Length > 0;
+        }
 
-            var allOverlaps = new AsArrayList<AsIntervalTree<T>>();
+        /// <summary>
+        /// returns a list of matching intervals
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public AsArrayList<AsDInterval<T>> GetOverlaps( T[] start, T[] end)
+        {
+            return GetOverlaps(tree, start, end, 0);
+        }
 
-            int i = 0;
+        /// <summary>
+        /// does this interval overlap with any interval in this interval tree?
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        private AsArrayList<AsDInterval<T>> GetOverlaps(AsIntervalTree<T> currentTree, 
+            T[] start, T[] end, int dimension)
+        {
+            var nodes = currentTree.GetOverlaps(new AsInterval<T>(start[dimension], end[dimension]));
 
-            while(true)
+            if (dimension + 1 == dimensions)
             {
-                foreach (var tree in currentTrees)
-                {
-                    var overlaps = tree.GetOverlaps(new AsInterval<T>(start[i], end[i]));
+                var result = new AsArrayList<AsDInterval<T>>();
 
-                    foreach (var overlap in overlaps)
+                foreach (var node in nodes)
+                {
+                    var fStart = new T[dimensions];
+                    var fEnd = new T[dimensions];
+
+                    fStart[dimension] = node.Start;
+                    fEnd[dimension] = node.End[node.MatchingEndIndex];
+
+                    var thisDimResult = new AsDInterval<T>(fStart, fEnd);
+                    
+                    result.Add(thisDimResult);
+                }
+
+                return result;
+            }
+            else
+            {
+                var result = new AsArrayList<AsDInterval<T>>();
+
+                foreach (var node in nodes)
+                {
+                    var nextDimResult = GetOverlaps(node.NextDimensionIntervals, start, end, dimension + 1);
+
+                    foreach (var nextResult in nextDimResult)
                     {
-                        allOverlaps.Add(overlap.NextDimensionIntervals);
+                        nextResult.Start[dimension] = node.Start;
+                        nextResult.End[dimension] = node.End[node.MatchingEndIndex];
+
+                        result.Add(nextResult);
                     }
                 }
 
-                currentTrees = allOverlaps;
-                i++;
-
-                if (i == dimensions)
-                    break;
+                return result;
             }
 
-            return allOverlaps.Length > 0;
         }
 
     }
@@ -250,6 +288,12 @@ namespace Algorithm.Sandbox.DataStructures
         /// holds intervals for the next dimension
         /// </summary>
         internal AsIntervalTree<T> NextDimensionIntervals { get; set; }
+
+        /// <summary>
+        /// Mark the matching end index when overlap search 
+        /// so that we can return the overlapping interval
+        /// </summary>
+        internal int MatchingEndIndex { get; set; }
 
         public int CompareTo(object obj)
         {
@@ -434,6 +478,9 @@ namespace Algorithm.Sandbox.DataStructures
                     //a.Start less than b.End and a.End greater than b.Start
                     if (a.Start.CompareTo(b.End[j]) <= 0 && a.End[i].CompareTo(b.Start) >= 0)
                     {
+                        a.MatchingEndIndex = i;
+                        b.MatchingEndIndex = j;
+
                         return true;
                     }
                 }
