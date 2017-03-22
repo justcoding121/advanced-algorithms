@@ -3,7 +3,7 @@ Bugs are welcome!
 
 # Advanced Algorithms
 
-Various important computer science algorithms implemented in C#
+Various important computer science algorithms generically implemented in C#
 
 ## Data Structures
 ### List
