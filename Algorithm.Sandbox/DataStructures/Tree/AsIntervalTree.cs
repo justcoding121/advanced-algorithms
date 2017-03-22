@@ -471,10 +471,15 @@ namespace Algorithm.Sandbox.DataStructures
         /// <returns></returns>
         private bool doOverlap(AsInterval<T> a, AsInterval<T> b)
         {
+            //lazy reset
+            a.MatchingEndIndex = -1;
+            b.MatchingEndIndex = -1;
+
             for (int i = 0; i < a.End.Length; i++)
             {
                 for (int j = 0; j < b.End.Length; j++)
                 {
+                 
                     //a.Start less than b.End and a.End greater than b.Start
                     if (a.Start.CompareTo(b.End[j]) <= 0 && a.End[i].CompareTo(b.Start) >= 0)
                     {
