@@ -64,6 +64,7 @@
     <Compile Include="DataStructures\Tree\BTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\IntervalTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\KdTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\SegmentTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\TestHelpers\BTreeTester.cs" />
     <Compile Include="DataStructures\Tree\TreapTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\SplayTree_Tests.cs" />
