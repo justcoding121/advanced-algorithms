@@ -6,6 +6,7 @@ namespace Algorithm.Sandbox.DataStructures
     {
         internal bool IsEnd { get; set; }
         internal T Value { get; set; }
+        internal bool HasChildren => !(Left == null && Middle == null && Right == null);
         internal AsTernarySearchTreeNode<T> Left { get; set; }
         internal AsTernarySearchTreeNode<T> Middle { get; set; }
         internal AsTernarySearchTreeNode<T> Right { get; set; }
@@ -102,7 +103,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="currentNode"></param>
         /// <param name="entry"></param>
         /// <param name="currentIndex"></param>
-        private bool Delete(AsTernarySearchTreeNode<T> currentNode,
+        private void Delete(AsTernarySearchTreeNode<T> currentNode,
             T[] entry, int currentIndex)
         {
             //empty node
@@ -122,46 +123,55 @@ namespace Algorithm.Sandbox.DataStructures
                 //remove this end flag
                 currentNode.IsEnd = false;
 
-                //there are other elements under this node
-                //so don't delete anything 
-                if (currentNode.Middle == null)
-                {
-                    return false;
-                }
-
-                return true;
+                return;
             }
 
             var compareResult = currentNode.Value.CompareTo(entry[currentIndex]);
+            AsTernarySearchTreeNode<T> child;
             //current is greater? move left, move right otherwise
             //if current is equal then move center
             if (compareResult > 0)
             {
                 //move left
-                var left = currentNode.Left;
-                return Delete(left, entry, currentIndex);
+                child = currentNode.Left;
+
+                Delete(child, entry, currentIndex);
+                //delete if middle is not end
+                //and we if have'nt deleted the node yet
+                if (child.HasChildren == false
+                    && !child.IsEnd)
+                {
+                    currentNode.Left = null;
+                }
+
             }
             else if (compareResult < 0)
             {
                 //move right
-                var right = currentNode.Right;
-                return Delete(right, entry, currentIndex);
+                child = currentNode.Right;
+                Delete(child, entry, currentIndex);
+                //delete if middle is not end
+                //and we if have'nt deleted the node yet
+                if (child.HasChildren == false
+                    && !child.IsEnd)
+                {
+                    currentNode.Right = null;
+                }
+
             }
             else
             {
                 //if equal we just skip to next element
-                var middle = currentNode.Middle;
-                var deleted = Delete(middle, entry, currentIndex + 1);
-
+                child = currentNode.Middle;
+                Delete(child, entry, currentIndex + 1);
                 //delete if middle is not end
                 //and we if have'nt deleted the node yet
-                if (middle.Middle != null
-                    && !middle.Middle.IsEnd && !deleted)
+                if (child.HasChildren == false
+                    && !child.IsEnd)
                 {
                     currentNode.Middle = null;
                 }
 
-                return deleted;
             }
         }
 
@@ -177,7 +187,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         /// <summary>
         /// recursively visit until end of prefix 
-        /// and then gather all sub enTernarySearchTrees under it
+        /// and then gather all suffixes under it
         /// </summary>
         /// <param name="currentNode"></param>
         /// <param name="searchPrefix"></param>
@@ -212,18 +222,11 @@ namespace Algorithm.Sandbox.DataStructures
                 {
                     var result = new AsArrayList<T[]>();
 
-                    if (currentNode.IsEnd)
-                    {
-                        result.Add(searchPrefix);
-                    }
-
                     GatherStartsWith(result,
                         searchPrefix, currentNode.Middle);
 
                     return result;
                 }
-
-
                 //if equal we just skip to next element
                 return StartsWith(currentNode.Middle, searchPrefix, currentIndex + 1);
             }
@@ -234,46 +237,45 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         /// <param name="result"></param>
         /// <param name="searchPrefix"></param>
-        /// <param name="suffix"></param>
+        /// <param name="prefix"></param>
         /// <param name="node"></param>
-        private void GatherStartsWith(AsArrayList<T[]> result, T[] suffix,
+        private void GatherStartsWith(AsArrayList<T[]> result, T[] prefix,
             AsTernarySearchTreeNode<T> node)
         {
             if (node == null)
             {
-                //append to end of prefix for new prefix
-                var newPrefix = new T[suffix.Length + 1];
-                Array.Copy(suffix, newPrefix, suffix.Length);
-                newPrefix[newPrefix.Length - 1] = node.Middle.Value;
-
-                result.Add(newPrefix);
+                result.Add(prefix);
                 return;
             }
 
             //end of word
             if (node.IsEnd)
             {
-                result.Add(suffix);
+                //append to end of prefix for new prefix
+                var newPrefix = new T[prefix.Length + 1];
+                Array.Copy(prefix, newPrefix, prefix.Length);
+                newPrefix[newPrefix.Length - 1] = node.Value;
+                result.Add(newPrefix);
             }
 
             if (node.Left != null)
             {
-                GatherStartsWith(result, suffix, node.Left);
+                GatherStartsWith(result, prefix, node.Left);
             }
 
             if (node.Middle != null)
             {
                 //append to end of prefix for new prefix
-                var newPrefix = new T[suffix.Length + 1];
-                Array.Copy(suffix, newPrefix, suffix.Length);
-                newPrefix[newPrefix.Length - 1] = node.Middle.Value;
+                var newPrefix = new T[prefix.Length + 1];
+                Array.Copy(prefix, newPrefix, prefix.Length);
+                newPrefix[newPrefix.Length - 1] = node.Value;
 
                 GatherStartsWith(result, newPrefix, node.Middle);
             }
 
             if (node.Right != null)
             {
-                GatherStartsWith(result, suffix, node.Right);
+                GatherStartsWith(result, prefix, node.Right);
             }
 
 

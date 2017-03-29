@@ -62,6 +62,7 @@
     <Compile Include="DataStructures\Tree\AsBinaryTree.cs" />
     <Compile Include="DataStructures\LinkedList\AsCircularLinkedList.cs" />
     <Compile Include="DataStructures\Tree\AsBTree.cs" />
+    <Compile Include="DataStructures\Tree\AsExpressionTree.cs" />
     <Compile Include="DataStructures\Tree\AsFenwickTree.cs" />
     <Compile Include="DataStructures\Tree\AsIntervalTree.cs" />
     <Compile Include="DataStructures\Tree\AsK_DTree.cs" />

@@ -2,7 +2,7 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsStack<T> where T : IComparable
+    public class AsStack<T> 
     {
         private AsSinglyLinkedList<T> list = new AsSinglyLinkedList<T>();
 
