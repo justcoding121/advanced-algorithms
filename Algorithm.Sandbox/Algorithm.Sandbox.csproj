@@ -58,11 +58,11 @@
     <Compile Include="DataStructures\List\AsArrayList.cs" />
     <Compile Include="DataStructures\Tree\AsAvlTree.cs" />
     <Compile Include="DataStructures\Tree\AsB+Tree.cs" />
-    <Compile Include="DataStructures\Tree\AsBinaryIndexedTree.cs" />
     <Compile Include="DataStructures\Tree\AsBST.cs" />
     <Compile Include="DataStructures\Tree\AsBinaryTree.cs" />
     <Compile Include="DataStructures\LinkedList\AsCircularLinkedList.cs" />
     <Compile Include="DataStructures\Tree\AsBTree.cs" />
+    <Compile Include="DataStructures\Tree\AsFenwickTree.cs" />
     <Compile Include="DataStructures\Tree\AsIntervalTree.cs" />
     <Compile Include="DataStructures\Tree\AsK_DTree.cs" />
     <Compile Include="DataStructures\Tree\AsRangeTree.cs" />
@@ -80,6 +80,7 @@
     <Compile Include="DataStructures\Tree\AsSplayTree.cs" />
     <Compile Include="DataStructures\Stack\AsStack.cs" />
     <Compile Include="DataStructures\String\AsStringBuilder.cs" />
+    <Compile Include="DataStructures\Tree\AsTernarySearchTree.cs" />
     <Compile Include="DataStructures\Tree\AsTreapTree.cs" />
     <Compile Include="DataStructures\Tree\AsTree.cs" />
     <Compile Include="DataStructures\Dictionary\AsTreeDictionary.cs" />

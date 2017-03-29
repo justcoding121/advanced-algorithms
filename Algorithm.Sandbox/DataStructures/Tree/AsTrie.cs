@@ -2,23 +2,240 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsTrieNode<T> where T : IComparable
+    internal class AsTrieNode<T>
     {
-        public T Value { get; set; }
+        internal bool IsEmpty => Children.Count == 0;
+        internal bool IsEnd { get; set; }
+        internal AsDictionary<T, AsTrieNode<T>> Children { get; set; }
 
-        public AsTreeDictionary<T, AsTrieNode<T>> Children { get; set; }
-
-        public AsTrieNode(T value)
+        internal AsTrieNode()
         {
-            this.Value = value;
-            Children = new AsTreeDictionary<T, AsTrieNode<T>>();
+            Children = new AsDictionary<T, AsTrieNode<T>>();
         }
 
     }
 
-    public class AsTrie<T> where T : IComparable
+    public class AsTrie<T>
     {
-        public AsTrieNode<T> Root { get; set; }
+        internal AsTrieNode<T> Root { get; set; }
+        public int Count { get; private set; }
 
+        public AsTrie()
+        {
+            Root = new AsTrieNode<T>();
+            Count = 0;
+        }
+
+        /// <summary>
+        /// Insert a new record to this trie
+        /// O(m) time complexity where m is the length of entry
+        /// </summary>
+        /// <param name="entry"></param>
+        public void Insert(T[] entry)
+        {
+            Insert(Root, entry, 0);
+            Count++;
+        }
+
+        /// <summary>
+        /// Insert a new record to this trie after finding the end recursively
+        /// </summary>
+        /// <param name="currentNode"></param>
+        /// <param name="entry"></param>
+        /// <param name="currentIndex"></param>
+        private void Insert(AsTrieNode<T> currentNode, T[] entry, int currentIndex)
+        {
+            if (currentIndex == entry.Length)
+            {
+                currentNode.IsEnd = true;
+                return;
+            }
+
+            if (currentNode.Children.ContainsKey(entry[currentIndex]) == false)
+            {
+                var newNode = new AsTrieNode<T>();
+                currentNode.Children.Add(entry[currentIndex], newNode);
+                Insert(newNode, entry, currentIndex + 1);
+            }
+            else
+            {
+                Insert(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
+            }
+        }
+
+        /// <summary>
+        /// deletes a record from this trie
+        /// O(m) where m is the length of entry
+        /// </summary>
+        /// <param name="entry"></param>
+        public void Delete(T[] entry)
+        {
+            Delete(Root, entry, 0);
+            Count--;
+        }
+
+        /// <summary>
+        /// deletes a record from this trie after finding it recursively
+        /// </summary>
+        /// <param name="currentNode"></param>
+        /// <param name="entry"></param>
+        /// <param name="currentIndex"></param>
+        private void Delete(AsTrieNode<T> currentNode, T[] entry, int currentIndex)
+        {
+            if (currentIndex == entry.Length)
+            {
+                if (!currentNode.IsEnd)
+                {
+                    throw new Exception("Item not in trie.");
+                }
+
+                currentNode.IsEnd = false;
+                return;
+            }
+
+            if (currentNode.Children.ContainsKey(entry[currentIndex]) == false)
+            {
+                throw new Exception("Item not in trie.");
+            }
+            else
+            {
+                Delete(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
+            }
+
+            if (currentNode.Children[entry[currentIndex]].IsEmpty 
+                && !currentNode.IsEnd)
+            {
+                currentNode.Children.Remove(entry[currentIndex]);
+            }
+        }
+
+        /// <summary>
+        /// returns a list of records matching this prefix
+        /// </summary>
+        /// <param name="prefix"></param>
+        /// <returns></returns>
+        public AsArrayList<T[]> StartsWith(T[] prefix)
+        {
+            return StartsWith(Root, prefix, 0);
+        }
+
+        /// <summary>
+        /// recursively visit until end of prefix 
+        /// and then gather all sub entries under it
+        /// </summary>
+        /// <param name="currentNode"></param>
+        /// <param name="searchPrefix"></param>
+        /// <param name="currentIndex"></param>
+        /// <returns></returns>
+        private AsArrayList<T[]> StartsWith(AsTrieNode<T> currentNode, T[] searchPrefix, int currentIndex)
+        {
+            if (currentIndex == searchPrefix.Length)
+            {
+                var result = new AsArrayList<T[]>();
+
+                //gather sub entries and prefix them with search entry prefix
+                GatherStartsWith(result , searchPrefix, null, currentNode);
+
+                return result;
+            }
+
+            if (currentNode.Children.ContainsKey(searchPrefix[currentIndex]) == false)
+            {
+                return new AsArrayList<T[]>();
+            }
+            else
+            {
+                return StartsWith(currentNode.Children[searchPrefix[currentIndex]], searchPrefix, currentIndex + 1);
+            }
+        }
+
+        /// <summary>
+        /// Gathers all suffixes under this node appending with the given prefix
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="searchPrefix"></param>
+        /// <param name="suffix"></param>
+        /// <param name="node"></param>
+        private void GatherStartsWith(AsArrayList<T[]> result, T[] searchPrefix, T[] suffix,
+            AsTrieNode<T> node)
+        {
+            //end of word
+            if (node.IsEnd)
+            {
+                if(suffix !=null)
+                {
+                    //append to end of prefix for new prefix
+                    var newPrefix = new T[searchPrefix.Length + suffix.Length];
+                    Array.Copy(searchPrefix, newPrefix, searchPrefix.Length);
+                    Array.Copy(suffix, 0, newPrefix, searchPrefix.Length, suffix.Length);
+
+                    result.Add(newPrefix);
+                }
+                else
+                {
+                    result.Add(searchPrefix);
+                }
+             
+            }
+
+            //visit all children
+            foreach (var child in node.Children)
+            {
+                if (suffix != null)
+                {
+                    //append to end of prefix for new prefix
+                    var newPrefix = new T[suffix.Length + 1];
+                    Array.Copy(suffix, newPrefix, suffix.Length);
+                    newPrefix[newPrefix.Length - 1] = child.Key;
+                    GatherStartsWith(result, searchPrefix, newPrefix, child.Value);
+                }
+                else
+                {
+                    var newPrefix = new T[1];
+                    newPrefix[0] = child.Key;
+                    GatherStartsWith(result, searchPrefix, newPrefix, child.Value);
+                }
+               
+            }
+        }
+
+        /// <summary>
+        /// returns true if the entry exist
+        /// </summary>
+        /// <param name="entry"></param>
+        /// <returns></returns>
+        public bool Contains(T[] entry)
+        {
+            return Contains(Root, entry, 0);
+        }
+
+        /// <summary>
+        /// Find if the record exist recursively
+        /// </summary>
+        /// <param name="currentNode"></param>
+        /// <param name="entry"></param>
+        /// <param name="currentIndex"></param>
+        /// <returns></returns>
+        private bool Contains(AsTrieNode<T> currentNode, T[] entry, int currentIndex)
+        {
+            if (currentIndex == entry.Length)
+            {
+                if (!currentNode.IsEnd)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+
+            if (currentNode.Children.ContainsKey(entry[currentIndex]) == false)
+            {
+                return false;
+            }
+            else
+            {
+                return Contains(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
+            }
+        }
     }
 }

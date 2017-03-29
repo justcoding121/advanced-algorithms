@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 {
     [TestClass]
-    public class AsRangeTreeTests
+    public class RangeTreeTests
     {
         /// <summary>
         /// Smoke test
