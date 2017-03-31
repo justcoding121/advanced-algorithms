@@ -55,7 +55,7 @@ Various important computer science algorithms generically implemented in C#
 * Prefix Tree (Trie) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTrie.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Tree/Trie_Tests.cs))
 * Suffix Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsSuffixTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Tree/SuffixTree_Tests.cs))
 * Ternary Search Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsTernarySearchTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Tree/TernarySearchTree_Tests.cs))
-* Expression Tree 
+* Expression Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsExpressionTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Tree/ExpressionTree_Tests.cs))
 
 ### Graph
 
