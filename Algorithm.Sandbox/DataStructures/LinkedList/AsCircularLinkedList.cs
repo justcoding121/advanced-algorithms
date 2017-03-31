@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Algorithm.Sandbox.DataStructures
 {
     //define the generic node
-    public class AsCircularLinkedListNode<T> where T : IComparable
+    public class AsCircularLinkedListNode<T>
     {
         public AsCircularLinkedListNode<T> Prev;
         public AsCircularLinkedListNode<T> Next;
@@ -22,7 +22,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsCircularLinkedList<T> : IEnumerable<T> where T : IComparable
+    public class AsCircularLinkedList<T> : IEnumerable<T>
     {
         public AsCircularLinkedListNode<T> ReferenceNode;
 
@@ -93,7 +93,7 @@ namespace Algorithm.Sandbox.DataStructures
             //only one element on list
             if (ReferenceNode.Next == ReferenceNode)
             {
-                if (ReferenceNode.Data.CompareTo(data) == 0)
+                if (ReferenceNode.Data.Equals(data))
                 {
                     ReferenceNode = null;
                     return;
@@ -106,7 +106,7 @@ namespace Algorithm.Sandbox.DataStructures
             var found = false;
             while (true)
             {
-                if (current.Data.CompareTo(data) == 0)
+                if (current.Data.Equals(data))
                 {
                     current.Prev.Next = current.Next;
                     current.Next.Prev = current.Prev;
@@ -235,7 +235,7 @@ namespace Algorithm.Sandbox.DataStructures
     }
 
     //  implement IEnumerator.
-    public class AsCircularLinkedListEnumerator<T> : IEnumerator<T> where T : IComparable
+    public class AsCircularLinkedListEnumerator<T> : IEnumerator<T> 
     {
         internal AsCircularLinkedListNode<T> referenceNode;
         internal AsCircularLinkedListNode<T> currentNode;

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Algorithm.Sandbox.DataStructures
 {
     //define the generic node
-    public class AsDoublyLinkedListNode<T> where T : IComparable
+    public class AsDoublyLinkedListNode<T> 
     {
         public AsDoublyLinkedListNode<T> Previous;
         public AsDoublyLinkedListNode<T> Next;
@@ -21,7 +21,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsDoublyLinkedList<T> :IEnumerable<T> where T : IComparable
+    public class AsDoublyLinkedList<T> :IEnumerable<T> 
     {
         public AsDoublyLinkedListNode<T> Head;
         public AsDoublyLinkedListNode<T> Tail;
@@ -251,7 +251,7 @@ namespace Algorithm.Sandbox.DataStructures
             //eliminate single element list possibility
             if (Head == Tail)
             {
-                if (Head.Data.CompareTo(data) == 0)
+                if (Head.Data.Equals(data))
                 {
                     DeleteFirst();
                 }
@@ -265,7 +265,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             while (current != null)
             {
-                if (current.Data.CompareTo(data) == 0)
+                if (current.Data.Equals(data))
                 {
                     //current is the first element
                     if (current.Previous == null)
@@ -419,7 +419,7 @@ namespace Algorithm.Sandbox.DataStructures
     }
 
     //  implement IEnumerator.
-    public class AsDoublyLinkedListEnumerator<T> : IEnumerator<T> where T : IComparable
+    public class AsDoublyLinkedListEnumerator<T> : IEnumerator<T> 
     {
         internal AsDoublyLinkedListNode<T> headNode;
         internal AsDoublyLinkedListNode<T> currentNode;

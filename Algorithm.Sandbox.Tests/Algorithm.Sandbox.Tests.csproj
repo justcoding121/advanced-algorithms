@@ -50,6 +50,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataStructures\Graph\AdjacencyList\DiGraph_Tests.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\Graph_Tests.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\WeightedDiGraph_Tests.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\WeightedGraph_Tests.cs" />
+    <Compile Include="DataStructures\HashSet\HashSet_Tests.cs" />
+    <Compile Include="DataStructures\HashSet\TreeHashSet_Tests.cs" />
     <Compile Include="DataStructures\Heap\PairingHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\FibornacciHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\BinomialHeap_Tests.cs" />

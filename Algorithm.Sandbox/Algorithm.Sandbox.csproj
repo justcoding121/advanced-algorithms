@@ -50,6 +50,10 @@
     <Compile Include="Compression\Huffman.cs" />
     <Compile Include="DataStructures\Dictionary\AsDictionary.cs" />
     <Compile Include="DataStructures\Dictionary\AsOpenAddressDictionary.cs" />
+    <Compile Include="DataStructures\HashSet\AsHashSet.cs" />
+    <Compile Include="DataStructures\HashSet\AsOpenAddressHashSet.cs" />
+    <Compile Include="DataStructures\HashSet\AsSeparateChainingHashSet.cs" />
+    <Compile Include="DataStructures\HashSet\AsTreeHashSet.cs" />
     <Compile Include="DataStructures\Heap\Min\AsBinomialMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\AsBMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\Asd-aryMinHeap.cs" />

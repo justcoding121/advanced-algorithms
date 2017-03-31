@@ -2,7 +2,7 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
-    public class AsQueue<T> where T : IComparable
+    public class AsQueue<T> 
     {
         private AsDoublyLinkedList<T> list = new AsDoublyLinkedList<T>();
 

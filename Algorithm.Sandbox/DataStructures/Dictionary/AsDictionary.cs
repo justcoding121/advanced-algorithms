@@ -19,7 +19,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// <summary>
     /// key-value set
     /// </summary>
-    public class AsDictionaryNode<K, V> : IComparable
+    public class AsDictionaryNode<K, V> 
     {
         public K Key;
         public V Value;
@@ -30,15 +30,6 @@ namespace Algorithm.Sandbox.DataStructures
             this.Value = value;
         }
 
-        public int CompareTo(object obj)
-        {
-            return CompareTo(obj as AsDictionaryNode<K, V>);
-        }
-
-        private int CompareTo(AsDictionaryNode<K, V> node)
-        {
-            return Key.Equals(node.Key) ? 0 : -1;
-        }
     }
 
     public enum DictionaryType

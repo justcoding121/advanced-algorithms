@@ -1,67 +1,130 @@
 ﻿using System;
 
-namespace Algorithm.Sandbox.DataStructures
+namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
-    public class AsDiGraphVertex<T> 
-        
+    public class AsDiGraphVertex<T>
+
     {
         public T Value { get; set; }
 
-        public AsArrayList<AsDiGraphVertex<T>> OutEdges { get; set; }
-        public AsArrayList<AsDiGraphVertex<T>> InEdges { get; set; }
+        public AsHashSet<AsDiGraphVertex<T>> OutEdges { get; set; }
+        public AsHashSet<AsDiGraphVertex<T>> InEdges { get; set; }
 
         public AsDiGraphVertex(T value)
         {
             this.Value = value;
 
-            OutEdges = new AsArrayList<AsDiGraphVertex<T>>();
-            InEdges = new AsArrayList<AsDiGraphVertex<T>>();
-        }
-
-        public int CompareTo(object obj)
-        {
-           return CompareTo(obj as AsDiGraphVertex<T>);
+            OutEdges = new AsHashSet<AsDiGraphVertex<T>>();
+            InEdges = new AsHashSet<AsDiGraphVertex<T>>();
         }
 
     }
 
-    public class AsDiGraph<T> where T : IComparable
+    public class AsDiGraph<T>
     {
-        public AsDiGraphVertex<T> ReferenceVertex { get; set; }
+        public int VerticesCount => Vertices.Count;
+        internal AsHashSet<AsDiGraphVertex<T>> Vertices { get; set; }
 
-        public AsDiGraphVertex<T> AddVertex(T value,
-            AsArrayList<T> inEdges, AsArrayList<T> outEdges)
+        public AsDiGraph()
         {
-            if (inEdges == null || outEdges == null || value == null)
+            Vertices = new AsHashSet<AsDiGraphVertex<T>>();
+        }
+
+        public AsDiGraphVertex<T> AddVertex(T value)
+        {
+            if ( value == null)
             {
                 throw new ArgumentNullException();
             }
 
-            if(ReferenceVertex != null && inEdges.Length == 0 && outEdges.Length == 0)
-            {
-                throw new ArgumentException();
-            }
+            var newVertex = new AsDiGraphVertex<T>(value);
 
-            throw new NotImplementedException();
+            Vertices.Add(newVertex);
+
+            return newVertex;
         }
         public void RemoveVertex(AsDiGraphVertex<T> value)
         {
-            if(value == null)
+            if (value == null)
             {
                 throw new ArgumentNullException();
             }
 
-            throw new NotImplementedException();
+            if (!Vertices.Contains(value))
+            {
+                throw new Exception("Vertex not in this graph.");
+            }
+
+            foreach (var vertex in value.InEdges)
+            {
+                if (!Vertices.Contains(vertex.Value))
+                {
+                    throw new Exception("Vertex incoming edge source vertex is not in this graph.");
+                }
+                vertex.Value.OutEdges.Remove(vertex.Value);
+            }
+
+            foreach (var vertex in value.OutEdges)
+            {
+                if (!Vertices.Contains(vertex.Value))
+                {
+                    throw new Exception("Vertex outgoing edge target vertex is not in this graph.");
+                }
+
+                vertex.Value.InEdges.Remove(vertex.Value);
+            }
+
+            Vertices.Remove(value);
         }
 
         public void AddEdge(AsDiGraphVertex<T> source, AsDiGraphVertex<T> dest)
         {
+            if (source == null || dest == null)
+            {
+                throw new ArgumentException();
+            }
 
+            if (!Vertices.Contains(source) || !Vertices.Contains(dest))
+            {
+                throw new Exception("Source or Destination Vertex is not in this graph.");
+            }
+
+            if (source.OutEdges.Contains(dest) || dest.InEdges.Contains(source))
+            {
+                throw new Exception("Edge exists already partially or totally.");
+            }
+
+            source.OutEdges.Add(dest);
+            dest.InEdges.Add(source);
         }
 
         public void RemoveEdge(AsDiGraphVertex<T> source, AsDiGraphVertex<T> dest)
         {
 
+            if (source == null || dest == null)
+            {
+                throw new ArgumentException();
+            }
+
+            if (!Vertices.Contains(source) || !Vertices.Contains(dest))
+            {
+                throw new Exception("Source or Destination Vertex is not in this graph.");
+            }
+
+            if (!source.OutEdges.Contains(dest) || !dest.InEdges.Contains(source))
+            {
+                throw new Exception("Edge do not exists partially or totally.");
+            }
+
+            source.OutEdges.Remove(dest);
+            dest.InEdges.Remove(source);
         }
+
+        public bool HasEdge(AsDiGraphVertex<T> source, AsDiGraphVertex<T> dest)
+        {
+            return source.OutEdges.Contains(dest) && dest.InEdges.Contains(source);
+        }
+
+        
     }
 }
