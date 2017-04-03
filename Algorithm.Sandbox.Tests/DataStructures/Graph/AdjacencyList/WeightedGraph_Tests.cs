@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 namespace Algorithm.Sandbox.Tests.DataStructures.Graph.AdjacencyList
 {
     [TestClass]
-    public class DiGraph_Tests
+    public class WeightedGraph_Tests
     {
         /// <summary>
         /// key value dictionary tests 
         /// </summary>
         [TestMethod]
-        public void DiGraph_Smoke_Test()
+        public void WeightedGraph_Smoke_Test()
         {
-            var graph = new AsDiGraph<int>();
+            var graph = new AsWeightedGraph<int, int>();
 
             var vertex_1 = graph.AddVertex(1);
             var vertex_2 = graph.AddVertex(2);
@@ -26,12 +26,12 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Graph.AdjacencyList
             var vertex_4 = graph.AddVertex(4);
             var vertex_5 = graph.AddVertex(5);
 
-            graph.AddEdge(vertex_1, vertex_2);
-            graph.AddEdge(vertex_2, vertex_3);
-            graph.AddEdge(vertex_3, vertex_4);
-            graph.AddEdge(vertex_4, vertex_5);
-            graph.AddEdge(vertex_4, vertex_1);
-            graph.AddEdge(vertex_3, vertex_5);
+            graph.AddEdge(vertex_1, vertex_2, 1);
+            graph.AddEdge(vertex_2, vertex_3, 2);
+            graph.AddEdge(vertex_3, vertex_4, 4);
+            graph.AddEdge(vertex_4, vertex_5, 5);
+            graph.AddEdge(vertex_4, vertex_1, 1);
+            graph.AddEdge(vertex_3, vertex_5, 0);
 
             Assert.AreEqual(5, graph.VerticesCount);
 

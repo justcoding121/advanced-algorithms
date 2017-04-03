@@ -2,35 +2,19 @@
 
 namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
-    public class AsWeightedDiGraphEdge<T, W> : IComparable where W : IComparable
-    {
-        public W Weight { get; set; }
-        public AsWeightedDiGraphVertex<T, W> Target { get; set; }
-
-        public AsWeightedDiGraphEdge(AsWeightedDiGraphVertex<T, W> target)
-        {
-            Target = target;
-        }
-
-        public int CompareTo(object obj)
-        {
-            return Weight.CompareTo(obj as AsWeightedDiGraphEdge<T, W>);
-        }
-    }
-
     public class AsWeightedDiGraphVertex<T, W> where W : IComparable
     {
         public T Value { get; private set; }
 
-        public AsHashSet<AsWeightedDiGraphEdge<T, W>> OutEdges { get; set; }
-        public AsHashSet<AsWeightedDiGraphEdge<T, W>> InEdges { get; set; }
+        public AsDictionary<AsWeightedDiGraphVertex<T, W>, W> OutEdges { get; set; }
+        public AsDictionary<AsWeightedDiGraphVertex<T, W>, W> InEdges { get; set; }
 
         public AsWeightedDiGraphVertex(T value)
         {
             this.Value = Value;
 
-            OutEdges = new AsHashSet<AsWeightedDiGraphEdge<T, W>>();
-            InEdges = new AsHashSet<AsWeightedDiGraphEdge<T, W>>();
+            OutEdges = new AsDictionary<AsWeightedDiGraphVertex<T, W>, W>();
+            InEdges = new AsDictionary<AsWeightedDiGraphVertex<T, W>, W>();
         }
 
     }
@@ -58,6 +42,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             return newVertex;
         }
+
         public void RemoveVertex(AsWeightedDiGraphVertex<T, W> value)
         {
             if (value == null)
@@ -72,48 +57,51 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             foreach (var vertex in value.InEdges)
             {
-                if (!Vertices.Contains(vertex.Value.Target))
+                if (!Vertices.Contains(vertex.Key))
                 {
                     throw new Exception("Vertex incoming edge source vertex is not in this graph.");
                 }
-                vertex.Value.Target.OutEdges.Remove(vertex.Value);
+
+                vertex.Key.OutEdges.Remove(vertex.Key);
             }
 
             foreach (var vertex in value.OutEdges)
             {
-                if (!Vertices.Contains(vertex.Value.Target))
+                if (!Vertices.Contains(vertex.Key))
                 {
                     throw new Exception("Vertex outgoing edge target vertex is not in this graph.");
                 }
 
-                vertex.Value.Target.InEdges.Remove(vertex.Value);
+                vertex.Key.InEdges.Remove(vertex.Key);
             }
 
             Vertices.Remove(value);
         }
 
-        public void AddEdge(AsWeightedDiGraphEdge<T, W> source, AsWeightedDiGraphEdge<T, W> dest)
+        public void AddEdge(AsWeightedDiGraphVertex<T, W> source,
+            AsWeightedDiGraphVertex<T, W> dest, W weight)
         {
             if (source == null || dest == null)
             {
                 throw new ArgumentException();
             }
 
-            if (!Vertices.Contains(source.Target) || !Vertices.Contains(dest.Target))
+            if (!Vertices.Contains(source) || !Vertices.Contains(dest))
             {
                 throw new Exception("Source or Destination Vertex is not in this graph.");
             }
 
-            if (source.Target.OutEdges.Contains(dest) || dest.Target.InEdges.Contains(source))
+            if (source.OutEdges.ContainsKey(dest) || dest.InEdges.ContainsKey(source))
             {
                 throw new Exception("Edge exists already partially or totally.");
             }
 
-            source.Target.OutEdges.Add(dest);
-            dest.Target.InEdges.Add(source);
+            source.OutEdges.Add(dest, weight);
+            dest.InEdges.Add(source, weight);
         }
 
-        public void RemoveEdge(AsWeightedDiGraphEdge<T, W> source, AsWeightedDiGraphEdge<T, W> dest)
+        public void RemoveEdge(AsWeightedDiGraphVertex<T, W> source,
+            AsWeightedDiGraphVertex<T, W> dest)
         {
 
             if (source == null || dest == null)
@@ -121,27 +109,28 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException();
             }
 
-            if (!Vertices.Contains(source.Target) || !Vertices.Contains(dest.Target))
+            if (!Vertices.Contains(source) || !Vertices.Contains(dest))
             {
                 throw new Exception("Source or Destination Vertex is not in this graph.");
             }
 
-            if (!source.Target.OutEdges.Contains(dest) || !dest.Target.InEdges.Contains(source))
+            if (!source.OutEdges.ContainsKey(dest) || !dest.InEdges.ContainsKey(source))
             {
                 throw new Exception("Edge do not exists partially or totally.");
             }
 
-            source.Target.OutEdges.Remove(dest);
-            dest.Target.InEdges.Remove(source);
+            source.OutEdges.Remove(dest);
+            dest.InEdges.Remove(source);
         }
 
-        public bool HasEdge(AsWeightedDiGraphVertex<T, W> source, AsWeightedDiGraphVertex<T, W> dest)
+        public bool HasEdge(AsWeightedDiGraphVertex<T, W> source,
+            AsWeightedDiGraphVertex<T, W> dest)
         {
             var sourceExists = false;
 
-            foreach(var edge in source.OutEdges)
+            foreach (var edge in source.OutEdges)
             {
-                if(edge.Value.Target == dest)
+                if (edge.Key == dest)
                 {
                     sourceExists = true;
                     break;
@@ -152,7 +141,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             foreach (var edge in dest.InEdges)
             {
-                if (edge.Value.Target == source)
+                if (edge.Key == source)
                 {
                     destExists = true;
                     break;

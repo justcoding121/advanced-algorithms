@@ -26,12 +26,12 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Graph.AdjacencyList
             var vertex_4 = graph.AddVertex(4);
             var vertex_5 = graph.AddVertex(5);
 
-            graph.AddEdge(vertex_1, vertex_2);
-            graph.AddEdge(vertex_2, vertex_3);
-            graph.AddEdge(vertex_3, vertex_4);
-            graph.AddEdge(vertex_4, vertex_5);
-            graph.AddEdge(vertex_4, vertex_1);
-            graph.AddEdge(vertex_3, vertex_5);
+            graph.AddEdge(vertex_1, vertex_2, 1);
+            graph.AddEdge(vertex_2, vertex_3, 2);
+            graph.AddEdge(vertex_3, vertex_4, 3);
+            graph.AddEdge(vertex_4, vertex_5, 1);
+            graph.AddEdge(vertex_4, vertex_1, 6);
+            graph.AddEdge(vertex_3, vertex_5, 4);
 
             Assert.AreEqual(5, graph.VerticesCount);
 
