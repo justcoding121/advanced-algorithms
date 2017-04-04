@@ -2,6 +2,10 @@
 
 namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
+    /// <summary>
+    /// A graph vertex
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsGraphVertex<T> 
     {
         public T Value { get; set; }
@@ -17,6 +21,10 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
     }
 
+    /// <summary>
+    /// A graph implementation
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsGraph<T>
     {
         public int VerticesCount => Vertices.Count;
@@ -27,6 +35,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             Vertices = new AsHashSet<AsGraphVertex<T>>();
         }
 
+        /// <summary>
+        /// add a new vertex to this graph
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public AsGraphVertex<T> AddVertex(T value)
         {
             if (value  == null)
@@ -40,6 +53,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             return newVertex;
         }
+
+        /// <summary>
+        /// remove and existing vertex from this graph
+        /// </summary>
+        /// <param name="vertex"></param>
         public void RemoveVertex(AsGraphVertex<T> vertex)
         {
             if (vertex == null)
@@ -65,6 +83,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             Vertices.Remove(vertex);
         }
 
+       /// <summary>
+       /// add and edge to this graph
+       /// </summary>
+       /// <param name="source"></param>
+       /// <param name="dest"></param>
         public void AddEdge(AsGraphVertex<T> source, AsGraphVertex<T> dest)
         {
             if (source == null || dest == null)
@@ -86,6 +109,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             dest.Edges.Add(source);
         }
 
+        /// <summary>
+        /// remove an edge from this graph
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
         public void RemoveEdge(AsGraphVertex<T> source, AsGraphVertex<T> dest)
         {
 
@@ -108,6 +136,12 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             dest.Edges.Remove(source);
         }
 
+        /// <summary>
+        /// do we have an edge between given source and destination?
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
+        /// <returns></returns>
         public bool HasEdge(AsGraphVertex<T> source, AsGraphVertex<T> dest)
         {
             return source.Edges.Contains(dest) && dest.Edges.Contains(source);

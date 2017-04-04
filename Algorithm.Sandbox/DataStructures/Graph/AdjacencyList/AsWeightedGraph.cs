@@ -2,6 +2,11 @@
 
 namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
+    /// <summary>
+    /// A weighted graph vertex
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="W"></typeparam>
     public class AsWeightedGraphVertex<T, W> where W : IComparable
     {
         public T Value { get; private set; }
@@ -18,6 +23,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
     }
 
+    /// <summary>
+    /// A weighted graph implementation
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="W"></typeparam>
     public class AsWeightedGraph<T, W> where W : IComparable
     {
         public int VerticesCount => Vertices.Count;
@@ -28,6 +38,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             Vertices = new AsHashSet<AsWeightedGraphVertex<T, W>>();
         }
 
+        /// <summary>
+        /// Add a new vertex to this graph
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public AsWeightedGraphVertex<T, W> AddVertex(T value)
         {
             if (value == null)
@@ -42,6 +57,10 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             return newVertex;
         }
 
+        /// <summary>
+        /// remove given vertex from this graph
+        /// </summary>
+        /// <param name="value"></param>
         public void RemoveVertex(AsWeightedGraphVertex<T, W> value)
         {
             if (value == null)
@@ -68,6 +87,13 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             Vertices.Remove(value);
         }
 
+        /// <summary>
+        /// Add a new edge to this graph with given weight 
+        /// and between given source and destination vertex
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
+        /// <param name="weight"></param>
         public void AddEdge(AsWeightedGraphVertex<T, W> source,
             AsWeightedGraphVertex<T, W> dest, W weight)
         {
@@ -86,6 +112,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             dest.Edges.Add(source, weight);
         }
 
+        /// <summary>
+        /// Remove given edge
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
         public void RemoveEdge(AsWeightedGraphVertex<T, W> source,
             AsWeightedGraphVertex<T, W> dest)
         {
@@ -109,6 +140,12 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             dest.Edges.Remove(source);
         }
 
+        /// <summary>
+        /// Do we have an edge between given source and destination
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
+        /// <returns></returns>
         public bool HasEdge(AsWeightedGraphVertex<T, W> source,
             AsWeightedGraphVertex<T, W> dest)
         {

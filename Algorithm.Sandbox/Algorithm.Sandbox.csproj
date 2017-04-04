@@ -128,7 +128,6 @@
     <Compile Include="GraphAlgorithms\Connectivity\EulerianPath.cs" />
     <Compile Include="GraphAlgorithms\Cover\MinVertexCover.cs" />
     <Compile Include="GraphAlgorithms\Flow\MaxFlow.cs" />
-    <Compile Include="GraphAlgorithms\Flow\MinFlow.cs" />
     <Compile Include="GraphAlgorithms\Matching\BiPartiteMatching.cs" />
     <Compile Include="GraphAlgorithms\MinimumSpanningTree\Kruskals.cs" />
     <Compile Include="GraphAlgorithms\MinimumSpanningTree\Prims.cs" />
