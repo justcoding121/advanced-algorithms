@@ -176,6 +176,7 @@ Various important computer science algorithms generically implemented in C#
 
 ## Numerical Methods
 
+* kth Largest/Smallest
 * Check Primality
 * Generate Primes
 * Greatest Common Divisor
