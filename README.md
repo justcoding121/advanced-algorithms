@@ -112,7 +112,7 @@ Various important computer science algorithms generically implemented in C#
 
 ### Coloring
 
-* M-Coloring
+* M-Coloring ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Coloring/MColoring.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Coloring/MColoring_Tests.cs))
 
 ### Cover
 
@@ -176,6 +176,7 @@ Various important computer science algorithms generically implemented in C#
 
 ## Numerical Methods
 
+* kth Largest/Smallest
 * Check Primality
 * Generate Primes
 * Greatest Common Divisor
