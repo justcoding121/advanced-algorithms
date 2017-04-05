@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
 {
-    class Bellman_Ford
+    public class BellmanFordShortestPath
     {
     }
 }

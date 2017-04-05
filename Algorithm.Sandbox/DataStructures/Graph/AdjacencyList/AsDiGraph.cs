@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algorithm.Sandbox.DataStructures;
+using System;
 
 namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
@@ -31,11 +32,29 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     public class AsDiGraph<T>
     {
         public int VerticesCount => Vertices.Count;
-        internal AsHashSet<AsDiGraphVertex<T>> Vertices { get; set; }
+        internal AsDictionary<T, AsDiGraphVertex<T>> Vertices { get; set; }
+
+        /// <summary>
+        /// return a reference vertex
+        /// </summary>
+        public AsDiGraphVertex<T> ReferenceVertex
+        {
+            get
+            {
+                var enumerator = Vertices.GetEnumerator();
+                if (enumerator.MoveNext())
+                {
+                    return enumerator.Current.Value;
+                }
+
+                return null;
+            }
+        }
+
 
         public AsDiGraph()
         {
-            Vertices = new AsHashSet<AsDiGraphVertex<T>>();
+            Vertices = new AsDictionary<T, AsDiGraphVertex<T>>();
         }
 
         /// <summary>
@@ -52,7 +71,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             var newVertex = new AsDiGraphVertex<T>(value);
 
-            Vertices.Add(newVertex);
+            Vertices.Add(value, newVertex);
 
             return newVertex;
         }
@@ -61,30 +80,30 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// remove an existing vertex frm graph
         /// </summary>
         /// <param name="value"></param>
-        public void RemoveVertex(AsDiGraphVertex<T> value)
+        public void RemoveVertex(T value)
         {
             if (value == null)
             {
                 throw new ArgumentNullException();
             }
 
-            if (!Vertices.Contains(value))
+            if (!Vertices.ContainsKey(value))
             {
                 throw new Exception("Vertex not in this graph.");
             }
 
-            foreach (var vertex in value.InEdges)
+            foreach (var vertex in Vertices[value].InEdges)
             {
-                if (!Vertices.Contains(vertex.Value))
+                if (!Vertices.ContainsKey(vertex.Value.Value))
                 {
                     throw new Exception("Vertex incoming edge source vertex is not in this graph.");
                 }
                 vertex.Value.OutEdges.Remove(vertex.Value);
             }
 
-            foreach (var vertex in value.OutEdges)
+            foreach (var vertex in Vertices[value].OutEdges)
             {
-                if (!Vertices.Contains(vertex.Value))
+                if (!Vertices.ContainsKey(vertex.Value.Value))
                 {
                     throw new Exception("Vertex outgoing edge target vertex is not in this graph.");
                 }
@@ -100,25 +119,25 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
-        public void AddEdge(AsDiGraphVertex<T> source, AsDiGraphVertex<T> dest)
+        public void AddEdge(T source, T dest)
         {
             if (source == null || dest == null)
             {
                 throw new ArgumentException();
             }
 
-            if (!Vertices.Contains(source) || !Vertices.Contains(dest))
+            if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             {
                 throw new Exception("Source or Destination Vertex is not in this graph.");
             }
 
-            if (source.OutEdges.Contains(dest) || dest.InEdges.Contains(source))
+            if (Vertices[source].OutEdges.Contains(Vertices[dest]) || Vertices[dest].InEdges.Contains(Vertices[source]))
             {
                 throw new Exception("Edge exists already partially or totally.");
             }
 
-            source.OutEdges.Add(dest);
-            dest.InEdges.Add(source);
+            Vertices[source].OutEdges.Add(Vertices[dest]);
+            Vertices[dest].InEdges.Add(Vertices[source]);
         }
 
         /// <summary>
@@ -126,7 +145,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
-        public void RemoveEdge(AsDiGraphVertex<T> source, AsDiGraphVertex<T> dest)
+        public void RemoveEdge(T source, T dest)
         {
 
             if (source == null || dest == null)
@@ -134,18 +153,19 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException();
             }
 
-            if (!Vertices.Contains(source) || !Vertices.Contains(dest))
+            if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             {
                 throw new Exception("Source or Destination Vertex is not in this graph.");
             }
 
-            if (!source.OutEdges.Contains(dest) || !dest.InEdges.Contains(source))
+            if (!Vertices[source].OutEdges.Contains(Vertices[dest]) 
+                || !Vertices[dest].InEdges.Contains(Vertices[source]))
             {
                 throw new Exception("Edge do not exists partially or totally.");
             }
 
-            source.OutEdges.Remove(dest);
-            dest.InEdges.Remove(source);
+            Vertices[source].OutEdges.Remove(Vertices[dest]);
+            Vertices[dest].InEdges.Remove(Vertices[source]);
         }
 
         /// <summary>
@@ -154,9 +174,33 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// <param name="source"></param>
         /// <param name="dest"></param>
         /// <returns></returns>
-        public bool HasEdge(AsDiGraphVertex<T> source, AsDiGraphVertex<T> dest)
+        public bool HasEdge(T source, T dest)
         {
-            return source.OutEdges.Contains(dest) && dest.InEdges.Contains(source);
-        }      
+            if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+            {
+                throw new ArgumentException("source or destination is not in this graph.");
+            }
+
+            return Vertices[source].OutEdges.Contains(Vertices[dest]) 
+                && Vertices[dest].InEdges.Contains(Vertices[source]);
+        }
+
+        /// <summary>
+        /// returns the vertex object with given value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public AsDiGraphVertex<T> FindVertex(T value)
+        {
+            foreach(var vertex in Vertices)
+            {
+                if (vertex.Value.Equals(value))
+                {
+                    return vertex.Value;
+                }
+            }
+
+            return null;
+        }
     }
 }

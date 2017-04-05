@@ -14,10 +14,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
         /// <returns></returns>
         public bool CanColor(AsGraph<T> graph, C[] colors)
         {
-            var enumerator = graph.Vertices.GetEnumerator();
-            enumerator.MoveNext();
 
-            AsGraphVertex<T> first = enumerator.Current.Value;
+            AsGraphVertex<T> first = graph.ReferenceVertex;
 
             var progress = CanColor(first, colors, 
                 new AsDictionary<AsGraphVertex<T>, C>(),

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
 {
-    class Johnsons
+    public class JohnsonsShortestPath
     {
+
     }
 }

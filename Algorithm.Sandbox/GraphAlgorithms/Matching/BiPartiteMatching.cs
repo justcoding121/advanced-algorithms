@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Matching
 {
-    class BiPartiteMatching
+    public class BiPartiteMatching
     {
+      
     }
 }

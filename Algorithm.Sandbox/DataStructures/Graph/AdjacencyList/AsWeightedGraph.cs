@@ -31,11 +31,29 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     public class AsWeightedGraph<T, W> where W : IComparable
     {
         public int VerticesCount => Vertices.Count;
-        internal AsHashSet<AsWeightedGraphVertex<T, W>> Vertices { get; set; }
+        internal AsDictionary<T, AsWeightedGraphVertex<T, W>> Vertices { get; set; }
+
+        /// <summary>
+        /// return a reference vertex
+        /// </summary>
+        public AsWeightedGraphVertex<T, W> ReferenceVertex
+        {
+            get
+            {
+                var enumerator = Vertices.GetEnumerator();
+                if (enumerator.MoveNext())
+                {
+                    return enumerator.Current.Value;
+                }
+
+                return null;
+            }
+        }
+
 
         public AsWeightedGraph()
         {
-            Vertices = new AsHashSet<AsWeightedGraphVertex<T, W>>();
+            Vertices = new AsDictionary<T, AsWeightedGraphVertex<T, W>>();
         }
 
         /// <summary>
@@ -52,7 +70,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             var newVertex = new AsWeightedGraphVertex<T, W>(value);
 
-            Vertices.Add(newVertex);
+            Vertices.Add(value, newVertex);
 
             return newVertex;
         }
@@ -61,22 +79,22 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// remove given vertex from this graph
         /// </summary>
         /// <param name="value"></param>
-        public void RemoveVertex(AsWeightedGraphVertex<T, W> value)
+        public void RemoveVertex(T value)
         {
             if (value == null)
             {
                 throw new ArgumentNullException();
             }
 
-            if (!Vertices.Contains(value))
+            if (!Vertices.ContainsKey(value))
             {
                 throw new Exception("Vertex not in this graph.");
             }
 
 
-            foreach (var vertex in value.Edges)
+            foreach (var vertex in Vertices[value].Edges)
             {
-                if (!Vertices.Contains(vertex.Key))
+                if (!Vertices.ContainsKey(vertex.Key.Value))
                 {
                     throw new Exception("Vertex outgoing edge target vertex is not in this graph.");
                 }
@@ -94,22 +112,21 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// <param name="source"></param>
         /// <param name="dest"></param>
         /// <param name="weight"></param>
-        public void AddEdge(AsWeightedGraphVertex<T, W> source,
-            AsWeightedGraphVertex<T, W> dest, W weight)
+        public void AddEdge(T source, T dest, W weight)
         {
             if (source == null || dest == null)
             {
                 throw new ArgumentException();
             }
 
-            if (!Vertices.Contains(source) || !Vertices.Contains(dest))
+            if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             {
                 throw new Exception("Source or Destination Vertex is not in this graph.");
             }
 
 
-            source.Edges.Add(dest, weight);
-            dest.Edges.Add(source, weight);
+            Vertices[source].Edges.Add(Vertices[dest], weight);
+            Vertices[dest].Edges.Add(Vertices[source], weight);
         }
 
         /// <summary>
@@ -117,8 +134,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
-        public void RemoveEdge(AsWeightedGraphVertex<T, W> source,
-            AsWeightedGraphVertex<T, W> dest)
+        public void RemoveEdge(T source, T dest)
         {
 
             if (source == null || dest == null)
@@ -126,18 +142,19 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException();
             }
 
-            if (!Vertices.Contains(source) || !Vertices.Contains(dest))
+            if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             {
                 throw new Exception("Source or Destination Vertex is not in this graph.");
             }
 
-            if (!source.Edges.ContainsKey(dest) || !dest.Edges.ContainsKey(source))
+            if (!Vertices[source].Edges.ContainsKey(Vertices[dest]) 
+                || !Vertices[dest].Edges.ContainsKey(Vertices[source]))
             {
                 throw new Exception("Edge do not exists partially or totally.");
             }
 
-            source.Edges.Remove(dest);
-            dest.Edges.Remove(source);
+            Vertices[source].Edges.Remove(Vertices[dest]);
+            Vertices[dest].Edges.Remove(Vertices[source]);
         }
 
         /// <summary>
@@ -146,14 +163,18 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// <param name="source"></param>
         /// <param name="dest"></param>
         /// <returns></returns>
-        public bool HasEdge(AsWeightedGraphVertex<T, W> source,
-            AsWeightedGraphVertex<T, W> dest)
+        public bool HasEdge(T source, T dest)
         {
+            if(!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+            {
+                throw new ArgumentException("source or destination is not in this graph.");
+            }
+
             var sourceExists = false;
 
-            foreach (var edge in source.Edges)
+            foreach (var edge in Vertices[source].Edges)
             {
-                if (edge.Key == dest)
+                if (edge.Key == Vertices[dest])
                 {
                     sourceExists = true;
                     break;
@@ -162,9 +183,9 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             var destExists = false;
 
-            foreach (var edge in dest.Edges)
+            foreach (var edge in Vertices[dest].Edges)
             {
-                if (edge.Key == source)
+                if (edge.Key == Vertices[source])
                 {
                     destExists = true;
                     break;
@@ -174,5 +195,22 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             return sourceExists && destExists;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public AsWeightedGraphVertex<T, W> FindWeightedGraphVertex(T value)
+        {
+            foreach (var vertex in Vertices)
+            {
+                if (vertex.Value.Equals(value))
+                {
+                    return vertex.Value;
+                }
+            }
+
+            return null;
+        }
     }
 }

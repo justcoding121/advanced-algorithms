@@ -1,5 +1,6 @@
 ﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using Algorithm.Sandbox.GraphAlgorithms.Coloring;
+using Algorithm.Sandbox.GraphAlgorithms.Cover;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,13 @@ using System.Threading.Tasks;
 namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Coloring
 {
     [TestClass]
-    public class MColoring_Tests
+    public class MinVertexCover_Tests
     {
         /// <summary>
         /// Gets the minimum number of coins to fit in the amount 
         /// </summary>
         [TestMethod]
-        public void Smoke_MColoring_Test()
+        public void Smoke_Test_MinVertexCover()
         {
             var graph = new AsGraph<int>();
 
@@ -24,18 +25,25 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Coloring
             graph.AddVertex(1);
             graph.AddVertex(2);
             graph.AddVertex(3);
+            graph.AddVertex(4);
 
             graph.AddEdge(0, 1);
             graph.AddEdge(0, 2);
             graph.AddEdge(0, 3);
-            graph.AddEdge(1, 2);
-            graph.AddEdge(2, 3);
+            graph.AddEdge(0, 4);
 
-            var algo = new MColoring<int, string>();
+            var algo = new MinVertexCover<int>();
 
-            var result = algo.CanColor(graph, new string[] { "red", "green", "blue" });
+            var result = algo.GetMinVertexCover(graph);
 
-            Assert.IsTrue(result);
+            Assert.IsTrue(result.Count() <= 2);
+
+            graph.RemoveEdge(0, 4);
+
+            graph.AddEdge(1, 4);
+
+            result = algo.GetMinVertexCover(graph);
+            Assert.IsTrue(result.Count() <= 4);
         }
     }
 }

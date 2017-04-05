@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
 {
-    class Floyd_Warshall
+    public class FloydWarshallShortestPath
     {
     }
 }
