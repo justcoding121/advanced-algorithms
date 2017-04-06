@@ -80,6 +80,13 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             return result;
         }
 
+        /// <summary>
+        /// Augment current Path to residual Graph
+        /// </summary>
+        /// <param name="graph"></param>
+        /// <param name="residualGraph"></param>
+        /// <param name="path"></param>
+        /// <returns></returns>
         private W AugmentResidualGraph(AsWeightedDiGraph<T, W> graph,
             AsWeightedDiGraph<T, W> residualGraph, AsArrayList<T> path)
         {
@@ -105,7 +112,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
                 var vertex_1 = residualGraph.FindVertex(path[i]);
                 var vertex_2 = residualGraph.FindVertex(path[i + 1]);
 
+                //substract from forward paths
                 vertex_1.OutEdges[vertex_2] = operators.SubstractWeights(vertex_1.OutEdges[vertex_2], min);
+
+                //add for backward paths
                 vertex_2.OutEdges[vertex_1] = operators.AddWeights(vertex_2.OutEdges[vertex_1], min);
 
             }
@@ -113,6 +123,13 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             return min;
         }
 
+        /// <summary>
+        /// depth first search to find a path to sink in residual graph from source
+        /// </summary>
+        /// <param name="residualGraph"></param>
+        /// <param name="source"></param>
+        /// <param name="sink"></param>
+        /// <returns></returns>
         private AsArrayList<T> DFS(AsWeightedDiGraph<T, W> residualGraph, T source, T sink)
         {
             //init parent lookup table to trace path
