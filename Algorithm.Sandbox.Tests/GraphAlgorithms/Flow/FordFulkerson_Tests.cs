@@ -1,12 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using Algorithm.Sandbox.GraphAlgorithms.Flow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
 {
@@ -19,44 +13,64 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
         [TestMethod]
         public void FordFulkerson_Smoke_Test()
         {
-            var graph = new AsWeightedDiGraph<int, int>();
+            var graph = new AsWeightedDiGraph<char, int>();
 
-            graph.AddVertex(1);
-            graph.AddVertex(2);
-            graph.AddVertex(3);
-            graph.AddVertex(4);
-            graph.AddVertex(5);
+            graph.AddVertex('S');
+            graph.AddVertex('A');
+            graph.AddVertex('B');
+            graph.AddVertex('C');
+            graph.AddVertex('D');
+            graph.AddVertex('T');
 
-            graph.AddEdge(1, 2, 1);
-            graph.AddEdge(2, 3, 2);
-            graph.AddEdge(3, 4, 3);
-            graph.AddEdge(4, 5, 1);
-            graph.AddEdge(4, 1, 6);
-            graph.AddEdge(3, 5, 4);
+            graph.AddEdge('S', 'A', 10);
+            graph.AddEdge('S', 'C', 10);
 
-            var algo = new FordFulkersonMaxFlow<int, int>(new FordFulkersonOperators());
+            graph.AddEdge('A', 'B', 4);
+            graph.AddEdge('A', 'C', 2);
+            graph.AddEdge('A', 'D', 8);
 
-            var result = algo.ComputeMaxFlow(graph, 1, 5);
+            graph.AddEdge('B', 'T', 10);
+
+            graph.AddEdge('C', 'D', 9);
+
+            graph.AddEdge('D', 'B', 6);
+            graph.AddEdge('D', 'T', 10);
+
+            var algo = new FordFulkersonMaxFlow<char, int>(new FordFulkersonOperators());
+
+            var result = algo.ComputeMaxFlow(graph, 'S', 'T');
+
+            Assert.AreEqual(result, 19);
         }
 
+        /// <summary>
+        /// operators for generics
+        /// implemented for int type for edge weights
+        /// </summary>
         public class FordFulkersonOperators : IFordFulkersonOperators<int>
         {
-            public int Add(int a, int b)
+            public int AddWeights(int a, int b)
             {
                 return a + b;
             }
 
-            public int defaultWeight()
+            public int defaultWeight
             {
-                return 0;
+                get
+                {
+                    return 0;
+                }
             }
 
-            public int MaxWeight()
+            public int MaxWeight
             {
-                return int.MaxValue;
+                get
+                {
+                    return int.MaxValue;
+                }
             }
 
-            public int Substract(int a, int b)
+            public int SubstractWeights(int a, int b)
             {
                 return a - b;
             }

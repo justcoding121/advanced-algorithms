@@ -176,12 +176,9 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// <returns></returns>
         public AsGraphVertex<T> FindVertex(T value)
         {
-            foreach (var vertex in Vertices)
+            if (Vertices.ContainsKey(value))
             {
-                if (vertex.Value.Equals(value))
-                {
-                    return vertex.Value;
-                }
+                return Vertices[value];
             }
 
             return null;

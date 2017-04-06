@@ -209,6 +209,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             return sourceExists && destExists;
         }
+     
         /// <summary>
         /// returns the vertex with given value
         /// </summary>
@@ -216,12 +217,9 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// <returns></returns>
         public AsWeightedDiGraphVertex<T, W> FindVertex(T value)
         {
-            foreach (var vertex in Vertices)
+            if(Vertices.ContainsKey(value))
             {
-                if (vertex.Value.Equals(value))
-                {
-                    return vertex.Value;
-                }
+                return Vertices[value];
             }
 
             return null;

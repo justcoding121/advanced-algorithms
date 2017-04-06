@@ -4,23 +4,47 @@ using System;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Flow
 {
+    /// <summary>
+    /// Operators to deal with generic Add, Substract etc on edge weights
+    /// </summary>
+    /// <typeparam name="W"></typeparam>
     public interface IFordFulkersonOperators<W> where W : IComparable
     {
         /// <summary>
         /// default value for this type W
         /// </summary>
         /// <returns></returns>
-        W defaultWeight();
+        W defaultWeight { get; }
 
         /// <summary>
         /// returns the max for this type W
         /// </summary>
         /// <returns></returns>
-        W MaxWeight();
+        W MaxWeight { get; }
 
-        W Add(W a, W b);
-        W Substract(W a, W b);
+        /// <summary>
+        /// add two weights
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        W AddWeights(W a, W b);
+
+        /// <summary>
+        /// substract b from a
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        W SubstractWeights(W a, W b);
     }
+
+    /// <summary>
+    /// A ford-fulkerson max flox implementation on weighted directed graph using 
+    /// adjacency list representation of graph & residual graph
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="W"></typeparam>
     public class FordFulkersonMaxFlow<T, W> where W : IComparable
     {
         IFordFulkersonOperators<W> operators;
@@ -29,6 +53,15 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             this.operators = operators;
         }
 
+        /// <summary>
+        /// Compute max flow by searching a path
+        /// And then augmenting the residual graph until
+        /// no more path exists in residual graph with possible flow
+        /// </summary>
+        /// <param name="graph"></param>
+        /// <param name="source"></param>
+        /// <param name="sink"></param>
+        /// <returns></returns>
         public W ComputeMaxFlow(AsWeightedDiGraph<T, W> graph,
             T source, T sink)
         {
@@ -36,11 +69,11 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
 
             AsArrayList<T> path = DFS(residualGraph, source, sink);
 
-            var result = operators.defaultWeight();
+            var result = operators.defaultWeight;
 
             while (path != null)
             {
-                result = operators.Add(result, AugmentResidualGraph(graph, residualGraph, path));
+                result = operators.AddWeights(result, AugmentResidualGraph(graph, residualGraph, path));
                 path = DFS(residualGraph, source, sink);
             }
 
@@ -50,7 +83,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         private W AugmentResidualGraph(AsWeightedDiGraph<T, W> graph,
             AsWeightedDiGraph<T, W> residualGraph, AsArrayList<T> path)
         {
-            var min = operators.MaxWeight();
+            var min = operators.MaxWeight;
 
             for (int i = 0; i < path.Length - 1; i++)
             {
@@ -72,8 +105,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
                 var vertex_1 = residualGraph.FindVertex(path[i]);
                 var vertex_2 = residualGraph.FindVertex(path[i + 1]);
 
-                vertex_1.OutEdges[vertex_2] = operators.Add(vertex_1.OutEdges[vertex_2], min);
-                vertex_2.OutEdges[vertex_1] = operators.Substract(vertex_2.OutEdges[vertex_1], min);
+                vertex_1.OutEdges[vertex_2] = operators.SubstractWeights(vertex_1.OutEdges[vertex_2], min);
+                vertex_2.OutEdges[vertex_1] = operators.AddWeights(vertex_2.OutEdges[vertex_1], min);
 
             }
 
@@ -101,17 +134,23 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
                 currentVertex = stack.Pop();
                 visited.Add(currentVertex);
 
-                if (!currentVertex.Value.Equals(sink))
+                //reached sink? then break otherwise dig in
+                if (currentVertex.Value.Equals(sink))
+                {
+                    break;
+                }
+                else
                 {
                     foreach (var edge in currentVertex.OutEdges)
                     {
 
                         //visit only if edge have available flow
                         if (!visited.Contains(edge.Key)
-                            && edge.Value.CompareTo(operators.defaultWeight()) > 0)
+                            && edge.Value.CompareTo(operators.defaultWeight) > 0)
                         {
-                            stack.Push(edge.Key);
+                            //keep track of this to trace out path once sink is found
                             parentLookUp[edge.Key] = currentVertex;
+                            stack.Push(edge.Key);                          
                         }
                     }
                 }
@@ -126,7 +165,9 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             //traverse back from sink to find path to source
             var path = new AsStack<T>();
 
-            while (currentVertex != null)
+            path.Push(sink);
+
+            while (currentVertex != null && !currentVertex.Value.Equals(source))
             {
                 path.Push(parentLookUp[currentVertex].Value);
                 currentVertex = parentLookUp[currentVertex];

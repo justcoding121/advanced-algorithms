@@ -200,14 +200,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public AsWeightedGraphVertex<T, W> FindWeightedGraphVertex(T value)
+        public AsWeightedGraphVertex<T, W> FindVertex(T value)
         {
-            foreach (var vertex in Vertices)
+            if (Vertices.ContainsKey(value))
             {
-                if (vertex.Value.Equals(value))
-                {
-                    return vertex.Value;
-                }
+                return Vertices[value];
             }
 
             return null;
