@@ -4,51 +4,17 @@ using System;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Flow
 {
+ 
     /// <summary>
-    /// Operators to deal with generic Add, Substract etc on edge weights
-    /// </summary>
-    /// <typeparam name="W"></typeparam>
-    public interface IFlowOperators<W> where W : IComparable
-    {
-        /// <summary>
-        /// default value for this type W
-        /// </summary>
-        /// <returns></returns>
-        W defaultWeight { get; }
-
-        /// <summary>
-        /// returns the max for this type W
-        /// </summary>
-        /// <returns></returns>
-        W MaxWeight { get; }
-
-        /// <summary>
-        /// add two weights
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        W AddWeights(W a, W b);
-
-        /// <summary>
-        /// substract b from a
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        W SubstractWeights(W a, W b);
-    }
-
-    /// <summary>
-    /// A ford-fulkerson max flox implementation on weighted directed graph using 
+    /// A Edmond Karp max flox implementation on weighted directed graph using 
     /// adjacency list representation of graph & residual graph
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="W"></typeparam>
-    public class FordFulkersonMaxFlow<T, W> where W : IComparable
+    public class EdmondKarpMaxFlow<T, W> where W : IComparable
     {
         IFlowOperators<W> operators;
-        public FordFulkersonMaxFlow(IFlowOperators<W> operators)
+        public EdmondKarpMaxFlow(IFlowOperators<W> operators)
         {
             this.operators = operators;
         }
@@ -67,14 +33,14 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         {
             var residualGraph = createResidualGraph(graph);
 
-            AsArrayList<T> path = DFS(residualGraph, source, sink);
+            AsArrayList<T> path = BFS(residualGraph, source, sink);
 
             var result = operators.defaultWeight;
 
             while (path != null)
             {
                 result = operators.AddWeights(result, AugmentResidualGraph(graph, residualGraph, path));
-                path = DFS(residualGraph, source, sink);
+                path = BFS(residualGraph, source, sink);
             }
 
             return result;
@@ -124,13 +90,13 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         }
 
         /// <summary>
-        /// depth first search to find a path to sink in residual graph from source
+        /// bredth first search to find a path to sink in residual graph from source
         /// </summary>
         /// <param name="residualGraph"></param>
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        private AsArrayList<T> DFS(AsWeightedDiGraph<T, W> residualGraph, T source, T sink)
+        private AsArrayList<T> BFS(AsWeightedDiGraph<T, W> residualGraph, T source, T sink)
         {
             //init parent lookup table to trace path
             var parentLookUp = new AsDictionary<AsWeightedDiGraphVertex<T, W>, AsWeightedDiGraphVertex<T, W>>();
@@ -139,18 +105,18 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
                 parentLookUp.Add(vertex.Value, null);
             }
 
-            //regular DFS stuff
-            var stack = new AsStack<AsWeightedDiGraphVertex<T, W>>();
+            //regular BFS stuff
+            var queue = new AsQueue<AsWeightedDiGraphVertex<T, W>>();
             var visited = new AsHashSet<AsWeightedDiGraphVertex<T, W>>();
-            stack.Push(residualGraph.Vertices[source]);
+            queue.Enqueue(residualGraph.Vertices[source]);
             visited.Add(residualGraph.Vertices[source]);
 
             AsWeightedDiGraphVertex<T, W> currentVertex = null;
 
-            while (stack.Count > 0)
+            while (queue.Count() > 0)
             {
-                currentVertex = stack.Pop();
-
+                currentVertex = queue.Dequeue();
+              
                 //reached sink? then break otherwise dig in
                 if (currentVertex.Value.Equals(sink))
                 {
@@ -160,15 +126,14 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
                 {
                     foreach (var edge in currentVertex.OutEdges)
                     {
-
                         //visit only if edge have available flow
                         if (!visited.Contains(edge.Key)
                             && edge.Value.CompareTo(operators.defaultWeight) > 0)
                         {
                             //keep track of this to trace out path once sink is found
                             parentLookUp[edge.Key] = currentVertex;
-                            stack.Push(edge.Key);
-                            visited.Add(edge.Key);
+                            queue.Enqueue(edge.Key);
+                            visited.Add(edge.Key);                       
                         }
                     }
                 }

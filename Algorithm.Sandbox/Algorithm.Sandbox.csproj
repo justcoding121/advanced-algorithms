@@ -126,6 +126,7 @@
     <Compile Include="Geometry\ConvexHull.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColoring.cs" />
     <Compile Include="GraphAlgorithms\Cover\MinVertexCover.cs" />
+    <Compile Include="GraphAlgorithms\Flow\EdmondsKarp.cs" />
     <Compile Include="GraphAlgorithms\Flow\FordFulkerson.cs" />
     <Compile Include="GraphAlgorithms\Matching\BiPartiteMatching.cs" />
     <Compile Include="GraphAlgorithms\MinimumSpanningTree\Kruskals.cs" />

@@ -81,12 +81,12 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <returns></returns>
         public AsArrayList<T> GetInfix()
         {
-            if (expStack == null || expStack.Count() == 0)
+            if (expStack == null || expStack.Count == 0)
             {
                 throw new Exception("Tree is empty");
             }
 
-            if (expStack.Count() != 1)
+            if (expStack.Count != 1)
             {
                 throw new Exception("Erroneous input expression.");
             }

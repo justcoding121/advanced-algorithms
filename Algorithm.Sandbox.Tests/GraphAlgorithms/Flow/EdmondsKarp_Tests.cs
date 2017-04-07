@@ -5,13 +5,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
 {
     [TestClass]
-    public class FordFulkerson_Tests
+    public class EdmondKarp_Tests
     {
         /// <summary>
-        /// FordFulkerson Max Flow test
+        /// EdmondKarp Max Flow test
         /// </summary>
         [TestMethod]
-        public void FordFulkerson_Smoke_Test()
+        public void EdmondKarp_Smoke_Test()
         {
             var graph = new AsWeightedDiGraph<char, int>();
 
@@ -36,7 +36,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
             graph.AddEdge('D', 'B', 6);
             graph.AddEdge('D', 'T', 10);
 
-            var algo = new FordFulkersonMaxFlow<char, int>(new FordFulkersonOperators());
+            var algo = new EdmondKarpMaxFlow<char, int>(new EdmondKarpOperators());
 
             var result = algo.ComputeMaxFlow(graph, 'S', 'T');
 
@@ -47,7 +47,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
         /// operators for generics
         /// implemented for int type for edge weights
         /// </summary>
-        public class FordFulkersonOperators : IFlowOperators<int>
+        public class EdmondKarpOperators : IFlowOperators<int>
         {
             public int AddWeights(int a, int b)
             {

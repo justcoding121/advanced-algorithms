@@ -4,29 +4,34 @@ namespace Algorithm.Sandbox.DataStructures
 {
     public class AsStack<T> 
     {
+        public int Count { get; private set; }
+
         private AsSinglyLinkedList<T> list = new AsSinglyLinkedList<T>();
 
         //O(1)
         public T Pop()
         {
-            if(list.Head == null)
+            if(Count == 0)
             {
                 throw new Exception("Empty stack");
             }
 
-            return list.DeleteFirst();
+            var result = list.DeleteFirst();
+            Count--;
+            return result;
         }
 
         //O(1)
         public void Push(T item)
         {
             list.InsertFirst(item);
+            Count++;
         }
 
         //O(1)
         public T Peek()
         {
-            if(list.Head == null)
+            if(Count == 0)
             {
                 return default(T);
             }
@@ -34,10 +39,6 @@ namespace Algorithm.Sandbox.DataStructures
             return list.Head.Data;
         }
 
-        //O(n)
-        public int Count()
-        {
-            return list.Count();
-        }
+      
     }
 }

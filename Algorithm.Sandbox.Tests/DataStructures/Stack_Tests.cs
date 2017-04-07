@@ -17,20 +17,20 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             stack.Push("a");
             stack.Push("b");
 
-            Assert.AreEqual(stack.Count(), 2);
+            Assert.AreEqual(stack.Count, 2);
             Assert.AreEqual(stack.Peek(), "b");
 
             stack.Pop();
 
-            Assert.AreEqual(stack.Count(), 1);
+            Assert.AreEqual(stack.Count, 1);
             Assert.AreEqual(stack.Peek(), "a");
 
             stack.Pop();
 
-            Assert.AreEqual(stack.Count(), 0);
+            Assert.AreEqual(stack.Count, 0);
 
             stack.Push("a");
-            Assert.AreEqual(stack.Count(), 1);
+            Assert.AreEqual(stack.Count, 1);
             Assert.AreEqual(stack.Peek(), "a");
         }
     }

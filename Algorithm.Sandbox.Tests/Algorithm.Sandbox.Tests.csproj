@@ -97,7 +97,10 @@
     <Compile Include="DynamicProgramming\TowerOfHanoi_Tests.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColoring_Tests.cs" />
     <Compile Include="GraphAlgorithms\Cover\MinVertexCover.cs" />
+    <Compile Include="GraphAlgorithms\Flow\EdmondsKarp_Tests.cs" />
     <Compile Include="GraphAlgorithms\Flow\FordFulkerson_Tests.cs" />
+    <Compile Include="GraphAlgorithms\ShortestPath\BellmanFord_Tests.cs" />
+    <Compile Include="GraphAlgorithms\ShortestPath\Dijikstras_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\SortTests.cs" />
     <Compile Include="String\Permutate.cs" />
