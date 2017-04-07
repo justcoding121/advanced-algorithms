@@ -118,18 +118,24 @@ Various important computer science algorithms generically implemented in C#
 
 * Min Vertex Cover ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Cover/MinVertexCover.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Cover/MinVertexCover.cs)]
 
-### Flow
+### Max Flow
 
-* Ford-Fulkerson Max Flow ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Flow/FordFulkerson.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Flow/FordFulkerson_Tests.cs))
+* Ford-Fulkerson algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Flow/FordFulkerson.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Flow/FordFulkerson_Tests.cs))
+* Edmonds Karp's algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Flow/EdmondsKarp.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Flow/EdmondsKarp_Tests.cs))
 
 ### Matching
 
 * Max Bipartite Matching
 
+### Strong Connectivity
+
+* Kosaraju algorithm
+* Tarjan's algorithm
+
 ### Minimum Spanning Tree
 
-* Kruskals
-* Prims
+* Kruskals algorithm
+* Prims algorithm
 
 ### Search
 
@@ -143,9 +149,9 @@ Various important computer science algorithms generically implemented in C#
 
 ### Shortest Path
 
-* Bellman-Ford algorithm
-* Dijikstras algorithm
-* Floyd-Warshall algorithm
+* Bellman-Ford algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/ShortestPath/Bellman-Ford.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/ShortestPath/BellmanFord_Tests.cs))
+* Dijikstras algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/ShortestPath/Dijikstra.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/ShortestPath/Dijikstras_Tests.cs)) using Fibornacci Heap.
+* Floyd-Warshall algorithm 
 * Johnsons algorithm
 
 ## Sorting
