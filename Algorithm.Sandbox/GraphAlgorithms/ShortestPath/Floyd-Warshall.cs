@@ -20,10 +20,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
 
         public W Distance { get; }
 
-        public T[] Path { get; }
+        public AsArrayList<T> Path { get; }
 
         public AllPairShortestPathResult(T source, T destination,
-            W distance, T[] path)
+            W distance, AsArrayList<T> path)
         {
             Source = source;
             Destination = destination;
@@ -138,7 +138,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
         /// <param name="vertexIndex"></param>
         /// <param name="reverseVertexIndex"></param>
         /// <returns></returns>
-        private T[] tracePath(W[,] result, T[,] parent, int i, int j,
+        private AsArrayList<T> tracePath(W[,] result, T[,] parent, int i, int j,
             AsDictionary<int, T> vertexIndex, AsDictionary<T, int> reverseVertexIndex)
         {
             var pathStack = new AsStack<T>();
@@ -159,7 +159,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
                 path.Add(pathStack.Pop());
             }
 
-            return path.ToArray();
+            return path;
         }
 
 

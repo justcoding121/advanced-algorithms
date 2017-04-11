@@ -98,7 +98,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
                     throw new Exception("Vertex outgoing edge target vertex is not in this graph.");
                 }
 
-                vertex.Key.Edges.Remove(vertex.Key);
+                vertex.Key.Edges.Remove(Vertices[value]);
             }
 
             Vertices.Remove(value);

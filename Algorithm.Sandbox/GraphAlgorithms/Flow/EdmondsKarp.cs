@@ -113,7 +113,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
 
             AsWeightedDiGraphVertex<T, W> currentVertex = null;
 
-            while (queue.Count() > 0)
+            while (queue.Count > 0)
             {
                 currentVertex = queue.Dequeue();
               
