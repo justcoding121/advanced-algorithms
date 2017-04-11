@@ -15,8 +15,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         public AsWeightedGraphVertex(T value)
         {
-            this.Value = Value;
-
+            Value = value;
             Edges = new AsDictionary<AsWeightedGraphVertex<T, W>, W>();
 
         }

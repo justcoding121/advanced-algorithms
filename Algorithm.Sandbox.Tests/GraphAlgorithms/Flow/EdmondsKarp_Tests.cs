@@ -51,7 +51,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
         {
             public int AddWeights(int a, int b)
             {
-                return a + b;
+                return checked(a + b);
             }
 
             public int defaultWeight
@@ -72,7 +72,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
 
             public int SubstractWeights(int a, int b)
             {
-                return a - b;
+                return checked(a - b);
             }
         }
     }

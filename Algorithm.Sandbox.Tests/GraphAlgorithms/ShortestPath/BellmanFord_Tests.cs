@@ -63,8 +63,6 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
                 {
                     return 0;
                 }
-
-
             }
 
             public int MaxValue
@@ -77,7 +75,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
 
             public int Sum(int a, int b)
             {
-                return a + b;
+                return checked(a + b);
             }
         }
     }

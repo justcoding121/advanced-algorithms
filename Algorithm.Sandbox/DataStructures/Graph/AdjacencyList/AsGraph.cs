@@ -14,8 +14,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         public AsGraphVertex(T value)
         {
-            this.Value = value;
-
+            Value = value;
             Edges = new AsHashSet<AsGraphVertex<T>>();
         }
 

@@ -17,8 +17,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         public AsDiGraphVertex(T value)
         {
-            this.Value = value;
-
+            Value = value;
             OutEdges = new AsHashSet<AsDiGraphVertex<T>>();
             InEdges = new AsHashSet<AsDiGraphVertex<T>>();
         }

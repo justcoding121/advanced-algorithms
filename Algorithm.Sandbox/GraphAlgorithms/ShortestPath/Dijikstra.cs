@@ -36,9 +36,9 @@ namespace Algorithm.Sandbox.GraphAlgorithms
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="W"></typeparam>
-    public class ShortestPath<T, W> where W : IComparable
+    public class ShortestPathResult<T, W> where W : IComparable
     {
-        public ShortestPath(AsArrayList<T> path, W length)
+        public ShortestPathResult(AsArrayList<T> path, W length)
         {
             Length = length;
             Path = path;
@@ -65,7 +65,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public ShortestPath<T, W> GetShortestPath(AsWeightedDiGraph<T, W> graph, T source, T destination)
+        public ShortestPathResult<T, W> GetShortestPath(AsWeightedDiGraph<T, W> graph, T source, T destination)
         {
             //regular argument checks
             if (graph == null || graph.FindVertex(source) == null
@@ -160,7 +160,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        private ShortestPath<T, W> tracePath(AsWeightedDiGraph<T, W> graph,
+        private ShortestPathResult<T, W> tracePath(AsWeightedDiGraph<T, W> graph,
             AsDictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
@@ -189,7 +189,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms
                     graph.Vertices[resultPath[i]].OutEdges[graph.Vertices[resultPath[i + 1]]]);
             }
 
-            return new ShortestPath<T, W>(resultPath, resultLength);
+            return new ShortestPathResult<T, W>(resultPath, resultLength);
         }
     }
 }
