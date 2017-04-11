@@ -14,6 +14,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
     public class Johnsons_Tests
     {
         [TestMethod]
+        public void Smoke_Test_Johnsons()
         {
             var graph = new AsWeightedDiGraph<char, int>();
 
