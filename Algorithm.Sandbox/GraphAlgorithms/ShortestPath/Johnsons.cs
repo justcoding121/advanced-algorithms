@@ -87,9 +87,15 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
                 foreach (var vertexB in workGraph.Vertices)
                 {
                     var source = vertexA.Key;
-                    var dest = vertexB.Key;
-
+                    var dest = vertexB.Key;  
                     var sp = dijikstras.GetShortestPath(workGraph, source, dest);
+
+                    //no path exists
+                    if(sp.Length.Equals(operators.MaxValue))
+                    {
+                        continue;
+                    }
+
                     var distance = sp.Length;
                     var path = sp.Path;
 

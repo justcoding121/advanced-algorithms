@@ -121,6 +121,12 @@ namespace Algorithm.Sandbox.GraphAlgorithms
             //until heap is empty
             while (minHeap.Count > 0)
             {
+                //no path exists, so return max value
+                if(current.Distance.Equals(operators.MaxValue))
+                {
+                    return new ShortestPathResult<T, W>(null, operators.MaxValue);
+                }
+
                 //visit neighbours of current
                 foreach (var neighbour in graph.Vertices[current.Target].OutEdges)
                 {

@@ -25,7 +25,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
             graph.AddVertex('D');
             graph.AddVertex('T');
 
-            graph.AddEdge('S', 'A', 8);
+            graph.AddEdge('S', 'A', -5);
             graph.AddEdge('S', 'C', 10);
 
             graph.AddEdge('A', 'B', 10);
@@ -44,18 +44,9 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
             var result = algo.GetAllPairShortestPaths(graph);
 
             var testCase = result.First(x => x.Source == 'S' && x.Destination == 'T');
-            Assert.AreEqual(15, testCase.Distance);
+            Assert.AreEqual(2, testCase.Distance);
 
             var expectedPath = new char[] { 'S', 'A', 'C', 'D', 'B', 'T' };
-            for (int i = 0; i < expectedPath.Length; i++)
-            {
-                Assert.AreEqual(expectedPath[i], testCase.Path[i]);
-            }
-
-            testCase = result.First(x => x.Source == 'T' && x.Destination == 'S');
-            Assert.AreEqual(15, testCase.Distance);
-
-            expectedPath = new char[] { 'T', 'B', 'D', 'C', 'A', 'S' };
             for (int i = 0; i < expectedPath.Length; i++)
             {
                 Assert.AreEqual(expectedPath[i], testCase.Path[i]);
