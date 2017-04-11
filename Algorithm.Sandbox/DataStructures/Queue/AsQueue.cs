@@ -6,11 +6,12 @@ namespace Algorithm.Sandbox.DataStructures
     {
         private AsDoublyLinkedList<T> list = new AsDoublyLinkedList<T>();
 
+        public int Count { get; private set; }
         //O(1)
         public void Enqueue(T item)
         {
             list.InsertFirst(item);
-
+            Count++;
         }
         //O(1)
         public T Dequeue()
@@ -20,14 +21,12 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new System.Exception("Empty Queue");
             }
 
-            return list.DeleteLast();
+            var result = list.DeleteLast();
+            Count--;
+            return result;
         }
 
-        //O(n)
-        public int Count()
-        {
-            return list.Count();
-        }
+     
     }
 
 }
