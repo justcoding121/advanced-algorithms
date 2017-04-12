@@ -3,7 +3,7 @@ using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
 {
-    public class MColoring<T, C>
+    public class MColorer<T, C>
     {
         /// <summary>
         /// returns true if all vertices can be colored using the given colors 

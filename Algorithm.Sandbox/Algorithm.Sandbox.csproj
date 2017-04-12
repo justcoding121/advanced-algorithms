@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackTracking\HamiltonianCycle.cs" />
-    <Compile Include="Compression\Huffman.cs" />
     <Compile Include="DataStructures\Dictionary\AsDictionary.cs" />
     <Compile Include="DataStructures\Dictionary\AsOpenAddressDictionary.cs" />
     <Compile Include="DataStructures\HashSet\AsHashSet.cs" />
@@ -77,7 +75,6 @@
     <Compile Include="DataStructures\LinkedList\AsDoublyLinkedList.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\AsGraph.cs" />
     <Compile Include="DataStructures\Dictionary\AsSeparateChainingDictionary.cs" />
-    <Compile Include="DataStructures\Matrix\AsMatrix.cs" />
     <Compile Include="DataStructures\Queue\PriorityQueue\Min\AsPriorityQueue.cs" />
     <Compile Include="DataStructures\Queue\AsQueue.cs" />
     <Compile Include="DataStructures\Tree\AsRedBlackTree.cs" />
@@ -97,34 +94,14 @@
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
     <Compile Include="DynamicProgramming\BalancedPartition.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems.cs" />
-    <Compile Include="DynamicProgramming\CountBoolParathesizations.cs" />
-    <Compile Include="DynamicProgramming\CountDecodings.cs" />
-    <Compile Include="DynamicProgramming\DiceThrow.cs" />
-    <Compile Include="DynamicProgramming\DistinctBinaryStrings.cs" />
-    <Compile Include="DynamicProgramming\EditDistance.cs" />
-    <Compile Include="DynamicProgramming\MatrixMultiplication.cs" />
-    <Compile Include="DynamicProgramming\MaxValueSubSequence.cs" />
-    <Compile Include="DynamicProgramming\OptimalGameStrategy.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
-    <Compile Include="DynamicProgramming\LongestCommonSubSequence.cs" />
-    <Compile Include="DynamicProgramming\LongestCommonSubString.cs" />
-    <Compile Include="DynamicProgramming\LongestIncreasingSubSequence.cs" />
-    <Compile Include="DynamicProgramming\LongestPalindrome.cs" />
-    <Compile Include="DynamicProgramming\MatrixProblems.cs" />
-    <Compile Include="DynamicProgramming\MinEditDistance.cs" />
-    <Compile Include="DynamicProgramming\MinimumArrayJumps.cs" />
-    <Compile Include="DynamicProgramming\PalindromeMinCut.cs" />
-    <Compile Include="DynamicProgramming\PrintMaxAs.cs" />
-    <Compile Include="DynamicProgramming\ShortestPalindrome.cs" />
-    <Compile Include="DynamicProgramming\SubSetSum.cs" />
-    <Compile Include="DynamicProgramming\TextJustification.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />
-    <Compile Include="DynamicProgramming\TwoPersonCityTraversal.cs" />
-    <Compile Include="DynamicProgramming\UniqieBST.cs" />
-    <Compile Include="DynamicProgramming\WordBreak.cs" />
-    <Compile Include="Geometry\ClosestPointPair.cs" />
-    <Compile Include="Geometry\ConvexHull.cs" />
-    <Compile Include="GraphAlgorithms\Coloring\MColoring.cs" />
+    <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />
+    <Compile Include="GraphAlgorithms\Bridge\TarjansBridgeFinder.cs" />
+    <Compile Include="GraphAlgorithms\Coloring\MColorer.cs" />
+    <Compile Include="GraphAlgorithms\Connectivity\TarjansBiConnected.cs" />
+    <Compile Include="GraphAlgorithms\Connectivity\KosarajuStronglyConnected.cs" />
+    <Compile Include="GraphAlgorithms\Connectivity\TarjansStronglyConnected.cs" />
     <Compile Include="GraphAlgorithms\Cover\MinVertexCover.cs" />
     <Compile Include="GraphAlgorithms\Flow\EdmondsKarp.cs" />
     <Compile Include="GraphAlgorithms\Flow\FordFulkerson.cs" />
@@ -138,20 +115,17 @@
     <Compile Include="GraphAlgorithms\ShortestPath\Dijikstra.cs" />
     <Compile Include="GraphAlgorithms\ShortestPath\Floyd-Warshall.cs" />
     <Compile Include="GraphAlgorithms\ShortestPath\Johnsons.cs" />
+    <Compile Include="GraphAlgorithms\TopologicalSort\DepthFirstTopSort.cs" />
+    <Compile Include="GraphAlgorithms\TopologicalSort\KahnTopSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sorting\AsBucketSort.cs" />
-    <Compile Include="Sorting\AsCountingSort.cs" />
     <Compile Include="Sorting\HeapSort.cs" />
-    <Compile Include="Sorting\AsShellSort.cs" />
     <Compile Include="Sorting\TreeSort.cs" />
     <Compile Include="Sorting\BubbleSort.cs" />
     <Compile Include="Sorting\InsertionSort.cs" />
     <Compile Include="Sorting\MergeSort.cs" />
     <Compile Include="Sorting\QuickSort.cs" />
-    <Compile Include="Sorting\RadixSort.cs" />
     <Compile Include="Sorting\SelectionSort.cs" />
     <Compile Include="String\Permutation.cs" />
-    <Compile Include="String\Rabin-Karp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

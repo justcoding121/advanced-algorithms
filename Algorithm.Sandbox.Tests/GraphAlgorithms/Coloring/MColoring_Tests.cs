@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Coloring
             graph.AddEdge(1, 2);
             graph.AddEdge(2, 3);
 
-            var algo = new MColoring<int, string>();
+            var algo = new MColorer<int, string>();
 
             var result = algo.CanColor(graph, new string[] { "red", "green", "blue" });
 
