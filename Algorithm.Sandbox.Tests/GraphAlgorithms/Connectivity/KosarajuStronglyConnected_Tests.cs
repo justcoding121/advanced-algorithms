@@ -12,13 +12,13 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Connectivity
 {
 
     [TestClass]
-    public class TarjansStronglyConnected_Tests
+    public class KosarajuStronglyConnected_Tests
     {
         /// <summary>
         /// Gets the minimum number of coins to fit in the amount 
         /// </summary>
         [TestMethod]
-        public void Smoke_TarjanStronglyConnected_Test()
+        public void Smoke_KosarajuStronglyConnected_Test()
         {
             var graph = new AsDiGraph<char>();
 
@@ -45,17 +45,17 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Connectivity
 
             graph.AddEdge('F', 'H');
 
-            var algo = new TarjansStronglyConnected<char>();
+            var algo = new KosarajuStronglyConnected<char>();
 
             var result = algo.FindStronglyConnectedComponents(graph);
 
             Assert.AreEqual(4, result.Length);
 
             var expectedResult = new List<List<char>>() {
-                new char[] { 'H' }.ToList(),
-                new char[] { 'E', 'F', 'G' }.ToList(),
-                new char[] { 'D' }.ToList(),
-                new char[] { 'A', 'B', 'C' }.ToList()
+                    new char[] { 'A', 'B', 'C' }.ToList(),
+                    new char[] { 'D' }.ToList(),
+                    new char[] { 'E', 'F', 'G' }.ToList(),
+                    new char[] { 'H' }.ToList()
             };
 
             for (int i = 0; i < expectedResult.Count; i++)

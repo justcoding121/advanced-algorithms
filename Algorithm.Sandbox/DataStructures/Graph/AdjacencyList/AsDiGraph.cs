@@ -198,5 +198,29 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             return null;
         }
+
+        /// <summary>
+        /// clones object
+        /// </summary>
+        /// <returns></returns>
+        internal AsDiGraph<T> Clone()
+        {
+            var newGraph = new AsDiGraph<T>();
+
+            foreach (var vertex in Vertices)
+            {
+                newGraph.AddVertex(vertex.Key);
+            }
+
+            foreach (var vertex in Vertices)
+            {
+                foreach (var edge in vertex.Value.OutEdges)
+                {
+                    newGraph.AddEdge(vertex.Value.Value, edge.Value.Value);
+                }
+            }
+
+            return newGraph;
+        }
     }
 }

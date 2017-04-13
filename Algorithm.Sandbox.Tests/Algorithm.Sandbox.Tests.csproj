@@ -99,6 +99,7 @@
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridge_Tests.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColoring_Tests.cs" />
     <Compile Include="GraphAlgorithms\Connectivity\TarjansBiConnected_Tests.cs" />
+    <Compile Include="GraphAlgorithms\Connectivity\KosarajuStronglyConnected_Tests.cs" />
     <Compile Include="GraphAlgorithms\Connectivity\TarjansStronglyConnected_Tests.cs" />
     <Compile Include="GraphAlgorithms\Cover\MinVertexCover.cs" />
     <Compile Include="GraphAlgorithms\Flow\EdmondsKarp_Tests.cs" />
