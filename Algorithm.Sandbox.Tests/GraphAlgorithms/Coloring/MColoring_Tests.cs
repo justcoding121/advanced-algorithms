@@ -33,9 +33,9 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Coloring
 
             var algo = new MColorer<int, string>();
 
-            var result = algo.CanColor(graph, new string[] { "red", "green", "blue" });
+            var result = algo.Color(graph, new string[] { "red", "green", "blue" });
 
-            Assert.IsTrue(result);
+            Assert.IsTrue(result.CanColor);
         }
     }
 }

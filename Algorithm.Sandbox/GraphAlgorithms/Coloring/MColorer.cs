@@ -3,6 +3,19 @@ using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
 {
+    public class MColorResult<T, C>
+    {
+        public bool CanColor { get; }
+        public AsDictionary<C, AsArrayList<T>> Partitions {get;}
+
+        public MColorResult(bool canColor, AsDictionary<C, AsArrayList<T>> partitions)
+        {
+            CanColor = canColor;
+            Partitions = partitions;
+        }
+
+    }
+
     public class MColorer<T, C>
     {
         /// <summary>
@@ -12,7 +25,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
         /// <param name="graph"></param>
         /// <param name="colors"></param>
         /// <returns></returns>
-        public bool CanColor(AsGraph<T> graph, C[] colors)
+        public MColorResult<T, C> Color(AsGraph<T> graph, C[] colors)
         {
 
             AsGraphVertex<T> first = graph.ReferenceVertex;
@@ -23,10 +36,22 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
 
             if (progress.Count == graph.VerticesCount)
             {
-                return true;
+                var result = new AsDictionary<C, AsArrayList<T>>();
+
+                foreach(var vertex in progress)
+                {
+                    if(!result.ContainsKey(vertex.Value))
+                    {
+                        result.Add(vertex.Value, new AsArrayList<T>());
+                    }
+
+                    result[vertex.Value].Add(vertex.Key.Value);
+                }
+
+                return new MColorResult<T, C>(true, result);
             }
 
-            return false;
+            return new MColorResult<T, C>(false, null);
         }
 
         /// <summary>

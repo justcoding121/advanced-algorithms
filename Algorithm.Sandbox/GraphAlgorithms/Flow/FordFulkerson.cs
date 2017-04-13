@@ -80,6 +80,34 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             return result;
         }
 
+
+        /// <summary>
+        /// Return all flow Paths
+        /// </summary>
+        /// <param name="graph"></param>
+        /// <param name="source"></param>
+        /// <param name="sink"></param>
+        /// <returns></returns>
+        public AsArrayList<AsArrayList<T>> ComputeMaxFlowAndReturnFlowPath(AsWeightedDiGraph<T, W> graph,
+            T source, T sink)
+        {
+            var residualGraph = createResidualGraph(graph);
+
+            AsArrayList<T> path = DFS(residualGraph, source, sink);
+
+            var flow = operators.defaultWeight;
+
+            var result = new AsArrayList<AsArrayList<T>>();
+            while (path != null)
+            {
+                result.Add(path);
+                flow = operators.AddWeights(flow, AugmentResidualGraph(graph, residualGraph, path));
+                path = DFS(residualGraph, source, sink);
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Augment current Path to residual Graph
         /// </summary>
@@ -205,20 +233,20 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <summary>
         /// clones this graph and creates a residual graph
         /// </summary>
-        /// <param name="residualGraph"></param>
+        /// <param name="graph"></param>
         /// <returns></returns>
-        private AsWeightedDiGraph<T, W> createResidualGraph(AsWeightedDiGraph<T, W> residualGraph)
+        private AsWeightedDiGraph<T, W> createResidualGraph(AsWeightedDiGraph<T, W> graph)
         {
             var newGraph = new AsWeightedDiGraph<T, W>();
 
             //clone graph vertices
-            foreach (var vertex in residualGraph.Vertices)
+            foreach (var vertex in graph.Vertices)
             {
                 newGraph.AddVertex(vertex.Key);
             }
 
             //clone edges
-            foreach (var vertex in residualGraph.Vertices)
+            foreach (var vertex in graph.Vertices)
             {
                 //Use either OutEdges or InEdges for cloning
                 //here we use OutEdges
