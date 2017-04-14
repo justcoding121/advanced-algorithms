@@ -35,7 +35,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             var vertexStatusMap = new AsDictionary<T, ResidualGraphVertexStatus>();
             foreach(var vertex in residualGraph.Vertices)
             {
-                if (vertex.Value.Equals(source))
+                if (vertex.Value.Value.Equals(source))
                 {
                     //for source vertex
                     //init source height to Maximum (equal to total vertex count)
@@ -55,7 +55,16 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             //init source neighbour overflow to capacity of source-neighbour edges
             foreach (var edge in residualGraph.Vertices[source].OutEdges)
             {
+               //update edge vertex overflow
                 vertexStatusMap[edge.Key.Value].Overflow = edge.Value;
+
+                //increment reverse edge
+                residualGraph.Vertices[edge.Key.Value]
+                    .OutEdges[residualGraph.Vertices[source]] = edge.Value;
+
+                //set to minimum
+                edge.Value = operators.defaultWeight;
+
             }
 
             var overflowVertex = FindOverflowVertex(vertexStatusMap, source, sink);
@@ -67,7 +76,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
                 if (!Push(residualGraph.Vertices[overflowVertex], vertexStatusMap))
                 {
                     //increase its height and try again
-                    Relabel(overflowVertex, vertexStatusMap);
+                    Relabel(residualGraph.Vertices[overflowVertex], vertexStatusMap);
                 }
 
                 overflowVertex = FindOverflowVertex(vertexStatusMap, source, sink);
@@ -80,12 +89,26 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <summary>
         /// Increases the height of a vertex by one greater than min height of neighbours
         /// </summary>
-        /// <param name="overflowVertex"></param>
+        /// <param name="vertex"></param>
         /// <param name="vertexStatusMap"></param>
-        private void Relabel(T overflowVertex, 
+        private void Relabel(AsWeightedDiGraphVertex<T, W> vertex, 
             AsDictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
-            throw new NotImplementedException();
+            var min = int.MaxValue;
+
+            foreach(var edge in vertex.OutEdges)
+            {
+                //+ive out capacity  
+                if(min.CompareTo(vertexStatusMap[edge.Key.Value].Height) > 0
+                    && edge.Value.CompareTo(operators.defaultWeight) > 0)
+                {
+                    min = vertexStatusMap[edge.Key.Value].Height;
+                   
+                }
+            }
+
+            vertexStatusMap[vertex.Value].Height = min + 1;
+
         }
 
         /// <summary>
@@ -126,13 +149,15 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
                         possibleWeightToPush);
 
                     //increment flow of target vertex
-                    throw new NotImplementedException();
+                    vertexStatusMap[edge.Key.Value].Overflow =
+                        operators.AddWeights(vertexStatusMap[edge.Key.Value].Overflow,
+                         possibleWeightToPush);
 
                     //decrement edge weight
                     edge.Value = operators.SubstractWeights(edge.Value, possibleWeightToPush);
                     //increment reverse edge weight
                     edge.Key.OutEdges[overflowVertex] = operators.AddWeights(edge.Key.OutEdges[overflowVertex], possibleWeightToPush);
-                    
+
                     return true;
                 }
             }
@@ -154,7 +179,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             {
                 //ignore source and sink (which can have non-zero overflow)
                 if(!vertexStatus.Key.Equals(source) && !vertexStatus.Key.Equals(sink) &&
-                    !vertexStatus.Value.Overflow.Equals(operators.defaultWeight))
+                    vertexStatus.Value.Overflow.CompareTo(operators.defaultWeight) > 0)
                 {
                     return vertexStatus.Key;
                 }

@@ -104,6 +104,7 @@
     <Compile Include="GraphAlgorithms\Cover\MinVertexCover.cs" />
     <Compile Include="GraphAlgorithms\Flow\EdmondsKarp_Tests.cs" />
     <Compile Include="GraphAlgorithms\Flow\FordFulkerson_Tests.cs" />
+    <Compile Include="GraphAlgorithms\Flow\PushRelabel_Tests.cs" />
     <Compile Include="GraphAlgorithms\Matching\BiPartiteMatching_Tests.cs" />
     <Compile Include="GraphAlgorithms\ShortestPath\BellmanFord_Tests.cs" />
     <Compile Include="GraphAlgorithms\ShortestPath\Dijikstras_Tests.cs" />
