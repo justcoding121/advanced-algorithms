@@ -126,7 +126,7 @@ Various important computer science algorithms generically implemented in C#
 
 ### Coloring
 
-* M-Coloring ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Coloring/MColoring.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Coloring/MColoring_Tests.cs))
+* M-Coloring ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Coloring/MColorer.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Coloring/MColoring_Tests.cs))
 
 ### Cover
 
