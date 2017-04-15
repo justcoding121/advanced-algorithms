@@ -107,6 +107,7 @@
     <Compile Include="GraphAlgorithms\Flow\FordFulkerson.cs" />
     <Compile Include="GraphAlgorithms\Flow\PushRelabel.cs" />
     <Compile Include="GraphAlgorithms\Matching\BiPartiteMatching.cs" />
+    <Compile Include="GraphAlgorithms\Matching\HopcroftKarp.cs" />
     <Compile Include="GraphAlgorithms\MinimumSpanningTree\Kruskals.cs" />
     <Compile Include="GraphAlgorithms\MinimumSpanningTree\Prims.cs" />
     <Compile Include="GraphAlgorithms\Search\BiDirectional.cs" />

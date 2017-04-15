@@ -33,7 +33,6 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
                      discoveryTimeMap, lowTimeMap,
                      pathStack, pathStackMap, ref discoveryTime);
 
-
                 }
             }
 
