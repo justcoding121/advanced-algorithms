@@ -8,7 +8,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
 {
 
     /// <summary>
-    ///  Compute Max BiParitite Edges using Ford-Fukerson algorithm
+    ///  Compute Max BiParitite Edges using Hopcroft Karp algorithm
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class HopcroftKarpMatching<T>
@@ -63,7 +63,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
 
                         var pathResult = DFS(graph.Vertices[vertex],
                           leftMatch, rightMatch, visited, true);
-
+                        
+                        //XOR remaining done here (partially done inside DFS)
                         foreach(var pair in pathResult)
                         {
                             if(pair.isRight)
@@ -84,7 +85,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
 
             }
 
-            //now gather all group1 to group 2 edges in residual graph with positive flow
+            //now gather all 
             var result = new AsArrayList<MatchEdge<T>>();
 
             foreach (var item in leftMatch)
@@ -144,7 +145,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
                 if (pathResult!=null)
                 {
                     //XOR (partially done here by removing same edges)
-                    //other part of XOR (adding new ones) is done after this method is finished
+                    //other part of XOR (adding new ones) is done after DFS method is finished
                     if (leftMatch.ContainsKey(current.Value)
                         && leftMatch[current.Value].Equals(edge.Value.Value))
                     {
