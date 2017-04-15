@@ -15,39 +15,38 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Matching
         [TestMethod]
         public void HopcroftKarp_Smoke_Test()
         {
-            while (true)
-            {
-                var graph = new AsGraph<char>();
 
-                graph.AddVertex('A');
-                graph.AddVertex('B');
-                graph.AddVertex('C');
-                graph.AddVertex('D');
-                graph.AddVertex('E');
+            var graph = new AsGraph<char>();
 
-                graph.AddVertex('F');
-                graph.AddVertex('G');
-                graph.AddVertex('H');
-                graph.AddVertex('I');
+            graph.AddVertex('A');
+            graph.AddVertex('B');
+            graph.AddVertex('C');
+            graph.AddVertex('D');
+            graph.AddVertex('E');
 
-                graph.AddEdge('A', 'F');
-                graph.AddEdge('B', 'F');
-                graph.AddEdge('B', 'G');
-                graph.AddEdge('C', 'H');
-                graph.AddEdge('C', 'I');
-                graph.AddEdge('D', 'G');
-                graph.AddEdge('D', 'H');
-                graph.AddEdge('E', 'F');
-                graph.AddEdge('E', 'I');
+            graph.AddVertex('F');
+            graph.AddVertex('G');
+            graph.AddVertex('H');
+            graph.AddVertex('I');
 
-                var algo = new HopcroftKarpMatching<char>(null);
+            graph.AddEdge('A', 'F');
+            graph.AddEdge('B', 'F');
+            graph.AddEdge('B', 'G');
+            graph.AddEdge('C', 'H');
+            graph.AddEdge('C', 'I');
+            graph.AddEdge('D', 'G');
+            graph.AddEdge('D', 'H');
+            graph.AddEdge('E', 'F');
+            graph.AddEdge('E', 'I');
 
-                var result = algo.GetMaxBiPartiteMatching(graph);
+            var algo = new HopcroftKarpMatching<char>(null);
 
-                Assert.AreEqual(result.Length, 4);
-            }
+            var result = algo.GetMaxBiPartiteMatching(graph);
+
+            Assert.AreEqual(result.Length, 4);
+
         }
 
-   
+
     }
 }

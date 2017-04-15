@@ -60,8 +60,24 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
                     {
                         var visited = new AsHashSet<T>();
                         visited.Add(vertex);
-                        DFS(graph.Vertices[vertex],
+
+                        var pathResult = DFS(graph.Vertices[vertex],
                           leftMatch, rightMatch, visited, true);
+
+                        foreach(var pair in pathResult)
+                        {
+                            if(pair.isRight)
+                            {
+                                rightMatch.Add(pair.A, pair.B);
+                                leftMatch.Add(pair.B, pair.A);
+                            }
+                            else
+                            {
+                                leftMatch.Add(pair.A, pair.B);
+                                rightMatch.Add(pair.B, pair.A);
+                            }
+                            
+                        }
                     }
 
                 }
@@ -78,34 +94,40 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
             return result;
         }
 
+        /// <summary>
+        /// Trace Path for DFS
+        /// </summary>
+        private class PathResult
+        {
+            public T A { get; }
+            public T B { get; }
+            public bool isRight { get; }
+
+            public PathResult(T a, T b, bool isRight)
+            {
+                A = a;
+                B = b;
+                this.isRight = isRight;
+            }
+        }
 
         /// <summary>
         /// Find a Path from free vertex on left to another free vertex on right
-        /// And then XOR path edges with Current Matchings
-        /// </summary>
         /// <param name="graph"></param>
         /// <param name="partitions"></param>
         /// <param name="leftMatch"></param>
         /// <param name="rightMatch"></param>
-        private bool DFS(AsGraphVertex<T> current,
+        private AsArrayList<PathResult> DFS(AsGraphVertex<T> current,
             AsDictionary<T, T> leftMatch, AsDictionary<T, T> rightMatch,
             AsHashSet<T> visitPath,
             bool isRightSide)
         {
-            if(!leftMatch.ContainsKey(current.Value)
+            if (!leftMatch.ContainsKey(current.Value)
                 && !isRightSide)
             {
-                return true;
+                return new AsArrayList<PathResult>();
             }
 
-            if (!visitPath.Contains(current.Value)
-                && !rightMatch.ContainsKey(current.Value) 
-                && isRightSide)
-            {
-                return true;
-            }
-
-           
             foreach (var edge in current.Edges)
             {
                 //do not re-visit ancestors in current DFS tree
@@ -118,10 +140,11 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
                 {
                     visitPath.Add(edge.Value.Value);
                 }
-
-                if (DFS(edge.Value, leftMatch, rightMatch, visitPath, !isRightSide))
+                var pathResult = DFS(edge.Value, leftMatch, rightMatch, visitPath, !isRightSide);
+                if (pathResult!=null)
                 {
-                    //XOR
+                    //XOR (partially done here by removing same edges)
+                    //other part of XOR (adding new ones) is done after this method is finished
                     if (leftMatch.ContainsKey(current.Value)
                         && leftMatch[current.Value].Equals(edge.Value.Value))
                     {
@@ -136,39 +159,15 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
                     }
                     else
                     {
-                        if (isRightSide)
-                        {
-                            if(!rightMatch.ContainsKey(current.Value)
-                                && !leftMatch.ContainsKey(edge.Value.Value))
-                            {
-                                rightMatch.Add(current.Value, edge.Value.Value);
-                                leftMatch.Add(edge.Value.Value, current.Value);
-                            }                       
-
-                        }
-                        else
-                        {
-                            if(!leftMatch.ContainsKey(current.Value)
-                                && !rightMatch.ContainsKey(edge.Value.Value))
-                            {
-                                leftMatch.Add(current.Value, edge.Value.Value);
-                                rightMatch.Add(edge.Value.Value, current.Value);
-                            }
-
-                        }
-
-
+                        pathResult.Add(new PathResult(current.Value, edge.Value.Value, isRightSide));
                     }
-                 
-                    return true;
+
+                    return pathResult;
                 }
 
-                visitPath.Remove(edge.Value.Value);
-             
             }
 
-       
-            return false;
+            return null;
         }
 
         /// <summary>
