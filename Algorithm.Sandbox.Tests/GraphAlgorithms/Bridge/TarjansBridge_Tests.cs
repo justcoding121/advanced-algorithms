@@ -10,9 +10,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.BridgePoints
     [TestClass]
     public class TarjansBridge_Tests
     {
-        /// <summary>
-        /// Gets the minimum number of coins to fit in the amount 
-        /// </summary>
+       
         [TestMethod]
         public void Smoke_TarjanBridge_Test()
         {

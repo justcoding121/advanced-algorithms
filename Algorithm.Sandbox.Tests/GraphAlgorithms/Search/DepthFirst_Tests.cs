@@ -1,19 +1,22 @@
-﻿using System;
+﻿using Algorithm.Sandbox.DataStructures;
 using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
-using Algorithm.Sandbox.GraphAlgorithms.Flow;
-using Algorithm.Sandbox.GraphAlgorithms.Matching;
+using Algorithm.Sandbox.GraphAlgorithms.Search;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Matching
+namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Search
 {
     [TestClass]
-    public class HopcroftKarp_Tests
+    public class DepthFirst_Tests
     {
 
         [TestMethod]
-        public void HopcroftKarp_Smoke_Test()
+        public void DepthFirst_Smoke_Test()
         {
-
             var graph = new AsGraph<char>();
 
             graph.AddVertex('A');
@@ -37,11 +40,11 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Matching
             graph.AddEdge('E', 'F');
             graph.AddEdge('E', 'I');
 
-            var algo = new HopcroftKarpMatching<char>(null);
+            var algo = new DepthFirst<char>();
 
-            var result = algo.GetMaxBiPartiteMatching(graph);
+            Assert.IsTrue(algo.Find(graph, 'D'));
 
-            Assert.AreEqual(result.Length, 4);
+            Assert.IsFalse(algo.Find(graph, 'M'));
 
         }
 

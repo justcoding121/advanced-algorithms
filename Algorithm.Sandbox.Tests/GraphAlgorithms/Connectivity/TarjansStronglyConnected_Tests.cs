@@ -14,9 +14,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Connectivity
     [TestClass]
     public class TarjansStronglyConnected_Tests
     {
-        /// <summary>
-        /// Gets the minimum number of coins to fit in the amount 
-        /// </summary>
+
         [TestMethod]
         public void Smoke_TarjanStronglyConnected_Test()
         {

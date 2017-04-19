@@ -46,6 +46,34 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             return result;
         }
 
+
+        /// <summary>
+        /// Compute max flow by searching a path
+        /// And then augmenting the residual graph until
+        /// no more path exists in residual graph with possible flow
+        /// </summary>
+        /// <param name="graph"></param>
+        /// <param name="source"></param>
+        /// <param name="sink"></param>
+        /// <returns>Residual Graph</returns>
+        public AsWeightedDiGraph<T, W> ComputeMaxFlowAndReturnResidualGraph(AsWeightedDiGraph<T, W> graph,
+            T source, T sink)
+        {
+            var residualGraph = createResidualGraph(graph);
+
+            AsArrayList<T> path = BFS(residualGraph, source, sink);
+
+            var result = operators.defaultWeight;
+
+            while (path != null)
+            {
+                result = operators.AddWeights(result, AugmentResidualGraph(graph, residualGraph, path));
+                path = BFS(residualGraph, source, sink);
+            }
+
+            return residualGraph;
+        }
+
         /// <summary>
         /// Return all flow Paths
         /// </summary>
@@ -53,7 +81,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        public AsArrayList<AsArrayList<T>> ComputeMaxFlowAndReturnFlowPath(AsWeightedDiGraph<T, W> graph,
+        internal AsArrayList<AsArrayList<T>> ComputeMaxFlowAndReturnFlowPath(AsWeightedDiGraph<T, W> graph,
             T source, T sink)
         {
             var residualGraph = createResidualGraph(graph);

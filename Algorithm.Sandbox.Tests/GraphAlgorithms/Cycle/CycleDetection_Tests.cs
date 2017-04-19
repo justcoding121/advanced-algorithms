@@ -1,5 +1,5 @@
 ﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
-using Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint;
+using Algorithm.Sandbox.GraphAlgorithms.Cycle;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -7,17 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ArticulationPoints
+namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Cycle
 {
-
     [TestClass]
-    public class TarjansArticulation_Tests
+    public class CycleDetection_Tests
     {
-       
         [TestMethod]
-        public void Smoke_TarjanArticulation_Test()
+        public void Test_Cycle()
         {
-            var graph = new AsGraph<char>();
+            var graph = new AsDiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -30,8 +28,8 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ArticulationPoints
 
 
             graph.AddEdge('A', 'B');
-            graph.AddEdge('A', 'C');
             graph.AddEdge('B', 'C');
+            graph.AddEdge('C', 'A');
 
             graph.AddEdge('C', 'D');
             graph.AddEdge('D', 'E');
@@ -42,18 +40,14 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ArticulationPoints
 
             graph.AddEdge('F', 'H');
 
-            var algo = new TarjansArticulationFinder<char>();
+            var algo = new CycleDetector<char>();
 
-            var result = algo.FindArticulationPoints(graph);
+            Assert.IsTrue(algo.HasCycle(graph));
 
-            Assert.AreEqual(4, result.Length);
+            graph.RemoveEdge('C', 'A');
+            graph.RemoveEdge('G', 'E');
 
-            var expectedResult = new char[] { 'C', 'D', 'E', 'F' };
-
-            foreach(var v in result)
-            {
-                Assert.IsTrue(expectedResult.Contains(v));
-            }
+            Assert.IsFalse(algo.HasCycle(graph));
         }
     }
 }

@@ -12,9 +12,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Coloring
     [TestClass]
     public class MColoring_Tests
     {
-        /// <summary>
-        /// Gets the minimum number of coins to fit in the amount 
-        /// </summary>
+       
         [TestMethod]
         public void Smoke_MColoring_Test()
         {

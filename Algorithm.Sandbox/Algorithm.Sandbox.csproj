@@ -103,6 +103,8 @@
     <Compile Include="GraphAlgorithms\Connectivity\KosarajuStronglyConnected.cs" />
     <Compile Include="GraphAlgorithms\Connectivity\TarjansStronglyConnected.cs" />
     <Compile Include="GraphAlgorithms\Cover\MinVertexCover.cs" />
+    <Compile Include="GraphAlgorithms\Cut\MinimumCut.cs" />
+    <Compile Include="GraphAlgorithms\Cycle\CycleDetection.cs" />
     <Compile Include="GraphAlgorithms\Flow\EdmondsKarp.cs" />
     <Compile Include="GraphAlgorithms\Flow\FordFulkerson.cs" />
     <Compile Include="GraphAlgorithms\Flow\PushRelabel.cs" />
@@ -111,7 +113,7 @@
     <Compile Include="GraphAlgorithms\MinimumSpanningTree\Kruskals.cs" />
     <Compile Include="GraphAlgorithms\MinimumSpanningTree\Prims.cs" />
     <Compile Include="GraphAlgorithms\Search\BiDirectional.cs" />
-    <Compile Include="GraphAlgorithms\Search\BreadFirst.cs" />
+    <Compile Include="GraphAlgorithms\Search\BreadthFirst.cs" />
     <Compile Include="GraphAlgorithms\Search\DepthFirst.cs" />
     <Compile Include="GraphAlgorithms\ShortestPath\Bellman-Ford.cs" />
     <Compile Include="GraphAlgorithms\ShortestPath\Dijikstra.cs" />

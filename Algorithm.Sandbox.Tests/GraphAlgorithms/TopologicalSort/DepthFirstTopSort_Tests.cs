@@ -1,5 +1,5 @@
 ﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
-using Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint;
+using Algorithm.Sandbox.GraphAlgorithms.TopologicalSort;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -7,17 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ArticulationPoints
+namespace Algorithm.Sandbox.Tests.GraphAlgorithms.TopologicalSort
 {
-
     [TestClass]
-    public class TarjansArticulation_Tests
+    public class DepthFirstTopSort_Tests
     {
-       
         [TestMethod]
-        public void Smoke_TarjanArticulation_Test()
+        public void Smoke_Test_Top_Sort()
         {
-            var graph = new AsGraph<char>();
+            var graph = new AsDiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -30,30 +28,21 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ArticulationPoints
 
 
             graph.AddEdge('A', 'B');
-            graph.AddEdge('A', 'C');
             graph.AddEdge('B', 'C');
 
             graph.AddEdge('C', 'D');
-            graph.AddEdge('D', 'E');
+            graph.AddEdge('E', 'D');
 
             graph.AddEdge('E', 'F');
             graph.AddEdge('F', 'G');
-            graph.AddEdge('G', 'E');
 
             graph.AddEdge('F', 'H');
 
-            var algo = new TarjansArticulationFinder<char>();
+            var algo = new DepthFirstTopSort<char>();
 
-            var result = algo.FindArticulationPoints(graph);
+            var result = algo.GetTopSort(graph);
 
-            Assert.AreEqual(4, result.Length);
-
-            var expectedResult = new char[] { 'C', 'D', 'E', 'F' };
-
-            foreach(var v in result)
-            {
-                Assert.IsTrue(expectedResult.Contains(v));
-            }
+            Assert.AreEqual(result.Length, 8);
         }
     }
 }
