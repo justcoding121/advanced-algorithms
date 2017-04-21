@@ -110,6 +110,8 @@
     <Compile Include="GraphAlgorithms\Flow\PushRelabel_Tests.cs" />
     <Compile Include="GraphAlgorithms\Matching\HopcroftKarp_Tests.cs" />
     <Compile Include="GraphAlgorithms\Matching\BiPartiteMatching_Tests.cs" />
+    <Compile Include="GraphAlgorithms\MinimumSpanningTree\Prims_Test.cs" />
+    <Compile Include="GraphAlgorithms\MinimumSpanningTree\Kruskals_Test.cs" />
     <Compile Include="GraphAlgorithms\Search\BiDirectional_Tests.cs" />
     <Compile Include="GraphAlgorithms\Search\BreadthFirst_Tests.cs" />
     <Compile Include="GraphAlgorithms\Search\DepthFirst_Tests.cs" />
