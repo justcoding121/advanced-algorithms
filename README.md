@@ -151,8 +151,8 @@ Various important computer science algorithms generically implemented in C#
 
 ### Minimum Spanning Tree
 
-* Kruskals algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/MinimumSpanningTree/Kruskals.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/MinimumSpanningTree/Kruskals_Test.cs))
-* Prims algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/MinimumSpanningTree/Prims.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/MinimumSpanningTree/Prims_Test.cs))
+* Kruskals algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/MinimumSpanningTree/Kruskals.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/MinimumSpanningTree/Kruskals_Test.cs)) using Merge Sort and Disjoint Set
+* Prims algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/MinimumSpanningTree/Prims.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/MinimumSpanningTree/Prims_Test.cs)) using Fibornacci Heap
 
 ## String
 
