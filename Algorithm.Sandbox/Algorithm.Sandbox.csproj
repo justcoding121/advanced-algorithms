@@ -58,6 +58,7 @@
     <Compile Include="DataStructures\Heap\Min\AsFibornacciMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\AsPairingMinHeap.cs" />
     <Compile Include="DataStructures\List\AsArrayList.cs" />
+    <Compile Include="DataStructures\Set\AsDisJointSet.cs" />
     <Compile Include="DataStructures\Tree\AsAvlTree.cs" />
     <Compile Include="DataStructures\Tree\AsB+Tree.cs" />
     <Compile Include="DataStructures\Tree\AsBST.cs" />

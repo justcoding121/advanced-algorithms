@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+using System;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
 {
-    class Kruskals
+    public class Kruskals<T, W> where W:IComparable
     {
+        public AsWeightedGraph<T,W> 
+            FindMinimumSpanningTree(AsWeightedGraph<T, W> graph)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
