@@ -154,14 +154,6 @@ Various important computer science algorithms generically implemented in C#
 * Kruskals algorithm
 * Prims algorithm
 
-## Geometry
-
-* Line Intersection
-* Rectangle Rotation
-* Rectangle Translation
-* Rectangle Scale
-* Rectangle Intersection
-
 ## String
 
 * SubSets ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs) | Tests)
@@ -173,6 +165,20 @@ Various important computer science algorithms generically implemented in C#
 ## Compression
 
 * Huffman Coding
+
+## Sorting
+
+* Quick Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/QuickSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
+* Heap Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/HeapSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
+* Tree Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/TreeSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
+* Bubble Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/BubbleSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
+* Insertion Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/InsertionSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
+* Merge Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/MergeSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
+* Selection Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/SelectionSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
+* Radix Sort
+* Shell Sort
+* Bucket Sort
+* Counting Sort
 
 ## Classic Dynamic Programming Problems
 
@@ -202,20 +208,6 @@ Various important computer science algorithms generically implemented in C#
 * Unique Binary Search Tree
 * Word Break problem
 
-## Sorting
-
-* Quick Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/QuickSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
-* Heap Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/HeapSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
-* Tree Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/TreeSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
-* Bubble Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/BubbleSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
-* Insertion Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/InsertionSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
-* Merge Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/MergeSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
-* Selection Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/SelectionSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/SortTests.cs))
-* Radix Sort
-* Shell Sort
-* Bucket Sort
-* Counting Sort
-
 ## Numerical Methods
 
 * kth Largest/Smallest
@@ -239,3 +231,11 @@ Various important computer science algorithms generically implemented in C#
 
 * Base Conversion
 * Shift and Add Multiplication
+
+## Geometry
+
+* Line Intersection
+* Rectangle Rotation
+* Rectangle Translation
+* Rectangle Scale
+* Rectangle Intersection
