@@ -78,6 +78,10 @@ Various important computer science algorithms generically implemented in C#
 
 * Expression Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Tree/AsExpressionTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Tree/ExpressionTree_Tests.cs))
 
+#### Set
+
+* Disjoint Set ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Set/AsDisJointSet.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Set/DisJointSet_Tests.cs))
+
 ### Graph
 
 #### Adjacency List
@@ -87,42 +91,6 @@ Various important computer science algorithms generically implemented in C#
 * Weighted Graph ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyList/AsWeightedGraph.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Graph/AdjacencyList/WeightedGraph_Tests.cs))
 
 # Algorithms
-
-## Classic Dynamic Programming Problems
-
-* Coin Change Problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/CoinChangeProblems_Tests.cs))
-* Tower Of Hanoi ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/TowerOfHanoi_Tests.cs))
-* Knapsack problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/KnackSackProblems_Tests.cs))
-* Fibonacci Number Generator
-* Balanced Partition
-* Count Bool Parenthesization
-* Count Decoding
-* Dice Throw
-* Distinct Binary Strings
-* Longest Common Sub Sequence
-* Longest Increasing Sub Sequence
-* Longest Palindrome
-* Maximum Sub Matrix
-* Maximum Value Sub Sequence
-* Min Edit Distance
-* Min Array Jumps
-* Optimal Game Strategy
-* Palindrome Min Cut
-* Print Max A's
-* Shortest Palindrome
-* Sub Set Sum
-* Text Justification
-* Two Person City Traversal
-* Unique Binary Search Tree
-* Word Break problem
-
-
-## Geometry
-
-* Line Clipping
-* Rotation
-* Translation
-* Scale
 
 ## Graph Algorithms
 
@@ -168,24 +136,71 @@ Various important computer science algorithms generically implemented in C#
 
 ### Cut
 
-* Minimum Cut using Edmonds Karp's improved Ford Fulkerson Max Flow algorithm
+* Minimum Cut ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Cut/MinimumCut.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Cut/MinCut_Tests.cs)) using Edmonds Karp's improved Ford Fulkerson Max Flow algorithm
+
+### Search
+
+* Depth First ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Search/DepthFirst.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Search/DepthFirst_Tests.cs))
+* Breadth First ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Search/BreadthFirst.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Search/BreadthFirst_Tests.cs))
+* Bi-Directional ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Search/BiDirectional.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Search/BiDirectional_Tests.cs))
+
+### Topological Sort
+
+* Depth First Method ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/TopologicalSort/DepthFirstTopSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/TopologicalSort/DepthFirstTopSort_Tests.cs))
+* Kahn's algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/TopologicalSort/KahnTopSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/TopologicalSort/KahnTopSort_Tests.cs))
 
 ### Minimum Spanning Tree
 
 * Kruskals algorithm
 * Prims algorithm
 
-### Search
+## Geometry
 
-* Bi-Directional
-* Breadth First
-* Depth First
+* Line Intersection
+* Rectangle Rotation
+* Rectangle Translation
+* Rectangle Scale
+* Rectangle Intersection
 
-### Topological Sort
+## String
 
-* Kahn's algorithm
-* Depth First Method
+* SubSets ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs) | Tests)
+* Permutation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Permutation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Permutate.cs)
+* Rabin-Karp string search
+* Z algorithm for string search
+* KMP string search
 
+## Compression
+
+* Huffman Coding
+
+## Classic Dynamic Programming Problems
+
+* Coin Change Problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/CoinChangeProblems_Tests.cs))
+* Tower Of Hanoi ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/TowerOfHanoi_Tests.cs))
+* Knapsack problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/KnackSackProblems_Tests.cs))
+* Fibonacci Number Generator
+* Balanced Partition
+* Count Bool Parenthesization
+* Count Decoding
+* Dice Throw
+* Distinct Binary Strings
+* Longest Common Sub Sequence
+* Longest Increasing Sub Sequence
+* Longest Palindrome
+* Maximum Sub Matrix
+* Maximum Value Sub Sequence
+* Min Edit Distance
+* Min Array Jumps
+* Optimal Game Strategy
+* Palindrome Min Cut
+* Print Max A's
+* Shortest Palindrome
+* Sub Set Sum
+* Text Justification
+* Two Person City Traversal
+* Unique Binary Search Tree
+* Word Break problem
 
 ## Sorting
 
@@ -200,18 +215,6 @@ Various important computer science algorithms generically implemented in C#
 * Shell Sort
 * Bucket Sort
 * Counting Sort
-
-## String
-
-* SubSets ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs) | Tests)
-* Permutation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Permutation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Permutate.cs)
-* Rabin-Karp string search
-* Z algorithm for string search
-* KMP string search
-
-## Compression
-
-* Huffman Coding
 
 ## Numerical Methods
 
