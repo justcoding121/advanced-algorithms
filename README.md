@@ -158,9 +158,13 @@ Various important computer science algorithms generically implemented in C#
 
 * SubSets ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs) | Tests)
 * Permutation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Permutation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Permutate.cs)
+
+### Pattern Matching
+
+* KMP string search ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Search/KMP.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Search/KMP_Tests.cs))
 * Rabin-Karp string search
 * Z algorithm for string search
-* KMP string search
+
 
 ## Compression
 
