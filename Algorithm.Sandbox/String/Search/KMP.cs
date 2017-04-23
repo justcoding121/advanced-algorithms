@@ -28,7 +28,7 @@
                 {
                     //don't skip unmatched i for next iteration
                     //since our for loop increments i
-                    if(matchingInProgress)
+                    if (matchingInProgress)
                     {
                         i--;
                     }
@@ -36,7 +36,7 @@
                     matchingInProgress = false;
 
                     //move back j to the beginning of last matched char
-                    j = matchIndex[j == 0? 0:j-1];
+                    j = matchIndex[j == 0 ? 0 : j - 1];
                 }
                 //prefix match suffix so far
                 else
