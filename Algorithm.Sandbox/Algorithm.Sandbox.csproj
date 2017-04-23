@@ -131,6 +131,7 @@
     <Compile Include="Sorting\QuickSort.cs" />
     <Compile Include="Sorting\SelectionSort.cs" />
     <Compile Include="String\Permutation.cs" />
+    <Compile Include="String\Search\KMP.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

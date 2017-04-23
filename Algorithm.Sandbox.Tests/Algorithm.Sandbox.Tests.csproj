@@ -124,6 +124,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\SortTests.cs" />
     <Compile Include="String\Permutate.cs" />
+    <Compile Include="String\Search\KMP_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithm.Sandbox\Algorithm.Sandbox.csproj">
