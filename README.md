@@ -156,14 +156,13 @@ Various important computer science algorithms generically implemented in C#
 
 ## String
 
-* SubSets ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/String/SubSets.cs) | Tests)
-* Permutation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Permutation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Permutate.cs)
+* Permutation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Permutation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Permutate.cs))
 
 ### Pattern Matching
 
 * Knuth–Morris–Pratt(KMP) string search ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Search/KMP.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Search/KMP_Tests.cs))
-* Rabin-Karp string search
 * Z algorithm for string search
+* Rabin-Karp string search
 
 
 ## Compression
@@ -216,30 +215,10 @@ Various important computer science algorithms generically implemented in C#
 
 * kth Largest/Smallest
 * Check Primality
-* Generate Primes
-* Greatest Common Divisor
-* Least Common Multiplier
+* Generate Primes using Sieve of Eratosthenes
 * Fast Exponentiation
-* Median
-* Mode
-* Matrix multiplication
-* Matrix Addition
-* Matrix Subtraction
-* Matrix division
-* Matrix determinant
-* Fast Multiplication
-* Shuffling
-* Fast Division
+* Median of stream of numbers
+
+
  
-## Bit algorithms
 
-* Base Conversion
-* Shift and Add Multiplication
-
-## Geometry
-
-* Line Intersection
-* Rectangle Rotation
-* Rectangle Translation
-* Rectangle Scale
-* Rectangle Intersection
