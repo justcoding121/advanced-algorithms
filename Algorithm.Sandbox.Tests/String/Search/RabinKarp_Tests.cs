@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace Algorithm.Sandbox.Tests.String.Search
 {
     [TestClass]
-    public class KMP_Tests
+    public class RabinKarp_Tests
     {
         [TestMethod]
-        public void String_KMP_Test()
+        public void String_RabinKarp_Test()
         {
-            var kmpAlgo = new KMP();
+            var kmpAlgo = new RabinKarp();
 
             var index = kmpAlgo.Search("xabcabzabc", "abc");
 

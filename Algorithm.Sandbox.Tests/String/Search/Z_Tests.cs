@@ -24,13 +24,21 @@ namespace Algorithm.Sandbox.Tests.String.Search
 
             Assert.AreEqual(5, index);
 
-            index = kmpAlgo.Search("abcabababdefgabcd", "fgg");
+            index = kmpAlgo.Search("aaaabaaaaaaa", "aaaa");
 
-            Assert.AreEqual(-1, index);
+            Assert.AreEqual(0, index);
+
+            index = kmpAlgo.Search("abcabababdefgabcd", "fga");
+
+            Assert.AreEqual(11, index);
 
             index = kmpAlgo.Search("abxabcabcaby", "abcaby");
 
             Assert.AreEqual(6, index);
+
+            index = kmpAlgo.Search("abxabcabcaby", "abx");
+
+            Assert.AreEqual(0, index);
         }
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compression\HuffmanCoding.cs" />
     <Compile Include="DataStructures\Dictionary\AsDictionary.cs" />
     <Compile Include="DataStructures\Dictionary\AsOpenAddressDictionary.cs" />
     <Compile Include="DataStructures\HashSet\AsHashSet.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Sorting\SelectionSort.cs" />
     <Compile Include="String\Permutation.cs" />
     <Compile Include="String\Search\KMP.cs" />
+    <Compile Include="String\Search\RabinKarp.cs" />
     <Compile Include="String\Search\ZAlgorithm.cs" />
   </ItemGroup>
   <ItemGroup>

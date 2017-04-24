@@ -18,9 +18,9 @@ namespace Algorithm.Sandbox.String.Search
         {
             var z = Z(pattern + input, pattern.Length);
 
-            for (int i = 0; i < z.Length; i++)
+            for (int i = pattern.Length; i < z.Length; i++)
             {
-                //if match length eqyals pattern Length + separator length
+                //if match length equals pattern Length + separator length
                 if (z[i] == pattern.Length)
                 {
                     //substract pattern length and separator length
@@ -47,7 +47,8 @@ namespace Algorithm.Sandbox.String.Search
                 var k = i;
 
                 //increment prefixIndex (count of matching chars)
-                while (k < input.Length && prefixIndex <= patternLength
+                while (k < input.Length 
+                    && prefixIndex < patternLength
                     && input[prefixIndex] == input[k])
                 {
                     prefixIndex++;
@@ -84,7 +85,7 @@ namespace Algorithm.Sandbox.String.Search
                             {
                                 //increment right end of Z box as far as match goes
                                 while (right < input.Length 
-                                    && prefixIndex <= patternLength
+                                    && prefixIndex < patternLength
                                     && input[prefixIndex] == input[right])
                                 {
                                     right++;
