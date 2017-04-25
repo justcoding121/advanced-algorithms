@@ -22,7 +22,7 @@ namespace Algorithm.Sandbox.Compression
 
             foreach (var frequency in frequencies)
             {
-                minHeap.Insert(new FrequencyWrap(null,
+                minHeap.Insert(new FrequencyWrap(
                     frequency.Key, frequency.Value));
             }
 
@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox.Compression
                 var a = minHeap.ExtractMin();
                 var b = minHeap.ExtractMin();
 
-                var newNode = new FrequencyWrap(null,
+                var newNode = new FrequencyWrap(
                     default(T), a.Frequency + b.Frequency);
 
                 newNode.Left = a;
@@ -108,18 +108,14 @@ namespace Algorithm.Sandbox.Compression
             public T Item { get; }
             public int Frequency { get; }
 
-            public FrequencyWrap Parent { get; }
-
             public FrequencyWrap Left { get; set; }
 
             public FrequencyWrap Right { get; set; }
 
             public bool IsLeaf => Left == null && Right == null;
 
-            public FrequencyWrap(FrequencyWrap parent,
-                T item, int frequency)
+            public FrequencyWrap(T item, int frequency)
             {
-                Parent = parent;
                 Item = item;
                 Frequency = frequency;
             }
