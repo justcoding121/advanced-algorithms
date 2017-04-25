@@ -2,8 +2,15 @@
 
 namespace Algorithm.Sandbox.String
 {
+    /// <summary>
+    /// String permutation implementation
+    /// </summary>
     public class Permutation
     {
+        /// <summary>
+        /// Prints all permutation of given input string to debug output
+        /// </summary>
+        /// <param name="input"></param>
         public static void Permutate(string input)
         {
             Permutate(string.Empty, input);

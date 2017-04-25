@@ -167,6 +167,19 @@ namespace Algorithm.Sandbox.DataStructures
             return new AsArrayListEnumerator<T>(array, Length);
         }
 
+        public T[] ToArray()
+        {
+            var result = new T[Length];
+
+            var i = 0;
+            foreach(var item in this)
+            {
+                result[i] = item;
+                i++;
+            }
+
+            return result;
+        }
     }
 
     //  implement IEnumerator.

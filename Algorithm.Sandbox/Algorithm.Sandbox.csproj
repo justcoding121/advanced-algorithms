@@ -124,7 +124,9 @@
     <Compile Include="GraphAlgorithms\TopologicalSort\DepthFirstTopSort.cs" />
     <Compile Include="GraphAlgorithms\TopologicalSort\KahnTopSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorting\CountingSort.cs" />
     <Compile Include="Sorting\HeapSort.cs" />
+    <Compile Include="Sorting\RadixSort.cs" />
     <Compile Include="Sorting\TreeSort.cs" />
     <Compile Include="Sorting\BubbleSort.cs" />
     <Compile Include="Sorting\InsertionSort.cs" />

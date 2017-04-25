@@ -1,0 +1,80 @@
+﻿using System;
+using Algorithm.Sandbox.DataStructures;
+
+namespace Algorithm.Sandbox.Sorting
+{
+    /// <summary>
+    /// A radix sort implementation
+    /// </summary>
+    public class RadixSort
+    {
+        /// <summary>
+        /// Sort given integers
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="mst"></param>
+        /// <returns></returns>
+        public static int[] Sort(int[] array)
+        {
+            var @base = 1;
+            int max = getMax(array);
+
+            int i;
+            while (max/@base > 0)
+            {
+                //create a bucket for digits 0 to 9
+                var buckets = new AsArrayList<int>[10];
+
+                for (i = 0; i < array.Length; i++)
+                {
+                    var bucketIndex = (array[i]/@base) % 10;
+
+                    if(buckets[bucketIndex] == null)
+                    {
+                        buckets[bucketIndex] = new AsArrayList<int>();
+                    }
+
+                    buckets[bucketIndex].Add(array[i]);
+                }
+
+                //now update array with what is in buckets
+                i = 0;
+                foreach (var bucket in buckets)
+                {
+                    if (bucket != null)
+                    {
+                        for (int j = 0; j < bucket.Length; j++)
+                        {
+                            array[i] = bucket[j];
+                            i++;
+                        }
+                    }
+                }
+
+                @base *= 10;
+            }
+
+            return array;
+        }
+
+        /// <summary>
+        /// Get Max of given array
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
+        private static int getMax(int[] array)
+        {
+            var max = int.MinValue;
+
+            for(int i =0;i<array.Length;i++)
+            {
+                if(array[i] > max)
+                {
+                    max = array[i];
+                }
+            }
+
+            return max;
+        }
+    }
+}
