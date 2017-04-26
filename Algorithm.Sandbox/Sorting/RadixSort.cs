@@ -16,10 +16,19 @@ namespace Algorithm.Sandbox.Sorting
         /// <returns></returns>
         public static int[] Sort(int[] array)
         {
+            int i;
+            for (i = 0; i < array.Length; i++)
+            {
+                if (array[i] < 0)
+                {
+                    throw new System.Exception("Negative numbers not supported.");
+                }
+            }
+
             var @base = 1;
             int max = getMax(array);
 
-            int i;
+           
             while (max/@base > 0)
             {
                 //create a bucket for digits 0 to 9
