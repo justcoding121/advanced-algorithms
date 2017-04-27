@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.DataStructures
         public int Length => currentEndPosition;
 
         //constructor init 
-        public AsArrayList(int initalArraySize = 2)
+        public AsArrayList(int initalArraySize = 2, IEnumerable<T> initial = null)
         {
             if (initalArraySize < 2)
             {
@@ -30,8 +30,22 @@ namespace Algorithm.Sandbox.DataStructures
             initialArraySize = initalArraySize;
             arraySize = initalArraySize;
             array = new T[arraySize];
+
+            if(initial!=null)
+            {
+                foreach(var item in initial)
+                {
+                    Add(item);
+                }
+            }
         }
 
+        /// <summary>
+        /// Overloaded constructor
+        /// </summary>
+        /// <param name="initial"></param>
+        public AsArrayList(IEnumerable<T> initial) 
+            : this (2, initial){ }
 
         /// <summary>
         /// Expose indexer
@@ -167,6 +181,10 @@ namespace Algorithm.Sandbox.DataStructures
             return new AsArrayListEnumerator<T>(array, Length);
         }
 
+        /// <summary>
+        /// Returns as an array
+        /// </summary>
+        /// <returns></returns>
         public T[] ToArray()
         {
             var result = new T[Length];
@@ -179,6 +197,18 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Add's the given array to the end 
+        /// </summary>
+        /// <param name="array"></param>
+        public void AddRange(T[] array)
+        {
+            foreach(var item in array)
+            {
+                Add(item);
+            }
         }
     }
 
