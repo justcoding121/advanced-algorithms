@@ -50,7 +50,7 @@ Various important computer science algorithms generically implemented in C#
 * Fibornacci Min Heap ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsFibornacciMinHeap.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Heap/FibornacciHeap_Tests.cs))
 * Pairing Min Heap ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Heap/Min/AsPairingMinHeap.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Heap/PairingHeap_Tests.cs))
 
-Note: Among the implementations here in practice, with the exclusion of DecrementKey operation regular Binary Heap outperforms other in theory superiors. Of course because it don't have pointer juggling nonsense and hey arrays are faster!
+Note: Among the implementations here in practice, with the exclusion of DecrementKey operation regular Binary Heap & d-ary Heap outperforms other in theory superiors. Of course because it don't have pointer juggling nonsense and hey arrays are faster!
 
 ### Tree
 
