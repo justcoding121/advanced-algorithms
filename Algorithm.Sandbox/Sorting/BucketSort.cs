@@ -62,45 +62,5 @@ namespace Algorithm.Sandbox.Sorting
 
             return result;
         }
-
-        /// <summary>
-        /// Get Max of given array
-        /// </summary>
-        /// <param name="array"></param>
-        /// <returns></returns>
-        private static int getMin(int[] array)
-        {
-            var min = int.MaxValue;
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] < min)
-                {
-                    min = array[i];
-                }
-            }
-
-            return min;
-        }
-
-        /// <summary>
-        /// Get Max of given array
-        /// </summary>
-        /// <param name="array"></param>
-        /// <returns></returns>
-        private static int getMax(int[] array)
-        {
-            var max = int.MinValue;
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] > max)
-                {
-                    max = array[i];
-                }
-            }
-
-            return max;
-        }
     }
 }
