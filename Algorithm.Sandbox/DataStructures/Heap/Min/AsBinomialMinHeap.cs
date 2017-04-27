@@ -25,7 +25,8 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsBinomialMinHeap<T> where T : IComparable
     {
-        
+        public int Count { get; private set; }
+
         internal AsDoublyLinkedList<AsBinomialTreeNode<T>> heapForest
             = new AsDoublyLinkedList<AsBinomialTreeNode<T>>();
 
@@ -44,6 +45,8 @@ namespace Algorithm.Sandbox.DataStructures
             MergeSortedForests(newHeapForest);
 
             Meld();
+
+            Count++;
 
             return newNode;
         }
@@ -185,6 +188,8 @@ namespace Algorithm.Sandbox.DataStructures
 
             Meld();
 
+            Count--;
+
             return minTree.Data.Value;
         }
 
@@ -218,6 +223,8 @@ namespace Algorithm.Sandbox.DataStructures
             MergeSortedForests(binomialHeap.heapForest);
 
             Meld();
+
+            Count += binomialHeap.Count;
         }
         /// <summary>
         /// Merges the given sorted forest to current sorted Forest 
@@ -226,7 +233,6 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="newHeapForest"></param>
         private void MergeSortedForests(AsDoublyLinkedList<AsBinomialTreeNode<T>> newHeapForest)
         {
-
             var @new = newHeapForest.Head;
 
             if (heapForest.Head == null)

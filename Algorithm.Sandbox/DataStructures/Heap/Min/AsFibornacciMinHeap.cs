@@ -28,12 +28,12 @@ namespace Algorithm.Sandbox.DataStructures
 
     public class AsFibornacciMinHeap<T> where T : IComparable
     {
-
         internal AsFibornacciTreeNode<T> heapForestHead;
 
         //holds the minimum node at any given time
         private AsFibornacciTreeNode<T> minNode = null;
-        internal int Count { get; private set; }
+
+        public int Count { get; private set; }
 
         /// <summary>
         /// O(1) complexity amortized

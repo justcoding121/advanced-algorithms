@@ -6,7 +6,7 @@ namespace Algorithm.Sandbox.DataStructures
     {
         private T[] heapArray;
 
-        public int Count = 0;
+        public int Count { get; private set; }
 
         public AsBMinHeap()
         {
