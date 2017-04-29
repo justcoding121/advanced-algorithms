@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox.Tests.Sorting
         public void TreeSort_Stress_Test()
         {
             var rnd = new Random();
-            var nodeCount = 1000;
+            var nodeCount = 1000 * 1000;
             var randomNumbers = Enumerable.Range(1, nodeCount)
                                 .OrderBy(x => rnd.Next())
                                 .ToList();

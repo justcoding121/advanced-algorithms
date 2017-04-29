@@ -8,7 +8,7 @@ namespace Algorithm.Sandbox.DataStructures
     {
         private T[] heapArray;
 
-        public int Count = 0;
+        public int Count { get; private set; }
 
         /// <summary>
         /// Initialize with optional init value

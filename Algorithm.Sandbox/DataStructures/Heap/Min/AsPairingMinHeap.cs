@@ -27,7 +27,8 @@ namespace Algorithm.Sandbox.DataStructures
     public class AsPairingMinHeap<T> where T : IComparable
     {
         internal AsPairingTreeNode<T> Root;
-        internal int Count { get; private set; }
+
+        public int Count { get; private set; }
 
         /// <summary>
         /// Insert a new Node
