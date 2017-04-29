@@ -2,6 +2,7 @@
 using Algorithm.Sandbox.DataStructures.Heap.Min;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithm.Sandbox.Tests.DataStructures
@@ -15,10 +16,17 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void AsD_aryHeap_Test()
         {
-            //insert test
-            var tree = new AsD_aryMinHeap<int>(2);
+            var initial = new List<int>();
 
-            for (int i = 99; i >= 0; i--)
+            for (int i = 0; i <= 50; i++)
+            {
+                initial.Add(i);
+            }
+
+            //insert test
+            var tree = new AsD_aryMinHeap<int>(4, initial);
+
+            for (int i = 51; i <= 99; i++)
             {
                 tree.Insert(i);
             }

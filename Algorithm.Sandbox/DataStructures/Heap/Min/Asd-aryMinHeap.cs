@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Heap.Min
 {
@@ -8,12 +10,79 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         private int K;
         public int Count = 0;
 
-        public AsD_aryMinHeap(int k)
+        public AsD_aryMinHeap(int k, IEnumerable<T> initial = null)
         {
             K = k;
-            this.heapArray = new T[k];
+
+            if (initial != null)
+            {
+                var initArray = new T[initial.Count()];
+
+                int i = 0;
+                foreach (var item in initial)
+                {
+                    initArray[i] = item;
+                    i++;
+                }
+
+                Count = initArray.Length;
+                BulkInit(initArray);
+                heapArray = initArray;
+              
+            }
+            else
+            {
+                this.heapArray = new T[k];
+            }
         }
 
+        /// <summary>
+        /// Initialize with given input 
+        /// O(n) time complexity
+        /// </summary>
+        /// <param name="initial"></param>
+        private void BulkInit(T[] initial)
+        {
+            var i = (initial.Length - K - 1) / K;
+
+            while (i >= 0)
+            {
+                BulkInitRecursive(i, initial);
+                i--;
+            }
+
+            heapArray = initial;
+        }
+
+        /// <summary>
+        /// Recursively load bulk init values
+        /// </summary>
+        /// <param name="i"></param>
+        private void BulkInitRecursive(int i, T[] initial)
+        {
+            var parent = i;
+            var min = parent;
+
+            var minChild = findMinChildIndex(i, initial);
+            if (minChild !=-1 
+                && initial[minChild].CompareTo(initial[parent]) < 0)
+            {
+                var temp = initial[minChild];
+                initial[minChild] = initial[parent];
+                initial[parent] = temp;
+
+                min = minChild;
+            }
+
+
+            //if min is child then drill down child
+            if (min != parent)
+            {
+                BulkInitRecursive(min, initial);
+            }
+        }
+
+       
         //O(log(n) base K)
         public void Insert(T newItem)
         {
@@ -61,7 +130,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
                 var swapped = false;
 
                 //init to left-most child
-                var minChildIndex = findMinChildIndex(currentParent);
+                var minChildIndex = findMinChildIndex(currentParent, heapArray);
 
                 if (minChildIndex!=-1 &&
                     heapArray[currentParent].CompareTo(heapArray[minChildIndex]) > 0)
@@ -86,12 +155,17 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
                 halfArray();
             }
 
-           
-
             return min;
         }
 
-        private int findMinChildIndex(int currentParent)
+        /// <summary>
+        /// returns the min Index of child if any 
+        /// otherwise returns -1
+        /// </summary>
+        /// <param name="currentParent"></param>
+        /// <param name="heap"></param>
+        /// <returns></returns>
+        private int findMinChildIndex(int currentParent, T[] heap)
         {
             var currentMin = currentParent * K + 1;
 
@@ -103,9 +177,9 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
                 if (currentParent * K + i >= Count)
                     break;
 
-                var nextSibling = heapArray[currentParent * K + i];
+                var nextSibling = heap[currentParent * K + i];
 
-                if (heapArray[currentMin].CompareTo(nextSibling) > 0)
+                if (heap[currentMin].CompareTo(nextSibling) > 0)
                 {
                     currentMin = currentParent * K + i;
                 }

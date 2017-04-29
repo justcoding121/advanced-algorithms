@@ -123,6 +123,7 @@
     <Compile Include="GraphAlgorithms\ShortestPath\Johnsons.cs" />
     <Compile Include="GraphAlgorithms\TopologicalSort\DepthFirstTopSort.cs" />
     <Compile Include="GraphAlgorithms\TopologicalSort\KahnTopSort.cs" />
+    <Compile Include="NumericalMethods\KthSmallest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\BucketSort.cs" />
     <Compile Include="Sorting\CountingSort.cs" />

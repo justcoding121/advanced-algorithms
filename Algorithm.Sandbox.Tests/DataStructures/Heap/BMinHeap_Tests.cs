@@ -1,6 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithm.Sandbox.Tests.DataStructures
@@ -14,10 +15,18 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void BMinHeap_Test()
         {
-            //insert test
-            var tree = new AsBMinHeap<int>();
 
-            for (int i = 0; i <= 99; i++)
+            var initial = new List<int>();
+
+            for (int i = 0; i <= 50; i++)
+            {
+                initial.Add(i);
+            }
+
+            //insert test
+            var tree = new AsBMinHeap<int>(initial);
+
+            for (int i = 51; i <= 99; i++)
             {
                 tree.Insert(i);
             }

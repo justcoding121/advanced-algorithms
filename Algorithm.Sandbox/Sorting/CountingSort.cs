@@ -13,14 +13,6 @@
         /// <returns></returns>
         public static int[] Sort(int[] array)
         {
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] < 0)
-                {
-                    throw new System.Exception("Negative numbers not supported.");
-                }
-            }
-
             var max = getMax(array);
 
             //add one more space for zero
@@ -29,6 +21,11 @@
             //count the appearances of elements
             for (int i = 0; i < array.Length; i++)
             {
+                if (array[i] < 0)
+                {
+                    throw new System.Exception("Negative numbers not supported.");
+                }
+
                 countArray[array[i]]++;
             }
 

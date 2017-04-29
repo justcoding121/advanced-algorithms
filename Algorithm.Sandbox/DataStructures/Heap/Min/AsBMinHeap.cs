@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -8,11 +10,86 @@ namespace Algorithm.Sandbox.DataStructures
 
         public int Count = 0;
 
-        public AsBMinHeap()
-        {
-            this.heapArray = new T[2];
+        /// <summary>
+        /// Initialize with optional init value
+        /// </summary>
+        /// <param name="initial"></param>
+        public AsBMinHeap(IEnumerable<T> initial = null)
+        {      
+            if (initial != null)
+            {
+                var initArray = new T[initial.Count()];
+
+                int i = 0;
+                foreach(var item in initial)
+                {
+                    initArray[i] = item;
+                    i++;
+                }
+
+                BulkInit(initArray);
+                Count = initArray.Length;
+            }
+            else
+            {
+                heapArray = new T[2];
+            }
         }
 
+        /// <summary>
+        /// Initialize with given input 
+        /// O(n) time complexity
+        /// </summary>
+        /// <param name="initial"></param>
+        private void BulkInit(T[] initial)
+        {
+            var i = (initial.Length - 1) / 2;
+
+            while (i >= 0)
+            {
+                BulkInitRecursive(i, initial);
+                i--;
+            }
+
+            heapArray = initial;
+        }
+
+        /// <summary>
+        /// Recursively 
+        /// </summary>
+        /// <param name="i"></param>
+        private void BulkInitRecursive(int i, T[] initial)
+        {
+            var left = 2 * i + 1;
+            var right = 2 * i + 2;
+
+            var min = i;
+            var parent = i;
+
+            if (left < initial.Length
+                && initial[left].CompareTo(initial[parent]) < 0)
+            {
+                var temp = initial[left];
+                initial[left] = initial[parent];
+                initial[parent] = temp;
+                min = left;
+            }
+
+            if (right < initial.Length
+                && initial[right].CompareTo(initial[parent]) < 0)
+            {
+                var temp = initial[right];
+                initial[right] = initial[parent];
+                initial[parent] = temp;
+                min = right;
+            }
+
+            //if min is child then drill down child
+            if (min != parent)
+            {
+                BulkInitRecursive(min, initial);
+            }
+        }
         //o(log(n))
         public void Insert(T newItem)
         {
