@@ -168,6 +168,8 @@ Note: Among the implementations here in practice, with the exclusion of Decremen
 
 * Permutation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Permutation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Permutate.cs))
 
+* Manacher's algorithm for linear time longest Palindrome ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/ManachersPalindrome.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Manachers_Tests.cs))
+
 ### Pattern Matching
 
 * Rabin-Karp string search ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/String/Search/RabinKarp.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/String/Search/RabinKarp_Tests.cs))
@@ -193,6 +195,14 @@ Note: Among the implementations here in practice, with the exclusion of Decremen
 * Counting Sort ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Sorting/CountingSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/CountingSort_Tests.cs))
 
 Note: On a decent desktop, in given implementations here for +ive random input integers, the clear winner is counting sort (~0.6 seconds to sort 1 million integers) followed by Radix Sort. Merge Sort, Heap Sort, Quick Sort & Bucket Sort are all winners for +ive & -ive random integer inputs with (~1 seconds to sort 1 million integers). Tree sort has pointer juggling overhead on backing Red-Black Tree, so performs 8 times slower than Merge Sort in practice. Bubble Sort, Insertion Sort, Selection Sort & Shell Sort are among the worst for random input as you might have guessed.
+
+## Numerical Methods
+
+* kth Largest/Smallest ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/KthSmallest.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/KthSmallest_Tests.cs))
+* Median of stream of numbers ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/MedianStream.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/MedianStream_Tests.cs))
+* Check Primality
+* Generate Primes using Sieve of Eratosthenes
+* Fast Exponentiation
 
 ## Classic Dynamic Programming Problems
 
@@ -221,15 +231,4 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 * Two Person City Traversal
 * Unique Binary Search Tree
 * Word Break problem
-
-## Numerical Methods
-
-* kth Largest/Smallest
-* Check Primality
-* Generate Primes using Sieve of Eratosthenes
-* Fast Exponentiation
-* Median of stream of numbers
-
-
- 
 
