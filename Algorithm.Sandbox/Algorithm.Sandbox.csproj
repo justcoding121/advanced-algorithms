@@ -53,6 +53,7 @@
     <Compile Include="DataStructures\HashSet\AsOpenAddressHashSet.cs" />
     <Compile Include="DataStructures\HashSet\AsSeparateChainingHashSet.cs" />
     <Compile Include="DataStructures\HashSet\AsTreeHashSet.cs" />
+    <Compile Include="DataStructures\Heap\Max\AsBMaxHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\AsBinomialMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\AsBMinHeap.cs" />
     <Compile Include="DataStructures\Heap\Min\Asd-aryMinHeap.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="GraphAlgorithms\TopologicalSort\DepthFirstTopSort.cs" />
     <Compile Include="GraphAlgorithms\TopologicalSort\KahnTopSort.cs" />
     <Compile Include="NumericalMethods\KthSmallest.cs" />
+    <Compile Include="NumericalMethods\MedianStream.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\BucketSort.cs" />
     <Compile Include="Sorting\CountingSort.cs" />
@@ -136,6 +138,7 @@
     <Compile Include="Sorting\MergeSort.cs" />
     <Compile Include="Sorting\QuickSort.cs" />
     <Compile Include="Sorting\SelectionSort.cs" />
+    <Compile Include="String\ManachersPalindrome.cs" />
     <Compile Include="String\Permutation.cs" />
     <Compile Include="String\Search\KMP.cs" />
     <Compile Include="String\Search\RabinKarp.cs" />
