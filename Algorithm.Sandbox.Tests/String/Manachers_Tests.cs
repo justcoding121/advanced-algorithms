@@ -18,6 +18,11 @@ namespace Algorithm.Sandbox.Tests.String
 
             var index = manacher.FindLongestPalindrome("abaxabaxabb");
 
+            Assert.IsTrue(index == 5);
+
+            index = manacher.FindLongestPalindrome("abaxabaxabybaxabyb");
+
+            Assert.IsTrue(index == 10);
         }
     }
 }
