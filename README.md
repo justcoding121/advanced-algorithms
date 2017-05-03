@@ -199,16 +199,16 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 
 * kth Largest/Smallest ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/KthSmallest.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/KthSmallest_Tests.cs))
 * Median of stream of numbers ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/MedianStream.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/MedianStream_Tests.cs))
-* Check Primality
-* Generate Primes using Sieve of Eratosthenes
-* Fast Exponentiation
+* Check Primality ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/PrimeTester.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/Primality_Tests.cs))
+* Generate Primes using Sieve of Eratosthenes ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/PrimeGenerator.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/PrimeGenerator_Tests.cs))
+* Fast Exponentiation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/Exponentiation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/Exponentiation_Tests.cs))
 
 ## Classic Dynamic Programming Problems
 
 * Coin Change Problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/CoinChangeProblems_Tests.cs))
 * Tower Of Hanoi ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/TowerOfHanoi_Tests.cs))
 * Knapsack problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/KnackSackProblems_Tests.cs))
-* Fibonacci Number Generator
+* Fibonacci Number Generator ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Fibornacci.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Fibornacci_Tests.cs))
 * Balanced Partition
 * Count Bool Parenthesization
 * Count Decoding
