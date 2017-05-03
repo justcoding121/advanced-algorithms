@@ -95,6 +95,7 @@
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
+    <Compile Include="DynamicProgramming\Fibornacci_Tests.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems_Tests.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems_Tests.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi_Tests.cs" />
@@ -123,8 +124,11 @@
     <Compile Include="GraphAlgorithms\ShortestPath\Johnson_Tests.cs" />
     <Compile Include="GraphAlgorithms\TopologicalSort\DepthFirstTopSort_Tests.cs" />
     <Compile Include="GraphAlgorithms\TopologicalSort\KahnTopSort_Tests.cs" />
+    <Compile Include="NumericalMethods\Exponentiation_Tests.cs" />
     <Compile Include="NumericalMethods\KthSmallest_Tests.cs" />
     <Compile Include="NumericalMethods\MedianStream_Tests.cs" />
+    <Compile Include="NumericalMethods\Primality_Tests.cs" />
+    <Compile Include="NumericalMethods\PrimeGenerator_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\BubbleSort_Tests.cs" />
     <Compile Include="Sorting\BucketSort_Tests.cs" />

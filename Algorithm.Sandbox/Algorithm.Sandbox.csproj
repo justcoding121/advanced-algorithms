@@ -95,8 +95,8 @@
     <Compile Include="DataStructures\String\AsSuffixArray.cs" />
     <Compile Include="DataStructures\Tree\AsSuffixTree.cs" />
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
-    <Compile Include="DynamicProgramming\BalancedPartition.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems.cs" />
+    <Compile Include="DynamicProgramming\Fibornacci.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />
@@ -124,8 +124,11 @@
     <Compile Include="GraphAlgorithms\ShortestPath\Johnsons.cs" />
     <Compile Include="GraphAlgorithms\TopologicalSort\DepthFirstTopSort.cs" />
     <Compile Include="GraphAlgorithms\TopologicalSort\KahnTopSort.cs" />
+    <Compile Include="NumericalMethods\Exponentiation.cs" />
     <Compile Include="NumericalMethods\KthSmallest.cs" />
     <Compile Include="NumericalMethods\MedianStream.cs" />
+    <Compile Include="NumericalMethods\PrimeGenerator.cs" />
+    <Compile Include="NumericalMethods\PrimeTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\BucketSort.cs" />
     <Compile Include="Sorting\CountingSort.cs" />

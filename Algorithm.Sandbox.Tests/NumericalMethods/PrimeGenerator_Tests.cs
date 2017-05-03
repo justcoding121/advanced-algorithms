@@ -1,0 +1,21 @@
+﻿using Algorithm.Sandbox.NumericalMethods;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Algorithm.Sandbox.Tests.NumericalMethods
+{
+    [TestClass]
+    public class PrimeGenerator_Tests
+    {
+        [TestMethod]
+        public void Smoke_Test_Prime_Generation()
+        {
+            Assert.AreEqual(5, PrimeGenerator.GetAllPrimes(11).Length);
+            Assert.AreEqual(8, PrimeGenerator.GetAllPrimes(20).Length);
+        }
+    }
+}
