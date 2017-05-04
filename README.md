@@ -1,6 +1,3 @@
-**No Pull Requests Please!** for now. Just my personal hobby, You are free to fork and play.
-Bugs are welcome!
-
 # Advanced Algorithms
 
 Various important computer science algorithms generically implemented in C#
