@@ -96,6 +96,7 @@
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
     <Compile Include="DynamicProgramming\BalancedPartition_Tests.cs" />
+    <Compile Include="DynamicProgramming\BoolParenthesis_Tests.cs" />
     <Compile Include="DynamicProgramming\Fibornacci_Tests.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems_Tests.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems_Tests.cs" />
