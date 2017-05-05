@@ -9,6 +9,14 @@ namespace Algorithm.Sandbox.DynamicProgramming
             return WaysToGetSum(sum, dice, face, new AsDictionary<string, int>());
         }
 
+        /// <summary>
+        /// DP top down
+        /// </summary>
+        /// <param name="sum"></param>
+        /// <param name="dice"></param>
+        /// <param name="face"></param>
+        /// <param name="cache"></param>
+        /// <returns></returns>
         public static int WaysToGetSum(int sum, int dice, int face,
             AsDictionary<string, int> cache)
         {

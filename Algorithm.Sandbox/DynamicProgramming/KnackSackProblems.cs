@@ -8,7 +8,9 @@ namespace Algorithm.Sandbox.DynamicProgramming
        
         //costs O(2^n) without memoizing
         //costs O(W*n) in total after all recursion is complete
-        public static int KnackSack_10_Recursive(int W, int[] weights, int[] values, int n, AsDictionary<string, int> memozingCache)
+        public static int KnackSack_10_Recursive(int W, int[] weights,
+            int[] values, 
+            int n, AsDictionary<string, int> memozingCache)
         {
             var cacheKey = W + string.Empty + n;
 
@@ -97,7 +99,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 k++;
             }
 
-            //O(n) + O(nlog(n) + O(n) = O(nlog(n)
+            //O(n) + O(nlog(n)) + O(n) = O(nlog(n))
             return resultValue;
         }
     }

@@ -14,7 +14,11 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
         [TestMethod]
         public void Smoke_Test_DistinctBinaryString()
         {
-           var result = DistinctBinaryString.Count(3);
+            Assert.AreEqual(2, DistinctBinaryString.Count(1));
+            Assert.AreEqual(3, DistinctBinaryString.Count(2));
+            Assert.AreEqual(5, DistinctBinaryString.Count(3));
+            Assert.AreEqual(8, DistinctBinaryString.Count(4));
+            Assert.AreEqual(13, DistinctBinaryString.Count(5));
         }
     }
 }

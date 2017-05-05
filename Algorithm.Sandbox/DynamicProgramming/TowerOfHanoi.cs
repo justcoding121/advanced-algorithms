@@ -13,6 +13,14 @@ namespace Algorithm.Sandbox.DynamicProgramming
             return minMoves;
         }
 
+        /// <summary>
+        /// DP top down 
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="source"></param>
+        /// <param name="aux"></param>
+        /// <param name="dest"></param>
+        /// <param name="moveCount"></param>
         private static void Tower(int n, string source, string aux, string dest, ref int moveCount)
         {
             Debug.WriteLine("Moving disc {0} from pole {1} to {2}", n, source, dest);
