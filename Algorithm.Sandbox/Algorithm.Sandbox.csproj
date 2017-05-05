@@ -95,7 +95,9 @@
     <Compile Include="DataStructures\String\AsSuffixArray.cs" />
     <Compile Include="DataStructures\Tree\AsSuffixTree.cs" />
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
+    <Compile Include="DynamicProgramming\BalancedPartition.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems.cs" />
+    <Compile Include="DynamicProgramming\CountBoolParanthesization.cs" />
     <Compile Include="DynamicProgramming\Fibornacci.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />
