@@ -98,6 +98,9 @@
     <Compile Include="DynamicProgramming\BalancedPartition.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems.cs" />
     <Compile Include="DynamicProgramming\CountBoolParenthesization.cs" />
+    <Compile Include="DynamicProgramming\CountDecodings.cs" />
+    <Compile Include="DynamicProgramming\DiceThrow.cs" />
+    <Compile Include="DynamicProgramming\DistinctBinaryString.cs" />
     <Compile Include="DynamicProgramming\Fibornacci.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />

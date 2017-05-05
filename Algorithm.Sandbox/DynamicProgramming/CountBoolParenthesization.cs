@@ -28,7 +28,6 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
             return True(symbols, operators, 0, symbols.Length - 1, 
                         new AsDictionary<string, int>(), 
-                        new AsDictionary<string, int>(),
                         new AsDictionary<string, int>());
 
         }
@@ -45,8 +44,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
             char[] operators,
             int i, int j, 
             AsDictionary<string, int> trueCache,
-            AsDictionary<string, int> falseCache,
-            AsDictionary<string, int> bothCache)
+            AsDictionary<string, int> falseCache)
         {
             if (j < i)
             {
@@ -78,22 +76,22 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 switch (operators[k])
                 {
                     case '&':
-                        result += True(symbols, operators, i, k, trueCache, falseCache, bothCache)
-                            * True(symbols, operators, k + 1, j, trueCache, falseCache, bothCache);
+                        result += True(symbols, operators, i, k, trueCache, falseCache)
+                            * True(symbols, operators, k + 1, j, trueCache, falseCache);
                         break;
 
                     case '|':
-                        result += Both(symbols, operators, i, k, trueCache, falseCache, bothCache)
-                            * Both(symbols, operators, k + 1, j, trueCache, falseCache, bothCache)
-                            - False(symbols, operators, i, k, trueCache, falseCache, bothCache) 
-                            * False(symbols, operators, k + 1, j, trueCache, falseCache, bothCache);
+                        result += Both(symbols, operators, i, k, trueCache, falseCache)
+                            * Both(symbols, operators, k + 1, j, trueCache, falseCache)
+                            - False(symbols, operators, i, k, trueCache, falseCache) 
+                            * False(symbols, operators, k + 1, j, trueCache, falseCache);
                         break;
 
                     case '^':
-                        result += True(symbols, operators, i, k, trueCache, falseCache, bothCache)
-                            * False(symbols, operators, k + 1, j, trueCache, falseCache, bothCache)
-                            + False(symbols, operators, i, k, trueCache, falseCache, bothCache) 
-                            * True(symbols, operators, k + 1, j, trueCache, falseCache, bothCache);
+                        result += True(symbols, operators, i, k, trueCache, falseCache)
+                            * False(symbols, operators, k + 1, j, trueCache, falseCache)
+                            + False(symbols, operators, i, k, trueCache, falseCache) 
+                            * True(symbols, operators, k + 1, j, trueCache, falseCache);
                         break;
                 }
             }
@@ -117,8 +115,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
            char[] operators,
            int i, int j,
            AsDictionary<string, int> trueCache,
-           AsDictionary<string, int> falseCache,
-           AsDictionary<string, int> bothCache)
+           AsDictionary<string, int> falseCache)
         {
             if (j < i)
             {
@@ -150,22 +147,22 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 switch (operators[k])
                 {
                     case '&':
-                        result += Both(symbols, operators, i, k, trueCache, falseCache, bothCache) 
-                            * Both(symbols, operators, k + 1, j, trueCache, falseCache, bothCache)
-                             - True(symbols, operators, i, k, trueCache, falseCache, bothCache) 
-                             * True(symbols, operators, k + 1, j, trueCache, falseCache, bothCache);
+                        result += Both(symbols, operators, i, k, trueCache, falseCache) 
+                            * Both(symbols, operators, k + 1, j, trueCache, falseCache)
+                             - True(symbols, operators, i, k, trueCache, falseCache) 
+                             * True(symbols, operators, k + 1, j, trueCache, falseCache);
                         break;
 
                     case '|':
-                        result += False(symbols, operators, i, k, trueCache, falseCache, bothCache)
-                            * False(symbols, operators, k + 1, j, trueCache, falseCache, bothCache);
+                        result += False(symbols, operators, i, k, trueCache, falseCache)
+                            * False(symbols, operators, k + 1, j, trueCache, falseCache);
                         break;
 
                     case '^':
-                        result += True(symbols, operators, i, k, trueCache, falseCache, bothCache) 
-                            * True(symbols, operators, k + 1, j, trueCache, falseCache, bothCache)
-                            + False(symbols, operators, i, k, trueCache, falseCache, bothCache) 
-                            * False(symbols, operators, k + 1, j, trueCache, falseCache, bothCache);
+                        result += True(symbols, operators, i, k, trueCache, falseCache) 
+                            * True(symbols, operators, k + 1, j, trueCache, falseCache)
+                            + False(symbols, operators, i, k, trueCache, falseCache) 
+                            * False(symbols, operators, k + 1, j, trueCache, falseCache);
                         break;
                 }
             }
@@ -188,20 +185,11 @@ namespace Algorithm.Sandbox.DynamicProgramming
            char[] operators,
            int i, int j,
            AsDictionary<string, int> trueCache,
-           AsDictionary<string, int> falseCache,
-           AsDictionary<string, int> bothCache)
+           AsDictionary<string, int> falseCache)
         {
-            var cacheKey = string.Concat(i, j);
-
-            if (bothCache.ContainsKey(cacheKey))
-            {
-                return bothCache[cacheKey];
-            }
-
-            var result = True(symbols, operators, i, j, trueCache, falseCache, bothCache)
-                + False(symbols, operators, i, j, trueCache, falseCache, bothCache);
-
-            bothCache.Add(cacheKey, result);
+      
+            var result = True(symbols, operators, i, j, trueCache, falseCache)
+                + False(symbols, operators, i, j, trueCache, falseCache);
 
             return result;
         }
