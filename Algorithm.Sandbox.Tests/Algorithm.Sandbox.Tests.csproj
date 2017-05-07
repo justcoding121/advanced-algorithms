@@ -103,6 +103,7 @@
     <Compile Include="DynamicProgramming\Fibornacci_Tests.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems_Tests.cs" />
     <Compile Include="DynamicProgramming\CoinChangeProblems_Tests.cs" />
+    <Compile Include="DynamicProgramming\LongestCommonSubSequence_Tests.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi_Tests.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoints\TarjansArticulation_Tests.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridge_Tests.cs" />
