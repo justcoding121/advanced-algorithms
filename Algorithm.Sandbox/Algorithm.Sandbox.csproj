@@ -104,6 +104,7 @@
     <Compile Include="DynamicProgramming\Fibornacci.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubSequence.cs" />
+    <Compile Include="DynamicProgramming\LongestIncreasingSubSequence.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridgeFinder.cs" />

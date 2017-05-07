@@ -7,7 +7,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
     public class LongestCommonSubSequence_Tests
     {
         [TestMethod]
-        public void Smoke_Test()
+        public void LongestCommonSubSequence_Smoke_Test()
         {
             Assert.AreEqual("ADH", LongestCommonSubSequence.FindSequence("ABCDGH", "AEDFHR"));
             Assert.AreEqual("GTAB", LongestCommonSubSequence.FindSequence("AGGTAB", "GXTXAYB"));
