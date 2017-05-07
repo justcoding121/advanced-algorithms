@@ -1,10 +1,12 @@
-﻿namespace Algorithm.Sandbox.DynamicProgramming
+﻿using Algorithm.Sandbox.DataStructures;
+
+namespace Algorithm.Sandbox.DynamicProgramming
 {
     public class LongestCommonSubSequence
     {
         public static string FindSequence(string a, string b)
         {
-            return FindSequence(a, b, a.Length - 1, b.Length - 1);
+            return FindSequence(a, b, a.Length - 1, b.Length - 1, new AsDictionary<string, string>());
         }
 
         /// <summary>
@@ -15,23 +17,35 @@
         /// <param name="i"></param>
         /// <param name="j"></param>
         /// <returns></returns>
-        private static string FindSequence(string a, string b, int i, int j)
+        private static string FindSequence(string a, string b,
+            int i, int j, 
+            AsDictionary<string, string> cache)
         {
             if (i < 0 || j < 0)
             {
                 return string.Empty;
             }
 
-            if (a[i] == b[j])
+            var cacheKey = string.Concat(i, j);
+
+            if (cache.ContainsKey(cacheKey))
             {
-                return FindSequence(a, b, i - 1, j - 1) + a[i];
+                return cache[cacheKey];
             }
 
-            var result1 = FindSequence(a, b, i, j - 1);
-            var result2 = FindSequence(a, b, i - 1, j);
+            if (a[i] == b[j])
+            {
+                return FindSequence(a, b, i - 1, j - 1, cache) + a[i];
+            }
 
-            return result1.Length > result2.Length ? result1 : result2;
+            var result1 = FindSequence(a, b, i, j - 1, cache);
+            var result2 = FindSequence(a, b, i - 1, j, cache);
 
+            var result = result1.Length > result2.Length ? result1 : result2;
+
+            cache.Add(cacheKey, result);
+
+            return result;
         }
     }
 }
