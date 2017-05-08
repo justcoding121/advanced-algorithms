@@ -16,7 +16,11 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
         {
             var longestPalindrome = new LongestPalindrome();
 
-            var length = longestPalindrome.FindPalindrome("abaxabaxabb");
+            var length = longestPalindrome.FindPalindrome("aacecaaa");
+
+            Assert.IsTrue(length == 7);
+
+            length = longestPalindrome.FindPalindrome("abaxabaxabb");
 
             Assert.IsTrue(length == 9);
 

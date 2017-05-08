@@ -26,6 +26,11 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 return 1;
             }
 
+            if (input[i] == input[j] && i + 1 == j)
+            {
+                return 2;
+            }
+
             var cacheKey = string.Concat(i, j);
 
             if (cache.ContainsKey(cacheKey))
@@ -41,12 +46,12 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
                 //for continuity, verify length between i & j matches 
                 //palindrome length
-                if (longestLength + 1 == j - i)
-                {
-                    return longestLength + 2;
-                }
+                //if (longestLength + 1 == j - i)
+                //{
+                //    return longestLength + 2;
+                //}
 
-                return longestLength;
+                return longestLength + 2;
             }
 
             longestLength = Math.Max(FindPalindrome(input, i, j - 1, cache),
