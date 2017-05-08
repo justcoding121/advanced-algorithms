@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algorithm.Sandbox.DataStructures;
+using System;
 
 namespace Algorithm.Sandbox.String
 {
@@ -7,20 +8,50 @@ namespace Algorithm.Sandbox.String
     /// </summary>
     public class ManachersPalindrome
     {
+        public int FindLongestPalindrome(string input)
+        {
+            if (input.Length <= 1)
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            if (input.Contains("$"))
+            {
+                throw new Exception("Input contain sentinel character $.");
+            }
+
+            //for even length palindrome
+            //we need to do this hack with $
+            var array = input.ToCharArray();
+            var modifiedInput = new AsStringBuilder();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                modifiedInput.Append("$");
+                modifiedInput.Append(array[i].ToString());
+            }
+            modifiedInput.Append("$");
+
+            var result = FindLongestPalindromeR(modifiedInput.ToString());
+
+            //remove length of $ sentinel
+            return result / 2;
+        }
         /// <summary>
         /// Find the longest palindrome in linear time
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public int FindLongestPalindrome(string input)
+        public int FindLongestPalindromeR(string input)
         {
             var palindromeLengths = new int[input.Length];
 
             int left = -1, right = 1;
             int length = 1;
 
+            int i = 0;
             //loop through each char
-            for (int i = 0; right < input.Length; i++)
+            while (i < input.Length)
             {
                 //terminate if end of input
                 while (left >= 0 && right < input.Length)
@@ -47,7 +78,7 @@ namespace Algorithm.Sandbox.String
                 //use mirror values on left side of palindrome
                 //to fill palindrome lengths on right side of palindrome
                 //so that we can save computations
-                if (right > i + 1)
+                if (right > i + 2)
                 {
                     var l = i - 1;
                     var r = i + 1;
@@ -72,8 +103,7 @@ namespace Algorithm.Sandbox.String
                         }
                         //mirror palindrome is totally contained
                         //in our current palindrome
-                        else if (palindromeLengths[l] == 1
-                            || (l - (mirrorLength / 2) > left + 1
+                        else if ((l - (mirrorLength / 2) > left + 1
                             && r + (mirrorLength / 2) < right - 1))
                         {
                             //so just set the value and continue exploring
@@ -104,8 +134,8 @@ namespace Algorithm.Sandbox.String
 
                     }
 
-                    //to compensate for loop i--
-                    i = r - 1;
+                    //already computed until i-1 by now
+                    i = r;
 
                 }
 
@@ -122,6 +152,8 @@ namespace Algorithm.Sandbox.String
                     right = i + 2;
                     length = 1;
                 }
+
+                i++;
             }
 
             return FindMax(palindromeLengths);
@@ -134,7 +166,6 @@ namespace Algorithm.Sandbox.String
         /// <returns></returns>
         private int FindMax(int[] palindromeLengths)
         {
-            var maxIndex = -1;
             var max = int.MinValue;
 
             for (int i = 0; i < palindromeLengths.Length; i++)
@@ -142,11 +173,10 @@ namespace Algorithm.Sandbox.String
                 if (max < palindromeLengths[i])
                 {
                     max = palindromeLengths[i];
-                    maxIndex = i;
                 }
             }
 
-            return maxIndex;
+            return max;
 
         }
     }

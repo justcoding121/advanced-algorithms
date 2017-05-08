@@ -16,13 +16,23 @@ namespace Algorithm.Sandbox.Tests.String
         {
             var manacher = new ManachersPalindrome();
 
-            var index = manacher.FindLongestPalindrome("abaxabaxabb");
+            var length = manacher.FindLongestPalindrome("aba");
+            Assert.IsTrue(length == 3);
 
-            Assert.IsTrue(index == 5);
+            length = manacher.FindLongestPalindrome("baab");
+            Assert.IsTrue(length == 4);
 
-            index = manacher.FindLongestPalindrome("abaxabaxabybaxabyb");
+            length = manacher.FindLongestPalindrome("abaab");
+            Assert.IsTrue(length == 4);
 
-            Assert.IsTrue(index == 10);
+            length = manacher.FindLongestPalindrome("abaxabaxabb");
+            Assert.IsTrue(length == 9);
+
+            length = manacher.FindLongestPalindrome("abaxabaxabybaxabyb");
+            Assert.IsTrue(length == 11);
+
+            length = manacher.FindLongestPalindrome("abaxabaxabbaxabyb");
+            Assert.IsTrue(length == 10);
         }
     }
 }
