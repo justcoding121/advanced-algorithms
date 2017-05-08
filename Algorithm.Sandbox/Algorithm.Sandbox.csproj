@@ -103,7 +103,7 @@
     <Compile Include="DynamicProgramming\DistinctBinaryString.cs" />
     <Compile Include="DynamicProgramming\Fibornacci.cs" />
     <Compile Include="DynamicProgramming\KnackSackProblems.cs" />
-    <Compile Include="DynamicProgramming\LogestPalindrome.cs" />
+    <Compile Include="DynamicProgramming\LongestPalindrome.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubSequence.cs" />
     <Compile Include="DynamicProgramming\LongestIncreasingSubSequence.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />
