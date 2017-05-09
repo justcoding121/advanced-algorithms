@@ -255,3 +255,5 @@ All are top down solutions with memoization technique.
 * 2D array sum
 * Count possible Binary Tree from a preorder sequence
 * Max subsquare with X sides in matrix
+* Ways to Cover a Distance
+* Assembly line scheduling
