@@ -3,6 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/count-possible-decodings-given-digit-sequence/
+    /// </summary>
     [TestClass]
     public class CountDecodings_Test
     {

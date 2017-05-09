@@ -3,6 +3,10 @@ using System.Linq;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-12-longest-palindromic-subsequence/
+    /// </summary>
     public class LongestPalindrome
     {
         public int FindPalindrome(string input)

@@ -2,6 +2,10 @@
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dice-throw-problem/
+    /// </summary>
     public class DiceThrow
     {
         public static int WaysToGetSum(int sum, int dice, int face)

@@ -2,6 +2,10 @@
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/iterative-tower-of-hanoi/
+    /// </summary>
     public class TowerOfHanoi
     {
         public static int Tower(int numOfDisks)

@@ -3,6 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/iterative-tower-of-hanoi/
+    /// </summary>
     [TestClass]
     public class TowerOfHanoi_Tests
     {

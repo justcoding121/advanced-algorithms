@@ -5,6 +5,10 @@ using Algorithm.Sandbox.DataStructures;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/
+    /// </summary>
     [TestClass]
     public class CoinChangeProblems_Tests
     {

@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-37-boolean-parenthesization-problem/
+    /// </summary>
     public class CountBoolParenthesization
     {
         public static int CountPositiveCombinations

@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
     /// <summary>
+    /// Problem statement in detail below
     /// https://leetcode.com/problems/shortest-palindrome/#/description
     /// </summary>
     [TestClass]

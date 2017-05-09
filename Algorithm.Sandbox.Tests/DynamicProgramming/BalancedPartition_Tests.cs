@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-18-partition-problem/
+    /// </summary>
     [TestClass]
     public class BalancedPartition_Tests
     {

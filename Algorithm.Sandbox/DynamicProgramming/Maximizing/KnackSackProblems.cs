@@ -3,6 +3,10 @@ using System;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/
+    /// </summary>
     public class KnackSackProblems
     {
        

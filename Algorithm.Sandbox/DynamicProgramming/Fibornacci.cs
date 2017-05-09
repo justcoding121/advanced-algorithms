@@ -2,6 +2,10 @@
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
+    /// </summary>
     public class FibornacciGenerator
     {
         /// <summary>

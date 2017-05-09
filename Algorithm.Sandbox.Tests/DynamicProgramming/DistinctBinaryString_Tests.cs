@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/count-number-binary-strings-without-consecutive-1s/
+    /// </summary>
     [TestClass]
     public class DistinctBinaryString_Tests
     {

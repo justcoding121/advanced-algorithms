@@ -2,6 +2,10 @@
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-4-longest-common-subsequence/
+    /// </summary>
     public class LongestCommonSubSequence
     {
         public static string FindSequence(string a, string b)

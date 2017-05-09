@@ -2,6 +2,10 @@
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/count-possible-decodings-given-digit-sequence/
+    /// </summary>
     public class CountDecodings
     {
         public static int Count(string input)

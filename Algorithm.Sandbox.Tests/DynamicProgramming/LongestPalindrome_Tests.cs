@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-12-longest-palindromic-subsequence/
+    /// </summary>
     [TestClass]
     public class LongestPalindrome_Tests
     {

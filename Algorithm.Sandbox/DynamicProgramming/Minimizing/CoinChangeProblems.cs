@@ -3,6 +3,10 @@ using System;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/
+    /// </summary>
     public class CoinChangeProblems
     {
 

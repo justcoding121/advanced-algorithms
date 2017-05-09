@@ -2,6 +2,10 @@
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/count-number-binary-strings-without-consecutive-1s/
+    /// </summary>
     public class DistinctBinaryString
     {
         public static int Count(int length)

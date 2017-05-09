@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dice-throw-problem/
+    /// </summary>
     [TestClass]
     public class DiceThrow_Tests
     {

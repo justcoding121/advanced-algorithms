@@ -106,6 +106,8 @@
     <Compile Include="DynamicProgramming\LongestCommonSubSequence_Tests.cs" />
     <Compile Include="DynamicProgramming\LongestIncreasingSubSequence_Tests.cs" />
     <Compile Include="DynamicProgramming\LongestPalindrome_Tests.cs" />
+    <Compile Include="DynamicProgramming\Matrix\ChainMultiplication_Tests.cs" />
+    <Compile Include="DynamicProgramming\PalindromeMinCut_Tests.cs" />
     <Compile Include="DynamicProgramming\ShortestPalindrome_Tests.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi_Tests.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoints\TarjansArticulation_Tests.cs" />

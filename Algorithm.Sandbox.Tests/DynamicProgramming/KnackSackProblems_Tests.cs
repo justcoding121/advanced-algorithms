@@ -4,6 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/
+    /// </summary>
     [TestClass]
     public class KnackSackProblems_Tests
     {

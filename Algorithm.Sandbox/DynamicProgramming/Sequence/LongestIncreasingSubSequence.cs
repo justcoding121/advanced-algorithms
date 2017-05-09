@@ -3,6 +3,10 @@ using System;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
+    /// </summary>
     public class LongestIncreasingSubSequence
     {
         public static int[] FindSequence(int[] input)

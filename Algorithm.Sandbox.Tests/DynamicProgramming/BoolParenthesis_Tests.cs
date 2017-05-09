@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-37-boolean-parenthesization-problem/
+    /// </summary>
     [TestClass]
     public class BoolParenthesis_Tests
     {

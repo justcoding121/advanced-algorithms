@@ -3,6 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem statement in detail below
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
+    /// </summary>
     [TestClass]
     public class LongestIncreasingSubSequence_Tests
     {

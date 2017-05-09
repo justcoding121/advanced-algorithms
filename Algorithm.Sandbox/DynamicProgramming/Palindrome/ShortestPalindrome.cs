@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Algorithm.Sandbox.DynamicProgramming
 {
     /// <summary>
+    /// Problem statement in detail below
     /// https://leetcode.com/problems/shortest-palindrome/#/description
     /// </summary>
     public class ShortestPalindrome
@@ -22,7 +23,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
                new AsDictionary<string, int>(),
                jsWithZero_iValues);
 
-            var max = jsWithZero_iValues.Count > 0 ? jsWithZero_iValues.Max() : 1;
+            var max = jsWithZero_iValues.Count > 0 ? jsWithZero_iValues.Max() + 1 : 1;
 
             var remaining = input.Length - max;
 
@@ -75,13 +76,15 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 if (longestLengthA + 1 == j - i)
                 {
                     longestLengthA = longestLengthA + 2;
+
+                    //keep track of palindromes starting at i = 0
+                    if (i == 0)
+                    {
+                        jsWithZero_iValues.Add(j);
+                    }
                 }
 
-                //keep track of palindromes starting at i = 0
-                if (i == 0)
-                {
-                    jsWithZero_iValues.Add(j);
-                }
+
             }
 
             var longestLengthB = FindLongestPalindrome(input, i, j - 1, cache, jsWithZero_iValues);
