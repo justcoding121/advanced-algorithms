@@ -16,8 +16,8 @@ namespace Algorithm.Sandbox.Tests.String
         {
             var manacher = new ManachersPalindrome();
 
-            var length = manacher.FindLongestPalindrome("aba");
-            Assert.IsTrue(length == 3);
+            var length = manacher.FindLongestPalindrome("aacecaaa");
+            Assert.IsTrue(length == 7);
 
             length = manacher.FindLongestPalindrome("baab");
             Assert.IsTrue(length == 4);

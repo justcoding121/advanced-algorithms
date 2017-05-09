@@ -3,6 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// https://leetcode.com/problems/shortest-palindrome/#/description
+    /// </summary>
     [TestClass]
     public class ShortestPalindrome_Tests
     {
@@ -10,6 +13,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
         public void ShortestPalindrome_Smoke_Tests()
         {
             Assert.AreEqual("aaacecaaa", ShortestPalindrome.FindShortest("aacecaaa"));
+            Assert.AreEqual("dcbabcd", ShortestPalindrome.FindShortest("abcd"));
         }
     }
 }
