@@ -214,6 +214,7 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 * Longest Common Sub Sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestCommonSubSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestCommonSubSequence_Tests.cs))
 * Longest Increasing Sub Sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestIncreasingSubSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestIncreasingSubSequence_Tests.cs))
 * Longest Palindrome ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestPalindrome.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestPalindrome_Tests.cs))
+* Shortest Palindrome ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/ShortestPalindrome.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/ShortestPalindrome_Tests.cs))
 * Maximum Sub Matrix
 * Maximum Value Sub Sequence
 * Min Edit Distance
@@ -221,7 +222,6 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 * Optimal Game Strategy
 * Palindrome Min Cut
 * Print Max A's
-* Shortest Palindrome
 * Sub Set Sum
 * Text Justification
 * Two Person City Traversal
