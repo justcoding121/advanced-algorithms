@@ -206,6 +206,8 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 
 ## Classic Dynamic Programming Problems
 
+All are top down solutions with memoization technique.
+
 * Coin Change Problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/CoinChangeProblems_Tests.cs))
 * Tower Of Hanoi ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/TowerOfHanoi_Tests.cs))
 * Knapsack problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/KnackSackProblems_Tests.cs))
@@ -219,12 +221,13 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 * Longest Increasing Sub Sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestIncreasingSubSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestIncreasingSubSequence_Tests.cs))
 * Longest Palindrome ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestPalindrome.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestPalindrome_Tests.cs))
 * Shortest Palindrome ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/ShortestPalindrome.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/ShortestPalindrome_Tests.cs))
-* Maximum Sub Matrix
-* Maximum Value Sub Sequence
-* Min Edit Distance
-* Min Array Jumps
-* Optimal Game Strategy
-* Palindrome Min Cut
+* Palindrome Min Cut (Min Partitioning)
+* Max Sub Matrix
+* Max value subsequence
+* Max increasing sum sequence
+* Min editdistance
+* Min array jumps
+* Optimal game strategy
 * Print Max A's
 * Sub Set Sum
 * Text Justification
@@ -233,3 +236,22 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 * Word Break problem
 * Box Stacking
 * Building Bridges
+* Cutting Rod
+* Min Cost Matrix Path
+* Chain Matrix Multiplication
+* Burst Balloon
+* Optimal Binary Search Tree
+* Weighted Job Scheduling
+* Egg drop problem
+* Max 1s Rectangle in Matrix
+* Max 1s Square in Matrix
+* Max profit Buy/Sell stocks in K transactions
+* Wild card matching
+* Regular Expression
+* String interleaving
+* Longest bitonic subsequence
+* Staircase problem in Fibornacci Series
+* Matrix ways to Move
+* 2D array sum
+* Count possible Binary Tree from a preorder sequence
+* Max subsquare with X sides in matrix
