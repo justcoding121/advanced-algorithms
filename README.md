@@ -208,52 +208,76 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 
 All are top down solutions with memoization technique.
 
-* Coin Change Problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/CoinChangeProblems_Tests.cs))
 * Tower Of Hanoi ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/TowerOfHanoi_Tests.cs))
-* Knapsack problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/KnackSackProblems_Tests.cs))
 * Fibonacci Number Generator ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Fibornacci.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Fibornacci_Tests.cs))
-* Balanced Partition ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/BalancedPartition.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/BalancedPartition_Tests.cs))
-* Count Bool Parenthesization ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/CountBoolParenthesization.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/BoolParenthesis_Tests.cs))
-* Count Decoding ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/CountDecodings.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/CountDecodings_Test.cs))
-* Dice Throw ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/DiceThrow.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/DiceThrow_Tests.cs))
-* Distinct Binary Strings ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/DistinctBinaryString.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/DistinctBinaryString_Tests.cs))
-* Longest Common Sub Sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestCommonSubSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestCommonSubSequence_Tests.cs))
-* Longest Increasing Sub Sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestIncreasingSubSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestIncreasingSubSequence_Tests.cs))
-* Longest Palindrome ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestPalindrome.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestPalindrome_Tests.cs))
-* Shortest Palindrome ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/ShortestPalindrome.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/ShortestPalindrome_Tests.cs))
-* Palindrome Min Cut (Min Partitioning)
-* Max Sub Matrix
-* Max value subsequence
-* Max increasing sum sequence
-* Min editdistance
-* Min array jumps
 * Optimal game strategy
 * Print Max A's
-* Sub Set Sum
 * Text Justification
 * Two Person City Traversal
+* Travelling Salesman Problem
 * Unique Binary Search Tree
 * Word Break problem
 * Box Stacking
 * Building Bridges
 * Cutting Rod
-* Min Cost Matrix Path
-* Chain Matrix Multiplication
 * Burst Balloon
 * Optimal Binary Search Tree
 * Weighted Job Scheduling
-* Egg drop problem
-* Max 1s Rectangle in Matrix
-* Max 1s Square in Matrix
-* Max profit Buy/Sell stocks in K transactions
 * Wild card matching
 * Regular Expression
 * String interleaving
-* Longest bitonic subsequence
 * Staircase problem in Fibornacci Series
-* Matrix ways to Move
 * 2D array sum
-* Count possible Binary Tree from a preorder sequence
-* Max subsquare with X sides in matrix
-* Ways to Cover a Distance
 * Assembly line scheduling
+
+### Matrix
+
+* Max Sub Matrix
+* Min Cost Matrix Path
+* Chain Matrix Multiplication
+* Max 1s Rectangle in Matrix
+* Max 1s Square in Matrix
+* Max subsquare with X sides in matrix
+* Matrix ways to Move
+
+### Count
+
+* Count Bool Parenthesization ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/CountBoolParenthesization.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/BoolParenthesis_Tests.cs))
+* Count Decoding ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/CountDecodings.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/CountDecodings_Test.cs))
+* Count possible Binary Tree from a preorder sequence
+* Ways to Cover a Distance
+* Egg drop problem
+
+### Maximizing
+
+* Knapsack problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/KnackSackProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/KnackSackProblems_Tests.cs))
+* Max profit Buy/Sell stocks in K transactions
+* Longest bitonic subsequence
+
+### Minimizing
+
+* Coin Change Problem ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/CoinChangeProblems_Tests.cs))
+* Min editdistance
+* Min array jumps
+
+### Palindrome
+
+* Longest Palindrome ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestPalindrome.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestPalindrome_Tests.cs))
+* Shortest Palindrome ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/ShortestPalindrome.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/ShortestPalindrome_Tests.cs))
+* Palindrome Min Cut (Min Partitioning)
+* Min Deletion to Palindrome
+
+### Sequence
+
+* Balanced Partition ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/BalancedPartition.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/BalancedPartition_Tests.cs))
+* Distinct Binary Strings ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/DistinctBinaryString.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/DistinctBinaryString_Tests.cs))
+* Longest Common Sub Sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestCommonSubSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestCommonSubSequence_Tests.cs))
+* Longest Increasing Sub Sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/LongestIncreasingSubSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/LongestIncreasingSubSequence_Tests.cs))
+* Max subsequence
+* Max increasing sum sequence
+
+### Sum
+
+* Dice Throw ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/DiceThrow.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/DiceThrow_Tests.cs))
+* Sub Set Sum
+
