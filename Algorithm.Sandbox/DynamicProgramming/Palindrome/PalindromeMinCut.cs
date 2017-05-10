@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
-    public class Palindrome
+    public class PalindromeInfo
     {
         internal int i { get; set; }
         internal int j { get; set; }
@@ -15,9 +15,9 @@ namespace Algorithm.Sandbox.DynamicProgramming
     /// </summary>
     public class PalindromeMinCut
     {
-        public static List<Palindrome> GetMinCut(string input)
+        public static List<PalindromeInfo> GetMinCut(string input)
         {
-            var palindromes = new List<Palindrome>();
+            var palindromes = new List<PalindromeInfo>();
 
             FindLongestPalindrome(input, 0, input.Length - 1,
                 new Dictionary<string, int>(), palindromes);
@@ -26,13 +26,13 @@ namespace Algorithm.Sandbox.DynamicProgramming
                             .OrderByDescending(x => x.j - x.i)
                             .ToList();
 
-            var result = new List<Palindrome>();
+            var result = new List<PalindromeInfo>();
 
             while (palindromes.Count > 0)
             {
                 var current = palindromes.First();
                
-                result.Add(new Palindrome() {
+                result.Add(new PalindromeInfo() {
                     i = current.i,
                     j = current.j
                 });
@@ -51,7 +51,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         private static int FindLongestPalindrome(string input,
             int i, int j,
             Dictionary<string, int> cache,
-            List<Palindrome> palindromes)
+            List<PalindromeInfo> palindromes)
         {
             if (i > j)
             {
@@ -60,7 +60,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
             if (i == j)
             {
-                palindromes.Add(new Palindrome()
+                palindromes.Add(new PalindromeInfo()
                 {
                     i = i,
                     j = j
@@ -90,7 +90,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
                     longestLengthA = longestLengthA + 2;
 
                     //keep track of palindromes 
-                    palindromes.Add(new Palindrome()
+                    palindromes.Add(new PalindromeInfo()
                     {
                         i = i,
                         j = j

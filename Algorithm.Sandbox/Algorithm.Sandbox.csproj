@@ -100,10 +100,14 @@
     <Compile Include="DynamicProgramming\Matrix\MaxSubMatrix.cs" />
     <Compile Include="DynamicProgramming\Matrix\MaxXSideSubSquare.cs" />
     <Compile Include="DynamicProgramming\Matrix\WaysToMove.cs" />
+    <Compile Include="DynamicProgramming\Palindrome\PalindromeMinDeletion.cs" />
     <Compile Include="DynamicProgramming\Sequence\BalancedPartition.cs" />
     <Compile Include="DynamicProgramming\Minimizing\CoinChangeProblems.cs" />
     <Compile Include="DynamicProgramming\Count\CountBoolParenthesization.cs" />
     <Compile Include="DynamicProgramming\Count\CountDecodings.cs" />
+    <Compile Include="DynamicProgramming\Sequence\MaxSubSequence.cs" />
+    <Compile Include="DynamicProgramming\Sequence\MaxSumIncreasingSequence.cs" />
+    <Compile Include="DynamicProgramming\Sequence\SubSetSum.cs" />
     <Compile Include="DynamicProgramming\Sum\DiceThrow.cs" />
     <Compile Include="DynamicProgramming\Sequence\DistinctBinaryString.cs" />
     <Compile Include="DynamicProgramming\Fibornacci.cs" />
@@ -115,6 +119,7 @@
     <Compile Include="DynamicProgramming\Palindrome\PalindromeMinCut.cs" />
     <Compile Include="DynamicProgramming\Palindrome\ShortestPalindrome.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />
+    <Compile Include="DynamicProgramming\TravellingSalesMan.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridgeFinder.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColorer.cs" />

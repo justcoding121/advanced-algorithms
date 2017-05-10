@@ -43,7 +43,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
             Dictionary<string, int> cache,
             List<int> jsWithZero_iValues)
         {
-            if (i >= input.Length || j < 0 || i > j)
+            if (i > j)
             {
                 return 0;
             }

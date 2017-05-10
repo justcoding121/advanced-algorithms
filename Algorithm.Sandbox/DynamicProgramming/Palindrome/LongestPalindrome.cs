@@ -25,7 +25,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
             int i, int j,
             Dictionary<string, int> cache)
         {
-            if (i >= input.Length || j < 0 || i > j)
+            if (i > j)
             {
                 return 0;
             }
