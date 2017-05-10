@@ -1,6 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Flow
 {
@@ -53,7 +54,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             }
 
             //init source neighbour overflow to capacity of source-neighbour edges
-            foreach (var edge in residualGraph.Vertices[source].OutEdges)
+            foreach (var edge in residualGraph.Vertices[source].OutEdges.ToList())
             {
                //update edge vertex overflow
                 vertexStatusMap[edge.Key.Value].Overflow = edge.Value;

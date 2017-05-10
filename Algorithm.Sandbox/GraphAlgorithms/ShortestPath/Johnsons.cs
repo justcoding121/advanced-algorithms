@@ -1,6 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
 {
@@ -68,7 +69,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
             //adjust edges so that all edge values are now +ive
             foreach (var vertex in workGraph.Vertices)
             {
-                foreach (var edge in vertex.Value.OutEdges)
+                foreach (var edge in vertex.Value.OutEdges.ToList())
                 {
                     vertex.Value.OutEdges[edge.Key] = operators.Substract(
                         operators.Sum(bellFordResult[vertex.Key], edge.Value),

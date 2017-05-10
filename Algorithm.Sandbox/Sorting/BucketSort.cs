@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace Algorithm.Sandbox.Sorting
 {
@@ -39,7 +40,7 @@ namespace Algorithm.Sandbox.Sorting
 
             i = 0;
             var bucketKeys = new int[buckets.Count];
-            foreach (var bucket in buckets)
+            foreach (var bucket in buckets.ToList())
             {
                 buckets[bucket.Key] = new List<int>(MergeSort<int>
                     .Sort(bucket.Value.ToArray()));
