@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -180,7 +181,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         /// <param name="prefix"></param>
         /// <returns></returns>
-        public AsArrayList<T[]> StartsWith(T[] prefix)
+        public List<T[]> StartsWith(T[] prefix)
         {
             return StartsWith(Root, prefix, 0);
         }
@@ -193,13 +194,13 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="searchPrefix"></param>
         /// <param name="currentIndex"></param>
         /// <returns></returns>
-        private AsArrayList<T[]> StartsWith(AsTernarySearchTreeNode<T> currentNode,
+        private List<T[]> StartsWith(AsTernarySearchTreeNode<T> currentNode,
             T[] searchPrefix, int currentIndex)
         {
 
             if (currentNode == null)
             {
-                return new AsArrayList<T[]>();
+                return new List<T[]>();
             }
 
             var compareResult = currentNode.Value.CompareTo(searchPrefix[currentIndex]);
@@ -220,7 +221,7 @@ namespace Algorithm.Sandbox.DataStructures
                 //end of search Prefix, so gather all words under it
                 if (currentIndex == searchPrefix.Length - 1)
                 {
-                    var result = new AsArrayList<T[]>();
+                    var result = new List<T[]>();
 
                     GatherStartsWith(result,
                         searchPrefix, currentNode.Middle);
@@ -239,7 +240,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="searchPrefix"></param>
         /// <param name="prefix"></param>
         /// <param name="node"></param>
-        private void GatherStartsWith(AsArrayList<T[]> result, T[] prefix,
+        private void GatherStartsWith(List<T[]> result, T[] prefix,
             AsTernarySearchTreeNode<T> node)
         {
             if (node == null)

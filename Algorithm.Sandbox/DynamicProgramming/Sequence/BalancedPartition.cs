@@ -1,4 +1,4 @@
-﻿using Algorithm.Sandbox.DataStructures;
+﻿using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static AsArrayList<int>
+        public static List<int>
             FindPartition(int[] input)
         {
             var sum = FindSum(input);
@@ -21,10 +21,10 @@ namespace Algorithm.Sandbox.DynamicProgramming
             if (sum % 2 == 1)
             {
                 //cannot partition
-                return new AsArrayList<int>();
+                return new List<int>();
             }
 
-            var result = new AsArrayList<int>();
+            var result = new List<int>();
 
             var canPartition = Partition(sum / 2, input, 0, 0, result);
 
@@ -44,7 +44,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         private static bool Partition(int sum,
             int[] input, int index,
             int progress, 
-            AsArrayList<int> pickedIndices)
+            List<int> pickedIndices)
         {
             //found result
             if (sum == 0)

@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
     public class AsStringBuilder
     {
-        private AsArrayList<string> builder = new AsArrayList<string>();
+        private List<string> builder = new List<string>();
 
         public void Append(string s)
         {

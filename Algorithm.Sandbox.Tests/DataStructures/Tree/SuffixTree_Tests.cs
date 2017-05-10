@@ -22,10 +22,10 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             Assert.IsFalse(suffixTree.ContainsPattern("ab".ToCharArray()));
 
             var matches = suffixTree.StartsWithPattern("na".ToCharArray());
-            Assert.IsTrue(matches.Length == 2);
+            Assert.IsTrue(matches.Count == 2);
 
             matches = suffixTree.StartsWithPattern("an".ToCharArray());
-            Assert.IsTrue(matches.Length == 2);
+            Assert.IsTrue(matches.Count == 2);
 
             suffixTree.Delete("bananaa".ToCharArray());
             Assert.IsTrue(suffixTree.Count == 0);

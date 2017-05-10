@@ -1,4 +1,4 @@
-﻿using Algorithm.Sandbox.DataStructures;
+﻿using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -10,7 +10,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
     {
         public static int Count(int length)
         {
-            var cache = new AsDictionary<string, int>();
+            var cache = new Dictionary<string, int>();
           
             //last digit can be 1 or 0 (sum both counts)
             return Count(length, true, cache)
@@ -26,7 +26,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <returns></returns>
         public static int Count(int length, 
             bool lastWasOne, 
-            AsDictionary<string, int> cache)
+            Dictionary<string, int> cache)
         {
             //base case
             if (length == 1)

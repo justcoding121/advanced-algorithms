@@ -1,5 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         //costs O(W*n) in total after all recursion is complete
         public static int KnackSack_10_Recursive(int W, int[] weights,
             int[] values, 
-            int n, AsDictionary<string, int> memozingCache)
+            int n, Dictionary<string, int> memozingCache)
         {
             var cacheKey = W + string.Empty + n;
 

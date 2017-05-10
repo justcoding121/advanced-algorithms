@@ -1,6 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Flow
 {
@@ -32,7 +32,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             var residualGraph = createResidualGraph(graph);
 
             //init vertex Height & Overflow object (ResidualGraphVertexStatus)
-            var vertexStatusMap = new AsDictionary<T, ResidualGraphVertexStatus>();
+            var vertexStatusMap = new Dictionary<T, ResidualGraphVertexStatus>();
             foreach(var vertex in residualGraph.Vertices)
             {
                 if (vertex.Value.Value.Equals(source))
@@ -63,7 +63,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
                     .OutEdges[residualGraph.Vertices[source]] = edge.Value;
 
                 //set to minimum
-                edge.Value = operators.defaultWeight;
+                residualGraph.Vertices[source].OutEdges[edge.Key] = operators.defaultWeight;
 
             }
 
@@ -92,7 +92,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="vertex"></param>
         /// <param name="vertexStatusMap"></param>
         private void Relabel(AsWeightedDiGraphVertex<T, W> vertex, 
-            AsDictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
+            Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
             var min = int.MaxValue;
 
@@ -121,7 +121,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="vertexStatusMap"></param>
         /// <returns></returns>
         private bool Push(AsWeightedDiGraphVertex<T, W> overflowVertex, 
-            AsDictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
+            Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
             var overflow = vertexStatusMap[overflowVertex.Value].Overflow;
 
@@ -154,7 +154,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
                          possibleWeightToPush);
 
                     //decrement edge weight
-                    edge.Value = operators.SubstractWeights(edge.Value, possibleWeightToPush);
+                    overflowVertex.OutEdges[edge.Key] = operators.SubstractWeights(edge.Value, possibleWeightToPush);
                     //increment reverse edge weight
                     edge.Key.OutEdges[overflowVertex] = operators.AddWeights(edge.Key.OutEdges[overflowVertex], possibleWeightToPush);
 
@@ -172,7 +172,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        private T FindOverflowVertex(AsDictionary<T, ResidualGraphVertexStatus> vertexStatusMap,
+        private T FindOverflowVertex(Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap,
             T source, T sink)
         {
             foreach(var vertexStatus in vertexStatusMap)
@@ -195,7 +195,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        public AsArrayList<AsArrayList<T>> ComputeMaxFlowAndReturnFlowPath(AsWeightedDiGraph<T, W> graph,
+        public List<List<T>> ComputeMaxFlowAndReturnFlowPath(AsWeightedDiGraph<T, W> graph,
             T source, T sink)
         {
             throw new NotImplementedException();

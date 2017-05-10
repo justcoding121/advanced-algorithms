@@ -1,6 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
 {
@@ -36,7 +36,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
             this.operators = operators;
         }
 
-        public AsArrayList<AllPairShortestPathResult<T, W>>
+        public List<AllPairShortestPathResult<T, W>>
             GetAllPairShortestPaths(AsWeightedDiGraph<T, W> graph)
         {
 
@@ -58,7 +58,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
 
             //now compute shortest path from random vertex to all other vertices
             var bellmanFordSP = new BellmanFordShortestPath<T, W>(operators);
-            var bellFordResult = new AsDictionary<T, W>();
+            var bellFordResult = new Dictionary<T, W>();
             foreach (var vertex in workGraph.Vertices)
             {
                 var result = bellmanFordSP.GetShortestPath(workGraph, randomVetex, vertex.Key);
@@ -70,7 +70,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
             {
                 foreach (var edge in vertex.Value.OutEdges)
                 {
-                    edge.Value = operators.Substract(
+                    vertex.Value.OutEdges[edge.Key] = operators.Substract(
                         operators.Sum(bellFordResult[vertex.Key], edge.Value),
                         bellFordResult[edge.Key.Value]);
                 }
@@ -81,7 +81,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
             //now run dijikstra for all pairs of vertices
             //trace path
             var dijikstras = new DijikstraShortestPath<T, W>(operators);
-            var finalResult = new AsArrayList<AllPairShortestPathResult<T, W>>();
+            var finalResult = new List<AllPairShortestPathResult<T, W>>();
             foreach (var vertexA in workGraph.Vertices)
             {
                 foreach (var vertexB in workGraph.Vertices)

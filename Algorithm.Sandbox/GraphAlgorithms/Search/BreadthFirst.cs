@@ -1,10 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
-using System;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Search
 {
@@ -22,20 +17,20 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
         /// <returns></returns>
         public bool Find(AsGraph<T> graph, T vertex)
         {
-            return BFS(graph.ReferenceVertex, new AsHashSet<T>(), vertex);
+            return BFS(graph.ReferenceVertex, new HashSet<T>(), vertex);
         }
 
         /// <summary>
         /// BFS implementation
         /// </summary>
         /// <param name="referenceVertex"></param>
-        /// <param name="asHashSet"></param>
+        /// <param name="HashSet"></param>
         /// <param name="searchVertex"></param>
         /// <returns></returns>
         private bool BFS(AsGraphVertex<T> referenceVertex,
-            AsHashSet<T> visited, T searchVertex)
+            HashSet<T> visited, T searchVertex)
         {
-            var bfsQueue = new AsQueue<AsGraphVertex<T>>();
+            var bfsQueue = new Queue<AsGraphVertex<T>>();
 
             bfsQueue.Enqueue(referenceVertex);
             visited.Add(referenceVertex.Value);
@@ -51,10 +46,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
 
                 foreach (var edge in current.Edges)
                 {
-                    if (!visited.Contains(edge.Value.Value))
+                    if (!visited.Contains(edge.Value))
                     {
-                        visited.Add(edge.Value.Value);
-                        bfsQueue.Enqueue(edge.Value);
+                        visited.Add(edge.Value);
+                        bfsQueue.Enqueue(edge);
                     }
                 }
             }

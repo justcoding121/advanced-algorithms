@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace Algorithm.Sandbox.DataStructures
@@ -308,8 +309,8 @@ namespace Algorithm.Sandbox.DataStructures
         //keep track of visited nodes during neighbour search
         //so that we don't visit them again
         //TODO: could have better ways
-        private AsDictionary<AsKDTreeNode<T>, bool> visitTracker
-            = new AsDictionary<AsKDTreeNode<T>, bool>();
+        private Dictionary<AsKDTreeNode<T>, bool> visitTracker
+            = new Dictionary<AsKDTreeNode<T>, bool>();
 
         /// <summary>
         /// returns the nearest neigbour to point
@@ -339,7 +340,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="searchPoint"></param>
         /// <param name="depth"></param>
         private AsKDTreeNode<T> FindNearestNeighbour(AsKDTreeNode<T> currentNode,
-            AsDictionary<AsKDTreeNode<T>, bool> visited,
+            Dictionary<AsKDTreeNode<T>, bool> visited,
             T[] searchPoint, int depth,
             AsKDTreeNode<T> currentBest, IDistanceCalculator<T> distanceCalculator)
         {
@@ -455,11 +456,11 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public AsArrayList<T[]> GetInRange(T[] start, T[] end)
+        public List<T[]> GetInRange(T[] start, T[] end)
         {
-            var visitTracker = new AsDictionary<AsKDTreeNode<T>,bool>();
+            var visitTracker = new Dictionary<AsKDTreeNode<T>,bool>();
 
-            var result = GetInRange(new AsArrayList<T[]>(), Root, 
+            var result = GetInRange(new List<T[]>(), Root, 
                 visitTracker, start, end, 0);
 
             Debug.WriteLine(visitTracker.Count);
@@ -477,9 +478,9 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="end"></param>
         /// <param name="depth"></param>
         /// <returns></returns>
-        private AsArrayList<T[]> GetInRange(AsArrayList<T[]> result, 
+        private List<T[]> GetInRange(List<T[]> result, 
             AsKDTreeNode<T> currentNode,
-            AsDictionary<AsKDTreeNode<T>, bool> visited,
+            Dictionary<AsKDTreeNode<T>, bool> visited,
             T[] start, T[] end, int depth)
         {
             if (currentNode == null)

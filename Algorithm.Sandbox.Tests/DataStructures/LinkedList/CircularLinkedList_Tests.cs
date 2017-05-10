@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             list.Insert("c");
 
             Assert.AreEqual(list.Count(), 4);
-            Assert.AreEqual(list.GetAllNodes().Length, 4);
+            Assert.AreEqual(list.GetAllNodes().Count, 4);
 
             list.Delete("a");
             Assert.AreEqual(list.Count(), 3);
@@ -46,7 +46,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             list.Insert("c");
 
             Assert.AreEqual(list.Count(), 4);
-            Assert.AreEqual(list.GetAllNodes().Length, 4);
+            Assert.AreEqual(list.GetAllNodes().Count, 4);
 
             list.Delete("a");
             Assert.AreEqual(list.Count(), 3);

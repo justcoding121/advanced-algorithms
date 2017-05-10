@@ -1,4 +1,4 @@
-﻿using Algorithm.Sandbox.DataStructures;
+﻿using System.Collections.Generic;
 using System;
 
 namespace Algorithm.Sandbox.Sorting
@@ -22,7 +22,7 @@ namespace Algorithm.Sandbox.Sorting
                 throw new Exception("Invalid bucket size.");
             }
 
-            var buckets = new AsDictionary<int, AsArrayList<int>>();
+            var buckets = new Dictionary<int, List<int>>();
 
             int i;
             for (i = 0; i < array.Length; i++)
@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox.Sorting
 
                 if(!buckets.ContainsKey(bucketIndex))
                 {
-                    buckets.Add(bucketIndex, new AsArrayList<int>());
+                    buckets.Add(bucketIndex, new List<int>());
                 }
 
                 buckets[bucketIndex].Add(array[i]);
@@ -41,7 +41,7 @@ namespace Algorithm.Sandbox.Sorting
             var bucketKeys = new int[buckets.Count];
             foreach (var bucket in buckets)
             {
-                bucket.Value = new AsArrayList<int>(MergeSort<int>
+                buckets[bucket.Key] = new List<int>(MergeSort<int>
                     .Sort(bucket.Value.ToArray()));
 
                 bucketKeys[i] = bucket.Key;
@@ -56,8 +56,8 @@ namespace Algorithm.Sandbox.Sorting
             foreach (var bucketKey in bucketKeys)
             {
                 var bucket = buckets[bucketKey];
-                Array.Copy(bucket.ToArray(), 0, result, i, bucket.Length);
-                i += bucket.Length;
+                Array.Copy(bucket.ToArray(), 0, result, i, bucket.Count);
+                i += bucket.Count;
             }
 
             return result;

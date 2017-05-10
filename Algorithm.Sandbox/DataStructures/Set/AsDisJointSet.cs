@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Set
 {
@@ -19,8 +20,8 @@ namespace Algorithm.Sandbox.DataStructures.Set
         /// <summary>
         /// A Map for faster access for members
         /// </summary>
-        private AsDictionary<T, AsDisJointSetNode<T>> set 
-            = new AsDictionary<T, AsDisJointSetNode<T>>();
+        private Dictionary<T, AsDisJointSetNode<T>> set 
+            = new Dictionary<T, AsDisJointSetNode<T>>();
 
         /// <summary>
         /// Creates a new set with given member

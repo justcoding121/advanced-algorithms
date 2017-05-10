@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -55,7 +56,7 @@ namespace Algorithm.Sandbox.DataStructures
             if (headNode == null)
                 return;
 
-            var passOneResult = new AsArrayList<AsPairingTreeNode<T>>();
+            var passOneResult = new List<AsPairingTreeNode<T>>();
 
             var current = headNode;
 
@@ -83,8 +84,8 @@ namespace Algorithm.Sandbox.DataStructures
                     }
                     else
                     {
-                        var lastInserted = passOneResult[passOneResult.Length - 1];
-                        passOneResult[passOneResult.Length - 1] = Meld(lastInserted, current);
+                        var lastInserted = passOneResult[passOneResult.Count - 1];
+                        passOneResult[passOneResult.Count - 1] = Meld(lastInserted, current);
                         break;
 
                     }
@@ -92,16 +93,16 @@ namespace Algorithm.Sandbox.DataStructures
 
             }
 
-            var passTwoResult = passOneResult[passOneResult.Length - 1];
+            var passTwoResult = passOneResult[passOneResult.Count - 1];
 
-            if (passOneResult.Length == 1)
+            if (passOneResult.Count == 1)
             {
                 Root = passTwoResult;
                 return;
             }
 
 
-            for (int i = passOneResult.Length - 2; i >= 0; i--)
+            for (int i = passOneResult.Count - 2; i >= 0; i--)
             {
                 current = passOneResult[i];
                 passTwoResult = Meld(passTwoResult, current);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -6,11 +7,11 @@ namespace Algorithm.Sandbox.DataStructures
     {
         internal bool IsEmpty => Children.Count == 0;
         internal bool IsEnd { get; set; }
-        internal AsDictionary<T, AsTrieNode<T>> Children { get; set; }
+        internal Dictionary<T, AsTrieNode<T>> Children { get; set; }
 
         internal AsTrieNode()
         {
-            Children = new AsDictionary<T, AsTrieNode<T>>();
+            Children = new Dictionary<T, AsTrieNode<T>>();
         }
 
     }
@@ -114,7 +115,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         /// <param name="prefix"></param>
         /// <returns></returns>
-        public AsArrayList<T[]> StartsWith(T[] prefix)
+        public List<T[]> StartsWith(T[] prefix)
         {
             return StartsWith(Root, prefix, 0);
         }
@@ -127,11 +128,11 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="searchPrefix"></param>
         /// <param name="currentIndex"></param>
         /// <returns></returns>
-        private AsArrayList<T[]> StartsWith(AsTrieNode<T> currentNode, T[] searchPrefix, int currentIndex)
+        private List<T[]> StartsWith(AsTrieNode<T> currentNode, T[] searchPrefix, int currentIndex)
         {
             if (currentIndex == searchPrefix.Length)
             {
-                var result = new AsArrayList<T[]>();
+                var result = new List<T[]>();
 
                 //gather sub entries and prefix them with search entry prefix
                 GatherStartsWith(result , searchPrefix, null, currentNode);
@@ -141,7 +142,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (currentNode.Children.ContainsKey(searchPrefix[currentIndex]) == false)
             {
-                return new AsArrayList<T[]>();
+                return new List<T[]>();
             }
             else
             {
@@ -156,7 +157,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="searchPrefix"></param>
         /// <param name="suffix"></param>
         /// <param name="node"></param>
-        private void GatherStartsWith(AsArrayList<T[]> result, T[] searchPrefix, T[] suffix,
+        private void GatherStartsWith(List<T[]> result, T[] searchPrefix, T[] suffix,
             AsTrieNode<T> node)
         {
             //end of word

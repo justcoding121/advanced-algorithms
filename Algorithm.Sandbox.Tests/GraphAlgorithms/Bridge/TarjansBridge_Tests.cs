@@ -43,7 +43,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.BridgePoints
 
             var result = algo.FindBridges(graph);
 
-            Assert.AreEqual(3, result.Length);
+            Assert.AreEqual(3, result.Count);
 
             var expected = new List<char[]>()
             {

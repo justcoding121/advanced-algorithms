@@ -1,6 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DynamicProgramming;
+﻿using Algorithm.Sandbox.DynamicProgramming;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
@@ -21,7 +21,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
             //max weight capacity of bag
             int W = 49;
 
-            var result = KnackSackProblems.KnackSack_10_Recursive(W, weights, values, weights.Length, new AsDictionary<string, int>());
+            var result = KnackSackProblems.KnackSack_10_Recursive(W, weights, values, weights.Length, new Dictionary<string, int>());
 
             Assert.AreEqual(result, 180);
 

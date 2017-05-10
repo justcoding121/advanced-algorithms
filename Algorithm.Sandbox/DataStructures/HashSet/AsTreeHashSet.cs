@@ -47,7 +47,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             var allNodeValues = new AsArrayList<V>();
 
-            for (int i = 0; i < nodes.Length; i++)
+            for (int i = 0; i < nodes.Count; i++)
             {
                 allNodeValues.Add(nodes[i]);
             }

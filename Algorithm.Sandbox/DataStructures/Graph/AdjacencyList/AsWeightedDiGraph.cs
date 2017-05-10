@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
@@ -11,15 +12,15 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     {
         public T Value { get; private set; }
 
-        public AsDictionary<AsWeightedDiGraphVertex<T, W>, W> OutEdges { get; set; }
-        public AsDictionary<AsWeightedDiGraphVertex<T, W>, W> InEdges { get; set; }
+        public Dictionary<AsWeightedDiGraphVertex<T, W>, W> OutEdges { get; set; }
+        public Dictionary<AsWeightedDiGraphVertex<T, W>, W> InEdges { get; set; }
 
         public AsWeightedDiGraphVertex(T value)
         {
             this.Value = value;
 
-            OutEdges = new AsDictionary<AsWeightedDiGraphVertex<T, W>, W>();
-            InEdges = new AsDictionary<AsWeightedDiGraphVertex<T, W>, W>();
+            OutEdges = new Dictionary<AsWeightedDiGraphVertex<T, W>, W>();
+            InEdges = new Dictionary<AsWeightedDiGraphVertex<T, W>, W>();
         }
 
     }
@@ -32,7 +33,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     public class AsWeightedDiGraph<T, W> where W : IComparable
     {
         public int VerticesCount => Vertices.Count;
-        internal AsDictionary<T, AsWeightedDiGraphVertex<T, W>> Vertices { get; set; }
+        internal Dictionary<T, AsWeightedDiGraphVertex<T, W>> Vertices { get; set; }
 
         /// <summary>
         /// return a reference vertex
@@ -54,7 +55,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         public AsWeightedDiGraph()
         {
-            Vertices = new AsDictionary<T, AsWeightedDiGraphVertex<T, W>>();
+            Vertices = new Dictionary<T, AsWeightedDiGraphVertex<T, W>>();
         }
 
         /// <summary>

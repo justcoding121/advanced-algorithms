@@ -1,4 +1,4 @@
-﻿using Algorithm.Sandbox.DataStructures;
+﻿using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -13,11 +13,11 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static AsArrayList<int> GetFibornacciNumbers(int number)
+        public static List<int> GetFibornacciNumbers(int number)
         {
-            var result = new AsArrayList<int>();
+            var result = new List<int>();
 
-            var cache = new AsDictionary<int, int>();
+            var cache = new Dictionary<int, int>();
 
             Fibornacci(number, cache);
 
@@ -36,7 +36,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="cache"></param>
         /// <returns></returns>
         private static int Fibornacci(int number, 
-            AsDictionary<int, int> cache)
+            Dictionary<int, int> cache)
         {
             if(cache.ContainsKey(number))
             {

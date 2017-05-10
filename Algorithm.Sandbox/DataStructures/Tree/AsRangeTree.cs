@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -113,7 +114,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public AsArrayList<T[]> GetInRange(T[] start, T[] end)
+        public List<T[]> GetInRange(T[] start, T[] end)
         {
             validateDimensions(start);
             validateDimensions(end);
@@ -130,7 +131,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="end"></param>
         /// <param name="dimension"></param>
         /// <returns></returns>
-        private AsArrayList<T[]> GetInRange(
+        private List<T[]> GetInRange(
             AsRangeTree<T> currentTree,
             T[] start, T[] end, int dimension)
         {
@@ -138,7 +139,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (dimension + 1 == dimensions)
             {
-                var result = new AsArrayList<T[]>();
+                var result = new List<T[]>();
 
                 foreach (var node in nodes)
                 {
@@ -151,7 +152,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
             else
             {
-                var result = new AsArrayList<T[]>();
+                var result = new List<T[]>();
 
                 foreach (var node in nodes)
                 {
@@ -216,15 +217,15 @@ namespace Algorithm.Sandbox.DataStructures
             tree.Delete(new AsRangeTreeNode<T>(value));
         }
 
-        internal AsArrayList<AsRangeTreeNode<T>> GetInRange(T start, T end)
+        internal List<AsRangeTreeNode<T>> GetInRange(T start, T end)
         {
-            return GetInRange(new AsArrayList<AsRangeTreeNode<T>>(),
-                new AsDictionary<AsRedBlackTreeNode<AsRangeTreeNode<T>>, bool>(),
+            return GetInRange(new List<AsRangeTreeNode<T>>(),
+                new Dictionary<AsRedBlackTreeNode<AsRangeTreeNode<T>>, bool>(),
                 tree.Root, start, end);
         }
 
-        private AsArrayList<AsRangeTreeNode<T>> GetInRange(AsArrayList<AsRangeTreeNode<T>> result,
-            AsDictionary<AsRedBlackTreeNode<AsRangeTreeNode<T>>, bool> visited,
+        private List<AsRangeTreeNode<T>> GetInRange(List<AsRangeTreeNode<T>> result,
+            Dictionary<AsRedBlackTreeNode<AsRangeTreeNode<T>>, bool> visited,
             AsRedBlackTreeNode<AsRangeTreeNode<T>> currentNode,
             T start, T end)
         {

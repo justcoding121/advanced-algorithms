@@ -47,7 +47,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Connectivity
 
             var result = algo.FindStronglyConnectedComponents(graph);
 
-            Assert.AreEqual(4, result.Length);
+            Assert.AreEqual(4, result.Count);
 
             var expectedResult = new List<List<char>>() {
                 new char[] { 'H' }.ToList(),
@@ -61,7 +61,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Connectivity
                 var expectation = expectedResult[i];
                 var actual = result[i];
 
-                Assert.IsTrue(expectation.Count == actual.Length);
+                Assert.IsTrue(expectation.Count == actual.Count);
 
                 foreach (var vertex in expectation)
                 {

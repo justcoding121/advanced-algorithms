@@ -41,7 +41,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
 
             var result = algo.ComputeMinCut(graph, 'S', 'T');
 
-            Assert.AreEqual(result.Length, 2);
+            Assert.AreEqual(result.Count, 2);
         }
 
 
@@ -88,7 +88,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
 
             var result = algo.ComputeMinCut(graph, 'A', 'J');
 
-            Assert.AreEqual(result.Length, 1);
+            Assert.AreEqual(result.Count, 1);
         }
         /// <summary>
         /// operators for generics

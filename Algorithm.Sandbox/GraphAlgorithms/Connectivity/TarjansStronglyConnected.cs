@@ -1,6 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
 {
@@ -15,14 +15,14 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public AsArrayList<AsArrayList<T>> FindStronglyConnectedComponents(AsDiGraph<T> graph)
+        public List<List<T>> FindStronglyConnectedComponents(AsDiGraph<T> graph)
         {
-            var result = new AsArrayList<AsArrayList<T>>();
+            var result = new List<List<T>>();
 
-            var discoveryTimeMap = new AsDictionary<T, int>();
-            var lowTimeMap = new AsDictionary<T, int>();
-            var pathStack = new AsStack<T>();
-            var pathStackMap = new AsHashSet<T>();
+            var discoveryTimeMap = new Dictionary<T, int>();
+            var lowTimeMap = new Dictionary<T, int>();
+            var pathStack = new Stack<T>();
+            var pathStackMap = new HashSet<T>();
             var discoveryTime = 0;
             foreach (var vertex in graph.Vertices)
             {
@@ -52,10 +52,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
         /// <param name="discoveryTime"></param>
         /// <returns></returns>
         private void DFS(AsDiGraphVertex<T> currentVertex,
-             AsArrayList<AsArrayList<T>> result,
-             AsDictionary<T, int> discoveryTimeMap, AsDictionary<T, int> lowTimeMap,
-             AsStack<T> pathStack,
-             AsHashSet<T> pathStackMap, ref int discoveryTime)
+             List<List<T>> result,
+             Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
+             Stack<T> pathStack,
+             HashSet<T> pathStackMap, ref int discoveryTime)
         {
 
             discoveryTimeMap.Add(currentVertex.Value, discoveryTime);
@@ -65,15 +65,15 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
 
             foreach (var edge in currentVertex.OutEdges)
             {
-                if (!discoveryTimeMap.ContainsKey(edge.Value.Value))
+                if (!discoveryTimeMap.ContainsKey(edge.Value))
                 {
                     discoveryTime++;
-                    DFS(edge.Value, result, discoveryTimeMap, lowTimeMap,
+                    DFS(edge, result, discoveryTimeMap, lowTimeMap,
                                 pathStack, pathStackMap, ref discoveryTime);
 
                     //propogate lowTime index of neighbour so that ancestors can see it in DFS
                     lowTimeMap[currentVertex.Value] =
-                        Math.Min(lowTimeMap[currentVertex.Value], lowTimeMap[edge.Value.Value]);
+                        Math.Min(lowTimeMap[currentVertex.Value], lowTimeMap[edge.Value]);
 
 
                 }
@@ -82,11 +82,11 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
                     //ignore cross edges
                     //even if edge vertex was already visisted
                     //update this so that ancestors can see it
-                    if (pathStackMap.Contains(edge.Value.Value))
+                    if (pathStackMap.Contains(edge.Value))
                     {
                         lowTimeMap[currentVertex.Value] =
                             Math.Min(lowTimeMap[currentVertex.Value],
-                            discoveryTimeMap[edge.Value.Value]);
+                            discoveryTimeMap[edge.Value]);
                     }
                 }
             }
@@ -95,7 +95,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
             //now print items in the stack
             if (lowTimeMap[currentVertex.Value] == discoveryTimeMap[currentVertex.Value])
             {
-                var strongConnected = new AsArrayList<T>();
+                var strongConnected = new List<T>();
                 while (!pathStack.Peek().Equals(currentVertex.Value))
                 {
                     var vertex = pathStack.Pop();

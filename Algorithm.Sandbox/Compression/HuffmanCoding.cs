@@ -1,5 +1,6 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithm.Sandbox.Compression
@@ -14,7 +15,7 @@ namespace Algorithm.Sandbox.Compression
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public AsDictionary<T, byte[]> Compress(T[] input)
+        public Dictionary<T, byte[]> Compress(T[] input)
         {
             var frequencies = computeFrequency(input);
 
@@ -42,9 +43,9 @@ namespace Algorithm.Sandbox.Compression
 
             var root = minHeap.ExtractMin();
 
-            var result = new AsDictionary<T, byte[]>();
+            var result = new Dictionary<T, byte[]>();
 
-            DFS(root, new AsArrayList<byte>(), result);
+            DFS(root, new List<byte>(), result);
 
             return result;
 
@@ -56,8 +57,8 @@ namespace Algorithm.Sandbox.Compression
         /// <param name="currentNode"></param>
         /// <param name="pathStack"></param>
         /// <param name="result"></param>
-        private void DFS(FrequencyWrap currentNode, AsArrayList<byte> pathStack,
-            AsDictionary<T, byte[]> result)
+        private void DFS(FrequencyWrap currentNode, List<byte> pathStack,
+            Dictionary<T, byte[]> result)
         {
             if(currentNode.IsLeaf)
             {
@@ -69,14 +70,14 @@ namespace Algorithm.Sandbox.Compression
             {
                 pathStack.Add(0);
                 DFS(currentNode.Left, pathStack, result);
-                pathStack.RemoveItem(pathStack.Length - 1);
+                pathStack.RemoveAt(pathStack.Count - 1);
             }
 
             if (currentNode.Right != null)
             {
                 pathStack.Add(1);
                 DFS(currentNode.Right, pathStack, result);
-                pathStack.RemoveItem(pathStack.Length - 1);
+                pathStack.RemoveAt(pathStack.Count - 1);
             }
         }
 
@@ -85,9 +86,9 @@ namespace Algorithm.Sandbox.Compression
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        private AsDictionary<T, int> computeFrequency(T[] input)
+        private Dictionary<T, int> computeFrequency(T[] input)
         {
-            var result = new AsDictionary<T, int>();
+            var result = new Dictionary<T, int>();
 
             foreach (var item in input)
             {

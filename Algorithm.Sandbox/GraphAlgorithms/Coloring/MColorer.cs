@@ -1,14 +1,14 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
 {
     public class MColorResult<T, C>
     {
         public bool CanColor { get; }
-        public AsDictionary<C, AsArrayList<T>> Partitions {get;}
+        public Dictionary<C, List<T>> Partitions {get;}
 
-        public MColorResult(bool canColor, AsDictionary<C, AsArrayList<T>> partitions)
+        public MColorResult(bool canColor, Dictionary<C, List<T>> partitions)
         {
             CanColor = canColor;
             Partitions = partitions;
@@ -31,18 +31,18 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
             AsGraphVertex<T> first = graph.ReferenceVertex;
 
             var progress = CanColor(first, colors, 
-                new AsDictionary<AsGraphVertex<T>, C>(),
-                new AsHashSet<AsGraphVertex<T>>());
+                new Dictionary<AsGraphVertex<T>, C>(),
+                new HashSet<AsGraphVertex<T>>());
 
             if (progress.Count == graph.VerticesCount)
             {
-                var result = new AsDictionary<C, AsArrayList<T>>();
+                var result = new Dictionary<C, List<T>>();
 
                 foreach(var vertex in progress)
                 {
                     if(!result.ContainsKey(vertex.Value))
                     {
-                        result.Add(vertex.Value, new AsArrayList<T>());
+                        result.Add(vertex.Value, new List<T>());
                     }
 
                     result[vertex.Value].Add(vertex.Key.Value);
@@ -62,8 +62,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
         /// <param name="progress"></param>
         /// <param name="visited"></param>
         /// <returns></returns>
-        private AsDictionary<AsGraphVertex<T>, C> CanColor(AsGraphVertex<T> vertex, C[] colors, 
-             AsDictionary<AsGraphVertex<T>, C> progress, AsHashSet<AsGraphVertex<T>> visited)
+        private Dictionary<AsGraphVertex<T>, C> CanColor(AsGraphVertex<T> vertex, C[] colors, 
+             Dictionary<AsGraphVertex<T>, C> progress, HashSet<AsGraphVertex<T>> visited)
         {
             for (int i = 0; i < colors.Length; i++)
             {
@@ -80,12 +80,12 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
 
                 foreach (var edge in vertex.Edges)
                 {
-                    if (visited.Contains(edge.Value))
+                    if (visited.Contains(edge))
                     {
                         continue;
                     }
 
-                    CanColor(edge.Value, colors, progress, visited);
+                    CanColor(edge, colors, progress, visited);
                 }
             }
 
@@ -99,13 +99,13 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
         /// <param name="vertex"></param>
         /// <param name="color"></param>
         /// <returns></returns>
-        private bool isSafe(AsDictionary<AsGraphVertex<T>, C> progress,
+        private bool isSafe(Dictionary<AsGraphVertex<T>, C> progress,
             AsGraphVertex<T> vertex, C color)
         {
            foreach(var edge in vertex.Edges)
             {
-                if(progress.ContainsKey(edge.Value)
-                    && progress[edge.Value].Equals(color))
+                if(progress.ContainsKey(edge)
+                    && progress[edge].Equals(color))
                 {
                     return false;
                 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Tree
 {
@@ -27,7 +28,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <summary>
         /// expression stack
         /// </summary>
-        private AsStack<AsExpressionTreeNode<T>> expStack;
+        private Stack<AsExpressionTreeNode<T>> expStack;
 
         /// <summary>
         /// construct tree for given expression with given operators
@@ -36,7 +37,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="operators"></param>
         public void Construct(T[] expression, T[] operators)
         {
-            expStack = new AsStack<AsExpressionTreeNode<T>>();
+            expStack = new Stack<AsExpressionTreeNode<T>>();
 
             for (int i = 0; i < expression.Length; i++)
             {
@@ -79,7 +80,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// get infix expression
         /// </summary>
         /// <returns></returns>
-        public AsArrayList<T> GetInfix()
+        public List<T> GetInfix()
         {
             if (expStack == null || expStack.Count == 0)
             {
@@ -93,7 +94,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
             var root = expStack.Pop();
 
-            return VisitInOrder(new AsArrayList<T>(), root);
+            return VisitInOrder(new List<T>(), root);
         }
 
         /// <summary>
@@ -102,7 +103,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <param name="result"></param>
         /// <param name="currentNode"></param>
         /// <returns></returns>
-        private AsArrayList<T> VisitInOrder(AsArrayList<T> result, AsExpressionTreeNode<T> currentNode)
+        private List<T> VisitInOrder(List<T> result, AsExpressionTreeNode<T> currentNode)
         {
             if (currentNode == null)
             {

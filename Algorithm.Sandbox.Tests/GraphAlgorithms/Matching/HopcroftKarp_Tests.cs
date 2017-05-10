@@ -41,7 +41,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Matching
 
             var result = algo.GetMaxBiPartiteMatching(graph);
 
-            Assert.AreEqual(result.Length, 4);
+            Assert.AreEqual(result.Count, 4);
 
         }
 

@@ -1,6 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint
 {
@@ -15,12 +15,12 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public AsArrayList<T> FindArticulationPoints(AsGraph<T> graph)
+        public List<T> FindArticulationPoints(AsGraph<T> graph)
         {
             int visitTime = 0;
-            return DFS(graph.ReferenceVertex, new AsArrayList<T>(),
-                new AsDictionary<T, int>(), new AsDictionary<T, int>(),
-                new AsDictionary<T, T>(),
+            return DFS(graph.ReferenceVertex, new List<T>(),
+                new Dictionary<T, int>(), new Dictionary<T, int>(),
+                new Dictionary<T, T>(),
                 ref visitTime);
         }
 
@@ -36,10 +36,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint
         /// <param name="parent"></param>
         /// <param name="discoveryTime"></param>
         /// <returns></returns>
-        private AsArrayList<T> DFS(AsGraphVertex<T> currentVertex,
-             AsArrayList<T> result,
-             AsDictionary<T, int> discoveryTimeMap, AsDictionary<T, int> lowTimeMap,
-             AsDictionary<T, T> parent, ref int discoveryTime)
+        private List<T> DFS(AsGraphVertex<T> currentVertex,
+             List<T> result,
+             Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
+             Dictionary<T, T> parent, ref int discoveryTime)
         {
 
             var isArticulationPoint = false;
@@ -52,20 +52,20 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint
 
             foreach (var edge in currentVertex.Edges)
             {
-                if (!discoveryTimeMap.ContainsKey(edge.Value.Value))
+                if (!discoveryTimeMap.ContainsKey(edge.Value))
                 {
                     discoveryChildCount++;
-                    parent.Add(edge.Value.Value, currentVertex.Value);
+                    parent.Add(edge.Value, currentVertex.Value);
 
                     discoveryTime++;
-                    DFS(edge.Value, result,
+                    DFS(edge, result,
                                 discoveryTimeMap, lowTimeMap, parent, ref discoveryTime);
 
                     //if neighbours lowTime is greater than current
                     //then this is an articulation point 
                     //because neighbour never had a chance to propogate any ancestors low value
                     //since this is an isolated componant
-                    if (discoveryTimeMap[currentVertex.Value] <= lowTimeMap[edge.Value.Value])
+                    if (discoveryTimeMap[currentVertex.Value] <= lowTimeMap[edge.Value])
                     {
                         isArticulationPoint = true;
                     }
@@ -73,7 +73,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint
                     {
                         //propogate lowTime index of neighbour so that ancestors can see it in DFS
                         lowTimeMap[currentVertex.Value] =
-                            Math.Min(lowTimeMap[currentVertex.Value], lowTimeMap[edge.Value.Value]);
+                            Math.Min(lowTimeMap[currentVertex.Value], lowTimeMap[edge.Value]);
 
                     }
                 }
@@ -83,10 +83,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint
                     //even if edge target vertex was already visisted
                     //update this so that ancestors can see it
                     if (parent.ContainsKey(currentVertex.Value) == false 
-                        || !edge.Value.Value.Equals(parent[currentVertex.Value]))
+                        || !edge.Value.Equals(parent[currentVertex.Value]))
                     {
                         lowTimeMap[currentVertex.Value] =
-                        Math.Min(lowTimeMap[currentVertex.Value], discoveryTimeMap[edge.Value.Value]);
+                        Math.Min(lowTimeMap[currentVertex.Value], discoveryTimeMap[edge.Value]);
                     }
                 }
             }

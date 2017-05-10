@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -69,7 +70,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// <returns></returns>
         public bool ContainsPattern(T[] entry)
         {
-            return trie.StartsWith(entry).Length > 0;
+            return trie.StartsWith(entry).Count > 0;
         }
 
         /// <summary>
@@ -77,7 +78,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         /// <param name="entry"></param>
         /// <returns></returns>
-        public AsArrayList<T[]> StartsWithPattern(T[] entry)
+        public List<T[]> StartsWithPattern(T[] entry)
         {
             return trie.StartsWith(entry);
         }

@@ -76,10 +76,10 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             Assert.IsFalse(trie.Contains("cdab".ToCharArray()));
 
             var matches = trie.StartsWith("b".ToCharArray());
-            Assert.IsTrue(matches.Length == 1);
+            Assert.IsTrue(matches.Count == 1);
 
             matches = trie.StartsWith("abcd".ToCharArray());
-            Assert.IsTrue(matches.Length == 2);
+            Assert.IsTrue(matches.Count == 2);
 
             trie.Delete("abcd".ToCharArray());
             trie.Delete("abcde".ToCharArray());

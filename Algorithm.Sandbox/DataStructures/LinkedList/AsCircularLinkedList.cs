@@ -183,9 +183,9 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         //O(n) time complexity
-        public AsArrayList<T> GetAllNodes()
+        public List<T> GetAllNodes()
         {
-            var result = new AsArrayList<T>();
+            var result = new List<T>();
 
             var current = ReferenceNode;
 

@@ -1,5 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithm.Sandbox.DynamicProgramming
@@ -31,8 +31,8 @@ namespace Algorithm.Sandbox.DynamicProgramming
             }
 
             return True(symbols, operators, 0, symbols.Length - 1, 
-                        new AsDictionary<string, int>(), 
-                        new AsDictionary<string, int>());
+                        new Dictionary<string, int>(), 
+                        new Dictionary<string, int>());
 
         }
 
@@ -47,8 +47,8 @@ namespace Algorithm.Sandbox.DynamicProgramming
         private static int True(bool[] symbols,
             char[] operators,
             int i, int j, 
-            AsDictionary<string, int> trueCache,
-            AsDictionary<string, int> falseCache)
+            Dictionary<string, int> trueCache,
+            Dictionary<string, int> falseCache)
         {
             if (j < i)
             {
@@ -118,8 +118,8 @@ namespace Algorithm.Sandbox.DynamicProgramming
         private static int False(bool[] symbols,
            char[] operators,
            int i, int j,
-           AsDictionary<string, int> trueCache,
-           AsDictionary<string, int> falseCache)
+           Dictionary<string, int> trueCache,
+           Dictionary<string, int> falseCache)
         {
             if (j < i)
             {
@@ -188,8 +188,8 @@ namespace Algorithm.Sandbox.DynamicProgramming
         private static int Both(bool[] symbols,
            char[] operators,
            int i, int j,
-           AsDictionary<string, int> trueCache,
-           AsDictionary<string, int> falseCache)
+           Dictionary<string, int> trueCache,
+           Dictionary<string, int> falseCache)
         {
       
             var result = True(symbols, operators, i, j, trueCache, falseCache)

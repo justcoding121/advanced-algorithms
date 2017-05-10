@@ -1,10 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
-using System;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
 {
@@ -19,10 +14,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public AsArrayList<T> GetTopSort(AsDiGraph<T> graph)
+        public List<T> GetTopSort(AsDiGraph<T> graph)
         {
-            var pathStack = new AsStack<T>();
-            var visited = new AsHashSet<T>();
+            var pathStack = new Stack<T>();
+            var visited = new HashSet<T>();
 
             //we need a loop so that we can reach all vertices
             foreach(var vertex in graph.Vertices)
@@ -35,7 +30,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
             }
 
             //now just pop the stack to result
-            var result = new AsArrayList<T>();
+            var result = new List<T>();
             while(pathStack.Count > 0)
             {
                 result.Add(pathStack.Pop());
@@ -51,15 +46,15 @@ namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
         /// <param name="visited"></param>
         /// <param name="pathStack"></param>
         private void DFS(AsDiGraphVertex<T> vertex, 
-            AsHashSet<T> visited, AsStack<T> pathStack)
+            HashSet<T> visited, Stack<T> pathStack)
         {
             visited.Add(vertex.Value);
 
             foreach(var edge in vertex.OutEdges)
             {
-                if(!visited.Contains(edge.Value.Value))
+                if(!visited.Contains(edge.Value))
                 {
-                    DFS(edge.Value, visited, pathStack);
+                    DFS(edge, visited, pathStack);
                 }
             }
 

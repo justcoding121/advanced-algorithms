@@ -41,7 +41,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.MinimumSpanningTree
             var algo = new Prims<char, int>();
             var result = algo.FindMinimumSpanningTree(graph);
 
-            Assert.AreEqual(graph.VerticesCount - 1, result.Length);
+            Assert.AreEqual(graph.VerticesCount - 1, result.Count);
         }
     }
 }

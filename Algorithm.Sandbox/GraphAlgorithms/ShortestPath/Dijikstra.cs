@@ -1,6 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms
 {
@@ -38,13 +39,13 @@ namespace Algorithm.Sandbox.GraphAlgorithms
     /// <typeparam name="W"></typeparam>
     public class ShortestPathResult<T, W> where W : IComparable
     {
-        public ShortestPathResult(AsArrayList<T> path, W length)
+        public ShortestPathResult(List<T> path, W length)
         {
             Length = length;
             Path = path;
         }
         public W Length { get; internal set; }
-        public AsArrayList<T> Path { get; private set; }
+        public List<T> Path { get; private set; }
     }
     /// <summary>
     /// A dijikstra algorithm implementation using Fibornacci Heap
@@ -75,15 +76,15 @@ namespace Algorithm.Sandbox.GraphAlgorithms
             }
 
             //track progress for distance to each Vertex from source
-            var progress = new AsDictionary<T, W>();
+            var progress = new Dictionary<T, W>();
 
             //trace our current path by mapping current vertex to its Parent
-            var parentMap = new AsDictionary<T, T>();
+            var parentMap = new Dictionary<T, T>();
 
             //min heap to pick next closest vertex 
             var minHeap = new AsFibornacciMinHeap<MinHeapWrap<T, W>>();
             //keep references of heap Node for decrement key operation
-            var heapMapping = new AsDictionary<T, AsFibornacciTreeNode<MinHeapWrap<T, W>>>();
+            var heapMapping = new Dictionary<T, AsFibornacciTreeNode<MinHeapWrap<T, W>>>();
 
             //add vertices to min heap and progress map
             foreach (var vertex in graph.Vertices)
@@ -167,10 +168,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms
         /// <param name="destination"></param>
         /// <returns></returns>
         private ShortestPathResult<T, W> tracePath(AsWeightedDiGraph<T, W> graph,
-            AsDictionary<T, T> parentMap, T source, T destination)
+            Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
-            var pathStack = new AsStack<T>();
+            var pathStack = new Stack<T>();
 
             pathStack.Push(destination);
 
@@ -182,14 +183,14 @@ namespace Algorithm.Sandbox.GraphAlgorithms
             }
 
             //return result
-            var resultPath = new AsArrayList<T>();
+            var resultPath = new List<T>();
             var resultLength = operators.DefaultValue;
             while (pathStack.Count > 0)
             {
                 resultPath.Add(pathStack.Pop());
             }
 
-            for (int i = 0; i < resultPath.Length - 1; i++)
+            for (int i = 0; i < resultPath.Count - 1; i++)
             {
                 resultLength = operators.Sum(resultLength,
                     graph.Vertices[resultPath[i]].OutEdges[graph.Vertices[resultPath[i + 1]]]);

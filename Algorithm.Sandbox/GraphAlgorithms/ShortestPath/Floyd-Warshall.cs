@@ -1,10 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
 {
@@ -20,10 +16,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
 
         public W Distance { get; }
 
-        public AsArrayList<T> Path { get; }
+        public List<T> Path { get; }
 
         public AllPairShortestPathResult(T source, T destination,
-            W distance, AsArrayList<T> path)
+            W distance, List<T> path)
         {
             Source = source;
             Destination = destination;
@@ -40,12 +36,12 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
             this.operators = operators;
         }
 
-        public AsArrayList<AllPairShortestPathResult<T, W>> GetAllPairShortestPaths(AsWeightedGraph<T, W> graph)
+        public List<AllPairShortestPathResult<T, W>> GetAllPairShortestPaths(AsWeightedGraph<T, W> graph)
         {
             //we need this vertex array index for generics
             //since array indices are int and T is unknown type
-            var vertexIndex = new AsDictionary<int, T>();
-            var reverseVertexIndex = new AsDictionary<T, int>();
+            var vertexIndex = new Dictionary<int, T>();
+            var reverseVertexIndex = new Dictionary<T, int>();
             int i = 0;
             foreach (var vertex in graph.Vertices)
             {
@@ -110,7 +106,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
             }
 
             //trace path
-            var finalResult = new AsArrayList<AllPairShortestPathResult<T, W>>();
+            var finalResult = new List<AllPairShortestPathResult<T, W>>();
             for (i = 0; i < graph.VerticesCount; i++)
             {
                 for (int j = 0; j < graph.VerticesCount; j++)
@@ -138,10 +134,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
         /// <param name="vertexIndex"></param>
         /// <param name="reverseVertexIndex"></param>
         /// <returns></returns>
-        private AsArrayList<T> tracePath(W[,] result, T[,] parent, int i, int j,
-            AsDictionary<int, T> vertexIndex, AsDictionary<T, int> reverseVertexIndex)
+        private List<T> tracePath(W[,] result, T[,] parent, int i, int j,
+            Dictionary<int, T> vertexIndex, Dictionary<T, int> reverseVertexIndex)
         {
-            var pathStack = new AsStack<T>();
+            var pathStack = new Stack<T>();
 
             pathStack.Push(vertexIndex[j]);
 
@@ -152,7 +148,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
                 j = reverseVertexIndex[parent[i, j]];
             }
 
-            var path = new AsArrayList<T>();
+            var path = new List<T>();
 
             while (pathStack.Count > 0)
             {

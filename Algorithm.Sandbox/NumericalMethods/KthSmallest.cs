@@ -1,5 +1,4 @@
 ﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Heap.Min;
 using System;
 
 namespace Algorithm.Sandbox.NumericalMethods

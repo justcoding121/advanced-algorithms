@@ -46,7 +46,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ArticulationPoints
 
             var result = algo.FindArticulationPoints(graph);
 
-            Assert.AreEqual(4, result.Length);
+            Assert.AreEqual(4, result.Count);
 
             var expectedResult = new char[] { 'C', 'D', 'E', 'F' };
 

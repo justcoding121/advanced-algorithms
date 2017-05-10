@@ -1,6 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Flow
 {
@@ -67,7 +67,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         {
             var residualGraph = createResidualGraph(graph);
 
-            AsArrayList<T> path = DFS(residualGraph, source, sink);
+            List<T> path = DFS(residualGraph, source, sink);
 
             var result = operators.defaultWeight;
 
@@ -88,16 +88,16 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        public AsArrayList<AsArrayList<T>> ComputeMaxFlowAndReturnFlowPath(AsWeightedDiGraph<T, W> graph,
+        public List<List<T>> ComputeMaxFlowAndReturnFlowPath(AsWeightedDiGraph<T, W> graph,
             T source, T sink)
         {
             var residualGraph = createResidualGraph(graph);
 
-            AsArrayList<T> path = DFS(residualGraph, source, sink);
+            List<T> path = DFS(residualGraph, source, sink);
 
             var flow = operators.defaultWeight;
 
-            var result = new AsArrayList<AsArrayList<T>>();
+            var result = new List<List<T>>();
             while (path != null)
             {
                 result.Add(path);
@@ -116,11 +116,11 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="path"></param>
         /// <returns></returns>
         private W AugmentResidualGraph(AsWeightedDiGraph<T, W> graph,
-            AsWeightedDiGraph<T, W> residualGraph, AsArrayList<T> path)
+            AsWeightedDiGraph<T, W> residualGraph, List<T> path)
         {
             var min = operators.MaxWeight;
 
-            for (int i = 0; i < path.Length - 1; i++)
+            for (int i = 0; i < path.Count - 1; i++)
             {
                 var vertex_1 = residualGraph.FindVertex(path[i]);
                 var vertex_2 = residualGraph.FindVertex(path[i + 1]);
@@ -135,7 +135,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             }
 
             //augment path
-            for (int i = 0; i < path.Length - 1; i++)
+            for (int i = 0; i < path.Count - 1; i++)
             {
                 var vertex_1 = residualGraph.FindVertex(path[i]);
                 var vertex_2 = residualGraph.FindVertex(path[i + 1]);
@@ -158,18 +158,18 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        private AsArrayList<T> DFS(AsWeightedDiGraph<T, W> residualGraph, T source, T sink)
+        private List<T> DFS(AsWeightedDiGraph<T, W> residualGraph, T source, T sink)
         {
             //init parent lookup table to trace path
-            var parentLookUp = new AsDictionary<AsWeightedDiGraphVertex<T, W>, AsWeightedDiGraphVertex<T, W>>();
+            var parentLookUp = new Dictionary<AsWeightedDiGraphVertex<T, W>, AsWeightedDiGraphVertex<T, W>>();
             foreach (var vertex in residualGraph.Vertices)
             {
                 parentLookUp.Add(vertex.Value, null);
             }
 
             //regular DFS stuff
-            var stack = new AsStack<AsWeightedDiGraphVertex<T, W>>();
-            var visited = new AsHashSet<AsWeightedDiGraphVertex<T, W>>();
+            var stack = new Stack<AsWeightedDiGraphVertex<T, W>>();
+            var visited = new HashSet<AsWeightedDiGraphVertex<T, W>>();
             stack.Push(residualGraph.Vertices[source]);
             visited.Add(residualGraph.Vertices[source]);
 
@@ -209,7 +209,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             }
 
             //traverse back from sink to find path to source
-            var path = new AsStack<T>();
+            var path = new Stack<T>();
 
             path.Push(sink);
 
@@ -220,7 +220,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
             }
 
             //now reverse the stack to get the path from source to sink
-            var result = new AsArrayList<T>();
+            var result = new List<T>();
 
             while (path.Count > 0)
             {

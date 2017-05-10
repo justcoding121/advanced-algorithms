@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
@@ -11,12 +12,12 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     {
         public T Value { get; private set; }
 
-        public AsDictionary<AsWeightedGraphVertex<T, W>, W> Edges { get; set; }
+        public Dictionary<AsWeightedGraphVertex<T, W>, W> Edges { get; set; }
 
         public AsWeightedGraphVertex(T value)
         {
             Value = value;
-            Edges = new AsDictionary<AsWeightedGraphVertex<T, W>, W>();
+            Edges = new Dictionary<AsWeightedGraphVertex<T, W>, W>();
 
         }
 
@@ -30,7 +31,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     public class AsWeightedGraph<T, W> where W : IComparable
     {
         public int VerticesCount => Vertices.Count;
-        internal AsDictionary<T, AsWeightedGraphVertex<T, W>> Vertices { get; set; }
+        internal Dictionary<T, AsWeightedGraphVertex<T, W>> Vertices { get; set; }
 
         /// <summary>
         /// return a reference vertex
@@ -52,7 +53,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         public AsWeightedGraph()
         {
-            Vertices = new AsDictionary<T, AsWeightedGraphVertex<T, W>>();
+            Vertices = new Dictionary<T, AsWeightedGraphVertex<T, W>>();
         }
 
         /// <summary>

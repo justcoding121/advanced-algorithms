@@ -1,10 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
-using System;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Search
 {
@@ -22,7 +17,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
         /// <returns></returns>
         public bool Find(AsGraph<T> graph, T vertex)
         {
-            return DFS(graph.ReferenceVertex, new AsHashSet<T>(), vertex);
+            return DFS(graph.ReferenceVertex, new HashSet<T>(), vertex);
         }
 
         /// <summary>
@@ -33,7 +28,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
         /// <param name="searchVetex"></param>
         /// <returns></returns>
         private bool DFS(AsGraphVertex<T> current,
-            AsHashSet<T> visited, T searchVetex)
+            HashSet<T> visited, T searchVetex)
         {
             visited.Add(current.Value);
 
@@ -44,9 +39,9 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
 
             foreach (var edge in current.Edges)
             {
-                if (!visited.Contains(edge.Value.Value))
+                if (!visited.Contains(edge.Value))
                 {
-                    if (DFS(edge.Value, visited, searchVetex))
+                    if (DFS(edge, visited, searchVetex))
                     {
                         return true;
                     }

@@ -1,15 +1,14 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
-using System.Linq;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Cover
 {
     public class MinVertexCover<T>
     {
-        public AsArrayList<AsGraphVertex<T>> GetMinVertexCover(AsGraph<T> graph)
+        public List<AsGraphVertex<T>> GetMinVertexCover(AsGraph<T> graph)
         {
-            return GetMinVertexCover(graph.ReferenceVertex, new AsHashSet<AsGraphVertex<T>>(),
-                new AsArrayList<AsGraphVertex<T>>());
+            return GetMinVertexCover(graph.ReferenceVertex, new HashSet<AsGraphVertex<T>>(),
+                new List<AsGraphVertex<T>>());
         }
 
         /// <summary>
@@ -20,22 +19,22 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cover
         /// <param name="visited"></param>
         /// <param name="cover"></param>
         /// <returns></returns>
-        private AsArrayList<AsGraphVertex<T>> GetMinVertexCover(AsGraphVertex<T> vertex,
-            AsHashSet<AsGraphVertex<T>> visited, AsArrayList<AsGraphVertex<T>> cover)
+        private List<AsGraphVertex<T>> GetMinVertexCover(AsGraphVertex<T> vertex,
+            HashSet<AsGraphVertex<T>> visited, List<AsGraphVertex<T>> cover)
         {
             visited.Add(vertex);
 
             foreach (var edge in vertex.Edges)
             {
-                if(!cover.Contains(vertex) && !cover.Contains(edge.Value))
+                if(!cover.Contains(vertex) && !cover.Contains(edge))
                 {
                     cover.Add(vertex);
-                    cover.Add(edge.Value);
+                    cover.Add(edge);
                 }
 
-                if(!visited.Contains(edge.Value))
+                if(!visited.Contains(edge))
                 {
-                    GetMinVertexCover(edge.Value, visited, cover);
+                    GetMinVertexCover(edge, visited, cover);
                 }
             }
 

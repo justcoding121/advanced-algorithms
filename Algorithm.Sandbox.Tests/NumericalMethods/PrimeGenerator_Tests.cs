@@ -14,8 +14,8 @@ namespace Algorithm.Sandbox.Tests.NumericalMethods
         [TestMethod]
         public void Smoke_Test_Prime_Generation()
         {
-            Assert.AreEqual(5, PrimeGenerator.GetAllPrimes(11).Length);
-            Assert.AreEqual(8, PrimeGenerator.GetAllPrimes(20).Length);
+            Assert.AreEqual(5, PrimeGenerator.GetAllPrimes(11).Count);
+            Assert.AreEqual(8, PrimeGenerator.GetAllPrimes(20).Count);
         }
     }
 }

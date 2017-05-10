@@ -1,20 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
     public class AsBinomialTreeNode<T> : IComparable where T : IComparable
     {
         internal T Value { get; set; }
-        internal int Degree => Children.Length;
+        internal int Degree => Children.Count;
 
         internal AsBinomialTreeNode<T> Parent { get; set; }
-        internal AsArrayList<AsBinomialTreeNode<T>> Children { get; set; }
+        internal List<AsBinomialTreeNode<T>> Children { get; set; }
 
         public AsBinomialTreeNode(T value)
         {
             this.Value = value;
 
-            Children = new AsArrayList<AsBinomialTreeNode<T>>();
+            Children = new List<AsBinomialTreeNode<T>>();
         }
 
         public int CompareTo(object obj)
@@ -178,7 +179,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             var newHeapForest = new AsDoublyLinkedList<AsBinomialTreeNode<T>>();
             //add removed roots children as new trees to forest
-            for (int i = 0; i < minTree.Data.Children.Length; i++)
+            for (int i = 0; i < minTree.Data.Children.Count; i++)
             {
                 minTree.Data.Children[i].Parent = null;
                 newHeapForest.InsertLast(minTree.Data.Children[i]);

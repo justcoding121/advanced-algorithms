@@ -1,9 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -20,7 +16,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
             //find longest palindrome prefix
             FindLongestPalindrome(input,
                0, input.Length - 1,
-               new AsDictionary<string, int>(),
+               new Dictionary<string, int>(),
                jsWithZero_iValues);
 
             var max = jsWithZero_iValues.Count > 0 ? jsWithZero_iValues.Max() + 1 : 1;
@@ -44,7 +40,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <returns></returns>
         private static int FindLongestPalindrome(string input,
             int i, int j,
-            AsDictionary<string, int> cache,
+            Dictionary<string, int> cache,
             List<int> jsWithZero_iValues)
         {
             if (i >= input.Length || j < 0 || i > j)

@@ -18,7 +18,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
         public bool IsBiConnected(AsGraph<T> graph)
         {
             var articulationAlgo = new TarjansArticulationFinder<T>();
-            return articulationAlgo.FindArticulationPoints(graph).Length == 0;
+            return articulationAlgo.FindArticulationPoints(graph).Count == 0;
         }
     }
 }

@@ -145,7 +145,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 var testStartRange = new int[] { rnd.Next(), rnd.Next() };
                 var testEndRange = new int[] { rnd.Next() + 100, rnd.Next() + 200 };
 
-                var correctResult = new AsArrayList<int[]>();
+                var correctResult = new List<int[]>();
                 for (int i = 0; i < testPts.Count; i++)
                 {
                     if (InRange(testPts[i], testStartRange, testEndRange))
@@ -156,7 +156,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
                 var actualResult = tree.GetInRange(testStartRange, testEndRange);
 
-                Assert.IsTrue(correctResult.Length == actualResult.Length);
+                Assert.IsTrue(correctResult.Count == actualResult.Count);
 
                 tree.Delete(testPts[j]);
                 testPts.RemoveAt(j);

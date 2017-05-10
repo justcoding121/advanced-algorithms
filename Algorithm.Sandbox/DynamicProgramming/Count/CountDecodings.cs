@@ -1,4 +1,4 @@
-﻿using Algorithm.Sandbox.DataStructures;
+﻿using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -10,7 +10,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
     {
         public static int Count(string input)
         {
-            return Count(input, input.Length, new AsDictionary<int, int>());
+            return Count(input, input.Length, new Dictionary<int, int>());
         }
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="cache"></param>
         /// <returns></returns>
         private static int Count(string input, int i,
-            AsDictionary<int, int> cache)
+            Dictionary<int, int> cache)
         {
             if(cache.ContainsKey(i))
             {

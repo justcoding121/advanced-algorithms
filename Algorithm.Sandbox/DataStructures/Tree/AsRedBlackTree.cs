@@ -1,5 +1,6 @@
 ﻿using Algorithm.Sandbox.DataStructures.Tree;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -16,7 +17,7 @@ namespace Algorithm.Sandbox.DataStructures
     internal class AsRedBlackTreeNode<T> : AsIBSTNode<T> where T : IComparable
     {
         internal T Value => Values[0];
-        internal AsArrayList<T> Values { get; set; }
+        internal List<T> Values { get; set; }
         internal AsRedBlackTreeNode<T> Parent { get; set; }
 
         internal AsRedBlackTreeNode<T> Left { get; set; }
@@ -61,7 +62,7 @@ namespace Algorithm.Sandbox.DataStructures
         internal AsRedBlackTreeNode(AsRedBlackTreeNode<T> parent, T value)
         {
             Parent = parent;
-            Values = new AsArrayList<T>();
+            Values = new List<T>();
             Values.Add(value);
             NodeColor = RedBlackTreeNodeColor.Red;
         }
@@ -108,16 +109,16 @@ namespace Algorithm.Sandbox.DataStructures
             return FindMax(Root).Value;
         }
 
-        internal AsArrayList<T> GetAllNodes()
+        internal List<T> GetAllNodes()
         {
-            var allNodes = new AsArrayList<T>();
+            var allNodes = new List<T>();
 
             GetAllNodes(allNodes, Root);
 
             return allNodes;
         }
 
-        internal void GetAllNodes(AsArrayList<T> allNodes, AsRedBlackTreeNode<T> currentNode)
+        internal void GetAllNodes(List<T> allNodes, AsRedBlackTreeNode<T> currentNode)
         {
             if (currentNode == null)
                 return;
@@ -531,9 +532,9 @@ namespace Algorithm.Sandbox.DataStructures
             else
             {
                 //duplicate - easy fix
-                if(node.Values.Length >1)
+                if(node.Values.Count >1)
                 {
-                    node.Values.RemoveItem(node.Values.Length - 1);
+                    node.Values.RemoveAt(node.Values.Count - 1);
                     return;
                 }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
@@ -10,12 +11,12 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     {
         public T Value { get; set; }
 
-        public AsHashSet<AsGraphVertex<T>> Edges { get; set; }
+        public HashSet<AsGraphVertex<T>> Edges { get; set; }
 
         public AsGraphVertex(T value)
         {
             Value = value;
-            Edges = new AsHashSet<AsGraphVertex<T>>();
+            Edges = new HashSet<AsGraphVertex<T>>();
         }
 
     }
@@ -41,11 +42,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         }
 
         public int VerticesCount => Vertices.Count;
-        internal AsDictionary<T, AsGraphVertex<T>> Vertices { get; set; }
+        internal Dictionary<T, AsGraphVertex<T>> Vertices { get; set; }
 
         public AsGraph()
         {
-            Vertices = new AsDictionary<T, AsGraphVertex<T>>();
+            Vertices = new Dictionary<T, AsGraphVertex<T>>();
         }
 
         /// <summary>
@@ -85,12 +86,12 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             foreach (var v in Vertices[vertex].Edges)
             {
-                if (!Vertices.ContainsKey(v.Value.Value))
+                if (!Vertices.ContainsKey(v.Value))
                 {
                     throw new Exception("Vertex edge is not in this graph.");
                 }
 
-                v.Value.Edges.Remove(Vertices[vertex]);
+                v.Edges.Remove(Vertices[vertex]);
             }
 
             Vertices.Remove(vertex);

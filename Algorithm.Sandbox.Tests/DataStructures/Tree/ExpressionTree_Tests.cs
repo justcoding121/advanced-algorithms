@@ -17,7 +17,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             var infixResult = tree.GetInfix();
             var expected = "a+b-e*f*g";
 
-            for (int i = 0; i < infixResult.Length; i++)
+            for (int i = 0; i < infixResult.Count; i++)
             {
                 Assert.IsTrue(expected[i].Equals(infixResult[i]));
             }

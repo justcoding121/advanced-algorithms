@@ -1,11 +1,7 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using Algorithm.Sandbox.GraphAlgorithms.Flow;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Cut
 {
@@ -35,7 +31,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cut
             this.operators = operators;
         }
 
-        public AsArrayList<MinCutEdge<T>> ComputeMinCut(AsWeightedDiGraph<T, W> graph,
+        public List<MinCutEdge<T>> ComputeMinCut(AsWeightedDiGraph<T, W> graph,
         T source, T sink)
         {
             var edmondsKarpMaxFlow = new EdmondKarpMaxFlow<T, W>(operators);
@@ -49,16 +45,16 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cut
             //to unreachable vertices in residual graph
             var reachableVertices = GetReachable(graph, maxFlowResidualGraph, source);
 
-            var result = new AsArrayList<MinCutEdge<T>>();
+            var result = new List<MinCutEdge<T>>();
 
             foreach (var vertex in reachableVertices)
             {
-                foreach (var edge in graph.Vertices[vertex.Value].OutEdges)
+                foreach (var edge in graph.Vertices[vertex].OutEdges)
                 {
                     //if unreachable
                     if (!reachableVertices.Contains(edge.Key.Value))
                     {
-                        result.Add(new MinCutEdge<T>(vertex.Value, edge.Key.Value));
+                        result.Add(new MinCutEdge<T>(vertex, edge.Key.Value));
                     }
                 }
             }
@@ -72,11 +68,11 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cut
         /// <param name="residualGraph"></param>
         /// <param name="source"></param>
         /// <returns></returns>
-        public AsHashSet<T> GetReachable(AsWeightedDiGraph<T, W> graph,
+        public HashSet<T> GetReachable(AsWeightedDiGraph<T, W> graph,
             AsWeightedDiGraph<T, W> residualGraph,
             T source)
         {
-            var visited = new AsHashSet<T>();
+            var visited = new HashSet<T>();
 
             DFS(graph, residualGraph.Vertices[source], visited);
 
@@ -92,7 +88,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cut
         /// <returns></returns>
         private void DFS(AsWeightedDiGraph<T, W> graph,
             AsWeightedDiGraphVertex<T, W> currentResidualGraphVertex,
-            AsHashSet<T> visited)
+            HashSet<T> visited)
         {
             visited.Add(currentResidualGraphVertex.Value);
 

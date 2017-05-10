@@ -1,8 +1,8 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using Algorithm.Sandbox.DataStructures.Set;
 using Algorithm.Sandbox.Sorting;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
 {
@@ -42,20 +42,20 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
         /// </summary>
         /// <param name="graph"></param>
         /// <returns>List of MST edges</returns>
-        public AsArrayList<MSTEdge<T,W>>
+        public List<MSTEdge<T,W>>
             FindMinimumSpanningTree(AsWeightedGraph<T, W> graph)
         {
-            var edges = new AsArrayList<MSTEdge<T,W>>();
+            var edges = new List<MSTEdge<T,W>>();
 
 
             //gather all unique edges
-            DFS(graph.ReferenceVertex, new AsHashSet<T>(), 
-                new AsDictionary<T, AsHashSet<T>>(),
+            DFS(graph.ReferenceVertex, new HashSet<T>(), 
+                new Dictionary<T, HashSet<T>>(),
                 edges);
 
             //quick sort preparation
-            var sortArray = new MSTEdge<T,W>[edges.Length];
-            for (int i = 0; i < edges.Length; i++)
+            var sortArray = new MSTEdge<T,W>[edges.Count];
+            for (int i = 0; i < edges.Count; i++)
             {
                 sortArray[i] = edges[i];
             }
@@ -63,7 +63,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
             //quick sort edges
             var sortedEdges = MergeSort<MSTEdge<T,W>>.Sort(sortArray);
 
-            var result = new AsArrayList<MSTEdge<T,W>>();
+            var result = new List<MSTEdge<T,W>>();
             var disJointSet = new AsDisJointSet<T>();
 
             //create set
@@ -77,7 +77,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
             //if both source & target belongs to same set 
             //then don't add the edge to result
             //otherwise add it to result and union sets
-            for (int i = 0; i < edges.Length; i++)
+            for (int i = 0; i < edges.Count; i++)
             {
                 var currentEdge = sortedEdges[i];
 
@@ -107,9 +107,9 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
         /// <param name="visitedEdges"></param>
         /// <param name="result"></param>
         private void DFS(AsWeightedGraphVertex<T, W> currentVertex,
-            AsHashSet<T> visitedVertices,
-            AsDictionary<T, AsHashSet<T>> visitedEdges,
-            AsArrayList<MSTEdge<T,W>> result)
+            HashSet<T> visitedVertices,
+            Dictionary<T, HashSet<T>> visitedEdges,
+            List<MSTEdge<T,W>> result)
         {
             if (!visitedVertices.Contains(currentVertex.Value))
             {
@@ -125,7 +125,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
                         //update visited edge
                         if(!visitedEdges.ContainsKey(currentVertex.Value))
                         {
-                            visitedEdges.Add(currentVertex.Value, new AsHashSet<T>());
+                            visitedEdges.Add(currentVertex.Value, new HashSet<T>());
                         }
 
                         visitedEdges[currentVertex.Value].Add(edge.Key.Value);
@@ -133,7 +133,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
                         //update visited back edge
                         if (!visitedEdges.ContainsKey(edge.Key.Value))
                         {
-                            visitedEdges.Add(edge.Key.Value, new AsHashSet<T>());
+                            visitedEdges.Add(edge.Key.Value, new HashSet<T>());
                         }
 
                         visitedEdges[edge.Key.Value].Add(currentVertex.Value);

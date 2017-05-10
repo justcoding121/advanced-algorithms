@@ -1,8 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using Algorithm.Sandbox.GraphAlgorithms.Coloring;
 using System;
-using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.GraphAlgorithms.Flow;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Matching
 {
@@ -24,7 +23,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public AsArrayList<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph)
+        public List<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph)
         {
             //check if the graph is BiPartite by coloring 2 colors
             var mColorer = new MColorer<T, int>();
@@ -45,11 +44,11 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// <param name="graph"></param>
         /// <param name="partitions"></param>
         /// <returns></returns>
-        private AsArrayList<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph,
-            AsDictionary<int, AsArrayList<T>> partitions)
+        private List<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph,
+            Dictionary<int, List<T>> partitions)
         {
-            var leftMatch = new AsDictionary<T, T>();
-            var rightMatch = new AsDictionary<T, T>();
+            var leftMatch = new Dictionary<T, T>();
+            var rightMatch = new Dictionary<T, T>();
 
             //while there is an augmenting Path
             while (BFS(graph, partitions, leftMatch, rightMatch))
@@ -58,7 +57,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
                 {
                     if (!rightMatch.ContainsKey(vertex))
                     {
-                        var visited = new AsHashSet<T>();
+                        var visited = new HashSet<T>();
                         visited.Add(vertex);
 
                         var pathResult = DFS(graph.Vertices[vertex],
@@ -86,7 +85,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
             }
 
             //now gather all 
-            var result = new AsArrayList<MatchEdge<T>>();
+            var result = new List<MatchEdge<T>>();
 
             foreach (var item in leftMatch)
             {
@@ -118,49 +117,49 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// <param name="partitions"></param>
         /// <param name="leftMatch"></param>
         /// <param name="rightMatch"></param>
-        private AsArrayList<PathResult> DFS(AsGraphVertex<T> current,
-            AsDictionary<T, T> leftMatch, AsDictionary<T, T> rightMatch,
-            AsHashSet<T> visitPath,
+        private List<PathResult> DFS(AsGraphVertex<T> current,
+            Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch,
+            HashSet<T> visitPath,
             bool isRightSide)
         {
             if (!leftMatch.ContainsKey(current.Value)
                 && !isRightSide)
             {
-                return new AsArrayList<PathResult>();
+                return new List<PathResult>();
             }
 
             foreach (var edge in current.Edges)
             {
                 //do not re-visit ancestors in current DFS tree
-                if (visitPath.Contains(edge.Value.Value))
+                if (visitPath.Contains(edge.Value))
                 {
                     continue;
                 }
 
-                if (!visitPath.Contains(edge.Value.Value))
+                if (!visitPath.Contains(edge.Value))
                 {
-                    visitPath.Add(edge.Value.Value);
+                    visitPath.Add(edge.Value);
                 }
-                var pathResult = DFS(edge.Value, leftMatch, rightMatch, visitPath, !isRightSide);
+                var pathResult = DFS(edge, leftMatch, rightMatch, visitPath, !isRightSide);
                 if (pathResult!=null)
                 {
                     //XOR (partially done here by removing same edges)
                     //other part of XOR (adding new ones) is done after DFS method is finished
                     if (leftMatch.ContainsKey(current.Value)
-                        && leftMatch[current.Value].Equals(edge.Value.Value))
+                        && leftMatch[current.Value].Equals(edge.Value))
                     {
                         leftMatch.Remove(current.Value);
-                        rightMatch.Remove(edge.Value.Value);
+                        rightMatch.Remove(edge.Value);
                     }
                     else if (rightMatch.ContainsKey(current.Value)
-                        && rightMatch[current.Value].Equals(edge.Value.Value))
+                        && rightMatch[current.Value].Equals(edge.Value))
                     {
                         rightMatch.Remove(current.Value);
-                        leftMatch.Remove(edge.Value.Value);
+                        leftMatch.Remove(edge.Value);
                     }
                     else
                     {
-                        pathResult.Add(new PathResult(current.Value, edge.Value.Value, isRightSide));
+                        pathResult.Add(new PathResult(current.Value, edge.Value, isRightSide));
                     }
 
                     return pathResult;
@@ -181,13 +180,13 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// <param name="leftMatch"></param>
         /// <param name="rightMatch"></param>
         private bool BFS(AsGraph<T> graph,
-            AsDictionary<int, AsArrayList<T>> partitions,
-            AsDictionary<T, T> leftMatch, AsDictionary<T, T> rightMatch)
+            Dictionary<int, List<T>> partitions,
+            Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch)
         {
-            var queue = new AsQueue<T>();
-            var visited = new AsHashSet<T>();
+            var queue = new Queue<T>();
+            var visited = new HashSet<T>();
 
-            var leftGroup = new AsHashSet<T>();
+            var leftGroup = new HashSet<T>();
 
             foreach (var vertex in partitions[1])
             {
@@ -215,10 +214,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
 
                 foreach (var edge in graph.Vertices[current].Edges)
                 {
-                    if (!visited.Contains(edge.Value.Value))
+                    if (!visited.Contains(edge.Value))
                     {
-                        queue.Enqueue(edge.Value.Value);
-                        visited.Add(edge.Value.Value);
+                        queue.Enqueue(edge.Value);
+                        visited.Add(edge.Value);
                     }
 
                 }

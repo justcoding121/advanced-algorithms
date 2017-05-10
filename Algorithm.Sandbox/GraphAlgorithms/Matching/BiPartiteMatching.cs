@@ -1,8 +1,8 @@
 ﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using Algorithm.Sandbox.GraphAlgorithms.Coloring;
 using System;
-using Algorithm.Sandbox.DataStructures;
 using Algorithm.Sandbox.GraphAlgorithms.Flow;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Matching
 {
@@ -45,7 +45,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public AsArrayList<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph)
+        public List<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph)
         {
             //check if the graph is BiPartite by coloring 2 colors
             var mColorer = new MColorer<T, int>();
@@ -66,8 +66,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// <param name="graph"></param>
         /// <param name="partitions"></param>
         /// <returns></returns>
-        private AsArrayList<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph,
-            AsDictionary<int, AsArrayList<T>> partitions)
+        private List<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph,
+            Dictionary<int, List<T>> partitions)
         {
             //add unit edges from dymmy source to group 1 vertices
             var dummySource = operators.GetRandomUniqueVertex();
@@ -92,7 +92,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
                 .ComputeMaxFlowAndReturnFlowPath(workGraph, dummySource, dummySink);
 
             //now gather all group1 to group 2 edges in residual graph with positive flow
-            var result = new AsArrayList<MatchEdge<T>>();
+            var result = new List<MatchEdge<T>>();
 
             foreach (var path in flowPaths)
             {
@@ -112,7 +112,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// <returns></returns>
         private AsWeightedDiGraph<T, int> createFlowGraph(AsGraph<T> graph,
             T dummySource, T dummySink,
-            AsDictionary<int, AsArrayList<T>> partitions)
+            Dictionary<int, List<T>> partitions)
         {
             var workGraph = new AsWeightedDiGraph<T, int>();
 
@@ -138,7 +138,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
             {
                 foreach (var edge in graph.Vertices[group1Vertex].Edges)
                 {
-                    workGraph.AddEdge(group1Vertex, edge.Value.Value, 1);
+                    workGraph.AddEdge(group1Vertex, edge.Value, 1);
                 }
 
             }

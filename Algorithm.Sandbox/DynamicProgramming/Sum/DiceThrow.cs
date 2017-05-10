@@ -1,4 +1,4 @@
-﻿using Algorithm.Sandbox.DataStructures;
+﻿using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -10,7 +10,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
     {
         public static int WaysToGetSum(int sum, int dice, int face)
         {
-            return WaysToGetSum(sum, dice, face, new AsDictionary<string, int>());
+            return WaysToGetSum(sum, dice, face, new Dictionary<string, int>());
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="cache"></param>
         /// <returns></returns>
         public static int WaysToGetSum(int sum, int dice, int face,
-            AsDictionary<string, int> cache)
+            Dictionary<string, int> cache)
         {
             var cacheKey = string.Concat(sum, dice);
 

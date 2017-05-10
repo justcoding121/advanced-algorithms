@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
@@ -76,7 +77,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             //degree - node dictionary
-            var mergeDictionary = new AsDictionary<int, AsFibornacciTreeNode<T>>();
+            var mergeDictionary = new Dictionary<int, AsFibornacciTreeNode<T>>();
 
             var current = heapForestHead;
             minNode = current;

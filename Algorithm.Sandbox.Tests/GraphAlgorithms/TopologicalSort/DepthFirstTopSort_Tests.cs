@@ -42,7 +42,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.TopologicalSort
 
             var result = algo.GetTopSort(graph);
 
-            Assert.AreEqual(result.Length, 8);
+            Assert.AreEqual(result.Count, 8);
         }
     }
 }

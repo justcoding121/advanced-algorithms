@@ -74,7 +74,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             var allNodeValues = new AsArrayList<AsTreeDictionaryNode<K, V>>();
 
-            for (int i = 0; i < nodes.Length; i++)
+            for (int i = 0; i < nodes.Count; i++)
             {
                 allNodeValues.Add(nodes[i]);
             }

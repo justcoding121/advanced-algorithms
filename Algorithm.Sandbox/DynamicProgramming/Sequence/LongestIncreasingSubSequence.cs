@@ -1,5 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
     {
         public static int[] FindSequence(int[] input)
         {
-            return FindSequence(input, input.Length - 1, new AsDictionary<int, int[]>());
+            return FindSequence(input, input.Length - 1, new Dictionary<int, int[]>());
         }
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="i"></param>
         /// <returns></returns>
         private static int[] FindSequence(int[] input, int i, 
-            AsDictionary<int, int[]> cache)
+            Dictionary<int, int[]> cache)
         {
             if (i == 0)
             {

@@ -1,5 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Cycle
 {
@@ -16,8 +16,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cycle
         /// <returns></returns>
         public bool HasCycle(AsDiGraph<T> graph)
         {
-            var visiting = new AsHashSet<T>();
-            var visited = new AsHashSet<T>();
+            var visiting = new HashSet<T>();
+            var visited = new HashSet<T>();
 
             foreach(var vertex in graph.Vertices)
             {
@@ -34,7 +34,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cycle
         }
 
         private bool DFS(AsDiGraphVertex<T> current, 
-            AsHashSet<T> visited, AsHashSet<T> visiting)
+            HashSet<T> visited, HashSet<T> visiting)
         {
             visiting.Add(current.Value);
 
@@ -42,14 +42,14 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cycle
             {
                 //if we encountered a visiting vertex again
                 //then their is a cycle
-                if(visiting.Contains(edge.Value.Value))
+                if(visiting.Contains(edge.Value))
                 {
                     return true;
                 }
              
-                if (!visited.Contains(edge.Value.Value))
+                if (!visited.Contains(edge.Value))
                 {
-                    if(DFS(edge.Value, visited, visiting))
+                    if(DFS(edge, visited, visiting))
                     {
                         return true;
                     }

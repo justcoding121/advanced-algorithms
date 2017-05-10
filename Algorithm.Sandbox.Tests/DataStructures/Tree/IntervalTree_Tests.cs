@@ -105,7 +105,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void IntervalTree_1D_Stress_Test()
         {
-            var nodeCount = 10000;
+            var nodeCount = 1000;
             var intTree = new AsDIntervalTree<int>(1);
 
             var rnd = new Random();
@@ -137,7 +137,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void IntervalTree_2D_Accuracy_Test()
         {
-            var nodeCount = 1000;
+            var nodeCount = 100;
             const int dimension = 2;
 
             var intTree = new AsDIntervalTree<int>(dimension);

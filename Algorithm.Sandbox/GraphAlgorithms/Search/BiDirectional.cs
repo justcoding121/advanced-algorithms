@@ -1,10 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
-using System;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Search
 {
@@ -35,11 +31,11 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
         /// <returns></returns>
         private bool BDS(AsDiGraph<T> graph, T source, T destination)
         {
-            var visitedA = new AsHashSet<T>();
-            var visitedB = new AsHashSet<T>();
+            var visitedA = new HashSet<T>();
+            var visitedB = new HashSet<T>();
 
-            var bfsQueueA = new AsQueue<AsDiGraphVertex<T>>();
-            var bfsQueueB = new AsQueue<AsDiGraphVertex<T>>();
+            var bfsQueueA = new Queue<AsDiGraphVertex<T>>();
+            var bfsQueueB = new Queue<AsDiGraphVertex<T>>();
 
             bfsQueueA.Enqueue(graph.Vertices[source]);
             bfsQueueB.Enqueue(graph.Vertices[destination]);
@@ -62,10 +58,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
 
                     foreach (var edge in current.OutEdges)
                     {
-                        if (!visitedA.Contains(edge.Value.Value))
+                        if (!visitedA.Contains(edge.Value))
                         {
-                            visitedA.Add(edge.Value.Value);
-                            bfsQueueA.Enqueue(edge.Value);
+                            visitedA.Add(edge.Value);
+                            bfsQueueA.Enqueue(edge);
                         }
                     }
                 }
@@ -82,10 +78,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
 
                     foreach (var edge in current.InEdges)
                     {
-                        if (!visitedB.Contains(edge.Value.Value))
+                        if (!visitedB.Contains(edge.Value))
                         {
-                            visitedB.Add(edge.Value.Value);
-                            bfsQueueB.Enqueue(edge.Value);
+                            visitedB.Add(edge.Value);
+                            bfsQueueB.Enqueue(edge);
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-﻿using Algorithm.Sandbox.DataStructures;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithm.Sandbox.DynamicProgramming
@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
     {
         public int FindPalindrome(string input)
         {
-            return FindLongestPalindrome(input, 0, input.Length - 1, new AsDictionary<string, int>());
+            return FindLongestPalindrome(input, 0, input.Length - 1, new Dictionary<string, int>());
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <returns></returns>
         private int FindLongestPalindrome(string input,
             int i, int j,
-            AsDictionary<string, int> cache)
+            Dictionary<string, int> cache)
         {
             if (i >= input.Length || j < 0 || i > j)
             {

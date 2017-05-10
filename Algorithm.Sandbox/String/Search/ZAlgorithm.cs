@@ -1,5 +1,4 @@
-﻿using System;
-/// <summary>
+﻿/// <summary>
 /// A Z algorithm implementation for pattern search
 /// </summary>
 namespace Algorithm.Sandbox.String.Search

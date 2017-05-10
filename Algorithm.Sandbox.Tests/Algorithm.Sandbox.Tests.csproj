@@ -51,6 +51,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Compression\HuffmanCoding_Tests.cs" />
+    <Compile Include="DataStructures\Dictionary\Dictionary_Tests.cs" />
+    <Compile Include="DataStructures\Dictionary\TreeDictionary_Tests.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\DiGraph_Tests.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\Graph_Tests.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\WeightedDiGraph_Tests.cs" />
@@ -62,11 +64,15 @@
     <Compile Include="DataStructures\Heap\FibornacciHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\BinomialHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\D-aryHeap_Tests.cs" />
-    <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
-    <Compile Include="DataStructures\Dictionary\TreeDictionary_Tests.cs" />
+    <Compile Include="DataStructures\LinkedList\CircularLinkedList_Tests.cs" />
+    <Compile Include="DataStructures\LinkedList\DoublyLinkedList_Tests.cs" />
+    <Compile Include="DataStructures\LinkedList\SinglyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\Heap\BMinHeap_Tests.cs" />
+    <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
     <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
+    <Compile Include="DataStructures\Queue_Tests.cs" />
     <Compile Include="DataStructures\Set\DisJointSet_Tests.cs" />
+    <Compile Include="DataStructures\Stack_Tests.cs" />
     <Compile Include="DataStructures\Tree\ExpressionTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\RangeTreeTests.cs" />
     <Compile Include="DataStructures\Tree\TernarySearchTree_Tests.cs" />
@@ -83,14 +89,8 @@
     <Compile Include="DataStructures\Tree\TreapTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\SplayTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BST_Tests.cs" />
-    <Compile Include="DataStructures\LinkedList\CircularLinkedList_Tests.cs" />
-    <Compile Include="DataStructures\LinkedList\DoublyLinkedList_Tests.cs" />
-    <Compile Include="DataStructures\Dictionary\Dictionary_Tests.cs" />
     <Compile Include="DataStructures\PriorityQueue_Tests.cs" />
-    <Compile Include="DataStructures\Queue_Tests.cs" />
     <Compile Include="DataStructures\Tree\RedBlackTree_Tests.cs" />
-    <Compile Include="DataStructures\LinkedList\SinglyLinkedList_Tests.cs" />
-    <Compile Include="DataStructures\Stack_Tests.cs" />
     <Compile Include="DataStructures\StringBuilder_Tests.cs" />
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />

@@ -1,5 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
@@ -12,14 +12,14 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     {
         public T Value { get; set; }
 
-        public AsHashSet<AsDiGraphVertex<T>> OutEdges { get; set; }
-        public AsHashSet<AsDiGraphVertex<T>> InEdges { get; set; }
+        public HashSet<AsDiGraphVertex<T>> OutEdges { get; set; }
+        public HashSet<AsDiGraphVertex<T>> InEdges { get; set; }
 
         public AsDiGraphVertex(T value)
         {
             Value = value;
-            OutEdges = new AsHashSet<AsDiGraphVertex<T>>();
-            InEdges = new AsHashSet<AsDiGraphVertex<T>>();
+            OutEdges = new HashSet<AsDiGraphVertex<T>>();
+            InEdges = new HashSet<AsDiGraphVertex<T>>();
         }
 
     }
@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     public class AsDiGraph<T>
     {
         public int VerticesCount => Vertices.Count;
-        internal AsDictionary<T, AsDiGraphVertex<T>> Vertices { get; set; }
+        internal Dictionary<T, AsDiGraphVertex<T>> Vertices { get; set; }
 
         /// <summary>
         /// return a reference vertex
@@ -53,7 +53,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         public AsDiGraph()
         {
-            Vertices = new AsDictionary<T, AsDiGraphVertex<T>>();
+            Vertices = new Dictionary<T, AsDiGraphVertex<T>>();
         }
 
         /// <summary>
@@ -93,21 +93,21 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             foreach (var vertex in Vertices[value].InEdges)
             {
-                if (!Vertices.ContainsKey(vertex.Value.Value))
+                if (!Vertices.ContainsKey(vertex.Value))
                 {
                     throw new Exception("Vertex incoming edge source vertex is not in this graph.");
                 }
-                vertex.Value.OutEdges.Remove(Vertices[value]);
+                vertex.OutEdges.Remove(Vertices[value]);
             }
 
             foreach (var vertex in Vertices[value].OutEdges)
             {
-                if (!Vertices.ContainsKey(vertex.Value.Value))
+                if (!Vertices.ContainsKey(vertex.Value))
                 {
                     throw new Exception("Vertex outgoing edge target vertex is not in this graph.");
                 }
 
-                vertex.Value.InEdges.Remove(Vertices[value]);
+                vertex.InEdges.Remove(Vertices[value]);
             }
 
             Vertices.Remove(value);
@@ -216,7 +216,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             {
                 foreach (var edge in vertex.Value.OutEdges)
                 {
-                    newGraph.AddEdge(vertex.Value.Value, edge.Value.Value);
+                    newGraph.AddEdge(vertex.Value.Value, edge.Value);
                 }
             }
 

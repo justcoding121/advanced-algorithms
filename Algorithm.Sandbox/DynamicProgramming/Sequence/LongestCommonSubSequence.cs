@@ -1,4 +1,4 @@
-﻿using Algorithm.Sandbox.DataStructures;
+﻿using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DynamicProgramming
 {
@@ -10,7 +10,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
     {
         public static string FindSequence(string a, string b)
         {
-            return FindSequence(a, b, a.Length - 1, b.Length - 1, new AsDictionary<string, string>());
+            return FindSequence(a, b, a.Length - 1, b.Length - 1, new Dictionary<string, string>());
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <returns></returns>
         private static string FindSequence(string a, string b,
             int i, int j, 
-            AsDictionary<string, string> cache)
+            Dictionary<string, string> cache)
         {
             if (i < 0 || j < 0)
             {

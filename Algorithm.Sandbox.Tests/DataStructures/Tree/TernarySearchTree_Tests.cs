@@ -27,19 +27,19 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             Assert.IsFalse(searchTree.Contains("cuts".ToCharArray()));
 
             var matches = searchTree.StartsWith("u".ToCharArray());
-            Assert.IsTrue(matches.Length == 1);
+            Assert.IsTrue(matches.Count == 1);
 
             matches = searchTree.StartsWith("cu".ToCharArray());
-            Assert.IsTrue(matches.Length == 1);
+            Assert.IsTrue(matches.Count == 1);
 
             matches = searchTree.StartsWith("bu".ToCharArray());
-            Assert.IsTrue(matches.Length == 2);
+            Assert.IsTrue(matches.Count == 2);
 
             matches = searchTree.StartsWith("c".ToCharArray());
-            Assert.IsTrue(matches.Length == 3);
+            Assert.IsTrue(matches.Count == 3);
 
             matches = searchTree.StartsWith("ca".ToCharArray());
-            Assert.IsTrue(matches.Length == 2);
+            Assert.IsTrue(matches.Count == 2);
 
             searchTree.Delete("cats".ToCharArray());
             searchTree.Delete("up".ToCharArray());

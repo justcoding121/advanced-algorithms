@@ -1,6 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.Bridge
 {
@@ -27,12 +27,12 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Bridge
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public AsArrayList<Bridge<T>> FindBridges(AsGraph<T> graph)
+        public List<Bridge<T>> FindBridges(AsGraph<T> graph)
         {
             int visitTime = 0;
-            return DFS(graph.ReferenceVertex, new AsArrayList<Bridge<T>>(),
-                new AsDictionary<T, int>(), new AsDictionary<T, int>(),
-                new AsDictionary<T, T>(),
+            return DFS(graph.ReferenceVertex, new List<Bridge<T>>(),
+                new Dictionary<T, int>(), new Dictionary<T, int>(),
+                new Dictionary<T, T>(),
                 ref visitTime);
         }
 
@@ -48,10 +48,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Bridge
         /// <param name="parent"></param>
         /// <param name="discoveryTime"></param>
         /// <returns></returns>
-        private AsArrayList<Bridge<T>> DFS(AsGraphVertex<T> currentVertex,
-             AsArrayList<Bridge<T>> result,
-             AsDictionary<T, int> discoveryTimeMap, AsDictionary<T, int> lowTimeMap,
-             AsDictionary<T, T> parent, ref int discoveryTime)
+        private List<Bridge<T>> DFS(AsGraphVertex<T> currentVertex,
+             List<Bridge<T>> result,
+             Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
+             Dictionary<T, T> parent, ref int discoveryTime)
         {
 
             discoveryTimeMap.Add(currentVertex.Value, discoveryTime);
@@ -62,26 +62,26 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Bridge
 
             foreach (var edge in currentVertex.Edges)
             {
-                if (!discoveryTimeMap.ContainsKey(edge.Value.Value))
+                if (!discoveryTimeMap.ContainsKey(edge.Value))
                 {
                     discoveryChildCount++;
-                    parent.Add(edge.Value.Value, currentVertex.Value);
+                    parent.Add(edge.Value, currentVertex.Value);
 
                     discoveryTime++;
-                    DFS(edge.Value, result,
+                    DFS(edge, result,
                                 discoveryTimeMap, lowTimeMap, parent, ref discoveryTime);
 
                     //propogate lowTime index of neighbour so that ancestors can see check for back edge
                     lowTimeMap[currentVertex.Value] =
-                        Math.Min(lowTimeMap[currentVertex.Value], lowTimeMap[edge.Value.Value]);
+                        Math.Min(lowTimeMap[currentVertex.Value], lowTimeMap[edge.Value]);
 
                     //if neighbours lowTime is less than current
                     //then this is an Bridge point 
                     //because neighbour never had a chance to propogate any ancestors low value
                     //since this is an isolated componant
-                    if (discoveryTimeMap[currentVertex.Value] < lowTimeMap[edge.Value.Value])
+                    if (discoveryTimeMap[currentVertex.Value] < lowTimeMap[edge.Value])
                     {
-                        result.Add(new Bridge<T>(currentVertex.Value, edge.Value.Value));
+                        result.Add(new Bridge<T>(currentVertex.Value, edge.Value));
                     }
 
                 }
@@ -91,10 +91,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Bridge
                     //even if edge target vertex was already visisted
                     //update discovery so that ancestors can see it
                     if (parent.ContainsKey(currentVertex.Value) == false
-                        || !edge.Value.Value.Equals(parent[currentVertex.Value]))
+                        || !edge.Value.Equals(parent[currentVertex.Value]))
                     {
                         lowTimeMap[currentVertex.Value] =
-                            Math.Min(lowTimeMap[currentVertex.Value], discoveryTimeMap[edge.Value.Value]);
+                            Math.Min(lowTimeMap[currentVertex.Value], discoveryTimeMap[edge.Value]);
                     }
                 }
             }      

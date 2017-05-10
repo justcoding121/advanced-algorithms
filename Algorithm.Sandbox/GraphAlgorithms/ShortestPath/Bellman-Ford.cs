@@ -1,6 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms
 {
@@ -32,8 +32,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms
                 throw new ArgumentException();
             }
 
-            var progress = new AsDictionary<T, W>();
-            var parentMap = new AsDictionary<T, T>();
+            var progress = new Dictionary<T, W>();
+            var parentMap = new Dictionary<T, T>();
 
             foreach (var vertex in graph.Vertices)
             {
@@ -92,10 +92,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms
         /// <param name="destination"></param>
         /// <returns></returns>
         private ShortestPathResult<T, W> tracePath(AsWeightedDiGraph<T, W> graph,
-            AsDictionary<T, T> parentMap, T source, T destination)
+            Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
-            var pathStack = new AsStack<T>();
+            var pathStack = new Stack<T>();
 
             pathStack.Push(destination);
 
@@ -107,14 +107,14 @@ namespace Algorithm.Sandbox.GraphAlgorithms
             }
 
             //return result
-            var resultPath = new AsArrayList<T>();
+            var resultPath = new List<T>();
             var resultLength = operators.DefaultValue;
             while (pathStack.Count > 0)
             {
                 resultPath.Add(pathStack.Pop());
             }
 
-            for (int i = 0; i < resultPath.Length - 1; i++)
+            for (int i = 0; i < resultPath.Count - 1; i++)
             {
                 resultLength = operators.Sum(resultLength,
                     graph.Vertices[resultPath[i]].OutEdges[graph.Vertices[resultPath[i + 1]]]);

@@ -1,5 +1,4 @@
-﻿using System;
-using Algorithm.Sandbox.DataStructures;
+﻿using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.Sorting
 {
@@ -32,7 +31,7 @@ namespace Algorithm.Sandbox.Sorting
             while (max/@base > 0)
             {
                 //create a bucket for digits 0 to 9
-                var buckets = new AsArrayList<int>[10];
+                var buckets = new List<int>[10];
 
                 for (i = 0; i < array.Length; i++)
                 {
@@ -40,7 +39,7 @@ namespace Algorithm.Sandbox.Sorting
 
                     if(buckets[bucketIndex] == null)
                     {
-                        buckets[bucketIndex] = new AsArrayList<int>();
+                        buckets[bucketIndex] = new List<int>();
                     }
 
                     buckets[bucketIndex].Add(array[i]);
@@ -52,7 +51,7 @@ namespace Algorithm.Sandbox.Sorting
                 {
                     if (bucket != null)
                     {
-                        for (int j = 0; j < bucket.Length; j++)
+                        for (int j = 0; j < bucket.Count; j++)
                         {
                             array[i] = bucket[j];
                             i++;

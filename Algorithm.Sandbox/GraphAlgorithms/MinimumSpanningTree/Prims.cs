@@ -1,6 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
 {
@@ -16,15 +17,15 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
         /// </summary>
         /// <param name="graph"></param>
         /// <returns>List of MST edges</returns>
-        public AsArrayList<MSTEdge<T, W>>
+        public List<MSTEdge<T, W>>
             FindMinimumSpanningTree(AsWeightedGraph<T, W> graph)
         {
-            var edges = new AsArrayList<MSTEdge<T, W>>();
+            var edges = new List<MSTEdge<T, W>>();
 
             //gather all unique edges
             DFS(graph, graph.ReferenceVertex,
                 new AsFibornacciMinHeap<MSTEdge<T, W>>(),
-                new AsHashSet<T>(),
+                new HashSet<T>(),
                 edges);
 
             return edges;
@@ -42,8 +43,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
         private void DFS(AsWeightedGraph<T, W> graph,
             AsWeightedGraphVertex<T, W> currentVertex,
            AsFibornacciMinHeap<MSTEdge<T, W>> spanTreeNeighbours,
-           AsHashSet<T> spanTreeVertices,
-           AsArrayList<MSTEdge<T, W>> spanTreeEdges)
+           HashSet<T> spanTreeVertices,
+           List<MSTEdge<T, W>> spanTreeEdges)
         {
             //add all edges to Fibornacci Heap
             //So that we can pick the min edge in next step

@@ -1,5 +1,5 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.NumericalMethods
 {
@@ -10,7 +10,7 @@ namespace Algorithm.Sandbox.NumericalMethods
         /// </summary>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static AsArrayList<int> GetAllPrimes(int max)
+        public static List<int> GetAllPrimes(int max)
         {
             var primeTable = new bool[max + 1];
 
@@ -29,7 +29,7 @@ namespace Algorithm.Sandbox.NumericalMethods
             }
 
             //now write back results
-            var result = new AsArrayList<int>();
+            var result = new List<int>();
 
             for (int i = 2; i < primeTable.Length; i++)
             {

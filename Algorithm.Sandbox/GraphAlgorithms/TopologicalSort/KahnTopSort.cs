@@ -1,10 +1,6 @@
-﻿using Algorithm.Sandbox.DataStructures;
-using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
+﻿using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
 {
@@ -19,11 +15,11 @@ namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public AsArrayList<T> GetTopSort(AsDiGraph<T> graph)
+        public List<T> GetTopSort(AsDiGraph<T> graph)
         {
-            var inEdgeMap = new AsDictionary<T, int>();
+            var inEdgeMap = new Dictionary<T, int>();
 
-            var kahnQueue = new AsQueue<T>();
+            var kahnQueue = new Queue<T>();
 
             foreach (var vertex in graph.Vertices)
             {
@@ -42,7 +38,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
                 throw new Exception("Graph has a cycle.");
             }
 
-            var result = new AsArrayList<T>();
+            var result = new List<T>();
 
             int visitCount = 0;
             //until queue is empty
@@ -66,8 +62,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
                 //decrement in edge count for neighbours
                 foreach(var edge in nextPick.OutEdges)
                 {
-                    inEdgeMap[edge.Value.Value]--;
-                    kahnQueue.Enqueue(edge.Value.Value);
+                    inEdgeMap[edge.Value]--;
+                    kahnQueue.Enqueue(edge.Value);
                 }
 
                 visitCount++;

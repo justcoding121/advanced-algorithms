@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         {
             var HashSet = new AsTreeHashSet<int>();
 
-            int nodeCount = 1000 * 10;
+            int nodeCount = 1000;
             //insert test
 
 
