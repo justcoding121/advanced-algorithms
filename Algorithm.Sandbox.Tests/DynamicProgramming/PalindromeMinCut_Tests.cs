@@ -21,7 +21,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
             var minPalindromePartitions
                 = PalindromeMinCut.GetMinCut("ababbbabbababa");
 
-            Assert.AreEqual(4, minPalindromePartitions);
+            Assert.AreEqual(4, minPalindromePartitions.Count);
         }
     }
 }
