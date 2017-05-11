@@ -8,13 +8,16 @@ namespace Algorithm.Sandbox.DynamicProgramming.Matrix
     /// Problem statement below
     ///http://www.geeksforgeeks.org/given-matrix-o-x-find-largest-subsquare-surrounded-x/
     /// </summary>
-    public class Max1sSquare
+    public class MaxXSideSubSquare
     {
-        public static int FindMax(int[,] matrix)
+        public static int FindMax(char[,] matrix)
         {
-            return findMaxSubMatrixSum(matrix,
+           var result = findMaxSubMatrixPerimeter(matrix,
             0, 0, matrix.GetLength(0) - 1, matrix.GetLength(1) - 1,
             new Dictionary<string, int>());
+
+            //return length of one side
+            return result / 4;
 
         }
 
@@ -28,7 +31,7 @@ namespace Algorithm.Sandbox.DynamicProgramming.Matrix
         /// <param name="y2"></param>
         /// <param name="cache"></param>
         /// <returns></returns>
-        private static int findMaxSubMatrixSum(int[,] matrix,
+        private static int findMaxSubMatrixPerimeter(char[,] matrix,
             int x1, int y1, int x2, int y2,
             Dictionary<string, int> cache)
         {
@@ -41,16 +44,16 @@ namespace Algorithm.Sandbox.DynamicProgramming.Matrix
             //sub matrix sums
             var results = new List<int>();
 
-            results.Add(findMaxSubMatrixSum(matrix, x1 + 1,
+            results.Add(findMaxSubMatrixPerimeter(matrix, x1 + 1,
                    y1, x2, y2, cache));
 
-            results.Add(findMaxSubMatrixSum(matrix, x1,
+            results.Add(findMaxSubMatrixPerimeter(matrix, x1,
                     y1 + 1, x2, y2, cache));
 
-            results.Add(findMaxSubMatrixSum(matrix, x1,
+            results.Add(findMaxSubMatrixPerimeter(matrix, x1,
                y1, x2 - 1, y2, cache));
 
-            results.Add(findMaxSubMatrixSum(matrix, x1,
+            results.Add(findMaxSubMatrixPerimeter(matrix, x1,
                 y1, x2, y2 - 1, cache));
 
             //current matrix sum
@@ -71,13 +74,13 @@ namespace Algorithm.Sandbox.DynamicProgramming.Matrix
         /// <param name="y2"></param>
         /// <param name="cache"></param>
         /// <returns></returns>
-        private static int GetOnesSum(int[,] matrix,
+        private static int GetOnesSum(char[,] matrix,
             int x1, int y1, int x2, int y2,
             Dictionary<string, int> cache)
         {
             if (x1 == x2 && y1 == y2)
             {
-                return matrix[x1, y1];
+                return 0;
             }
 
             //check for a square
@@ -94,11 +97,32 @@ namespace Algorithm.Sandbox.DynamicProgramming.Matrix
             }
 
             var sum = 0;
-            for (int i = x1; i <= x2; i++)
+
+            var x = new int[2] { x1, x2 };
+            //visit only the perimeter
+            for (int i = 0; i < x.Length ; i++)
             {
                 for (int j = y1; j <= y2; j++)
                 {
-                    if (matrix[i, j] == 1)
+                    if (matrix[x[i], j] == 'X')
+                    {
+                        sum += 1;
+                    }
+                    else
+                    {
+                        cache.Add(cacheKey, 0);
+                        return 0;
+                    }
+                }
+            }
+
+            var y = new int[2] { y1, y2 };
+            //visit only the perimeter
+            for (int i = 0; i < y.Length; i++)
+            {
+                for (int j = x1; j <= x2; j++)
+                {
+                    if (matrix[j, y[i]] == 'X')
                     {
                         sum += 1;
                     }

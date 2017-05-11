@@ -9,9 +9,9 @@ namespace Algorithm.Sandbox.DynamicProgramming
     /// </summary>
     public class LongestIncreasingSubSequence
     {
-        public static int[] FindSequence(int[] input)
+        public static List<int> FindSequence(int[] input)
         {
-            return FindSequence(input, input.Length - 1, new Dictionary<int, int[]>());
+            return FindSequence(input, input.Length - 1);
         }
 
         /// <summary>
@@ -20,36 +20,21 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="input"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private static int[] FindSequence(int[] input, int i, 
-            Dictionary<int, int[]> cache)
+        private static List<int> FindSequence(int[] input, int i)
         {
             if (i == 0)
             {
-                return new int[1] { input[i] };
+                return new List<int>() { input[i] };
             }
 
-            if(cache.ContainsKey(i))
-            {
-                return cache[i];
-            }
-
-            var result = FindSequence(input, i - 1, cache);
+            var result = FindSequence(input, i - 1);
 
             //if last element of result is less than current element
             //append current to result
-            if (result[result.Length - 1] < input[i])
+            if (result[result.Count - 1] < input[i])
             {
-                //copy array result for previous i
-                var newResult = new int[result.Length + 1];
-                Array.Copy(result, newResult, result.Length);
-
-                //append current result at end
-                newResult[newResult.Length - 1] = input[i];
-
-                return newResult;
+                result.Add(input[i]);
             }
-
-            cache.Add(i, result);
 
             return result;
         }

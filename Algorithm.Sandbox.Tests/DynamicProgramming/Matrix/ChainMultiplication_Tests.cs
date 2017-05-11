@@ -20,6 +20,8 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Matrix
         {
             var result = ChainMultiplication
                 .FindMinMultiplications(new int[] { 1, 2, 3, 4 });
+
+            Assert.AreEqual(18, result);
         }
     }
 }
