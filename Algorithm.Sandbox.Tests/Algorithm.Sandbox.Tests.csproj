@@ -102,9 +102,9 @@
     <Compile Include="DynamicProgramming\Sequence\BalancedPartition_Tests.cs" />
     <Compile Include="DynamicProgramming\Count\BoolParenthesis_Tests.cs" />
     <Compile Include="DynamicProgramming\Count\CountDecodings_Test.cs" />
-    <Compile Include="DynamicProgramming\Sequence\MaxSumSequence_Tests.cs" />
-    <Compile Include="DynamicProgramming\Sequence\MaxSumIncreasingSequence_Tests.cs" />
-    <Compile Include="DynamicProgramming\Sum\DiceThrow_Tests.cs" />
+    <Compile Include="DynamicProgramming\Maximizing\MaxSumSequence_Tests.cs" />
+    <Compile Include="DynamicProgramming\Maximizing\MaxSumIncreasingSequence_Tests.cs" />
+    <Compile Include="DynamicProgramming\Count\DiceThrow_Tests.cs" />
     <Compile Include="DynamicProgramming\Sequence\DistinctBinaryString_Tests.cs" />
     <Compile Include="DynamicProgramming\Fibornacci_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\KnackSackProblems_Tests.cs" />

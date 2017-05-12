@@ -104,9 +104,9 @@
     <Compile Include="DynamicProgramming\Minimizing\CoinChangeProblems.cs" />
     <Compile Include="DynamicProgramming\Count\CountBoolParenthesization.cs" />
     <Compile Include="DynamicProgramming\Count\CountDecodings.cs" />
-    <Compile Include="DynamicProgramming\Sequence\MaxSumSubSequence.cs" />
-    <Compile Include="DynamicProgramming\Sequence\MaxSumIncreasingSequence.cs" />
-    <Compile Include="DynamicProgramming\Sum\DiceThrow.cs" />
+    <Compile Include="DynamicProgramming\Maximizing\MaxSumSubSequence.cs" />
+    <Compile Include="DynamicProgramming\Maximizing\MaxSumIncreasingSequence.cs" />
+    <Compile Include="DynamicProgramming\Count\DiceThrow.cs" />
     <Compile Include="DynamicProgramming\Sequence\DistinctBinaryString.cs" />
     <Compile Include="DynamicProgramming\Fibornacci.cs" />
     <Compile Include="DynamicProgramming\Maximizing\KnackSackProblems.cs" />
