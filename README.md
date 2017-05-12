@@ -281,3 +281,33 @@ All are top down solutions with memoization technique.
 * Staircase problem in Fibornacci Series
 * 2D array sum
 * Assembly line scheduling
+
+## Bit Algorithms
+
+* Base conversion
+* Find the element that appears once
+* Set bits in all numbers from 1 to n
+* Swap bits
+* Add two numbers
+* Smallest of three
+* A Boolean Array Puzzle
+* Set bits in an (big) array
+* Next higher number with same number of set bits
+* Add 1 to a number
+* Absolute value (abs) without branching
+* Minimum or Maximum of two integers
+* Find the two non-repeating elements in an array
+* Reverse Bits of a Number
+* Next Power of 2
+* Check if a Number is Multiple of 3
+* Find parity
+* Swap all odd and even bits
+* Karatsuba algorithm for fast multiplication
+* Swap without temp
+* Check if a number is multiple of 9
+* Maximum Subarray XOR
+* Magic Number
+* Sum of bit differences among all pairs
+* Swap All Odds And Even Bits
+* Count number of bits to be flipped to convert A to B
+* Find Next Sparse Number
