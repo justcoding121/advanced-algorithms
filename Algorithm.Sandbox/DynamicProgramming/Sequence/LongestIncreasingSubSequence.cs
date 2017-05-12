@@ -13,7 +13,8 @@ namespace Algorithm.Sandbox.DynamicProgramming
         {
             var maxLength = 0;
 
-            FindSequence(input, input.Length - 1, ref maxLength);
+            FindSequence(input, input.Length - 1,
+                ref maxLength, new Dictionary<int, int>());
 
             return maxLength;
         }
@@ -24,32 +25,41 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="input"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private static int FindSequence(int[] input, int j, ref int maxLength)
+        private static int FindSequence(int[] input, int j, 
+            ref int netLongest,
+            Dictionary<int, int> cache)
         {
             if (j == 0)
             {
                 return 1;
             }
 
-            var currentMaxLength = 1;
+            if(cache.ContainsKey(j))
+            {
+                return cache[j];
+            }
+
+            var currentLongest = 1;
 
             for (int i = 0; i < j; i++)
             {
                 //from 0 to i
-                var subMaxLength = FindSequence(input, i, ref maxLength);
+                var subLongest = FindSequence(input, i, ref netLongest, cache);
 
                 //if 0 to i sequence last value (i) is less than current value j
-                //And if it improves our max
+                //And if it improves our current Longest
                 if (input[i] < input[j]
-                    && currentMaxLength < subMaxLength + 1)
+                    && currentLongest < subLongest + 1)
                 {
-                    currentMaxLength = subMaxLength + 1;
+                    currentLongest = subLongest + 1;
                 }
             }
 
-            maxLength = Math.Max(maxLength, currentMaxLength);
+            netLongest = Math.Max(netLongest, currentLongest);
 
-            return currentMaxLength;
+            cache.Add(j, currentLongest);
+
+            return currentLongest;
         }
     }
 }

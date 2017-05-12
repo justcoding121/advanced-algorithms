@@ -109,6 +109,7 @@
     <Compile Include="DynamicProgramming\Fibornacci_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\KnackSackProblems_Tests.cs" />
     <Compile Include="DynamicProgramming\Minimizing\CoinChangeProblems_Tests.cs" />
+    <Compile Include="DynamicProgramming\Sequence\LongestBitonicSequence_Tests.cs" />
     <Compile Include="DynamicProgramming\Sequence\LongestCommonSubSequence_Tests.cs" />
     <Compile Include="DynamicProgramming\Sequence\LongestIncreasingSubSequence_Tests.cs" />
     <Compile Include="DynamicProgramming\Palindrome\LongestPalindrome_Tests.cs" />
