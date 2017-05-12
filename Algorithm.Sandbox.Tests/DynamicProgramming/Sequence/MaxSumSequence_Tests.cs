@@ -24,7 +24,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
             Assert.AreEqual(11, MaxSumSequence
            .FindMaxSumOfNonContiguousSequence(new int[] { 2, -1, 2, 3, 4, -5 }));
 
-            Assert.AreEqual(11, MaxSumSequence
+            Assert.AreEqual(10, MaxSumSequence
                .FindMaxSumOfContiguousSequence(new int[] { 2, -1, 2, 3, 4, -5 }));
 
         }

@@ -16,8 +16,6 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
         {
             Assert.AreEqual(106, MaxSumIncreasingSequence
                 .FindSum(new int[] { 1, 101, 2, 3, 100, 4, 5 }));
-                
-
         }
     }
 }

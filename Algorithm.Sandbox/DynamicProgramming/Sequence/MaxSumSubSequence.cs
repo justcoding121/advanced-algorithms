@@ -13,12 +13,19 @@ namespace Algorithm.Sandbox.DynamicProgramming
     {
         public static int FindMaxSumOfNonContiguousSequence(int[] input)
         {
+            //if all are -ive number
+            if (input.Max() < 0)
+            {
+                return input.Max();
+            }
+
+            //sum up +ive numbers
             return input.Where(x => x > 0).Sum();
         }
 
         public static int FindMaxSumOfContiguousSequence(int[] input)
         {
-            return FindSequenceSum(input, 0, input.Length - 1);
+            return FindMaxSequenceSum(input, 0, input.Length - 1, new Dictionary<string, int>());
         }
 
         /// <summary>
@@ -27,7 +34,9 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="input"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private static int FindSequenceSum(int[] input, int i, int j)
+        private static int FindMaxSequenceSum(int[] input,
+            int i, int j,
+            Dictionary<string, int> cache)
         {
             if (i > j)
             {
@@ -39,12 +48,41 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 return input[i];
             }
 
-            var results = new List<int>();
+            var result = Math.Max(FindMaxSequenceSum(input, i, j - 1, cache),
+                           FindMaxSequenceSum(input, i + 1, j, cache));
 
-            results.Add(FindSequenceSum(input, i, j - 1));
-            results.Add(FindSequenceSum(input, i + 1, j));
+            var currentMax = FindSum(input, i, j, cache);
 
-            return results.Max();
+            return Math.Max(result, currentMax);
+        }
+
+        private static int FindSum(int[] input,
+            int i, int j,
+            Dictionary<string, int> cache)
+        {
+            if (i > j)
+            {
+                return 0;
+            }
+
+            if (i == j)
+            {
+                return input[i];
+            }
+
+            var cacheKey = string.Concat(i, j);
+
+            if (cache.ContainsKey(cacheKey))
+            {
+                return cache[cacheKey];
+            }
+
+            var sum = FindSum(input, i + 1, j - 1, cache)
+                + input[i] + input[j];
+
+            cache.Add(cacheKey, sum);
+
+            return sum;
         }
     }
 }

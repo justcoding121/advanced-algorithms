@@ -9,9 +9,13 @@ namespace Algorithm.Sandbox.DynamicProgramming
     /// </summary>
     public class LongestIncreasingSubSequence
     {
-        public static List<int> FindSequence(int[] input)
+        public static int FindSequence(int[] input)
         {
-            return FindSequence(input, input.Length - 1);
+            var maxLength = 0;
+
+            FindSequence(input, input.Length - 1, ref maxLength);
+
+            return maxLength;
         }
 
         /// <summary>
@@ -20,23 +24,9 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="input"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private static List<int> FindSequence(int[] input, int i)
+        private static int FindSequence(int[] input, int j, ref int maxLength)
         {
-            if (i == 0)
-            {
-                return new List<int>() { input[i] };
-            }
-
-            var result = FindSequence(input, i - 1);
-
-            //if last element of result is less than current element
-            //append current to result
-            if (result[result.Count - 1] < input[i])
-            {
-                result.Add(input[i]);
-            }
-
-            return result;
+            throw new NotImplementedException();
         }
     }
 }
