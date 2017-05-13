@@ -92,6 +92,7 @@ Note: Among the implementations here in practice, with the exclusion of Decremen
 #### Set
 
 * Disjoint Set ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DataStructures/Set/AsDisJointSet.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Set/DisJointSet_Tests.cs))
+* Sparse Set
 
 ### Graph
 
@@ -180,7 +181,15 @@ Note: Among the implementations here in practice, with the exclusion of Decremen
 
 * Huffman Coding ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Compression/HuffmanCoding.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Compression/HuffmanCoding_Tests.cs)) using Fibornacci Min Heap
 
-## Sorting
+## Sorting and Searching
+
+* Median of stream of numbers ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/MedianStream.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/MedianStream_Tests.cs))
+* Array in Zig-Zag fashion
+* Binary Search
+* Search on almost sorted array
+* Find duplicates in an array
+
+### Sorting
 
 * Bubble Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/BubbleSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/BubbleSort_Tests.cs))
 * Insertion Sort ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/Sorting/InsertionSort.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Sorting/InsertionSort_Tests.cs))
@@ -216,7 +225,7 @@ All are top down solutions with memoization technique.
 * Max 1s Square in matrix ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Matrix/Max1sSquare.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Matrix/Max1sSquare_Tests.cs))
 * Max subsquare with X sides in matrix ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Matrix/MaxXSideSubSquare.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Matrix/MaxXSideSubSquare_Tests.cs))
 
-### Count
+### Counting
 
 * Count bool parenthesization ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/CountBoolParenthesization.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/BoolParenthesis_Tests.cs))
 * Count decoding ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/CountDecodings.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/CountDecodings_Test.cs))
@@ -321,6 +330,5 @@ All are top down solutions with memoization technique.
 
 ## Divide & Conquer
 
-* Median of stream of numbers ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/MedianStream.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/MedianStream_Tests.cs))
 * Count Inversions
 * Strassen’s Matrix Multiplication
