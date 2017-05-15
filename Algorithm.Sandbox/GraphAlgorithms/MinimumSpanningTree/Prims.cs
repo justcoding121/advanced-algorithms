@@ -41,7 +41,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
         /// <param name="spanTreeNeighbours"> Use Fibornacci Min Heap to pick smallest edge neighbour </param>
         /// <param name="spanTreeEdges">result MST edges</param>
         private void DFS(AsWeightedGraph<T, W> graph,
-            AsWeightedGraphVertex<T, W> currentVertex,
+            WeightedGraphVertex<T, W> currentVertex,
            AsFibornacciMinHeap<MSTEdge<T, W>> spanTreeNeighbours,
            HashSet<T> spanTreeVertices,
            List<MSTEdge<T, W>> spanTreeEdges)

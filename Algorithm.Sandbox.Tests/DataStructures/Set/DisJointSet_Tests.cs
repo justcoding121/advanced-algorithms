@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Set
         [TestMethod]
         public void SmokeTest_DisJointSet()
         {
-            var disjointSet = new AsDisJointSet<int>();
+            var disjointSet = new DisJointSet<int>();
 
             for (int i = 1; i <= 7; i++)
             {

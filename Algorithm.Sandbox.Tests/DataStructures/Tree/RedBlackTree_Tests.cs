@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         public void RedBlackTree_Smoke_Test()
         {
             //insert test
-            var tree = new AsRedBlackTree<int>();
+            var tree = new RedBlackTree<int>();
 
             Assert.AreEqual(-1, tree.GetHeight());
 
@@ -59,7 +59,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new AsRedBlackTree<int>();
+            var tree = new RedBlackTree<int>();
 
             for (int i = 0; i < nodeCount; i++)
             {
@@ -109,7 +109,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new AsRedBlackTree<int>();
+            var tree = new RedBlackTree<int>();
 
             for (int i = 0; i < nodeCount; i++)
             {

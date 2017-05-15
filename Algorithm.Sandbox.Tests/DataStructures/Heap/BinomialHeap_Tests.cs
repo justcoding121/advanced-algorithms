@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
             //insert test
             var tree = new AsBinomialMinHeap<int>();
 
-            var nodePointers = new List<AsBinomialTreeNode<int>>();
+            var nodePointers = new List<BinomialTreeNode<int>>();
 
             for (int i = 0; i <= nodeCount; i++)
             {

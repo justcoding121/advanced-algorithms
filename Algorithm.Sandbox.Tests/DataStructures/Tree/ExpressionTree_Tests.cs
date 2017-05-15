@@ -10,7 +10,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         public void Smoke_Test()
         {
             var postfixInput = "ab+ef*g*-".ToCharArray();
-            var tree = new AsExpressionTree<char>();
+            var tree = new ExpressionTree<char>();
 
             tree.Construct(postfixInput, new char[] { '+', '-', '*', '/' });
 

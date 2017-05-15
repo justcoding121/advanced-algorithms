@@ -87,7 +87,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cut
         /// <param name="searchVetex"></param>
         /// <returns></returns>
         private void DFS(AsWeightedDiGraph<T, W> graph,
-            AsWeightedDiGraphVertex<T, W> currentResidualGraphVertex,
+            WeightedDiGraphVertex<T, W> currentResidualGraphVertex,
             HashSet<T> visited)
         {
             visited.Add(currentResidualGraphVertex.Value);

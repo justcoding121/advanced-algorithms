@@ -9,7 +9,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void Smoke_Test_Using_Banana()
         {
-            var trie = new AsTrie<char>();
+            var trie = new Trie<char>();
 
             trie.Insert("banana".ToCharArray());
             Assert.IsTrue(trie.Contains("banana".ToCharArray()));
@@ -61,7 +61,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void Trie_Smoke_Test()
         {
-            var trie = new AsTrie<char>();
+            var trie = new Trie<char>();
 
             trie.Insert("abcd".ToCharArray());
             trie.Insert("abcde".ToCharArray());

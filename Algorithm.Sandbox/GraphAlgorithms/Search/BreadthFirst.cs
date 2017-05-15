@@ -27,10 +27,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
         /// <param name="HashSet"></param>
         /// <param name="searchVertex"></param>
         /// <returns></returns>
-        private bool BFS(AsGraphVertex<T> referenceVertex,
+        private bool BFS(GraphVertex<T> referenceVertex,
             HashSet<T> visited, T searchVertex)
         {
-            var bfsQueue = new Queue<AsGraphVertex<T>>();
+            var bfsQueue = new Queue<GraphVertex<T>>();
 
             bfsQueue.Enqueue(referenceVertex);
             visited.Add(referenceVertex.Value);

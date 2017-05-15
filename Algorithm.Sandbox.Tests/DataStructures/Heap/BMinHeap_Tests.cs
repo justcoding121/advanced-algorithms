@@ -24,7 +24,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             }
 
             //insert test
-            var tree = new AsBMinHeap<int>(initial);
+            var tree = new BMinHeap<int>(initial);
 
             for (int i = 51; i <= 99; i++)
             {

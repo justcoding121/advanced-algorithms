@@ -27,7 +27,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
         /// <param name="visited"></param>
         /// <param name="searchVetex"></param>
         /// <returns></returns>
-        private bool DFS(AsGraphVertex<T> current,
+        private bool DFS(GraphVertex<T> current,
             HashSet<T> visited, T searchVetex)
         {
             visited.Add(current.Value);

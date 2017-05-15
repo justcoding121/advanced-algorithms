@@ -9,7 +9,7 @@ namespace Algorithm.Sandbox.Sorting
         public static T[] Sort(T[] array)
         {
             //create BST
-            var tree = new AsRedBlackTree<T>();
+            var tree = new RedBlackTree<T>();
             for (int i = 0; i < array.Length; i++)
             {
                 tree.Insert(array[i]);

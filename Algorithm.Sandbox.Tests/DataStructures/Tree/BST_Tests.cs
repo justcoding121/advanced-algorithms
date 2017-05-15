@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         public void BST_Test()
         {
             //insert test
-            var tree = new AsBST<int>();
+            var tree = new BST<int>();
             Assert.AreEqual(tree.GetHeight(), -1);
 
             tree.Insert(11);
@@ -81,7 +81,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new AsBST<int>();
+            var tree = new BST<int>();
 
             for (int i = 0; i < nodeCount; i++)
             {

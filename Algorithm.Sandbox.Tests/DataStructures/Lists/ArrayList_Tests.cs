@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void ArrayList_Test()
         {
-            var arrayList = new AsArrayList<int>();
+            var arrayList = new ArrayList<int>();
             int nodeCount = 1000 * 10;
 
             for (int i = 0; i <= nodeCount; i++)
@@ -50,7 +50,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void ArrayList_InsertAt_Test()
         {
-            var arrayList = new AsArrayList<int>();
+            var arrayList = new ArrayList<int>();
             int nodeCount = 10;
 
             for (int i = 0; i <= nodeCount; i++)

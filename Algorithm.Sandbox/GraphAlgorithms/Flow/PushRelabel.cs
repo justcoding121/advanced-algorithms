@@ -92,7 +92,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// </summary>
         /// <param name="vertex"></param>
         /// <param name="vertexStatusMap"></param>
-        private void Relabel(AsWeightedDiGraphVertex<T, W> vertex, 
+        private void Relabel(WeightedDiGraphVertex<T, W> vertex, 
             Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
             var min = int.MaxValue;
@@ -121,7 +121,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="overflowVertex"></param>
         /// <param name="vertexStatusMap"></param>
         /// <returns></returns>
-        private bool Push(AsWeightedDiGraphVertex<T, W> overflowVertex, 
+        private bool Push(WeightedDiGraphVertex<T, W> overflowVertex, 
             Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
             var overflow = vertexStatusMap[overflowVertex.Value].Overflow;

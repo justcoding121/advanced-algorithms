@@ -2,10 +2,10 @@
 
 namespace Algorithm.Sandbox.DataStructures.Tree
 {
-    public interface AsIBSTNode<T> where T : IComparable
+    public interface IBSTNode<T> where T : IComparable
     {
-        AsIBSTNode<T> Left { get;  }
-        AsIBSTNode<T> Right { get;  }
+        IBSTNode<T> Left { get;  }
+        IBSTNode<T> Right { get;  }
 
         T Value { get;  }
     }

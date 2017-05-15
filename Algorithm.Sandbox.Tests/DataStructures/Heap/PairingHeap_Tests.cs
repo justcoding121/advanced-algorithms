@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
             //insert test
             var tree = new AsPairingMinHeap<int>();
 
-            var nodePointers = new List<AsPairingTreeNode<int>>();
+            var nodePointers = new List<PairingTreeNode<int>>();
 
             for (int i = 0; i <= nodeCount; i++)
             {

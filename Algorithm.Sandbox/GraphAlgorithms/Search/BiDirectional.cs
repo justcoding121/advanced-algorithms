@@ -34,8 +34,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
             var visitedA = new HashSet<T>();
             var visitedB = new HashSet<T>();
 
-            var bfsQueueA = new Queue<AsDiGraphVertex<T>>();
-            var bfsQueueB = new Queue<AsDiGraphVertex<T>>();
+            var bfsQueueA = new Queue<DiGraphVertex<T>>();
+            var bfsQueueB = new Queue<DiGraphVertex<T>>();
 
             bfsQueueA.Enqueue(graph.Vertices[source]);
             bfsQueueB.Enqueue(graph.Vertices[destination]);

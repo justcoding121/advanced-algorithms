@@ -64,7 +64,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
             var sortedEdges = MergeSort<MSTEdge<T,W>>.Sort(sortArray);
 
             var result = new List<MSTEdge<T,W>>();
-            var disJointSet = new AsDisJointSet<T>();
+            var disJointSet = new DisJointSet<T>();
 
             //create set
             foreach (var vertex in graph.Vertices)
@@ -106,7 +106,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
         /// <param name="visitedVertices"></param>
         /// <param name="visitedEdges"></param>
         /// <param name="result"></param>
-        private void DFS(AsWeightedGraphVertex<T, W> currentVertex,
+        private void DFS(WeightedGraphVertex<T, W> currentVertex,
             HashSet<T> visitedVertices,
             Dictionary<T, HashSet<T>> visitedEdges,
             List<MSTEdge<T,W>> result)

@@ -9,7 +9,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void TernarySearchTree_Smoke_Test()
         {
-            var searchTree = new AsTernarySearchTree<char>();
+            var searchTree = new TernarySearchTree<char>();
 
             searchTree.Insert("cat".ToCharArray());
             searchTree.Insert("cats".ToCharArray());

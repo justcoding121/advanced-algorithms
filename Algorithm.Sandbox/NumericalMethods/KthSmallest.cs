@@ -26,7 +26,7 @@ namespace Algorithm.Sandbox.NumericalMethods
                 throw new Exception("K exceeds input length.");
             }
 
-            var minHeap = new AsBMinHeap<T>(input);
+            var minHeap = new BMinHeap<T>(input);
 
             //0,1,2...(k-1) min extraction
             for (int i = 0; i < k - 1; i++)

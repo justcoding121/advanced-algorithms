@@ -33,7 +33,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cycle
             return false;
         }
 
-        private bool DFS(AsDiGraphVertex<T> current, 
+        private bool DFS(DiGraphVertex<T> current, 
             HashSet<T> visited, HashSet<T> visiting)
         {
             visiting.Add(current.Value);

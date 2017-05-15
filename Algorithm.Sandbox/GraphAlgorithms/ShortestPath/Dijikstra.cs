@@ -84,7 +84,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms
             //min heap to pick next closest vertex 
             var minHeap = new AsFibornacciMinHeap<MinHeapWrap<T, W>>();
             //keep references of heap Node for decrement key operation
-            var heapMapping = new Dictionary<T, AsFibornacciTreeNode<MinHeapWrap<T, W>>>();
+            var heapMapping = new Dictionary<T, FibornacciTreeNode<MinHeapWrap<T, W>>>();
 
             //add vertices to min heap and progress map
             foreach (var vertex in graph.Vertices)

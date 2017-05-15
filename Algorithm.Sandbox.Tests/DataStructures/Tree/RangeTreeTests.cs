@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void AsRangeTree1D_Smoke_Test()
         {
-            var tree = new AsDRangeTree<int>(1);
+            var tree = new DRangeTree<int>(1);
 
             tree.Insert(new int[] { 0 });
             tree.Insert(new int[] { 1 });
@@ -48,7 +48,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void AsRangeTree2D_Smoke_Test()
         {
-            var tree = new AsDRangeTree<int>(2);
+            var tree = new DRangeTree<int>(2);
 
             tree.Insert(new int[] { 0, 1 });
             tree.Insert(new int[] { 1, 1 });

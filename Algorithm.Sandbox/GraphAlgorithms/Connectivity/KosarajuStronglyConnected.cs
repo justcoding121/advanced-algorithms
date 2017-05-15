@@ -58,7 +58,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
         /// <param name="currentVertex"></param>
         /// <param name="visited"></param>
         /// <param name="finishStack"></param>
-        private void KosarajuStep1(AsDiGraphVertex<T> currentVertex,
+        private void KosarajuStep1(DiGraphVertex<T> currentVertex,
             HashSet<T> visited,
             Stack<T> finishStack)
         {
@@ -84,7 +84,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
         /// <param name="finishStack"></param>
         /// <param name="result"></param>
         /// <returns></returns>
-        private List<T> KosarajuStep2(AsDiGraphVertex<T> currentVertex,
+        private List<T> KosarajuStep2(DiGraphVertex<T> currentVertex,
             HashSet<T> visited, Stack<T> finishStack,
             List<T> result)
         {

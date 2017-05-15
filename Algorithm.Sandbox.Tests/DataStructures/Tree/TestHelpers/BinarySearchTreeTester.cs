@@ -10,7 +10,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree.TestHelpers
     public class BinarySearchTreeTester<T> where T:IComparable
     {
 
-        public static bool VerifyIsBinarySearchTree(AsIBSTNode<T> node)
+        public static bool VerifyIsBinarySearchTree(IBSTNode<T> node)
         {
             if (node == null)
             {

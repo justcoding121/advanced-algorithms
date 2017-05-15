@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         public void BPTree_Smoke_Test()
         {
             //insert test
-            var tree = new AsBPTree<int>(3);
+            var tree = new BPTree<int>(3);
 
             tree.Insert(5);
             tree.Insert(3);
@@ -89,7 +89,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                             .ToList();
 
             var order = 3;
-            var tree = new AsBPTree<int>(order);
+            var tree = new BPTree<int>(order);
 
             for (int i = 0; i < nodeCount; i++)
             {
@@ -156,7 +156,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new AsBPTree<int>(3);
+            var tree = new BPTree<int>(3);
 
             for (int i = 0; i < nodeCount; i++)
             {

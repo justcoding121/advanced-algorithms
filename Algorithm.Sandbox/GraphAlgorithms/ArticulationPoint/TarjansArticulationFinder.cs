@@ -36,7 +36,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint
         /// <param name="parent"></param>
         /// <param name="discoveryTime"></param>
         /// <returns></returns>
-        private List<T> DFS(AsGraphVertex<T> currentVertex,
+        private List<T> DFS(GraphVertex<T> currentVertex,
              List<T> result,
              Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
              Dictionary<T, T> parent, ref int discoveryTime)

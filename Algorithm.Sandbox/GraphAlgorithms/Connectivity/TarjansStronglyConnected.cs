@@ -51,7 +51,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
         /// <param name="parent"></param>
         /// <param name="discoveryTime"></param>
         /// <returns></returns>
-        private void DFS(AsDiGraphVertex<T> currentVertex,
+        private void DFS(DiGraphVertex<T> currentVertex,
              List<List<T>> result,
              Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
              Stack<T> pathStack,

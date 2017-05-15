@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void TreeHashSet_Test()
         {
-            var HashSet = new AsTreeHashSet<int>();
+            var HashSet = new TreeHashSet<int>();
 
             int nodeCount = 1000;
             //insert test

@@ -8,8 +8,8 @@ namespace Algorithm.Sandbox.NumericalMethods
     /// </summary>
     public class MedianStream
     {
-        private AsBMaxHeap<int> leftHeap = new AsBMaxHeap<int>();
-        private AsBMinHeap<int> rightHeap = new AsBMinHeap<int>();
+        private BMaxHeap<int> leftHeap = new BMaxHeap<int>();
+        private BMinHeap<int> rightHeap = new BMinHeap<int>();
 
         /// <summary>
         /// Add a new item to stream

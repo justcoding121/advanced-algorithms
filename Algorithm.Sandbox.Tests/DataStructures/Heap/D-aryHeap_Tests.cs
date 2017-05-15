@@ -24,7 +24,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
             }
 
             //insert test
-            var tree = new AsD_aryMinHeap<int>(4, initial);
+            var tree = new D_aryMinHeap<int>(4, initial);
 
             for (int i = 51; i <= 99; i++)
             {

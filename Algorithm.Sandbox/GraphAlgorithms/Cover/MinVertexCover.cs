@@ -5,10 +5,10 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cover
 {
     public class MinVertexCover<T>
     {
-        public List<AsGraphVertex<T>> GetMinVertexCover(AsGraph<T> graph)
+        public List<GraphVertex<T>> GetMinVertexCover(AsGraph<T> graph)
         {
-            return GetMinVertexCover(graph.ReferenceVertex, new HashSet<AsGraphVertex<T>>(),
-                new List<AsGraphVertex<T>>());
+            return GetMinVertexCover(graph.ReferenceVertex, new HashSet<GraphVertex<T>>(),
+                new List<GraphVertex<T>>());
         }
 
         /// <summary>
@@ -19,8 +19,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cover
         /// <param name="visited"></param>
         /// <param name="cover"></param>
         /// <returns></returns>
-        private List<AsGraphVertex<T>> GetMinVertexCover(AsGraphVertex<T> vertex,
-            HashSet<AsGraphVertex<T>> visited, List<AsGraphVertex<T>> cover)
+        private List<GraphVertex<T>> GetMinVertexCover(GraphVertex<T> vertex,
+            HashSet<GraphVertex<T>> visited, List<GraphVertex<T>> cover)
         {
             visited.Add(vertex);
 

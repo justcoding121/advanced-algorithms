@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void PriorityQueue_Test()
         {
-            var Queue = new AsPriorityQueue<int>();
+            var Queue = new PriorityQueue<int>();
 
             Queue.Enqueue(10);
             Queue.Enqueue(9);

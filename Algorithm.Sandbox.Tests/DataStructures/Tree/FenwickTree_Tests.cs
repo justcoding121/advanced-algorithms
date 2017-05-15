@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             var testArray = new int[] { 1, 3, 5, 7, 9, 11 };
 
             //tree with sum operation
-            var tree = new AsFenwickTree<int>(testArray,
+            var tree = new FenwickTree<int>(testArray,
                 new Func<int, int, int>((x, y) => x + y));
 
             var sum = tree.GetPrefixSum(3);

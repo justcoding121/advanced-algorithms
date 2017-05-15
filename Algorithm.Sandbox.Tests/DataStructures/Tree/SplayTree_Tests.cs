@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         public void SplayTree_SmokeTest()
         {
             //insert test
-            var tree = new AsSplayTree<int>();
+            var tree = new SplayTree<int>();
 
 
             tree.Insert(11);
@@ -59,7 +59,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new AsSplayTree<int>();
+            var tree = new SplayTree<int>();
 
             for (int i = 0; i < nodeCount; i++)
             {

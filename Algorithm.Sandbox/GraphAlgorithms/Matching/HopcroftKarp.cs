@@ -117,7 +117,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// <param name="partitions"></param>
         /// <param name="leftMatch"></param>
         /// <param name="rightMatch"></param>
-        private List<PathResult> DFS(AsGraphVertex<T> current,
+        private List<PathResult> DFS(GraphVertex<T> current,
             Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch,
             HashSet<T> visitPath,
             bool isRightSide)

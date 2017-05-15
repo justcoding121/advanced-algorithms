@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         public void TreapTree_SmokeTest()
         {
             //insert test
-            var tree = new AsTreapTree<int>();
+            var tree = new TreapTree<int>();
 
 
             tree.Insert(11);
@@ -59,7 +59,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new AsTreapTree<int>();
+            var tree = new TreapTree<int>();
 
             for (int i = 0; i < nodeCount; i++)
             {

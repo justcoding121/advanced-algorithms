@@ -154,19 +154,19 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         private List<T> BFS(AsWeightedDiGraph<T, W> residualGraph, T source, T sink)
         {
             //init parent lookup table to trace path
-            var parentLookUp = new Dictionary<AsWeightedDiGraphVertex<T, W>, AsWeightedDiGraphVertex<T, W>>();
+            var parentLookUp = new Dictionary<WeightedDiGraphVertex<T, W>, WeightedDiGraphVertex<T, W>>();
             foreach (var vertex in residualGraph.Vertices)
             {
                 parentLookUp.Add(vertex.Value, null);
             }
 
             //regular BFS stuff
-            var queue = new Queue<AsWeightedDiGraphVertex<T, W>>();
-            var visited = new HashSet<AsWeightedDiGraphVertex<T, W>>();
+            var queue = new Queue<WeightedDiGraphVertex<T, W>>();
+            var visited = new HashSet<WeightedDiGraphVertex<T, W>>();
             queue.Enqueue(residualGraph.Vertices[source]);
             visited.Add(residualGraph.Vertices[source]);
 
-            AsWeightedDiGraphVertex<T, W> currentVertex = null;
+            WeightedDiGraphVertex<T, W> currentVertex = null;
 
             while (queue.Count > 0)
             {

@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree.TestHelpers
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        internal static int GetMaxHeight<T>(AsBTreeNode<T> node) where T : IComparable
+        internal static int GetMaxHeight<T>(BTreeNode<T> node) where T : IComparable
         {
             var max = 0;
 
@@ -35,7 +35,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree.TestHelpers
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        internal static int GetMinHeight<T>(AsBTreeNode<T> node) where T : IComparable
+        internal static int GetMinHeight<T>(BTreeNode<T> node) where T : IComparable
         {
             var min = int.MaxValue;
 

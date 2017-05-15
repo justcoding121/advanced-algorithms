@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Lists
         [TestMethod]
         public void SkipList_Test()
         {
-            var skipList = new AsSkipList<int>();
+            var skipList = new SkipList<int>();
 
             for (int i = 1; i < 100; i++)
             {

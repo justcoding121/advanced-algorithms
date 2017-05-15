@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 new int[2] { 13, 15 }, new int[2] { 6, 12 }, new int[2] { 9, 1 },
                 new int[2] { 2, 7 }, new int[2] { 10, 19 } };
 
-            var tree = new AsKDTree<int>(2);
+            var tree = new KDTree<int>(2);
 
             foreach (var pt in testPts)
             {
@@ -64,7 +64,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 testPts.Add(new int[] { start, end });
             }
 
-            var tree = new AsKDTree<int>(2);
+            var tree = new KDTree<int>(2);
 
             foreach (var pt in testPts)
             {
@@ -99,7 +99,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 new int[2] { 1, 6 }, new int[2] { 6, 7 }, new int[2] { 9, 1 },
                 new int[2] { 2, 7 }, new int[2] { 20, 19 } };
 
-            var tree = new AsKDTree<int>(2);
+            var tree = new KDTree<int>(2);
 
             foreach (var pt in testPts)
             {
@@ -130,7 +130,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 testPts.Add(new int[] { start, end });
             }
 
-            var tree = new AsKDTree<int>(2);
+            var tree = new KDTree<int>(2);
 
             foreach (var pt in testPts)
             {

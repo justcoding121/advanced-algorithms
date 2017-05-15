@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
             //insert test
             var tree = new AsFibornacciMinHeap<int>();
 
-            var nodePointers = new List<AsFibornacciTreeNode<int>>();
+            var nodePointers = new List<FibornacciTreeNode<int>>();
 
             for (int i = 0; i <= nodeCount; i++)
             {

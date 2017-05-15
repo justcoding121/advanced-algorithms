@@ -9,7 +9,7 @@ namespace Algorithm.Sandbox.Sorting
         public static T[] Sort(T[] array)
         {
             //heapify
-            var heap = new AsBMinHeap<T>();
+            var heap = new BMinHeap<T>();
             for (int i = 0; i < array.Length; i++)
             {
                 heap.Insert(array[i]);

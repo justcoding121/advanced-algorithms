@@ -45,7 +45,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
         /// <param name="vertex"></param>
         /// <param name="visited"></param>
         /// <param name="pathStack"></param>
-        private void DFS(AsDiGraphVertex<T> vertex, 
+        private void DFS(DiGraphVertex<T> vertex, 
             HashSet<T> visited, Stack<T> pathStack)
         {
             visited.Add(vertex.Value);

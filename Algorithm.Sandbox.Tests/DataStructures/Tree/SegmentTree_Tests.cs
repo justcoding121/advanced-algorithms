@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             var testArray = new int[] { 1, 3, 5, 7, 9, 11 };
           
             //tree with sum operation
-            var tree = new AsSegmentTree<int>(testArray,
+            var tree = new SegmentTree<int>(testArray,
                 new Func<int, int, int>((x, y) => x + y),
                 new Func<int>(() => 0));
 

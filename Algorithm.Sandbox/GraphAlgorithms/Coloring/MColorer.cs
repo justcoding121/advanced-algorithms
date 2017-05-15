@@ -28,11 +28,11 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
         public MColorResult<T, C> Color(AsGraph<T> graph, C[] colors)
         {
 
-            AsGraphVertex<T> first = graph.ReferenceVertex;
+            GraphVertex<T> first = graph.ReferenceVertex;
 
             var progress = CanColor(first, colors, 
-                new Dictionary<AsGraphVertex<T>, C>(),
-                new HashSet<AsGraphVertex<T>>());
+                new Dictionary<GraphVertex<T>, C>(),
+                new HashSet<GraphVertex<T>>());
 
             if (progress.Count == graph.VerticesCount)
             {
@@ -62,8 +62,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
         /// <param name="progress"></param>
         /// <param name="visited"></param>
         /// <returns></returns>
-        private Dictionary<AsGraphVertex<T>, C> CanColor(AsGraphVertex<T> vertex, C[] colors, 
-             Dictionary<AsGraphVertex<T>, C> progress, HashSet<AsGraphVertex<T>> visited)
+        private Dictionary<GraphVertex<T>, C> CanColor(GraphVertex<T> vertex, C[] colors, 
+             Dictionary<GraphVertex<T>, C> progress, HashSet<GraphVertex<T>> visited)
         {
             for (int i = 0; i < colors.Length; i++)
             {
@@ -99,8 +99,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
         /// <param name="vertex"></param>
         /// <param name="color"></param>
         /// <returns></returns>
-        private bool isSafe(Dictionary<AsGraphVertex<T>, C> progress,
-            AsGraphVertex<T> vertex, C color)
+        private bool isSafe(Dictionary<GraphVertex<T>, C> progress,
+            GraphVertex<T> vertex, C color)
         {
            foreach(var edge in vertex.Edges)
             {

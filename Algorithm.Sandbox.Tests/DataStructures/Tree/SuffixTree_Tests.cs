@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void Suffix_Smoke_Test()
         {
-            var suffixTree = new AsSuffixTree<char>();
+            var suffixTree = new SuffixTree<char>();
 
             suffixTree.Insert("bananaa".ToCharArray());
             Assert.IsTrue(suffixTree.Count == 1);
