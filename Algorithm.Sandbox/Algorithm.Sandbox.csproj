@@ -65,6 +65,7 @@
     <Compile Include="DataStructures\List\SkipList.cs" />
     <Compile Include="DataStructures\Queue\Queue.cs" />
     <Compile Include="DataStructures\Set\DisJointSet.cs" />
+    <Compile Include="DataStructures\Set\SparseSet.cs" />
     <Compile Include="DataStructures\Stack\Stack.cs" />
     <Compile Include="DataStructures\Tree\AvlTree.cs" />
     <Compile Include="DataStructures\Tree\B+Tree.cs" />
