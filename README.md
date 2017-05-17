@@ -184,10 +184,9 @@ Note: Among the implementations here in practice, with the exclusion of Decremen
 ## Sorting and Searching
 
 * Median of stream of numbers ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/NumericalMethods/MedianStream.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/NumericalMethods/MedianStream_Tests.cs))
-* Array in Zig-Zag fashion
+* Array in zig-zag fashion
 * Binary Search
 * Search on almost sorted array
-* Find duplicates in an array
 * Sort an almost sorted array
 
 ### Sorting Algorithms
@@ -306,6 +305,7 @@ All are top down solutions with memoization technique.
 * Absolute value (abs) without branching
 * Minimum or Maximum of two integers
 * Find the two non-repeating elements in an array
+* Find 
 * Reverse Bits of a Number
 * Next Power of 2
 * Check if a Number is Multiple of 3
