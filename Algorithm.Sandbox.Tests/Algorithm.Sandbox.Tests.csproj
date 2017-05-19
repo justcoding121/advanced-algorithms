@@ -152,6 +152,7 @@
     <Compile Include="NumericalMethods\Primality_Tests.cs" />
     <Compile Include="NumericalMethods\PrimeGenerator_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\BinarySearch_Tests.cs" />
     <Compile Include="Sorting\BubbleSort_Tests.cs" />
     <Compile Include="Sorting\BucketSort_Tests.cs" />
     <Compile Include="Sorting\CountingSort_Tests.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Sorting\SelectionSort_Tests.cs" />
     <Compile Include="Sorting\ShellSort_Tests.cs" />
     <Compile Include="Sorting\TreeSort_Tests.cs" />
+    <Compile Include="Sorting\ZigZag_Tests.cs" />
     <Compile Include="String\Manachers_Tests.cs" />
     <Compile Include="String\Permutate.cs" />
     <Compile Include="String\Search\RabinKarp_Tests.cs" />
