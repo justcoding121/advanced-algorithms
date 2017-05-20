@@ -230,22 +230,22 @@ All are top down solutions with memoization technique.
 - [X] Count bool parenthesization ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/CountBoolParenthesization.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/BoolParenthesis_Tests.cs))
 - [X] Count decoding ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/CountDecodings.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/CountDecodings_Test.cs))
 - [X] Dice throw ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/DiceThrow.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/DiceThrow_Tests.cs))
-- [X] Count possible binary tree from a preorder sequence
-- [X] Ways to cover a distance
-- [X] Egg drop problem
+- [ ] Count possible binary tree from a preorder sequence
+- [ ] Ways to cover a distance
+- [ ] Egg drop problem
 
 ### Maximizing
 
 - [X] Knapsack problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/KnackSackProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Maximizing/KnackSackProblems_Tests.cs))
 - [X] Max sum subsequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/MaxSumSubSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Maximizing/MaxSumSequence_Tests.cs))
 - [X] Max increasing sum sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/MaxSumIncreasingSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Maximizing/MaxSumIncreasingSequence_Tests.cs))
-- [X] Max profit buy/sell stocks in K transactions
+- [ ] Max profit buy/sell stocks in K transactions
 
 ### Minimizing
 
 - [X] Coin change problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Minimizing/CoinChangeProblems_Tests.cs))
-- [X] Min edit distance
-- [X] Min array jumps
+- [ ] Min edit distance
+- [ ] Min array jumps
 
 ### Palindrome
 
@@ -270,7 +270,7 @@ All are top down solutions with memoization technique.
 
 - [X] Tower of hanoi ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/TowerOfHanoi_Tests.cs))
 - [X] Fibonacci number generator ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Fibornacci.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Fibornacci_Tests.cs))
-- [X] Optimal game strategy
+- [ ] Optimal game strategy
 - [ ] Print Max A's
 - [ ] Text Justification
 - [ ] Two Person City Traversal
