@@ -95,6 +95,7 @@
     <Compile Include="DataStructures\Graph\AdjacencyList\WeightedGraph.cs" />
     <Compile Include="DataStructures\Tree\SuffixTree.cs" />
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
+    <Compile Include="DynamicProgramming\Count\CountBinaryTree.cs" />
     <Compile Include="DynamicProgramming\Matrix\ChainMultiplication.cs" />
     <Compile Include="DynamicProgramming\Matrix\Max1sRectangle.cs" />
     <Compile Include="DynamicProgramming\Matrix\Max1sSquare.cs" />

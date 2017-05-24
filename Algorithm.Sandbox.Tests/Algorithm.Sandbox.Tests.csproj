@@ -96,6 +96,7 @@
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
+    <Compile Include="DynamicProgramming\Count\CountBinaryTree_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\MatrixMinCost_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\Max1sSquare_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\Max1sRectangle_Tests.cs" />
