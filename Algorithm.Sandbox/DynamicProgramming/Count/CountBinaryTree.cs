@@ -12,7 +12,8 @@
         }
 
         /// <summary>
-        /// If we draw the BSTs we will see the count will be equal
+        /// If we draw the BTs ignoring symmetrical duplicates
+        /// we will see the count will be equal
         /// to n'th Catalan number
         /// And is same as the number of ways we can 
         /// parenthesize an expression
