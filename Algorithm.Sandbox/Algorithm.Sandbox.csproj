@@ -101,6 +101,7 @@
     <Compile Include="DynamicProgramming\Matrix\Max1sSquare.cs" />
     <Compile Include="DynamicProgramming\Matrix\MaxSubMatrix.cs" />
     <Compile Include="DynamicProgramming\Matrix\MaxXSideSubSquare.cs" />
+    <Compile Include="DynamicProgramming\Maximizing\MaxProfitKTransactions.cs" />
     <Compile Include="DynamicProgramming\Sequence\LongestBitonicSequence.cs" />
     <Compile Include="DynamicProgramming\Palindrome\PalindromeMinDeletion.cs" />
     <Compile Include="DynamicProgramming\Sequence\BalancedPartition.cs" />

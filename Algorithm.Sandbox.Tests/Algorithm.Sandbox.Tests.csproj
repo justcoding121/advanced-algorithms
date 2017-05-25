@@ -101,6 +101,7 @@
     <Compile Include="DynamicProgramming\Matrix\Max1sSquare_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\Max1sRectangle_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\MaxXSideSubSquare_Tests.cs" />
+    <Compile Include="DynamicProgramming\Maximizing\MaxProfitKTransactions_Tests.cs" />
     <Compile Include="DynamicProgramming\Sequence\BalancedPartition_Tests.cs" />
     <Compile Include="DynamicProgramming\Count\BoolParenthesis_Tests.cs" />
     <Compile Include="DynamicProgramming\Count\CountDecodings_Test.cs" />
