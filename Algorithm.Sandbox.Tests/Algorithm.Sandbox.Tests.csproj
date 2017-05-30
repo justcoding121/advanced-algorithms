@@ -97,11 +97,17 @@
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
     <Compile Include="DynamicProgramming\Count\CountBinaryTree_Tests.cs" />
+    <Compile Include="DynamicProgramming\Minimizing\MinArrayJumps_Tests.cs" />
+    <Compile Include="DynamicProgramming\Minimizing\MinEditDistance_Tests.cs" />
+    <Compile Include="DynamicProgramming\Minimizing\MinEggDrop_Tests.cs" />
+    <Compile Include="DynamicProgramming\Count\WaysToCover_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\MatrixMinCost_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\Max1sSquare_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\Max1sRectangle_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\MaxXSideSubSquare_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\MaxProfitKTransactions_Tests.cs" />
+    <Compile Include="DynamicProgramming\OptimalGameStrategy_Tests.cs" />
+    <Compile Include="DynamicProgramming\PrintMaxAs_Tests.cs" />
     <Compile Include="DynamicProgramming\Sequence\BalancedPartition_Tests.cs" />
     <Compile Include="DynamicProgramming\Count\BoolParenthesis_Tests.cs" />
     <Compile Include="DynamicProgramming\Count\CountDecodings_Test.cs" />
@@ -122,6 +128,7 @@
     <Compile Include="DynamicProgramming\Palindrome\PalindromeMinDeletion_Tests.cs" />
     <Compile Include="DynamicProgramming\Palindrome\ShortestPalindrome_Tests.cs" />
     <Compile Include="DynamicProgramming\Sum\SubSetSum_Tests.cs" />
+    <Compile Include="DynamicProgramming\TextJustification_Tests.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi_Tests.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoints\TarjansArticulation_Tests.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridge_Tests.cs" />
