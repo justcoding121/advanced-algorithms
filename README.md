@@ -318,7 +318,6 @@ All are top down solutions with memoization technique.
 - [ ] Maximum Subarray XOR ([Implementation]() | [Tests]())
 - [ ] Magic Number ([Implementation]() | [Tests]())
 - [ ] Sum of bit differences among all pairs ([Implementation]() | [Tests]())
-- [ ] Swap All Odds And Even Bits ([Implementation]() | [Tests]())
 - [ ] Count number of bits to be flipped to convert A to B ([Implementation]() | [Tests]())
 - [ ] Find Next Sparse Number ([Implementation]() | [Tests]())
 
