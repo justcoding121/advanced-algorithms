@@ -273,7 +273,6 @@ All are top down solutions with memoization technique.
 - [ ] Optimal game strategy
 - [ ] Print Max A's
 - [ ] Text Justification
-- [ ] Two Person City Traversal
 - [ ] Travelling Salesman Problem
 - [ ] Unique Binary Search Tree
 - [ ] Word Break problem
@@ -287,8 +286,8 @@ All are top down solutions with memoization technique.
 - [ ] Regular Expression
 - [ ] String interleaving
 - [ ] Staircase problem in Fibornacci Series
-- [ ] 2D array sum
 - [ ] Assembly line scheduling
+- [ ] Skyline problem
 
 ## Bit Algorithms
 
