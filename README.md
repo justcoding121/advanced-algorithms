@@ -231,7 +231,8 @@ All are top down solutions with memoization technique.
 - [X] Count decoding ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/CountDecodings.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/CountDecodings_Test.cs))
 - [X] Dice throw ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/DiceThrow.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/DiceThrow_Tests.cs))
 - [X] Count possible binary tree from a preorder sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/CountBinaryTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/CountBinaryTree_Tests.cs))
-- [ ] Ways to cover a distance
+- [ ] Ways to cover a distance ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/WaysToCoverDistance.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/WaysToCover_Tests.cs))
+- [ ] Staircase problem in Fibornacci Series ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/StairCaseProblem.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/StairCaseProblem_Tests.cs))
 
 ### Maximizing
 
@@ -239,13 +240,21 @@ All are top down solutions with memoization technique.
 - [X] Max sum subsequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/MaxSumSubSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Maximizing/MaxSumSequence_Tests.cs))
 - [X] Max increasing sum sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/MaxSumIncreasingSequence.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Maximizing/MaxSumIncreasingSequence_Tests.cs))
 - [X] Max profit buy/sell stocks in K transactions ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/MaxProfitKTransactions.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Maximizing/MaxProfitKTransactions_Tests.cs))
+- [ ] Box Stacking ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/BoxStacking.cs) | [Tests]())
+- [ ] Building Bridges ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/BuildingBridges.cs) | [Tests]())
+- [ ] Burst Balloon ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/BuildingBridges.cs) | [Tests]())
+- [ ] Cutting Rod ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/CuttingRod.cs) | [Tests]())
+- [ ] Print Max A's ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/PrintMaxAs.cs) | [Tests]())
+- [ ] Weighted Job Scheduling ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/WeightedJobScheduling.cs) | [Tests]())
 
 ### Minimizing
 
 - [X] Coin change problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Minimizing/CoinChangeProblems_Tests.cs))
-- [ ] Min Egg drop problem
-- [ ] Min edit distance
-- [ ] Min array jumps
+- [ ] Assembly line scheduling ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/AssemblyLineScheduling.cs) | [Tests]())
+- [ ] Min Egg drop problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/MinEggDrop.cs) | [Tests]())
+- [ ] Min edit distance ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/MinEditDistance.cs) | [Tests]())
+- [ ] Min array jumps ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/MinArrayJumps.cs) | [Tests]())
+- [ ] Travelling Salesman Problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/TravellingSalesman.cs) | [Tests]())
 
 ### Palindrome
 
@@ -266,69 +275,63 @@ All are top down solutions with memoization technique.
 
 - [X] Subset sum ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Sum/SubSetSum.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Sum/SubSetSum_Tests.cs))
 
+###String
+
+- [ ] Wild card matching ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/String/WildCardMatching.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/String/WildCardMatching_Tests.cs))
+- [ ] Regular Expression ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/String/RegularExpressionMatching.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/String/RegularExpressionMatching_Tests.cs))
+- [ ] String interleaving ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/String/StringInterleaving.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/String/StringInterleaving_Tests.cs))
+- [ ] Word Break problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/String/WordBreakProblem.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/String/WordBreak_Tests.cs))
+- [ ] Text Justification ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/String/TextJustification.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/String/TextJustification_Tests.cs))
+
 ### Other
 
 - [X] Tower of hanoi ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DynamicProgramming/TowerOfHanoi.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/TowerOfHanoi_Tests.cs))
 - [X] Fibonacci number generator ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Fibornacci.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Fibornacci_Tests.cs))
-- [ ] Optimal game strategy
-- [ ] Print Max A's
-- [ ] Text Justification
-- [ ] Travelling Salesman Problem
-- [ ] Unique Binary Search Tree
-- [ ] Word Break problem
-- [ ] Box Stacking
-- [ ] Building Bridges
-- [ ] Cutting Rod
-- [ ] Burst Balloon
-- [ ] Optimal Binary Search Tree
-- [ ] Weighted Job Scheduling
-- [ ] Wild card matching
-- [ ] Regular Expression
-- [ ] String interleaving
-- [ ] Staircase problem in Fibornacci Series
-- [ ] Assembly line scheduling
-- [ ] Skyline problem
+- [ ] Optimal game strategy ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/OptimalBST.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/OptimalGameStrategy_Tests.cs))
+- [ ] Unique Binary Search Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/UniqueBST.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/UniqueBST_Tests.cs))
+- [ ] Optimal Binary Search Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/OptimalBST.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/OptimalBST_Tests.cs))
 
 ## Bit Algorithms
 
-- [ ] Base conversion
-- [ ] Find the element that appears once
-- [ ] Set bits in all numbers from 1 to n
-- [ ] Swap bits
-- [ ] Add two numbers
-- [ ] Smallest of three
-- [ ] A Boolean Array Puzzle
-- [ ] Set bits in an (big) array
-- [ ] Next higher number with same number of set bits
-- [ ] Add 1 to a number
-- [ ] Absolute value (abs) without branching
-- [ ] Minimum or Maximum of two integers
-- [ ] Find the two non-repeating elements in an array
-- [ ] Find two repeating elements in an array
-- [ ] Reverse Bits of a Number
-- [ ] Next Power of 2
-- [ ] Check if a Number is Multiple of 3
-- [ ] Find parity
-- [ ] Swap all odd and even bits
-- [ ] Karatsuba algorithm for fast multiplication
-- [ ] Swap without temp
-- [ ] Check if a number is multiple of 9
-- [ ] Maximum Subarray XOR
-- [ ] Magic Number
-- [ ] Sum of bit differences among all pairs
-- [ ] Swap All Odds And Even Bits
-- [ ] Count number of bits to be flipped to convert A to B
-- [ ] Find Next Sparse Number
+- [ ] Base conversion ([Implementation]() | [Tests]())
+- [ ] Find the element that appears once ([Implementation]() | [Tests]())
+- [ ] Set bits in all numbers from 1 to n ([Implementation]() | [Tests]())
+- [ ] Swap bits ([Implementation]() | [Tests]())
+- [ ] Add two numbers ([Implementation]() | [Tests]())
+- [ ] Smallest of three ([Implementation]() | [Tests]()) 
+- [ ] A Boolean Array Puzzle ([Implementation]() | [Tests]())
+- [ ] Set bits in an (big) array ([Implementation]() | [Tests]())
+- [ ] Next higher number with same number of set bits ([Implementation]() | [Tests]())
+- [ ] Add 1 to a number ([Implementation]() | [Tests]())
+- [ ] Absolute value (abs) without branching ([Implementation]() | [Tests]())
+- [ ] Minimum or Maximum of two integers ([Implementation]() | [Tests]())
+- [ ] Find the two non-repeating elements in an array ([Implementation]() | [Tests]())
+- [ ] Find two repeating elements in an array ([Implementation]() | [Tests]())
+- [ ] Reverse Bits of a Number ([Implementation]() | [Tests]())
+- [ ] Next Power of 2 ([Implementation]() | [Tests]())
+- [ ] Check if a Number is Multiple of 3 ([Implementation]() | [Tests]())
+- [ ] Find parity ([Implementation]() | [Tests]())
+- [ ] Swap all odd and even bits ([Implementation]() | [Tests]())
+- [ ] Karatsuba algorithm for fast multiplication ([Implementation]() | [Tests]())
+- [ ] Swap without temp ([Implementation]() | [Tests]())
+- [ ] Check if a number is multiple of 9 ([Implementation]() | [Tests]())
+- [ ] Maximum Subarray XOR ([Implementation]() | [Tests]())
+- [ ] Magic Number ([Implementation]() | [Tests]())
+- [ ] Sum of bit differences among all pairs ([Implementation]() | [Tests]())
+- [ ] Swap All Odds And Even Bits ([Implementation]() | [Tests]())
+- [ ] Count number of bits to be flipped to convert A to B ([Implementation]() | [Tests]())
+- [ ] Find Next Sparse Number ([Implementation]() | [Tests]())
 
 ## Geometry
 
-- [ ] Convex hull
-- [ ] Line intersection
-- [ ] Closest point pair
-- [ ] Check if given point inside polygon
-- [ ] Rectangle intersection
+- [ ] Convex hull ([Implementation]() | [Tests]())
+- [ ] Line intersection ([Implementation]() | [Tests]())
+- [ ] Closest point pair ([Implementation]() | [Tests]())
+- [ ] Check if given point inside polygon ([Implementation]() | [Tests]())
+- [ ] Rectangle intersection ([Implementation]() | [Tests]())
 
 ## Divide & Conquer
 
-- [ ] Count Inversions
-- [ ] Strassen’s Matrix Multiplication
+- [ ] Count Inversions ([Implementation]() | [Tests]())
+- [ ] Strassen’s Matrix Multiplication ([Implementation]() | [Tests]())
+ 
