@@ -174,7 +174,7 @@
     <Compile Include="DynamicProgramming\String\WordBreak_Tests.cs" />
     <Compile Include="Geometry\ClosestPointPair_Tests.cs" />
     <Compile Include="Geometry\ConvexHull_Tests.cs" />
-    <Compile Include="Geometry\LineInsidePolygon_Tests.cs" />
+    <Compile Include="Geometry\PointInsidePolygon_Tests.cs" />
     <Compile Include="Geometry\LineIntersection_Tests.cs" />
     <Compile Include="Geometry\RectIntersection_Tests.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoints\TarjansArticulation_Tests.cs" />

@@ -173,7 +173,7 @@
     <Compile Include="DynamicProgramming\String\WordBreakProblem.cs" />
     <Compile Include="Geometry\ClosestPointPair.cs" />
     <Compile Include="Geometry\ConvexHull.cs" />
-    <Compile Include="Geometry\LineInsidePolygon.cs" />
+    <Compile Include="Geometry\PointInsidePolygon.cs" />
     <Compile Include="Geometry\LineIntersection.cs" />
     <Compile Include="Geometry\RectIntersection.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Algorithm.Sandbox.Tests.Geometry
 {
     [TestClass]
-    public class LineInsidePolygon_Tests
+    public class PointInsidePolygon_Tests
     {
         [TestMethod]
         public void SmokeTest()

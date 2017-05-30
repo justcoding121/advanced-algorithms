@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Geometry
 {
-    class LineInsidePolygon
+    class PointInsidePolygon
     {
     }
 }
