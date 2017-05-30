@@ -134,14 +134,14 @@
     <Compile Include="DynamicProgramming\Palindrome\ShortestPalindrome.cs" />
     <Compile Include="DynamicProgramming\Count\StairCaseProblem.cs" />
     <Compile Include="DynamicProgramming\Sum\SubSetSum.cs" />
-    <Compile Include="DynamicProgramming\TextJustification.cs" />
+    <Compile Include="DynamicProgramming\String\TextJustification.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />
     <Compile Include="DynamicProgramming\Minimizing\TravellingSalesman.cs" />
     <Compile Include="DynamicProgramming\UniqueBST.cs" />
     <Compile Include="DynamicProgramming\Maximizing\WeightedJobScheduling.cs" />
-    <Compile Include="DynamicProgramming\RegularExpressionMatching.cs" />
-    <Compile Include="DynamicProgramming\WildCardMatching.cs" />
-    <Compile Include="DynamicProgramming\WordBreakProblem.cs" />
+    <Compile Include="DynamicProgramming\String\RegularExpressionMatching.cs" />
+    <Compile Include="DynamicProgramming\String\WildCardMatching.cs" />
+    <Compile Include="DynamicProgramming\String\WordBreakProblem.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridgeFinder.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColorer.cs" />
@@ -188,7 +188,7 @@
     <Compile Include="Sorting\QuickSort.cs" />
     <Compile Include="Sorting\SelectionSort.cs" />
     <Compile Include="Sorting\ZigZagOrderer.cs" />
-    <Compile Include="DynamicProgramming\StringInterleaving.cs" />
+    <Compile Include="DynamicProgramming\String\StringInterleaving.cs" />
     <Compile Include="String\ManachersPalindrome.cs" />
     <Compile Include="String\Permutation.cs" />
     <Compile Include="String\Search\KMP.cs" />
