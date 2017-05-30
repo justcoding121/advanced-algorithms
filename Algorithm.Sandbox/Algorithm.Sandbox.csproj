@@ -46,6 +46,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitAlgorithms\AbsValue.cs" />
+    <Compile Include="BitAlgorithms\AddOne.cs" />
+    <Compile Include="BitAlgorithms\AddTwoNumbers.cs" />
+    <Compile Include="BitAlgorithms\BaseConversion.cs" />
+    <Compile Include="BitAlgorithms\BoolArrayPuzzle.cs" />
+    <Compile Include="BitAlgorithms\CountFlipBitsAToB.cs" />
+    <Compile Include="BitAlgorithms\FindUniqieElement.cs" />
+    <Compile Include="BitAlgorithms\IsMultipleOfNine.cs" />
+    <Compile Include="BitAlgorithms\IsMultipleOfThree.cs" />
+    <Compile Include="BitAlgorithms\KaratsubaFastMultiplication.cs" />
+    <Compile Include="BitAlgorithms\MagicNumber.cs" />
+    <Compile Include="BitAlgorithms\MaxSubArrayXOR.cs" />
+    <Compile Include="BitAlgorithms\MinMaxOfTwoIntegers.cs" />
+    <Compile Include="BitAlgorithms\NextHighNumberWithSameSetBits.cs" />
+    <Compile Include="BitAlgorithms\NextPowOfTwo.cs" />
+    <Compile Include="BitAlgorithms\NextSparseNumber.cs" />
+    <Compile Include="BitAlgorithms\ParityFinder.cs" />
+    <Compile Include="BitAlgorithms\ReverseBits.cs" />
+    <Compile Include="BitAlgorithms\SetBits.cs" />
+    <Compile Include="BitAlgorithms\SetBitsBigArray.cs" />
+    <Compile Include="BitAlgorithms\SmallOfThree.cs" />
+    <Compile Include="BitAlgorithms\SumBitDiff.cs" />
+    <Compile Include="BitAlgorithms\SwapBits.cs" />
+    <Compile Include="BitAlgorithms\SwapOddEvenBits.cs" />
+    <Compile Include="BitAlgorithms\SwapWithoutTemp.cs" />
+    <Compile Include="BitAlgorithms\TwoNonRepeatingNums.cs" />
+    <Compile Include="BitAlgorithms\TwoRepeatingNums.cs" />
     <Compile Include="Compression\HuffmanCoding.cs" />
     <Compile Include="DataStructures\Dictionary\Dictionary.cs" />
     <Compile Include="DataStructures\Dictionary\OpenAddressDictionary.cs" />
@@ -95,6 +122,8 @@
     <Compile Include="DataStructures\Graph\AdjacencyList\WeightedGraph.cs" />
     <Compile Include="DataStructures\Tree\SuffixTree.cs" />
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
+    <Compile Include="DivideAndConquer\CountInversions.cs" />
+    <Compile Include="DivideAndConquer\StrassensMatrixMult.cs" />
     <Compile Include="DynamicProgramming\Minimizing\AssemblyLineScheduling.cs" />
     <Compile Include="DynamicProgramming\Maximizing\BoxStacking.cs" />
     <Compile Include="DynamicProgramming\Maximizing\BuildingBridges.cs" />
@@ -142,6 +171,11 @@
     <Compile Include="DynamicProgramming\String\RegularExpressionMatching.cs" />
     <Compile Include="DynamicProgramming\String\WildCardMatching.cs" />
     <Compile Include="DynamicProgramming\String\WordBreakProblem.cs" />
+    <Compile Include="Geometry\ClosestPointPair.cs" />
+    <Compile Include="Geometry\ConvexHull.cs" />
+    <Compile Include="Geometry\LineInsidePolygon.cs" />
+    <Compile Include="Geometry\LineIntersection.cs" />
+    <Compile Include="Geometry\RectIntersection.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridgeFinder.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColorer.cs" />

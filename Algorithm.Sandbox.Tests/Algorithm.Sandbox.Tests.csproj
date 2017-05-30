@@ -50,6 +50,33 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BitAlgorithms\AbsValue_Tests.cs" />
+    <Compile Include="BitAlgorithms\AddOne_Tests.cs" />
+    <Compile Include="BitAlgorithms\AddTwoNumbers_Tests.cs" />
+    <Compile Include="BitAlgorithms\BaseConversion_Tests.cs" />
+    <Compile Include="BitAlgorithms\BoolArrayPuzzle_Tests.cs" />
+    <Compile Include="BitAlgorithms\CountFlipBitsAToB_Tests.cs" />
+    <Compile Include="BitAlgorithms\FindUniqueElement_Tests.cs" />
+    <Compile Include="BitAlgorithms\IsMultipleOfNine_Tests.cs" />
+    <Compile Include="BitAlgorithms\IsMultipleOfThree_Tests.cs" />
+    <Compile Include="BitAlgorithms\KaratsubaFastMultiplication_Tests.cs" />
+    <Compile Include="BitAlgorithms\MagicNumber_Tests.cs" />
+    <Compile Include="BitAlgorithms\MaxSubArrayXOR_Tests.cs" />
+    <Compile Include="BitAlgorithms\MinMaxOfTwoIntegers_Tests.cs" />
+    <Compile Include="BitAlgorithms\NextHighNumberWithSameSetBits_Tests.cs" />
+    <Compile Include="BitAlgorithms\NextPowOfTwo_Tests.cs" />
+    <Compile Include="BitAlgorithms\NextSparseNumber_Tests.cs" />
+    <Compile Include="BitAlgorithms\ParityFinder_Tests.cs" />
+    <Compile Include="BitAlgorithms\ReverseBits_Tests.cs" />
+    <Compile Include="BitAlgorithms\SetBits_Tests.cs" />
+    <Compile Include="BitAlgorithms\SetBitsBigArray_Tests.cs" />
+    <Compile Include="BitAlgorithms\SmallOfThree_Tests.cs" />
+    <Compile Include="BitAlgorithms\SumBitDiff_Tests.cs" />
+    <Compile Include="BitAlgorithms\SwapBits_Tests.cs" />
+    <Compile Include="BitAlgorithms\SwapOddEvenBits_Tests.cs" />
+    <Compile Include="BitAlgorithms\SwapWithoutTemp_Tests.cs" />
+    <Compile Include="BitAlgorithms\TwoNonRepeatingNums_Tests.cs" />
+    <Compile Include="BitAlgorithms\TwoRepeatingNums_Tests.cs" />
     <Compile Include="Compression\HuffmanCoding_Tests.cs" />
     <Compile Include="DataStructures\Dictionary\Dictionary_Tests.cs" />
     <Compile Include="DataStructures\Dictionary\TreeDictionary_Tests.cs" />
@@ -96,6 +123,8 @@
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
+    <Compile Include="DivideAndConquer\CountInversions_Tests.cs" />
+    <Compile Include="DivideAndConquer\StrassensMatrixMult_Tests.cs" />
     <Compile Include="DynamicProgramming\Minimizing\AssemblyLineScheduling_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\BoxStacking_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\BuildingBridges_Tests.cs" />
@@ -143,6 +172,11 @@
     <Compile Include="DynamicProgramming\String\RegularExpressionMatching_Tests.cs" />
     <Compile Include="DynamicProgramming\String\WildCardMatching_Tests.cs" />
     <Compile Include="DynamicProgramming\String\WordBreak_Tests.cs" />
+    <Compile Include="Geometry\ClosestPointPair_Tests.cs" />
+    <Compile Include="Geometry\ConvexHull_Tests.cs" />
+    <Compile Include="Geometry\LineInsidePolygon_Tests.cs" />
+    <Compile Include="Geometry\LineIntersection_Tests.cs" />
+    <Compile Include="Geometry\RectIntersection_Tests.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoints\TarjansArticulation_Tests.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridge_Tests.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColoring_Tests.cs" />
