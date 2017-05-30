@@ -95,7 +95,12 @@
     <Compile Include="DataStructures\Graph\AdjacencyList\WeightedGraph.cs" />
     <Compile Include="DataStructures\Tree\SuffixTree.cs" />
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
+    <Compile Include="DynamicProgramming\AssemblyLineScheduling.cs" />
+    <Compile Include="DynamicProgramming\BoxStacking.cs" />
+    <Compile Include="DynamicProgramming\BuildingBridges.cs" />
+    <Compile Include="DynamicProgramming\BurstBalloon.cs" />
     <Compile Include="DynamicProgramming\Count\CountBinaryTree.cs" />
+    <Compile Include="DynamicProgramming\CuttingRod.cs" />
     <Compile Include="DynamicProgramming\Minimizing\MinArrayJumps.cs" />
     <Compile Include="DynamicProgramming\Minimizing\MinEditDistance.cs" />
     <Compile Include="DynamicProgramming\Minimizing\MinEggDrop.cs" />
@@ -106,6 +111,7 @@
     <Compile Include="DynamicProgramming\Matrix\MaxSubMatrix.cs" />
     <Compile Include="DynamicProgramming\Matrix\MaxXSideSubSquare.cs" />
     <Compile Include="DynamicProgramming\Maximizing\MaxProfitKTransactions.cs" />
+    <Compile Include="DynamicProgramming\OptimalBST.cs" />
     <Compile Include="DynamicProgramming\OptimalGameStrategy.cs" />
     <Compile Include="DynamicProgramming\PrintMaxAs.cs" />
     <Compile Include="DynamicProgramming\Sequence\LongestBitonicSequence.cs" />
@@ -126,9 +132,17 @@
     <Compile Include="DynamicProgramming\Matrix\MinCostMatrixPath.cs" />
     <Compile Include="DynamicProgramming\Palindrome\PalindromeMinCut.cs" />
     <Compile Include="DynamicProgramming\Palindrome\ShortestPalindrome.cs" />
+    <Compile Include="DynamicProgramming\SkylineProblem.cs" />
+    <Compile Include="DynamicProgramming\StairCaseProblem.cs" />
     <Compile Include="DynamicProgramming\Sum\SubSetSum.cs" />
     <Compile Include="DynamicProgramming\TextJustification.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />
+    <Compile Include="DynamicProgramming\TravellingSalesman.cs" />
+    <Compile Include="DynamicProgramming\UniqueBST.cs" />
+    <Compile Include="DynamicProgramming\WeightedJobScheduling.cs" />
+    <Compile Include="DynamicProgramming\RegularExpressionMatching.cs" />
+    <Compile Include="DynamicProgramming\WildCardMatching.cs" />
+    <Compile Include="DynamicProgramming\WordBreakProblem.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridgeFinder.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColorer.cs" />
@@ -175,6 +189,7 @@
     <Compile Include="Sorting\QuickSort.cs" />
     <Compile Include="Sorting\SelectionSort.cs" />
     <Compile Include="Sorting\ZigZagOrderer.cs" />
+    <Compile Include="DynamicProgramming\StringInterleaving.cs" />
     <Compile Include="String\ManachersPalindrome.cs" />
     <Compile Include="String\Permutation.cs" />
     <Compile Include="String\Search\KMP.cs" />

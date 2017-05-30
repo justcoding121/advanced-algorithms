@@ -96,7 +96,12 @@
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
+    <Compile Include="DynamicProgramming\AssemblyLineScheduling_Tests.cs" />
+    <Compile Include="DynamicProgramming\BoxStacking_Tests.cs" />
+    <Compile Include="DynamicProgramming\BuildingBridges_Tests.cs" />
+    <Compile Include="DynamicProgramming\BurstBalloon_Tests.cs" />
     <Compile Include="DynamicProgramming\Count\CountBinaryTree_Tests.cs" />
+    <Compile Include="DynamicProgramming\CuttingRod_Tests.cs" />
     <Compile Include="DynamicProgramming\Minimizing\MinArrayJumps_Tests.cs" />
     <Compile Include="DynamicProgramming\Minimizing\MinEditDistance_Tests.cs" />
     <Compile Include="DynamicProgramming\Minimizing\MinEggDrop_Tests.cs" />
@@ -106,6 +111,7 @@
     <Compile Include="DynamicProgramming\Matrix\Max1sRectangle_Tests.cs" />
     <Compile Include="DynamicProgramming\Matrix\MaxXSideSubSquare_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\MaxProfitKTransactions_Tests.cs" />
+    <Compile Include="DynamicProgramming\OptimalBST_Tests.cs" />
     <Compile Include="DynamicProgramming\OptimalGameStrategy_Tests.cs" />
     <Compile Include="DynamicProgramming\PrintMaxAs_Tests.cs" />
     <Compile Include="DynamicProgramming\Sequence\BalancedPartition_Tests.cs" />
@@ -127,9 +133,17 @@
     <Compile Include="DynamicProgramming\Palindrome\PalindromeMinCut_Tests.cs" />
     <Compile Include="DynamicProgramming\Palindrome\PalindromeMinDeletion_Tests.cs" />
     <Compile Include="DynamicProgramming\Palindrome\ShortestPalindrome_Tests.cs" />
+    <Compile Include="DynamicProgramming\SkylineProblem_Tests.cs" />
+    <Compile Include="DynamicProgramming\StairCaseProblem_Tests.cs" />
+    <Compile Include="DynamicProgramming\StringInterleaving_Tests.cs" />
     <Compile Include="DynamicProgramming\Sum\SubSetSum_Tests.cs" />
     <Compile Include="DynamicProgramming\TextJustification_Tests.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi_Tests.cs" />
+    <Compile Include="DynamicProgramming\UniqueBST_Tests.cs" />
+    <Compile Include="DynamicProgramming\WeightedJobScheduling_Tests.cs" />
+    <Compile Include="DynamicProgramming\RegularExpressionMatching_Tests.cs" />
+    <Compile Include="DynamicProgramming\WildCardMatching_Tests.cs" />
+    <Compile Include="DynamicProgramming\WordBreak_Tests.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoints\TarjansArticulation_Tests.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridge_Tests.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColoring_Tests.cs" />
@@ -181,6 +195,7 @@
     <Compile Include="String\Search\RabinKarp_Tests.cs" />
     <Compile Include="String\Search\KMP_Tests.cs" />
     <Compile Include="String\Search\Z_Tests.cs" />
+    <Compile Include="DynamicProgramming\TravellingSalesman_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithm.Sandbox\Algorithm.Sandbox.csproj">
