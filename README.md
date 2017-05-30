@@ -232,7 +232,6 @@ All are top down solutions with memoization technique.
 - [X] Dice throw ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/DiceThrow.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/DiceThrow_Tests.cs))
 - [X] Count possible binary tree from a preorder sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Count/CountBinaryTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Count/CountBinaryTree_Tests.cs))
 - [ ] Ways to cover a distance
-- [ ] Egg drop problem
 
 ### Maximizing
 
@@ -244,6 +243,7 @@ All are top down solutions with memoization technique.
 ### Minimizing
 
 - [X] Coin change problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Minimizing/CoinChangeProblems_Tests.cs))
+- [ ] Min Egg drop problem
 - [ ] Min edit distance
 - [ ] Min array jumps
 
