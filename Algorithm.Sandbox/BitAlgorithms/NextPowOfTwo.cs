@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.BitAlgorithms
 {
-    class NextPowOfTwo
+    /// <summary>
+    /// Problem details below
+    /// http://www.geeksforgeeks.org/smallest-power-of-2-greater-than-or-equal-to-n/
+    /// </summary>
+    public class NextPowOfTwo
     {
+        internal static int Next(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

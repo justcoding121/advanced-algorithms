@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.BitAlgorithms
 {
-    class MinMaxOfTwoIntegers
+    public class MinMaxOfTwoIntegers
     {
+        public static int FindMin(int a, int b)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

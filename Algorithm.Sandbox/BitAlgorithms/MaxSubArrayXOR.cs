@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.BitAlgorithms
 {
-    class MaxSubArrayXOR
+    /// <summary>
+    /// Problem details below
+    /// http://www.geeksforgeeks.org/find-the-maximum-subarray-xor-in-a-given-array/
+    /// </summary>
+    public class MaxSubArrayXOR
     {
+        public static int FindMax(int[] v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

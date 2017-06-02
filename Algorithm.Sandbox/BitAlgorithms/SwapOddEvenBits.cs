@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.BitAlgorithms
 {
-    class SwapOddEvenBits
+    /// <summary>
+    /// Problem details below
+    /// http://www.geeksforgeeks.org/swap-all-odd-and-even-bits/
+    /// </summary>
+    public class SwapOddEvenBits
     {
+        public static uint Swap(uint input)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

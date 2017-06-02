@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.BitAlgorithms
 {
-    class MagicNumber
+    /// <summary>
+    /// Problem details below
+    /// http://www.geeksforgeeks.org/find-nth-magic-number/
+    /// </summary>
+    public class MagicNumber
     {
+        public static int Find(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

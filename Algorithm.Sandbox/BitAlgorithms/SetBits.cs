@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.BitAlgorithms
 {
-    class SetBits
+    /// <summary>
+    /// Problem details below
+    /// http://www.geeksforgeeks.org/count-total-set-bits-in-all-numbers-from-1-to-n/
+    /// </summary>
+    public class SetBits
     {
+        public static int Count(int integer)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.BitAlgorithms
 {
-    class BoolArrayPuzzle
+    public class BoolArrayPuzzle
     {
+        public static int[] ChangeToZero(int[] input)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

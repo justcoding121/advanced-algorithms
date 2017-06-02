@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.BitAlgorithms
 {
-    class TwoRepeatingNums
+    /// <summary>
+    /// Problem details below
+    /// http://www.geeksforgeeks.org/find-the-two-repeating-elements-in-a-given-array/
+    /// </summary>
+    public class TwoRepeatingNums
     {
+        public static int[] Find(int[] input)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
