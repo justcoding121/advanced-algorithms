@@ -8,5 +8,9 @@ namespace Algorithm.Sandbox.DivideAndConquer
 {
     public class StrassensMatrixMult
     {
+        internal static int[,] Multiply(int[,] a, int[,] b)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

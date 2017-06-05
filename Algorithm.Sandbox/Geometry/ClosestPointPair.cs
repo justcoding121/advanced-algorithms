@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Geometry
 {
-    class ClosestPointPair
+    /// <summary>
+    /// Problem details below
+    /// http://www.geeksforgeeks.org/closest-pair-of-points/
+    /// </summary>
+    public class ClosestPointPair
     {
+        public static double Find(List<int[]> testPoints)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
