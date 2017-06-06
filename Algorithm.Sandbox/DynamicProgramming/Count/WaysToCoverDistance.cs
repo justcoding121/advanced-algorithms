@@ -14,7 +14,31 @@ namespace Algorithm.Sandbox.DynamicProgramming.Count
     {
         public static int GetWays(int dist)
         {
-            throw new NotImplementedException();
+            return GetWays(dist, new Dictionary<int, int>());
+        }
+
+        private static int GetWays(int dist, Dictionary<int, int> cache)
+        {
+            if (dist < 0)
+            {
+                return 0;
+            }
+
+            if (dist == 0)
+            {
+                return 1;
+            }
+
+            if(cache.ContainsKey(dist))
+            {
+                return cache[dist];
+            }
+
+            var result = GetWays(dist - 1) + GetWays(dist - 2) + GetWays(dist - 3);
+
+            cache.Add(dist, result);
+
+            return result;
         }
     }
 }

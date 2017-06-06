@@ -8,9 +8,15 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    /// <summary>
+    /// Problem details below
+    /// http://www.geeksforgeeks.org/count-ways-reach-nth-stair/
+    /// </summary>
+    [TestClass]
     public class StairCaseProblem_Tests
     {
-        public void SmokeTest()
+        [TestMethod]
+        public void StairCase_SmokeTest()
         {
             Assert.AreEqual(1, StairCaseProblem.CountWays(1));
             Assert.AreEqual(2, StairCaseProblem.CountWays(2));

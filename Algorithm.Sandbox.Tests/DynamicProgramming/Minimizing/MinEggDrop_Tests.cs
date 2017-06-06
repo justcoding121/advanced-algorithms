@@ -18,7 +18,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Minimizing
         [TestMethod]
         public void Smoke_Test_MinEggDrop()
         {
-            Assert.AreEqual(8, MinEggDrop.GetWays(36, 2));
+            Assert.AreEqual(8, MinEggDrop.GetMinDrops(36, 2));
         }
     }
 }

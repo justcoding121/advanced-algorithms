@@ -14,7 +14,31 @@ namespace Algorithm.Sandbox.DynamicProgramming
     {
         public static int CountWays(int steps)
         {
-            throw new NotImplementedException();
+            return CountWays(steps, new Dictionary<int, int>());
+        }
+
+        private static int CountWays(int steps, Dictionary<int, int> cache)
+        {
+            if(steps < 0)
+            {
+                return 0;
+            }
+
+            if (steps == 0)
+            {
+                return 1;
+            }
+
+            if (cache.ContainsKey(steps))
+            {
+                return cache[steps];
+            }
+
+            var result = CountWays(steps - 1) + CountWays(steps - 2);
+
+            cache.Add(steps, result);
+
+            return result;
         }
     }
 }

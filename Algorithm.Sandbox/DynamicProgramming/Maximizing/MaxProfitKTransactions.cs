@@ -15,7 +15,10 @@ namespace Algorithm.Sandbox.DynamicProgramming.Maximizing
         public static int GetProfit(int[] sharePrices, int k)
         {
             int netBestProfit = 0;
-            GetProfit(sharePrices, k, sharePrices.Length - 1, ref netBestProfit);
+
+            GetProfit(sharePrices, k, sharePrices.Length - 1, 
+                ref netBestProfit, new Dictionary<string, int>());
+
             return netBestProfit;
         }
 
@@ -28,8 +31,16 @@ namespace Algorithm.Sandbox.DynamicProgramming.Maximizing
         /// <param name="netBestProfit"></param>
         /// <returns></returns>
         private static int GetProfit(int[] sharePrices,
-            int k, int day, ref int netBestProfit)
+            int k, int day, ref int netBestProfit, 
+            Dictionary<string, int> cache)
         {
+            var cacheKey = $"{k}-{day}";
+
+            if(cache.ContainsKey(cacheKey))
+            {
+                return cache[cacheKey];
+            }
+
             //cannot make profit on day 0
             //or when we can't make any more transactions
             if (day == 0 || k == 0)
@@ -48,12 +59,12 @@ namespace Algorithm.Sandbox.DynamicProgramming.Maximizing
                 //is less than current
                 if (sharePrices[prevDay] < sharePrices[day])
                 { 
-                    pickProfit = GetProfit(sharePrices, k - 1, prevDay, ref netBestProfit)
+                    pickProfit = GetProfit(sharePrices, k - 1, prevDay, ref netBestProfit, cache)
                         + (sharePrices[day] - sharePrices[prevDay]);
                 }
 
                 //see the result when we don't buy & sell this pair
-                var skipProfit = GetProfit(sharePrices, k, prevDay, ref netBestProfit);
+                var skipProfit = GetProfit(sharePrices, k, prevDay, ref netBestProfit, cache);
 
                 //pick best
                 var bestProfit = Math.Max(pickProfit, skipProfit);
@@ -64,6 +75,8 @@ namespace Algorithm.Sandbox.DynamicProgramming.Maximizing
 
             //update net max
             netBestProfit = Math.Max(localBestProfit, netBestProfit);
+
+            cache.Add(cacheKey, localBestProfit);
 
             return localBestProfit;
         }

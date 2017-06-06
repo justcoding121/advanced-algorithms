@@ -12,7 +12,13 @@ namespace Algorithm.Sandbox.DynamicProgramming.Minimizing
     /// </summary>
     public class MinEggDrop
     {
-        public static int GetWays(int floors, int eggs)
+        public static int GetMinDrops(int floors, int eggs)
+        {
+            return GetMinDrops(floors, eggs, 
+                new Dictionary<string, int>());
+        }
+        public static int GetMinDrops(int floors, int eggs,
+            Dictionary<string, int> cache)
         {
             throw new NotImplementedException();
         }
