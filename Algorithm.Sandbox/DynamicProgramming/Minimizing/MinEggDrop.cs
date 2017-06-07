@@ -47,6 +47,7 @@ namespace Algorithm.Sandbox.DynamicProgramming.Minimizing
                 return cache[cacheKey];
             }
 
+            //net min 
             var minDrops = int.MaxValue;
 
             //simulate drop from 1st to current floor
@@ -58,8 +59,12 @@ namespace Algorithm.Sandbox.DynamicProgramming.Minimizing
                 //did'nt break at ith floor
                 var didntBreak = GetMinDrops(floors - i, eggs, cache) + 1;
 
+                //again we are looking for the worst number of drops. 
+                //In this case the worst would be the worst b/w both
+                //breaking and not breaking the egg at this floor
                 var min = Math.Max(didntBreak, broke);
 
+                //update net min
                 minDrops = Math.Min(min, minDrops);
             }
 
