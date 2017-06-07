@@ -54,9 +54,11 @@ namespace Algorithm.Sandbox.DynamicProgramming.Minimizing
             for (int i = 1; i <= floors; i++)
             {
                 //broke the egg at ith floor
+                //get min drops with remaining eggs & floors; + 1 (for current floor)
                 var broke = GetMinDrops(i - 1, eggs - 1, cache) + 1;
 
                 //did'nt break at ith floor
+                //get min drops for remaining floors; + 1 (for current floor)
                 var didntBreak = GetMinDrops(floors - i, eggs, cache) + 1;
 
                 //again we are looking for the worst number of drops. 
