@@ -47,27 +47,25 @@ namespace Algorithm.Sandbox.DynamicProgramming.Minimizing
                 return cache[cacheKey];
             }
 
-            var drops = int.MaxValue;
+            var minDrops = int.MaxValue;
 
             //simulate drop from 1st to current floor
             for (int i = 1; i <= floors; i++)
             {
                 //broke the egg at ith floor
-                var broke = GetMinDrops(i - 1, eggs - 1, cache);
+                var broke = GetMinDrops(i - 1, eggs - 1, cache) + 1;
 
                 //did'nt break at ith floor
-                var didntBreak = GetMinDrops(floors - i, eggs, cache);
+                var didntBreak = GetMinDrops(floors - i, eggs, cache) + 1;
 
                 var min = Math.Max(didntBreak, broke);
 
-                drops = Math.Min(min, drops);
+                minDrops = Math.Min(min, minDrops);
             }
 
-            var result = drops + 1;
+            cache.Add(cacheKey, minDrops);
 
-            cache.Add(cacheKey, result);
-
-            return result;
+            return minDrops;
         }
     }
 }
