@@ -246,6 +246,7 @@ All are top down solutions with memoization technique.
 - [ ] Cutting Rod ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/CuttingRod.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Maximizing/CuttingRod_Tests.cs))
 - [ ] Print Max A's ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/PrintMaxAs.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Maximizing/PrintMaxAs_Tests.cs))
 - [ ] Weighted Job Scheduling ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Maximizing/WeightedJobScheduling.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Maximizing/WeightedJobScheduling_Tests.cs))
+- [ ] Longest Chain
 
 ### Minimizing
 
