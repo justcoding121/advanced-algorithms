@@ -10,13 +10,13 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
     /// <summary>
     /// Problem details below
-    /// http://code.cloudkaksha.org/algorithm/dynamic-programming/building-bridges-problem
+    /// http://www.geeksforgeeks.org/dynamic-programming-building-bridges/
     /// </summary>
     [TestClass]
     public class BuildingBridges_Tests
     {
         [TestMethod]
-        public void SmokeTest()
+        public void Building_Bridges_SmokeTest()
         {
             Assert.AreEqual(5, BuildingBridges
                 .GetMaxBridges(

@@ -124,6 +124,7 @@
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
     <Compile Include="DivideAndConquer\CountInversions.cs" />
     <Compile Include="DivideAndConquer\StrassensMatrixMult.cs" />
+    <Compile Include="DynamicProgramming\Maximizing\LongestChain.cs" />
     <Compile Include="DynamicProgramming\Minimizing\AssemblyLineScheduling.cs" />
     <Compile Include="DynamicProgramming\Maximizing\BoxStacking.cs" />
     <Compile Include="DynamicProgramming\Maximizing\BuildingBridges.cs" />

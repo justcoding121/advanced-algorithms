@@ -4,28 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm.Sandbox.DynamicProgramming
+namespace Algorithm.Sandbox.DynamicProgramming.Maximizing
 {
     /// <summary>
     /// Problem details below
-    /// http://www.geeksforgeeks.org/dynamic-programming-building-bridges/
+    /// http://www.geeksforgeeks.org/dynamic-programming-set-14-variations-of-lis/
     /// </summary>
-    public class BuildingBridges
+    public class LongestChain
     {
-        public static int GetMaxBridges(int[] sideA, int[] sideB)
+        public static int GetLongest(List<int[]> interlocks)
         {
             var pairs = new List<Tuple<int, int>>();
 
-            for (int i = 0; i < sideA.Length; i++)
+            for (int i = 0; i < interlocks.Count; i++)
             {
-                pairs.Add(new Tuple<int, int>(sideA[i], sideB[i]));
+                pairs.Add(new Tuple<int, int>(interlocks[i][0], interlocks[i][1]));
             }
 
-            //sort by sideB then by SideA
-            pairs = pairs.OrderBy(x => x.Item2).ThenBy(x => x.Item1).ToList();
+            //sort by start of interlock, then by end of it
+            pairs = pairs.OrderBy(x => x.Item1).ToList();
 
             var longest = -1;
-            //now run LIS on sideA
+            //now run LIS on End of interlock
             LIS(pairs, pairs.Count - 1, ref longest, new Dictionary<int, int>());
 
             return longest;
@@ -50,7 +50,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
             {
                 var subLongest = LIS(input, i, ref netLongest, cache);
 
-                if (input[i].Item1 <= input[j].Item1
+                if (input[i].Item2 <= input[j].Item1
                     && longest < subLongest + 1)
                 {
                     longest = subLongest + 1;

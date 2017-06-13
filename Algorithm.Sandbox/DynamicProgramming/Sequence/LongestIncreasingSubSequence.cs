@@ -48,7 +48,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
                 //if 0 to i sequence last value (i) is less than current value j
                 //And if it improves our current Longest
-                if (input[i] < input[j]
+                if (input[i] <= input[j]
                     && currentLongest < subLongest + 1)
                 {
                     currentLongest = subLongest + 1;
