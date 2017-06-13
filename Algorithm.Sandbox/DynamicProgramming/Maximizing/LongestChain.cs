@@ -22,7 +22,7 @@ namespace Algorithm.Sandbox.DynamicProgramming.Maximizing
             }
 
             //sort by start of interlock, then by end of it
-            pairs = pairs.OrderBy(x => x.Item1).ToList();
+            pairs = pairs.OrderBy(x => x.Item1).ThenBy(x => x.Item2).ToList();
 
             var longest = -1;
             //now run LIS on End of interlock
