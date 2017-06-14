@@ -12,9 +12,11 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     /// Problem details below
     /// https://leetcode.com/problems/burst-balloons/#/description
     /// </summary>
+    [TestClass]
     public class BurstBalloon_Tests
     {
-        public void SmokeTest()
+        [TestMethod]
+        public void BurstBalloon_SmokeTest()
         {
             Assert.AreEqual(167, BurstBalloon.MaxCoins(new int[] { 3, 1, 5, 8 }));
         }
