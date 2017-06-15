@@ -16,9 +16,9 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class CuttingRod_Tests
     {
         [TestMethod]
-        public void SmokeTest()
+        public void CuttingRod_SmokeTest()
         {
-            Assert.AreEqual(22, CuttingRod.GetMaxLength(
+            Assert.AreEqual(22, CuttingRod.GetMaxProfit(
                 new int[] { 1, 2, 3, 4, 5, 6, 7, 8 },
                 new int[] { 1, 5, 8, 9, 10, 17, 17, 20 }
                 ));
