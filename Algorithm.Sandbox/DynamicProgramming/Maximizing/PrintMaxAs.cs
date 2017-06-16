@@ -38,15 +38,15 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
             var results = new List<int>();
 
-            //possibility one - Key A was pressed
+            //possibility one - Key 'A' was pressed
             results.Add(GetCount(keyPressAvailable - 1, cache) + 1);
 
-            //possibility two - Copy, Paste with Ctrl-A, Ctrl-C and Ctrl-V
+            //possibility two - Keys 'Ctrl-A', 'Ctrl-C' and 'Ctrl-V' were pressed
             results.Add(GetCount(keyPressAvailable - 3, cache) * 2);
 
-            //possibility three - Keep pasting repeatedly using Ctrl-V
+            //possibility three - Keep pressing repeatedly 'Ctrl-V'
             //first such repetition is only possible after three key presses shown below
-            //'A', Ctrl-A and Ctrl-C
+            //'A', 'Ctrl-A' and 'Ctrl-C'
             var ctrlVMax = 0;
             for (int i = 3; i < keyPressAvailable; i++)
             {
