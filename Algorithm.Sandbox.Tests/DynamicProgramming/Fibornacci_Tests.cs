@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class Fibornacci_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Fibornacci()
+        public void Fibornacci_Smoke_Test()
         {
             var numbers = FibornacciGenerator.GetFibornacciNumbers(10);
 

@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Matrix
     public class MaxSubMatrix_Tests
     {
         [TestMethod]
-        public void Smoke_Test_MaxSubMatrix()
+        public void MaxSubMatrix_Smoke_Test()
         {
             var testMatrix = new int[4, 5] {
                        {1, 2, -1, -4, -20},

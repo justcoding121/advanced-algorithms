@@ -7,7 +7,7 @@ namespace Algorithm.Sandbox.Tests.NumericalMethods
     public class Primality_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Prime()
+        public void Prime_Smoke_Test()
         {
             Assert.IsTrue(PrimeTester.IsPrime(11));
             Assert.IsFalse(PrimeTester.IsPrime(50));

@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.TopologicalSort
     public class KahnsTopSort_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Top_Sort()
+        public void Top_Sort_Smoke_Test()
         {
             var graph = new AsDiGraph<char>();
 

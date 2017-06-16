@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Coloring
     {
 
         [TestMethod]
-        public void Smoke_Test_MinVertexCover()
+        public void MinVertexCover_Smoke_Test()
         {
             var graph = new AsGraph<int>();
 

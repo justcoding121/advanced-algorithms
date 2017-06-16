@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Connectivity
     {
 
         [TestMethod]
-        public void Smoke_KosarajuStronglyConnected_Test()
+        public void KosarajuStronglyConnected_Smoke_Test()
         {
             var graph = new AsDiGraph<char>();
 

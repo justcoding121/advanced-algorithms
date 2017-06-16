@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class BalancedPartition_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Partition()
+        public void Partition_Smoke_Test()
         {
             var input = new int[] { 3, 1, 1, 2, 2, 1, 4 , 2};
 

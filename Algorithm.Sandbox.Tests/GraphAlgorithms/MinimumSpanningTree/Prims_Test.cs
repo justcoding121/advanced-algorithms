@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.MinimumSpanningTree
     public class Prims_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Prims()
+        public void Prims_Smoke_Test()
         {
             var graph = new AsWeightedGraph<char, int>();
 

@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
     public class BellmanFord_Tests
     {
         [TestMethod]
-        public void Smoke_Test_BellmanFord()
+        public void BellmanFord_Smoke_Test()
         {
             var graph = new AsWeightedDiGraph<char, int>();
 

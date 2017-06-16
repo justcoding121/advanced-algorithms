@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Matrix
     public class Max1sRectangle_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Max1sRectangle()
+        public void Max1sRectangle_Smoke_Test()
         {
             var testMatrix = new int[4, 4] {
                        {0, 1, 1, 0},

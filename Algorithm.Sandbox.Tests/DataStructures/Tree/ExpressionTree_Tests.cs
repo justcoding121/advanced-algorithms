@@ -7,7 +7,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
     public class ExpressionTree_Tests
     {
         [TestMethod]
-        public void Smoke_Test()
+        public void ExpressionTree_Smoke_Test()
         {
             var postfixInput = "ab+ef*g*-".ToCharArray();
             var tree = new ExpressionTree<char>();

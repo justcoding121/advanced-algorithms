@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class DistinctBinaryString_Tests
     {
         [TestMethod]
-        public void Smoke_Test_DistinctBinaryString()
+        public void DistinctBinaryString_Smoke_Test()
         {
             Assert.AreEqual(2, DistinctBinaryString.Count(1));
             Assert.AreEqual(3, DistinctBinaryString.Count(2));

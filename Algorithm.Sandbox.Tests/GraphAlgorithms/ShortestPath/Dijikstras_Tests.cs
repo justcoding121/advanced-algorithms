@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
     public class Dijikstras_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Dijikstra()
+        public void Dijikstra_Smoke_Test()
         {
             var graph = new AsWeightedDiGraph<char, int>();
 

@@ -8,7 +8,7 @@ namespace Algorithm.Sandbox.Tests.NumericalMethods
     public class MedianStream_Tests
     {
         [TestMethod]
-        public void Smoke_Test_MedianOfStream()
+        public void MedianOfStream_Smoke_Test()
         {
             var medianStream = new MedianStream();
 

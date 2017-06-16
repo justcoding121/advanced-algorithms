@@ -17,7 +17,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class BoolParenthesis_Tests
     {
         [TestMethod]
-        public void Smoke_Test_BoolParenthesis()
+        public void BoolParenthesis_Smoke_Test()
         {
             //T|F^F&T|F^F^F^T|T&T^T|F^T^F&F^T|T^F
             var result = CountBoolParenthesization.CountPositiveCombinations(

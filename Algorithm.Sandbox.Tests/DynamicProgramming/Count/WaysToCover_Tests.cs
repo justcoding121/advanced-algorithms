@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Count
     public class WaysToCover_Tests
     {
         [TestMethod]
-        public void Smoke_Test_WaysToCoverDistance()
+        public void WaysToCoverDistance_Smoke_Test()
         {
             Assert.AreEqual(7, WaysToCoverDistance.GetWays(4));
         }

@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Matrix
     public class Max1sSquare_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Max1sSquare()
+        public void Max1sSquare_Smoke_Test()
         {
             var testMatrix = new int[6,5] {
                    {0, 1, 1, 0, 1},

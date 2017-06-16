@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Connectivity
     {
 
         [TestMethod]
-        public void Smoke_TarjanIsBiConnected_Test()
+        public void TarjanIsBiConnected_Smoke_Test()
         {
             var graph = new AsGraph<char>();
 

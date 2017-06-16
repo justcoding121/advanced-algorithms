@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class WeightedJobScheduling_Tests
     {
         [TestMethod]
-        public void SmokeTest()
+        public void WeightedJobScheduling_SmokeTest()
         {
             Assert.AreEqual(250, WeightedJobScheduling.GetMaxProfit(new List<WeightedJob>()
             {

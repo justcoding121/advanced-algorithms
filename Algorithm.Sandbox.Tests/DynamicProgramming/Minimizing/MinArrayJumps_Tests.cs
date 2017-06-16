@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Minimizing
     public class MinArrayJumps_Tests
     {
         [TestMethod]
-        public void Smoke_MinArrayJumps()
+        public void MinArrayJumpsSmoke_Test()
         {
             Assert.AreEqual(3, MinArrayJumps.GetMinJumps(new int[] { 1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9 }));
         }

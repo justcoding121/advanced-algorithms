@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Matrix
     public class ChainMultiplication_Tests
     {
         [TestMethod]
-        public void Smoke_Test_ChainMultiplication()
+        public void ChainMultiplication_Smoke_Test()
         {
             var result = ChainMultiplication
                 .FindMinMultiplications(new int[] { 1, 2, 3, 4 });

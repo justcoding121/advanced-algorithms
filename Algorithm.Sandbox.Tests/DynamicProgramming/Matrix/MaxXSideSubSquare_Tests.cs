@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Matrix
     public class MaxXSideSubSquare_Tests
     {
         [TestMethod]
-        public void Smoke_Test_MaxXSideSubSquare()
+        public void MaxXSideSubSquare_Smoke_Test()
         {
             var testMatrix = new char[,]  {
                      {'X', 'O', 'X', 'X', 'X', 'X'},

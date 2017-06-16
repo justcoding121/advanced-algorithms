@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.NumericalMethods
     public class PrimeGenerator_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Prime_Generation()
+        public void Prime_Generation_Smoke_Test()
         {
             Assert.AreEqual(5, PrimeGenerator.GetAllPrimes(11).Count);
             Assert.AreEqual(8, PrimeGenerator.GetAllPrimes(20).Count);

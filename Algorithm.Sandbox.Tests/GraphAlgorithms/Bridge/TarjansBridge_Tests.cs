@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.BridgePoints
     {
        
         [TestMethod]
-        public void Smoke_TarjanBridge_Test()
+        public void TarjanBridge_Smoke_Test()
         {
             var graph = new AsGraph<char>();
 

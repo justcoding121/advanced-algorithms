@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ArticulationPoints
     {
        
         [TestMethod]
-        public void Smoke_TarjanArticulation_Test()
+        public void TarjanArticulation_Smoke_Test()
         {
             var graph = new AsGraph<char>();
 

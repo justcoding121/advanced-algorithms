@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Matrix
     public class MatrixMinCost_Tests
     {
         [TestMethod]
-        public void Smoke_Test_MinCost()
+        public void MinCost_Smoke_Test()
         {
             var matrix = new int[,] { 
                       {1, 2, 3},

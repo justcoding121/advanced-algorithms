@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Maximizing
     public class LongestChain_Tests
     {
         [TestMethod]
-        public void Smoke_Test_GetLongest()
+        public void GetLongest_Smoke_Test()
         {
             Assert.AreEqual(3, LongestChain.GetLongest(new List<int[]>() { new int[] { 5, 24 },
                                     new int[]{ 15, 25 },

@@ -7,7 +7,7 @@ namespace Algorithm.Sandbox.Tests.NumericalMethods
     public class Exponentiation_Tests
     {
         [TestMethod]
-        public void Smoke_Test_Fast_Exponent()
+        public void Fast_Exponent_Smoke_Test()
         {
             var result = FastExponentiation.BySquaring(2, 5);
 

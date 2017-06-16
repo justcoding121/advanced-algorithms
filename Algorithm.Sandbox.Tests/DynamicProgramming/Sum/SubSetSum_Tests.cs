@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming.Sum
     public class SubSetSum_Tests
     {
         [TestMethod]
-        public void Smoke_Test_SubSetSum()
+        public void SubSetSum_Smoke_Test()
         {
             Assert.IsTrue(SubSetSum.HasSubSet(new int[] { 3, 34, 4, 12, 5, 2 }, 9));
         }

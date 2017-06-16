@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
     public class FloydWarshalls_Tests
     {
         [TestMethod]
-        public void Smoke_Test_FloydWarshall()
+        public void FloydWarshall_Smoke_Test()
         {
             var graph = new AsWeightedGraph<char, int>();
 
