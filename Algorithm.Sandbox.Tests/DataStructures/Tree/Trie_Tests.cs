@@ -7,7 +7,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
     public class Trie_Tests
     {
         [TestMethod]
-        public void Trie_Smoke_Test()
+        public void Trie_Smoke_Test_Banana()
         {
             var trie = new Trie<char>();
 
