@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 return 1;
             }
 
-            if(cache.ContainsKey(keyPressAvailable))
+            if (cache.ContainsKey(keyPressAvailable))
             {
                 return cache[keyPressAvailable];
             }
@@ -52,10 +52,15 @@ namespace Algorithm.Sandbox.DynamicProgramming
             {
                 //Get max A's with i key presses
                 var maxAs = GetCount(i, cache);
+          
+                var remainingKeyPresses = (keyPressAvailable - i);
 
-                //now repeat maxA's the remaining available key press times
-                //and find the max
-                ctrlVMax = Math.Max(ctrlVMax, maxAs * (keyPressAvailable - i - 1));
+                //now we have to press 'Ctrl-A', 'Ctrl-C' 
+                remainingKeyPresses = remainingKeyPresses - 2;
+
+                //now repeat 'Ctrl-V' remaining available key press times
+                //net = ith key press max + (ith key press max * remaining key presses)
+                ctrlVMax = Math.Max(ctrlVMax, maxAs + (maxAs * remainingKeyPresses));
             }
 
             results.Add(ctrlVMax);
