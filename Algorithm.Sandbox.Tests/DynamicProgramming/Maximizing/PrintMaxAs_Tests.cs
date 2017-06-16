@@ -16,11 +16,15 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class PrintMaxAs_Tests
     {
         [TestMethod]
-        public void SmokeTest()
+        public void PrintMaxAs_SmokeTest()
         {
+            Assert.AreEqual(1, PrintMaxAs.GetCount(1));
+            Assert.AreEqual(2, PrintMaxAs.GetCount(2));
             Assert.AreEqual(3, PrintMaxAs.GetCount(3));
             Assert.AreEqual(9, PrintMaxAs.GetCount(7));
             Assert.AreEqual(27, PrintMaxAs.GetCount(11));
+            Assert.AreEqual(81, PrintMaxAs.GetCount(15));
+            Assert.AreEqual(324, PrintMaxAs.GetCount(20));
         }
     }
 }
