@@ -24,7 +24,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
             return GetMaxProfit(priceByLength, lengths.Length, new Dictionary<int, int>());
         }
 
-        public static int GetMaxProfit(Dictionary<int, int> priceByLength,
+        private static int GetMaxProfit(Dictionary<int, int> priceByLength,
             int curLength, Dictionary<int, int> cache)
         {
             if(curLength < 0)

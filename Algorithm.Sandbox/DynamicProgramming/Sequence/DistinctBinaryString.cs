@@ -24,7 +24,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="lastWasOne"></param>
         /// <param name="cache"></param>
         /// <returns></returns>
-        public static int Count(int length, 
+        private static int Count(int length, 
             bool lastWasOne, 
             Dictionary<string, int> cache)
         {

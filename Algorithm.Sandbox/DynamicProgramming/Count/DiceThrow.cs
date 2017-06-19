@@ -21,7 +21,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="face"></param>
         /// <param name="cache"></param>
         /// <returns></returns>
-        public static int WaysToGetSum(int sum, int dice, int face,
+        private static int WaysToGetSum(int sum, int dice, int face,
             Dictionary<string, int> cache)
         {
             var cacheKey = string.Concat(sum, dice);

@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.DynamicProgramming.Sum
                 new Dictionary<int, bool>());
         }
 
-        public static bool SubSetSumR(int[] input, int i, int sum, 
+        private static bool SubSetSumR(int[] input, int i, int sum, 
             Dictionary<int, bool> cache)
         {
             if (i < 0)

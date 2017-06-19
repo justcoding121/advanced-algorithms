@@ -44,7 +44,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="netMax"></param>
         /// <param name="cache"></param>
         /// <returns></returns>
-        public static int GetMaxProfit(List<WeightedJob> jobs, int j,
+        private static int GetMaxProfit(List<WeightedJob> jobs, int j,
             ref int netMax, Dictionary<int, int> cache)
         {
             if (j == 0)

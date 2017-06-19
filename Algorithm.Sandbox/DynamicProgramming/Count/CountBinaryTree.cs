@@ -21,7 +21,7 @@
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public static int Count(int start, int end)
+        private static int Count(int start, int end)
         {
             if (start > end)
             {

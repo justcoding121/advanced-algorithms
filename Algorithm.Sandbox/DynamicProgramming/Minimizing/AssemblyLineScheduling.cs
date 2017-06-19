@@ -34,7 +34,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         }
 
 
-        public static int MinTimeStationA(int[] stationATime, int[] stationBTime,
+        private static int MinTimeStationA(int[] stationATime, int[] stationBTime,
             int[] AB_crossingTime, int[] BA_crossingTime,
             int entryTimeA, int exitTimeA,
             int entryTimeB, int exitTimeB,
@@ -81,7 +81,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
             return min;
         }
 
-        public static int MinTimeStationB(int[] stationATime, int[] stationBTime,
+        private static int MinTimeStationB(int[] stationATime, int[] stationBTime,
             int[] AB_crossingTime, int[] BA_crossingTime,
             int entryTimeA, int exitTimeA,
             int entryTimeB, int exitTimeB,

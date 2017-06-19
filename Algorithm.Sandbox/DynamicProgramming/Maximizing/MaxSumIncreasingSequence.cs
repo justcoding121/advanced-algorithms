@@ -25,7 +25,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="j"></param>
         /// <param name="netMax"></param>
         /// <returns></returns>
-        public static int FindMaxSum(int[] input,
+        private static int FindMaxSum(int[] input,
             int j, ref int netMax, Dictionary<int, int> cache)
         {
             if (j == 0)

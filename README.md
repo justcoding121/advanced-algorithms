@@ -218,7 +218,7 @@ All are top down solutions with memoization technique.
 
 ### Matrix
 
-- [X] Max submatrix ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Matrix/MaxSubMatrix.cs) | [Tests]())
+- [X] Max submatrix ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Matrix/MaxSubMatrix.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Matrix/MaxSubMatrix_Tests.cs))
 - [X] Min cost matrix path ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Matrix/MinCostMatrixPath.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Matrix/MatrixMinCost_Tests.cs))
 - [X] Chain matrix multiplication ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Matrix/ChainMultiplication.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Matrix/ChainMultiplication_Tests.cs))
 - [X] Max 1s Rectangle in matrix ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Matrix/Max1sRectangle.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Matrix/Max1sRectangle_Tests.cs))
@@ -251,11 +251,11 @@ All are top down solutions with memoization technique.
 ### Minimizing
 
 - [X] Coin change problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/CoinChangeProblems.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Minimizing/CoinChangeProblems_Tests.cs))
-- [X] Assembly line scheduling ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/AssemblyLineScheduling.cs) | [Tests]())
-- [X] Min Egg drop problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/MinEggDrop.cs) | [Tests]())
-- [ ] Min edit distance ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/MinEditDistance.cs) | [Tests]())
-- [ ] Min array jumps ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/MinArrayJumps.cs) | [Tests]())
-- [ ] Travelling Salesman Problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/TravellingSalesman.cs) | [Tests]())
+- [X] Assembly line scheduling ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/AssemblyLineScheduling.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Minimizing/AssemblyLineScheduling_Tests.cs))
+- [X] Min Egg drop problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/MinEggDrop.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Minimizing/MinEggDrop_Tests.cs))
+- [X] Min edit distance ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/MinEditDistance.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Minimizing/MinEditDistance_Tests.cs))
+- [X] Min array jumps ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/MinArrayJumps.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Minimizing/MinArrayJumps_Tests.cs))
+- [ ] Travelling Salesman Problem ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DynamicProgramming/Minimizing/TravellingSalesman.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DynamicProgramming/Minimizing/TravellingSalesman_Tests.cs))
 
 ### Palindrome
 
@@ -325,7 +325,7 @@ All are top down solutions with memoization technique.
 ## Geometry
 
 - [ ] Convex hull ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Geometry/ConvexHull.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Geometry/ConvexHull_Tests.cs))
-- [ ] Line intersection ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Geometry/LineIntersection.cs) | [Tests]())
+- [ ] Line intersection ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Geometry/LineIntersection.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Geometry/LineIntersection_Tests.cs))
 - [ ] Closest point pair ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Geometry/ClosestPointPair.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Geometry/ClosestPointPair_Tests.cs))
 - [ ] Check if given point inside polygon ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Geometry/PointInsidePolygon.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Geometry/PointInsidePolygon_Tests.cs))
 - [ ] Rectangle intersection ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Geometry/RectIntersection.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Geometry/RectIntersection_Tests.cs))

@@ -17,7 +17,7 @@ namespace Algorithm.Sandbox.DynamicProgramming.Minimizing
             return GetMinDrops(floors, eggs,
                 new Dictionary<string, int>());
         }
-        public static int GetMinDrops(int floors, int eggs,
+        private static int GetMinDrops(int floors, int eggs,
             Dictionary<string, int> cache)
         {
             //no more floor

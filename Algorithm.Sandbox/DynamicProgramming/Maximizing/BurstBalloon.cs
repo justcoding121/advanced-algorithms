@@ -32,7 +32,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="right"></param>
         /// <param name="cache"></param>
         /// <returns></returns>
-        public static int MaxCoinsR(List<int> nums,
+        private static int MaxCoinsR(List<int> nums,
             int left, int right,
             Dictionary<string, int> cache)
         {
