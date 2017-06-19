@@ -12,22 +12,22 @@ namespace Algorithm.Sandbox.DynamicProgramming
     /// </summary>
     public class AssemblyLineScheduling
     {
-        public static int GetMinTime(int[][] a, int[][] t, int[] entryTime, int[] exitTime)
+        public static int GetMinTime(int[][] stationTime, int[][] crossingTime, int[] entryTime, int[] exitTime)
         {
-            var stations = a[0].Length;
+            var stations = stationTime[0].Length;
             var cache = new Dictionary<int, int>();
-            return Math.Min(GetMinTimeA(a, t, entryTime, exitTime, stations - 1, stations, cache),
-                            GetMinTimeB(a, t, entryTime, exitTime, stations - 1, stations, cache));
+            return Math.Min(GetMinTimeA(stationTime, crossingTime, entryTime, exitTime, stations - 1, stations, cache),
+                            GetMinTimeB(stationTime, crossingTime, entryTime, exitTime, stations - 1, stations, cache));
         }
 
-        public static int GetMinTimeA(int[][] a, int[][] t,
+        public static int GetMinTimeA(int[][] stationTime, int[][] crossingTime,
             int[] entryTime, int[] exitTime,
             int i, int totalStations, Dictionary<int, int> cache)
         {
             //first station
             if (i == 0)
             {
-                return entryTime[0] + a[0][0];
+                return entryTime[0] + stationTime[0][0];
             }
 
             if(cache.ContainsKey(i))
@@ -35,8 +35,8 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 return cache[i];
             }
 
-            var prevMinA = GetMinTimeA(a, t, entryTime, exitTime, i - 1, totalStations, cache) + a[0][i];
-            var prevMinB = GetMinTimeB(a, t, entryTime, exitTime, i - 1, totalStations, cache) + t[1][i] + a[0][i];
+            var prevMinA = GetMinTimeA(stationTime, crossingTime, entryTime, exitTime, i - 1, totalStations, cache) + stationTime[0][i];
+            var prevMinB = GetMinTimeB(stationTime, crossingTime, entryTime, exitTime, i - 1, totalStations, cache) + crossingTime[1][i] + stationTime[0][i];
 
             //last station
             if(i == totalStations - 1)
@@ -52,14 +52,14 @@ namespace Algorithm.Sandbox.DynamicProgramming
             return min;
         }
 
-        public static int GetMinTimeB(int[][] a, int[][] t,
+        public static int GetMinTimeB(int[][] stationTime, int[][] crossingTime,
             int[] entryTime, int[] exitTime,
             int i, int totalStations, Dictionary<int, int> cache)
         {
             //first station
             if (i == 0)
             {
-                return entryTime[1] + a[1][0];
+                return entryTime[1] + stationTime[1][0];
             }
 
             if (cache.ContainsKey(i))
@@ -67,8 +67,8 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 return cache[i];
             }
 
-            var prevMinB = GetMinTimeB(a, t, entryTime, exitTime, i - 1, totalStations, cache) + a[1][i];
-            var prevMinA = GetMinTimeA(a, t, entryTime, exitTime, i - 1, totalStations, cache) + t[0][i] + a[1][i];
+            var prevMinB = GetMinTimeB(stationTime, crossingTime, entryTime, exitTime, i - 1, totalStations, cache) + stationTime[1][i];
+            var prevMinA = GetMinTimeA(stationTime, crossingTime, entryTime, exitTime, i - 1, totalStations, cache) + crossingTime[0][i] + stationTime[1][i];
 
             //last station
             if (i == totalStations - 1)
