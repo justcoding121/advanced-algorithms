@@ -18,7 +18,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
         [TestMethod]
         public void SmokeTest()
         {
-            AssemblyLineScheduling.GetMinTime(new int[2][]{
+           var r = AssemblyLineScheduling.GetMinTime(new int[2][]{
                new int[] {4, 5, 3, 2},
                new int[] {2, 10, 1, 4}
             }, new int[2][]{
