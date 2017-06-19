@@ -12,74 +12,118 @@ namespace Algorithm.Sandbox.DynamicProgramming
     /// </summary>
     public class AssemblyLineScheduling
     {
-        public static int GetMinTime(int[][] stationTime, int[][] crossingTime, int[] entryTime, int[] exitTime)
+        public static int GetMinTime(int[][] stationTime, int[][] crossingTime,
+            int[] entryTime, int[] exitTime)
         {
             var stations = stationTime[0].Length;
-            var cache = new Dictionary<int, int>();
-            return Math.Min(GetMinTimeA(stationTime, crossingTime, entryTime, exitTime, stations - 1, stations, cache),
-                            GetMinTimeB(stationTime, crossingTime, entryTime, exitTime, stations - 1, stations, cache));
+
+            var cache = new Dictionary<string, int>();
+
+            return Math.Min(MinTimeStationA(stationTime[0], stationTime[1],
+                                            crossingTime[0], crossingTime[1],
+                                            entryTime[0], entryTime[1],
+                                            exitTime[0], exitTime[1],
+                                            stations - 1, stations, cache),
+
+                           MinTimeStationB(stationTime[0], stationTime[1],
+                                            crossingTime[0], crossingTime[1],
+                                             entryTime[0], entryTime[1],
+                                            exitTime[0], exitTime[1]
+                                            , stations - 1, stations, cache)
+                                           );
         }
 
-        public static int GetMinTimeA(int[][] stationTime, int[][] crossingTime,
-            int[] entryTime, int[] exitTime,
-            int i, int totalStations, Dictionary<int, int> cache)
+
+        public static int MinTimeStationA(int[] stationATime, int[] stationBTime,
+            int[] AB_crossingTime, int[] BA_crossingTime,
+            int entryTimeA, int exitTimeA,
+            int entryTimeB, int exitTimeB,
+            int currentStation, int totalStations, Dictionary<string, int> cache)
         {
             //first station
-            if (i == 0)
+            if (currentStation == 0)
             {
-                return entryTime[0] + stationTime[0][0];
+                return entryTimeA + stationATime[0];
             }
 
-            if(cache.ContainsKey(i))
+            var cacheKey = $"A-{currentStation}";
+
+            if (cache.ContainsKey(cacheKey))
             {
-                return cache[i];
+                return cache[cacheKey];
             }
 
-            var prevMinA = GetMinTimeA(stationTime, crossingTime, entryTime, exitTime, i - 1, totalStations, cache) + stationTime[0][i];
-            var prevMinB = GetMinTimeB(stationTime, crossingTime, entryTime, exitTime, i - 1, totalStations, cache) + crossingTime[1][i] + stationTime[0][i];
+            var prevMinA = MinTimeStationA(stationATime, stationBTime,
+                                AB_crossingTime, BA_crossingTime,
+                                entryTimeA, entryTimeB,
+                                exitTimeA, exitTimeB,
+                                currentStation - 1, totalStations, cache)
+                                + stationATime[currentStation];
+
+            var prevMinB = MinTimeStationB(stationATime, stationBTime,
+                                AB_crossingTime, BA_crossingTime,
+                                entryTimeA, entryTimeB,
+                                exitTimeA, exitTimeB,
+                                currentStation - 1, totalStations, cache)
+                                + BA_crossingTime[currentStation] + stationATime[currentStation];
 
             //last station
-            if(i == totalStations - 1)
+            if (currentStation == totalStations - 1)
             {
-                prevMinA += exitTime[0];
-                prevMinB += exitTime[1];
+                prevMinA += exitTimeA;
+                prevMinB += exitTimeB;
             }
 
             var min = Math.Min(prevMinA, prevMinB);
 
-            cache.Add(i, min);
+            cache.Add(cacheKey, min);
 
             return min;
         }
 
-        public static int GetMinTimeB(int[][] stationTime, int[][] crossingTime,
-            int[] entryTime, int[] exitTime,
-            int i, int totalStations, Dictionary<int, int> cache)
+        public static int MinTimeStationB(int[] stationATime, int[] stationBTime,
+            int[] AB_crossingTime, int[] BA_crossingTime,
+            int entryTimeA, int exitTimeA,
+            int entryTimeB, int exitTimeB,
+            int currentStation, int totalStations, Dictionary<string, int> cache)
         {
             //first station
-            if (i == 0)
+            if (currentStation == 0)
             {
-                return entryTime[1] + stationTime[1][0];
+                return entryTimeB + stationBTime[0];
             }
 
-            if (cache.ContainsKey(i))
+            var cacheKey = $"B-{currentStation}";
+
+            if (cache.ContainsKey(cacheKey))
             {
-                return cache[i];
+                return cache[cacheKey];
             }
 
-            var prevMinB = GetMinTimeB(stationTime, crossingTime, entryTime, exitTime, i - 1, totalStations, cache) + stationTime[1][i];
-            var prevMinA = GetMinTimeA(stationTime, crossingTime, entryTime, exitTime, i - 1, totalStations, cache) + crossingTime[0][i] + stationTime[1][i];
+            var prevMinB = MinTimeStationB(stationATime, stationBTime,
+                                AB_crossingTime, BA_crossingTime,
+                                entryTimeA, entryTimeB,
+                                exitTimeA, exitTimeB,
+                                currentStation - 1, totalStations, cache)
+                                + stationBTime[currentStation];
+
+            var prevMinA = MinTimeStationA(stationATime, stationBTime,
+                                AB_crossingTime, BA_crossingTime,
+                                entryTimeA, entryTimeB,
+                                exitTimeA, exitTimeB,
+                                currentStation - 1, totalStations, cache)
+                                + AB_crossingTime[currentStation] + stationBTime[currentStation];
 
             //last station
-            if (i == totalStations - 1)
+            if (currentStation == totalStations - 1)
             {
-                prevMinA += exitTime[0];
-                prevMinB += exitTime[1];
+                prevMinA += exitTimeA;
+                prevMinB += exitTimeB;
             }
 
             var min = Math.Min(prevMinA, prevMinB);
 
-            cache.Add(i, min);
+            cache.Add(cacheKey, min);
 
             return min;
         }
