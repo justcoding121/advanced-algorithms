@@ -2,6 +2,9 @@
 
 Various important computer science algorithms generically implemented in C#
 
+![Build Status](https://ci.appveyor.com/api/projects/status/9xpcp4m87max2066?svg=true)
+
+
 ## Data Structures
 
 ### List
