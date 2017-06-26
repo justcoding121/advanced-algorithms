@@ -2,7 +2,7 @@
 
 Various important computer science algorithms generically implemented in C#
 
-![Build Status](https://ci.appveyor.com/api/projects/status/9xpcp4m87max2066?svg=true)
+<a href="https://ci.appveyor.com/project/justcoding121/advanced-algorithms">![Build Status](https://ci.appveyor.com/api/projects/status/9xpcp4m87max2066?svg=true)</a>
 
 
 ## Data Structures
