@@ -9,6 +9,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
     public class StringInterleaving_Tests
     {
+        //[TestMethod]
         public void SmokeTest()
         {
             Assert.IsFalse(StringInterleaving.IsInterleaved("XXY", "XXZ", "XXZXXXY"));

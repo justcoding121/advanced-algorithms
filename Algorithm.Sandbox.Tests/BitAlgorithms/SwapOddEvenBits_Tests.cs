@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class SwapOddEvenBits_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
             Assert.AreEqual(43, SwapOddEvenBits.Swap(23));

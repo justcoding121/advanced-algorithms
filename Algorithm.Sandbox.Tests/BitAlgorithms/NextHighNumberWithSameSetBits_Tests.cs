@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class NextHighNumberWithSameSetBits_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
             Assert.AreEqual(163, NextHighNumberWithSameSetBits.Find(156));

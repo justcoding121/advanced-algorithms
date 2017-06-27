@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     [TestClass]
     public class TextJustification_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public static void Smoke_Text_Justification()
         {
             CollectionAssert.AreEqual(

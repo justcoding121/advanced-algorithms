@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.Geometry
     [TestClass]
     public class LineIntersection_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
             var line1StartPt = new int[] { 1, 1};

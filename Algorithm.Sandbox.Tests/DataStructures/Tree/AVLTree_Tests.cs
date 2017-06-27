@@ -94,7 +94,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void AVLTree_AccuracyTest()
         {
-            var nodeCount = 1000 * 10;
+            var nodeCount = 1000;
 
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount)

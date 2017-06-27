@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.Geometry
     [TestClass]
     public class ConvexHull_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
             var testPoints = new List<int[]>()

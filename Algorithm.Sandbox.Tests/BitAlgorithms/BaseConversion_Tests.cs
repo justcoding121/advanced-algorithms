@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class BaseConversion_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
             Assert.AreEqual("Foo",

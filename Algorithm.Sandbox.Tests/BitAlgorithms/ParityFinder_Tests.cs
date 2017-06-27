@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class ParityBit_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
             Assert.AreEqual(0, ParityFinder.Find(13));

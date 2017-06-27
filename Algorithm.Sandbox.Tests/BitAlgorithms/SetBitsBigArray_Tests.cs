@@ -10,7 +10,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class SetBitsBigArray_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
 

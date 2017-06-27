@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class SmallOfThree_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
             Assert.AreEqual(5, SmallOfThree.GetSmallest(12, 15, 5));

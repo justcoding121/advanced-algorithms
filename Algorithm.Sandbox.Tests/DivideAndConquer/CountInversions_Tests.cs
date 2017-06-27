@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.DivideAndConquer
     [TestClass]
     public class CountInversions_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
             var arr = new int[] { 1, 20, 6, 4, 5 };

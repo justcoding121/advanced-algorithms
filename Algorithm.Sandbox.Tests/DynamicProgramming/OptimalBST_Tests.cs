@@ -14,6 +14,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     /// </summary>
     public class OptimalBST_Tests
     {
+        //[TestMethod]
         public void SmokeTest()
         {
             Assert.AreEqual(142, OptimalBST.FindOptimalCost(

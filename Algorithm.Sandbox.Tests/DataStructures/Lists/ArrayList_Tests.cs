@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         public void ArrayList_Test()
         {
             var arrayList = new ArrayList<int>();
-            int nodeCount = 1000 * 10;
+            int nodeCount = 1000;
 
             for (int i = 0; i <= nodeCount; i++)
             {

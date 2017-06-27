@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.Geometry
     [TestClass]
     public class ClosestPointPair_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void SmokeTest()
         {
             var testPoints = new List<int[]>()
