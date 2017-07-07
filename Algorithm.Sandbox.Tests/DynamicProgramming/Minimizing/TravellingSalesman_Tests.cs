@@ -16,8 +16,8 @@ namespace Algorithm.Sandbox.Tests
     [TestClass]
     public class TravellingSalesman_Tests
     {
-        //[TestMethod]
-        public void SmokeTest()
+        [TestMethod]
+        public void TravellingSalesman_Smoke_Test()
         {
             var graph = new AsWeightedDiGraph<int, int>();
 

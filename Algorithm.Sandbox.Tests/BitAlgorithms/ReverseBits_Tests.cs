@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     public class ReverseBits_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             Assert.AreEqual(1, ReverseBits.Reverse(2147483648));
         }

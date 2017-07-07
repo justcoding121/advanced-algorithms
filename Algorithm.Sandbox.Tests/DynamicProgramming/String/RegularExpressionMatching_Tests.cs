@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class RegularExpressionMatching_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             Assert.IsFalse(RegularExpressionMatching.IsMatch("aa", "a"));
             Assert.IsTrue(RegularExpressionMatching.IsMatch("aa", "aa"));           

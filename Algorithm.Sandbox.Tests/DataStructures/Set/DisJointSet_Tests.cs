@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Set
     public class DisJointSet_Tests
     {
         [TestMethod]
-        public void SmokeTest_DisJointSet()
+        public void Smoke_Test_DisJointSet()
         {
             var disjointSet = new DisJointSet<int>();
 

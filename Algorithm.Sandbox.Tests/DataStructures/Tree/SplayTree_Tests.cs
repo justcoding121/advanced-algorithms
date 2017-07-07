@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void SplayTree_SmokeTest()
+        public void SplayTree_Smoke_Test()
         {
             //insert test
             var tree = new SplayTree<int>();

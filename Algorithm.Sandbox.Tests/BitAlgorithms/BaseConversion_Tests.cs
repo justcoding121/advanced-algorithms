@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     public class BaseConversion_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             Assert.AreEqual("Foo",
                 BaseConversion.Convert("9", "0123456789".ToCharArray(), 

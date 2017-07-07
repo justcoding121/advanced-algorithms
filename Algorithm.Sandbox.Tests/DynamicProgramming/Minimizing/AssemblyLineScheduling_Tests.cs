@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class AssemblyLineScheduling_Tests
     {
         [TestMethod]
-        public void AssemblyLineScheduling_SmokeTest()
+        public void AssemblyLineScheduling_Smoke_Test()
         {
             Assert.AreEqual(35, 
             AssemblyLineScheduling.GetMinTime(new int[2][]{

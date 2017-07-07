@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class BuildingBridges_Tests
     {
         [TestMethod]
-        public void Building_Bridges_SmokeTest()
+        public void Building_Bridges_Smoke_Test()
         {
             Assert.AreEqual(5, BuildingBridges
                 .GetMaxBridges(

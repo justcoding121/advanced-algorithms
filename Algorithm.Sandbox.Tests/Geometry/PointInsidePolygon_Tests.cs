@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.Geometry
     public class PointInsidePolygon_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             var polygon = new List<int[]>() {
                 new int[] { 0, 0 },

@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DivideAndConquer
     public class StrassensMatrixMult_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             var N = 2;
             int[,] A = new int[N, N], B = new int[N, N];

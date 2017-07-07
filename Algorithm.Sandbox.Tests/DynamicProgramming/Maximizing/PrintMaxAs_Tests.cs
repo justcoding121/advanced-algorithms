@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class PrintMaxAs_Tests
     {
         [TestMethod]
-        public void PrintMaxAs_SmokeTest()
+        public void PrintMaxAs_Smoke_Test()
         {
             Assert.AreEqual(1, PrintMaxAs.GetCount(1));
             Assert.AreEqual(2, PrintMaxAs.GetCount(2));

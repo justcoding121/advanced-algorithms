@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class WildCardMatching_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             Assert.IsFalse(WildCardMatching.IsMatch("aa", "a"));
             Assert.IsTrue(WildCardMatching.IsMatch("aa", "aa"));           

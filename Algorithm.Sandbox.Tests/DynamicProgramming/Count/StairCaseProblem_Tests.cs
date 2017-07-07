@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class StairCaseProblem_Tests
     {
         [TestMethod]
-        public void StairCase_SmokeTest()
+        public void StairCase_Smoke_Test()
         {
             Assert.AreEqual(1, StairCaseProblem.CountWays(1));
             Assert.AreEqual(2, StairCaseProblem.CountWays(2));

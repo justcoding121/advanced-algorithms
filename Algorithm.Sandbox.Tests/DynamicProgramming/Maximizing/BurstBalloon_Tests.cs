@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class BurstBalloon_Tests
     {
         [TestMethod]
-        public void BurstBalloon_SmokeTest()
+        public void BurstBalloon_Smoke_Test()
         {
             Assert.AreEqual(167, BurstBalloon.MaxCoins(new int[] { 3, 1, 5, 8 }));
         }

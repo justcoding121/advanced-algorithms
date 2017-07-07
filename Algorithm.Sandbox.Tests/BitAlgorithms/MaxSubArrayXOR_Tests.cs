@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     public class MaxSubArrayXOR_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             Assert.AreEqual(7, MaxSubArrayXOR.FindMax(new int[] { 1, 2, 3, 4 }));
         }

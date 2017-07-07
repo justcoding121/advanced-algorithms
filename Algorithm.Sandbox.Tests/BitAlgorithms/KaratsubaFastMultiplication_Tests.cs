@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     public class KaratsubaFastMultiplication_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             Assert.AreEqual(120,
                 KaratsubaFastMultiplication.Multiply("1100", "1010"));

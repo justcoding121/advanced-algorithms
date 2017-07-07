@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class WordBreak_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             var dictionary = new HashSet<string>() {"mobile","samsung","sam",
                             "sung","man","mango",

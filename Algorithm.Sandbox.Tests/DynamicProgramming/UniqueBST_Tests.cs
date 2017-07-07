@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class UniqueBST_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             var tree = new UniqueBST();
 

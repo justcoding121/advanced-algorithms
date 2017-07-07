@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     public class MinMaxOfTwoIntegers_Tests
     {
         //[TestMethod]
-        public void SmokeTest()
+        public void Smoke_Test()
         {
             Assert.AreEqual(6, MinMaxOfTwoIntegers.FindMin(15, 6));
         }
