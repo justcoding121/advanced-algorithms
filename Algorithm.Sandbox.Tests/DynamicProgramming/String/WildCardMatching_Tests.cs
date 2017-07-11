@@ -15,11 +15,20 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     [TestClass]
     public class WildCardMatching_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void WildCardMatching_Smoke_Test()
         {
             Assert.IsFalse(WildCardMatching.IsMatch("aa", "a"));
-            Assert.IsTrue(WildCardMatching.IsMatch("aa", "aa"));           
+            Assert.IsTrue(WildCardMatching.IsMatch("aa", "aa"));
+
+            Assert.IsFalse(WildCardMatching.IsMatch("aaa", "aa"));
+            Assert.IsTrue(WildCardMatching.IsMatch("aa", "*"));
+
+            Assert.IsTrue(WildCardMatching.IsMatch("aa", "*?"));
+            Assert.IsTrue(WildCardMatching.IsMatch("ab", "?*"));
+
+            Assert.IsFalse(WildCardMatching.IsMatch("aab", "c*a*b"));
+
         }
     }
 }
