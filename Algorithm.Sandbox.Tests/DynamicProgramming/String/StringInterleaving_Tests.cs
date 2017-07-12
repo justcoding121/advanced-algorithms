@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.Tests.DynamicProgramming
 {
+    [TestClass]
     public class StringInterleaving_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void StringInterleaving_Smoke_Test()
         {
-            Assert.IsFalse(StringInterleaving.IsInterleaved("XXY", "XXZ", "XXZXXXY"));
-            Assert.IsTrue(StringInterleaving.IsInterleaved("WZXY", "XY", "WZ"));
+            Assert.IsTrue(StringInterleaving.IsInterleaved("aabcc", "dbbca", "aadbbcbcac"));
+            Assert.IsTrue(StringInterleaving.IsInterleaved( "XY", "WZ", "WZXY"));
 
+            Assert.IsFalse(StringInterleaving.IsInterleaved("ccbaa", "dbbca", "aadbbcbcac"));
+            Assert.IsFalse(StringInterleaving.IsInterleaved("YZ", "WZ", "WZXY"));
         }
     }
 }

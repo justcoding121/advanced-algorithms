@@ -15,11 +15,20 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     [TestClass]
     public class RegularExpressionMatching_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void RegularExpressionMatching_Smoke_Test()
         {
             Assert.IsFalse(RegularExpressionMatching.IsMatch("aa", "a"));
-            Assert.IsTrue(RegularExpressionMatching.IsMatch("aa", "aa"));           
+            Assert.IsTrue(RegularExpressionMatching.IsMatch("aa", "aa"));
+
+            Assert.IsFalse(RegularExpressionMatching.IsMatch("aaa", "aa"));
+            Assert.IsTrue(RegularExpressionMatching.IsMatch("aa", "a*"));
+
+            Assert.IsTrue(RegularExpressionMatching.IsMatch("aa", ".*"));
+            Assert.IsTrue(RegularExpressionMatching.IsMatch("ab", ".*"));
+
+            Assert.IsFalse(RegularExpressionMatching.IsMatch("aab", "c*a*b"));
+            Assert.IsTrue(RegularExpressionMatching.IsMatch("aab", "*a*b"));
         }
     }
 }
