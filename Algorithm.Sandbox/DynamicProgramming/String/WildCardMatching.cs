@@ -27,6 +27,16 @@ namespace Algorithm.Sandbox.DynamicProgramming
             return IsMatch(text, pattern, 0, 0, new Dictionary<string, bool>());
         }
 
+        /// <summary>
+        /// DP top down with Memoization
+        /// Just Simulate the possibilities
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="pattern"></param>
+        /// <param name="tIndex"></param>
+        /// <param name="pIndex"></param>
+        /// <param name="cache"></param>
+        /// <returns></returns>
         private static bool IsMatch(string text, string pattern,
             int tIndex, int pIndex,
             Dictionary<string, bool> cache)
@@ -54,10 +64,15 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
             switch (pattern[pIndex])
             {
+                //try move one search char '?' as well as text char
                 case '?':
                     result = IsMatch(text, pattern, tIndex + 1, pIndex + 1, cache);
                     break;
 
+                //3 possibilities with search char '*'
+                //move search char & move text char
+                //move search char & and stay at same text char (since '*' can be for empty search char)
+                //don't move search char, but move one text char
                 case '*':
                     if (pIndex == pattern.Length - 1)
                     {
@@ -70,6 +85,8 @@ namespace Algorithm.Sandbox.DynamicProgramming
                         || IsMatch(text, pattern, tIndex + 1, pIndex + 1, cache);
                     break;
 
+                //try move one search char as well as text char
+                //before that do a check for exact match of search char with current text char
                 default:
                     if (text[tIndex] != pattern[pIndex])
                     {
