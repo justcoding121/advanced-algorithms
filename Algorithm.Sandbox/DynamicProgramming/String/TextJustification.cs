@@ -15,38 +15,9 @@ namespace Algorithm.Sandbox.DynamicProgramming
         public static int GetJustification(List<string> words, int maxLineWidth)
         {
             //all other lines above last line
-            return GetJustificationLastLine(words, maxLineWidth, maxLineWidth, words.Count - 1);
+            return GetJustification(words, maxLineWidth, words.Count - 1, new Dictionary<int, int>());
         }
 
-        /// <summary>
-        /// Last line is left justfied; so do a greedy word pick for last line
-        /// </summary>
-        /// <param name="words"></param>
-        /// <param name="maxLineWidth"></param>
-        /// <param name="currentLinePos"></param>
-        /// <param name="nextWordIndex"></param>
-        /// <returns></returns>
-        private static int GetJustificationLastLine(List<string> words, int maxLineWidth,
-            int currentLinePos, int nextWordIndex)
-        {
-            var lineLength = maxLineWidth;
-            var wordIndex = words.Count - 1;
-            for (int i = words.Count - 1; i >= 0; i--)
-            {
-                if (lineLength >= maxLineWidth)
-                {
-                    wordIndex--;
-                    lineLength -= words[wordIndex].Length;
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            //all other lines above last line
-            return GetJustification(words, maxLineWidth, maxLineWidth, wordIndex);
-        }
 
         /// <summary>
         /// DP top down
@@ -57,43 +28,51 @@ namespace Algorithm.Sandbox.DynamicProgramming
         /// <param name="nextWordIndex"></param>
         /// <returns></returns>
         private static int GetJustification(List<string> words, int maxLineWidth,
-         int currentLinePos, int nextWordIndex)
+          int nextWordIndex, Dictionary<int, int> cache)
         {
             //base case
-            if (nextWordIndex == -1)
+            if (nextWordIndex == 0)
             {
-                return 0;
+                var spaceLength = maxLineWidth - words[0].Length;
+                return spaceLength * spaceLength;
             }
 
-            //last word of line
-            if (currentLinePos == maxLineWidth)
+            if(cache.ContainsKey(nextWordIndex))
             {
-                //place word in current Line Position
-                return GetJustification(words, maxLineWidth, currentLinePos - words[nextWordIndex].Length, nextWordIndex - 1) + 1;
+                return cache[nextWordIndex];
             }
-            //in between the line or first word of the line
-            //have space for the word
-            else if (currentLinePos >= words[nextWordIndex].Length)
+
+            var localMin = int.MaxValue;
+
+            //track current line progress
+            var totalWordsInCurrentLine = 0;
+            var totalCharacterWidthInCurrentLine = 0;
+
+            //just simulate breaking lines between every word
+            //or group of words that will fit in current line
+            for (int i = nextWordIndex; i > 0 && totalCharacterWidthInCurrentLine < maxLineWidth; i--)
             {
-                //place word in current Line Position
-                var withWord = GetJustification(words, maxLineWidth, currentLinePos - words[nextWordIndex].Length, nextWordIndex - 1);
+                totalWordsInCurrentLine++;
+                totalCharacterWidthInCurrentLine += words[i].Length;
 
-                //add a space in current Line Position
-                var withSpace = GetJustification(words, maxLineWidth, currentLinePos - 1, nextWordIndex);
+                //empty space at the end of the line
+                //will equal to max line width - total word width - (width of spaces between words)
+                //width of spaces b/w words will equal to (total words in current line - 1)
+                var emptyEndSpaceWidthOnCurrentLine = (maxLineWidth - totalCharacterWidthInCurrentLine)
+                    - (totalWordsInCurrentLine - 1);
 
-                if (withSpace == int.MaxValue)
-                {
-                    return withWord;
-                }
+                //previos optimal result
+                var prevLineMin = GetJustification(words, maxLineWidth, i - 1, cache);
 
-                return Math.Min(withWord, withSpace + 1);
+                //use squares/or cubes of empty space lengths at the end of the line
+                //to amplify the spaces in each line
+                localMin = Math.Min(localMin , (prevLineMin 
+                    + (emptyEndSpaceWidthOnCurrentLine * emptyEndSpaceWidthOnCurrentLine)));
             }
-            else
-            {
-                //no space to add the word in current line
-                //so terminate this path search
-                return int.MaxValue;
-            }
+
+            cache.Add(nextWordIndex, localMin);
+
+            return localMin;
         }
     }
 }

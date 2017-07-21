@@ -14,14 +14,10 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
         [TestMethod]
         public void Smoke_Text_Justification()
         {
-            var length = TextJustification.GetJustification(new List<string>()
-                { "This", "is", "an", "example", "of", "text", "justification." }, 16);
+            var sumOfSquaresOfBlankSpaceEndingsInEachLine = TextJustification.GetJustification(new List<string>()
+                { "Ramanu", "Dog", "likes", "to", "code"}, 10);
 
-            //CollectionAssert.AreEqual(
-            //    new List<string>() { "This    is    an",
-            //                        "example  of text",
-            //                        "justification.  "},
-            //   );
+            Assert.AreEqual(26, sumOfSquaresOfBlankSpaceEndingsInEachLine);
         }
     }
 }
