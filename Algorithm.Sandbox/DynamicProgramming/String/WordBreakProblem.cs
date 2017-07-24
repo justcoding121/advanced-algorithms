@@ -34,17 +34,12 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
             for (int i = 0; i < charIndex; i++)
             {
-                result = CanBreak(dictionary, sentence, i, cache);
-
-                if (result)
+                if (CanBreak(dictionary, sentence, i, cache))
                 {
                     if (IsMatch(dictionary, sentence.Substring(i, charIndex - i)))
                     {
+                        result = true;
                         break;
-                    }
-                    else
-                    {
-                        result = false;
                     }
 
                 }
