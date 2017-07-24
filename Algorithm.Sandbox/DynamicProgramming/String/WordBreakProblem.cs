@@ -52,12 +52,9 @@ namespace Algorithm.Sandbox.DynamicProgramming
 
         private static bool IsMatch(HashSet<string> dictionary, string searchWord)
         {
-            foreach(var word in dictionary)
+            if (dictionary.Contains(searchWord))
             {
-                if(word.Equals(searchWord))
-                {
-                    return true;
-                }
+                return true;
             }
 
             return false;
