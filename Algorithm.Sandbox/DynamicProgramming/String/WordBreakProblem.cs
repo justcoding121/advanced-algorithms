@@ -14,7 +14,58 @@ namespace Algorithm.Sandbox.DynamicProgramming
     {
         public static bool CanBreak(HashSet<string> dictionary, string sentence)
         {
-            throw new NotImplementedException();
+            return CanBreak(dictionary, sentence, sentence.Length, new Dictionary<int, bool>());
+        }
+
+        private static bool CanBreak(HashSet<string> dictionary,
+            string sentence, int charIndex, Dictionary<int, bool> cache)
+        {
+            if (charIndex == 0)
+            {
+                return true;
+            }
+
+            if (cache.ContainsKey(charIndex))
+            {
+                return cache[charIndex];
+            }
+
+            var result = false;
+
+            for (int i = 0; i < charIndex; i++)
+            {
+                result = CanBreak(dictionary, sentence, i, cache);
+
+                if (result)
+                {
+                    if (IsMatch(dictionary, sentence.Substring(i, charIndex - i)))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
+
+                }
+            }
+
+            cache.Add(charIndex, result);
+
+            return result;
+        }
+
+        private static bool IsMatch(HashSet<string> dictionary, string searchWord)
+        {
+            foreach(var word in dictionary)
+            {
+                if(word.Equals(searchWord))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
