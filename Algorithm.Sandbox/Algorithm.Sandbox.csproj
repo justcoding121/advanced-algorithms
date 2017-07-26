@@ -167,9 +167,7 @@
     <Compile Include="DynamicProgramming\String\TextJustification.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi.cs" />
     <Compile Include="DynamicProgramming\Minimizing\TravellingSalesman.cs" />
-    <Compile Include="DynamicProgramming\UniqueBST.cs" />
     <Compile Include="DynamicProgramming\Maximizing\WeightedJobScheduling.cs" />
-    <Compile Include="DynamicProgramming\String\RegularExpressionMatching.cs" />
     <Compile Include="DynamicProgramming\String\WildCardMatching.cs" />
     <Compile Include="DynamicProgramming\String\WordBreakProblem.cs" />
     <Compile Include="Geometry\ClosestPointPair.cs" />

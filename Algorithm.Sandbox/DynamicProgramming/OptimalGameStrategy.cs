@@ -51,11 +51,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 picked = pickRight;
             }
 
-            cache.Add(cacheKey, new OGS_Total() {
-                ProfitA = picked.ProfitA,
-                ProfitB = picked.ProfitB
-            });
-
+            cache.Add(cacheKey, picked);
 
             return picked;
           
@@ -92,12 +88,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
                 picked = pickRight;
             }
 
-            cache.Add(cacheKey, new OGS_Total()
-            {
-                ProfitA = picked.ProfitA,
-                ProfitB = picked.ProfitB
-            });
-
+            cache.Add(cacheKey, picked);
 
             return picked;
         }

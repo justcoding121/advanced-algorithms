@@ -168,9 +168,7 @@
     <Compile Include="DynamicProgramming\Sum\SubSetSum_Tests.cs" />
     <Compile Include="DynamicProgramming\String\TextJustification_Tests.cs" />
     <Compile Include="DynamicProgramming\TowerOfHanoi_Tests.cs" />
-    <Compile Include="DynamicProgramming\UniqueBST_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\WeightedJobScheduling_Tests.cs" />
-    <Compile Include="DynamicProgramming\String\RegularExpressionMatching_Tests.cs" />
     <Compile Include="DynamicProgramming\String\WildCardMatching_Tests.cs" />
     <Compile Include="DynamicProgramming\String\WordBreak_Tests.cs" />
     <Compile Include="Geometry\ClosestPointPair_Tests.cs" />
