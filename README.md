@@ -296,6 +296,7 @@ All are top down solutions with memoization technique.
 
 ## Bit Algorithms
 
+- [X] Int to Binary string ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/BitAlgorithms/IntToBinary.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/IntToBinary_Tests.cs))
 - [ ] Base conversion ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/BitAlgorithms/BaseConversion.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/BaseConversion_Tests.cs))
 - [ ] Find the element that appears once ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/BitAlgorithms/FindUniqieElement.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/FindUniqueElement_Tests.cs))
 - [ ] Set bits in all numbers from 1 to n ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/BitAlgorithms/SetBits.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/SetBits_Tests.cs))

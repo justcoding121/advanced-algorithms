@@ -53,6 +53,7 @@
     <Compile Include="BitAlgorithms\BoolArrayPuzzle.cs" />
     <Compile Include="BitAlgorithms\CountFlipBitsAToB.cs" />
     <Compile Include="BitAlgorithms\FindUniqieElement.cs" />
+    <Compile Include="BitAlgorithms\IntToBinary.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfNine.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfThree.cs" />
     <Compile Include="BitAlgorithms\KaratsubaFastMultiplication.cs" />
