@@ -54,8 +54,10 @@
     <Compile Include="BitAlgorithms\AddOne_Tests.cs" />
     <Compile Include="BitAlgorithms\AddTwoNumbers_Tests.cs" />
     <Compile Include="BitAlgorithms\BaseConversion_Tests.cs" />
+    <Compile Include="BitAlgorithms\BitHacks_Tests.cs" />
     <Compile Include="BitAlgorithms\BoolArrayPuzzle_Tests.cs" />
     <Compile Include="BitAlgorithms\CountFlipBitsAToB_Tests.cs" />
+    <Compile Include="BitAlgorithms\DivisionModulus_Tests.cs" />
     <Compile Include="BitAlgorithms\FindUniqueElement_Tests.cs" />
     <Compile Include="BitAlgorithms\IntToBinary_Tests.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfNine_Tests.cs" />
