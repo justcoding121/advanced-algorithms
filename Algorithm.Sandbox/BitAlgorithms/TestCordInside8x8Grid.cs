@@ -8,5 +8,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
 {
     class TestCordInside8x8Grid
     {
+        internal static bool IsInside(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

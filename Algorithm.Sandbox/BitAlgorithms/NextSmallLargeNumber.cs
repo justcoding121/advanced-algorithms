@@ -12,5 +12,14 @@ namespace Algorithm.Sandbox.BitAlgorithms
     /// </summary>
     class NextSmallLargeNumber
     {
+        internal static void NextLarge(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void NextSmall(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

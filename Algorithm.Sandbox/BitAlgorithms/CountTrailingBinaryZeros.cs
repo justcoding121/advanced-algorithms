@@ -8,5 +8,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
 {
     class CountTrailingBinaryZeros
     {
+        internal static int Count(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

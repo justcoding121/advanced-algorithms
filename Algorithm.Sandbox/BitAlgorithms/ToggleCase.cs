@@ -8,5 +8,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
 {
     class ToggleCase
     {
+        internal static string Toggle(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

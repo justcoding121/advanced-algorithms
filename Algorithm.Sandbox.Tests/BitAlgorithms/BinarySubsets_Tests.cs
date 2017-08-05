@@ -17,7 +17,10 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         [TestMethod]
         public void BinarySubsets_SmokeTest()
         {
-            CollectionAssert.AreEqual(new List<string>() { "1011", "1010", "1001", "1000", "0011", "0010", "0001", "0000" },
+            CollectionAssert.AreEqual(new List<string>() {
+                "1011", "1010", "1001",
+                "1000", "0011", "0010",
+                "0001", "0000" },
                 BinarySubsets.GetSubsets(Convert.ToInt32("1011", 2)));
         }
     }

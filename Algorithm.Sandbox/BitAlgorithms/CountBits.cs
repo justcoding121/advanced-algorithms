@@ -8,5 +8,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
 {
     class CountBits
     {
+        internal static int CountSetBits(int maxValue)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

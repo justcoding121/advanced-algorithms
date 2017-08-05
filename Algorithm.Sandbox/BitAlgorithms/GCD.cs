@@ -8,5 +8,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
 {
     class GCD
     {
+        internal static int Find(int v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

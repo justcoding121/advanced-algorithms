@@ -13,5 +13,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
     //line from (xl, y) to (x2, y).
     class DrawLine
     {
+        internal static void Draw(byte[] screen, int width, int x1, int x2, int y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

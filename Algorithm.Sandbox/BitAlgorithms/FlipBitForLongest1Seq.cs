@@ -13,5 +13,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
     /// </summary>
     public class FlipBitForLongest1Seq
     {
+        internal static int Find(int testNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
