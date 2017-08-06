@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.BitAlgorithms
     /// </summary>
     public class DivisionModulus
     {
-        public int GetModulus(int numerator, int denominator)
+        public static int GetModulus(int numerator, int denominator)
         {
             //check if denominator is a power of 2 before proceeding
             throw new NotImplementedException();

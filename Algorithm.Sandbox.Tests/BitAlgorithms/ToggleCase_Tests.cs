@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Algorithm.Sandbox.Tests.BitAlgorithms
 {
     [TestClass]
-    public class ToggleCase_Test
+    public class ToggleCase_Tests
     {
         [TestMethod]
         public void ToggleCase_Smoke_Test()
