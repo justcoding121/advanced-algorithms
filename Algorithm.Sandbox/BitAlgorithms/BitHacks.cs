@@ -13,9 +13,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static bool IsEven(int number)
+        public static bool IsEven(int x)
         {
-            throw new NotImplementedException();
+            return (x & 1) == 0;
         }
 
         /// <summary>
@@ -23,9 +23,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static bool IsPowerOf2(int number)
+        public static bool IsPowerOf2(int x)
         {
-            throw new NotImplementedException();
+            return (x & (x - 1)) == 0;
         }
 
         /// <summary>
@@ -36,7 +36,10 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// <returns></returns>
         public static bool HasOppositeSigns(int x, int y)
         {
-            throw new NotImplementedException();
+            var mask = 1 << 31;
+
+            return ((x & mask) == 0 && (y & mask) != 0)
+                 || ((x & mask) != 0 && (y & mask) == 0);
         }
 
         /// <summary>
@@ -45,9 +48,10 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static bool IsSet(int number, int n)
+        public static bool IsSet(int x, int n)
         {
-            throw new NotImplementedException();
+            var mask = 1 << n;
+            return (x & mask) > 0;
         }
 
         /// <summary>
@@ -56,9 +60,11 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static int SetBit(int number, int n)
+        public static int SetBit(int x, int n)
         {
-            throw new NotImplementedException();
+            var mask = 1 << n;
+
+            return x | mask;
         }
 
         /// <summary>
@@ -67,9 +73,10 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static int UnsetBit(int number, int n)
+        public static int UnsetBit(int x, int n)
         {
-            throw new NotImplementedException();
+            var mask = ~(1 << n);
+            return x & mask;
         }
 
         /// <summary>
@@ -78,9 +85,9 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static int ToggleBit(int number, int n)
+        public static int ToggleBit(int x, int n)
         {
-            throw new NotImplementedException();
+            return IsSet(x, n) ? UnsetBit(x, n) : SetBit(x, n);
         }
 
         /// <summary>
@@ -88,9 +95,13 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static int TurnOnRightmostUnsetBit(int number)
+        public static int TurnOnBitAfterRightmostSetBit(int x)
         {
-            throw new NotImplementedException();
+            //1100 => 1100 & ~(1011) >> 1 => 1100 & 0100 >> 1 => 0100 >>1 => 0010
+            var mask = (x & ~(x - 1)) >> 1;
+
+            // 1100|0010 => 1110
+            return x | mask;
         }
 
         /// <summary>
@@ -98,9 +109,13 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static int TurnOffRightmostSetBit(int number)
+        public static int TurnOffRightmostSetBit(int x)
         {
-            throw new NotImplementedException();
+            //1100 => ~(1100 & ~(1011)) => ~(1100 & 0100) >> ~(0100) => 1011
+            var mask = ~(x & ~(x - 1));
+
+            //1100 & 1011 => 1000
+            return x & mask;
         }
 
         /// <summary>
@@ -108,9 +123,13 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static int GetRightmostSubBitsStartingWithASetBit(int number)
+        public static int GetRightmostSubBitsStartingWithASetBit(int x)
         {
-            throw new NotImplementedException();
+            //1100 => ~(1011) => 0100
+            var mask = ~(x - 1);
+
+            //1100 & 0100 => 0100
+            return x & mask;
         }
 
         /// <summary>
@@ -118,9 +137,40 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static int GetRightmostSubBitsStartingWithAnUnsetBit(int number)
+        public static int GetRightmostSubBitsStartingWithAnUnsetBit(int x)
         {
-            throw new NotImplementedException();
+
+            //make it the same problem as above
+            //1011=> 0100
+            var y = ~x;
+
+            //0100
+            var z = y & ~(y - 1);
+
+            //count the number of zero bits after the last one
+            //for example 0100 has 2 zero bits to the right of last one (n = 3)
+            var n = 0;
+            while (z != 0)
+            {
+                z = z >> 1;
+                n++;
+            }
+
+            //to compensate the extra one added in above while loop
+            n = n - 1;
+
+            //0001
+            var result = 1;
+            //sice result init with 1 at the end 
+            //we just need to do n>1
+            while (n > 1)
+            {
+                result = (result << 1) | 1;
+                n--;
+            }
+
+            //0011
+            return result;
         }
 
         /// <summary>
@@ -128,19 +178,26 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static int RightPropogateRightmostSetBit(int number)
+        public static int RightPropogateRightmostSetBit(int x)
         {
-            throw new NotImplementedException();
+            //~1100 => method call (0011) => 0011
+            var mask = GetRightmostSubBitsStartingWithAnUnsetBit(~x);
+
+            //1100 | 0011 => 1111
+            return mask | x;
         }
 
         /// <summary>
-        ///  Sets all the first right most sub bits starting with a unset bit, with rightmost being 0th bit
+        ///  UnSets all the first right most sub bits starting with a unset bit, with rightmost being 0th bit
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static int RightPropogateRightmostUnsetBit(int number)
+        public static int RightPropogateRightmostUnsetBit(int x)
         {
-            throw new NotImplementedException();
+            //1011 => 0011
+            var mask = GetRightmostSubBitsStartingWithAnUnsetBit(x);
+
+            return x & ~mask;
         }
 
         /// <summary> 
@@ -150,9 +207,21 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// <param name="n"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static int UpdateBitToValue(int number, int n, bool value)
+        public static int UpdateBitToValue(int x, int n, bool value)
         {
-            throw new NotImplementedException();
+            if(value)
+            {
+                //1011 (n=2) => 1111
+                var mask = 1;
+                return x | (mask << n);
+            }
+            else
+            {
+                //1111 (n=2) => 1011
+                var mask = 1;
+                return x & ~(mask << n);
+            }
+          
         }
 
     }

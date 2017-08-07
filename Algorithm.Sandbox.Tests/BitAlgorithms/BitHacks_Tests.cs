@@ -16,7 +16,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public void SmokeTest_IsEven()
+        [TestMethod]
+        public void IsEven_Smoke_Test()
         {
             Assert.IsTrue(BitHacks.IsEven(22));
             Assert.IsFalse(BitHacks.IsEven(101));
@@ -27,7 +28,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public void SmokeTest_IsPowerOf2()
+        [TestMethod]
+        public void IsPowerOf2_Smoke_Test()
         {
             Assert.IsTrue(BitHacks.IsPowerOf2(32));
             Assert.IsFalse(BitHacks.IsPowerOf2(22));
@@ -39,10 +41,14 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public void SmokeTest_HasOppositeSigns()
+        [TestMethod]
+        public void HasOppositeSigns_Smoke_Test()
         {
+            Assert.IsTrue(BitHacks.HasOppositeSigns(11, -22));
             Assert.IsTrue(BitHacks.HasOppositeSigns(-11, 22));
+
             Assert.IsFalse(BitHacks.HasOppositeSigns(21, 22));
+            Assert.IsFalse(BitHacks.HasOppositeSigns(-21, -22));
         }
 
         /// <summary>
@@ -51,7 +57,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public void SmokeTest_IsSet()
+        [TestMethod]
+        public void IsSet_Smoke_Test()
         {
             var binaryString = "1100";
             Assert.IsTrue(BitHacks.IsSet(Convert.ToInt32(binaryString, 2), 2));
@@ -64,10 +71,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public void SmokeTest_SetBit()
+        [TestMethod]
+        public void SetBit_Smoke_Test()
         {
             var binaryString = "1100";
-            Assert.AreEqual(Convert.ToString(BitHacks.SetBit(Convert.ToInt32(binaryString, 2), 2), 2).Substring(32 - 4, 4), "1110");
+            Assert.AreEqual("1110", Convert.ToString(BitHacks.SetBit(Convert.ToInt32(binaryString, 2), 1), 2));
         }
 
         /// <summary>
@@ -76,10 +84,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public void SmokeTest_UnsetBit()
+        [TestMethod]
+        public void UnsetBit_Smoke_Test()
         {
             var binaryString = "1100";
-            Assert.AreEqual(Convert.ToString(BitHacks.UnsetBit(Convert.ToInt32(binaryString, 2), 3), 2).Substring(32 - 4, 4), "0100");
+            Assert.AreEqual("100", Convert.ToString(BitHacks.UnsetBit(Convert.ToInt32(binaryString, 2), 3), 2));
         }
 
         /// <summary>
@@ -88,10 +97,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public void SmokeTest_ToggleBit()
+        [TestMethod]
+        public void ToggleBit_Smoke_Test()
         {
             var binaryString = "1110";
-            Assert.AreEqual(Convert.ToString(BitHacks.ToggleBit(Convert.ToInt32(binaryString, 2), 1), 2).Substring(32 - 4, 4), "1110");
+            Assert.AreEqual(Convert.ToString(BitHacks.ToggleBit(Convert.ToInt32(binaryString, 2), 1), 2), "1100");
         }
 
         /// <summary>
@@ -99,10 +109,15 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public void SmokeTest_TurnOnRightmostUnsetBit()
+        [TestMethod]
+        public void TurnOnBitAfterRightmostSetBit_Smoke_Test()
         {
             var binaryString = "1100";
-            Assert.AreEqual(Convert.ToString(BitHacks.TurnOnRightmostUnsetBit(Convert.ToInt32(binaryString, 2)), 2).Substring(32 - 4, 4), "1110");
+            Assert.AreEqual("1110", Convert.ToString(BitHacks.TurnOnBitAfterRightmostSetBit(Convert.ToInt32(binaryString, 2)), 2));
+
+            binaryString = "1101";
+            Assert.AreEqual("1101", Convert.ToString(BitHacks.TurnOnBitAfterRightmostSetBit(Convert.ToInt32(binaryString, 2)), 2));
+
         }
 
         /// <summary>
@@ -110,10 +125,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public void SmokeTest_TurnOffRightmostSetBit()
+        [TestMethod]
+        public void TurnOffRightmostSetBit_Smoke_Test()
         {
             var binaryString = "1100";
-            Assert.AreEqual(Convert.ToString(BitHacks.TurnOffRightmostSetBit(Convert.ToInt32(binaryString, 2)), 2).Substring(32 - 4, 4), "1000");
+            Assert.AreEqual("1000", Convert.ToString(BitHacks.TurnOffRightmostSetBit(Convert.ToInt32(binaryString, 2)), 2));
         }
 
         /// <summary>
@@ -121,10 +137,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public void SmokeTest_GetRightmostSubBitsStartingWithASetBit()
+        [TestMethod]
+        public void GetRightmostSubBitsStartingWithASetBit_Smoke_Test()
         {
             var binaryString = "1100";
-            Assert.AreEqual(Convert.ToString(BitHacks.GetRightmostSubBitsStartingWithASetBit(Convert.ToInt32(binaryString, 2)), 2).Substring(32 - 4, 4), "0100");
+            Assert.AreEqual("100",Convert.ToString(BitHacks.GetRightmostSubBitsStartingWithASetBit(Convert.ToInt32(binaryString, 2)), 2));
         }
 
         /// <summary>
@@ -132,10 +149,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public void SmokeTest_GetRightmostSubBitsStartingWithAnUnsetBit()
+        [TestMethod]
+        public void GetRightmostSubBitsStartingWithAnUnsetBit_Smoke_Test()
         {
             var binaryString = "1011";
-            Assert.AreEqual(Convert.ToString(BitHacks.GetRightmostSubBitsStartingWithASetBit(Convert.ToInt32(binaryString, 2)), 2).Substring(32 - 4, 4), "0011");
+            Assert.AreEqual("11",Convert.ToString(BitHacks.GetRightmostSubBitsStartingWithAnUnsetBit(Convert.ToInt32(binaryString, 2)), 2));
         }
 
         /// <summary>
@@ -143,10 +161,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public void SmokeTest_RightPropogateRightmostSetBit()
+        [TestMethod]
+        public void RightPropogateRightmostSetBit_Smoke_Test()
         {
             var binaryString = "1100";
-            Assert.AreEqual(Convert.ToString(BitHacks.RightPropogateRightmostSetBit(Convert.ToInt32(binaryString, 2)), 2).Substring(32 - 4, 4), "1111");
+            Assert.AreEqual("1111", Convert.ToString(BitHacks.RightPropogateRightmostSetBit(Convert.ToInt32(binaryString, 2)), 2));
         }
 
         /// <summary>
@@ -154,10 +173,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public void SmokeTest_RightPropogateRightmostUnsetBit()
+        [TestMethod]
+        public void RightPropogateRightmostUnsetBit_Smoke_Test()
         {
             var binaryString = "1011";
-            Assert.AreEqual(Convert.ToString(BitHacks.RightPropogateRightmostUnsetBit(Convert.ToInt32(binaryString, 2)), 2).Substring(32 - 4, 4), "1000");
+            Assert.AreEqual("1000", Convert.ToString(BitHacks.RightPropogateRightmostUnsetBit(Convert.ToInt32(binaryString, 2)), 2));
         }
 
         /// <summary> 
@@ -167,10 +187,14 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         /// <param name="n"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public void SmokeTest_UpdateBitToValue()
+        [TestMethod]
+        public void UpdateBitToValue_Smoke_Test()
         {
             var binaryString = "1011";
-            Assert.AreEqual(Convert.ToString(BitHacks.UpdateBitToValue(Convert.ToInt32(binaryString, 2), 3, true), 2).Substring(32 - 4, 4), "1111");
+            Assert.AreEqual("1111", Convert.ToString(BitHacks.UpdateBitToValue(Convert.ToInt32(binaryString, 2), 2, true), 2));
+
+            binaryString = "1111";
+            Assert.AreEqual("1011", Convert.ToString(BitHacks.UpdateBitToValue(Convert.ToInt32(binaryString, 2), 2, false), 2));
         }
     }
 }
