@@ -15,11 +15,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class FindUniqueElement_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void FindUniqueElement_Smoke_Test()
         {
             Assert.AreEqual(2, 
-                FindUniqieElement
+                FindUniqueElement
                  .Find(new int[] { 12, 1, 12, 3, 12, 1, 1, 2, 3, 3 }));
         }
     }

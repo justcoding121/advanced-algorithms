@@ -61,7 +61,7 @@
     <Compile Include="BitAlgorithms\CountTrailingBinaryZeros.cs" />
     <Compile Include="BitAlgorithms\DivisionModulus.cs" />
     <Compile Include="BitAlgorithms\DrawLine.cs" />
-    <Compile Include="BitAlgorithms\FindUniqieElement.cs" />
+    <Compile Include="BitAlgorithms\FindUniqueElement.cs" />
     <Compile Include="BitAlgorithms\FlipBitForLongest1Seq.cs" />
     <Compile Include="BitAlgorithms\GCD.cs" />
     <Compile Include="BitAlgorithms\InsertBits.cs" />

@@ -11,24 +11,24 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class BaseConversion_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void BaseConversion_Smoke_Test()
         {
             Assert.AreEqual("Foo",
-                BaseConversion.Convert("9", "0123456789".ToCharArray(), 
-                    "oF8".ToCharArray()));
+                BaseConversion.Convert("9", "0123456789", 
+                    "oF8"));
 
             Assert.AreEqual("9",
-                BaseConversion.Convert("Foo", "oF8".ToCharArray(),
-                    "0123456789".ToCharArray()));
+                BaseConversion.Convert("Foo", "oF8",
+                    "0123456789"));
 
             Assert.AreEqual("10011",
-                BaseConversion.Convert("13", "0123456789abcdef".ToCharArray(),
-                    "01".ToCharArray()));
+                BaseConversion.Convert("13", "0123456789abcdef",
+                    "01"));
 
-            Assert.AreEqual("Foo",
-                BaseConversion.Convert("CODE", "O!CDE?".ToCharArray(),
-                    "A?JM!.".ToCharArray()));
+            Assert.AreEqual("JAM!",
+                BaseConversion.Convert("CODE", "O!CDE?",
+                    "A?JM!."));
 
         }
     }
