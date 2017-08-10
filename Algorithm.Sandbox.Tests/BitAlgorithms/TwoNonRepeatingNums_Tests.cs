@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class TwoNonRepeatingNums_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void TwoNonRepeatingNums_Smoke_Test()
         {
             CollectionAssert.AreEqual(new int[] { 7, 9 },
                 TwoNonRepeatingNums.Find(new int[] { 2, 3, 7, 9, 11, 2, 3, 11 }));

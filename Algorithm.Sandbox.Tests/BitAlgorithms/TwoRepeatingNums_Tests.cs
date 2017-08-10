@@ -15,11 +15,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class TwoRepeatingNums_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void TwoRepeatingNums_Smoke_Test()
         {
-            CollectionAssert.AreEqual(new int[] { 4, 2 },
-                TwoRepeatingNums.Find(new int[] { 4, 2, 4, 5, 2, 3, 1 }));
+            CollectionAssert.AreEqual(new int[] { 2, 4 },
+                TwoRepeatingNums.Find(new int[] { 4, 2, 4, 5, 2, 3, 1 }, 5));
         }
     }
 }

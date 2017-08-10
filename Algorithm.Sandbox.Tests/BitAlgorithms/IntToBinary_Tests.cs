@@ -14,8 +14,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         [TestMethod]
         public void IntToBinary_Smoke_Test()
         {
-          Assert.AreEqual("00000001", IntToBinary.GetBinary(1));
-          Assert.AreEqual("11111111", IntToBinary.GetBinary(-1));
+          Assert.AreEqual("00000001", IntToBinary.GetBinary(1, 8));
+          Assert.AreEqual("11111111", IntToBinary.GetBinary(-1, 8));
         }
     }
 }

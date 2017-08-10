@@ -17,25 +17,51 @@ namespace Algorithm.Sandbox.BitAlgorithms
     {
         public static int[] Find(int[] input)
         {
-            var xorResult = 0;
+            //xor result will be equal to x^y (xorResult = x^y)
+            //because everything else will cancel out (since z^z = 0)
+            int xorResult = 0;
             foreach(var number in input)
             {
                 xorResult = xorResult ^ number;
             }
 
-            //xor result will be equal to x^y (xorResult = x^y)
-            //because everything else will cancel out (because z^z = 0)
             //so now we need to find x and y from the equation x^y=xorResult
-            int x = 0, y = 0;
+            //this can be done by splitting the list to two
+            //with one list having a particular bit set in xorResult and another not set   
+            //Lets pick the last set bit in xorResult as that particular bit
+            var mask = xorResult & ~(xorResult - 1);
 
-            var mask = 1;
+            var listA = new List<int>();
+            var listB = new List<int>();
 
-            while(xorResult!=0)
+            foreach (var number in input)
             {
+                if((number & mask) !=0)
+                {
+                    listA.Add(number);
+                }
+                else
+                {
+                    listB.Add(number);
+                }
 
             }
 
-            throw new NotImplementedException();
+            //now x is in listA and y is in listB or vice versa 
+            //doing an xor on each list will cancel out all duplicates (since z^z =0)
+            int x = 0, y = 0;
+
+            foreach(var number in listA)
+            {
+                x = x ^ number;
+            }
+
+            foreach(var number in listB)
+            {
+                y = y ^ number;
+            }
+
+            return new int[] { x, y };
         }
     }
 }
