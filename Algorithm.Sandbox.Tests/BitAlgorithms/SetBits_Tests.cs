@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class SetBits_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void SetBits_Smoke_Test()
         {
             Assert.AreEqual(4, SetBits.Count(3));
             Assert.AreEqual(9, SetBits.Count(6));
