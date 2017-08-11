@@ -14,7 +14,13 @@ namespace Algorithm.Sandbox.BitAlgorithms
     {
         public static void Swap(ref int x, ref int y)
         {
-            throw new NotImplementedException();
+            //based on the properties of XOR
+            //if a^b=c => a^c=b and b^c=a
+
+            var z = x ^ y;
+
+            x = z ^ x;
+            y = z ^ y;
         }
     }
 }

@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class SwapBits_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void SwapBits_Smoke_Test()
         {
             Assert.AreEqual(227, SwapBits.Swap(47, 1, 5, 3));
             Assert.AreEqual(7 , SwapBits.Swap(28, 0, 3, 2));

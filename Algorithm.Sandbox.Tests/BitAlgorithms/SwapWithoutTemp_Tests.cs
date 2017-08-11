@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class SwapWithoutTemp_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void SwapWithoutTemp_Smoke_Test()
         {
             int x = 10, y = 5;
 
