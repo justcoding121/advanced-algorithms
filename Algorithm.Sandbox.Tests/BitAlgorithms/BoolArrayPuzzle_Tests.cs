@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class BoolArrayPuzzle_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void BoolArrayPuzzle_Smoke_Test()
         {
             CollectionAssert.AreEqual(new int[] { 0, 0 },
                 BoolArrayPuzzle.ChangeToZero(new int[] { 0, 1 }));

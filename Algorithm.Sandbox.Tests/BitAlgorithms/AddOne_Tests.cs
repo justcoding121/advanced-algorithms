@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class AddOne_Tests
     {
-        //[TestMethod]
-        public static void Smoke_Test()
+        [TestMethod]
+        public void AddOne_Smoke_Test()
         {
             Assert.AreEqual(13, AddOne.Find(12));
         }

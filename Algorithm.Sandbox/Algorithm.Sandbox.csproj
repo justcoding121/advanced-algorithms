@@ -69,7 +69,6 @@
     <Compile Include="BitAlgorithms\IntToBinary.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfNine.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfThree.cs" />
-    <Compile Include="BitAlgorithms\KaratsubaFastMultiplication.cs" />
     <Compile Include="BitAlgorithms\MagicNumber.cs" />
     <Compile Include="BitAlgorithms\MaxSubArrayXOR.cs" />
     <Compile Include="BitAlgorithms\MinMaxOfTwoIntegers.cs" />
@@ -81,7 +80,6 @@
     <Compile Include="BitAlgorithms\ReverseBits.cs" />
     <Compile Include="BitAlgorithms\SetBits.cs" />
     <Compile Include="BitAlgorithms\SetBitsBigArray.cs" />
-    <Compile Include="BitAlgorithms\SmallOfThree.cs" />
     <Compile Include="BitAlgorithms\SumBitDiff.cs" />
     <Compile Include="BitAlgorithms\SwapBits.cs" />
     <Compile Include="BitAlgorithms\SwapOddEvenBits.cs" />
