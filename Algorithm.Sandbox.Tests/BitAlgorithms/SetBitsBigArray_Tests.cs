@@ -18,7 +18,15 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         [TestMethod]
         public void SetBitsBigArray_Smoke_Test()
         {
-            Assert.AreEqual(0, SetBitsBigArray.CountSetBits(new int[] { 3, 5, 7, 8 }));
+            var size = 1 << 16;
+            var input = new List<int>();
+
+            for(int i=0;i<size;i++)
+            {
+                input.Add(i);
+            }
+
+            Assert.AreEqual(130560, SetBitsBigArray.CountSetBits(input.ToArray()));
         }
     }
 }

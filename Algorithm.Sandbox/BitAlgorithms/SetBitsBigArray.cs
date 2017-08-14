@@ -19,15 +19,15 @@ namespace Algorithm.Sandbox.BitAlgorithms
 
             long count = 0;
 
-            foreach(var item in array)
+            foreach (var item in array)
             {
                 byte[] intBytes = BitConverter.GetBytes(item);
 
-                foreach(var @byte in intBytes)
+                foreach (var @byte in intBytes)
                 {
                     count += lookUpTable[@byte];
                 }
-                
+
             }
 
             return count;
@@ -38,15 +38,35 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// all numbers b/w 0 to 255
         /// </summary>
         /// <returns></returns>
-        private static Dictionary<byte, int> getLookUp256Bytes()
+        private static Dictionary<int, int> getLookUp256Bytes()
         {
-            var lookUpHashTable = new Dictionary<byte, int>();
+            var lookUpHashTable = new Dictionary<int, int>();
 
-            for(int i=0;i<256;i++)
+            for (int i = 0; i < 256; i++)
             {
+                byte[] intBytes = BitConverter.GetBytes(i);
+                var lastByte = intBytes[0];
 
+                var onesCount = getOnesCount(i);
+
+                lookUpHashTable.Add(lastByte, onesCount);
             }
 
-            throw new NotImplementedException();        }
+            return lookUpHashTable;
+        }
+
+        private static int getOnesCount(int i)
+        {
+            var bitCount = 0;
+            var mask = 1;
+
+            while((i & mask) == 1)
+            {
+                bitCount++;
+                i >>= 1;
+            }
+
+            return bitCount;
+        }
     }
 }

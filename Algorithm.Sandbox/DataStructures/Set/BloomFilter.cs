@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.DataStructures.Set
     /// Keeps track of given keys and returns answer to key exists query with
     /// very low probability of error
     /// </summary>
-    public class BloomFilter
+    public class BloomFilter<T>
     {
         private BitArray filter;
 
@@ -30,20 +30,41 @@ namespace Algorithm.Sandbox.DataStructures.Set
         /// <summary>
         /// Run time complexity is O(1)
         /// </summary>
-        public void AddKey()
+        public void AddKey(T key)
         {
-            throw new NotImplementedException();
+            var hashCode = key.GetHashCode();
+       
+            //set 8 consecutive bits (a byte)
+            for (int i = 0; i < 8; i++)
+            {
+                var index = Math.Abs(hashCode + i) % filter.Length;
+                filter[index] = true;
+            }
         }
 
         /// <summary>
         /// Run time complexity is O(1)
         /// </summary>
         /// <returns></returns>
-        public bool KeyExists()
+        public bool KeyExists(T key)
         {
-            throw new NotImplementedException();
+            var hashCode = key.GetHashCode();
+           
+
+            //set 8 consecutive bits (a byte)
+            for (int i = 0; i < 8; i++)
+            {
+                var index = Math.Abs(hashCode + i) % filter.Length;
+
+                if (filter[index]== false)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
-       
+
     }
 }
