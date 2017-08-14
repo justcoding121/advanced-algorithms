@@ -106,6 +106,7 @@
     <Compile Include="DataStructures\List\ArrayList.cs" />
     <Compile Include="DataStructures\List\SkipList.cs" />
     <Compile Include="DataStructures\Queue\Queue.cs" />
+    <Compile Include="DataStructures\Set\BloomFilter.cs" />
     <Compile Include="DataStructures\Set\DisJointSet.cs" />
     <Compile Include="DataStructures\Set\SparseSet.cs" />
     <Compile Include="DataStructures\Stack\Stack.cs" />

@@ -112,6 +112,7 @@
     <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
     <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
     <Compile Include="DataStructures\Queue_Tests.cs" />
+    <Compile Include="DataStructures\Set\BloomFilter_Tests.cs" />
     <Compile Include="DataStructures\Set\DisJointSet_Tests.cs" />
     <Compile Include="DataStructures\Set\SparseSet_Tests.cs" />
     <Compile Include="DataStructures\Stack_Tests.cs" />
