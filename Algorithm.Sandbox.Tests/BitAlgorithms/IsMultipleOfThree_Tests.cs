@@ -15,10 +15,14 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class IsMultipleOfThree_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void IsMultipleOfThree_Test()
         {
-            Assert.AreEqual(true, IsMultipleOfThree.IsTrue(39));
+            Assert.IsTrue(IsMultipleOfThree.IsTrue(39));
+            Assert.IsFalse(IsMultipleOfThree.IsTrue(35));
+
+            Assert.IsTrue(IsMultipleOfThree.IsTrue(3));
+            Assert.IsFalse(IsMultipleOfThree.IsTrue(5));
         }
     }
 }

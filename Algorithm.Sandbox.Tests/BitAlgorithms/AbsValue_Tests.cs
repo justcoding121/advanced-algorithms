@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class AbsValue_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void AbsValue_Smoke_Test()
         {
             Assert.AreEqual(2, AbsValue.GetAbs(-2));
         }

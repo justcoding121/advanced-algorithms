@@ -12,9 +12,24 @@ namespace Algorithm.Sandbox.BitAlgorithms
     /// </summary>
     public class ReverseBits
     {
-        public static int Reverse(uint input)
+        public static uint Reverse(uint x)
         {
-            throw new NotImplementedException();
+            var count = 32;
+
+            uint y = x;
+            uint result = 0;
+
+            while (y > 0)
+            {
+                result = result << 1;
+                result = (result | (y & 1));
+                y = y >> 1;
+                count--;
+            }
+
+            result = result << count;
+
+            return result;
         }
     }
 }

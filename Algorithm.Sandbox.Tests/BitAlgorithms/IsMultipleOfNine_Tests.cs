@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class IsMultipleOfNine_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void IsMultipleOfNine_Smoke_Test()
         {
             Assert.AreEqual(true, IsMultipleOfNine.IsTrue(81));
         }

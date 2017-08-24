@@ -15,8 +15,8 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class NextPowOfTwo_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void NextPowOfTwo_Smoke_Test()
         {
             Assert.AreEqual(8, NextPowOfTwo.Next(5));
         }

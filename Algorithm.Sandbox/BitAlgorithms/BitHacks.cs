@@ -134,6 +134,7 @@ namespace Algorithm.Sandbox.BitAlgorithms
 
         /// <summary>
         ///  Gets the first right most sub bits starting with a Unset bit, with rightmost being 0th bit
+        ///  eg. 1011 => 0011
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
@@ -161,7 +162,7 @@ namespace Algorithm.Sandbox.BitAlgorithms
 
             //0001
             var result = 1;
-            //sice result init with 1 at the end 
+            //since result initiated with 1 at the end 
             //we just need to do n>1
             while (n > 1)
             {

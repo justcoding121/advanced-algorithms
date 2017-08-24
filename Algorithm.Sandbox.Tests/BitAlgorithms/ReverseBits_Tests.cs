@@ -15,10 +15,10 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class ReverseBits_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void ReverseBits_Smoke_Test()
         {
-            Assert.AreEqual(1, ReverseBits.Reverse(2147483648));
+            Assert.AreEqual((uint)1, ReverseBits.Reverse(2147483648));
         }
     }
 }
