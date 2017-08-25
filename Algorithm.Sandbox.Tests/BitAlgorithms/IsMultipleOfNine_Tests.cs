@@ -19,6 +19,10 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
         public void IsMultipleOfNine_Smoke_Test()
         {
             Assert.AreEqual(true, IsMultipleOfNine.IsTrue(81));
+            Assert.AreEqual(true, IsMultipleOfNine.IsTrue(90));
+
+            Assert.AreEqual(false, IsMultipleOfNine.IsTrue(91));
+            Assert.AreEqual(false, IsMultipleOfNine.IsTrue(102));
         }
     }
 }

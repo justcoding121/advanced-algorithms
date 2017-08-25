@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox.BitAlgorithms
                 return false;
             }
 
-            return IsTrue((x >> 3) - (x & 3));
+            return IsTrue((x >> 3) - (x & 7));
         }
     }
 }
