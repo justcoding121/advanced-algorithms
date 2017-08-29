@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class NextSmallLargeNumber_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void NextSmallLargeNumber_Smoke_Test()
         {
             NextSmallLargeNumber.NextLarge(112);

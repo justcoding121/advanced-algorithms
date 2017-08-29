@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class InterleaveBits_Test
     {
-        [TestMethod]
+        //[TestMethod]
         public void InterleaveBits_Smoke_Test()
         {
             InterleaveBits.Interleave(15, 20);

@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class CountTrailingBinaryZeros_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void CountTrailingBinaryZeros_Smoke_Test()
         {
             Assert.AreEqual(3, CountTrailingBinaryZeros.Count(Convert.ToInt32("1101000", 2)));

@@ -1,6 +1,7 @@
 ﻿using Algorithm.Sandbox.Sorting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Algorithm.Sandbox.Tests.Sorting
@@ -30,13 +31,23 @@ namespace Algorithm.Sandbox.Tests.Sorting
         [TestMethod]
         public void RadixSort_Stress_Test()
         {
+            int[] randomNumbers;
+            int nodeCount = 1000 * 1000;
             var rnd = new Random();
-            var nodeCount = 1000 * 1000;
-            var randomNumbers = Enumerable.Range(1, nodeCount)
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
 
-            var result = RadixSort.Sort(randomNumbers.ToArray());
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .ToArray();
+
+            var timer = new Stopwatch();
+
+            timer.Start();
+
+            var result = RadixSort.Sort(randomNumbers);
+
+            timer.Stop();
+
+            Debug.WriteLine($"sorted {nodeCount} integers using radix sort in {timer.ElapsedMilliseconds} milliseconds.");
 
             for (int i = 1; i <= nodeCount; i++)
             {

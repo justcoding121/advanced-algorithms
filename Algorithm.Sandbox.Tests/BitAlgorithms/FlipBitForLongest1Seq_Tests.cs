@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class FlipBitForLongest1Seq_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void FlipBitForLongest1Seq_Smoke_Test()
         {
             //1775

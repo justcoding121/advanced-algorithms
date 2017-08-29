@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class BinarySubsets_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void BinarySubsets_SmokeTest()
         {
             CollectionAssert.AreEqual(new List<string>() {
