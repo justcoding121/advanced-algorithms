@@ -14,10 +14,11 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class ParityBit_Tests
     {
-        //[TestMethod]
-        public void Smoke_Test()
+        [TestMethod]
+        public void ParityBit_Smoke_Test()
         {
-            Assert.AreEqual(0, ParityFinder.Find(13));
+            //13=> 1101 so should be odd parity
+            Assert.AreEqual(true, ParityFinder.Find(13));
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.DynamicProgramming
     public class BoxStacking_Tests
     {
         [TestMethod]
-        public void Smoke_Test()
+        public void BoxStacking_Smoke_Test()
         {
            Assert.AreEqual(60, BoxStacking.GetMaxHeight(new List<int[]>() {
                 new int[] { 4, 6, 7 },
