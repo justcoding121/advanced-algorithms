@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class InsertBits_Test
     {
-        [TestMethod]
+        //[TestMethod]
         public void InsertBits_Smoke_Test()
         {
             var input = Convert.ToInt32("10000000000", 2);

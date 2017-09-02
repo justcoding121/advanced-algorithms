@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     public class SumBitDiff_Tests
     {
         //[TestMethod]
-        public void Smoke_Test()
+        public void SumBitDiff_Smoke_Test()
         {
             Assert.AreEqual(8, SumBitDiff.Sum(new int[] { 1, 3, 5 }));
         }

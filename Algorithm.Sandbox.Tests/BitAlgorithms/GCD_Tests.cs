@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class GCD_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void GCD_Smoke_Test()
         {
             Assert.AreEqual(15, GCD.Find(30, 45));

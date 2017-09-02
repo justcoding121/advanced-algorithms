@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class TestCordInside8x8Grid_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void TestCordInside8x8Grid_Smoke_Test()
         {
             Assert.IsTrue(TestCordInside8x8Grid.IsInside(3, 4));

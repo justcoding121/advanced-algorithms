@@ -326,7 +326,7 @@ namespace Algorithm.Sandbox.DataStructures
             }
 
             var result = FindNearestNeighbour(Root, visitTracker, point, 0, null, distanceCalculator).Points;
-            Debug.WriteLine(visitTracker.Count);
+
             visitTracker.Clear();
 
             return result;
@@ -463,7 +463,6 @@ namespace Algorithm.Sandbox.DataStructures
             var result = GetInRange(new List<T[]>(), Root, 
                 visitTracker, start, end, 0);
 
-            Debug.WriteLine(visitTracker.Count);
 
             return result;
 

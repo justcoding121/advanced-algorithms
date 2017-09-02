@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class DivisionModulus_Tests
     {
-        [TestMethod]
+        //[TestMethod]
         public void DivisionModulus_Smoke_Test()
         {
             Assert.AreEqual(1, DivisionModulus.GetModulus(5, 4));

@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.Geometry
     public class RectIntersection_Tests
     {
         //[TestMethod]
-        public void Smoke_Test()
+        public void RectIntersection_Smoke_Test()
         {
             int[] l1 = new int[] { 0, 10 }, r1 = new int[] { 10, 0 };
             int[] l2 = new int[]{ 5, 5 }, r2 = new int[]{ 15, 0 };

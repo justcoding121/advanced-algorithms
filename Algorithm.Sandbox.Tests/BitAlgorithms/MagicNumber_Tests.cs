@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     public class MagicNumber_Tests
     {
         //[TestMethod]
-        public void Smoke_Test()
+        public void MagicNumber_Smoke_Test()
         {
             Assert.AreEqual(130, MagicNumber.Find(5));
         }
