@@ -55,10 +55,6 @@
     <Compile Include="BitAlgorithms\BoolArrayPuzzle.cs" />
     <Compile Include="BitAlgorithms\CalcLogarithm.cs" />
     <Compile Include="BitAlgorithms\CheckWordForZeroByte.cs" />
-    <Compile Include="BitAlgorithms\CountBits.cs" />
-    <Compile Include="BitAlgorithms\CountFlipBitsAToB.cs" />
-    <Compile Include="BitAlgorithms\CountSetBits.cs" />
-    <Compile Include="BitAlgorithms\CountTrailingBinaryZeros.cs" />
     <Compile Include="BitAlgorithms\DivisionModulus.cs" />
     <Compile Include="BitAlgorithms\DrawLine.cs" />
     <Compile Include="BitAlgorithms\FindUniqueElement.cs" />
