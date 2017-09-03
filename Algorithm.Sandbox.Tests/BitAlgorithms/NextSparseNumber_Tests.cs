@@ -15,10 +15,13 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class NextSparseNumber_Tests
     {
-        //[TestMethod]
+        [TestMethod]
         public void NextSparseNumber_Smoke_Test()
         {
             Assert.AreEqual(8, NextSparseNumber.Next(6));
+            Assert.AreEqual(4, NextSparseNumber.Next(4));
+            Assert.AreEqual(40, NextSparseNumber.Next(38));
+            Assert.AreEqual(64, NextSparseNumber.Next(44));
         }
     }
 }
