@@ -24,7 +24,7 @@ namespace Algorithm.Sandbox.BitAlgorithms
         ///         (ii) Set third bit to 1 and continue from third bit step a
         /// </summary>
         /// <param name="x"></param>
-        /// <returns></returns>
+        /// <returns>Next sparse number is number is not sparse, otherwise returns input itself</returns>
         public static int Next(int x)
         {
             //start from second last bit i
