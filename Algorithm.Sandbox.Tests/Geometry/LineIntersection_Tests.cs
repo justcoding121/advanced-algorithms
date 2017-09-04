@@ -11,24 +11,23 @@ namespace Algorithm.Sandbox.Tests.Geometry
     [TestClass]
     public class LineIntersection_Tests
     {
-        //[TestMethod]
+        [TestMethod]
         public void LineIntersection_Smoke_Test()
         {
-            var line1StartPt = new int[] { 1, 1};
-            var line1EndPt = new int[] { 10, 1};
+            var line1 = new Line { x1 = 1, y1 = 1, x2 = 10, y2 = 1 };
+            var line2 = new Line { x1 = 1, y1 = 2, x2 = 10, y2 = 2 };
 
-            var line2StartPt = new int[] { 1, 2};
-            var line2EndPt = new int[] {10, 2};
+            Assert.AreEqual(default(Point), LineIntersection.DoIntersect(line1, line2));
 
-            Assert.IsFalse(LineIntersection.DoIntersect(line1StartPt, line1EndPt, line2StartPt, line2EndPt));
+            line1 = new Line { x1 = 10, y1 = 0, x2 = 0, y2 = 10 };
+            line2 = new Line { x1 = 0, y1 = 10, x2 = 10, y2 = 10 };
 
-            line1StartPt = new int[] { 10, 0 };
-            line1EndPt = new int[] { 0, 10 };
+            Assert.AreEqual(new Point() { x = 0, y = 10 }, LineIntersection.DoIntersect(line1, line2));
 
-            line2StartPt = new int[] { 0, 0 };
-            line2EndPt = new int[] { 10, 10 };
+            line1 = new Line { x1 = -5, y1 = -5, x2 = 0, y2 = 0 };
+            line2 = new Line { x1 = 1, y1 = 1, x2 = 10, y2 = 10 };
 
-            Assert.IsFalse(LineIntersection.DoIntersect(line1StartPt, line1EndPt, line2StartPt, line2EndPt));
+            Assert.AreEqual(default(Point), LineIntersection.DoIntersect(line1, line2));
         }
     }
 }
