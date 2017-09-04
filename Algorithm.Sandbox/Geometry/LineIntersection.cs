@@ -38,16 +38,16 @@ namespace Algorithm.Sandbox.Geometry
             double x4 = lineB.x2, y4 = lineB.y2;
 
             //general equation of line is y = mx + c where m is the slope
-            //assume equation of line 1 as y1 = m1x1 + c1 ----(1)
-            //=> -m1x1 + y1 = c1
-            //assume equation of line 2 as y2 = m2x2 + c2-----(2)
-            //=> -m2x2 + y2 = c2
+            //assume equation of line 1 as y1 = m1x1 + c1 
+            //=> -m1x1 + y1 = c1 ----(1)
+            //assume equation of line 2 as y2 = m2x2 + c2
+            //=> -m2x2 + y2 = c2 -----(2)
             //if line 1 and 2 intersect then x1=x2=x & y1=y2=y where (x,y) is the intersection point
             //so we will get below two equations 
             //-m1x + y = c1 --------(3)
             //-m2x + y = c2 --------(4)
             //solving equations (3) & (4) => x = (c1-c2)/(m2-m1)
-            //plugging x value in equation (1) => y = c2 + m2 * x
+            //plugging x value in equation (4) => y = c2 + m2 * x
 
             //compute slope of line 1 (m1) and c2
             var m1 = (y2 - y1) / (x2 - x1);
@@ -70,7 +70,7 @@ namespace Algorithm.Sandbox.Geometry
                 return new Point() { x = x, y = y };
             }
 
-            //null
+            //return default null (no intersection)
             return default(Point);
 
         }
