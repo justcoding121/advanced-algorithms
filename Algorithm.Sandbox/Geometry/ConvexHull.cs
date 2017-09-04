@@ -68,8 +68,8 @@ namespace Algorithm.Sandbox.Geometry
             int x2 = q[0], y2 = q[1];
             int x3 = r[0], y3 = r[1];
 
-            //using slope formula => (y2-y1)/(x2-x1) = (y3-y2)/(x3-x2) == 0 (if colinear)
-            // => (y2-y1)(x3-x2)-(y3-y2)(x2-x1) == 0 
+            //using slope formula => (y2-y1)/(x2-x1) = (y3-y2)/(x3-x2) (if colinear)
+            // derives to (y2-y1)(x3-x2)-(y3-y2)(x2-x1) == 0 
             var result = (y2 - y1) * (x3 - x2) - (y3 - y2) * (x2 - x1);
 
             //sign will give the direction
