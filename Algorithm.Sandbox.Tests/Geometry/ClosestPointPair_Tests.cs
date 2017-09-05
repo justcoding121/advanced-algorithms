@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.Geometry
     [TestClass]
     public class ClosestPointPair_Tests
     {
-        //[TestMethod]
+        [TestMethod]
         public void ClosestPointPair_Smoke_Test()
         {
             var testPoints = new List<int[]>()
@@ -28,7 +28,7 @@ namespace Algorithm.Sandbox.Tests.Geometry
                 new int[]{ 3, 4}
             };
 
-            Assert.AreEqual(1.414214, ClosestPointPair.Find(testPoints));
+            Assert.AreEqual(1.414, ClosestPointPair.Find(testPoints), 3);
         }
     }
 }
