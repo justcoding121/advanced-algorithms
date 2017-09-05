@@ -70,16 +70,6 @@ namespace Algorithm.Sandbox.Geometry
             //so we will get below two equations 
             //-m1x + y = c1 --------(3)
             //-m2x + y = c2 --------(4)
-            //solving equations (3) & (4) => x = (c1-c2)/(m2-m1)
-            //plugging x value in equation (4) => y = c2 + m2 * x
-
-            //compute slope of line 1 (m1) and c2
-            double m1 = (y2 - y1) / (x2 - x1);
-            double c1 = -m1 * x1 + y1;
-
-            //compute slope of line 2 (m2) and c2
-            double m2 = (y4 - y3) / (x4 - x3);
-            double c2 = -m2 * x3 + y3;
 
             double x, y;
 
@@ -87,6 +77,10 @@ namespace Algorithm.Sandbox.Geometry
             //so lets derive another solution
             if (x1 == x2)
             {
+                //compute slope of line 2 (m2) and c2
+                double m2 = (y4 - y3) / (x4 - x3);
+                double c2 = -m2 * x3 + y3;
+
                 //equation of vertical line is x = c
                 //if line 1 and 2 intersect then x1=c1=x
                 //subsitute x=x1 in (4) => -m2x1 + y = c2
@@ -98,6 +92,10 @@ namespace Algorithm.Sandbox.Geometry
             //so lets derive another solution
             else if (x3 == x4)
             {
+                //compute slope of line 1 (m1) and c2
+                double m1 = (y2 - y1) / (x2 - x1);
+                double c1 = -m1 * x1 + y1;
+
                 //equation of vertical line is x = c
                 //if line 1 and 2 intersect then x3=c3=x
                 //subsitute x=x3 in (3) => -m1x3 + y = c1
@@ -107,7 +105,16 @@ namespace Algorithm.Sandbox.Geometry
             }
             else
             {
-                //solve for x & y the intersection points
+                //compute slope of line 1 (m1) and c2
+                double m1 = (y2 - y1) / (x2 - x1);
+                double c1 = -m1 * x1 + y1;
+
+                //compute slope of line 2 (m2) and c2
+                double m2 = (y4 - y3) / (x4 - x3);
+                double c2 = -m2 * x3 + y3;
+
+                //solving equations (3) & (4) => x = (c1-c2)/(m2-m1)
+                //plugging x value in equation (4) => y = c2 + m2 * x
                 x = (c1 - c2) / (m2 - m1);
                 y = c2 + m2 * x;
 
