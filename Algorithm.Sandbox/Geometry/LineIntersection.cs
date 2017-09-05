@@ -38,9 +38,9 @@ namespace Algorithm.Sandbox.Geometry
             double x4 = lineB.x2, y4 = lineB.y2;
 
             //equations of the form x=c (two vertical lines)
-            if (x1 == x2 || x3 == x4)
+            if (x1 == x2 && x3 == x4)
             {
-                throw new Exception("Vertical lines not supported.");
+                return default(Point);
             }
 
             //general equation of line is y = mx + c where m is the slope
@@ -56,30 +56,59 @@ namespace Algorithm.Sandbox.Geometry
             //plugging x value in equation (4) => y = c2 + m2 * x
 
             //compute slope of line 1 (m1) and c2
-            var m1 = (y2 - y1) / (x2 - x1);
-            var c1 = -m1 * x1 + y1;
+            double m1 = (y2 - y1) /(x2 - x1);
+            double c1 = -m1 * x1 + y1;
 
             //compute slope of line 2 (m2) and c2
-            var m2 = (y4 - y3) / (x4 - x3);
-            var c2 = -m2 * x3 + y3;
+            double m2 = (y4 - y3) / (x4 - x3);
+            double c2 = -m2 * x3 + y3;
 
-            //solve for x & y the intersection points
-            var x = (c1 - c2) / (m2 - m1);
-            var y = c2 + m2 * x;
-
-            //verify by plugging intersection point (x, y)
-            //in orginal equations (1) & (2) to see if they intersect
-            //otherwise x,y values will not be finite and will fail this check
-            if (-m1 * x + y == c1
-                && -m2 * x + y == c2)
+            double x, y;
+           
+            //for x1=x2 slope will be infinity
+            //so lets derive another solution
+            if (x1 == x2)
             {
-                //x,y can intersect outside the line segment since line is infinitely long
-                //so finally check if x, y is within both the line segments
-                if (IsInsideLine(lineA, x, y) &&
-                    IsInsideLine(lineB, x, y))
+                //equation of vertical line is x = c
+                //if line 1 and 2 intersect then x1=c1=x
+                //subsitute x=x1 in (4) => -m2x1 + y = c2
+                // => y = c2 + m2x1 
+                x = x1;
+                y = c2 + m2 * x1;
+            }
+            //for x3=x4 slope will be infinity
+            //so lets derive another solution
+            else if (x3 == x4)
+            {
+                //equation of vertical line is x = c
+                //if line 1 and 2 intersect then x3=c3=x
+                //subsitute x=x3 in (3) => -m1x3 + y = c1
+                // => y = c1 + m1x3 
+                x = x3;
+                y = c1 + m1 * x3;
+            }
+            else
+            {
+                //solve for x & y the intersection points
+                x = (c1 - c2) / (m2 - m1);
+                y = c2 + m2 * x;
+
+                //verify by plugging intersection point (x, y)
+                //in orginal equations (1) & (2) to see if they intersect
+                //otherwise x,y values will not be finite and will fail this check
+                if (!(-m1 * x + y == c1
+                    && -m2 * x + y == c2))
                 {
-                    return new Point() { x = x, y = y };
+                    return default(Point);
                 }
+            }
+
+            //x,y can intersect outside the line segment since line is infinitely long
+            //so finally check if x, y is within both the line segments
+            if (IsInsideLine(lineA, x, y) &&
+                IsInsideLine(lineB, x, y))
+            {
+                return new Point() { x = x, y = y };
             }
 
             //return default null (no intersection)

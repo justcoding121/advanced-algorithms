@@ -39,6 +39,29 @@ namespace Algorithm.Sandbox.Tests.Geometry
             line2 = new Line { x1 = 1, y1 = 1, x2 = 10, y2 = 10 };
 
             Assert.AreEqual(default(Point), LineIntersection.FindIntersection(line1, line2));
+
+            line1 = new Line { x1 = 3, y1 = -5, x2 =3, y2 = 10 };
+            line2 = new Line { x1 = 0, y1 = 5, x2 = 10, y2 = 5 };
+
+            Assert.AreEqual(new Point() { x = 3, y = 5 }, LineIntersection.FindIntersection(line1, line2));
+
+            line1 = new Line { x1 = 0, y1 = 5, x2 = 10, y2 = 5 }; 
+            line2 = new Line { x1 = 3, y1 = -5, x2 = 3, y2 = 10 };
+
+            Assert.AreEqual(new Point() { x = 3, y = 5 }, LineIntersection.FindIntersection(line1, line2));
+
+
+            line1 = new Line { x1 = 0, y1 = 5, x2 = 10, y2 = 5 };
+            line2 = new Line { x1 = 3, y1 = -5, x2 = 5, y2 = 15 };
+
+            Assert.AreEqual(new Point() { x = 4, y = 5 }, LineIntersection.FindIntersection(line1, line2));
+
+
+
+            line1 = new Line { x1 = 0, y1 = -5, x2 = 0, y2 = 5 };
+            line2 = new Line { x1 = -3, y1 = 0, x2 = 3, y2 = 0 };
+
+            Assert.AreEqual(new Point() { x = 0, y = 0 }, LineIntersection.FindIntersection(line1, line2));
         }
     }
 }
