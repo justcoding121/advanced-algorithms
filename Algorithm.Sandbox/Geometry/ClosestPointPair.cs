@@ -51,13 +51,11 @@ namespace Algorithm.Sandbox.Geometry
 
             for (int i = 0; i < strips.Count; i++)
             {
-                for (int j = i + 1; j < strips.Count; j++)
+                for (int j = i + 1; j < strips.Count && Math.Abs(strips[i].y - strips[j].y) < min; j++)
                 {
                     //check for radius 
-                    if (Math.Abs(strips[i].y - strips[j].y) < min)
-                    {
-                        min = Math.Min(min, getDistance(strips[i], strips[j]));
-                    }
+                    min = Math.Min(min, getDistance(strips[i], strips[j]));
+                    
                 }
             }
 
@@ -68,9 +66,9 @@ namespace Algorithm.Sandbox.Geometry
         private static double bruteForce(List<Point> points, int left, int right)
         {
             var min = double.MaxValue;
-            for (int i = 0; i < points.Count; i++)
+            for (int i = left; i < right; i++)
             {
-                for (int j = i + 1; j < points.Count; j++)
+                for (int j = left + 1; j <= right; j++)
                 {
                     min = Math.Min(min, getDistance(points[i], points[j]));
                 }
