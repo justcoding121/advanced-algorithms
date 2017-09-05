@@ -89,7 +89,7 @@ namespace Algorithm.Sandbox.Geometry
                 x = x1;
                 y = c2 + m2 * x1;
             }
-            //lineB is vertical x3 = 4
+            //lineB is vertical x3 = x4
             //slope will be infinity
             //so lets derive another solution
             else if (x3 == x4)
