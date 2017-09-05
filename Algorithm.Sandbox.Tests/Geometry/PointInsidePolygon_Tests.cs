@@ -15,13 +15,13 @@ namespace Algorithm.Sandbox.Tests.Geometry
     [TestClass]
     public class PointInsidePolygon_Tests
     {
-        //[TestMethod]
+        [TestMethod]
         public void PointInsidePolygon_Smoke_Test()
         {
             var polygon = new List<int[]>() {
                 new int[] { 0, 0 },
-                new int[] { 10, 0 },
                 new int[] { 10, 10 },
+                new int[] { 11, 11 },
                 new int[] { 0, 10 }
             };
 

@@ -46,7 +46,7 @@ namespace Algorithm.Sandbox.Geometry
                 }
             }
 
-            //vertical strips withing the radius of min
+            //vertical strips within the radius of min
             strips = strips.OrderBy(p => p.y).ToList();
 
             for (int i = 0; i < strips.Count; i++)
