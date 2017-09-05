@@ -43,7 +43,7 @@ namespace Algorithm.Sandbox.Geometry
                 throw new Exception("Both lines overlap vertically, ambiguous intersection points.");
             }
 
-            //equations of the form x=c (two vertical lines)
+            //equations of the form y=c (two horizontal lines)
             if (y1 == y2 && y3 == y4 && y1 == y3)
             {
                 throw new Exception("Both lines overlap horizontally, ambiguous intersection points.");
