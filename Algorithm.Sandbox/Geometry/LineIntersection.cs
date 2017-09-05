@@ -55,6 +55,12 @@ namespace Algorithm.Sandbox.Geometry
                 return default(Point);
             }
 
+            //equations of the form y=c (two horizontal lines)
+            if (y1 == y2 && y3 == y4)
+            {
+                return default(Point);
+            }
+
             //general equation of line is y = mx + c where m is the slope
             //assume equation of line 1 as y1 = m1x1 + c1 
             //=> -m1x1 + y1 = c1 ----(1)
