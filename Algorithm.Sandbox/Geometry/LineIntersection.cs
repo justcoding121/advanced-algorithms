@@ -24,7 +24,7 @@ namespace Algorithm.Sandbox.Geometry
     public class LineIntersection
     {
         /// <summary>
-        ///  Returns true if do intersect otherwise false
+        ///  Returns Point of intersection if do intersect otherwise default Point (null)
         /// </summary>
         /// <param name="lineA"></param>
         /// <param name="lineB"></param>
@@ -36,6 +36,18 @@ namespace Algorithm.Sandbox.Geometry
 
             double x3 = lineB.x1, y3 = lineB.y1;
             double x4 = lineB.x2, y4 = lineB.y2;
+
+            //equations of the form x=c (two vertical lines)
+            if (x1 == x2 && x3 == x4 && x1 == x3)
+            {
+                throw new Exception("Both lines overlap vertically, ambiguous intersection points.");
+            }
+
+            //equations of the form x=c (two vertical lines)
+            if (y1 == y2 && y3 == y4 && y1 == y3)
+            {
+                throw new Exception("Both lines overlap horizontally, ambiguous intersection points.");
+            }
 
             //equations of the form x=c (two vertical lines)
             if (x1 == x2 && x3 == x4)
@@ -56,7 +68,7 @@ namespace Algorithm.Sandbox.Geometry
             //plugging x value in equation (4) => y = c2 + m2 * x
 
             //compute slope of line 1 (m1) and c2
-            double m1 = (y2 - y1) /(x2 - x1);
+            double m1 = (y2 - y1) / (x2 - x1);
             double c1 = -m1 * x1 + y1;
 
             //compute slope of line 2 (m2) and c2
@@ -64,7 +76,7 @@ namespace Algorithm.Sandbox.Geometry
             double c2 = -m2 * x3 + y3;
 
             double x, y;
-           
+
             //for x1=x2 slope will be infinity
             //so lets derive another solution
             if (x1 == x2)
