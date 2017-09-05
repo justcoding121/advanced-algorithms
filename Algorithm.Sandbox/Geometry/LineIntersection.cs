@@ -72,8 +72,9 @@ namespace Algorithm.Sandbox.Geometry
             //-m2x + y = c2 --------(4)
 
             double x, y;
-
-            //for x1=x2 slope will be infinity
+            
+            //lineA is vertical x1 = x2
+            //slope will be infinity
             //so lets derive another solution
             if (x1 == x2)
             {
@@ -88,7 +89,8 @@ namespace Algorithm.Sandbox.Geometry
                 x = x1;
                 y = c2 + m2 * x1;
             }
-            //for x3=x4 slope will be infinity
+            //lineB is vertical x3 = 4
+            //slope will be infinity
             //so lets derive another solution
             else if (x3 == x4)
             {
@@ -103,6 +105,8 @@ namespace Algorithm.Sandbox.Geometry
                 x = x3;
                 y = c1 + m1 * x3;
             }
+            //lineA & lineB are not vertical 
+            //(could be horizontal we can handle it with slope = 0)
             else
             {
                 //compute slope of line 1 (m1) and c2
