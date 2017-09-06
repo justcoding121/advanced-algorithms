@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void KdTree2D_Smoke_Test()
+        public void KdTree2D_NearestNeighbour_Smoke_Test()
         {
             var distanceCalculator = new DistanceCalculator2D();
 
@@ -47,7 +47,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void KdTree2D_Accuracy_Test()
+        public void KdTree2D_NearestNeighbour_Accuracy_Test()
         {
             var distanceCalculator = new DistanceCalculator2D();
 
@@ -58,7 +58,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             for (int i = 0; i < nodeCount; i++)
             {
-                var start = i + rnd.Next(int.MinValue, int.MaxValue - 100);
+                var start = i + rnd.Next(0, int.MaxValue - 100);
                 var end = start + rnd.Next(1, 10);
 
                 testPts.Add(new int[] { start, end });
@@ -124,7 +124,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
             for (int i = 0; i < nodeCount; i++)
             {
-                var start = i + rnd.Next(int.MinValue, int.MaxValue - 100);
+                var start = i + rnd.Next(0, int.MaxValue - 100);
                 var end = start + rnd.Next(1, 10);
 
                 testPts.Add(new int[] { start, end });

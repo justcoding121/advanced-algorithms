@@ -114,8 +114,7 @@ namespace Algorithm.Sandbox.DataStructures
                 }
                 else
                 {
-                    depth++;
-                    Insert(currentNode.Left, point, depth);
+                    Insert(currentNode.Left, point, depth + 1);
                 }
             }
             else if (point[currentDimension].CompareTo(currentNode.Points[currentDimension]) >= 0)
@@ -129,8 +128,7 @@ namespace Algorithm.Sandbox.DataStructures
                 }
                 else
                 {
-                    depth++;
-                    Insert(currentNode.Right, point, depth);
+                    Insert(currentNode.Right, point, depth + 1);
                 }
 
             }
@@ -160,32 +158,26 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="depth"></param>
         private void Delete(KDTreeNode<T> currentNode, T[] point, int depth)
         {
+            if(currentNode == null)
+            {
+                throw new Exception("Given deletion point do not exist in this kd tree.");
+            }
+
             var currentDimension = depth % dimensions;
+
+            if (DoMatch(currentNode.Points, point))
+            {
+                HandleDeleteCases(currentNode, point, depth);
+                return;
+            }
 
             if (point[currentDimension].CompareTo(currentNode.Points[currentDimension]) < 0)
             {
-                if (DoMatch(currentNode.Points, point))
-                {
-                    HandleDeleteCases(currentNode, point, depth);
-                }
-                else
-                {
-                    depth++;
-                    Delete(currentNode.Left, point, depth);
-                }
+                Delete(currentNode.Left, point, depth + 1);
             }
             else if (point[currentDimension].CompareTo(currentNode.Points[currentDimension]) >= 0)
             {
-                if (DoMatch(currentNode.Points, point))
-                {
-                    HandleDeleteCases(currentNode, point, depth);
-                }
-                else
-                {
-                    depth++;
-                    Delete(currentNode.Right, point, depth);
-                }
-
+                Delete(currentNode.Right, point, depth + 1);
             }
         }
 
@@ -222,22 +214,20 @@ namespace Algorithm.Sandbox.DataStructures
             //case 2 right subtree is not null
             if (currentNode.Right != null)
             {
-                var minNode = FindMin(currentNode.Right, depth % dimensions, currentNode.Right);
+                var minNode = FindMin(currentNode.Right, depth % dimensions, depth + 1);
                 CopyPoints(currentNode.Points, minNode.Points);
 
-                depth++;
-                Delete(currentNode.Right, minNode.Points, depth);
+                Delete(currentNode.Right, minNode.Points, depth + 1);
 
 
             }
             //case 3 left subtree is not null
             else if (currentNode.Left != null)
             {
-                var minNode = FindMin(currentNode.Left, depth % dimensions, currentNode.Left);
+                var minNode = FindMin(currentNode.Left, depth % dimensions, depth + 1);
                 CopyPoints(currentNode.Points, minNode.Points);
 
-                depth++;
-                Delete(currentNode.Left, minNode.Points, depth);
+                Delete(currentNode.Left, minNode.Points, depth + 1);
 
                 //now move to right
                 currentNode.Right = currentNode.Left;
@@ -267,24 +257,63 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="right"></param>
         /// <param name="v"></param>
         /// <returns></returns>
-        private KDTreeNode<T> FindMin(KDTreeNode<T> node, int dimension, KDTreeNode<T> currentMin)
+        private KDTreeNode<T> FindMin(KDTreeNode<T> node, int searchdimension, int depth)
         {
-            if (node.Points[dimension].CompareTo(currentMin.Points[dimension]) < 0)
+            var currentDimension = depth % dimensions;
+
+            if (currentDimension == searchdimension)
             {
-                currentMin = node;
+                if (node.Left == null)
+                {
+                    return node;
+                }
+
+                return FindMin(node.Left, searchdimension, depth + 1);
             }
 
+            KDTreeNode<T> leftMin = null;
             if (node.Left != null)
             {
-                currentMin = FindMin(node.Left, dimension, currentMin);
+                leftMin = FindMin(node.Left, searchdimension, depth + 1);
             }
 
+            KDTreeNode<T> rightMin = null;
             if (node.Right != null)
             {
-                currentMin = FindMin(node.Right, dimension, currentMin);
+                rightMin = FindMin(node.Right, searchdimension, depth + 1);
             }
 
-            return currentMin;
+            return min(node, leftMin, rightMin, searchdimension);
+
+        }
+
+        /// <summary>
+        /// returns min of given three nodes on search dimension
+        /// </summary>
+        /// <param name="node">Should not be null</param>
+        /// <param name="leftMin"></param>
+        /// <param name="rightMin"></param>
+        /// <param name="searchdimension"></param>
+        /// <returns></returns>
+        private KDTreeNode<T> min(KDTreeNode<T> node,
+            KDTreeNode<T> leftMin, KDTreeNode<T> rightMin,
+            int searchdimension)
+        {
+            var min = node;
+
+            if (leftMin != null && min.Points[searchdimension]
+                .CompareTo(leftMin.Points[searchdimension]) > 0)
+            {
+                min = leftMin;
+            }
+
+            if (rightMin != null && min.Points[searchdimension]
+             .CompareTo(rightMin.Points[searchdimension]) > 0)
+            {
+                min = rightMin;
+            }
+
+            return min;
         }
 
         /// <summary>
@@ -306,12 +335,6 @@ namespace Algorithm.Sandbox.DataStructures
             return true;
         }
 
-        //keep track of visited nodes during neighbour search
-        //so that we don't visit them again
-        //TODO: could have better ways
-        private Dictionary<KDTreeNode<T>, bool> visitTracker
-            = new Dictionary<KDTreeNode<T>, bool>();
-
         /// <summary>
         /// returns the nearest neigbour to point
         /// </summary>
@@ -325,11 +348,7 @@ namespace Algorithm.Sandbox.DataStructures
                 throw new Exception("Empty tree");
             }
 
-            var result = FindNearestNeighbour(Root, visitTracker, point, 0, null, distanceCalculator).Points;
-
-            visitTracker.Clear();
-
-            return result;
+            return FindNearestNeighbour(Root, point, 0, distanceCalculator).Points;
         }
 
         /// <summary>
@@ -340,88 +359,76 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="searchPoint"></param>
         /// <param name="depth"></param>
         private KDTreeNode<T> FindNearestNeighbour(KDTreeNode<T> currentNode,
-            Dictionary<KDTreeNode<T>, bool> visited,
             T[] searchPoint, int depth,
-            KDTreeNode<T> currentBest, IDistanceCalculator<T> distanceCalculator)
+            IDistanceCalculator<T> distanceCalculator)
         {
             var currentDimension = depth % dimensions;
+            KDTreeNode<T> currentBest = null;
 
-            //just do regular insertion procedure to until leaf is reached
-            if (searchPoint[currentDimension].CompareTo(currentNode.Points[currentDimension]) < 0)
+            var compareResult = searchPoint[currentDimension]
+                .CompareTo(currentNode.Points[currentDimension]);
+
+            //move toward search point until leaf is reached
+            if (compareResult < 0)
             {
-                if (currentNode.Left == null)
+                if (currentNode.Left != null)
                 {
-                    if (currentBest == null)
-                    {
-                        currentBest = currentNode;
-                    }
-                    else
-                    {
-                        currentBest = GetClosestNeigbour(distanceCalculator, currentBest, currentNode, searchPoint);
-                    }
+                    currentBest = FindNearestNeighbour(currentNode.Left,
+                        searchPoint, depth + 1, distanceCalculator);
                 }
                 else
                 {
-                    currentBest = FindNearestNeighbour(currentNode.Left, visited,
-                        searchPoint, ++depth, currentBest, distanceCalculator);
+                    currentBest = currentNode;
                 }
-            }
-            else if (searchPoint[currentDimension].CompareTo(currentNode.Points[currentDimension]) >= 0)
-            {
-                if (currentNode.Right == null)
+
+                //currentBest is greater than point to current node distance
+                //or if right node sits on split plane
+                //then also move left
+                if (currentNode.Right != null &&
+                    (distanceCalculator.Compare(currentNode.Points[currentDimension], searchPoint[currentDimension], searchPoint, currentBest.Points) < 0
+                    || currentNode.Right.Points[currentDimension]
+                       .CompareTo(currentNode.Points[currentDimension]) == 0))
                 {
-                    if (currentBest == null)
-                    {
-                        currentBest = currentNode;
-                    }
-                    else
-                    {
-                        currentBest = GetClosestNeigbour(distanceCalculator, currentBest, currentNode, searchPoint);
-                    }
+                    var rightBest = FindNearestNeighbour(currentNode.Right,
+                          searchPoint, depth + 1,
+                          distanceCalculator);
+
+                    currentBest = GetClosestToPoint(distanceCalculator, currentBest, rightBest, searchPoint);
+                }
+                //now recurse up from leaf updating current Best
+                currentBest = GetClosestToPoint(distanceCalculator, currentBest, currentNode, searchPoint);
+
+            }
+            else if (compareResult >= 0)
+            {
+                if (currentNode.Right != null)
+                {
+                    currentBest = FindNearestNeighbour(currentNode.Right,
+                        searchPoint, depth + 1, distanceCalculator);
+
                 }
                 else
                 {
-                    currentBest = FindNearestNeighbour(currentNode.Right, visited,
-                        searchPoint, ++depth, currentBest, distanceCalculator);
+                    currentBest = currentNode;
                 }
 
-            }
-
-            //now recurse up from leaf updating current Best
-            currentBest = GetClosestNeigbour(distanceCalculator, currentBest, currentNode, searchPoint);
-            visited.Add(currentNode, false);
-
-
-            if (currentNode.Right != null && !visited.ContainsKey(currentNode.Right))
-            {
-                //whether the distance between the splitting coordinate of the search point and current node
-                //is lesser than the distance (overall coordinates) from the search point to the current best.
-                if (distanceCalculator.Compare(searchPoint[currentDimension], currentNode.Points[currentDimension],
-                    searchPoint, currentBest.Points) < 0)
+                //currentBest is greater than point to current node distance
+                //or if search point lies on split plane
+                //then also move left
+                if (currentNode.Left != null
+                    && (distanceCalculator.Compare(currentNode.Points[currentDimension], searchPoint[currentDimension], searchPoint, currentBest.Points) < 0 || compareResult == 0))
                 {
-                    currentBest = FindNearestNeighbour(currentNode.Right, visited,
-                        searchPoint, ++depth, currentBest,
-                        distanceCalculator);
+                    var leftBest = FindNearestNeighbour(currentNode.Left,
+                          searchPoint, depth + 1,
+                          distanceCalculator);
 
+                    currentBest = GetClosestToPoint(distanceCalculator, currentBest, leftBest, searchPoint);
                 }
 
-                return currentBest;
 
-            }
+                //now recurse up from leaf updating current Best
+                currentBest = GetClosestToPoint(distanceCalculator, currentBest, currentNode, searchPoint);
 
-            if (currentNode.Left != null && !visited.ContainsKey(currentNode.Left))
-            {
-                //whether the distance between the splitting coordinate of the search point and current node
-                //is lesser than the distance (overall coordinates) from the search point to the current best.
-                if (distanceCalculator.Compare(searchPoint[currentDimension], currentNode.Points[currentDimension],
-                    searchPoint, currentBest.Points) < 0)
-                {
-                    currentBest = FindNearestNeighbour(currentNode.Left, visited,
-                        searchPoint, ++depth, currentBest,
-                        distanceCalculator);
-                }
-
-                return currentBest;
 
             }
 
@@ -437,7 +444,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="currentNode"></param>
         /// <param name="point"></param>
         /// <returns></returns>
-        private KDTreeNode<T> GetClosestNeigbour(IDistanceCalculator<T> distanceCalculator,
+        private KDTreeNode<T> GetClosestToPoint(IDistanceCalculator<T> distanceCalculator,
             KDTreeNode<T> currentBest, KDTreeNode<T> currentNode, T[] point)
         {
             if (distanceCalculator.Compare(currentBest.Points,
@@ -450,7 +457,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
 
         /// <summary>
-        /// returns a list of nodes that are withing the given
+        /// returns a list of nodes that are withing the given area
         /// start and end ranges
         /// </summary>
         /// <param name="start"></param>
@@ -458,11 +465,8 @@ namespace Algorithm.Sandbox.DataStructures
         /// <returns></returns>
         public List<T[]> GetInRange(T[] start, T[] end)
         {
-            var visitTracker = new Dictionary<KDTreeNode<T>,bool>();
-
-            var result = GetInRange(new List<T[]>(), Root, 
-                visitTracker, start, end, 0);
-
+            var result = GetInRange(new List<T[]>(), Root,
+                 start, end, 0);
 
             return result;
 
@@ -477,13 +481,14 @@ namespace Algorithm.Sandbox.DataStructures
         /// <param name="end"></param>
         /// <param name="depth"></param>
         /// <returns></returns>
-        private List<T[]> GetInRange(List<T[]> result, 
+        private List<T[]> GetInRange(List<T[]> result,
             KDTreeNode<T> currentNode,
-            Dictionary<KDTreeNode<T>, bool> visited,
             T[] start, T[] end, int depth)
         {
             if (currentNode == null)
+            {
                 return result;
+            }
 
             var currentDimension = depth % dimensions;
 
@@ -499,32 +504,24 @@ namespace Algorithm.Sandbox.DataStructures
             //move left
             else
             {
-                if (start[currentDimension].CompareTo(currentNode.Points[currentDimension]) <= 0)
+                if (start[currentDimension].CompareTo(currentNode.Points[currentDimension]) < 0)
                 {
-                    GetInRange(result, currentNode.Left, visited, start, end, ++depth);
+                    GetInRange(result, currentNode.Left, start, end, depth + 1);
 
-                    //start is less than current node
-                    if (!visited.ContainsKey(currentNode)
-                        && InRange(currentNode, start, end))
-                    {
-                        result.Add(currentNode.Points);
-                        visited.Add(currentNode, false);
-                    }
                 }
                 //if start is greater than current
                 //and end is greater than current
                 //move right
-                if (end[currentDimension].CompareTo(currentNode.Points[currentDimension]) >= 0)
+                if (end[currentDimension].CompareTo(currentNode.Points[currentDimension]) > 0)
                 {
-                    GetInRange(result, currentNode.Right, visited, start, end, ++depth);
+                    GetInRange(result, currentNode.Right,  start, end, depth + 1);
+                    
+                }
 
-                    //start is less than current node
-                    if (!visited.ContainsKey(currentNode)
-                        && InRange(currentNode, start, end))
-                    {
-                        result.Add(currentNode.Points);
-                        visited.Add(currentNode, false);
-                    }
+                //start is less than current node
+                if (InRange(currentNode, start, end))
+                {
+                    result.Add(currentNode.Points);
                 }
             }
 

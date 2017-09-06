@@ -9,8 +9,8 @@ namespace Algorithm.Sandbox.Geometry
     //Only A & D is required to represent a Rectangle
     public struct Rectangle
     {
-        public Point leftCorner { get; set; }
-        public Point rightCorner { get; set; }
+        public Point leftTopCorner { get; set; }
+        public Point rightBottomCorner { get; set; }
     }
     /// <summary>
     /// Problem details below
@@ -28,10 +28,10 @@ namespace Algorithm.Sandbox.Geometry
         public static Rectangle FindIntersection(Rectangle A, Rectangle B)
         {
             //check for intersection
-            if (A.leftCorner.x > B.rightCorner.x // A is right of B   
-             || A.rightCorner.x < B.leftCorner.x // A is left of B
-             || A.rightCorner.y > B.leftCorner.y //A is above B
-             || A.leftCorner.y < B.rightCorner.y)//A is below B
+            if (A.leftTopCorner.x > B.rightBottomCorner.x // A is right of B   
+             || A.rightBottomCorner.x < B.leftTopCorner.x // A is left of B
+             || A.rightBottomCorner.y > B.leftTopCorner.y //A is above B
+             || A.leftTopCorner.y < B.rightBottomCorner.y)//A is below B
             {
                 //no intersection
                 return default(Rectangle);
@@ -39,26 +39,18 @@ namespace Algorithm.Sandbox.Geometry
 
             var leftCorner = new Point();
 
-            leftCorner.x = Math.Max(A.leftCorner.x, B.leftCorner.x);
-            leftCorner.y = Math.Min(A.leftCorner.y, B.leftCorner.y);
+            leftCorner.x = Math.Max(A.leftTopCorner.x, B.leftTopCorner.x);
+            leftCorner.y = Math.Min(A.leftTopCorner.y, B.leftTopCorner.y);
 
             var rightCorner = new Point();
 
-            rightCorner.x = Math.Min(A.rightCorner.x, B.rightCorner.x);
-            rightCorner.y = Math.Max(A.rightCorner.y, B.rightCorner.y);
-
-            //swap if in reverse order
-            if (leftCorner.x > rightCorner.x || leftCorner.y < rightCorner.y)
-            {
-                var tmp = leftCorner;
-                leftCorner = rightCorner;
-                rightCorner = tmp;
-            }
+            rightCorner.x = Math.Min(A.rightBottomCorner.x, B.rightBottomCorner.x);
+            rightCorner.y = Math.Max(A.rightBottomCorner.y, B.rightBottomCorner.y);
 
             return new Rectangle()
             {
-                leftCorner = leftCorner,
-                rightCorner = rightCorner
+                leftTopCorner = leftCorner,
+                rightBottomCorner = rightCorner
             };
         }
     }
