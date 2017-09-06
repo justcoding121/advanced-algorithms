@@ -15,13 +15,39 @@ namespace Algorithm.Sandbox.Tests.Geometry
     [TestClass]
     public class RectIntersection_Tests
     {
-        //[TestMethod]
+        [TestMethod]
         public void RectIntersection_Smoke_Test()
         {
-            int[] l1 = new int[] { 0, 10 }, r1 = new int[] { 10, 0 };
-            int[] l2 = new int[]{ 5, 5 }, r2 = new int[]{ 15, 0 };
+            var result = RectIntersection.FindIntersection(new Rectangle()
+            {
+                leftCorner = new Point() { x = 0, y = 10 },
+                rightCorner = new Point() { x = 10, y = 0 }
+            },
+            new Rectangle()
+            {
+                leftCorner = new Point() { x = 5, y = 5 },
+                rightCorner = new Point() { x = 15, y = 0 }
+            });
 
-            Assert.IsTrue(RectIntersection.DoIntersect(l1, r1, l2, r2));
+            Assert.AreEqual(result, new Rectangle()
+            {
+                leftCorner = new Point() { x = 5, y = 5 },
+                rightCorner = new Point() { x = 10, y = 0 }
+            });
+
+            result = RectIntersection.FindIntersection(new Rectangle()
+            {
+                leftCorner = new Point() { x = 0, y = 10 },
+                rightCorner = new Point() { x = 4, y = 0 }
+            },
+            new Rectangle()
+            {
+               leftCorner = new Point() { x = 5, y = 5 },
+               rightCorner = new Point() { x = 15, y = 0 }
+            });
+
+            Assert.AreEqual(result, default(Rectangle));
         }
+
     }
 }
