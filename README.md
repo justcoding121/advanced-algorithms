@@ -347,6 +347,6 @@ All are top down solutions with memoization technique.
 
 ## Divide & Conquer
 
-- [ ] Count Inversions ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DivideAndConquer/CountInversions.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DivideAndConquer/CountInversions_Tests.cs))
+- [X] Count Inversions ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DivideAndConquer/CountInversions.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DivideAndConquer/CountInversions_Tests.cs))
 - [ ] Strassen’s Matrix Multiplication ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/DivideAndConquer/StrassensMatrixMult.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DivideAndConquer/StrassensMatrixMult_Tests.cs))
  
