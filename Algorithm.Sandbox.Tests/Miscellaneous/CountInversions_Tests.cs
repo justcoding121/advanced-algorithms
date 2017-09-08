@@ -1,4 +1,5 @@
-﻿using Algorithm.Sandbox.DivideAndConquer;
+﻿
+using Algorithm.Sandbox.Miscellaneous;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
