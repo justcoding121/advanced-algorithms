@@ -134,8 +134,8 @@
     <Compile Include="DataStructures\Graph\AdjacencyList\WeightedGraph.cs" />
     <Compile Include="DataStructures\Tree\SuffixTree.cs" />
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
-    <Compile Include="DivideAndConquer\CountInversions.cs" />
-    <Compile Include="DivideAndConquer\StrassensMatrixMult.cs" />
+    <Compile Include="Miscellaneous\CountInversions.cs" />
+    <Compile Include="Miscellaneous\StrassensMatrixMult.cs" />
     <Compile Include="DynamicProgramming\Maximizing\LongestChain.cs" />
     <Compile Include="DynamicProgramming\Minimizing\AssemblyLineScheduling.cs" />
     <Compile Include="DynamicProgramming\Maximizing\BoxStacking.cs" />
@@ -186,7 +186,7 @@
     <Compile Include="Geometry\ConvexHull.cs" />
     <Compile Include="Geometry\PointInsidePolygon.cs" />
     <Compile Include="Geometry\LineIntersection.cs" />
-    <Compile Include="Geometry\RectIntersection.cs" />
+    <Compile Include="Geometry\RectangleIntersection.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridgeFinder.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColorer.cs" />

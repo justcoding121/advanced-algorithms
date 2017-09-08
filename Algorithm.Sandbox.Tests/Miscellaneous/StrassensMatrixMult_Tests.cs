@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm.Sandbox.Tests.DivideAndConquer
+namespace Algorithm.Sandbox.Tests.Miscellaneous
 {
     /// <summary>
     /// Explanations below

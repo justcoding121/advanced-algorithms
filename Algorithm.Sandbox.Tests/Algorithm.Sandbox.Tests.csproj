@@ -135,8 +135,8 @@
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
-    <Compile Include="DivideAndConquer\CountInversions_Tests.cs" />
-    <Compile Include="DivideAndConquer\StrassensMatrixMult_Tests.cs" />
+    <Compile Include="Miscellaneous\CountInversions_Tests.cs" />
+    <Compile Include="Miscellaneous\StrassensMatrixMult_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\LongestChain_Tests.cs" />
     <Compile Include="DynamicProgramming\Minimizing\AssemblyLineScheduling_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\BoxStacking_Tests.cs" />
@@ -187,7 +187,7 @@
     <Compile Include="Geometry\ConvexHull_Tests.cs" />
     <Compile Include="Geometry\PointInsidePolygon_Tests.cs" />
     <Compile Include="Geometry\LineIntersection_Tests.cs" />
-    <Compile Include="Geometry\RectIntersection_Tests.cs" />
+    <Compile Include="Geometry\RectangleIntersection_Tests.cs" />
     <Compile Include="GraphAlgorithms\ArticulationPoints\TarjansArticulation_Tests.cs" />
     <Compile Include="GraphAlgorithms\Bridge\TarjansBridge_Tests.cs" />
     <Compile Include="GraphAlgorithms\Coloring\MColoring_Tests.cs" />

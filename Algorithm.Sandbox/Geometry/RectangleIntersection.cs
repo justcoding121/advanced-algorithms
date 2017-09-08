@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Geometry
     /// Problem details below
     /// http://www.geeksforgeeks.org/find-two-rectangles-overlap/
     /// </summary>
-    public class RectIntersection
+    public class RectangleIntersection
     {
         /// <summary>
         /// Returns the rectangle formed by the intersection if do intersect
@@ -37,20 +37,20 @@ namespace Algorithm.Sandbox.Geometry
                 return default(Rectangle);
             }
 
-            var leftCorner = new Point();
+            var leftTopCorner = new Point();
 
-            leftCorner.x = Math.Max(A.leftTopCorner.x, B.leftTopCorner.x);
-            leftCorner.y = Math.Min(A.leftTopCorner.y, B.leftTopCorner.y);
+            leftTopCorner.x = Math.Max(A.leftTopCorner.x, B.leftTopCorner.x);
+            leftTopCorner.y = Math.Min(A.leftTopCorner.y, B.leftTopCorner.y);
 
-            var rightCorner = new Point();
+            var rightBottomCorner = new Point();
 
-            rightCorner.x = Math.Min(A.rightBottomCorner.x, B.rightBottomCorner.x);
-            rightCorner.y = Math.Max(A.rightBottomCorner.y, B.rightBottomCorner.y);
+            rightBottomCorner.x = Math.Min(A.rightBottomCorner.x, B.rightBottomCorner.x);
+            rightBottomCorner.y = Math.Max(A.rightBottomCorner.y, B.rightBottomCorner.y);
 
             return new Rectangle()
             {
-                leftTopCorner = leftCorner,
-                rightBottomCorner = rightCorner
+                leftTopCorner = leftTopCorner,
+                rightBottomCorner = rightBottomCorner
             };
         }
     }

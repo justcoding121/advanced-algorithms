@@ -13,12 +13,12 @@ namespace Algorithm.Sandbox.Tests.Geometry
     /// http://www.geeksforgeeks.org/find-two-rectangles-overlap/
     /// </summary>
     [TestClass]
-    public class RectIntersection_Tests
+    public class RectangleIntersection_Tests
     {
         [TestMethod]
         public void RectIntersection_Smoke_Test()
         {
-            var result = RectIntersection.FindIntersection(new Rectangle()
+            var result = RectangleIntersection.FindIntersection(new Rectangle()
             {
                 leftTopCorner = new Point() { x = 0, y = 10 },
                 rightBottomCorner = new Point() { x = 10, y = 0 }
@@ -35,7 +35,7 @@ namespace Algorithm.Sandbox.Tests.Geometry
                 rightBottomCorner = new Point() { x = 10, y = 0 }
             });
 
-            result = RectIntersection.FindIntersection(new Rectangle()
+            result = RectangleIntersection.FindIntersection(new Rectangle()
             {
                 leftTopCorner = new Point() { x = 0, y = 10 },
                 rightBottomCorner = new Point() { x = 4, y = 0 }

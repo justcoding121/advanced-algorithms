@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithm.Sandbox.DivideAndConquer
+namespace Algorithm.Sandbox.Miscellaneous
 {
     public class StrassensMatrixMult
     {
