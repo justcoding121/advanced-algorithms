@@ -136,7 +136,7 @@
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
     <Compile Include="Miscellaneous\CountInversions_Tests.cs" />
-    <Compile Include="Miscellaneous\StrassensMatrixMult_Tests.cs" />
+    <Compile Include="Miscellaneous\MatrixMultiplication_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\LongestChain_Tests.cs" />
     <Compile Include="DynamicProgramming\Minimizing\AssemblyLineScheduling_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\BoxStacking_Tests.cs" />

@@ -345,5 +345,5 @@ All are top down solutions with memoization technique.
 ## Miscellaneous
 
 - [X] Count Inversions ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Miscellaneous/CountInversions.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Miscellaneous/CountInversions_Tests.cs))
-- [ ] Strassen’s Matrix Multiplication ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Miscellaneous/StrassensMatrixMult.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Miscellaneous/StrassensMatrixMult_Tests.cs))
+- [X] Matrix Multiplication ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Miscellaneous/MatrixMultiplication.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Miscellaneous/MatrixMultiplication_Tests.cs))
  
