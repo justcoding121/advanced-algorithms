@@ -11,10 +11,14 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class GCD_Tests
     {
-        //[TestMethod]
+        [TestMethod]
         public void GCD_Smoke_Test()
         {
-            Assert.AreEqual(15, GCD.Find(30, 45));
+            Assert.AreEqual(3, GCD.Find(-9, 3));
+            Assert.AreEqual(15, GCD.Find(45, 30));
+
+            Assert.AreEqual(1, GCD.Find(3, 5));
+
         }
     }
 }

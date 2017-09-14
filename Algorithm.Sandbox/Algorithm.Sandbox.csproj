@@ -56,11 +56,10 @@
     <Compile Include="BitAlgorithms\CalcLogarithm.cs" />
     <Compile Include="BitAlgorithms\CheckWordForZeroByte.cs" />
     <Compile Include="BitAlgorithms\DivisionModulus.cs" />
-    <Compile Include="BitAlgorithms\DrawLine.cs" />
     <Compile Include="BitAlgorithms\FindUniqueElement.cs" />
     <Compile Include="BitAlgorithms\FlipBitForLongest1Seq.cs" />
     <Compile Include="BitAlgorithms\GCD.cs" />
-    <Compile Include="BitAlgorithms\InsertBits.cs" />
+    <Compile Include="BitAlgorithms\ModifyBits.cs" />
     <Compile Include="BitAlgorithms\InterleaveBits.cs" />
     <Compile Include="BitAlgorithms\IntToBinary.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfNine.cs" />

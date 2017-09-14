@@ -57,14 +57,13 @@
     <Compile Include="BitAlgorithms\BinarySubsets_Tests.cs" />
     <Compile Include="BitAlgorithms\BitHacks_Tests.cs" />
     <Compile Include="BitAlgorithms\BoolArrayPuzzle_Tests.cs" />
-    <Compile Include="BitAlgorithms\CalcLoharithm_Tests.cs" />
+    <Compile Include="BitAlgorithms\CalcLogarithm_Tests.cs" />
     <Compile Include="BitAlgorithms\CheckWordForZerobyte_Tests.cs" />
     <Compile Include="BitAlgorithms\DivisionModulus_Tests.cs" />
-    <Compile Include="BitAlgorithms\DrawLine_Tests.cs" />
     <Compile Include="BitAlgorithms\FindUniqueElement_Tests.cs" />
     <Compile Include="BitAlgorithms\FlipBitForLongest1Seq_Tests.cs" />
     <Compile Include="BitAlgorithms\GCD_Tests.cs" />
-    <Compile Include="BitAlgorithms\InsertBits_Test.cs" />
+    <Compile Include="BitAlgorithms\ModifyBits_Test.cs" />
     <Compile Include="BitAlgorithms\InterleaveBits_Test.cs" />
     <Compile Include="BitAlgorithms\IntToBinary_Tests.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfNine_Tests.cs" />

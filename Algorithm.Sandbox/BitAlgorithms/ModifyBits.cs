@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.BitAlgorithms
 {
-    class InsertBits
+    class ModifyBits
     {
         internal static int Insert(int input, string toInsert, int v1, int v2)
         {
