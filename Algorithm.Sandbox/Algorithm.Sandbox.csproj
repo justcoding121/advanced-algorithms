@@ -133,6 +133,7 @@
     <Compile Include="DataStructures\Graph\AdjacencyList\WeightedGraph.cs" />
     <Compile Include="DataStructures\Tree\SuffixTree.cs" />
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
+    <Compile Include="Geometry\PointRotation.cs" />
     <Compile Include="Miscellaneous\CountInversions.cs" />
     <Compile Include="Miscellaneous\MatrixMultiplication.cs" />
     <Compile Include="DynamicProgramming\Maximizing\LongestChain.cs" />
