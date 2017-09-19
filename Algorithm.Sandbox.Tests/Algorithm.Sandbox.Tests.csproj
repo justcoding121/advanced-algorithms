@@ -63,7 +63,7 @@
     <Compile Include="BitAlgorithms\FindUniqueElement_Tests.cs" />
     <Compile Include="BitAlgorithms\FlipBitForLongest1Seq_Tests.cs" />
     <Compile Include="BitAlgorithms\GCD_Tests.cs" />
-    <Compile Include="BitAlgorithms\InterleaveBits_Test.cs" />
+    <Compile Include="BitAlgorithms\InterleaveBits_Tests.cs" />
     <Compile Include="BitAlgorithms\IntToBinary_Tests.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfNine_Tests.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfThree_Tests.cs" />

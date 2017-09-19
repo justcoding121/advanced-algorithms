@@ -337,7 +337,7 @@ All are top down solutions with memoization technique.
 - [X] Modulus of division by power of two ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/BitAlgorithms/DivisionModulus.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/DivisionModulus_Tests.cs))
 - [X] Interleave (Morton Number) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/BitAlgorithms/InterleaveBits.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/InterleaveBits_Tests.cs))
 - [X] Toggle upper/lower case ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/BitAlgorithms/ToggleCase.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/ToggleCase_Tests.cs))
-- [X] Flip a bit for longest ones sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/BitAlgorithms/FlipBitForLongest1sSeq.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/FlipBitForLongest1sSeq_Tests.cs))
+- [X] Flip a bit for longest ones sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/BitAlgorithms/FlipBitForLongest1Seq.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/FlipBitForLongest1Seq_Tests))
 
 ## Miscellaneous
 

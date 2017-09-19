@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     // bits of x are in the even positions and y in the odd;
     // z gets the resulting Morton Number
     [TestClass]
-    public class InterleaveBits_Test
+    public class InterleaveBits_Tests
     {
         [TestMethod]
         public void InterleaveBits_Smoke_Test()
