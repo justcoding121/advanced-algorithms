@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class CheckWordForZerobyte_Tests
     {
-        //[TestMethod]
+        [TestMethod]
         public void CheckWordForZerobyte_Smoke_Test()
         {
             Assert.IsTrue(CheckWordForZeroByte.HasZeroBytes(1));
