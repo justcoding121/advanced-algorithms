@@ -14,7 +14,12 @@ namespace Algorithm.Sandbox.BitAlgorithms
         public static int GetModulus(int numerator, int denominator)
         {
             //check if denominator is a power of 2 before proceeding
-            throw new NotImplementedException();
+            if((denominator & (denominator-1))!=0)
+            {
+                throw new ArgumentException("Denominator is not a power of two.");
+            }
+
+            return numerator & (denominator - 1);
         }
     }
 }

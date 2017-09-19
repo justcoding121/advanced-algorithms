@@ -196,5 +196,43 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
             binaryString = "1111";
             Assert.AreEqual("1011", Convert.ToString(BitHacks.UpdateBitToValue(Convert.ToInt32(binaryString, 2), 2, false), 2));
         }
+
+
+        /// <summary> 
+        /// Count set bits in given integer
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="n"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        [TestMethod]
+        public void CountSetBits_Smoke_Test()
+        {
+            var binaryString = "1011";
+            Assert.AreEqual(3, BitHacks.CountSetBits(Convert.ToInt32(binaryString, 2)));
+
+            binaryString = "1111";
+            Assert.AreEqual(4, BitHacks.CountSetBits(Convert.ToInt32(binaryString, 2)));
+        }
+
+        /// <summary> 
+        /// Count trailing zero bits efficients using Binary Search
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="n"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        [TestMethod]
+        public void CountTrailingZerosUsingBinarySearch_Smoke_Test()
+        {
+            var binaryString = "1000";
+            Assert.AreEqual(3, BitHacks.CountTrailingZerosByBinarySearch(Convert.ToInt32(binaryString, 2)));
+
+            binaryString = "1111";
+            Assert.AreEqual(0, BitHacks.CountTrailingZerosByBinarySearch(Convert.ToInt32(binaryString, 2)));
+
+            binaryString = "11110110000000000000000000000000";
+            Assert.AreEqual(25, BitHacks.CountTrailingZerosByBinarySearch(Convert.ToInt32(binaryString, 2)));
+        }
     }
 }

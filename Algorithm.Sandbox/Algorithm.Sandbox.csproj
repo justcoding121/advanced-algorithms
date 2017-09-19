@@ -59,7 +59,6 @@
     <Compile Include="BitAlgorithms\FindUniqueElement.cs" />
     <Compile Include="BitAlgorithms\FlipBitForLongest1Seq.cs" />
     <Compile Include="BitAlgorithms\GCD.cs" />
-    <Compile Include="BitAlgorithms\ModifyBits.cs" />
     <Compile Include="BitAlgorithms\InterleaveBits.cs" />
     <Compile Include="BitAlgorithms\IntToBinary.cs" />
     <Compile Include="BitAlgorithms\IsMultipleOfNine.cs" />
@@ -67,8 +66,7 @@
     <Compile Include="BitAlgorithms\MagicNumber.cs" />
     <Compile Include="BitAlgorithms\MaxSubArrayXOR.cs" />
     <Compile Include="BitAlgorithms\MinMaxOfTwoIntegers.cs" />
-    <Compile Include="BitAlgorithms\NextHighNumberWithSameSetBits.cs" />
-    <Compile Include="BitAlgorithms\NextSmallLargeNumber.cs" />
+    <Compile Include="BitAlgorithms\NextNumberWithSameSetBits.cs" />
     <Compile Include="BitAlgorithms\NextPowOfTwo.cs" />
     <Compile Include="BitAlgorithms\NextSparseNumber.cs" />
     <Compile Include="BitAlgorithms\ParityFinder.cs" />
@@ -79,7 +77,6 @@
     <Compile Include="BitAlgorithms\SwapBits.cs" />
     <Compile Include="BitAlgorithms\SwapOddEvenBits.cs" />
     <Compile Include="BitAlgorithms\SwapWithoutTemp.cs" />
-    <Compile Include="BitAlgorithms\TestCordInside8x8Grid.cs" />
     <Compile Include="BitAlgorithms\ToggleCase.cs" />
     <Compile Include="BitAlgorithms\TwoNonRepeatingNums.cs" />
     <Compile Include="BitAlgorithms\TwoRepeatingNums.cs" />

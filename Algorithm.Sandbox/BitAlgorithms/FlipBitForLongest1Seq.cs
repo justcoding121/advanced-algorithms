@@ -13,9 +13,79 @@ namespace Algorithm.Sandbox.BitAlgorithms
     /// </summary>
     public class FlipBitForLongest1Seq
     {
-        internal static int Find(int testNumber)
+        internal static int Find(int x)
         {
-            throw new NotImplementedException();
+            if(x == 0)
+            {
+                return 1;
+            }
+
+            var bestCount = 0;
+            var currentCount = 0;
+            var lastConsecutiveOnesCount = 0;
+
+            var oneBitUsed = false;
+
+            while (x > 0)
+            {
+                //if current bit is one
+                if ((x & 1) == 1)
+                {
+                    currentCount++;
+                    lastConsecutiveOnesCount++;
+                }
+                //current bit is zero
+                else
+                {
+                    //if next bit is one
+                    if((x & (1 << 1)) > 0)
+                    {
+                        //if 1-bit was not used previously
+                        //use it
+                        if (!oneBitUsed)
+                        {
+                            currentCount++;
+                            oneBitUsed = true;
+                        }
+                        //if 1-bit was used previously
+                        else
+                        {
+                            //reset & update best
+                            oneBitUsed = false;
+                            bestCount = Math.Max(bestCount, currentCount);
+                            currentCount = lastConsecutiveOnesCount;
+
+                            //fill current zero with out 1-bit and start new sequence
+                            currentCount++;
+                            oneBitUsed = true;
+                        }
+                    }
+                    //if next bit is zero
+                    else
+                    {
+                        if (!oneBitUsed)
+                        {
+                            bestCount = Math.Max(bestCount, currentCount + 1);
+                        }
+
+                        oneBitUsed = false;
+                        currentCount = 0;
+                    }
+
+                    lastConsecutiveOnesCount = 0;
+                }
+
+                bestCount = Math.Max(bestCount, currentCount);
+                x >>= 1;
+            }
+
+            //edge case
+            if(bestCount == lastConsecutiveOnesCount)
+            {
+                return bestCount + 1;
+            }
+
+            return bestCount;
         }
     }
 }

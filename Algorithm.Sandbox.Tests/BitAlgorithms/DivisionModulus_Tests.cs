@@ -14,10 +14,14 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class DivisionModulus_Tests
     {
-        //[TestMethod]
+        [TestMethod]
         public void DivisionModulus_Smoke_Test()
         {
             Assert.AreEqual(1, DivisionModulus.GetModulus(5, 4));
+            Assert.AreEqual(0, DivisionModulus.GetModulus(4, 4));
+
+            Assert.AreEqual(0, DivisionModulus.GetModulus(16, 8));
+            Assert.AreEqual(2, DivisionModulus.GetModulus(18, 8));
         }
     }
 }

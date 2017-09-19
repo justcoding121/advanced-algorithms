@@ -210,7 +210,7 @@ namespace Algorithm.Sandbox.BitAlgorithms
         /// <returns></returns>
         public static int UpdateBitToValue(int x, int n, bool value)
         {
-            if(value)
+            if (value)
             {
                 //1011 (n=2) => 1111
                 var mask = 1;
@@ -222,7 +222,87 @@ namespace Algorithm.Sandbox.BitAlgorithms
                 var mask = 1;
                 return x & ~(mask << n);
             }
-          
+
+        }
+
+        /// <summary>
+        /// Returns the number of set bits in given integer x
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public static int CountSetBits(int x)
+        {
+            int count = 0;
+            while (x > 0)
+            {
+                //unset the LSB in each step
+                x &= (x - 1);
+                count++;
+            }
+
+            return count;
+        }
+
+        /// <summary>
+        /// Counts the number of trailing zero bits in an efficient manner
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public static int CountTrailingZerosByBinarySearch(int x)
+        {
+            //all bits are zero
+            if (x == 0)
+            {
+                return 32;
+            }
+
+            //last bit is one
+            if ((x & 0x1) == 1)
+            {
+                // special case for odd x (assumed to happen half of the time)
+                return 0;
+            }
+
+            int count = 0;
+
+            //16 LSB-bits are zero  
+            if ((x & 0xffff) == 0)
+            {
+                //shift right 16 bits
+                x >>= 16;
+                count += 16;
+            }
+
+            //8 LSB-bits are zero  
+            if ((x & 0xff) == 0)
+            {
+                //shift right 8 bits
+                x >>= 8;
+                count += 8;
+            }
+
+            //4 LSB-bits are zero  
+            if ((x & 0xf) == 0)
+            {
+                //shift right 4 bits
+                x >>= 4;
+                count += 4;
+            }
+
+            //2 LSB-bits are zero  
+            if ((x & 0x3) == 0)
+            {
+                //shift right 2 bits
+                x >>= 2;
+                count += 2;
+            }
+
+            //add 1-bit if last bit is zero
+            count += ((x & 0x1) == 1 ? 0 : 1);
+
+            return count;
+
+
         }
 
     }

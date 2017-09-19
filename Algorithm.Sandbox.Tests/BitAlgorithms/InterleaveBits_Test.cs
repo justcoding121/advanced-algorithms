@@ -14,10 +14,16 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class InterleaveBits_Test
     {
-        //[TestMethod]
+        [TestMethod]
         public void InterleaveBits_Smoke_Test()
         {
-            InterleaveBits.Interleave(15, 20);
+
+            string x  = "1001", y = "1100";
+
+            Assert.AreEqual("11100001", Convert.ToString(
+                InterleaveBits.Interleave(Convert.ToInt32(x, 2),
+                Convert.ToInt32(y, 2)), 2)
+                ) ;
         }
     }
 }

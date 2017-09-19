@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.Tests.BitAlgorithms
     [TestClass]
     public class ToggleCase_Tests
     {
-        //[TestMethod]
+        [TestMethod]
         public void ToggleCase_Smoke_Test()
         {
             Assert.AreEqual("HELLO", ToggleCase.Toggle("hello"));
