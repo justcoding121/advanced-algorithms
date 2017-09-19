@@ -67,6 +67,10 @@ namespace Algorithm.Sandbox.BitAlgorithms
                         {
                             bestCount = Math.Max(bestCount, currentCount + 1);
                         }
+                        else
+                        {
+                            bestCount = Math.Max(bestCount, currentCount);
+                        }
 
                         oneBitUsed = false;
                         currentCount = 0;
