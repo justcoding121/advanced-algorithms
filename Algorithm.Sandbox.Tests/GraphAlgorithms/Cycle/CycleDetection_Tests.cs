@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Cycle
     public class CycleDetection_Tests
     {
         [TestMethod]
-        public void Test_Cycle()
+        public void Graph_Cycle_Detection_Tests()
         {
             var graph = new AsDiGraph<char>();
 
