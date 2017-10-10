@@ -11,11 +11,11 @@ namespace Algorithm.Sandbox.DynamicProgramming.Sum
         public static bool HasSubSet(int[] input, int sum)
         {
             return SubSetSumR(input, input.Length - 1, sum,
-                new Dictionary<int, bool>());
+                new Dictionary<string, bool>());
         }
 
-        private static bool SubSetSumR(int[] input, int i, int sum, 
-            Dictionary<int, bool> cache)
+        private static bool SubSetSumR(int[] input, int i, int sum,
+            Dictionary<string, bool> cache)
         {
             if (i < 0)
             {
@@ -28,9 +28,11 @@ namespace Algorithm.Sandbox.DynamicProgramming.Sum
                 return true;
             }
 
-            if(cache.ContainsKey(i))
+            var cacheKey = $"{i}-{sum}";
+
+            if (cache.ContainsKey(cacheKey))
             {
-                return cache[i];
+                return cache[cacheKey];
             }
 
             bool result;
@@ -38,17 +40,17 @@ namespace Algorithm.Sandbox.DynamicProgramming.Sum
             if (input[i] > sum)
             {
                 result = SubSetSumR(input, i - 1, sum, cache);
-                cache.Add(i, result);
+                cache.Add(cacheKey, result);
                 return result;
             }
 
             //skip or pick
             result = SubSetSumR(input, i - 1, sum, cache)
-                || SubSetSumR(input, i, sum - input[i], cache);
+                || SubSetSumR(input, i - 1, sum - input[i], cache);
 
-            if (!cache.ContainsKey(i))
+            if (!cache.ContainsKey(cacheKey))
             {
-                cache.Add(i, result);
+                cache.Add(cacheKey, result);
             }
 
             return result;
