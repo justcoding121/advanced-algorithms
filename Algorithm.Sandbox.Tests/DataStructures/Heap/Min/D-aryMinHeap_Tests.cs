@@ -5,10 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Algorithm.Sandbox.Tests.DataStructures
+namespace Algorithm.Sandbox.Tests.DataStructures.Heap.Min
 {
     [TestClass]
-    public class AsD_aryTree_Tests
+    public class AsD_aryMinTree_Tests
     {
         /// <summary>
         /// A tree test

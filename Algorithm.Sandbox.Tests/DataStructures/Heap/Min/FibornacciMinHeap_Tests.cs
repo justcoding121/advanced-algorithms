@@ -3,8 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Algorithm.Sandbox.DataStructures.Heap;
+using Algorithm.Sandbox.DataStructures.Heap.Min;
 
-namespace Algorithm.Sandbox.Tests.DataStructures.Heap
+namespace Algorithm.Sandbox.Tests.DataStructures.Heap.Min
 {
     [TestClass]
     public class FibornacciMinHeap_Tests
@@ -20,7 +22,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
             //insert test
             var tree = new AsFibornacciMinHeap<int>();
 
-            var nodePointers = new List<FibornacciTreeNode<int>>();
+            var nodePointers = new List<FibornacciHeapNode<int>>();
 
             for (int i = 0; i <= nodeCount; i++)
             {

@@ -1,7 +1,8 @@
 ﻿using Algorithm.Sandbox.DataStructures;
+using Algorithm.Sandbox.DataStructures.Queues;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Algorithm.Sandbox.Tests.DataStructures
+namespace Algorithm.Sandbox.Tests.DataStructures.Queues
 {
     [TestClass]
     public class Queue_Tests

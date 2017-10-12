@@ -3,41 +3,47 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Algorithm.Sandbox.DataStructures.Heap;
+using Algorithm.Sandbox.DataStructures.Heap.Max;
 
-namespace Algorithm.Sandbox.Tests.DataStructures.Heap
+namespace Algorithm.Sandbox.Tests.DataStructures.Heap.Max
 {
     [TestClass]
-    public class PairingMinHeap_Tests
+    public class BinomialMaxHeap_Tests
     {
         /// <summary>
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void PairingMinHeap_Test()
+        public void BinomialMaxHeap_Test()
         {
 
             int nodeCount = 1000 * 10;
             //insert test
-            var tree = new AsPairingMinHeap<int>();
+            var tree = new AsBinomialMaxHeap<int>();
 
-            var nodePointers = new List<PairingTreeNode<int>>();
+            var nodePointers = new List<BinomialHeapNode<int>>();
 
             for (int i = 0; i <= nodeCount; i++)
             {
                 var node = tree.Insert(i);
                 nodePointers.Add(node);
+                var theoreticalTreeCount = Convert.ToString(i + 1, 2).Replace("0", "").Length;
+                var actualTreeCount = tree.heapForest.Count();
+
+                Assert.AreEqual(theoreticalTreeCount, actualTreeCount);
             }
 
             for (int i = 0; i <= nodeCount; i++)
             {
-                nodePointers[i].Value--;
-                tree.DecrementKey(nodePointers[i]);
+                nodePointers[i].Value++;
+                tree.IncrementKey(nodePointers[i]);
             }
-            int min = 0;
-            for (int i = 0; i <= nodeCount; i++)
+            int max = 0;
+            for (int i = nodeCount; i >=0 ; i--)
             {
-                min = tree.ExtractMin();
-                Assert.AreEqual(min, i - 1);
+                max = tree.ExtractMax();
+                Assert.AreEqual(i + 1, max);
             }
 
             nodePointers.Clear();
@@ -51,14 +57,14 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
                 nodePointers.Add(tree.Insert(item));
             }
 
-            min = tree.ExtractMin();
-            nodePointers = nodePointers.Where(x => x.Value != min).ToList();
+            max = tree.ExtractMax();
+            nodePointers = nodePointers.Where(x => x.Value != max).ToList();
             var resultSeries = new List<int>();
 
             for (int i = 0; i < nodePointers.Count; i++)
             {
-                nodePointers[i].Value = nodePointers[i].Value - rnd.Next(0, 1000);
-                tree.DecrementKey(nodePointers[i]);
+                nodePointers[i].Value = nodePointers[i].Value + rnd.Next(0, 1000);
+                tree.IncrementKey(nodePointers[i]);
             }
 
             foreach (var item in nodePointers)
@@ -66,14 +72,13 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap
                 resultSeries.Add(item.Value);
             }
 
-            resultSeries.Sort();
+            resultSeries = resultSeries.OrderByDescending(x => x).ToList();
 
             for (int i = 0; i < nodeCount - 2; i++)
             {
-                min = tree.ExtractMin();
-                Assert.AreEqual(resultSeries[i], min);
+                max = tree.ExtractMax();
+                Assert.AreEqual(resultSeries[i], max);
             }
-
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Algorithm.Sandbox.DataStructures.Heap.Min
+namespace Algorithm.Sandbox.DataStructures.Heap.Max
 {
 
-    public class PairingMinHeap<T> where T : IComparable
+    public class PairingMaxHeap<T> where T : IComparable
     {
         internal PairingHeapNode<T> Root;
 
@@ -114,7 +114,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
             node1.Previous = null;
             node1.Next = null;
 
-            if (node1.Value.CompareTo(node2.Value) <= 0)
+            if (node1.Value.CompareTo(node2.Value) >= 0)
             {
 
                 AddChild(ref node1, node2);
@@ -129,22 +129,22 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         }
 
         /// <summary>
-        /// Returns the min
+        /// Returns the max
         /// </summary>
         /// <returns></returns>
-        public T ExtractMin()
+        public T ExtractMax()
         {
-            var min = Root;
+            var max = Root;
             Meld(Root.ChildrenHead);
             Count--;
-            return min.Value;
+            return max.Value;
         }
 
         /// <summary>
-        /// Update heap after a node value was decremented
+        /// Update heap after a node value was incremented
         /// </summary>
         /// <param name="node"></param>
-        public void DecrementKey(PairingHeapNode<T> node)
+        public void IncrementKey(PairingHeapNode<T> node)
         {
             if (node == Root)
                 return;
@@ -158,7 +158,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// Merge another heap with this heap
         /// </summary>
         /// <param name="PairingHeap"></param>
-        public void Merge(PairingMinHeap<T> PairingHeap)
+        public void Merge(PairingMaxHeap<T> PairingHeap)
         {
             Root = Meld(Root, PairingHeap.Root);
             Count = Count + PairingHeap.Count;
@@ -168,7 +168,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// O(1) time complexity
         /// </summary>
         /// <returns></returns>
-        public T PeekMin()
+        public T PeekMax()
         {
             if (Root == null)
                 throw new Exception("Empty heap");

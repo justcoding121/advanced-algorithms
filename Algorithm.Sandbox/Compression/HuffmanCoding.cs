@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Algorithm.Sandbox.DataStructures.Heap.Min;
 
 namespace Algorithm.Sandbox.Compression
 {

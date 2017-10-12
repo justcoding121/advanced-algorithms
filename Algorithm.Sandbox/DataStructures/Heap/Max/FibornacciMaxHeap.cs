@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Algorithm.Sandbox.DataStructures.Heap.Min
+namespace Algorithm.Sandbox.DataStructures.Heap.Max
 {
-
-    public class AsFibornacciMinHeap<T> where T : IComparable
+    public class AsFibornacciMaxHeap<T> where T : IComparable
     {
         internal FibornacciHeapNode<T> heapForestHead;
 
-        //holds the minimum node at any given time
-        private FibornacciHeapNode<T> minNode = null;
+        //holds the maximum node at any given time
+        private FibornacciHeapNode<T> maxNode = null;
 
         public int Count { get; private set; }
 
@@ -24,15 +23,15 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
             //return pointer to new Node
             MergeForests(newNode);
 
-            if (minNode == null)
+            if (maxNode == null)
             {
-                minNode = newNode;
+                maxNode = newNode;
             }
             else
             {
-                if (minNode.Value.CompareTo(newNode.Value) > 0)
+                if (maxNode.Value.CompareTo(newNode.Value) < 0)
                 {
-                    minNode = newNode;
+                    maxNode = newNode;
                 }
             }
 
@@ -49,7 +48,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
 
             if (heapForestHead == null)
             {
-                minNode = null;
+                maxNode = null;
                 return;
             }
 
@@ -57,7 +56,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
             var mergeDictionary = new Dictionary<int, FibornacciHeapNode<T>>();
 
             var current = heapForestHead;
-            minNode = current;
+            maxNode = current;
             while (current != null)
             {
                 current.Parent = null;
@@ -70,9 +69,9 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
 
                     mergeDictionary.Add(current.Degree, current);
 
-                    if (minNode == current)
+                    if (maxNode == current)
                     {
-                        minNode = null;
+                        maxNode = null;
                     }
 
                     DeleteNode(ref heapForestHead, current);
@@ -87,7 +86,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
                     var currentDegree = current.Degree;
                     var existing = mergeDictionary[currentDegree];
 
-                    if (existing.Value.CompareTo(current.Value) < 0)
+                    if (existing.Value.CompareTo(current.Value) > 0)
                     {
                         current.Parent = existing;
 
@@ -116,10 +115,10 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
                     }
 
 
-                    if (minNode == null
-                        || minNode.Value.CompareTo(current.Value) > 0)
+                    if (maxNode == null
+                        || maxNode.Value.CompareTo(current.Value) < 0)
                     {
-                        minNode = current;
+                        maxNode = current;
                     }
 
                     mergeDictionary.Remove(currentDegree);
@@ -135,10 +134,10 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
                 {
                     InsertNode(ref heapForestHead, node.Value);
 
-                    if (minNode == null
-                        || minNode.Value.CompareTo(node.Value.Value) > 0)
+                    if (maxNode == null
+                        || maxNode.Value.CompareTo(node.Value.Value) < 0)
                     {
-                        minNode = node.Value;
+                        maxNode = node.Value;
                     }
                 }
 
@@ -152,22 +151,22 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// O(log(n)) complexity
         /// </summary>
         /// <returns></returns>
-        public T ExtractMin()
+        public T ExtractMax()
         {
             if (heapForestHead == null)
                 throw new Exception("Empty heap");
 
-            var minValue = minNode.Value;
+            var maxValue = maxNode.Value;
 
             //remove tree root
-            DeleteNode(ref heapForestHead, minNode);
+            DeleteNode(ref heapForestHead, maxNode);
 
-            MergeForests(minNode.ChildrenHead);
+            MergeForests(maxNode.ChildrenHead);
             Meld();
 
             Count--;
 
-            return minValue;
+            return maxValue;
         }
 
 
@@ -176,19 +175,19 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// O(1) complexity amortized
         /// </summary>
         /// <param name="key"></param>
-        public void DecrementKey(FibornacciHeapNode<T> node)
+        public void IncrementKey(FibornacciHeapNode<T> node)
         {
 
             if (node.Parent == null
-                && minNode.Value.CompareTo(node.Value) > 0)
+                && maxNode.Value.CompareTo(node.Value) < 0)
             {
-                minNode = node;
+                maxNode = node;
             }
 
             var current = node;
 
             if (current.Parent != null
-                && current.Value.CompareTo(current.Parent.Value) < 0)
+                && current.Value.CompareTo(current.Parent.Value) > 0)
             {
 
                 var parent = current.Parent;
@@ -239,10 +238,10 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
 
             InsertNode(ref heapForestHead, node);
 
-            //update min
-            if (minNode.Value.CompareTo(node.Value) > 0)
+            //update max
+            if (maxNode.Value.CompareTo(node.Value) < 0)
             {
-                minNode = node;
+                maxNode = node;
             }
 
         }
@@ -252,7 +251,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// O(k) complexity where K is the FibornacciHeap Forest Length 
         /// </summary>
         /// <param name="FibornacciHeap"></param>
-        public void Union(AsFibornacciMinHeap<T> FibornacciHeap)
+        public void Union(AsFibornacciMaxHeap<T> FibornacciHeap)
         {
             MergeForests(FibornacciHeap.heapForestHead);
             Count = Count + FibornacciHeap.Count;
@@ -319,12 +318,12 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// <summary>
         ///  O(1) complexity 
         /// <returns></returns>
-        public T PeekMin()
+        public T PeekMax()
         {
             if (heapForestHead == null)
                 throw new Exception("Empty heap");
 
-            return minNode.Value;
+            return maxNode.Value;
         }
     }
 

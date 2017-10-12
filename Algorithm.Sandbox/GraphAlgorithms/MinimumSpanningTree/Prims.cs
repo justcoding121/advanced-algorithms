@@ -2,6 +2,7 @@
 using Algorithm.Sandbox.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
+using Algorithm.Sandbox.DataStructures.Heap.Min;
 
 namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
 {

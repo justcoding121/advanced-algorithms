@@ -1,6 +1,7 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using System;
 using System.Collections.Generic;
+using Algorithm.Sandbox.DataStructures.Heap.Min;
 
 namespace Algorithm.Sandbox.Sorting
 {

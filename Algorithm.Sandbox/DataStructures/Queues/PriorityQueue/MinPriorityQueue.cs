@@ -1,11 +1,12 @@
 ﻿using System;
+using Algorithm.Sandbox.DataStructures.Heap.Min;
 
-namespace Algorithm.Sandbox.DataStructures
+namespace Algorithm.Sandbox.DataStructures.Queues.PriorityQueue
 {
 
     /// priority queue implementation using min heap
     /// assuming lower values of P have higher priority
-    public class PriorityQueue<T> where T : IComparable
+    public class MinPriorityQueue<T> where T : IComparable
     {
         private BMinHeap<T> minHeap = new BMinHeap<T>();
 

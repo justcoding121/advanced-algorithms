@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Algorithm.Sandbox.DataStructures.Heap.Min
+namespace Algorithm.Sandbox.DataStructures.Heap.Max
 {
-    public class AsBinomialMinHeap<T> where T : IComparable
+
+    public class AsBinomialMaxHeap<T> where T : IComparable
     {
         public int Count { get; private set; }
 
@@ -83,7 +84,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
                     }
 
                     //case 3 cur value is less than next
-                    if (cur.Data.Value.CompareTo(next.Data.Value) <= 0)
+                    if (cur.Data.Value.CompareTo(next.Data.Value) >= 0)
                     {
                         //add next as child of current
                         cur.Data.Children.Add(next.Data);
@@ -103,7 +104,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
                     }
 
                     //case 4 cur value is greater than next
-                    if (cur.Data.Value.CompareTo(next.Data.Value) > 0)
+                    if (cur.Data.Value.CompareTo(next.Data.Value) < 0)
                     {
                         //add current as child of next
                         next.Data.Children.Add(cur.Data);
@@ -134,34 +135,34 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// O(log(n)) complexity
         /// </summary>
         /// <returns></returns>
-        public T ExtractMin()
+        public T ExtractMax()
         {
             if (heapForest.Head == null)
                 throw new Exception("Empty heap");
 
-            var minTree = heapForest.Head;
+            var maxTree = heapForest.Head;
             var current = heapForest.Head;
 
-            //find minimum tree
+            //find maximum tree
             while (current.Next != null)
             {
                 current = current.Next;
 
-                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
+                if (maxTree.Data.Value.CompareTo(current.Data.Value) < 0)
                 {
-                    minTree = current;
+                    maxTree = current;
                 }
             }
 
             //remove tree root
-            heapForest.Delete(minTree);
+            heapForest.Delete(maxTree);
 
             var newHeapForest = new AsDoublyLinkedList<BinomialHeapNode<T>>();
             //add removed roots children as new trees to forest
-            for (int i = 0; i < minTree.Data.Children.Count; i++)
+            for (int i = 0; i < maxTree.Data.Children.Count; i++)
             {
-                minTree.Data.Children[i].Parent = null;
-                newHeapForest.InsertLast(minTree.Data.Children[i]);
+                maxTree.Data.Children[i].Parent = null;
+                newHeapForest.InsertLast(maxTree.Data.Children[i]);
             }
 
             MergeSortedForests(newHeapForest);
@@ -170,7 +171,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
 
             Count--;
 
-            return minTree.Data.Value;
+            return maxTree.Data.Value;
         }
 
         /// <summary>
@@ -178,12 +179,12 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// O(log(n)) complexity
         /// </summary>
         /// <param name="key"></param>
-        public void DecrementKey(BinomialHeapNode<T> node)
+        public void IncrementKey(BinomialHeapNode<T> node)
         {
             var current = node;
 
             while (current.Parent != null
-                && current.Value.CompareTo(current.Parent.Value) < 0)
+                && current.Value.CompareTo(current.Parent.Value) > 0)
             {
                 var tmp = current.Value;
                 current.Value = current.Parent.Value;
@@ -198,7 +199,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// O(log(n)) complexity
         /// </summary>
         /// <param name="binomialHeap"></param>
-        public void Union(AsBinomialMinHeap<T> binomialHeap)
+        public void Union(AsBinomialMaxHeap<T> binomialHeap)
         {
             MergeSortedForests(binomialHeap.heapForest);
 
@@ -258,26 +259,26 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// O(log(n)) complexity
         /// </summary>
         /// <returns></returns>
-        public T PeekMin()
+        public T PeekMax()
         {
             if (heapForest.Head == null)
                 throw new Exception("Empty heap");
 
-            var minTree = heapForest.Head;
+            var maxTree = heapForest.Head;
             var current = heapForest.Head;
 
-            //find minimum tree
+            //find maximum tree
             while (current.Next != null)
             {
                 current = current.Next;
 
-                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
+                if (maxTree.Data.Value.CompareTo(current.Data.Value) < 0)
                 {
-                    minTree = current;
+                    maxTree = current;
                 }
             }
 
-            return minTree.Data.Value;
+            return maxTree.Data.Value;
         }
     }
 }

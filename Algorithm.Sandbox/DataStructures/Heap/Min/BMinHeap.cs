@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Algorithm.Sandbox.DataStructures
+namespace Algorithm.Sandbox.DataStructures.Heap.Min
 {
     public class BMinHeap<T> where T : IComparable
     {
@@ -21,7 +21,7 @@ namespace Algorithm.Sandbox.DataStructures
                 var initArray = new T[initial.Count()];
 
                 int i = 0;
-                foreach(var item in initial)
+                foreach(var item in initial.OrderBy(x=>x))
                 {
                     initArray[i] = item;
                     i++;

@@ -1,4 +1,4 @@
-﻿namespace Algorithm.Sandbox.DataStructures
+﻿namespace Algorithm.Sandbox.DataStructures.Queues
 {
     public class AsQueue<T> 
     {
