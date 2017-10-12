@@ -32,8 +32,8 @@ Various important computer science algorithms generically implemented in C#
 
 #### Priority Queue
 
-- [X] Min Priority Queue ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queues/PriorityQueue/Min/PriorityQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Queues/PriorityQueue/MinPriorityQueue_Tests.cs))
-- [X] Max Priority Queue ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queues/PriorityQueue/Max/PriorityQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Queues/PriorityQueue/MaxPriorityQueue_Tests.cs))
+- [X] Min Priority Queue ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queues/PriorityQueue/MinPriorityQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Queues/PriorityQueue/MinPriorityQueue_Tests.cs))
+- [X] Max Priority Queue ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queues/PriorityQueue/MaxPriorityQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Queues/PriorityQueue/MaxPriorityQueue_Tests.cs))
  
 ### Linked List
 
