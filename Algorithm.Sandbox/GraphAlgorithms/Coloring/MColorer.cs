@@ -25,7 +25,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Coloring
         /// <param name="graph"></param>
         /// <param name="colors"></param>
         /// <returns></returns>
-        public MColorResult<T, C> Color(AsGraph<T> graph, C[] colors)
+        public MColorResult<T, C> Color(Graph<T> graph, C[] colors)
         {
 
             GraphVertex<T> first = graph.ReferenceVertex;

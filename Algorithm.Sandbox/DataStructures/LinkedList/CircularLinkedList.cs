@@ -22,7 +22,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsCircularLinkedList<T> : IEnumerable<T>
+    public class CircularLinkedList<T> : IEnumerable<T>
     {
         public CircularLinkedListNode<T> ReferenceNode;
 
@@ -221,7 +221,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// O(1) time complexity
         /// </summary>
         /// <param name="newList"></param>
-        internal void Union(AsCircularLinkedList<T> newList)
+        internal void Union(CircularLinkedList<T> newList)
         {
            
             ReferenceNode.Prev.Next = newList.ReferenceNode;

@@ -28,36 +28,44 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="W"></typeparam>
-    public class AsWeightedGraph<T, W> where W : IComparable
+    public class WeightedGraph<T, W> where W : IComparable
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, WeightedGraphVertex<T, W>> Vertices { get; set; }
 
         /// <summary>
-        /// return a reference vertex
+        /// Constructor
+        /// </summary>
+        public WeightedGraph()
+        {
+            Vertices = new Dictionary<T, WeightedGraphVertex<T, W>>();
+        }
+
+
+        /// <summary>
+        /// return a reference vertex  to start traversing Vertices
+        /// O(1) complexity
         /// </summary>
         public WeightedGraphVertex<T, W> ReferenceVertex
         {
             get
             {
-                var enumerator = Vertices.GetEnumerator();
-                if (enumerator.MoveNext())
+                using (var enumerator = Vertices.GetEnumerator())
                 {
-                    return enumerator.Current.Value;
+                    if (enumerator.MoveNext())
+                    {
+                        return enumerator.Current.Value;
+                    }
                 }
 
                 return null;
             }
         }
 
-
-        public AsWeightedGraph()
-        {
-            Vertices = new Dictionary<T, WeightedGraphVertex<T, W>>();
-        }
-
+      
         /// <summary>
         /// Add a new vertex to this graph
+        /// O(1) complexity
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -77,6 +85,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         /// <summary>
         /// remove given vertex from this graph
+        /// O(V) complexity
         /// </summary>
         /// <param name="value"></param>
         public void RemoveVertex(T value)
@@ -94,11 +103,6 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             foreach (var vertex in Vertices[value].Edges)
             {
-                if (!Vertices.ContainsKey(vertex.Key.Value))
-                {
-                    throw new Exception("Vertex outgoing edge target vertex is not in this graph.");
-                }
-
                 vertex.Key.Edges.Remove(Vertices[value]);
             }
 
@@ -108,6 +112,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// <summary>
         /// Add a new edge to this graph with given weight 
         /// and between given source and destination vertex
+        /// O(1) complexity
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
@@ -131,6 +136,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         /// <summary>
         /// Remove given edge
+        /// O(1) complexity
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
@@ -150,7 +156,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             if (!Vertices[source].Edges.ContainsKey(Vertices[dest]) 
                 || !Vertices[dest].Edges.ContainsKey(Vertices[source]))
             {
-                throw new Exception("Edge do not exists partially or totally.");
+                throw new Exception("Edge do not exists.");
             }
 
             Vertices[source].Edges.Remove(Vertices[dest]);
@@ -159,6 +165,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         /// <summary>
         /// Do we have an edge between given source and destination
+        /// O(1) complexity
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
@@ -170,33 +177,14 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException("source or destination is not in this graph.");
             }
 
-            var sourceExists = false;
+            return Vertices[source].Edges.ContainsKey(Vertices[dest])
+                   && Vertices[dest].Edges.ContainsKey(Vertices[source]);
 
-            foreach (var edge in Vertices[source].Edges)
-            {
-                if (edge.Key == Vertices[dest])
-                {
-                    sourceExists = true;
-                    break;
-                }
-            }
-
-            var destExists = false;
-
-            foreach (var edge in Vertices[dest].Edges)
-            {
-                if (edge.Key == Vertices[source])
-                {
-                    destExists = true;
-                    break;
-                }
-            }
-
-            return sourceExists && destExists;
         }
 
         /// <summary>
-        /// 
+        /// Find the Vertex with given value
+        ///  O(1) complexity
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>

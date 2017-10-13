@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.DynamicProgramming
     /// </summary>
     public class TravellingSalesman
     {
-        public static int GetMinWeight(AsWeightedDiGraph<int, int> graph)
+        public static int GetMinWeight(WeightedDiGraph<int, int> graph)
         {
             return GetMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
                                 graph.VerticesCount,

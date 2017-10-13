@@ -5,7 +5,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cover
 {
     public class MinVertexCover<T>
     {
-        public List<GraphVertex<T>> GetMinVertexCover(AsGraph<T> graph)
+        public List<GraphVertex<T>> GetMinVertexCover(Graph<T> graph)
         {
             return GetMinVertexCover(graph.ReferenceVertex, new HashSet<GraphVertex<T>>(),
                 new List<GraphVertex<T>>());

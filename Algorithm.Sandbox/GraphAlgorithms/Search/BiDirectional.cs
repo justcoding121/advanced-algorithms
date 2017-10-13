@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
         /// <param name="graph"></param>
         /// <param name="vertex"></param>
         /// <returns></returns>
-        public bool PathExists(AsDiGraph<T> graph, T source, T destination)
+        public bool PathExists(DiGraph<T> graph, T source, T destination)
         {
             return BDS(graph, source, destination);
         }
@@ -29,7 +29,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        private bool BDS(AsDiGraph<T> graph, T source, T destination)
+        private bool BDS(DiGraph<T> graph, T source, T destination)
         {
             var visitedA = new HashSet<T>();
             var visitedB = new HashSet<T>();

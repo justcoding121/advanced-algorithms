@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Algorithm.Sandbox.DataStructures
 {
 
-    internal interface AsIHashSet<V> : IEnumerable<HashSetNode<V>>
+    internal interface IHashSet<V> : IEnumerable<HashSetNode<V>>
     {
         bool Contains(V value);
         void Add(V value);
@@ -41,7 +41,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// <typeparam name="V"></typeparam>
     public class AsHashSet<V> : IEnumerable<HashSetNode<V>> 
     {
-        private AsIHashSet<V> HashSet;
+        private IHashSet<V> HashSet;
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
         public AsHashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)
         {

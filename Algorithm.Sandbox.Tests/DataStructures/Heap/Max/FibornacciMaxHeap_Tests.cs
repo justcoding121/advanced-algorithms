@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap.Max
 
             int nodeCount = 1000 * 10;
             //insert test
-            var tree = new AsFibornacciMaxHeap<int>();
+            var tree = new FibornacciMaxHeap<int>();
 
             var nodePointers = new List<FibornacciHeapNode<int>>();
 

@@ -17,7 +17,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Search
         [TestMethod]
         public void BiDirectional_Smoke_Test()
         {
-            var graph = new AsDiGraph<char>();
+            var graph = new DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');

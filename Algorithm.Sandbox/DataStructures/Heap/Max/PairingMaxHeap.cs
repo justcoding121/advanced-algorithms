@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Heap.Max
 {
-
     public class PairingMaxHeap<T> where T : IComparable
     {
         internal PairingHeapNode<T> Root;

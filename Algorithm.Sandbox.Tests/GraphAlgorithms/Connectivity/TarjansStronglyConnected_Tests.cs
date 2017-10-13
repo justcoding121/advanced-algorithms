@@ -18,7 +18,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Connectivity
         [TestMethod]
         public void TarjanStronglyConnected_Smoke_Test()
         {
-            var graph = new AsDiGraph<char>();
+            var graph = new DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');

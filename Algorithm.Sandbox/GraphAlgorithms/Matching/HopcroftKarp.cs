@@ -23,7 +23,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public List<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph)
+        public List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph)
         {
             //check if the graph is BiPartite by coloring 2 colors
             var mColorer = new MColorer<T, int>();
@@ -44,7 +44,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// <param name="graph"></param>
         /// <param name="partitions"></param>
         /// <returns></returns>
-        private List<MatchEdge<T>> GetMaxBiPartiteMatching(AsGraph<T> graph,
+        private List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
             var leftMatch = new Dictionary<T, T>();
@@ -179,7 +179,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Matching
         /// <param name="partitions"></param>
         /// <param name="leftMatch"></param>
         /// <param name="rightMatch"></param>
-        private bool BFS(AsGraph<T> graph,
+        private bool BFS(Graph<T> graph,
             Dictionary<int, List<T>> partitions,
             Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch)
         {

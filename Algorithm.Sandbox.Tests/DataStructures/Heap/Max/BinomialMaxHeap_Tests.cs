@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Heap.Max
 
             int nodeCount = 1000 * 10;
             //insert test
-            var tree = new AsBinomialMaxHeap<int>();
+            var tree = new BinomialMaxHeap<int>();
 
             var nodePointers = new List<BinomialHeapNode<int>>();
 

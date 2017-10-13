@@ -10,10 +10,10 @@ namespace Algorithm.Sandbox.DataStructures
     /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
     /// </summary>
     /// <typeparam name="V"></typeparam>
-    internal class SeparateChainingHashSet<V> : AsIHashSet<V>  
+    internal class SeparateChainingHashSet<V> : IHashSet<V>  
     {
 
-        private AsDoublyLinkedList<HashSetNode<V>>[] hashArray;
+        private DoublyLinkedList<HashSetNode<V>>[] hashArray;
         private int bucketSize => hashArray.Length;
         private int initialBucketSize;
         private int filledBuckets;
@@ -24,7 +24,7 @@ namespace Algorithm.Sandbox.DataStructures
         public SeparateChainingHashSet(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new AsDoublyLinkedList<HashSetNode<V>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<HashSetNode<V>>[initialBucketSize];
         }
 
         //O(1) time complexity; worst case O(n)
@@ -64,7 +64,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new AsDoublyLinkedList<HashSetNode<V>>();
+                hashArray[index] = new DoublyLinkedList<HashSetNode<V>>();
                 hashArray[index].InsertFirst(new HashSetNode<V>(value));
                 filledBuckets++;
             }
@@ -144,7 +144,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         public void Clear()
         {
-            hashArray = new AsDoublyLinkedList<HashSetNode<V>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<HashSetNode<V>>[initialBucketSize];
             Count = 0;
             filledBuckets = 0;
         }
@@ -214,7 +214,7 @@ namespace Algorithm.Sandbox.DataStructures
                 //increase array size exponentially on demand
                 var newBucketSize = bucketSize * 2;
 
-                var biggerArray = new AsDoublyLinkedList<HashSetNode<V>>[newBucketSize];
+                var biggerArray = new DoublyLinkedList<HashSetNode<V>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -237,7 +237,7 @@ namespace Algorithm.Sandbox.DataStructures
                                 if (biggerArray[newIndex] == null)
                                 {
                                     filledBuckets++;
-                                    biggerArray[newIndex] = new AsDoublyLinkedList<HashSetNode<V>>();
+                                    biggerArray[newIndex] = new DoublyLinkedList<HashSetNode<V>>();
                                 }
 
                                 biggerArray[newIndex].InsertFirst(current);
@@ -266,7 +266,7 @@ namespace Algorithm.Sandbox.DataStructures
                 //reduce array by half 
                 var newBucketSize = bucketSize / 2;
 
-                var smallerArray = new AsDoublyLinkedList<HashSetNode<V>>[newBucketSize];
+                var smallerArray = new DoublyLinkedList<HashSetNode<V>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -289,7 +289,7 @@ namespace Algorithm.Sandbox.DataStructures
                                 if (smallerArray[newIndex] == null)
                                 {
                                     filledBuckets++;
-                                    smallerArray[newIndex] = new AsDoublyLinkedList<HashSetNode<V>>();
+                                    smallerArray[newIndex] = new DoublyLinkedList<HashSetNode<V>>();
                                 }
 
                                 smallerArray[newIndex].InsertFirst(current);
@@ -321,7 +321,7 @@ namespace Algorithm.Sandbox.DataStructures
     //  implement IEnumerator.
     public class AsSeparateChainingHashSetEnumerator<V> : IEnumerator<HashSetNode<V>> 
     {
-        internal AsDoublyLinkedList<HashSetNode<V>>[] hashList;
+        internal DoublyLinkedList<HashSetNode<V>>[] hashList;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
@@ -330,7 +330,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         int length;
 
-        internal AsSeparateChainingHashSetEnumerator(AsDoublyLinkedList<HashSetNode<V>>[] hashList, int length)
+        internal AsSeparateChainingHashSetEnumerator(DoublyLinkedList<HashSetNode<V>>[] hashList, int length)
         {
             this.length = length;
             this.hashList = hashList;

@@ -7,7 +7,7 @@ namespace Algorithm.Sandbox.DataStructures
         public T Value { get; set; }
 
         public TreeNode<T> Parent { get; set; }
-        public AsSinglyLinkedList<TreeNode<T>> Children { get; set; }
+        public SinglyLinkedList<TreeNode<T>> Children { get; set; }
 
         public bool IsLeaf => Children.Count() == 0;
 
@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.DataStructures
             this.Parent = parent;
             this.Value = value;
 
-            Children = new AsSinglyLinkedList<TreeNode<T>>();
+            Children = new SinglyLinkedList<TreeNode<T>>();
         }
 
         public int CompareTo(object obj)

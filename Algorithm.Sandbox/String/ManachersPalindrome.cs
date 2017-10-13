@@ -1,5 +1,6 @@
 ﻿using Algorithm.Sandbox.DataStructures;
 using System;
+using System.Text;
 
 namespace Algorithm.Sandbox.String
 {
@@ -23,7 +24,7 @@ namespace Algorithm.Sandbox.String
             //for even length palindrome
             //we need to do this hack with $
             var array = input.ToCharArray();
-            var modifiedInput = new AsStringBuilder();
+            var modifiedInput = new StringBuilder();
 
             for (int i = 0; i < array.Length; i++)
             {

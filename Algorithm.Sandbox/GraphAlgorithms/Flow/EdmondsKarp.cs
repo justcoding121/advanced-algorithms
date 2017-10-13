@@ -28,7 +28,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        public W ComputeMaxFlow(AsWeightedDiGraph<T, W> graph,
+        public W ComputeMaxFlow(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
             var residualGraph = createResidualGraph(graph);
@@ -56,7 +56,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns>Residual Graph</returns>
-        public AsWeightedDiGraph<T, W> ComputeMaxFlowAndReturnResidualGraph(AsWeightedDiGraph<T, W> graph,
+        public WeightedDiGraph<T, W> ComputeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
             var residualGraph = createResidualGraph(graph);
@@ -81,7 +81,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        internal List<List<T>> ComputeMaxFlowAndReturnFlowPath(AsWeightedDiGraph<T, W> graph,
+        internal List<List<T>> ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
             var residualGraph = createResidualGraph(graph);
@@ -108,8 +108,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="residualGraph"></param>
         /// <param name="path"></param>
         /// <returns></returns>
-        private W AugmentResidualGraph(AsWeightedDiGraph<T, W> graph,
-            AsWeightedDiGraph<T, W> residualGraph, List<T> path)
+        private W AugmentResidualGraph(WeightedDiGraph<T, W> graph,
+            WeightedDiGraph<T, W> residualGraph, List<T> path)
         {
             var min = operators.MaxWeight;
 
@@ -151,7 +151,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        private List<T> BFS(AsWeightedDiGraph<T, W> residualGraph, T source, T sink)
+        private List<T> BFS(WeightedDiGraph<T, W> residualGraph, T source, T sink)
         {
             //init parent lookup table to trace path
             var parentLookUp = new Dictionary<WeightedDiGraphVertex<T, W>, WeightedDiGraphVertex<T, W>>();
@@ -227,9 +227,9 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        private AsWeightedDiGraph<T, W> createResidualGraph(AsWeightedDiGraph<T, W> graph)
+        private WeightedDiGraph<T, W> createResidualGraph(WeightedDiGraph<T, W> graph)
         {
-            var newGraph = new AsWeightedDiGraph<T, W>();
+            var newGraph = new WeightedDiGraph<T, W>();
 
             //clone graph vertices
             foreach (var vertex in graph.Vertices)

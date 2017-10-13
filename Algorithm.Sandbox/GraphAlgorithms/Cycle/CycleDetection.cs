@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cycle
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public bool HasCycle(AsDiGraph<T> graph)
+        public bool HasCycle(DiGraph<T> graph)
         {
             var visiting = new HashSet<T>();
             var visited = new HashSet<T>();

@@ -19,7 +19,7 @@ namespace Algorithm.Sandbox.Tests
         [TestMethod]
         public void TravellingSalesman_Smoke_Test()
         {
-            var graph = new AsWeightedDiGraph<int, int>();
+            var graph = new WeightedDiGraph<int, int>();
 
             graph.AddVertex(0);
             graph.AddVertex(1);

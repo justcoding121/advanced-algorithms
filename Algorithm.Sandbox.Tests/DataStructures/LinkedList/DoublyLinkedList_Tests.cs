@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void DoublyLinkedList_Test()
         {
-            var list = new AsDoublyLinkedList<string>();
+            var list = new DoublyLinkedList<string>();
 
             list.InsertFirst("a");
             list.InsertLast("b");

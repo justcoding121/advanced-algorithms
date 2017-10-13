@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Heap.Max
 {
-    public class AsFibornacciMaxHeap<T> where T : IComparable
+    public class FibornacciMaxHeap<T> where T : IComparable
     {
         internal FibornacciHeapNode<T> heapForestHead;
 
@@ -251,7 +251,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Max
         /// O(k) complexity where K is the FibornacciHeap Forest Length 
         /// </summary>
         /// <param name="FibornacciHeap"></param>
-        public void Union(AsFibornacciMaxHeap<T> FibornacciHeap)
+        public void Union(FibornacciMaxHeap<T> FibornacciHeap)
         {
             MergeForests(FibornacciHeap.heapForestHead);
             Count = Count + FibornacciHeap.Count;

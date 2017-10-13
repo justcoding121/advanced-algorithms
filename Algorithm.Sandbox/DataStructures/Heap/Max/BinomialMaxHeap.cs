@@ -4,12 +4,12 @@ using System.Collections.Generic;
 namespace Algorithm.Sandbox.DataStructures.Heap.Max
 {
 
-    public class AsBinomialMaxHeap<T> where T : IComparable
+    public class BinomialMaxHeap<T> where T : IComparable
     {
         public int Count { get; private set; }
 
-        internal AsDoublyLinkedList<BinomialHeapNode<T>> heapForest
-            = new AsDoublyLinkedList<BinomialHeapNode<T>>();
+        internal DoublyLinkedList<BinomialHeapNode<T>> heapForest
+            = new DoublyLinkedList<BinomialHeapNode<T>>();
 
         /// <summary>
         /// O(log(n)) complexity
@@ -19,7 +19,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Max
         {
             var newNode = new BinomialHeapNode<T>(newItem);
 
-            var newHeapForest = new AsDoublyLinkedList<BinomialHeapNode<T>>();
+            var newHeapForest = new DoublyLinkedList<BinomialHeapNode<T>>();
             newHeapForest.InsertFirst(newNode);
 
             //updated pointer
@@ -157,7 +157,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Max
             //remove tree root
             heapForest.Delete(maxTree);
 
-            var newHeapForest = new AsDoublyLinkedList<BinomialHeapNode<T>>();
+            var newHeapForest = new DoublyLinkedList<BinomialHeapNode<T>>();
             //add removed roots children as new trees to forest
             for (int i = 0; i < maxTree.Data.Children.Count; i++)
             {
@@ -199,7 +199,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Max
         /// O(log(n)) complexity
         /// </summary>
         /// <param name="binomialHeap"></param>
-        public void Union(AsBinomialMaxHeap<T> binomialHeap)
+        public void Union(BinomialMaxHeap<T> binomialHeap)
         {
             MergeSortedForests(binomialHeap.heapForest);
 
@@ -212,7 +212,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Max
         /// & returns the last inserted node (pointer required for decrement-key)
         /// </summary>
         /// <param name="newHeapForest"></param>
-        private void MergeSortedForests(AsDoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
+        private void MergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
         {
             var @new = newHeapForest.Head;
 

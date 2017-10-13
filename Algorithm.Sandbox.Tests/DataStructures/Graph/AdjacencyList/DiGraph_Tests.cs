@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Graph.AdjacencyList
         [TestMethod]
         public void DiGraph_Smoke_Test()
         {
-            var graph = new AsDiGraph<int>();
+            var graph = new DiGraph<int>();
 
             graph.AddVertex(1);
             graph.AddVertex(2);

@@ -27,7 +27,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Bridge
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public List<Bridge<T>> FindBridges(AsGraph<T> graph)
+        public List<Bridge<T>> FindBridges(Graph<T> graph)
         {
             int visitTime = 0;
             return DFS(graph.ReferenceVertex, new List<Bridge<T>>(),

@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void CircularLinkedList_Test()
         {
-            var list = new AsCircularLinkedList<string>();
+            var list = new CircularLinkedList<string>();
 
             list.Insert("a");
             list.Insert("b");

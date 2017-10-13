@@ -8,7 +8,6 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class DiGraphVertex<T>
-
     {
         public T Value { get; set; }
 
@@ -28,22 +27,34 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
     /// A directed graph implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsDiGraph<T>
+    public class DiGraph<T>
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, DiGraphVertex<T>> Vertices { get; set; }
 
         /// <summary>
-        /// return a reference vertex
+        /// Constructor
+        /// </summary>
+        public DiGraph()
+        {
+            Vertices = new Dictionary<T, DiGraphVertex<T>>();
+        }
+
+        /// <summary>
+        /// return a reference vertex  to start traversing Vertices
+        /// O(1) complexity
         /// </summary>
         public DiGraphVertex<T> ReferenceVertex
         {
             get
             {
-                var enumerator = Vertices.GetEnumerator();
-                if (enumerator.MoveNext())
+                using (var enumerator = Vertices.GetEnumerator())
                 {
-                    return enumerator.Current.Value;
+                    if (enumerator.MoveNext())
+                    {
+                        return enumerator.Current.Value;
+                    }
+                    
                 }
 
                 return null;
@@ -51,13 +62,9 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         }
 
 
-        public AsDiGraph()
-        {
-            Vertices = new Dictionary<T, DiGraphVertex<T>>();
-        }
-
         /// <summary>
         /// add a new vertex to this graph
+        /// O(1) complexity
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -77,6 +84,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         /// <summary>
         /// remove an existing vertex frm graph
+        /// O(V) complexity
         /// </summary>
         /// <param name="value"></param>
         public void RemoveVertex(T value)
@@ -93,20 +101,11 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             foreach (var vertex in Vertices[value].InEdges)
             {
-                if (!Vertices.ContainsKey(vertex.Value))
-                {
-                    throw new Exception("Vertex incoming edge source vertex is not in this graph.");
-                }
                 vertex.OutEdges.Remove(Vertices[value]);
             }
 
             foreach (var vertex in Vertices[value].OutEdges)
             {
-                if (!Vertices.ContainsKey(vertex.Value))
-                {
-                    throw new Exception("Vertex outgoing edge target vertex is not in this graph.");
-                }
-
                 vertex.InEdges.Remove(Vertices[value]);
             }
 
@@ -115,6 +114,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         /// <summary>
         /// add an edge from source to destination vertex
+        /// O(1) complexity
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
@@ -132,7 +132,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             if (Vertices[source].OutEdges.Contains(Vertices[dest]) || Vertices[dest].InEdges.Contains(Vertices[source]))
             {
-                throw new Exception("Edge exists already partially or totally.");
+                throw new Exception("Edge already exists.");
             }
 
             Vertices[source].OutEdges.Add(Vertices[dest]);
@@ -141,6 +141,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         /// <summary>
         /// remove an existing edge between source & destination
+        ///  O(1) complexity
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
@@ -160,7 +161,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
             if (!Vertices[source].OutEdges.Contains(Vertices[dest]) 
                 || !Vertices[dest].InEdges.Contains(Vertices[source]))
             {
-                throw new Exception("Edge do not exists partially or totally.");
+                throw new Exception("Edge do not exists.");
             }
 
             Vertices[source].OutEdges.Remove(Vertices[dest]);
@@ -169,6 +170,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         /// <summary>
         /// do we have an edge between the given source and destination?
+        /// O(1) complexity
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
@@ -186,6 +188,7 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
         /// <summary>
         /// returns the vertex object with given value
+        /// O(1) complexity
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -203,9 +206,9 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
         /// clones object
         /// </summary>
         /// <returns></returns>
-        internal AsDiGraph<T> Clone()
+        internal DiGraph<T> Clone()
         {
-            var newGraph = new AsDiGraph<T>();
+            var newGraph = new DiGraph<T>();
 
             foreach (var vertex in Vertices)
             {

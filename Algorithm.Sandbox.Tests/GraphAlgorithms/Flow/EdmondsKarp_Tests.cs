@@ -13,7 +13,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
         [TestMethod]
         public void EdmondKarp_Smoke_Test()
         {
-            var graph = new AsWeightedDiGraph<char, int>();
+            var graph = new WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');

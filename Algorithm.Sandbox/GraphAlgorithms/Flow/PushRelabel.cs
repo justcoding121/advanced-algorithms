@@ -26,7 +26,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        public W ComputeMaxFlow(AsWeightedDiGraph<T, W> graph,
+        public W ComputeMaxFlow(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
             //clone to create a residual graph
@@ -196,7 +196,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        public List<List<T>> ComputeMaxFlowAndReturnFlowPath(AsWeightedDiGraph<T, W> graph,
+        public List<List<T>> ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
             throw new NotImplementedException();
@@ -208,9 +208,9 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Flow
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        private AsWeightedDiGraph<T, W> createResidualGraph(AsWeightedDiGraph<T, W> graph)
+        private WeightedDiGraph<T, W> createResidualGraph(WeightedDiGraph<T, W> graph)
         {
-            var newGraph = new AsWeightedDiGraph<T, W>();
+            var newGraph = new WeightedDiGraph<T, W>();
 
             //clone graph vertices
             foreach (var vertex in graph.Vertices)

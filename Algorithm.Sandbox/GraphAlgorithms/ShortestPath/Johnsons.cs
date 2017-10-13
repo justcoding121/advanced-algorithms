@@ -38,7 +38,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
         }
 
         public List<AllPairShortestPathResult<T, W>>
-            GetAllPairShortestPaths(AsWeightedDiGraph<T, W> graph)
+            GetAllPairShortestPaths(WeightedDiGraph<T, W> graph)
         {
 
             var workGraph = graph.Clone();

@@ -36,7 +36,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ShortestPath
             this.operators = operators;
         }
 
-        public List<AllPairShortestPathResult<T, W>> GetAllPairShortestPaths(AsWeightedGraph<T, W> graph)
+        public List<AllPairShortestPathResult<T, W>> GetAllPairShortestPaths(WeightedGraph<T, W> graph)
         {
             //we need this vertex array index for generics
             //since array indices are int and T is unknown type

@@ -43,7 +43,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
         /// <param name="graph"></param>
         /// <returns>List of MST edges</returns>
         public List<MSTEdge<T,W>>
-            FindMinimumSpanningTree(AsWeightedGraph<T, W> graph)
+            FindMinimumSpanningTree(WeightedGraph<T, W> graph)
         {
             var edges = new List<MSTEdge<T,W>>();
 

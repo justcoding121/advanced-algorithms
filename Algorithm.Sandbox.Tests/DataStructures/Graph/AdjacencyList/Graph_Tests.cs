@@ -18,7 +18,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Graph.AdjacencyList
         [TestMethod]
         public void Graph_Smoke_Test()
         {
-            var graph = new AsGraph<int>();
+            var graph = new Graph<int>();
 
             graph.AddVertex(1);
             graph.AddVertex(2);

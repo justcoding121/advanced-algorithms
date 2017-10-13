@@ -11,7 +11,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>
-    internal class OpenAddressHashSet<V> : AsIHashSet<V> 
+    internal class OpenAddressHashSet<V> : IHashSet<V> 
     {
 
         private HashSetNode<V>[] hashArray;

@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.MinimumSpanningTree
         [TestMethod]
         public void Kruskals_Smoke_Test()
         {
-            var graph = new AsWeightedGraph<char, int>();
+            var graph = new WeightedGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');

@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Cycle
         [TestMethod]
         public void Graph_Cycle_Detection_Tests()
         {
-            var graph = new AsDiGraph<char>();
+            var graph = new DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');

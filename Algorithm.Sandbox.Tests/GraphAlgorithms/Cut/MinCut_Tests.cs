@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
         [TestMethod]
         public void MinCut_Smoke_Test_1()
         {
-            var graph = new AsWeightedDiGraph<char, int>();
+            var graph = new WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
@@ -51,7 +51,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Flow
         [TestMethod]
         public void MinCut_Smoke_Test_2()
         {
-            var graph = new AsWeightedDiGraph<char, int>();
+            var graph = new WeightedDiGraph<char, int>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');

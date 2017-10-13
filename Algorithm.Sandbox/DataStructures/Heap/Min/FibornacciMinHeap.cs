@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Algorithm.Sandbox.DataStructures.Heap.Min
 {
 
-    public class AsFibornacciMinHeap<T> where T : IComparable
+    public class FibornacciMinHeap<T> where T : IComparable
     {
         internal FibornacciHeapNode<T> heapForestHead;
 
@@ -252,7 +252,7 @@ namespace Algorithm.Sandbox.DataStructures.Heap.Min
         /// O(k) complexity where K is the FibornacciHeap Forest Length 
         /// </summary>
         /// <param name="FibornacciHeap"></param>
-        public void Union(AsFibornacciMinHeap<T> FibornacciHeap)
+        public void Union(FibornacciMinHeap<T> FibornacciHeap)
         {
             MergeForests(FibornacciHeap.heapForestHead);
             Count = Count + FibornacciHeap.Count;

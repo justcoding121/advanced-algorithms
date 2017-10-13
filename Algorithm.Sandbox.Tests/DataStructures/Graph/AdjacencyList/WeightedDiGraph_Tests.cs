@@ -18,7 +18,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Graph.AdjacencyList
         [TestMethod]
         public void WeightedDiGraph_Smoke_Test()
         {
-            var graph = new AsWeightedDiGraph<int, int>();
+            var graph = new WeightedDiGraph<int, int>();
 
             graph.AddVertex(1);
             graph.AddVertex(2);

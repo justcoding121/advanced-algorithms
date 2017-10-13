@@ -17,7 +17,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Search
         [TestMethod]
         public void DepthFirst_Smoke_Test()
         {
-            var graph = new AsGraph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');

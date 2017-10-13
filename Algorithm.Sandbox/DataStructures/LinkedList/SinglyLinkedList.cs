@@ -19,7 +19,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsSinglyLinkedList<T> 
+    public class SinglyLinkedList<T> 
     {
         public SinglyLinkedListNode<T> Head;
 

@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
         /// <param name="graph"></param>
         /// <returns></returns>
         public List<List<T>> 
-            FindStronglyConnectedComponents(AsDiGraph<T> graph)
+            FindStronglyConnectedComponents(DiGraph<T> graph)
         {
             var visited = new HashSet<T>();
             var finishStack = new Stack<T>();
@@ -107,9 +107,9 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
         /// </summary>
         /// <param name="workGraph"></param>
         /// <returns></returns>
-        private AsDiGraph<T> ReverseEdges(AsDiGraph<T> graph)
+        private DiGraph<T> ReverseEdges(DiGraph<T> graph)
         {
-            var newGraph = new AsDiGraph<T>();
+            var newGraph = new DiGraph<T>();
 
             foreach (var vertex in graph.Vertices)
             {

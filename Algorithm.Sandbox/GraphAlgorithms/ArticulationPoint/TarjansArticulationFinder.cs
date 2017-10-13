@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.ArticulationPoint
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public List<T> FindArticulationPoints(AsGraph<T> graph)
+        public List<T> FindArticulationPoints(Graph<T> graph)
         {
             int visitTime = 0;
             return DFS(graph.ReferenceVertex, new List<T>(),

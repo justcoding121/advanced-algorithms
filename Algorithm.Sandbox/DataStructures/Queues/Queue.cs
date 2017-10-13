@@ -2,7 +2,7 @@
 {
     public class AsQueue<T> 
     {
-        private AsDoublyLinkedList<T> list = new AsDoublyLinkedList<T>();
+        private DoublyLinkedList<T> list = new DoublyLinkedList<T>();
 
         public int Count { get; private set; }
         //O(1)

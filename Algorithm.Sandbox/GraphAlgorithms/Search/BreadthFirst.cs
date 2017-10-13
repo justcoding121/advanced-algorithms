@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Search
         /// <param name="graph"></param>
         /// <param name="vertex"></param>
         /// <returns></returns>
-        public bool Find(AsGraph<T> graph, T vertex)
+        public bool Find(Graph<T> graph, T vertex)
         {
             return BFS(graph.ReferenceVertex, new HashSet<T>(), vertex);
         }

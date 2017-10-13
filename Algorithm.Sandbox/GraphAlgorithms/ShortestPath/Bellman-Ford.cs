@@ -23,7 +23,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public ShortestPathResult<T, W> GetShortestPath(AsWeightedDiGraph<T, W> graph, T source, T destination)
+        public ShortestPathResult<T, W> GetShortestPath(WeightedDiGraph<T, W> graph, T source, T destination)
         {
             //regular argument checks
             if (graph == null || graph.FindVertex(source) == null
@@ -91,7 +91,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        private ShortestPathResult<T, W> tracePath(AsWeightedDiGraph<T, W> graph,
+        private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph,
             Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path

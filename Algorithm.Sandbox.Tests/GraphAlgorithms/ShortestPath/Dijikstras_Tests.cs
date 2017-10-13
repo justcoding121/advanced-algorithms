@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
         [TestMethod]
         public void Dijikstra_Smoke_Test()
         {
-            var graph = new AsWeightedDiGraph<char, int>();
+            var graph = new WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');

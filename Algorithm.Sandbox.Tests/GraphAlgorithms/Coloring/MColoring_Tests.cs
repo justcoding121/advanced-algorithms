@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.Coloring
         [TestMethod]
         public void MColoring_Smoke_Test()
         {
-            var graph = new AsGraph<int>();
+            var graph = new Graph<int>();
 
             graph.AddVertex(0);
             graph.AddVertex(1);

@@ -132,7 +132,6 @@
     <Compile Include="DataStructures\Tree\BST_Tests.cs" />
     <Compile Include="DataStructures\Queues\PriorityQueue\MinPriorityQueue_Tests.cs" />
     <Compile Include="DataStructures\Tree\RedBlackTree_Tests.cs" />
-    <Compile Include="DataStructures\StringBuilder_Tests.cs" />
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
@@ -237,7 +236,6 @@
     <Compile Include="Sorting\TreeSort_Tests.cs" />
     <Compile Include="Sorting\ZigZag_Tests.cs" />
     <Compile Include="String\Manachers_Tests.cs" />
-    <Compile Include="String\Permutate.cs" />
     <Compile Include="String\Search\RabinKarp_Tests.cs" />
     <Compile Include="String\Search\KMP_Tests.cs" />
     <Compile Include="String\Search\Z_Tests.cs" />

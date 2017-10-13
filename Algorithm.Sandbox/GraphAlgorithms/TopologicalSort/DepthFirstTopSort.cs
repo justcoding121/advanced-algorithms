@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.TopologicalSort
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public List<T> GetTopSort(AsDiGraph<T> graph)
+        public List<T> GetTopSort(DiGraph<T> graph)
         {
             var pathStack = new Stack<T>();
             var visited = new HashSet<T>();

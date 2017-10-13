@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Connectivity
         /// </summary>
         /// <param name="graph"></param>
         /// <returns></returns>
-        public List<List<T>> FindStronglyConnectedComponents(AsDiGraph<T> graph)
+        public List<List<T>> FindStronglyConnectedComponents(DiGraph<T> graph)
         {
             var result = new List<List<T>>();
 

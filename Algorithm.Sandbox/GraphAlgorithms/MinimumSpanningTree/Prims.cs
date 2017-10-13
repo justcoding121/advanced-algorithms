@@ -19,13 +19,13 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
         /// <param name="graph"></param>
         /// <returns>List of MST edges</returns>
         public List<MSTEdge<T, W>>
-            FindMinimumSpanningTree(AsWeightedGraph<T, W> graph)
+            FindMinimumSpanningTree(WeightedGraph<T, W> graph)
         {
             var edges = new List<MSTEdge<T, W>>();
 
             //gather all unique edges
             DFS(graph, graph.ReferenceVertex,
-                new AsFibornacciMinHeap<MSTEdge<T, W>>(),
+                new FibornacciMinHeap<MSTEdge<T, W>>(),
                 new HashSet<T>(),
                 edges);
 
@@ -41,9 +41,9 @@ namespace Algorithm.Sandbox.GraphAlgorithms.MinimumSpanningTree
         /// <param name="spanTreeVertices"></param>
         /// <param name="spanTreeNeighbours"> Use Fibornacci Min Heap to pick smallest edge neighbour </param>
         /// <param name="spanTreeEdges">result MST edges</param>
-        private void DFS(AsWeightedGraph<T, W> graph,
+        private void DFS(WeightedGraph<T, W> graph,
             WeightedGraphVertex<T, W> currentVertex,
-           AsFibornacciMinHeap<MSTEdge<T, W>> spanTreeNeighbours,
+           FibornacciMinHeap<MSTEdge<T, W>> spanTreeNeighbours,
            HashSet<T> spanTreeVertices,
            List<MSTEdge<T, W>> spanTreeEdges)
         {

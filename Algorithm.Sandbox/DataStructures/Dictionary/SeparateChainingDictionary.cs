@@ -14,7 +14,7 @@ namespace Algorithm.Sandbox.DataStructures
     internal class SeparateChainingDictionary<K, V> : AsIDictionary<K, V>  
     {
 
-        private AsDoublyLinkedList<DictionaryNode<K, V>>[] hashArray;
+        private DoublyLinkedList<DictionaryNode<K, V>>[] hashArray;
         private int bucketSize => hashArray.Length;
         private int initialBucketSize;
         private int filledBuckets;
@@ -25,7 +25,7 @@ namespace Algorithm.Sandbox.DataStructures
         public SeparateChainingDictionary(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new AsDoublyLinkedList<DictionaryNode<K, V>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<DictionaryNode<K, V>>[initialBucketSize];
         }
 
         public V this[K key]
@@ -71,7 +71,7 @@ namespace Algorithm.Sandbox.DataStructures
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new AsDoublyLinkedList<DictionaryNode<K, V>>();
+                hashArray[index] = new DoublyLinkedList<DictionaryNode<K, V>>();
                 hashArray[index].InsertFirst(new DictionaryNode<K, V>(key, value));
                 filledBuckets++;
             }
@@ -151,7 +151,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// </summary>
         public void Clear()
         {
-            hashArray = new AsDoublyLinkedList<DictionaryNode<K, V>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<DictionaryNode<K, V>>[initialBucketSize];
             Count = 0;
             filledBuckets = 0;
         }
@@ -221,7 +221,7 @@ namespace Algorithm.Sandbox.DataStructures
                 //increase array size exponentially on demand
                 var newBucketSize = bucketSize * 2;
 
-                var biggerArray = new AsDoublyLinkedList<DictionaryNode<K, V>>[newBucketSize];
+                var biggerArray = new DoublyLinkedList<DictionaryNode<K, V>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -244,7 +244,7 @@ namespace Algorithm.Sandbox.DataStructures
                                 if (biggerArray[newIndex] == null)
                                 {
                                     filledBuckets++;
-                                    biggerArray[newIndex] = new AsDoublyLinkedList<DictionaryNode<K, V>>();
+                                    biggerArray[newIndex] = new DoublyLinkedList<DictionaryNode<K, V>>();
                                 }
 
                                 biggerArray[newIndex].InsertFirst(current);
@@ -273,7 +273,7 @@ namespace Algorithm.Sandbox.DataStructures
                 //reduce array by half 
                 var newBucketSize = bucketSize / 2;
 
-                var smallerArray = new AsDoublyLinkedList<DictionaryNode<K, V>>[newBucketSize];
+                var smallerArray = new DoublyLinkedList<DictionaryNode<K, V>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -296,7 +296,7 @@ namespace Algorithm.Sandbox.DataStructures
                                 if (smallerArray[newIndex] == null)
                                 {
                                     filledBuckets++;
-                                    smallerArray[newIndex] = new AsDoublyLinkedList<DictionaryNode<K, V>>();
+                                    smallerArray[newIndex] = new DoublyLinkedList<DictionaryNode<K, V>>();
                                 }
 
                                 smallerArray[newIndex].InsertFirst(current);
@@ -328,7 +328,7 @@ namespace Algorithm.Sandbox.DataStructures
     //  implement IEnumerator.
     public class AsSeparateChainingDictionaryEnumerator<K, V> : IEnumerator<DictionaryNode<K, V>> 
     {
-        internal AsDoublyLinkedList<DictionaryNode<K, V>>[] hashList;
+        internal DoublyLinkedList<DictionaryNode<K, V>>[] hashList;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
@@ -337,7 +337,7 @@ namespace Algorithm.Sandbox.DataStructures
 
         int length;
 
-        internal AsSeparateChainingDictionaryEnumerator(AsDoublyLinkedList<DictionaryNode<K, V>>[] hashList, int length)
+        internal AsSeparateChainingDictionaryEnumerator(DoublyLinkedList<DictionaryNode<K, V>>[] hashList, int length)
         {
             this.length = length;
             this.hashList = hashList;

@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cut
             this.operators = operators;
         }
 
-        public List<MinCutEdge<T>> ComputeMinCut(AsWeightedDiGraph<T, W> graph,
+        public List<MinCutEdge<T>> ComputeMinCut(WeightedDiGraph<T, W> graph,
         T source, T sink)
         {
             var edmondsKarpMaxFlow = new EdmondKarpMaxFlow<T, W>(operators);
@@ -68,8 +68,8 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cut
         /// <param name="residualGraph"></param>
         /// <param name="source"></param>
         /// <returns></returns>
-        public HashSet<T> GetReachable(AsWeightedDiGraph<T, W> graph,
-            AsWeightedDiGraph<T, W> residualGraph,
+        public HashSet<T> GetReachable(WeightedDiGraph<T, W> graph,
+            WeightedDiGraph<T, W> residualGraph,
             T source)
         {
             var visited = new HashSet<T>();
@@ -86,7 +86,7 @@ namespace Algorithm.Sandbox.GraphAlgorithms.Cut
         /// <param name="visited"></param>
         /// <param name="searchVetex"></param>
         /// <returns></returns>
-        private void DFS(AsWeightedDiGraph<T, W> graph,
+        private void DFS(WeightedDiGraph<T, W> graph,
             WeightedDiGraphVertex<T, W> currentResidualGraphVertex,
             HashSet<T> visited)
         {

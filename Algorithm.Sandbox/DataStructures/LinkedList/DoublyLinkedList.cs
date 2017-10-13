@@ -21,7 +21,7 @@ namespace Algorithm.Sandbox.DataStructures
     /// A singly linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsDoublyLinkedList<T> :IEnumerable<T> 
+    public class DoublyLinkedList<T> :IEnumerable<T> 
     {
         public DoublyLinkedListNode<T> Head;
         public DoublyLinkedListNode<T> Tail;
@@ -340,7 +340,7 @@ namespace Algorithm.Sandbox.DataStructures
         /// O(1) time complexity
         /// </summary>
         /// <param name="newList"></param>
-        internal void Union(AsDoublyLinkedList<T> newList)
+        internal void Union(DoublyLinkedList<T> newList)
         {
             if (Head == null)
             {

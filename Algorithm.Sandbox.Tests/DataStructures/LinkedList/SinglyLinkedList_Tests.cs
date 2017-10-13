@@ -12,7 +12,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures
         [TestMethod]
         public void SinglyLinkedList_Test()
         {
-            var list = new AsSinglyLinkedList<string>();
+            var list = new SinglyLinkedList<string>();
 
             list.InsertFirst("a");
             list.InsertLast("b");

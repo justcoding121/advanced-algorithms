@@ -16,7 +16,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.ShortestPath
         [TestMethod]
         public void FloydWarshall_Smoke_Test()
         {
-            var graph = new AsWeightedGraph<char, int>();
+            var graph = new WeightedGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');

@@ -20,7 +20,7 @@ namespace Algorithm.Sandbox.Compression
         {
             var frequencies = computeFrequency(input);
 
-            var minHeap = new AsFibornacciMinHeap<FrequencyWrap>();
+            var minHeap = new FibornacciMinHeap<FrequencyWrap>();
 
             foreach (var frequency in frequencies)
             {

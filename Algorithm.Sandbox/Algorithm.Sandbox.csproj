@@ -130,7 +130,6 @@
     <Compile Include="DataStructures\Tree\RedBlackTree.cs" />
     <Compile Include="DataStructures\LinkedList\SinglyLinkedList.cs" />
     <Compile Include="DataStructures\Tree\SplayTree.cs" />
-    <Compile Include="DataStructures\String\StringBuilder.cs" />
     <Compile Include="DataStructures\Tree\TernarySearchTree.cs" />
     <Compile Include="DataStructures\Tree\TreapTree.cs" />
     <Compile Include="DataStructures\Tree\Tree.cs" />
@@ -240,7 +239,6 @@
     <Compile Include="Sorting\ZigZagOrderer.cs" />
     <Compile Include="DynamicProgramming\String\StringInterleaving.cs" />
     <Compile Include="String\ManachersPalindrome.cs" />
-    <Compile Include="String\Permutation.cs" />
     <Compile Include="String\Search\KMP.cs" />
     <Compile Include="String\Search\RabinKarp.cs" />
     <Compile Include="String\Search\ZAlgorithm.cs" />

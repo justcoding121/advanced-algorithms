@@ -15,7 +15,7 @@ namespace Algorithm.Sandbox.Tests.GraphAlgorithms.TopologicalSort
         [TestMethod]
         public void Top_Sort_Smoke_Test()
         {
-            var graph = new AsDiGraph<char>();
+            var graph = new DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');

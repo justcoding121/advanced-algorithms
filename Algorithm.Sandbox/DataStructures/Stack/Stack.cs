@@ -6,7 +6,7 @@ namespace Algorithm.Sandbox.DataStructures
     {
         public int Count { get; private set; }
 
-        private AsSinglyLinkedList<T> list = new AsSinglyLinkedList<T>();
+        private SinglyLinkedList<T> list = new SinglyLinkedList<T>();
 
         //O(1)
         public T Pop()
