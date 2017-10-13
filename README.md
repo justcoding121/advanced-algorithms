@@ -308,7 +308,7 @@ All are top down solutions with memoization technique.
 - [X] Rectangle intersection ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Geometry/RectangleIntersection.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Geometry/RectangleIntersection_Tests.cs))
 - [X] Point Rotation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Geometry/PointRotation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Geometry/PointRotation_Tests.cs))
 
-## Bit Algorithms
+## Bit Manipulation
 
 - [X] Some common bit hacks ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/BitAlgorithms/BitHacks.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/BitHacks_Tests.cs))
 - [X] Int to Binary string ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/BitAlgorithms/IntToBinary.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/BitAlgorithms/IntToBinary_Tests.cs))
