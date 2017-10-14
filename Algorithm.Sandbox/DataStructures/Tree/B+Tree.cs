@@ -371,37 +371,6 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         }
 
         /// <summary>
-        /// Shift array right at index to make room for new insertion
-        /// And then insert at index
-        /// Assumes array have atleast one empty index at end
-        /// </summary>
-        /// <typeparam name="S"></typeparam>
-        /// <param name="array"></param>
-        /// <param name="index"></param>
-        /// <param name="newValue"></param>
-        private void InsertAt<S>(S[] array, int index, S newValue)
-        {
-            //shift elements right by one indice from index
-            Array.Copy(array, index, array, index + 1, array.Length - index - 1);
-            //now set the value
-            array[index] = newValue;
-        }
-
-        /// <summary>
-        /// Shift array left at index    
-        /// </summary>
-        /// <typeparam name="S"></typeparam>
-        /// <param name="array"></param>
-        /// <param name="index"></param>
-        /// <param name="newValue"></param>
-        private void RemoveAt<S>(S[] array, int index)
-        {
-
-            //shift elements right by one indice from index
-            Array.Copy(array, index + 1, array, index, array.Length - index - 1);
-        }
-
-        /// <summary>
         /// Delete the given value from this BPTree
         /// </summary>
         /// <param name="value"></param>
@@ -923,6 +892,37 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Shift array right at index to make room for new insertion
+        /// And then insert at index
+        /// Assumes array have atleast one empty index at end
+        /// </summary>
+        /// <typeparam name="S"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="index"></param>
+        /// <param name="newValue"></param>
+        private void InsertAt<S>(S[] array, int index, S newValue)
+        {
+            //shift elements right by one indice from index
+            Array.Copy(array, index, array, index + 1, array.Length - index - 1);
+            //now set the value
+            array[index] = newValue;
+        }
+
+        /// <summary>
+        /// Shift array left at index    
+        /// </summary>
+        /// <typeparam name="S"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="index"></param>
+        /// <param name="newValue"></param>
+        private void RemoveAt<S>(S[] array, int index)
+        {
+
+            //shift elements right by one indice from index
+            Array.Copy(array, index + 1, array, index, array.Length - index - 1);
         }
 
     }
