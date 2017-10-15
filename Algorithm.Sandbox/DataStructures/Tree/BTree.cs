@@ -1,10 +1,13 @@
 ﻿using System;
-
+using System.Diagnostics;
+using System.Linq;
 
 namespace Algorithm.Sandbox.DataStructures.Tree
 {
     internal class BTreeNode<T> where T : IComparable
     {
+        internal int Index;
+
         internal T[] Keys { get; set; }
         internal int KeyCount;
 
@@ -43,7 +46,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
         public BTree(int maxKeysPerNode)
         {
-            if(maxKeysPerNode <3)
+            if (maxKeysPerNode < 3)
             {
                 throw new Exception("Max keys per node should be atleast 3.");
             }
@@ -64,7 +67,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <returns></returns>
         private BTreeNode<T> Find(BTreeNode<T> node, T value)
         {
-            
+
             //if leaf then its time to insert
             if (node.IsLeaf)
             {
@@ -223,8 +226,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
                             if (newValueLeft != null)
                             {
-                                newValueLeft.Parent = currentNode;
-                                currentNode.Children[currentNode.KeyCount] = newValueLeft;
+                                SetChild(currentNode, currentNode.KeyCount, newValueLeft);
                             }
 
                             //now fill right node
@@ -233,8 +235,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
                             if (newValueRight != null)
                             {
-                                newValueRight.Parent = currentNode;
-                                currentNode.Children[0] = newValueRight;
+                                SetChild(currentNode, 0, newValueRight);
                             }
 
                             i--;
@@ -262,44 +263,26 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                     if (newValueInserted || node.Keys[i].CompareTo(newValue) < 0)
                     {
                         currentNode.Keys[currentNodeIndex] = node.Keys[i];
+                        currentNode.KeyCount++;
 
                         //if child is set don't set again
                         //the child was already set by last newValueRight or last node
                         if (currentNode.Children[currentNodeIndex] == null)
                         {
-                            currentNode.Children[currentNodeIndex] = node.Children[i];
-                            if (currentNode.Children[currentNodeIndex] != null)
-                            {
-                                currentNode.Children[currentNodeIndex].Parent = currentNode;
-                            }
-
+                            SetChild(currentNode, currentNodeIndex, node.Children[i]);
                         }
 
-                        currentNode.Children[currentNodeIndex + 1] = node.Children[i + 1];
-                        if (currentNode.Children[currentNodeIndex + 1] != null)
-                        {
-                            currentNode.Children[currentNodeIndex + 1].Parent = currentNode;
-                        }
+                        SetChild(currentNode, currentNodeIndex + 1, node.Children[i + 1]);
 
-
-                        currentNode.KeyCount++;
                     }
                     else
                     {
                         currentNode.Keys[currentNodeIndex] = newValue;
-                        currentNode.Children[currentNodeIndex] = newValueLeft;
-                        currentNode.Children[currentNodeIndex + 1] = newValueRight;
-
-
-                        //if left is not null
-                        //then right should'nt be null
-                        if (newValueLeft != null)
-                        {
-                            newValueLeft.Parent = currentNode;
-                            newValueRight.Parent = currentNode;
-                        }
-
                         currentNode.KeyCount++;
+
+                        SetChild(currentNode, currentNodeIndex, newValueLeft);
+                        SetChild(currentNode, currentNodeIndex + 1, newValueRight);
+
                         i--;
                         newValueInserted = true;
                     }
@@ -313,19 +296,11 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 if (!newValueInserted)
                 {
                     currentNode.Keys[currentNodeIndex] = newValue;
-                    currentNode.Children[currentNodeIndex] = newValueLeft;
-                    currentNode.Children[currentNodeIndex + 1] = newValueRight;
-
-
-                    //if left is not null
-                    //then right should'nt be null
-                    if (newValueLeft != null)
-                    {
-                        newValueLeft.Parent = currentNode;
-                        newValueRight.Parent = currentNode;
-                    }
-
                     currentNode.KeyCount++;
+
+                    SetChild(currentNode, currentNodeIndex, newValueLeft);
+                    SetChild(currentNode, currentNodeIndex + 1, newValueRight);
+
                 }
 
                 //insert overflow element (newMedian) to parent
@@ -354,26 +329,18 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         {
             var inserted = false;
 
-            //if left is not null
-            //then right should'nt be null
-            if (newValueLeft != null)
-            {
-                newValueLeft.Parent = node;
-                newValueRight.Parent = node;
-            }
-
             //insert in sorted order
             for (int i = 0; i < node.KeyCount; i++)
             {
                 if (newValue.CompareTo(node.Keys[i]) < 0)
                 {
                     InsertAt(node.Keys, i, newValue);
+                    node.KeyCount++;
 
                     //Insert children if any
-                    node.Children[i] = newValueLeft;
-                    InsertAt(node.Children, i + 1, newValueRight);
+                    SetChild(node, i, newValueLeft);
+                    InsertChild(node, i + 1, newValueRight);
 
-                    node.KeyCount++;
 
                     inserted = true;
                     break;
@@ -385,13 +352,15 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             if (!inserted)
             {
                 node.Keys[node.KeyCount] = newValue;
-
-                node.Children[node.KeyCount] = newValueLeft;
-                node.Children[node.KeyCount + 1] = newValueRight;
-
                 node.KeyCount++;
+
+                SetChild(node, node.KeyCount - 1, newValueLeft);
+                SetChild(node, node.KeyCount, newValueRight);
+
+
             }
         }
+
 
 
         /// <summary>
@@ -513,9 +482,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             var parent = leftSibling.Parent;
 
             var newNode = new BTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
-
             var newIndex = 0;
-
 
             for (int i = 0; i < leftSibling.KeyCount; i++)
             {
@@ -523,16 +490,13 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
                 if (leftSibling.Children[i] != null)
                 {
-                    leftSibling.Children[i].Parent = newNode;
-                    newNode.Children[newIndex] = leftSibling.Children[i];
+                    SetChild(newNode, newIndex, leftSibling.Children[i]);
                 }
 
                 if (leftSibling.Children[i + 1] != null)
                 {
-                    leftSibling.Children[i + 1].Parent = newNode;
-                    newNode.Children[newIndex + 1] = leftSibling.Children[i + 1];
+                    SetChild(newNode, newIndex + 1, leftSibling.Children[i + 1]);
                 }
-
 
                 newIndex++;
             }
@@ -540,8 +504,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             //special case when left sibling is empty 
             if (leftSibling.KeyCount == 0 && leftSibling.Children[0] != null)
             {
-                leftSibling.Children[0].Parent = newNode;
-                newNode.Children[newIndex] = leftSibling.Children[0];
+                SetChild(newNode, newIndex, leftSibling.Children[0]);
             }
 
             newNode.Keys[newIndex] = parent.Keys[separatorIndex];
@@ -553,14 +516,12 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
                 if (rightSibling.Children[i] != null)
                 {
-                    rightSibling.Children[i].Parent = newNode;
-                    newNode.Children[newIndex] = rightSibling.Children[i];
+                    SetChild(newNode, newIndex, rightSibling.Children[i]);
                 }
 
                 if (rightSibling.Children[i + 1] != null)
                 {
-                    rightSibling.Children[i + 1].Parent = newNode;
-                    newNode.Children[newIndex + 1] = rightSibling.Children[i + 1];
+                    SetChild(newNode, newIndex + 1, rightSibling.Children[i + 1]);
                 }
 
                 newIndex++;
@@ -569,17 +530,16 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             //special case when left sibling is empty 
             if (rightSibling.KeyCount == 0 && rightSibling.Children[0] != null)
             {
-                rightSibling.Children[0].Parent = newNode;
-                newNode.Children[newIndex] = rightSibling.Children[0];
+                SetChild(newNode, newIndex, rightSibling.Children[0]);
             }
 
             newNode.KeyCount = newIndex;
-
-            parent.Children[separatorIndex] = newNode;
-
+            SetChild(parent, separatorIndex, newNode);
             RemoveAt(parent.Keys, separatorIndex);
-            RemoveAt(parent.Children, separatorIndex + 1);
             parent.KeyCount--;
+
+            RemoveChild(parent, separatorIndex + 1);
+
 
             if (parent.KeyCount == 0
                 && parent == Root)
@@ -601,6 +561,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             }
         }
 
+
         /// <summary>
         /// do a right rotation 
         /// </summary>
@@ -611,18 +572,18 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             var parentIndex = GetNextSeparatorIndex(leftSibling);
 
             InsertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[parentIndex]);
-            if (!leftSibling.IsLeaf && leftSibling.Children[leftSibling.KeyCount] != null)
-            {
-                leftSibling.Children[leftSibling.KeyCount].Parent = rightSibling;
-            }
-            InsertAt(rightSibling.Children, 0, leftSibling.Children[leftSibling.KeyCount]);
             rightSibling.KeyCount++;
+
+            InsertChild(rightSibling, 0, leftSibling.Children[leftSibling.KeyCount]);
 
             rightSibling.Parent.Keys[parentIndex] = leftSibling.Keys[leftSibling.KeyCount - 1];
 
             RemoveAt(leftSibling.Keys, leftSibling.KeyCount - 1);
-            RemoveAt(leftSibling.Children, leftSibling.KeyCount);
             leftSibling.KeyCount--;
+
+            RemoveChild(leftSibling, leftSibling.KeyCount + 1);
+
+
         }
 
         /// <summary>
@@ -633,21 +594,19 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         private void LeftRotate(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
         {
             var parentIndex = GetNextSeparatorIndex(leftSibling);
-
             leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[parentIndex];
-            if (!rightSibling.IsLeaf && rightSibling.Children[0].Parent != null)
-            {
-                rightSibling.Children[0].Parent = leftSibling;
-            }
-            leftSibling.Children[leftSibling.KeyCount + 1] = rightSibling.Children[0];
-
             leftSibling.KeyCount++;
+
+            SetChild(leftSibling, leftSibling.KeyCount, rightSibling.Children[0]);
+
 
             leftSibling.Parent.Keys[parentIndex] = rightSibling.Keys[0];
 
             RemoveAt(rightSibling.Keys, 0);
-            RemoveAt(rightSibling.Children, 0);
             rightSibling.KeyCount--;
+
+            RemoveChild(rightSibling, 0);
+
         }
 
         /// <summary>
@@ -701,15 +660,15 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <summary>
         /// Get next key separator index after this child Node in parent 
         /// </summary>
-        /// <param name="childNode"></param>
+        /// <param name="node"></param>
         /// <returns></returns>
-        private int GetNextSeparatorIndex(BTreeNode<T> childNode)
+        private int GetNextSeparatorIndex(BTreeNode<T> node)
         {
-            var parent = childNode.Parent;
+            var parent = node.Parent;
 
             for (int i = 0; i <= parent.KeyCount; i++)
             {
-                if (parent.Children[i] == childNode)
+                if (parent.Children[i] == node)
                 {
                     if (i == 0)
                     {
@@ -769,6 +728,58 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             return null;
         }
 
+        private void SetChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
+        {
+            parent.Children[childIndex] = child;
+
+            if (child != null)
+            {
+                child.Parent = parent;
+                child.Index = childIndex;
+            }
+
+            for (int i = 0; i <= parent.KeyCount; i++)
+            {
+                if (parent.Children[i] != null)
+                {
+                    parent.Children[i].Index = i;
+                }
+
+            }
+        }
+
+        private void InsertChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
+        {
+            InsertAt(parent.Children, childIndex, child);
+
+            if (child != null)
+            {
+                child.Parent = parent;
+            }
+
+            for (int i = 0; i <= parent.KeyCount; i++)
+            {
+                if (parent.Children[i] != null)
+                {
+                    parent.Children[i].Index = i;
+                }
+
+            }
+        }
+
+        private void RemoveChild(BTreeNode<T> parent, int childIndex)
+        {
+            RemoveAt(parent.Children, childIndex);
+
+            for (int i = 0; i <= parent.KeyCount; i++)
+            {
+                if (parent.Children[i] != null)
+                {
+                    parent.Children[i].Index = i;
+                }
+
+            }
+        }
 
         /// <summary>
         /// Shift array right at index to make room for new insertion

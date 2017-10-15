@@ -119,36 +119,38 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void BTree_StressTest()
         {
+            //while (true)
+            //{
+                var nodeCount = 10000;
 
-            var nodeCount = 1000 * 10;
+                var rnd = new Random();
+                var randomNumbers = Enumerable.Range(1, nodeCount)
+                                    .OrderBy(x => rnd.Next())
+                                    .ToList();
 
-            var rnd = new Random();
-            var randomNumbers = Enumerable.Range(1, nodeCount)
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
+                var tree = new BTree<int>(3);
 
-            var tree = new BTree<int>(3);
+                for (int i = 0; i < nodeCount; i++)
+                {
+                    tree.Insert(randomNumbers[i]);
+                    Assert.IsTrue(tree.Count == i + 1);
+                }
 
-            for (int i = 0; i < nodeCount; i++)
-            {
-                tree.Insert(randomNumbers[i]);
-                Assert.IsTrue(tree.Count == i + 1);
-            }
-
-            //shuffle again before deletion tests
-            randomNumbers = Enumerable.Range(1, nodeCount)
-                               .OrderBy(x => rnd.Next())
-                               .ToList();
-
-
-            for (int i = 0; i < nodeCount; i++)
-            {
-                tree.Delete(randomNumbers[i]);
-                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
-            }
+                //shuffle again before deletion tests
+                randomNumbers = Enumerable.Range(1, nodeCount)
+                                   .OrderBy(x => rnd.Next())
+                                   .ToList();
 
 
-            Assert.IsTrue(tree.Count == 0);
+                for (int i = 0; i < nodeCount; i++)
+                {
+                    tree.Delete(randomNumbers[i]);
+                    Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+                }
+
+
+                Assert.IsTrue(tree.Count == 0);
+            //}
 
         }
     }
