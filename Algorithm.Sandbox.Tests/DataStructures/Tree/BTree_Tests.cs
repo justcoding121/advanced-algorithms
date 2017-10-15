@@ -62,7 +62,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                         .OrderBy(x => rnd.Next())
                         .ToList();
 
-            var order = 3;
+            var order = 5;
             var tree = new BTree<int>(order);
 
             for (int i = 0; i < nodeCount; i++)
@@ -119,8 +119,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         [TestMethod]
         public void BTree_StressTest()
         {
-            //while (true)
-            //{
+
                 var nodeCount = 10000;
 
                 var rnd = new Random();
@@ -128,7 +127,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                                     .OrderBy(x => rnd.Next())
                                     .ToList();
 
-                var tree = new BTree<int>(3);
+                var tree = new BTree<int>(12);
 
                 for (int i = 0; i < nodeCount; i++)
                 {
@@ -150,7 +149,6 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
 
 
                 Assert.IsTrue(tree.Count == 0);
-            //}
 
         }
     }

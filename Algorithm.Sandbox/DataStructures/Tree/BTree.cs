@@ -6,6 +6,9 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 {
     internal class BTreeNode<T> where T : IComparable
     {
+        /// <summary>
+        /// Array Index of this node in parent's Children array
+        /// </summary>
         internal int Index;
 
         internal T[] Keys { get; set; }
@@ -666,26 +669,19 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         {
             var parent = node.Parent;
 
-            for (int i = 0; i <= parent.KeyCount; i++)
+            if (node.Index == 0)
             {
-                if (parent.Children[i] == node)
-                {
-                    if (i == 0)
-                    {
-                        return 0;
-                    }
-                    else if (i == parent.KeyCount)
-                    {
-                        return i - 1;
-                    }
-                    else
-                    {
-                        return i;
-                    }
-                }
+                return 0;
+            }
+            else if (node.Index == parent.KeyCount)
+            {
+                return node.Index - 1;
+            }
+            else
+            {
+                return node.Index;
             }
 
-            return -1;
         }
 
         /// <summary>
@@ -697,15 +693,13 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         {
             var parent = node.Parent;
 
-            for (int i = 0; i < parent.KeyCount; i++)
+            if (node.Index == parent.KeyCount)
             {
-                if (parent.Children[i] == node)
-                {
-                    return parent.Children[i + 1];
-                }
+                return null;
             }
 
-            return null;
+            return parent.Children[node.Index + 1];
+
         }
 
         /// <summary>
@@ -715,17 +709,13 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         /// <returns></returns>
         private BTreeNode<T> GetLeftSibling(BTreeNode<T> node)
         {
-            var parent = node.Parent;
-
-            for (int i = 1; i <= parent.KeyCount; i++)
+            if (node.Index == 0)
             {
-                if (parent.Children[i] == node)
-                {
-                    return parent.Children[i - 1];
-                }
+                return null;
             }
 
-            return null;
+            return node.Parent.Children[node.Index - 1];
+
         }
 
         private void SetChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
@@ -738,14 +728,6 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 child.Index = childIndex;
             }
 
-            for (int i = 0; i <= parent.KeyCount; i++)
-            {
-                if (parent.Children[i] != null)
-                {
-                    parent.Children[i].Index = i;
-                }
-
-            }
         }
 
         private void InsertChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
@@ -757,13 +739,13 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 child.Parent = parent;
             }
 
-            for (int i = 0; i <= parent.KeyCount; i++)
+            //update indices
+            for (int i = childIndex; i <= parent.KeyCount; i++)
             {
                 if (parent.Children[i] != null)
                 {
                     parent.Children[i].Index = i;
                 }
-
             }
         }
 
@@ -771,7 +753,8 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         {
             RemoveAt(parent.Children, childIndex);
 
-            for (int i = 0; i <= parent.KeyCount; i++)
+            //update indices
+            for (int i = childIndex; i <= parent.KeyCount; i++)
             {
                 if (parent.Children[i] != null)
                 {
