@@ -120,7 +120,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
         public void BTree_StressTest()
         {
 
-                var nodeCount = 10000;
+                var nodeCount = 1000 * 10;
 
                 var rnd = new Random();
                 var randomNumbers = Enumerable.Range(1, nodeCount)

@@ -88,7 +88,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                             .OrderBy(x => rnd.Next())
                             .ToList();
 
-            var order = 3;
+            var order = 5;
             var tree = new BPTree<int>(order);
 
             for (int i = 0; i < nodeCount; i++)
@@ -156,7 +156,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new BPTree<int>(3);
+            var tree = new BPTree<int>(12);
 
             for (int i = 0; i < nodeCount; i++)
             {
