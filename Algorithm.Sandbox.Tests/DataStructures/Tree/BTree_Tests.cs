@@ -89,6 +89,9 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
 
+            Assert.AreEqual(tree.Max, randomNumbers.Max());
+            Assert.AreEqual(tree.Min, randomNumbers.Min());
+
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
                             .OrderBy(x => rnd.Next())

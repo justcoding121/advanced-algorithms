@@ -95,6 +95,25 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             this.maxKeysPerNode = maxKeysPerNode;
         }
 
+        public T Max
+        {
+            get
+            {
+                var maxNode = findMaxNode(Root);
+                return maxNode.Keys[maxNode.KeyCount - 1];
+            }
+        }
+
+        public T Min
+        {
+            get
+            {
+                var minNode = findMinNode(Root);
+                return minNode.Keys[0];
+            }
+        }
+
+
         public bool HasItem(T value)
         {
             return find(Root, value) != null;
@@ -450,6 +469,24 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
             }
 
+
+        }
+
+        /// <summary>
+        /// return the node containing max value which will be a leaf at the right most
+        /// </summary>
+        /// <param name="asBTreeNode"></param>
+        /// <returns></returns>
+        private BTreeNode<T> findMinNode(BTreeNode<T> node)
+        {
+            //if leaf return node
+            if (node.IsLeaf)
+            {
+                return node;
+            }
+
+            //step in to left most child
+            return findMinNode(node.Children[0]);
 
         }
 

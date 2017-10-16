@@ -115,6 +115,9 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
 
+            Assert.AreEqual(tree.Max, randomNumbers.Max());
+            Assert.AreEqual(tree.Min, randomNumbers.Min());
+
             //check that the elements are in sorted order
             //since B+ tree stores all elements in leaves in sorted order from left to right
             int j = 1;

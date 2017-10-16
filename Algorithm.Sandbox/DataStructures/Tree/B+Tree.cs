@@ -70,6 +70,24 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         private int maxKeysPerNode;
         private int minKeysPerNode => maxKeysPerNode / 2;
 
+        public T Max
+        {
+            get
+            {
+                var maxNode = findMaxNode(Root);
+                return maxNode.Keys[maxNode.KeyCount - 1];
+            }
+        }
+
+        public T Min
+        {
+            get
+            {
+                var minNode = BottomLeftNode;
+                return minNode.Keys[0];
+            }
+        }
+
         public BPTree(int maxKeysPerNode)
         {
             if (maxKeysPerNode < 3)
