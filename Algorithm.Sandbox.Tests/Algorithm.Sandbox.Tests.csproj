@@ -84,6 +84,8 @@
     <Compile Include="BitAlgorithms\ToggleCase_Tests.cs" />
     <Compile Include="BitAlgorithms\TwoNonRepeatingNums_Tests.cs" />
     <Compile Include="BitAlgorithms\TwoRepeatingNums_Tests.cs" />
+    <Compile Include="Combinatorics\Combination_Tests.cs" />
+    <Compile Include="Combinatorics\Permutation_Tests.cs" />
     <Compile Include="Compression\HuffmanCoding_Tests.cs" />
     <Compile Include="DataStructures\Dictionary\Dictionary_Tests.cs" />
     <Compile Include="DataStructures\Dictionary\TreeDictionary_Tests.cs" />

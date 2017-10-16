@@ -80,6 +80,9 @@
     <Compile Include="BitAlgorithms\ToggleCase.cs" />
     <Compile Include="BitAlgorithms\TwoNonRepeatingNums.cs" />
     <Compile Include="BitAlgorithms\TwoRepeatingNums.cs" />
+    <Compile Include="Combinatorics\Combination.cs" />
+    <Compile Include="Combinatorics\Permutation.cs" />
+    <Compile Include="Combinatorics\Variation.cs" />
     <Compile Include="Compression\HuffmanCoding.cs" />
     <Compile Include="DataStructures\Dictionary\Dictionary.cs" />
     <Compile Include="DataStructures\Dictionary\OpenAddressDictionary.cs" />
