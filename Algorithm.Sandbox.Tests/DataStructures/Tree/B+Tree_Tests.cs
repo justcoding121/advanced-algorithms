@@ -115,6 +115,15 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
 
+            //check that the elements are in sorted order
+            //since B+ tree stores all elements in leaves in sorted order from left to right
+            int j = 1;
+            foreach(var element in tree)
+            {
+                Assert.AreEqual(j, element);
+                j++;
+            }
+
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
                             .OrderBy(x => rnd.Next())
@@ -141,14 +150,11 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             Assert.IsTrue(BTreeTester.GetMaxHeight(tree.Root) == 0);
             Assert.IsTrue(tree.Count == 0);
 
-
         }
-
 
         [TestMethod]
         public void BPTree_StressTest()
         {
-
             var nodeCount = 1000 * 10;
 
             var rnd = new Random();
@@ -169,6 +175,14 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                                .OrderBy(x => rnd.Next())
                                .ToList();
 
+            //check that the elements are in sorted order
+            //since B+ tree stores all elements in leaves in sorted order from left to right
+            int j = 1;
+            foreach (var element in tree)
+            {
+                Assert.AreEqual(j, element);
+                j++;
+            }
 
             for (int i = 0; i < nodeCount; i++)
             {

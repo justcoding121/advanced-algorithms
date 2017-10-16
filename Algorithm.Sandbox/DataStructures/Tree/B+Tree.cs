@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Tree
 {
@@ -11,7 +12,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         internal bool IsLeaf => Children[0] == null;
 
         internal BPTreeNode(int maxKeysPerNode, BPTreeNode<T> parent)
-            :base(maxKeysPerNode)
+            : base(maxKeysPerNode)
         {
 
             Parent = parent;
@@ -19,34 +20,52 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
         }
 
+        /// <summary>
+        /// For shared test method accross B & B+ tree
+        /// </summary>
+        /// <returns></returns>
         internal override BNode<T> GetParent()
         {
             return Parent;
         }
 
+        /// <summary>
+        /// For shared test method accross B & B+ tree
+        /// </summary>
+        /// <returns></returns>
         internal override BNode<T>[] GetChildren()
         {
             return Children;
         }
 
         /// <summary>
+        /// Pointer to sibling leaf on left for faster enumeration
+        /// </summary>
+        public BPTreeNode<T> Prev { get; set; }
+
+        /// <summary>
         /// Pointer to sibling leaf on right for faster enumeration
         /// </summary>
         public BPTreeNode<T> Next { get; set; }
+
     }
 
     /// <summary>
     /// A B+ Tree implementation
-    /// TODO connected leaf nodes via linked list for faster enumeration 
-    /// TODO implement IEnumerator 
+    /// TODO: make sure duplicates are handled correctly if its not already
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BPTree<T> where T : IComparable
+    public class BPTree<T> : IEnumerable<T> where T : IComparable
     {
-
         public int Count { get; private set; }
 
         internal BPTreeNode<T> Root;
+
+        /// <summary>
+        ///Keep a reference of Bottom Left Node
+        ///For faster enumeration with IEnumerable implementation using Next pointer
+        /// </summary>
+        internal BPTreeNode<T> BottomLeftNode;
 
         private int maxKeysPerNode;
         private int minKeysPerNode => maxKeysPerNode / 2;
@@ -120,6 +139,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 Root.Keys[0] = newValue;
                 Root.KeyCount++;
                 Count++;
+                BottomLeftNode = Root;
                 return;
             }
 
@@ -174,6 +194,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             BPTreeNode<T> newValueLeft, BPTreeNode<T> newValueRight)
         {
             //add new item to current node
+            //this increases the height of B+ tree by one by adding a new root at top
             if (node == null)
             {
                 node = new BPTreeNode<T>(maxKeysPerNode, null);
@@ -188,6 +209,31 @@ namespace Algorithm.Sandbox.DataStructures.Tree
                 //divide the current node values + new Node as left & right sub nodes
                 var left = new BPTreeNode<T>(maxKeysPerNode, null);
                 var right = new BPTreeNode<T>(maxKeysPerNode, null);
+
+                //connect leaves via linked list for faster enumeration
+                if (node.IsLeaf)
+                {
+                    left.Next = right;
+                    right.Prev = left;
+
+                    if (node.Next != null)
+                    {
+                        right.Next = node.Next;
+                        node.Next.Prev = right;
+                    }
+
+                    if (node.Prev != null)
+                    {
+                        left.Prev = node.Prev;
+                        node.Prev.Next = left;
+                    }
+                    else
+                    {
+                        //left most bottom node
+                        BottomLeftNode = left;
+                    }
+
+                }
 
                 //median of current Node
                 var currentMedianIndex = node.GetMedianIndex();
@@ -547,6 +593,27 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             var parent = leftSibling.Parent;
 
             var newNode = new BPTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
+
+            //if leaves are merged then update the Next & Prev pointers
+            if (leftSibling.IsLeaf)
+            {
+                if (leftSibling.Prev != null)
+                {
+                    newNode.Prev = leftSibling.Prev;
+                    leftSibling.Prev.Next = newNode;
+                }
+                else
+                {
+                    BottomLeftNode = newNode;
+                }
+
+                if (rightSibling.Next != null)
+                {
+                    newNode.Next = rightSibling.Next;
+                    rightSibling.Next.Prev = newNode;
+                }
+
+            }
 
             var newIndex = 0;
 
@@ -941,5 +1008,82 @@ namespace Algorithm.Sandbox.DataStructures.Tree
             Array.Copy(array, index + 1, array, index, array.Length - index - 1);
         }
 
+        //Implementation for the GetEnumerator method.
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new BPTreeEnumerator<T>(this);
+        }
+
     }
+
+    //  implement IEnumerator.
+    public class BPTreeEnumerator<T> : IEnumerator<T> where T : IComparable
+    {
+        private BPTreeNode<T> bottomLeftNode;
+        private BPTreeNode<T> current;
+        private int i = -1;
+
+        public BPTreeEnumerator(BPTree<T> tree)
+        {
+            bottomLeftNode = tree.BottomLeftNode;
+            current = bottomLeftNode;
+        }
+
+        public bool MoveNext()
+        {
+            if (i + 1 < current.KeyCount)
+            {
+                i++;
+                return true;
+            }
+
+            current = current.Next;
+            i = 0;
+
+            return current != null && current.KeyCount > 0;
+        }
+
+        public void Reset()
+        {
+            current = bottomLeftNode;
+            i = -1;
+        }
+
+        object IEnumerator.Current
+        {
+            get
+            {
+                return Current;
+            }
+        }
+
+        public T Current
+        {
+            get
+            {
+
+                try
+                {
+                    return current.Keys[i];
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            current = null;
+            bottomLeftNode = null;
+            i = -1;
+        }
+    }
+
 }
