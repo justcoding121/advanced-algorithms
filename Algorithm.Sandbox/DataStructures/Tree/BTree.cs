@@ -73,7 +73,8 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
     /// <summary>
     /// A BTree implementation
-    /// TODO Implement IEnumerator
+    /// TODO support initial  bulk loading
+    /// TODO Implement IEnumerator & make sure duplicates are handled correctly if its not already
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class BTree<T> where T : IComparable

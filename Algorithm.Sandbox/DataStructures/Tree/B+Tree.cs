@@ -52,6 +52,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
     /// <summary>
     /// A B+ Tree implementation
+    /// TODO support initial  bulk loading
     /// TODO: make sure duplicates are handled correctly if its not already
     /// </summary>
     /// <typeparam name="T"></typeparam>

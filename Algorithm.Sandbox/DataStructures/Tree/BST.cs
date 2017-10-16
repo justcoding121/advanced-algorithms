@@ -48,6 +48,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     }
 
+    //TODO support initial bulk loading
     //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class BST<T> where T : IComparable
     {
