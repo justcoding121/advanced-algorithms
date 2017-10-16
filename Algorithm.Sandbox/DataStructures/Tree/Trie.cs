@@ -16,6 +16,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class Trie<T>
     {
         internal TrieNode<T> Root { get; set; }

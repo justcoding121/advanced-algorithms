@@ -3,7 +3,7 @@ using Algorithm.Sandbox.DataStructures.Heap.Min;
 
 namespace Algorithm.Sandbox.DataStructures.Queues.PriorityQueue
 {
-
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// priority queue implementation using min heap
     /// assuming lower values of P have higher priority
     public class MinPriorityQueue<T> where T : IComparable

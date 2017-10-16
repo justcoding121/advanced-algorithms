@@ -19,6 +19,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A multi-dimensional interval tree implementation
     /// </summary>

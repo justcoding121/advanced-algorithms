@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+//TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
 namespace Algorithm.Sandbox.DataStructures.Set
 {
     internal class DisJointSetNode<T>

@@ -51,6 +51,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class TreapTree<T> where T : IComparable
     {
         private Random rndGenerator = new Random();

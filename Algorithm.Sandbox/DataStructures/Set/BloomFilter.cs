@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Algorithm.Sandbox.DataStructures.Set
-{
+{    
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A simple bloom filter implementation in C#
     /// A probabilistic data structure as an alternative to HashSet

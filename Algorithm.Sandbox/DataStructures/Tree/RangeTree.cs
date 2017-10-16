@@ -25,6 +25,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// range tree
     /// </summary>

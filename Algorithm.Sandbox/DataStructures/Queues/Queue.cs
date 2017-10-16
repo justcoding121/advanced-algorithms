@@ -1,5 +1,6 @@
 ﻿namespace Algorithm.Sandbox.DataStructures.Queues
 {
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class AsQueue<T> 
     {
         private DoublyLinkedList<T> list = new DoublyLinkedList<T>();

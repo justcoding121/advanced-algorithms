@@ -10,6 +10,7 @@ namespace Algorithm.Sandbox.DataStructures
         Red
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// Red black tree node
     /// </summary>

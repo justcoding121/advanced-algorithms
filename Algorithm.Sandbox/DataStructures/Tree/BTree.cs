@@ -4,6 +4,11 @@ using System.Linq;
 
 namespace Algorithm.Sandbox.DataStructures.Tree
 {
+    /// <summary>
+    /// abstract node shared by both B & B+ tree nodes
+    /// so that we can use this for common tests across B & B+ tree
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     internal abstract class BNode<T> where T : IComparable
     {
         /// <summary>
@@ -29,6 +34,7 @@ namespace Algorithm.Sandbox.DataStructures.Tree
         }
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     internal class BTreeNode<T> : BNode<T> where T : IComparable
     {
 
@@ -46,11 +52,19 @@ namespace Algorithm.Sandbox.DataStructures.Tree
 
         }
 
+        /// <summary>
+        /// For shared test method accross B & B+ tree
+        /// </summary>
+        /// <returns></returns>
         internal override BNode<T> GetParent()
         {
             return Parent;
         }
 
+        /// <summary>
+        /// For shared test method accross B & B+ tree
+        /// </summary>
+        /// <returns></returns>
         internal override BNode<T>[]  GetChildren()
         {
             return Children;

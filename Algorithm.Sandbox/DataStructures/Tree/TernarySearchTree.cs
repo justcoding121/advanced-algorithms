@@ -18,6 +18,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class TernarySearchTree<T> where T : IComparable
     {
         internal TernarySearchTreeNode<T> Root;

@@ -480,6 +480,8 @@ namespace Algorithm.Sandbox.DataStructures
         }
         public void Dispose()
         {
+            headNode = null;
+            currentNode = null;
         }
 
     }

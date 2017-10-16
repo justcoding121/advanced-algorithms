@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures
 {
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A simple suffix tree implementation using a trie
     /// </summary>

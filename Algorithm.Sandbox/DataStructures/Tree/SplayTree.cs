@@ -48,6 +48,7 @@ namespace Algorithm.Sandbox.DataStructures
 
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class SplayTree<T> where T : IComparable
     {
         internal SplayTreeNode<T> Root { get; set; }

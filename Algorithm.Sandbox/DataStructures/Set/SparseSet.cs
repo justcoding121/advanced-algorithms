@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace Algorithm.Sandbox.DataStructures.Set
 {
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class SparseSet
     {
         private int[] sparse;

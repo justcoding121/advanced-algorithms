@@ -55,6 +55,7 @@ namespace Algorithm.Sandbox.DataStructures
         internal bool IsLeftChild => Parent.Left == this;
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A multiDimensional Kd tree implementation (Unbalanced)
     /// </summary>

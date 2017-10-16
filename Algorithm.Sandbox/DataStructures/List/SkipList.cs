@@ -10,6 +10,7 @@ namespace Algorithm.Sandbox.DataStructures
         internal T value { get; set; }
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class SkipList<T> where T : IComparable
     {
         private Random coinFlipper = new Random();

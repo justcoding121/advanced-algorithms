@@ -2,6 +2,7 @@
 
 namespace Algorithm.Sandbox.DataStructures
 {
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class AsStack<T> 
     {
         public int Count { get; private set; }

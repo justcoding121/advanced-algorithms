@@ -170,16 +170,6 @@ namespace Algorithm.Sandbox.DataStructures
             }
         }
 
-        //Implementation for the GetEnumerator method.
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return new AsArrayListEnumerator<T>(array, Length);
-        }
 
         /// <summary>
         /// Returns as an array
@@ -210,22 +200,33 @@ namespace Algorithm.Sandbox.DataStructures
                 Add(item);
             }
         }
+
+        //Implementation for the GetEnumerator method.
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new ArrayListEnumerator<T>(array, Length);
+        }
     }
 
     //  implement IEnumerator.
-    public class AsArrayListEnumerator<T> : IEnumerator<T>
+    public class ArrayListEnumerator<T> : IEnumerator<T>
     {
-        private T[] _array;
+        private T[] array;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
         int length;
 
-        public AsArrayListEnumerator(T[] list, int length)
+        public ArrayListEnumerator(T[] list, int length)
         {
             this.length = length;
-            _array = list;
+            array = list;
         }
 
         public bool MoveNext()
@@ -254,7 +255,7 @@ namespace Algorithm.Sandbox.DataStructures
 
                 try
                 {
-                    return _array[position];
+                    return array[position];
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -265,7 +266,9 @@ namespace Algorithm.Sandbox.DataStructures
 
         public void Dispose()
         {
-
+            array = null;
+            length = 0;
+            position = -1;
         }
     }
 
