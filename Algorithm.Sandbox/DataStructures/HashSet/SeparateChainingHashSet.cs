@@ -401,6 +401,8 @@ namespace Algorithm.Sandbox.DataStructures
         }
         public void Dispose()
         {
+            length = 0;
+            hashList = null;
         }
 
     }

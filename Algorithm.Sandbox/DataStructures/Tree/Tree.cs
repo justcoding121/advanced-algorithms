@@ -28,9 +28,9 @@ namespace Algorithm.Sandbox.DataStructures
         {
             return Value.CompareTo(treeNode.Value);
         }
-
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class Tree<T> where T : IComparable
     {
 

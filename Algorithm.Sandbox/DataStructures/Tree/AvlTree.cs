@@ -51,6 +51,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class AVLTree<T> where T : IComparable
     {
         internal AVLTreeNode<T> Root { get; private set; }

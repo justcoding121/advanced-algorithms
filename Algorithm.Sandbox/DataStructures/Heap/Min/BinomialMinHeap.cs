@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Algorithm.Sandbox.DataStructures.Heap.Min
 {
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class BinomialMinHeap<T> where T : IComparable
     {
         public int Count { get; private set; }

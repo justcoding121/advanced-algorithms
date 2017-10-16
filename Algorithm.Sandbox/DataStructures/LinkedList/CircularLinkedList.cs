@@ -296,6 +296,8 @@ namespace Algorithm.Sandbox.DataStructures
         }
         public void Dispose()
         {
+            referenceNode = null;
+            currentNode = null;
         }
 
     }

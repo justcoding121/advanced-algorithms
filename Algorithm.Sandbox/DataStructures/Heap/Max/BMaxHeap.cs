@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Algorithm.Sandbox.DataStructures.Heap.Max
 {
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class BMaxHeap<T> where T : IComparable
     {
         private T[] heapArray;

@@ -20,6 +20,8 @@ namespace Algorithm.Sandbox.DataStructures
             return Key.CompareTo(itemToComare.Key);
         }
     }
+
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A Dictionary implementation using balanced binary search tree (log(n) operations in worst case)
     /// This may be better than regular Dictionary implementation which can give o(K) in worst case (but O(1) when collisions K is avoided )

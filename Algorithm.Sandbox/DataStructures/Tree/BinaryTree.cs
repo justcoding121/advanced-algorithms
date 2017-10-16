@@ -30,6 +30,7 @@ namespace Algorithm.Sandbox.DataStructures
         }
     }
 
+    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A complete binary tree implementation using pointers
     /// </summary>

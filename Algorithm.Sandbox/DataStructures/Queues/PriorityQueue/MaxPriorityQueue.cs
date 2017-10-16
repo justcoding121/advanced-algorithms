@@ -6,6 +6,7 @@ namespace Algorithm.Sandbox.DataStructures.Queues.PriorityQueue
 
     /// priority queue implementation using max heap
     /// assumaxg lower values of P have higher priority
+    /// TODO implement IEnumerable
     public class MaxPriorityQueue<T> where T : IComparable
     {
         private BMaxHeap<T> maxHeap = new BMaxHeap<T>();

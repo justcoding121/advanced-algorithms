@@ -88,7 +88,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                             .OrderBy(x => rnd.Next())
                             .ToList();
 
-            var order = 3;
+            var order = 5;
             var tree = new BPTree<int>(order);
 
             for (int i = 0; i < nodeCount; i++)
@@ -113,6 +113,18 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             for (int i = 0; i < nodeCount; i++)
             {
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
+            }
+
+            Assert.AreEqual(tree.Max, randomNumbers.Max());
+            Assert.AreEqual(tree.Min, randomNumbers.Min());
+
+            //check that the elements are in sorted order
+            //since B+ tree stores all elements in leaves in sorted order from left to right
+            int j = 1;
+            foreach(var element in tree)
+            {
+                Assert.AreEqual(j, element);
+                j++;
             }
 
             //shuffle again before deletion tests
@@ -141,14 +153,11 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
             Assert.IsTrue(BTreeTester.GetMaxHeight(tree.Root) == 0);
             Assert.IsTrue(tree.Count == 0);
 
-
         }
-
 
         [TestMethod]
         public void BPTree_StressTest()
         {
-
             var nodeCount = 1000 * 10;
 
             var rnd = new Random();
@@ -156,7 +165,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new BPTree<int>(3);
+            var tree = new BPTree<int>(12);
 
             for (int i = 0; i < nodeCount; i++)
             {
@@ -169,6 +178,14 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Tree
                                .OrderBy(x => rnd.Next())
                                .ToList();
 
+            //check that the elements are in sorted order
+            //since B+ tree stores all elements in leaves in sorted order from left to right
+            int j = 1;
+            foreach (var element in tree)
+            {
+                Assert.AreEqual(j, element);
+                j++;
+            }
 
             for (int i = 0; i < nodeCount; i++)
             {
