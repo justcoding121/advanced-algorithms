@@ -22,20 +22,36 @@ namespace Algorithm.Sandbox.Combinatorics
         {
             var result = new List<List<T>>();
 
-            var combinations = Combination.Find(input, r, false);
-
-            foreach (var combination in combinations)
-            {
-                var permutations = Permutation.Find(combination, enableRepetition);
-
-                foreach(var permutation in permutations)
-                {
-                    result.Add(permutation);
-                }
-                
-            }
+            Recurse(input, r, enableRepetition, new List<T>(), new HashSet<int>(), result);
 
             return result;
+        }
+
+        private static void Recurse<T>(List<T> input, int r, bool enableRepetition,
+         List<T> prefix, HashSet<int> prefixIndices,
+         List<List<T>> result)
+        {
+            if (prefix.Count == r)
+            {
+                result.Add(new List<T>(prefix));
+                return;
+            }
+
+            for (int j = 0; j < input.Count; j++)
+            {
+                if (prefixIndices.Contains(j) && !enableRepetition)
+                {
+                    continue;
+                }
+
+                prefix.Add(input[j]);
+                prefixIndices.Add(j);
+
+                Recurse(input, r, enableRepetition, prefix, prefixIndices, result);
+
+                prefix.RemoveAt(prefix.Count - 1);
+                prefixIndices.Remove(j);
+            }
         }
     }
 }

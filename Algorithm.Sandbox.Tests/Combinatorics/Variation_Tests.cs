@@ -30,26 +30,26 @@ namespace Algorithm.Sandbox.Tests.Combinatorics
             Variations = Variation.Find<char>(input, 3, false);
             Assert.AreEqual(combination(input.Count, 3) * factorial(3), Variations.Count);
 
-            input = "monster".ToCharArray().ToList();
-            Variations = Variation.Find<char>(input, 4, false);
-            Assert.AreEqual(combination(input.Count, 4) * factorial(4), Variations.Count);
+            input = "monsters".ToCharArray().ToList();
+            Variations = Variation.Find<char>(input, 3, false);
+            Assert.AreEqual(combination(input.Count, 3) * factorial(3), Variations.Count);
         }
 
 
         [TestMethod]
         public void Variation_With_Repetitions_Smoke_Test()
         {
-            var input = "".ToCharArray().ToList();
-            var variations = Variation.Find<char>(input, 3, true);
-            Assert.AreEqual(0, variations.Count);
-
-            input = "abc".ToCharArray().ToList();
-            variations = Variation.Find<char>(input, 2, true);
+            var input = "abcd".ToCharArray().ToList();
+            var variations = Variation.Find<char>(input, 2, true);
             Assert.AreEqual(Math.Pow(input.Count, 2), variations.Count);
 
             input = "scan".ToCharArray().ToList();
             variations = Variation.Find<char>(input, 3, true);
             Assert.AreEqual(Math.Pow(input.Count, 3), variations.Count);
+
+            input = "".ToCharArray().ToList();
+            variations = Variation.Find<char>(input, 3, true);
+            Assert.AreEqual(0, variations.Count);
         }
 
     }

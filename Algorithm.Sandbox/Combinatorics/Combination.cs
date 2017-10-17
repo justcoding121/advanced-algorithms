@@ -26,10 +26,6 @@ namespace Algorithm.Sandbox.Combinatorics
                 result.Add(new List<T>(prefix));
                 return;
             }
-            else
-            {
-
-            }
 
             for (int j = k; j < input.Count; j++)
             {
