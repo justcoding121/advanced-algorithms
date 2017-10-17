@@ -80,6 +80,7 @@
     <Compile Include="BitAlgorithms\ToggleCase.cs" />
     <Compile Include="BitAlgorithms\TwoNonRepeatingNums.cs" />
     <Compile Include="BitAlgorithms\TwoRepeatingNums.cs" />
+    <Compile Include="Combinatorics\Subset.cs" />
     <Compile Include="Combinatorics\Combination.cs" />
     <Compile Include="Combinatorics\Permutation.cs" />
     <Compile Include="Combinatorics\Variation.cs" />
@@ -88,6 +89,10 @@
     <Compile Include="DataStructures\Dictionary\OpenAddressDictionary.cs" />
     <Compile Include="DataStructures\Dictionary\SeparateChainingDictionary.cs" />
     <Compile Include="DataStructures\Dictionary\TreeDictionary.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\DiGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\Graph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\WeightedDiGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\WeightedGraph.cs" />
     <Compile Include="DataStructures\HashSet\HashSet.cs" />
     <Compile Include="DataStructures\HashSet\OpenAddressHashSet.cs" />
     <Compile Include="DataStructures\HashSet\SeparateChainingHashSet.cs" />
@@ -108,10 +113,14 @@
     <Compile Include="DataStructures\List\ArrayList.cs" />
     <Compile Include="DataStructures\List\SkipList.cs" />
     <Compile Include="DataStructures\Queues\PriorityQueue\MaxPriorityQueue.cs" />
+    <Compile Include="DataStructures\Queues\ArrayQueue.cs" />
+    <Compile Include="DataStructures\Queues\LinkedListQueue.cs" />
     <Compile Include="DataStructures\Queues\Queue.cs" />
     <Compile Include="DataStructures\Set\BloomFilter.cs" />
     <Compile Include="DataStructures\Set\DisJointSet.cs" />
     <Compile Include="DataStructures\Set\SparseSet.cs" />
+    <Compile Include="DataStructures\Stack\ArrayStack.cs" />
+    <Compile Include="DataStructures\Stack\LinkedListStack.cs" />
     <Compile Include="DataStructures\Stack\Stack.cs" />
     <Compile Include="DataStructures\Tree\AvlTree.cs" />
     <Compile Include="DataStructures\Tree\B+Tree.cs" />

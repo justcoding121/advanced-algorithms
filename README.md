@@ -24,11 +24,11 @@ Various important computer science algorithms generically implemented in C#
 
 ### Stack
 
-- [X] Stack ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Stack/Stack.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Stack_Tests.cs))
+- [X] Stack (using [Array](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Stack/ArrayStack.cs) and optionally using [LinkedList](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Stack/LinkedListStack.cs))([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Stack/Stack.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Stack_Tests.cs))
 
 ### Queue
 
-- [X] Queue ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queues/Queue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Queues/Queue_Tests.cs))
+- [X] Queue (using [Array](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/ArrayQueue.cs) and optionally using [LinkedList](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queue/LinkedListQueue.cs))([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Queues/Queue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Queues/Queue_Tests.cs))
 
 #### Priority Queue
 
@@ -113,6 +113,14 @@ Note: It is observed that among the implementations here in practice, with the e
 - [X] DiGraph ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyList/DiGraph.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Graph/AdjacencyList/DiGraph_Tests.cs))
 - [X] Weighted DiGraph ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyList/WeightedDiGraph.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Graph/AdjacencyList/WeightedDiGraph_Tests.cs))
 
+#### Adjacency Matrix
+
+- [X] Graph ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyMatrix/Graph.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Graph/AdjacencyMatrix/Graph_Tests.cs))
+- [X] Weighted Graph ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyMatrix/WeightedGraph.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Graph/AdjacencyMatrix/WeightedGraph_Tests.cs))
+- [X] DiGraph ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyMatrix/DiGraph.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Graph/AdjacencyMatrix/DiGraph_Tests.cs))
+- [X] Weighted DiGraph ([Implementation](https://github.com/justcoding121/Algorithm-Sandbox/blob/master/Algorithm.Sandbox/DataStructures/Graph/AdjacencyMatrix/WeightedDiGraph.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/DataStructures/Graph/AdjacencyMatrix/WeightedDiGraph_Tests.cs))
+
+
 # Algorithms
 
 ## Graph Algorithms
@@ -155,7 +163,7 @@ Note: It is observed that among the implementations here in practice, with the e
 ### Matching
 
 - [X] Max Bipartite Matching ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Matching/BiPartiteMatching.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Matching/BiPartiteMatching_Tests.cs)) using Edmonds Karp's improved Ford Fulkerson Max Flow algorithm 
-- [X] Hopcroft Karp algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Matching/HopcroftKarp.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Matching/HopcroftKarp_Tests.cs))
+- [X] Max Bipartite Matching ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/GraphAlgorithms/Matching/HopcroftKarp.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/GraphAlgorithms/Matching/HopcroftKarp_Tests.cs)) using Hopcroft Karp algorithm
 
 ### Cut
 
@@ -220,6 +228,7 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 - [X] Permutations ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Combinatorics/Permutation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Combinatorics/Permutation_Tests.cs))
 - [X] Combinations ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Combinatorics/Combination.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Combinatorics/Combination_Tests.cs))
 - [X] Variations ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Combinatorics/Variation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Combinatorics/Variation_Tests.cs))
+- [X] Subsets ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox/Combinatorics/Subset.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Algorithm.Sandbox.Tests/Combinatorics/Subset_Tests.cs))
 
 ## Numerical Methods
 

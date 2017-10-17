@@ -84,12 +84,17 @@
     <Compile Include="BitAlgorithms\ToggleCase_Tests.cs" />
     <Compile Include="BitAlgorithms\TwoNonRepeatingNums_Tests.cs" />
     <Compile Include="BitAlgorithms\TwoRepeatingNums_Tests.cs" />
+    <Compile Include="Combinatorics\Subset_Tests.cs" />
     <Compile Include="Combinatorics\Variation_Tests.cs" />
     <Compile Include="Combinatorics\Combination_Tests.cs" />
     <Compile Include="Combinatorics\Permutation_Tests.cs" />
     <Compile Include="Compression\HuffmanCoding_Tests.cs" />
     <Compile Include="DataStructures\Dictionary\Dictionary_Tests.cs" />
     <Compile Include="DataStructures\Dictionary\TreeDictionary_Tests.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\DiGraph_Tests.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\Graph_Tests.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\WeightedDiGraph_Tests.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\WeightedGraph_Tests.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\DiGraph_Tests.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\Graph_Tests.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\WeightedDiGraph_Tests.cs" />
