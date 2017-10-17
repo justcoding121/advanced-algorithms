@@ -18,16 +18,16 @@ namespace Algorithm.Sandbox.Combinatorics
 
         //With repetition
         /* It is the number of all ways of putting r distinct balls into input.Count distinct boxes */
-        public static List<List<T>> Find<T>(List<T> input, int r, bool enableRepetition)
+        public static List<List<T>> Find<T>(List<T> input, int r, bool withRepetition)
         {
             var result = new List<List<T>>();
 
-            Recurse(input, r, enableRepetition, new List<T>(), new HashSet<int>(), result);
+            Recurse(input, r, withRepetition, new List<T>(), new HashSet<int>(), result);
 
             return result;
         }
 
-        private static void Recurse<T>(List<T> input, int r, bool enableRepetition,
+        private static void Recurse<T>(List<T> input, int r, bool withRepetition,
          List<T> prefix, HashSet<int> prefixIndices,
          List<List<T>> result)
         {
@@ -39,7 +39,7 @@ namespace Algorithm.Sandbox.Combinatorics
 
             for (int j = 0; j < input.Count; j++)
             {
-                if (prefixIndices.Contains(j) && !enableRepetition)
+                if (prefixIndices.Contains(j) && !withRepetition)
                 {
                     continue;
                 }
@@ -47,7 +47,7 @@ namespace Algorithm.Sandbox.Combinatorics
                 prefix.Add(input[j]);
                 prefixIndices.Add(j);
 
-                Recurse(input, r, enableRepetition, prefix, prefixIndices, result);
+                Recurse(input, r, withRepetition, prefix, prefixIndices, result);
 
                 prefix.RemoveAt(prefix.Count - 1);
                 prefixIndices.Remove(j);

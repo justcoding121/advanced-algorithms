@@ -8,16 +8,16 @@ namespace Algorithm.Sandbox.Combinatorics
 {
     public class Combination
     {
-        public static List<List<T>> Find<T>(List<T> input, int r, bool enableRepetition)
+        public static List<List<T>> Find<T>(List<T> input, int r, bool withRepetition)
         {
             var result = new List<List<T>>();
 
-            Recurse(input, r, enableRepetition, 0, new List<T>(), new HashSet<int>(), result);
+            Recurse(input, r, withRepetition, 0, new List<T>(), new HashSet<int>(), result);
 
             return result;
         }
 
-        private static void Recurse<T>(List<T> input, int r, bool enableRepetition,
+        private static void Recurse<T>(List<T> input, int r, bool withRepetition,
             int k, List<T> prefix, HashSet<int> prefixIndices,
             List<List<T>> result)
         {
@@ -29,7 +29,7 @@ namespace Algorithm.Sandbox.Combinatorics
 
             for (int j = k; j < input.Count; j++)
             {
-                if (prefixIndices.Contains(j) && !enableRepetition)
+                if (prefixIndices.Contains(j) && !withRepetition)
                 {
                     continue;
                 }
@@ -37,7 +37,7 @@ namespace Algorithm.Sandbox.Combinatorics
                 prefix.Add(input[j]);
                 prefixIndices.Add(j);
 
-                Recurse(input, r, enableRepetition, j, prefix, prefixIndices, result);
+                Recurse(input, r, withRepetition, j, prefix, prefixIndices, result);
 
                 prefix.RemoveAt(prefix.Count - 1);
                 prefixIndices.Remove(j);
