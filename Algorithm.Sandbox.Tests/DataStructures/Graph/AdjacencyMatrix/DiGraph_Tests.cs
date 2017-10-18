@@ -21,6 +21,9 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Graph.AdjacencyMatrix
             graph.AddVertex(5);
 
             graph.AddEdge(1, 2);
+            Assert.IsTrue(graph.HasEdge(1, 2));
+            Assert.IsFalse(graph.HasEdge(2, 1));
+
             graph.AddEdge(2, 3);
             graph.AddEdge(3, 4);
             graph.AddEdge(4, 5);
@@ -47,8 +50,14 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Graph.AdjacencyMatrix
             graph.RemoveVertex(1);
             graph.RemoveVertex(2);
             graph.RemoveVertex(3);
+
+            graph.AddEdge(4, 5);
             graph.RemoveVertex(4);
+
+            graph.AddEdge(5, 5);
+            graph.RemoveEdge(5, 5);
             graph.RemoveVertex(5);
+         
 
             Assert.AreEqual(0, graph.VerticesCount);
         }

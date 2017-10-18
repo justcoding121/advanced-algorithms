@@ -31,7 +31,7 @@ namespace Algorithm.Sandbox.Tests.DataStructures.Graph.AdjacencyMatrix
             graph.AddEdge(3, 4, 4);
             graph.AddEdge(4, 5, 5);
             graph.AddEdge(4, 1, 1);
-            graph.AddEdge(3, 5, 0);
+            graph.AddEdge(3, 5, 6);
 
             Assert.AreEqual(5, graph.VerticesCount);
 
