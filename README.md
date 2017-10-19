@@ -8,7 +8,7 @@ Install by [nuget](https://www.nuget.org/packages/Advanced.Algorithms)
 
 For beta releases on [beta branch](https://github.com/justcoding121/Advanced.Algorithms/tree/beta)
 
-    Install-Package Titanium.Web.Proxy -Pre
+    Install-Package Advanced.Algorithms -Pre
 
 Not a stable release yet.
 
