@@ -192,6 +192,50 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyMatrix
             return false;
         }
 
+        public List<T> GetAllOutEdges(T vertex)
+        {
+            if (!vertexIndices.ContainsKey(vertex))
+            {
+                throw new ArgumentException("vertex is not in this graph.");
+            }
+
+            var index = vertexIndices[vertex];
+
+            var result = new List<T>();
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                if(matrix[index].Get(i))
+                {
+                    result.Add(reverseVertexIndices[i]);
+                }
+            }
+
+            return result;
+        }
+
+        public List<T> GetAllInEdges(T vertex)
+        {
+            if (!vertexIndices.ContainsKey(vertex))
+            {
+                throw new ArgumentException("vertex is not in this graph.");
+            }
+
+            var index = vertexIndices[vertex];
+
+            var result = new List<T>();
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                if (matrix[i].Get(index))
+                {
+                    result.Add(reverseVertexIndices[i]);
+                }
+            }
+
+            return result;
+        }
+
         private void doubleMatrixSize()
         {
             var newMatrix = new BitArray[maxSize * 2];

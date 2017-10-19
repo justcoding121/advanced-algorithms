@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 {
@@ -179,6 +180,16 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyList
 
             return Vertices[source].Edges.Contains(Vertices[dest]) 
                 && Vertices[dest].Edges.Contains(Vertices[source]);
+        }
+
+        public List<T> GetAllEdges(T vertex)
+        {
+            if (!Vertices.ContainsKey(vertex))
+            {
+                throw new ArgumentException("vertex is not in this graph.");
+            }
+
+            return Vertices[vertex].Edges.Select(x => x.Value).ToList();
         }
 
         /// <summary>

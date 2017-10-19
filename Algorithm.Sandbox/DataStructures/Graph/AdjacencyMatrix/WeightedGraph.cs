@@ -200,6 +200,28 @@ namespace Algorithm.Sandbox.DataStructures.Graph.AdjacencyMatrix
             return false;
         }
 
+        public List<Tuple<T,W>> GetAllEdges(T vertex)
+        {
+            if (!vertexIndices.ContainsKey(vertex))
+            {
+                throw new ArgumentException("vertex is not in this graph.");
+            }
+
+            var index = vertexIndices[vertex];
+
+            var result = new List<Tuple<T, W>>();
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                if (!matrix[i,index].Equals(default(W)))
+                {
+                    result.Add(new Tuple<T, W>(reverseVertexIndices[i], matrix[i, index]));
+                }
+            }
+
+            return result;
+        }
+
         private void doubleMatrixSize()
         {
             var newMatrix = new W[maxSize * 2, maxSize * 2];
