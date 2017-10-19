@@ -10,14 +10,14 @@ $SolutionFile = "$SolutionRoot\$ProjectName.sln"
 
 ## This comes from the build server iteration
 if(!$BuildNumber) { $BuildNumber = $env:APPVEYOR_BUILD_NUMBER }
-if(!$BuildNumber) { $BuildNumber = "1"}
+if(!$BuildNumber) { $BuildNumber = "0"}
 
 ## The build configuration, i.e. Debug/Release
 if(!$Configuration) { $Configuration = $env:Configuration }
 if(!$Configuration) { $Configuration = "Release" }
 
 if(!$Version) { $Version = $env:APPVEYOR_BUILD_VERSION }
-if(!$Version) { $Version = "1.0.$BuildNumber" }
+if(!$Version) { $Version = "0.0.$BuildNumber" }
 
 if(!$Branch) { $Branch = $env:APPVEYOR_REPO_BRANCH }
 if(!$Branch) { $Branch = "local" }
