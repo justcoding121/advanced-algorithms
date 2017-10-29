@@ -80,7 +80,7 @@ namespace Advanced.Algorithms.DataStructures
 
             bool isValueType = false;
 
-#if NET45
+#if NET40
             isValueType = s.IsValueType;
 #else
             isValueType = s.GetTypeInfo().IsValueType;
@@ -552,7 +552,7 @@ namespace Advanced.Algorithms.DataStructures
 
                 bool isValueType = false;
 
-#if NET45
+#if NET40
                 isValueType = s.IsValueType;
 #else
                 isValueType = s.GetTypeInfo().IsValueType;
