@@ -48,7 +48,7 @@ namespace Advanced.Algorithms.BitAlgorithms
             while(base10Result!=0)
             {
                 var rem = (int)base10Result % dstBase;
-                result.Insert(0, dstBaseChars.ElementAt(rem));
+                result.Insert(0, dstBaseChars[rem]);
                 base10Result = base10Result / dstBase;
             }
 

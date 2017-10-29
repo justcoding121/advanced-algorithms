@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -75,7 +77,16 @@ namespace Advanced.Algorithms.DataStructures
         private Lazy<T> defaultValue = new Lazy<T>(() =>
         {
             var s = typeof(T);
-            if (s.IsValueType)
+
+            bool isValueType = false;
+
+#if NET45
+            isValueType = s.IsValueType;
+#else
+            isValueType = s.GetTypeInfo().IsValueType;
+#endif
+
+            if (isValueType)
             {
                 return (T)Convert.ChangeType(int.MinValue, s);
             }
@@ -538,7 +549,15 @@ namespace Advanced.Algorithms.DataStructures
             private Lazy<T> defaultValue = new Lazy<T>(() =>
             {
                 var s = typeof(T);
-                if (s.IsValueType)
+
+                bool isValueType = false;
+
+#if NET45
+                isValueType = s.IsValueType;
+#else
+                isValueType = s.GetTypeInfo().IsValueType;
+#endif
+                if (isValueType)
                 {
                     return (T)Convert.ChangeType(int.MinValue, s);
                 }

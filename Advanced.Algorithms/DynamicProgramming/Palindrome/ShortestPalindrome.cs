@@ -23,7 +23,7 @@ namespace Advanced.Algorithms.DynamicProgramming
 
             var remaining = input.Length - max;
 
-            var prefixToAdd = string.Concat(input.Substring(max, remaining).Reverse());
+            var prefixToAdd = string.Concat(input.Substring(max, remaining).ToCharArray().Reverse());
 
             return prefixToAdd + input;
 

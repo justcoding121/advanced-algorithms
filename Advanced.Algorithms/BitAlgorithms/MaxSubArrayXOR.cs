@@ -79,7 +79,7 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <returns></returns>
         private static bool[] ToBoolArray(int x)
         {
-            return Convert.ToString(x, 2).PadLeft(32, '0').Select(s => s.Equals('1')).ToArray();
+            return Convert.ToString(x, 2).PadLeft(32, '0').ToCharArray().Select(s => s.Equals('1')).ToArray();
         }
 
         /// <summary>
