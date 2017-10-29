@@ -15,7 +15,7 @@ Not a stable release yet.
 Supports
 
  * .Net Standard 1.0 or above
- * .Net Framework 4.5 or above
+ * .Net Framework 4.0 or above
  
 ## Data Structures
 
