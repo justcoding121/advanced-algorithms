@@ -1,4 +1,6 @@
-﻿namespace Advanced.Algorithms.DynamicProgramming.Count
+﻿using System.Collections.Generic;
+
+namespace Advanced.Algorithms.DynamicProgramming.Count
 {
     /// <summary>
     /// Problem statement below
@@ -8,7 +10,7 @@
     {
         public static int Count(int n)
         {
-            return Count(0, n);
+            return Count(0, n, new Dictionary<string, int>());
         }
 
         /// <summary>
@@ -21,7 +23,7 @@
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        private static int Count(int start, int end)
+        private static int Count(int start, int end, Dictionary<string, int> cache)
         {
             if (start > end)
             {
@@ -34,14 +36,24 @@
                 return 1;
             }
 
+            var cacheKey = $"{start}-{end}";
+
+            if(cache.ContainsKey(cacheKey))
+            {
+                return cache[cacheKey];
+            }
+
+
             var count = 0;
 
             //break in to left & right
             for (int i = start; i < end; i++)
             {
-                count += Count(start, i)
-                         * Count(i + 1, end);
+                count += Count(start, i, cache)
+                         * Count(i + 1, end, cache);
             }
+
+            cache.Add(cacheKey, count);
 
             return count;
         }
