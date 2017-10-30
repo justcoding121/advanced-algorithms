@@ -20,16 +20,7 @@ namespace Advanced.Algorithms.Tests.DynamicProgramming
         {
             var input = new int[] { 3, 1, 1, 2, 2, 1, 4 , 2};
 
-            var partitionA = BalancedPartition.FindPartition(input);
-
-            Assert.AreEqual(8, partitionA
-                .Select(i => input[i])
-                .Sum());
-
-            var partitionB = input.Where((x, i) => !partitionA.Contains(i)).ToList();
-
-            Assert.AreEqual(8, 
-                partitionB.Sum());
+            Assert.IsTrue(BalancedPartition.CanPartition(input));
         }
     }
 }

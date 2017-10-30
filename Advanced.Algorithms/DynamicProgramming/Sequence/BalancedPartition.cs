@@ -13,66 +13,61 @@ namespace Advanced.Algorithms.DynamicProgramming
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static List<int>
-            FindPartition(int[] input)
+        public static bool
+            CanPartition(int[] input)
         {
             var sum = FindSum(input);
 
             if (sum % 2 == 1)
             {
                 //cannot partition
-                return new List<int>();
+                return false;
             }
 
-            var result = new List<int>();
-
-            var canPartition = Partition(sum / 2, input, 0, 0, result);
-
-            return result;
+            return CanPartition(input, input.Length - 1, sum / 2, new Dictionary<string, bool>());
 
         }
 
-        /// <summary>
-        /// Dynamic recursion
-        /// </summary>
-        /// <param name="sum"></param>
-        /// <param name="input"></param>
-        /// <param name="index"></param>
-        /// <param name="progress"></param>
-        /// <param name="pickedIndices"></param>
-        /// <returns></returns>
-        private static bool Partition(int sum,
-            int[] input, int index,
-            int progress, 
-            List<int> pickedIndices)
+        private static bool CanPartition(int[] input, int i, int sum,
+            Dictionary<string, bool> cache)
         {
-            //found result
-            if (sum == 0)
+            if (i < 0)
+            {
+                return false;
+            }
+
+            //found a partition
+            if (input[i] == sum)
             {
                 return true;
             }
 
-            //cannot pick this value
-            //which is greater than current sum
-            if (input[index] > sum)
+            var cacheKey = $"{i}-{sum}";
+
+            if (cache.ContainsKey(cacheKey))
             {
-                return Partition(sum, input, index + 1, progress, pickedIndices);
+                return cache[cacheKey];
             }
 
-            //pick current element
-            var canPartition = Partition(sum - input[index], input,
-                index + 1, progress + 1, pickedIndices);
-
-            if (canPartition)
+            bool result;
+            //cannot pick anyway
+            if (input[i] > sum)
             {
-                pickedIndices.Add(index);
-                return canPartition;
+                result = CanPartition(input, i - 1, sum, cache);
+                cache.Add(cacheKey, result);
+                return result;
             }
 
-            //skip current element
-            canPartition = Partition(sum, input, index + 1, progress, pickedIndices);
+            //skip or pick
+            result = CanPartition(input, i - 1, sum, cache)
+                || CanPartition(input, i - 1, sum - input[i], cache);
 
-            return canPartition;
+            if (!cache.ContainsKey(cacheKey))
+            {
+                cache.Add(cacheKey, result);
+            }
+
+            return result;
         }
 
         private static int FindSum(int[] input)
