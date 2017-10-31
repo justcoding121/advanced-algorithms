@@ -195,7 +195,7 @@ Note: It is observed that among the implementations here in practice, with the e
 ### Minimum Spanning Tree
 
 - [X] Kruskal's algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/GraphAlgorithms/MinimumSpanningTree/Kruskals.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/GraphAlgorithms/MinimumSpanningTree/Kruskals_Test.cs)) using Merge Sort and Disjoint Set
-- [X] Prim's algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/GraphAlgorithms/MinimumSpanningTree/Prims.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/GraphAlgorithms/MinimumSpanningTree/Prims_Test.cs)) using Fibornacci Heap
+- [X] Prim's algorithm ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/GraphAlgorithms/MinimumSpanningTree/Prims.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/GraphAlgorithms/MinimumSpanningTree/Prims_Test.cs))
 
 ## String
 
@@ -209,7 +209,7 @@ Note: It is observed that among the implementations here in practice, with the e
 
 ## Compression
 
-- [X] Huffman Coding ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/Compression/HuffmanCoding.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/Compression/HuffmanCoding_Tests.cs)) using Fibornacci Min Heap
+- [X] Huffman Coding ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/Compression/HuffmanCoding.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/Compression/HuffmanCoding_Tests.cs)) 
 
 ## Sorting and Searching
 

@@ -16,16 +16,16 @@ namespace Advanced.Algorithms.Tests.Combinatorics
         public void Subset_Smoke_Test()
         {
             var input = "".ToCharArray().ToList();
-            var combinations = Subset.Find<char>(input);
-            Assert.AreEqual(Math.Pow(2, input.Count), combinations.Count);
+            var subsets = Subset.Find<char>(input);
+            Assert.AreEqual(Math.Pow(2, input.Count), subsets.Count);
 
             input = "cookie".ToCharArray().ToList();
-            combinations = Subset.Find<char>(input);
-            Assert.AreEqual(Math.Pow(2, input.Count), combinations.Count);
+            subsets = Subset.Find<char>(input);
+            Assert.AreEqual(Math.Pow(2, input.Count), subsets.Count);
 
             input = "monster".ToCharArray().ToList();
-            combinations = Subset.Find<char>(input);
-            Assert.AreEqual(Math.Pow(2, input.Count), combinations.Count);
+            subsets = Subset.Find<char>(input);
+            Assert.AreEqual(Math.Pow(2, input.Count), subsets.Count);
         }
 
 
