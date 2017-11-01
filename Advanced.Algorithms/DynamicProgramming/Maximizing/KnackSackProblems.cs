@@ -60,7 +60,7 @@ namespace Advanced.Algorithms.DynamicProgramming
             //O(n)
             for (int i = 0; i < weights.Length; i++)
             {
-                ratios[i] = values[i] / weights[i];
+                ratios[i] = (double)values[i] / weights[i];
             }
             //(o(nlog(n)
             //quick sort by desc weights
