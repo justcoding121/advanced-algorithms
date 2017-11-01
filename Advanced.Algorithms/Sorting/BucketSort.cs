@@ -28,14 +28,17 @@ namespace Advanced.Algorithms.Sorting
             int i;
             for (i = 0; i < array.Length; i++)
             {
-                var bucketIndex = array[i] / bucketSize;
-
-                if(!buckets.ContainsKey(bucketIndex))
+                if (bucketSize != 0)
                 {
-                    buckets.Add(bucketIndex, new List<int>());
-                }
+                    var bucketIndex = array[i] / bucketSize;
 
-                buckets[bucketIndex].Add(array[i]);
+                    if (!buckets.ContainsKey(bucketIndex))
+                    {
+                        buckets.Add(bucketIndex, new List<int>());
+                    }
+
+                    buckets[bucketIndex].Add(array[i]);
+                }
             }
 
             i = 0;
