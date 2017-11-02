@@ -41,6 +41,7 @@ Supports
 ### Queue
 
 - [X] Queue (using [Dynamic Array](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Queues/ArrayQueue.cs) and optionally using [Doubly Linked List](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Queues/LinkedListQueue.cs)) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Queues/Queue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DataStructures/Queues/Queue_Tests.cs))
+- [X] Circular Queue (Ring Buffer) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Queues/CircularQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DataStructures/Queues/CircularQueue_Tests.cs))
 
 #### Priority Queue
 
@@ -275,6 +276,7 @@ All are top down solutions with memoization technique.
 - [X] Count possible binary tree from a preorder sequence ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DynamicProgramming/Count/CountBinaryTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DynamicProgramming/Count/CountBinaryTree_Tests.cs))
 - [X] Ways to cover a distance ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DynamicProgramming/Count/WaysToCoverDistance.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DynamicProgramming/Count/WaysToCover_Tests.cs))
 - [X] Staircase problem in Fibornacci Series ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DynamicProgramming/Count/StairCaseProblem.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DynamicProgramming/Count/StairCaseProblem_Tests.cs))
+- [X] Count digits ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DynamicProgramming/Count/DigitCounter.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DynamicProgramming/Count/DigitCounter_Tests.cs))
 
 ### Maximizing
 

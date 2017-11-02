@@ -123,6 +123,7 @@
     <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
     <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
     <Compile Include="DataStructures\Queues\PriorityQueue\MaxPriorityQueue_Tests.cs" />
+    <Compile Include="DataStructures\Queues\CircularQueue_Tests.cs" />
     <Compile Include="DataStructures\Queues\Queue_Tests.cs" />
     <Compile Include="DataStructures\Set\BloomFilter_Tests.cs" />
     <Compile Include="DataStructures\Set\DisJointSet_Tests.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
+    <Compile Include="DynamicProgramming\Count\DigitCounter_Tests.cs" />
     <Compile Include="Geometry\PointRotation_Tests.cs" />
     <Compile Include="Miscellaneous\CountInversions_Tests.cs" />
     <Compile Include="Miscellaneous\MatrixMultiplication_Tests.cs" />
