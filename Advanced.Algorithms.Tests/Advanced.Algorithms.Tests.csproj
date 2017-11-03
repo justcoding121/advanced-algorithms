@@ -152,6 +152,7 @@
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
     <Compile Include="DynamicProgramming\Count\DigitCounter_Tests.cs" />
     <Compile Include="Geometry\PointRotation_Tests.cs" />
+    <Compile Include="Miscellaneous\BalanceParentheses_Tests.cs" />
     <Compile Include="Miscellaneous\CountInversions_Tests.cs" />
     <Compile Include="Miscellaneous\MatrixMultiplication_Tests.cs" />
     <Compile Include="DynamicProgramming\Maximizing\LongestChain_Tests.cs" />

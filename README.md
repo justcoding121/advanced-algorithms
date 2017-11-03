@@ -377,4 +377,6 @@ All are top down solutions with memoization technique.
 
 - [X] Count Inversions ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/Miscellaneous/CountInversions.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/Miscellaneous/CountInversions_Tests.cs))
 - [X] Matrix Multiplication ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/Miscellaneous/MatrixMultiplication.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/Miscellaneous/MatrixMultiplication_Tests.cs))
+- [X] Balanced Parentheses ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/Miscellaneous/BalanceParentheses.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/Miscellaneous/BalanceParentheses_Tests.cs))
  
+
