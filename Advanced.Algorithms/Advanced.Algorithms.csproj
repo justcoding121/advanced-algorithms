@@ -10,4 +10,32 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="BitAlgorithms\**" />
+    <Compile Remove="DynamicProgramming\**" />
+    <EmbeddedResource Remove="BitAlgorithms\**" />
+    <EmbeddedResource Remove="DynamicProgramming\**" />
+    <None Remove="BitAlgorithms\**" />
+    <None Remove="DynamicProgramming\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Miscellaneous\BalanceParentheses.cs" />
+    <Compile Remove="Miscellaneous\CountInversions.cs" />
+    <Compile Remove="Sorting\ZigZagOrderer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="BitAlgorithms\BaseConversion.cs" />
+    <Compile Include="BitAlgorithms\BitHacks.cs" />
+    <Compile Include="BitAlgorithms\CalcLogarithm.cs" />
+    <Compile Include="BitAlgorithms\DivisionModulus.cs" />
+    <Compile Include="BitAlgorithms\GCD.cs" />
+    <Compile Include="BitAlgorithms\IntToBinary.cs" />
+    <Compile Include="BitAlgorithms\IsMultipleOfNine.cs" />
+    <Compile Include="BitAlgorithms\IsMultipleOfThree.cs" />
+    <Compile Include="BitAlgorithms\NextPowOfTwo.cs" />
+    <Compile Include="BitAlgorithms\ToggleCase.cs" />
+  </ItemGroup>
+
 </Project>
