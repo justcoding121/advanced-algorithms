@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.Compression
         {
             var frequencies = computeFrequency(input);
 
-            var minHeap = new FibornacciMinHeap<FrequencyWrap>();
+            var minHeap = new BMinHeap<FrequencyWrap>();
 
             foreach (var frequency in frequencies)
             {

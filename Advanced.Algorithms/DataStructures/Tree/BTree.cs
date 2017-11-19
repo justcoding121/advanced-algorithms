@@ -100,6 +100,8 @@ namespace Advanced.Algorithms.DataStructures.Tree
         {
             get
             {
+                if (Root == null) return default(T);
+
                 var maxNode = findMaxNode(Root);
                 return maxNode.Keys[maxNode.KeyCount - 1];
             }
@@ -109,6 +111,8 @@ namespace Advanced.Algorithms.DataStructures.Tree
         {
             get
             {
+                if (Root == null) return default(T);
+
                 var minNode = findMinNode(Root);
                 return minNode.Keys[0];
             }

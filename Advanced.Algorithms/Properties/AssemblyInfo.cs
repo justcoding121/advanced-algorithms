@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Advanced.Algorithms")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,8 +19,10 @@ using System.Runtime.InteropServices;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
+#if NET40
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("0bcbf659-72a2-4f4c-a481-b40d78490c2f")]
+#endif
 
 // Version information for an assembly consists of the following four values:
 //

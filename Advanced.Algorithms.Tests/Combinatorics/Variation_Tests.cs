@@ -23,16 +23,16 @@ namespace Advanced.Algorithms.Tests.Combinatorics
         public void Variation_Without_Repetitions_Smoke_Test()
         {
             var input = "".ToCharArray().ToList();
-            var Variations = Variation.Find<char>(input, 2, false);
-            Assert.AreEqual(combination(input.Count, 2) * factorial(2), Variations.Count);
+            var variations = Variation.Find<char>(input, 2, false);
+            Assert.AreEqual(combination(input.Count, 2) * factorial(2), variations.Count);
 
             input = "cookie".ToCharArray().ToList();
-            Variations = Variation.Find<char>(input, 3, false);
-            Assert.AreEqual(combination(input.Count, 3) * factorial(3), Variations.Count);
+            variations = Variation.Find<char>(input, 3, false);
+            Assert.AreEqual(combination(input.Count, 3) * factorial(3), variations.Count);
 
             input = "monsters".ToCharArray().ToList();
-            Variations = Variation.Find<char>(input, 3, false);
-            Assert.AreEqual(combination(input.Count, 3) * factorial(3), Variations.Count);
+            variations = Variation.Find<char>(input, 3, false);
+            Assert.AreEqual(combination(input.Count, 3) * factorial(3), variations.Count);
         }
 
 
