@@ -41,11 +41,11 @@ namespace Advanced.Algorithms.Tests.Combinatorics
         {
             var input = "abcd".ToCharArray().ToList();
             var variations = Variation.Find<char>(input, 2, true);
-            Assert.AreEqual(Math.Pow(input.Count, 2), variations.Count);
+            Assert.AreEqual(combination(input.Count + 2 - 1, 2) * factorial(2), variations.Count);
 
             input = "scan".ToCharArray().ToList();
             variations = Variation.Find<char>(input, 3, true);
-            Assert.AreEqual(Math.Pow(input.Count, 3), variations.Count);
+            Assert.AreEqual(combination(input.Count + 3 - 1, 3) * factorial(3), variations.Count);
 
             input = "".ToCharArray().ToList();
             variations = Variation.Find<char>(input, 3, true);
