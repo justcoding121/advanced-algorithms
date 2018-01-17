@@ -139,6 +139,8 @@ public class CircularQueue<T>
             {
                 deletedList.Add(deleted);
             }
+
+            bulkNumber--;
         }
 
         return deletedList;
