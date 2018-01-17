@@ -13,16 +13,16 @@ namespace Advanced.Algorithms.Tests.DataStructures.Queues
         {
             var Queue = new CircularQueue<int>(7);
 
-            Queue.Enqueue(1);
-            Queue.Enqueue(2);
+            Assert.AreEqual(0, Queue.Enqueue(1));
+            Assert.AreEqual(0, Queue.Enqueue(2));
 
-            Queue.Enqueue(3);
-            Queue.Enqueue(4);
-            Queue.Enqueue(5);
-            Queue.Enqueue(6);
-            Queue.Enqueue(7);
-            Queue.Enqueue(8);
-            Queue.Enqueue(9);
+            Assert.AreEqual(0, Queue.Enqueue(3));
+            Assert.AreEqual(0, Queue.Enqueue(4));
+            Assert.AreEqual(0, Queue.Enqueue(5));
+            Assert.AreEqual(0, Queue.Enqueue(6));
+            Assert.AreEqual(0, Queue.Enqueue(7));
+            Assert.AreEqual(1, Queue.Enqueue(8));
+            Assert.AreEqual(2, Queue.Enqueue(9));
 
             Assert.AreEqual(Queue.Count, 7);
             Assert.AreEqual(3, Queue.Dequeue());
@@ -47,8 +47,8 @@ namespace Advanced.Algorithms.Tests.DataStructures.Queues
 
             Assert.AreEqual(Queue.Count, 0);
 
-            Queue.Enqueue(1);
-            Queue.Enqueue(2);
+            Assert.AreEqual(0, Queue.Enqueue(1));
+            Assert.AreEqual(0, Queue.Enqueue(2));
 
             Assert.AreEqual(Queue.Count, 2);
             Assert.AreEqual(1, Queue.Dequeue());
@@ -57,6 +57,6 @@ namespace Advanced.Algorithms.Tests.DataStructures.Queues
             Assert.AreEqual(Queue.Dequeue(), 2);
         }
 
- 
+
     }
 }
