@@ -67,7 +67,6 @@
     <Compile Include="BitAlgorithms\NextPowOfTwo_Tests.cs" />
     <Compile Include="BitAlgorithms\ToggleCase_Tests.cs" />
     <Compile Include="Combinatorics\Subset_Tests.cs" />
-    <Compile Include="Combinatorics\Variation_Tests.cs" />
     <Compile Include="Combinatorics\Combination_Tests.cs" />
     <Compile Include="Combinatorics\Permutation_Tests.cs" />
     <Compile Include="Compression\HuffmanCoding_Tests.cs" />
@@ -99,7 +98,7 @@
     <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
     <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
     <Compile Include="DataStructures\Queues\PriorityQueue\MaxPriorityQueue_Tests.cs" />
-    <Compile Include="DataStructures\Queues\CircularQueue_Tests.cs" />
+    <Compile Include="DistributedSystems\CircularQueue_Tests.cs" />
     <Compile Include="DataStructures\Queues\Queue_Tests.cs" />
     <Compile Include="DataStructures\Set\BloomFilter_Tests.cs" />
     <Compile Include="DataStructures\Set\DisJointSet_Tests.cs" />

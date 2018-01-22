@@ -1,8 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Advanced.Algorithms.DataStructures.Queues;
+﻿using Advanced.Algorithms.DataStructures.DistributedSystems;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Queues
+namespace Advanced.Algorithms.Tests.DataStructures.DistributedSystems
 {
     [TestClass]
     public class CircularQueue_Tests
