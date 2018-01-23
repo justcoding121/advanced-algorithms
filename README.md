@@ -244,6 +244,8 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 ## Distributed Systems
 
 - [X] Circular Queue (Ring Buffer) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DistributedSystems/CircularQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DistributedSystems/CircularQueue_Tests.cs))
+- [X] Consistant Hash ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DistributedSystems/ConsistantHash.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DistributedSystems/ConsistantHash_Tests.cs))
+- [X] LRU Cache ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DistributedSystems/LRUCache.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DistributedSystems/LRUCache_Tests.cs))
 
 ## Numerical Methods
 
