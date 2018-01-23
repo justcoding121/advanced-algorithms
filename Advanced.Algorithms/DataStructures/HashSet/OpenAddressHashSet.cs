@@ -31,7 +31,7 @@ namespace Advanced.Algorithms.DataStructures
         //O(1) time complexity; worst case O(n)
         public bool Contains(V value)
         {
-            var hashCode = SaltHash(Math.Abs(value.GetHashCode()));
+            var hashCode = getHash(value);
             var index = hashCode % bucketSize;
 
             if (hashArray[index] == null)
@@ -78,7 +78,7 @@ namespace Advanced.Algorithms.DataStructures
 
             Grow();
 
-            var hashCode = SaltHash(Math.Abs(value.GetHashCode()));
+            var hashCode = getHash(value);
 
             var index = hashCode % bucketSize;
 
@@ -124,7 +124,7 @@ namespace Advanced.Algorithms.DataStructures
         //O(1) time complexity; worst case O(n)
         public void Remove(V value)
         {
-            var hashCode = SaltHash(Math.Abs(value.GetHashCode()));
+            var hashCode = getHash(value);
             var curIndex = hashCode % bucketSize;
 
             if (hashArray[curIndex] == null)
@@ -222,7 +222,7 @@ namespace Advanced.Algorithms.DataStructures
 
         private void SetValue(V value)
         {
-            var index = (SaltHash(Math.Abs(value.GetHashCode()))) % bucketSize;
+            var index = getHash(value) % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -263,7 +263,7 @@ namespace Advanced.Algorithms.DataStructures
 
         private V GetValue(V value)
         {
-            var index = (SaltHash(Math.Abs(value.GetHashCode()))) % bucketSize;
+            var index = getHash(value) % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -357,13 +357,13 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// salt the hash with a random number
+        /// get hash
         /// </summary>
         /// <param name="v"></param>
         /// <returns></returns>
-        private int SaltHash(int value)
+        private int getHash(V value)
         {
-            return value * 3;
+            return Math.Abs(value.GetHashCode());
         }
 
         //Implementation for the GetEnumerator method.

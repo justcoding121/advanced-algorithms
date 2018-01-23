@@ -37,7 +37,7 @@ namespace Advanced.Algorithms.DataStructures
         //O(1) time complexity; worst case O(n)
         public bool ContainsKey(K key)
         {
-            var hashCode = SaltHash(Math.Abs(key.GetHashCode()));
+            var hashCode = getHash(key);
             var index = hashCode % bucketSize;
 
             if (hashArray[index] == null)
@@ -84,7 +84,7 @@ namespace Advanced.Algorithms.DataStructures
 
             Grow();
 
-            var hashCode = SaltHash(Math.Abs(key.GetHashCode()));
+            var hashCode = getHash(key);
 
             var index = hashCode % bucketSize;
 
@@ -130,7 +130,7 @@ namespace Advanced.Algorithms.DataStructures
         //O(1) time complexity; worst case O(n)
         public void Remove(K key)
         {
-            var hashCode = SaltHash(Math.Abs(key.GetHashCode()));
+            var hashCode = getHash(key);
             var curIndex = hashCode % bucketSize;
 
             if (hashArray[curIndex] == null)
@@ -228,7 +228,7 @@ namespace Advanced.Algorithms.DataStructures
 
         private void SetValue(K key, V value)
         {
-            var index = (SaltHash(Math.Abs(key.GetHashCode()))) % bucketSize;
+            var index = getHash(key) % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -269,7 +269,7 @@ namespace Advanced.Algorithms.DataStructures
 
         private V GetValue(K key)
         {
-            var index = (SaltHash(Math.Abs(key.GetHashCode()))) % bucketSize;
+            var index = getHash(key) % bucketSize;
 
             if (hashArray[index] == null)
             {
@@ -363,13 +363,13 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// salt the hash with a random number
+        /// get hash
         /// </summary>
         /// <param name="v"></param>
         /// <returns></returns>
-        private int SaltHash(int key)
+        private int getHash(K key)
         {
-            return key * 3;
+            return Math.Abs(key.GetHashCode());
         }
 
         //Implementation for the GetEnumerator method.

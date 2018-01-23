@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Advanced.Algorithms.DataStructures.Queues
+namespace Advanced.Algorithms.DataStructures.DistributedSystems
 {
     /// <summary>
     /// Cicular queue aka Ring Buffer using fixed size array
@@ -28,17 +26,21 @@ namespace Advanced.Algorithms.DataStructures.Queues
 
         /// <summary>
         /// Note: When buffer overflows oldest data will be erased
+        /// O(1) time complexity
         /// </summary>
         /// <param name="data"></param>
-        public void Enqueue(T data)
+        public T Enqueue(T data)
         {
+            T deleted = default(T);
+
             //wrap around removing oldest element
             if (end > queue.Length - 1)
             {
                 end = 0;
 
-                if(start == 0)
+                if (start == 0)
                 {
+                    deleted = queue[start];
                     start++;
                 }
             }
@@ -46,6 +48,7 @@ namespace Advanced.Algorithms.DataStructures.Queues
             //when end meets start after wraping around
             if (end == start && Count > 1)
             {
+                deleted = queue[start];
                 start++;
             }
 
@@ -56,9 +59,36 @@ namespace Advanced.Algorithms.DataStructures.Queues
             {
                 Count++;
             }
+
+            return deleted;
         }
 
+        /// <summary>
+        /// O(bulk.Length) time complexity
+        /// </summary>
+        /// <param name="bulk"></param>
+        /// <returns></returns>
+        public IEnumerable<T> Enqueue(T[] bulk)
+        {
+            var deletedList = new List<T>();
 
+            foreach (var item in bulk)
+            {
+                var deleted = Enqueue(item);
+
+                if (!deleted.Equals(default(T)))
+                {
+                    deletedList.Add(deleted);
+                }
+            }
+
+            return deletedList;
+        }
+
+        /// <summary>
+        /// O(1) time complexity
+        /// </summary>
+        /// <returns></returns>
         public T Dequeue()
         {
             if (Count == 0)
@@ -95,5 +125,29 @@ namespace Advanced.Algorithms.DataStructures.Queues
 
             return element;
         }
+
+        /// <summary>
+        /// O(bulkNumber) time complexity
+        /// </summary>
+        /// <param name="bulkNumber"></param>
+        public IEnumerable<T> Dequeue(int bulkNumber)
+        {
+            var deletedList = new List<T>();
+            while (bulkNumber > 0 && Count > 0)
+            {
+                var deleted = Dequeue();
+
+                if (!deleted.Equals(default(T)))
+                {
+                    deletedList.Add(deleted);
+                }
+
+                bulkNumber--;
+            }
+
+            return deletedList;
+        }
+
     }
+
 }

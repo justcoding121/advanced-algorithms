@@ -100,7 +100,7 @@ namespace Advanced.Algorithms.GraphAlgorithms
             pathStack.Push(destination);
 
             var currentV = destination;
-            while (!currentV.Equals(default(T)) && !parentMap[currentV].Equals(default(T)))
+            while (!Equals(currentV, default(T)) && !parentMap[currentV].Equals(default(T)))
             {
                 pathStack.Push(parentMap[currentV]);
                 currentV = parentMap[currentV];
