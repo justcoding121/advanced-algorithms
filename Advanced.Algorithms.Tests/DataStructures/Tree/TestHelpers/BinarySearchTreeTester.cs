@@ -12,28 +12,23 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree.TestHelpers
 
         public static bool VerifyIsBinarySearchTree(IBSTNode<T> node)
         {
+            return VerifyIsBinarySearchTree(node, int.MinValue, int.MaxValue);
+        }
+        
+        public static bool VerifyIsBinarySearchTree(IBSTNode<T> node, int lowerBound, int upperBound)
+        {
             if (node == null)
             {
                 return true;
             }
 
-            if (node.Left != null)
+             if (node.Value >= upperBound || node.Value <= lowerBound)
             {
-                if (node.Left.Value.CompareTo(node.Value) > 0)
-                {
-                    return false;
-                }
+                return false;
             }
-
-            if (node.Right != null)
-            {
-                if (node.Right.Value.CompareTo(node.Value) < 0)
-                {
-                    return false;
-                }
-            }
-            return VerifyIsBinarySearchTree(node.Left) &&
-                VerifyIsBinarySearchTree(node.Right);
+     
+            return VerifyIsBinarySearchTree(node.Left, lowerBound, node.Value) &&
+                VerifyIsBinarySearchTree(node.Right, node.Value, upperBound);
         }
     }
 }
