@@ -8,5 +8,6 @@ namespace Advanced.Algorithms.DataStructures.Tree
         IBSTNode<T> Right { get;  }
 
         T Value { get;  }
+
     }
 }

@@ -9,20 +9,15 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree.TestHelpers
 {
     public class BinarySearchTreeTester<T> where T:IComparable
     {
-
-        public static bool VerifyIsBinarySearchTree(IBSTNode<T> node)
-        {
-            return VerifyIsBinarySearchTree(node, int.MinValue, int.MaxValue);
-        }
         
-        public static bool VerifyIsBinarySearchTree(IBSTNode<T> node, int lowerBound, int upperBound)
+        public static bool VerifyIsBinarySearchTree(IBSTNode<T> node, T lowerBound, T upperBound)
         {
             if (node == null)
             {
                 return true;
             }
 
-             if (node.Value >= upperBound || node.Value <= lowerBound)
+             if (node.Value .CompareTo(upperBound)>= 0 || node.Value.CompareTo(lowerBound) <= 0)
             {
                 return false;
             }

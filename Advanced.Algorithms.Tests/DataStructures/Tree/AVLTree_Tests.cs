@@ -109,7 +109,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
 
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
+                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
 
                 var actualHeight = tree.GetHeight();
 
@@ -128,7 +128,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 tree.Delete(randomNumbers[i]);
 
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root));
+                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
 
                 var actualHeight = tree.GetHeight();
 
