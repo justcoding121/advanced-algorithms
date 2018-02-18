@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree.TestHelpers
                 return true;
             }
 
-             if (node.Value .CompareTo(upperBound)>= 0 || node.Value.CompareTo(lowerBound) <= 0)
+             if (node.Value.CompareTo(upperBound)>= 0 || node.Value.CompareTo(lowerBound) <= 0)
             {
                 return false;
             }
