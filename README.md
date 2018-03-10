@@ -87,7 +87,7 @@ Note: It is observed that among the implementations here in practice, with the e
 - [X] Splay Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Tree/SplayTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DataStructures/Tree/SplayTree_Tests.cs))
 - [X] Treap Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Tree/TreapTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DataStructures/Tree/TreapTree_Tests.cs))
 
-#### B Trees
+#### B Trees (database trees)
 
 - [X] B Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Tree/BTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DataStructures/Tree/BTree_Tests.cs))
 - [X] B+ Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Tree/B%2BTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DataStructures/Tree/B%2BTree_Tests.cs))
