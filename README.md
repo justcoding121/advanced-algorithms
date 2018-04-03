@@ -100,6 +100,8 @@ Note: It is observed that among the implementations here in practice, with the e
 - [X] Segment Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Tree/SegmentTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DataStructures/Tree/SegmentTree_Tests.cs))
 - [X] Binary Indexed Tree (Fenwick tree) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Tree/FenwickTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DataStructures/Tree/FenwickTree_Tests.cs))
 
+TODO: Support multi-dimentional segment tree & binary indexed tree. Implement QuadTree, Octree & R-tree
+
 #### LookUp Trees
 
 - [X] Prefix Tree (Trie) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms/DataStructures/Tree/Trie.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/tree/develop/Advanced.Algorithms.Tests/DataStructures/Tree/Trie_Tests.cs))
