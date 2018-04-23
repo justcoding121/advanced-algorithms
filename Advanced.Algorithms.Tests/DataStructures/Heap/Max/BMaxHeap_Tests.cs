@@ -16,13 +16,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void BMaxHeap_Test()
         {
+            var rnd = new Random();
 
-            var initial = new List<int>();
-
-            for (int i = 50; i >=0; i--)
-            {
-                initial.Add(i);
-            }
+            var initial = new List<int>(Enumerable.Range(0, 51)
+                .OrderBy(x => rnd.Next()));
 
             //insert test
             var tree = new BMaxHeap<int>(initial);
@@ -38,7 +35,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(Max, 99 - i);
             }
 
-            var rnd = new Random();
+ 
             var testSeries = Enumerable.Range(1, 49)
                 .OrderBy(x => rnd.Next()).ToList();
 

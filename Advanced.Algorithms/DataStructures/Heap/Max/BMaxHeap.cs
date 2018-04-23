@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
                 var initArray = new T[initial.Count()];
 
                 int i = 0;
-                foreach (var item in initial.OrderByDescending(x=>x))
+                foreach (var item in initial)
                 {
                     initArray[i] = item;
                     i++;
