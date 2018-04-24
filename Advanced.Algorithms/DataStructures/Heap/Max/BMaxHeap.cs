@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
                 var initArray = new T[initial.Count()];
 
                 int i = 0;
-                foreach (var item in initial.OrderByDescending(x=>x))
+                foreach (var item in initial)
                 {
                     initArray[i] = item;
                     i++;
@@ -61,35 +61,28 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         /// <param name="i"></param>
         private void BulkInitRecursive(int i, T[] initial)
         {
+            var parent = i;
+
             var left = 2 * i + 1;
             var right = 2 * i + 2;
 
-            var Max = i;
-            var parent = i;
+            var max = left < initial.Length && right < initial.Length ?
+                            initial[left].CompareTo(initial[right]) > 0 ? left : right
+                            : left < initial.Length ?
+                                left : right < initial.Length ?
+                                        right : -1;
 
-            if (left < initial.Length
-                && initial[left].CompareTo(initial[parent]) > 0)
+            if (max != -1
+                && initial[max].CompareTo(initial[parent]) > 0)
             {
-                var temp = initial[left];
-                initial[left] = initial[parent];
+                var temp = initial[max];
+                initial[max] = initial[parent];
                 initial[parent] = temp;
-                Max = left;
+
+                //if min is child then drill down child
+                BulkInitRecursive(max, initial);
             }
 
-            if (right < initial.Length
-                && initial[right].CompareTo(initial[parent]) > 0)
-            {
-                var temp = initial[right];
-                initial[right] = initial[parent];
-                initial[parent] = temp;
-                Max = right;
-            }
-
-            //if Max is child then drill down child
-            if (Max != parent)
-            {
-                BulkInitRecursive(Max, initial);
-            }
         }
         //o(log(n))
         public void Insert(T newItem)

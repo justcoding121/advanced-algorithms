@@ -16,12 +16,8 @@ namespace Advanced.Algorithms.Tests.DataStructures.Heap.Min
         [TestMethod]
         public void AsD_aryHeap_Test()
         {
-            var initial = new List<int>();
-
-            for (int i = 0; i <= 50; i++)
-            {
-                initial.Add(i);
-            }
+            var rnd = new Random();
+            var initial = Enumerable.Range(0, 51).OrderBy(x => rnd.Next()).ToList();
 
             //insert test
             var tree = new D_aryMinHeap<int>(4, initial);
@@ -37,7 +33,6 @@ namespace Advanced.Algorithms.Tests.DataStructures.Heap.Min
                 Assert.AreEqual(min, i);
             }
 
-            var rnd = new Random();
             var testSeries = Enumerable.Range(1, 49).OrderBy(x => rnd.Next()).ToList();
 
             foreach (var item in testSeries)
