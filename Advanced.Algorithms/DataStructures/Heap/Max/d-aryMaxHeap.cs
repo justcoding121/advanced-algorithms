@@ -28,7 +28,6 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
 
                 Count = initArray.Length;
                 BulkInit(initArray);
-                heapArray = initArray;
               
             }
             else
@@ -44,7 +43,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         /// <param name="initial"></param>
         private void BulkInit(T[] initial)
         {
-            var i = (initial.Length - K - 1) / K;
+            var i = (initial.Length - 1) / K;
 
             while (i >= 0)
             {
@@ -62,25 +61,18 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         private void BulkInitRecursive(int i, T[] initial)
         {
             var parent = i;
-            var max = parent;
+            var max = findMaxChildIndex(i, initial);
 
-            var maxChild = findMaxChildIndex(i, initial);
-            if (maxChild !=-1 
-                && initial[maxChild].CompareTo(initial[parent]) > 0)
+            if (max !=-1 
+                && initial[max].CompareTo(initial[parent]) > 0)
             {
-                var temp = initial[maxChild];
-                initial[maxChild] = initial[parent];
+                var temp = initial[max];
+                initial[max] = initial[parent];
                 initial[parent] = temp;
 
-                max = maxChild;
-            }
-
-
-            //if max is child then drill down child
-            if (max != parent)
-            {
                 BulkInitRecursive(max, initial);
             }
+
         }
 
        

@@ -28,7 +28,6 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
 
                 Count = initArray.Length;
                 BulkInit(initArray);
-                heapArray = initArray;
               
             }
             else
@@ -44,7 +43,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// <param name="initial"></param>
         private void BulkInit(T[] initial)
         {
-            var i = (initial.Length - K - 1) / K;
+            var i = (initial.Length - 1) / K;
 
             while (i >= 0)
             {
@@ -62,25 +61,18 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         private void BulkInitRecursive(int i, T[] initial)
         {
             var parent = i;
-            var min = parent;
+            var min = findMinChildIndex(i, initial);
 
-            var minChild = findMinChildIndex(i, initial);
-            if (minChild !=-1 
-                && initial[minChild].CompareTo(initial[parent]) < 0)
+            if (min !=-1 
+                && initial[min].CompareTo(initial[parent]) < 0)
             {
-                var temp = initial[minChild];
-                initial[minChild] = initial[parent];
+                var temp = initial[min];
+                initial[min] = initial[parent];
                 initial[parent] = temp;
 
-                min = minChild;
-            }
-
-
-            //if min is child then drill down child
-            if (min != parent)
-            {
                 BulkInitRecursive(min, initial);
             }
+
         }
 
        

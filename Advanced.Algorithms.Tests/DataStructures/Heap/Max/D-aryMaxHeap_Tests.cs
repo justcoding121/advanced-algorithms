@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Heap.Max
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void AsD_aryHeap_Test()
+        public void D_ary_MaxHeap_Test()
         {
             var rnd = new Random();
 

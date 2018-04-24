@@ -61,35 +61,29 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// <param name="i"></param>
         private void BulkInitRecursive(int i, T[] initial)
         {
+            var parent = i;
+
             var left = 2 * i + 1;
             var right = 2 * i + 2;
 
-            var min = i;
-            var parent = i;
-
-            if (left < initial.Length
-                && initial[left].CompareTo(initial[parent]) < 0)
+            var min = left < initial.Length && right < initial.Length ?
+                            initial[left].CompareTo(initial[right]) < 0 ? left : right
+                            : left < initial.Length ?
+                                left : right < initial.Length ?
+                                        right : -1;
+            
+            if(min!=-1
+                && initial[min].CompareTo(initial[parent])<0)
             {
-                var temp = initial[left];
-                initial[left] = initial[parent];
+                var temp = initial[min];
+                initial[min] = initial[parent];
                 initial[parent] = temp;
-                min = left;
-            }
 
-            if (right < initial.Length
-                && initial[right].CompareTo(initial[parent]) < 0)
-            {
-                var temp = initial[right];
-                initial[right] = initial[parent];
-                initial[parent] = temp;
-                min = right;
-            }
-
-            //if min is child then drill down child
-            if (min != parent)
-            {
+                //if min is child then drill down child
                 BulkInitRecursive(min, initial);
             }
+
+
         }
         //o(log(n))
         public void Insert(T newItem)
