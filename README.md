@@ -12,7 +12,7 @@ For beta releases on [beta branch](https://github.com/justcoding121/Advanced-Alg
 
 Not a stable release yet.
 
-* [API Documentation](https://justcoding121.github.io/Advanced-Algorithms/api/Advanced.Algorithms.BitAlgorithms.html)
+* [API Documentation](https://justcoding121.github.io/Advanced-Algorithms/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.html)
 
 Supports
 
