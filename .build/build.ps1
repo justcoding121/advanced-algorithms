@@ -24,8 +24,6 @@ if(!$Branch) { $Branch = "local" }
 
 if($Branch -eq "beta" ) { $Version = "$Version-beta" }
 
-Import-Module "$Here\Common" -DisableNameChecking
-
 $NuGet = Join-Path $SolutionRoot ".nuget\nuget.exe"
 
 $MSBuild = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild.exe"
@@ -37,13 +35,13 @@ FormatTaskName (("-"*25) + "[{0}]" + ("-"*25))
 Task default -depends Clean, Build, Document, Package
 
 #cleans obj, b
-Task Clean -depends Install-BuildTools {
+Task Clean {
     Get-ChildItem .\ -include bin,obj -Recurse | foreach ($_) { Remove-Item $_.fullname -Force -Recurse }
     exec { . $MSBuild $SolutionFile /t:Clean /v:quiet }
 }
 
 #install build tools
-Task Install-BuildTools {
+Task Install-BuildTools -depends Clean  {
     if(!(Test-Path $MSBuild)) 
     { 
         cinst microsoft-build-tools -y
@@ -51,7 +49,7 @@ Task Install-BuildTools {
 }
 
 #restore nuget packages
-Task Restore-Packages  {
+Task Restore-Packages -depends Install-BuildTools  {
     exec { . dotnet restore "$SolutionRoot\Advanced.Algorithms.sln" }
 }
 
@@ -63,10 +61,21 @@ Task Build -depends Restore-Packages{
 #publish API documentation changes for GitHub pages under master\docs directory
 Task Document -depends Build {
 
+
 	if($Branch -eq "master")
 	{
-		#use docfx to generate API documentation from source metadata
-		docfx docfx.json
+	    #use docfx to generate API documentation from source metadata
+	    docfx docfx.json
+
+        #patch index.json so that it is always sorted
+        #otherwise git will think file was changed 
+	    $IndexJsonFile = "$SolutionRoot\docs\index.json"
+        $unsorted = Get-Content $IndexJsonFile | Out-String
+        [Reflection.Assembly]::LoadFile("$Here\lib\Newtonsoft.Json.dll")
+        [System.Reflection.Assembly]::LoadWithPartialName("System")
+        $hashTable = [Newtonsoft.Json.JsonConvert]::DeserializeObject($unsorted, [System.Collections.Generic.SortedDictionary[[string],[object]]])
+        $obj = [Newtonsoft.Json.JsonConvert]::SerializeObject($hashTable, [Newtonsoft.Json.Formatting]::Indented)
+        Set-Content -Path $IndexJsonFile -Value $obj
 		
 		#setup clone directory
 		$TEMP_REPO_DIR =(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
