@@ -37,6 +37,9 @@ FormatTaskName (("-"*25) + "[{0}]" + ("-"*25))
 Task default -depends  Document
 
 Task Document {
+	if($env:github_access_token)
+	{
+	
 	
 	$TEMP_REPO_DIR=(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
 
@@ -55,6 +58,7 @@ Task Document {
 	git push origin master
 	
 	cd $Here
+	}
 }
 
 
