@@ -33,65 +33,81 @@ $MSBuild -replace ' ', '` '
 
 FormatTaskName (("-"*25) + "[{0}]" + ("-"*25))
 
+#default task
 Task default -depends Clean, Build, Document, Package
 
+#cleans obj, b
 Task Clean -depends Install-BuildTools {
     Get-ChildItem .\ -include bin,obj -Recurse | foreach ($_) { Remove-Item $_.fullname -Force -Recurse }
     exec { . $MSBuild $SolutionFile /t:Clean /v:quiet }
 }
 
-Task Install-BuildTools -depends Install-MSBuild
-
-Task Install-MSBuild {
+#install build tools
+Task Install-BuildTools {
     if(!(Test-Path $MSBuild)) 
     { 
         cinst microsoft-build-tools -y
     }
 }
 
+#restore nuget packages
 Task Restore-Packages  {
     exec { . dotnet restore "$SolutionRoot\Advanced.Algorithms.sln" }
 }
 
+#build
 Task Build -depends Restore-Packages{
     exec { . $MSBuild $SolutionFile /t:Build /v:normal /p:Configuration=$Configuration /t:restore }
 }
 
+#publish API documentation changes for GitHub pages under master\docs directory
 Task Document -depends Build {
 
-	docfx docfx.json
-	
-	$TEMP_REPO_DIR =(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
-
-	If(test-path $TEMP_REPO_DIR)
+	if($Branch -eq "master")
 	{
-		Remove-Item $TEMP_REPO_DIR -Force -Recurse
-	}
-	
-	New-Item -ItemType Directory -Force -Path $TEMP_REPO_DIR
-	
-	git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
+		#use docfx to generate API documentation from source metadata
+		docfx docfx.json
+		
+		#setup clone directory
+		$TEMP_REPO_DIR =(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
 
-	If(test-path "$TEMP_REPO_DIR\docs")
-	{
-		Remove-Item "$TEMP_REPO_DIR\docs" -Force -Recurse
+		If(test-path $TEMP_REPO_DIR)
+		{
+			Remove-Item $TEMP_REPO_DIR -Force -Recurse
+		}
+		
+		New-Item -ItemType Directory -Force -Path $TEMP_REPO_DIR
+		
+		#clone
+		git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
+
+		If(test-path "$TEMP_REPO_DIR\docs")
+		{
+			Remove-Item "$TEMP_REPO_DIR\docs" -Force -Recurse
+		}
+		New-Item -ItemType Directory -Force -Path "$TEMP_REPO_DIR\docs"
+		
+		#cd to docs folder
+		cd "$TEMP_REPO_DIR\docs"
+		
+		#copy docs to clone directory\docs 
+		Copy-Item -Path "$SolutionRoot\docs\*" -Destination "$TEMP_REPO_DIR\docs" -Recurse -Force
+		
+		#push changes to master
+		git config --global credential.helper store
+		Add-Content "$HOME\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
+		git config --global user.email $env:github_email
+		git config --global user.name "justcoding121"
+		git add . -A
+		git commit -m "Maintanance commit by build server"
+		git push origin master
+		
+		#move cd back to current location
+		cd $Here	
 	}
-	New-Item -ItemType Directory -Force -Path "$TEMP_REPO_DIR\docs"
-	cd "$TEMP_REPO_DIR\docs"
-	
-	Copy-Item -Path "$SolutionRoot\docs\*" -Destination "$TEMP_REPO_DIR\docs" -Recurse -Force
-	
-	git config --global credential.helper store
-	Add-Content "$HOME\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
-	git config --global user.email $env:github_email
-	git config --global user.name "justcoding121"
-	git add . -A
-	git commit -m "Maintanance commit by build server"
-	git push origin master
-	
-	cd $Here	
 }
 
+#package nuget files
 Task Package -depends Document {
     exec { . $NuGet pack "$SolutionRoot\Advanced.Algorithms\Advanced.Algorithms.nuspec" -Properties Configuration=$Configuration -OutputDirectory "$SolutionRoot" -Version "$Version" }
 }

@@ -4,6 +4,7 @@ param (
     [switch]$Help
 )
 
+#current directory
 $Here = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 Import-Module "$Here\Common"
@@ -32,4 +33,5 @@ if($Help)
 	return
 }
 
+#invoke the task
 Invoke-Psake -buildFile "$Here\Default.ps1" -parameters $properties -tasklist $Action
