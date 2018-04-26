@@ -61,22 +61,21 @@ Task Build -depends Restore-Packages{
 #publish API documentation changes for GitHub pages under master\docs directory
 Task Document -depends Build {
 
-
 	if($Branch -eq "master")
 	{
-	    #use docfx to generate API documentation from source metadata
-	    docfx docfx.json
+		#use docfx to generate API documentation from source metadata
+		docfx docfx.json
 
-        #patch index.json so that it is always sorted
-        #otherwise git will think file was changed 
-	    $IndexJsonFile = "$SolutionRoot\docs\index.json"
-        $unsorted = Get-Content $IndexJsonFile | Out-String
-        [Reflection.Assembly]::LoadFile("$Here\lib\Newtonsoft.Json.dll")
-        [System.Reflection.Assembly]::LoadWithPartialName("System")
-        $hashTable = [Newtonsoft.Json.JsonConvert]::DeserializeObject($unsorted, [System.Collections.Generic.SortedDictionary[[string],[object]]])
-        $obj = [Newtonsoft.Json.JsonConvert]::SerializeObject($hashTable, [Newtonsoft.Json.Formatting]::Indented)
-        Set-Content -Path $IndexJsonFile -Value $obj
-		
+		#patch index.json so that it is always sorted
+		#otherwise git will think file was changed 
+		    $IndexJsonFile = "$SolutionRoot\docs\index.json"
+		$unsorted = Get-Content $IndexJsonFile | Out-String
+		[Reflection.Assembly]::LoadFile("$Here\lib\Newtonsoft.Json.dll")
+		[System.Reflection.Assembly]::LoadWithPartialName("System")
+		$hashTable = [Newtonsoft.Json.JsonConvert]::DeserializeObject($unsorted, [System.Collections.Generic.SortedDictionary[[string],[object]]])
+		$obj = [Newtonsoft.Json.JsonConvert]::SerializeObject($hashTable, [Newtonsoft.Json.Formatting]::Indented)
+		Set-Content -Path $IndexJsonFile -Value $obj
+
 		#setup clone directory
 		$TEMP_REPO_DIR =(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
 
@@ -84,9 +83,9 @@ Task Document -depends Build {
 		{
 			Remove-Item $TEMP_REPO_DIR -Force -Recurse
 		}
-		
+
 		New-Item -ItemType Directory -Force -Path $TEMP_REPO_DIR
-		
+
 		#clone
 		git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
 
@@ -95,13 +94,13 @@ Task Document -depends Build {
 			Remove-Item "$TEMP_REPO_DIR\docs" -Force -Recurse
 		}
 		New-Item -ItemType Directory -Force -Path "$TEMP_REPO_DIR\docs"
-		
+
 		#cd to docs folder
 		cd "$TEMP_REPO_DIR\docs"
-		
+
 		#copy docs to clone directory\docs 
 		Copy-Item -Path "$SolutionRoot\docs\*" -Destination "$TEMP_REPO_DIR\docs" -Recurse -Force
-		
+
 		#push changes to master
 		git config --global credential.helper store
 		Add-Content "$HOME\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
@@ -110,7 +109,7 @@ Task Document -depends Build {
 		git add . -A
 		git commit -m "Maintanance commit by build server"
 		git push origin master
-		
+
 		#move cd back to current location
 		cd $Here	
 	}
