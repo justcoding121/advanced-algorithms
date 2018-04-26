@@ -38,7 +38,7 @@ Task default -depends  Document
 
 Task Document {
 	docfx docfx.json
-	$TEMP_REPO_DIR="$SolutionRoot\temp-repo-clone"
+	$TEMP_REPO_DIR=(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
 
 	git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
 	cd "$TEMP_REPO_DIR\docs"
