@@ -33,12 +33,18 @@ function Install-Psake()
 
 function Install-Git()
 {
-	choco install git.install	
+	if(!(Test-Path ${env:ProgramFiles(x86)}\Git* -or Test-Path ${env:ProgramFiles}\Git*)) 
+	{ 
+		choco install git.install	
+	}
 }
 
 function Install-DocFx()
 {
-	choco install docfx	
+	if(!(Test-Path $env:ChocolateyInstall\lib\docfx\tools*)) 
+	{ 
+		choco install docfx	
+	}
 }
 
 Export-ModuleMember -Function *-*
