@@ -38,7 +38,7 @@ Task default -depends  Document
 
 Task Document {
 	docfx docfx.json
-	$TEMP_REPO_DIR=$SolutionRoot\..\temp-repo-clone
+	$TEMP_REPO_DIR="$SolutionRoot\..\temp-repo-clone"
 
 	rm -rf $TEMP_REPO_DIR
 	mkdir $TEMP_REPO_DIR
