@@ -28,6 +28,17 @@ function Install-Psake()
 	{ 
 		choco install psake -y
 	}
+	
+}
+
+function Install-Git()
+{
+	choco install git.install	
+}
+
+function Install-DocFx()
+{
+	choco install docfx	
 }
 
 Export-ModuleMember -Function *-*
