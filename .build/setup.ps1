@@ -67,7 +67,7 @@ Install-DocFx
 $psakeDirectory = (Resolve-Path $env:ChocolateyInstall\lib\Psake*)
 
 #appveyor for some reason have different location for psake (it has older psake version?)
-if($env:APPVEYOR_REPO_BRANCH)
+if(Test-Path $psakeDirectory\tools\Psake\Psake.psm*)
 {
 	Import-Module (Join-Path $psakeDirectory "tools\Psake\Psake.psm1")
 }
