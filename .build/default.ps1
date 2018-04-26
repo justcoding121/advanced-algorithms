@@ -37,14 +37,14 @@ FormatTaskName (("-"*25) + "[{0}]" + ("-"*25))
 Task default -depends  Document
 
 Task Document {
-	docfx docfx.json
+	
 	$TEMP_REPO_DIR=(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
 
 	git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
 	cd "$TEMP_REPO_DIR\docs"
 	git rm -r *
 	
-	cp -r "$SolutionRoot\docs\* ."
+	Copy-Item -Path "$SolutionRoot\docs\*" -Destination "$TEMP_REPO_DIR\docs" -Recurse -Force
 	
 	git config --global credential.helper store
 	Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
