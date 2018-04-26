@@ -48,15 +48,13 @@ Task Document {
 	New-Item -ItemType Directory -Force -Path $TEMP_REPO_DIR
 	
 	git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
-	
-	cd "$TEMP_REPO_DIR\docs"
-	git rm -r *
-	
+
 	If(test-path "$TEMP_REPO_DIR\docs")
 	{
 		Remove-Item "$TEMP_REPO_DIR\docs" -Force -Recurse
 	}
 	New-Item -ItemType Directory -Force -Path "$TEMP_REPO_DIR\docs"
+	cd "$TEMP_REPO_DIR\docs"
 	
 	Copy-Item -Path "$SolutionRoot\docs\*" -Destination "$TEMP_REPO_DIR\docs" -Recurse -Force
 	
