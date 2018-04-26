@@ -1,7 +1,7 @@
 param (
-    [string]$Action="default",
+	[string]$Action="default",
 	[hashtable]$properties=@{},
-    [switch]$Help
+	[switch]$Help
 )
 
 function Install-Chocolatey()
@@ -70,17 +70,13 @@ $psakeDirectory = (Resolve-Path $env:ChocolateyInstall\lib\Psake*)
 #appveyor for some reason have different location for psake (it has older psake version?)
 if($env:APPVEYOR_REPO_BRANCH)
 {
-    Import-Module (Join-Path $psakeDirectory "tools\Psake\Psake.psm1")
+	Import-Module (Join-Path $psakeDirectory "tools\Psake\Psake.psm1")
 }
 else
 {
-    Import-Module (Join-Path $psakeDirectory "tools\Psake.psm1")
+	Import-Module (Join-Path $psakeDirectory "tools\Psake.psm1")
 }
 
 
 #invoke the task
 Invoke-Psake -buildFile "$Here\build.ps1" -parameters $properties -tasklist $Action
-
-
-
-
