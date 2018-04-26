@@ -45,8 +45,8 @@ Task Document {
 	git rm -r *
 	
 	#Copy-Item -Path "$SolutionRoot\docs\*" -Destination "$TEMP_REPO_DIR\docs" -Recurse -Force
-	
-	git remote add origin https://justcoding121:$($env:github_access_token)@github.com/justcoding121/advanced-algorithms.git
+	git config --global credential.helper store
+	Add-Content "$HOME\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
 	git config --global user.email $env:github_email
 	git config --global user.name "justcoding121"
 	git add . -A
