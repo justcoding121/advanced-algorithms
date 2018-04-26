@@ -38,6 +38,17 @@ Task default -depends  Document
 
 Task Document {
 	docfx docfx.json
+	$TEMP_REPO_DIR=$SolutionRoot/../temp-repo-clone
+
+	rm -rf $TEMP_REPO_DIR
+	mkdir $TEMP_REPO_DIR
+
+	git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
+	cd $TEMP_REPO_DIR/docs
+	git rm -r *
+	
+	cp -r $SolutionRoot/docs/* .
+	
 	git config --global credential.helper store
 	Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
 	git config --global user.email $env:github_email
@@ -45,6 +56,8 @@ Task Document {
 	git add . -A
 	git commit -m "Update generated documentation"
 	git push origin master
+	
+	cd $Here
 }
 
 

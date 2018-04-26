@@ -55,14 +55,14 @@ environment:
     secure: ItVm+50ASpDXx1w+FCe2NTpZxqCbjRWfugLjk/bqBIi00DvPnSGOV1rIQ5hnwBW3
   github_email:
     secure: zjomVDahxyvieBnoNTHqccnndEIj2r/Kp4/EQuNZyWE=
-
+  nuget_access_token:
+    secure: ZbRmjOcp+TDllRV1wxqLZjdRV7hld388rXlWVJuGGiQleomP9Ku+Nsy3a75E7/9k
 deploy:
 - provider: GitHub
   auth_token: $env:github_access_token
   on:
     branch: /(stable|beta)/ 
 - provider: NuGet
-  api_key:
-    secure: ZbRmjOcp+TDllRV1wxqLZjdRV7hld388rXlWVJuGGiQleomP9Ku+Nsy3a75E7/9k
+  api_key: $env:nuget_access_token
   on:
     branch: /(stable|beta)/
