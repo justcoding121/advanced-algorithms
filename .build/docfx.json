@@ -4,7 +4,7 @@
       "src": [
         {
 		 "files": [ "Advanced.Algorithms.Docs.sln"],
-          "src": ""
+         "src": "../"
         }
       ],
       "dest": "obj/api"
@@ -31,7 +31,7 @@
       "_appTitle": "Advanced Algorithms",
       "_enableSearch": true
     },
-    "dest": "docs",
+    "dest": "../docs",
     "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ]
   }
 }

@@ -50,10 +50,22 @@ nuget:
 artifacts:
   - path: '**\Advanced.Algorithms.*.nupkg'
 
+environment:
+  github_access_token:
+    secure: ItVm+50ASpDXx1w+FCe2NTpZxqCbjRWfugLjk/bqBIi00DvPnSGOV1rIQ5hnwBW3
+  github_email:
+    secure: zjomVDahxyvieBnoNTHqccnndEIj2r/Kp4/EQuNZyWE=
+
+deploy_script:
+- git config --global credential.helper store
+- ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
+- git config --global user.email %github_email%
+- git config --global user.name "justcoding121"
+- bash releaseDocs.sh
+    
 deploy:
 - provider: GitHub
-  auth_token:
-    secure: ItVm+50ASpDXx1w+FCe2NTpZxqCbjRWfugLjk/bqBIi00DvPnSGOV1rIQ5hnwBW3
+  auth_token: %github_access_token%
   on:
     branch: /(stable|beta)/ 
 - provider: NuGet
