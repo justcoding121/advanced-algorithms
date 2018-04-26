@@ -38,7 +38,7 @@ Task default -depends  Document
 
 Task Document {
 	docfx docfx.json
-	$TEMP_REPO_DIR=$SolutionRoot/../temp-repo-clone
+	$TEMP_REPO_DIR=$SolutionRoot\..\temp-repo-clone
 
 	rm -rf $TEMP_REPO_DIR
 	mkdir $TEMP_REPO_DIR
@@ -47,7 +47,7 @@ Task Document {
 	cd $TEMP_REPO_DIR/docs
 	git rm -r *
 	
-	cp -r $SolutionRoot/docs/* .
+	cp -r $SolutionRoot\docs\* .
 	
 	git config --global credential.helper store
 	Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
