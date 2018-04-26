@@ -5,6 +5,8 @@ $Here = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $SolutionRoot = (Split-Path -parent $Here)
 
 $ProjectName = "Advanced.Algorithms"
+$GitHubProjectName = "Advanced-Algorithms"
+$GitHubUserName = "justcoding121"
 
 $SolutionFile = "$SolutionRoot\$ProjectName.sln"
 
@@ -50,7 +52,7 @@ Task Install-BuildTools -depends Clean  {
 
 #restore nuget packages
 Task Restore-Packages -depends Install-BuildTools  {
-    exec { . dotnet restore "$SolutionRoot\Advanced.Algorithms.sln" }
+    exec { . dotnet restore "$SolutionRoot\$ProjectName" }
 }
 
 #build
@@ -87,7 +89,7 @@ Task Document -depends Build {
 		New-Item -ItemType Directory -Force -Path $TEMP_REPO_DIR
 
 		#clone
-		git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
+		git clone https://github.com/$GitHubUserName/$GitHubProjectName.git --branch master $TEMP_REPO_DIR
 
 		If(test-path "$TEMP_REPO_DIR\docs")
 		{
@@ -117,5 +119,5 @@ Task Document -depends Build {
 
 #package nuget files
 Task Package -depends Document {
-    exec { . $NuGet pack "$SolutionRoot\Advanced.Algorithms\Advanced.Algorithms.nuspec" -Properties Configuration=$Configuration -OutputDirectory "$SolutionRoot" -Version "$Version" }
+    exec { . $NuGet pack "$SolutionRoot\$ProjectName\$ProjectName.nuspec" -Properties Configuration=$Configuration -OutputDirectory "$SolutionRoot" -Version "$Version" }
 }
