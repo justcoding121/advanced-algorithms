@@ -26,6 +26,7 @@
         "files": [ ""]
       }
     ],
+	"maxParallelism":"1",
     "overwrite": "specs/*.md",
     "globalMetadata": {
       "_appTitle": "Advanced Algorithms",
