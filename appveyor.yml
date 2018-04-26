@@ -57,11 +57,13 @@ environment:
     secure: zjomVDahxyvieBnoNTHqccnndEIj2r/Kp4/EQuNZyWE=
 
 deploy_script:
+- running documentation script
 - git config --global credential.helper store
 - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
 - git config --global user.email %github_email%
 - git config --global user.name "justcoding121"
 - bash .build/releaseDocs.sh
+- done documentation script
     
 deploy:
 - provider: GitHub
