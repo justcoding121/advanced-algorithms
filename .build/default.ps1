@@ -47,22 +47,6 @@ Task Document -depends Package{
 	git push origin master
 }
 
-Task Build -depends Restore-Packages{
-    exec { . $MSBuild $SolutionFile /t:Build /v:normal /p:Configuration=$Configuration /t:restore }
-}
-
-Task Package -depends Build {
-    exec { . $NuGet pack "$SolutionRoot\Advanced.Algorithms\Advanced.Algorithms.nuspec" -Properties Configuration=$Configuration -OutputDirectory "$SolutionRoot" -Version "$Version" }
-}
-
-Task Clean -depends Install-BuildTools {
-    Get-ChildItem .\ -include bin,obj -Recurse | foreach ($_) { Remove-Item $_.fullname -Force -Recurse }
-    exec { . $MSBuild $SolutionFile /t:Clean /v:quiet }
-}
-
-Task Restore-Packages  {
-    exec { . dotnet restore "$SolutionRoot\Advanced.Algorithms.sln" }
-}
 
 Task Install-MSBuild {
     if(!(Test-Path $MSBuild)) 
