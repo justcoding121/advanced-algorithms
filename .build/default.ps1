@@ -40,7 +40,7 @@ Task Document {
 	docfx docfx.json
 	$TEMP_REPO_DIR="$SolutionRoot\..\temp-repo-clone"
 
-	rm -rf $TEMP_REPO_DIR
+	Remove-Item -Recurse -$TEMP_REPO_DIR
 	mkdir $TEMP_REPO_DIR
 
 	git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
