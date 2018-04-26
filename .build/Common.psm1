@@ -37,6 +37,8 @@ function Install-Git()
 	{ 
 		choco install git.install	
 	}
+	$env:Path += ";${env:ProgramFiles(x86)}\Git"
+	$env:Path += ";${env:ProgramFiles}\Git"
 }
 
 function Install-DocFx()
@@ -45,6 +47,7 @@ function Install-DocFx()
 	{ 
 		choco install docfx	
 	}
+	$env:Path += ";$env:ChocolateyInstall\lib\docfx\tools"
 }
 
 Export-ModuleMember -Function *-*
