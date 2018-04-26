@@ -31,12 +31,33 @@ $NuGet = Join-Path $SolutionRoot ".nuget\nuget.exe"
 $MSBuild = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild.exe"
 $MSBuild -replace ' ', '` '
 
-
 FormatTaskName (("-"*25) + "[{0}]" + ("-"*25))
 
-Task default -depends  Document
+Task default -depends Clean, Build, Document, Package
 
-Task Document {
+Task Clean -depends Install-BuildTools {
+    Get-ChildItem .\ -include bin,obj -Recurse | foreach ($_) { Remove-Item $_.fullname -Force -Recurse }
+    exec { . $MSBuild $SolutionFile /t:Clean /v:quiet }
+}
+
+Task Install-BuildTools -depends Install-MSBuild
+
+Task Install-MSBuild {
+    if(!(Test-Path $MSBuild)) 
+    { 
+        cinst microsoft-build-tools -y
+    }
+}
+
+Task Restore-Packages  {
+    exec { . dotnet restore "$SolutionRoot\Advanced.Algorithms.sln" }
+}
+
+Task Build -depends Restore-Packages{
+    exec { . $MSBuild $SolutionFile /t:Build /v:normal /p:Configuration=$Configuration /t:restore }
+}
+
+Task Document -depends Build {
 
 	docfx docfx.json
 	
@@ -71,12 +92,6 @@ Task Document {
 	cd $Here	
 }
 
-
-Task Install-MSBuild {
-    if(!(Test-Path $MSBuild)) 
-    { 
-        cinst microsoft-build-tools -y
-    }
+Task Package -depends Document {
+    exec { . $NuGet pack "$SolutionRoot\Advanced.Algorithms\Advanced.Algorithms.nuspec" -Properties Configuration=$Configuration -OutputDirectory "$SolutionRoot" -Version "$Version" }
 }
-
-Task Install-BuildTools -depends Install-MSBuild
