@@ -61,11 +61,11 @@ deploy_script:
 - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
 - git config --global user.email %github_email%
 - git config --global user.name "justcoding121"
-- bash releaseDocs.sh
+- bash .build/releaseDocs.sh
     
 deploy:
 - provider: GitHub
-  auth_token: %github_access_token%
+  auth_token: $env:github_access_token
   on:
     branch: /(stable|beta)/ 
 - provider: NuGet
