@@ -68,7 +68,7 @@ Task Document -depends Build {
 
 		#patch index.json so that it is always sorted
 		#otherwise git will think file was changed 
-		    $IndexJsonFile = "$SolutionRoot\docs\index.json"
+		$IndexJsonFile = "$SolutionRoot\docs\index.json"
 		$unsorted = Get-Content $IndexJsonFile | Out-String
 		[Reflection.Assembly]::LoadFile("$Here\lib\Newtonsoft.Json.dll")
 		[System.Reflection.Assembly]::LoadWithPartialName("System")
