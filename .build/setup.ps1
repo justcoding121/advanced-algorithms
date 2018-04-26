@@ -20,7 +20,6 @@ function Install-Psake()
 	{ 
 		choco install psake -y
 	}
-	
 }
 
 function Install-Git()
