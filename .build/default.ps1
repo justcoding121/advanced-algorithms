@@ -37,7 +37,6 @@ FormatTaskName (("-"*25) + "[{0}]" + ("-"*25))
 Task default -depends Clean, Build, Package, Document
 
 Task Document -depends Package{
-	
 	git config --global credential.helper store
 	Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
 	git config --global user.email %github_email%
