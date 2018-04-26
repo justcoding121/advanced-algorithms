@@ -62,7 +62,7 @@ deploy_script:
 - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
 - git config --global user.email %github_email%
 - git config --global user.name "justcoding121"
-- bash .build/releaseDocs.sh
+- bash releaseDocs.sh
 - done documentation script
     
 deploy:
