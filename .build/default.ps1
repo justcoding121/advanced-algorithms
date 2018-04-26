@@ -38,6 +38,8 @@ Task default -depends  Document
 
 Task Document {
 
+	docfx docfx.json
+	
 	$TEMP_REPO_DIR =(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
 
 	If(test-path $TEMP_REPO_DIR)

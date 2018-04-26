@@ -12,7 +12,7 @@ Install-Chocolatey
 
 Install-Psake
 
-
+Install-DocFx
 
 $psakeDirectory = (Resolve-Path $env:ChocolateyInstall\lib\Psake*)
 
