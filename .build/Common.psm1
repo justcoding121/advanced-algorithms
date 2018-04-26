@@ -33,7 +33,7 @@ function Install-Psake()
 
 function Install-Git()
 {
-	if(!(Test-Path ${env:ProgramFiles(x86)}\Git*) -Or (Test-Path ${env:ProgramFiles}\Git*)) 
+	if(!((Test-Path ${env:ProgramFiles(x86)}\Git*) -Or (Test-Path ${env:ProgramFiles}\Git*))) 
 	{ 
 		choco install git.install	
 	}
