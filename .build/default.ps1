@@ -44,7 +44,8 @@ Task Document {
 	cd "$TEMP_REPO_DIR\docs"
 	git rm -r *
 	
-	#Copy-Item -Path "$SolutionRoot\docs\*" -Destination "$TEMP_REPO_DIR\docs" -Recurse -Force
+	Copy-Item -Path "$SolutionRoot\docs\*" -Destination "$TEMP_REPO_DIR\docs" -Recurse -Force
+	
 	git config --global credential.helper store
 	Add-Content "$HOME\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
 	git config --global user.email $env:github_email
