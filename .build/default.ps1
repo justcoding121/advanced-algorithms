@@ -38,9 +38,17 @@ Task default -depends  Document
 
 Task Document {
 
-	$TEMP_REPO_DIR=(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
+	$TEMP_REPO_DIR =(Split-Path -parent $SolutionRoot) + "\temp-repo-clone"
 
+	If(test-path $TEMP_REPO_DIR)
+	{
+		Remove-Item $TEMP_REPO_DIR -Force -Recurse
+	}
+	
+	New-Item -ItemType Directory -Force -Path $TEMP_REPO_DIR
+	
 	git clone https://github.com/justcoding121/advanced-algorithms.git --branch master $TEMP_REPO_DIR
+	
 	cd "$TEMP_REPO_DIR\docs"
 	git rm -r *
 	
@@ -51,11 +59,10 @@ Task Document {
 	git config --global user.email $env:github_email
 	git config --global user.name "justcoding121"
 	git add . -A
-	git commit -m "Update generated documentation"
+	git commit -m "Maintanance commit by build server"
 	git push origin master
 	
-	cd $Here
-	
+	cd $Here	
 }
 
 
