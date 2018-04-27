@@ -61,10 +61,10 @@ environment:
     secure: ZbRmjOcp+TDllRV1wxqLZjdRV7hld388rXlWVJuGGiQleomP9Ku+Nsy3a75E7/9k
 deploy:
 - provider: GitHub
-  auth_token: $env:github_access_token
+  auth_token: $(github_access_token)
   on:
     branch: /(stable|beta)/ 
 - provider: NuGet
-  api_key: $env:nuget_access_token
+  api_key: $(nuget_access_token)
   on:
     branch: /(stable|beta)/
