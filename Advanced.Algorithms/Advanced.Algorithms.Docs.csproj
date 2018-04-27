@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBF2EA46-EA00-4350-BE1D-D86AFD699DB3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Advanced.Algorithms</RootNamespace>
+    <AssemblyName>Advanced.Algorithms</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\Advanced.Algorithms.xml</DocumentationFile>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BitAlgorithms\BaseConversion.cs" />
+    <Compile Include="BitAlgorithms\BitHacks.cs" />
+    <Compile Include="BitAlgorithms\CalcLogarithm.cs" />
+    <Compile Include="BitAlgorithms\DivisionModulus.cs" />
+    <Compile Include="BitAlgorithms\GCD.cs" />
+    <Compile Include="BitAlgorithms\IntToBinary.cs" />
+    <Compile Include="BitAlgorithms\IsMultipleOfNine.cs" />
+    <Compile Include="BitAlgorithms\IsMultipleOfThree.cs" />
+    <Compile Include="BitAlgorithms\NextPowOfTwo.cs" />
+    <Compile Include="BitAlgorithms\ToggleCase.cs" />
+    <Compile Include="Combinatorics\Combination.cs" />
+    <Compile Include="Combinatorics\Permutation.cs" />
+    <Compile Include="Combinatorics\Subset.cs" />
+    <Compile Include="Compression\HuffmanCoding.cs" />
+    <Compile Include="DataStructures\Dictionary\Dictionary.cs" />
+    <Compile Include="DataStructures\Dictionary\OpenAddressDictionary.cs" />
+    <Compile Include="DataStructures\Dictionary\SeparateChainingDictionary.cs" />
+    <Compile Include="DataStructures\Dictionary\TreeDictionary.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\DiGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\Graph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\WeightedDiGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyList\WeightedGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\DiGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\Graph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\WeightedDiGraph.cs" />
+    <Compile Include="DataStructures\Graph\AdjacencyMatrix\WeightedGraph.cs" />
+    <Compile Include="DataStructures\HashSet\HashSet.cs" />
+    <Compile Include="DataStructures\HashSet\OpenAddressHashSet.cs" />
+    <Compile Include="DataStructures\HashSet\SeparateChainingHashSet.cs" />
+    <Compile Include="DataStructures\HashSet\TreeHashSet.cs" />
+    <Compile Include="DataStructures\Heap\BinomialHeapNode.cs" />
+    <Compile Include="DataStructures\Heap\FibornacciHeapNode.cs" />
+    <Compile Include="DataStructures\Heap\Max\BinomialMaxHeap.cs" />
+    <Compile Include="DataStructures\Heap\Max\BMaxHeap.cs" />
+    <Compile Include="DataStructures\Heap\Max\d-aryMaxHeap.cs" />
+    <Compile Include="DataStructures\Heap\Max\FibornacciMaxHeap.cs" />
+    <Compile Include="DataStructures\Heap\Max\PairingMaxHeap.cs" />
+    <Compile Include="DataStructures\Heap\Min\BinomialMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\Min\BMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\Min\d-aryMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\Min\FibornacciMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\Min\PairingMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\PairingHeapNode.cs" />
+    <Compile Include="DataStructures\LinkedList\CircularLinkedList.cs" />
+    <Compile Include="DataStructures\LinkedList\DoublyLinkedList.cs" />
+    <Compile Include="DataStructures\LinkedList\SinglyLinkedList.cs" />
+    <Compile Include="DataStructures\List\ArrayList.cs" />
+    <Compile Include="DataStructures\List\SkipList.cs" />
+    <Compile Include="DataStructures\Queues\ArrayQueue.cs" />
+    <Compile Include="DataStructures\Queues\LinkedListQueue.cs" />
+    <Compile Include="DataStructures\Queues\PriorityQueue\MaxPriorityQueue.cs" />
+    <Compile Include="DataStructures\Queues\PriorityQueue\MinPriorityQueue.cs" />
+    <Compile Include="DataStructures\Queues\Queue.cs" />
+    <Compile Include="DataStructures\Set\BloomFilter.cs" />
+    <Compile Include="DataStructures\Set\DisJointSet.cs" />
+    <Compile Include="DataStructures\Set\SparseSet.cs" />
+    <Compile Include="DataStructures\Stack\ArrayStack.cs" />
+    <Compile Include="DataStructures\Stack\LinkedListStack.cs" />
+    <Compile Include="DataStructures\Stack\Stack.cs" />
+    <Compile Include="DataStructures\Tree\AvlTree.cs" />
+    <Compile Include="DataStructures\Tree\B+Tree.cs" />
+    <Compile Include="DataStructures\Tree\BinaryTree.cs" />
+    <Compile Include="DataStructures\Tree\BST.cs" />
+    <Compile Include="DataStructures\Tree\BTree.cs" />
+    <Compile Include="DataStructures\Tree\ExpressionTree.cs" />
+    <Compile Include="DataStructures\Tree\FenwickTree.cs" />
+    <Compile Include="DataStructures\Tree\Interfaces.cs" />
+    <Compile Include="DataStructures\Tree\IntervalTree.cs" />
+    <Compile Include="DataStructures\Tree\K_DTree.cs" />
+    <Compile Include="DataStructures\Tree\RangeTree.cs" />
+    <Compile Include="DataStructures\Tree\RedBlackTree.cs" />
+    <Compile Include="DataStructures\Tree\SegmentTree.cs" />
+    <Compile Include="DataStructures\Tree\SplayTree.cs" />
+    <Compile Include="DataStructures\Tree\SuffixTree.cs" />
+    <Compile Include="DataStructures\Tree\TernarySearchTree.cs" />
+    <Compile Include="DataStructures\Tree\TreapTree.cs" />
+    <Compile Include="DataStructures\Tree\Tree.cs" />
+    <Compile Include="DataStructures\Tree\Trie.cs" />
+    <Compile Include="DistributedSystems\CircularQueue.cs" />
+    <Compile Include="DistributedSystems\ConsistentHash.cs" />
+    <Compile Include="DistributedSystems\LRUCache.cs" />
+    <Compile Include="Geometry\ClosestPointPair.cs" />
+    <Compile Include="Geometry\ConvexHull.cs" />
+    <Compile Include="Geometry\LineIntersection.cs" />
+    <Compile Include="Geometry\PointInsidePolygon.cs" />
+    <Compile Include="Geometry\PointRotation.cs" />
+    <Compile Include="Geometry\RectangleIntersection.cs" />
+    <Compile Include="GraphAlgorithms\ArticulationPoint\TarjansArticulationFinder.cs" />
+    <Compile Include="GraphAlgorithms\Bridge\TarjansBridgeFinder.cs" />
+    <Compile Include="GraphAlgorithms\Coloring\MColorer.cs" />
+    <Compile Include="GraphAlgorithms\Connectivity\KosarajuStronglyConnected.cs" />
+    <Compile Include="GraphAlgorithms\Connectivity\TarjansBiConnected.cs" />
+    <Compile Include="GraphAlgorithms\Connectivity\TarjansStronglyConnected.cs" />
+    <Compile Include="GraphAlgorithms\Cover\MinVertexCover.cs" />
+    <Compile Include="GraphAlgorithms\Cut\MinimumCut.cs" />
+    <Compile Include="GraphAlgorithms\Cycle\CycleDetection.cs" />
+    <Compile Include="GraphAlgorithms\Flow\EdmondsKarp.cs" />
+    <Compile Include="GraphAlgorithms\Flow\FordFulkerson.cs" />
+    <Compile Include="GraphAlgorithms\Flow\PushRelabel.cs" />
+    <Compile Include="GraphAlgorithms\Matching\BiPartiteMatching.cs" />
+    <Compile Include="GraphAlgorithms\Matching\HopcroftKarp.cs" />
+    <Compile Include="GraphAlgorithms\MinimumSpanningTree\Kruskals.cs" />
+    <Compile Include="GraphAlgorithms\MinimumSpanningTree\Prims.cs" />
+    <Compile Include="GraphAlgorithms\Search\BiDirectional.cs" />
+    <Compile Include="GraphAlgorithms\Search\BreadthFirst.cs" />
+    <Compile Include="GraphAlgorithms\Search\DepthFirst.cs" />
+    <Compile Include="GraphAlgorithms\ShortestPath\Bellman-Ford.cs" />
+    <Compile Include="GraphAlgorithms\ShortestPath\Dijikstra.cs" />
+    <Compile Include="GraphAlgorithms\ShortestPath\Floyd-Warshall.cs" />
+    <Compile Include="GraphAlgorithms\ShortestPath\Johnsons.cs" />
+    <Compile Include="GraphAlgorithms\ShortestPath\TravellingSalesman.cs" />
+    <Compile Include="GraphAlgorithms\TopologicalSort\DepthFirstTopSort.cs" />
+    <Compile Include="GraphAlgorithms\TopologicalSort\KahnTopSort.cs" />
+    <Compile Include="Miscellaneous\MatrixMultiplication.cs" />
+    <Compile Include="NumericalMethods\Exponentiation.cs" />
+    <Compile Include="NumericalMethods\KthSmallest.cs" />
+    <Compile Include="NumericalMethods\MedianStream.cs" />
+    <Compile Include="NumericalMethods\PrimeGenerator.cs" />
+    <Compile Include="NumericalMethods\PrimeTester.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\BinarySearch.cs" />
+    <Compile Include="Search\SearchAlmostSorted.cs" />
+    <Compile Include="Sorting\BubbleSort.cs" />
+    <Compile Include="Sorting\BucketSort.cs" />
+    <Compile Include="Sorting\CountingSort.cs" />
+    <Compile Include="Sorting\HeapSort.cs" />
+    <Compile Include="Sorting\InsertionSort.cs" />
+    <Compile Include="Sorting\MergeSort.cs" />
+    <Compile Include="Sorting\QuickSort.cs" />
+    <Compile Include="Sorting\RadixSort.cs" />
+    <Compile Include="Sorting\SelectionSort.cs" />
+    <Compile Include="Sorting\ShellSort.cs" />
+    <Compile Include="Sorting\SortAlmostSorted.cs" />
+    <Compile Include="Sorting\TreeSort.cs" />
+    <Compile Include="String\ManachersPalindrome.cs" />
+    <Compile Include="String\Search\KMP.cs" />
+    <Compile Include="String\Search\RabinKarp.cs" />
+    <Compile Include="String\Search\ZAlgorithm.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

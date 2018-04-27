@@ -1,0 +1,2522 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/projects/advanced-algorithms/.build",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.BaseConversion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.BaseConversion.html",
+          "hash": "vtNQQ3TM40keRnX//+FVDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.BitHacks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.BitHacks.html",
+          "hash": "ixEDPfbLm3f5qseEOpRVYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.CalcLogarithm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.CalcLogarithm.html",
+          "hash": "1elQ8iagCeRBjY3W58Gp/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.DivisionModulus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.DivisionModulus.html",
+          "hash": "uKRHqQI+zmcxVuDl/KEfvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.GCD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.GCD.html",
+          "hash": "4Gh3pXB6QmX8+pPHAsIEUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.IntToBinary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.IntToBinary.html",
+          "hash": "ofBtvmAvP3bbcaNFMhDKiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.IsMultipleOfNine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.IsMultipleOfNine.html",
+          "hash": "KwK05yFS+Ig5w3V+NP587A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.IsMultipleOfThree.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.IsMultipleOfThree.html",
+          "hash": "dPNqoJiB2oliWOoRsetvpQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.NextPowOfTwo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.NextPowOfTwo.html",
+          "hash": "XqmLG+CJhENJ2+oaUCuc2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.ToggleCase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.ToggleCase.html",
+          "hash": "Bgg4lR2HhlR1KvVyeZMP5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.BitAlgorithms.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.BitAlgorithms.html",
+          "hash": "t9KkXRvRJqd9G7OUkU1fAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Combinatorics.Combination.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Combinatorics.Combination.html",
+          "hash": "BYzqY7f0UhX1tDyy87ssrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Combinatorics.Permutation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Combinatorics.Permutation.html",
+          "hash": "WKhSzMUWvr9AyQttDZBvCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Combinatorics.Subset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Combinatorics.Subset.html",
+          "hash": "lwU2tvMbgXLF3ubSSnafHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Combinatorics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Combinatorics.html",
+          "hash": "fdGvizqwb9/plIXf8g7qaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Compression.HuffmanCoding-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Compression.HuffmanCoding-1.html",
+          "hash": "+Ki6twAa2kuId8l+di6K7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Compression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Compression.html",
+          "hash": "pmVx42LaDD7WExaXRbhJWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AVLTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AVLTree-1.html",
+          "hash": "Q5QE6jIRShpiotGowEbZcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.ArrayList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.ArrayList-1.html",
+          "hash": "MPs/hUynmnSRtZ75VgcK8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html",
+          "hash": "Gs9YjRh0ClDKvG27hhgrDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsCircularLinkedListEnumerator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsCircularLinkedListEnumerator-1.html",
+          "hash": "WjWzuhsZdwfXLI3up26LcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsDictionary-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsDictionary-2.html",
+          "hash": "ipqHnAu+D/VFQ712x/p/qg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsDoublyLinkedListEnumerator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsDoublyLinkedListEnumerator-1.html",
+          "hash": "/5DIFXgu6kAnXvXwYuVi5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsHashSet-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsHashSet-1.html",
+          "hash": "EFcZ5Zl31stp6GmoLCMALw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsOpenAddressDictionaryEnumerator-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsOpenAddressDictionaryEnumerator-2.html",
+          "hash": "0f8ghXHctK70CXEHh70D8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsOpenAddressHashSetEnumerator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsOpenAddressHashSetEnumerator-1.html",
+          "hash": "sYe66W9UlEsa3nFLqb9iWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsSeparateChainingDictionaryEnumerator-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsSeparateChainingDictionaryEnumerator-2.html",
+          "hash": "28P2IR8Q5wC3WT3VZGM3jw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsSeparateChainingHashSetEnumerator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsSeparateChainingHashSetEnumerator-1.html",
+          "hash": "9eHmeIDYeZnR7/xDjVfpJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsStack-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsStack-1.html",
+          "hash": "TEpyQPs7Sm2iu77IuDX4vw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.AsTreeDictionary-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.AsTreeDictionary-2.html",
+          "hash": "yRcQHXsYMvF8MlaMDurZgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.BST-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.BST-1.html",
+          "hash": "3lcyvSH1aaOmj9VL/dt+7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.BinaryTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.BinaryTree-1.html",
+          "hash": "FpMioWgjtDifcsYgbcn11Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.BinaryTreeNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.BinaryTreeNode-1.html",
+          "hash": "Rnc9DCpvj72u+xJg+UhVPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html",
+          "hash": "fbW3L74oQtbGm5507Bhq2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.CircularLinkedListNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.CircularLinkedListNode-1.html",
+          "hash": "K8UTOU5Er6Wc2O0M1dVXPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.DInterval-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.DInterval-1.html",
+          "hash": "aH03Vcq/mkhHh/tsJhNRuw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.DIntervalTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html",
+          "hash": "Y8XD4CEmXLvU/FTZJvbhjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.DRangeTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.DRangeTree-1.html",
+          "hash": "R8ARZfpzwigMKXIcP9Zm8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.DictionaryNode-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.DictionaryNode-2.html",
+          "hash": "YvleJJokxaHsSG5CFTz+QQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.DictionaryType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.DictionaryType.html",
+          "hash": "BJjudOMEEpqsldXTSY3Mvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.DistributedSystems.CircularQueue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.DistributedSystems.CircularQueue-1.html",
+          "hash": "zcAiHUAA1GxfTStHc1bCsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.DistributedSystems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.DistributedSystems.html",
+          "hash": "xgZFLW9bFElzYHN5d2bzow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html",
+          "hash": "kY3p+ieImRD2QgJRmf+wwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.DoublyLinkedListNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.DoublyLinkedListNode-1.html",
+          "hash": "3RIgNcCQ66f8N88JaeCbdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.FenwickTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.FenwickTree-1.html",
+          "hash": "yn3jB9y8Hb89acrJTYlUUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph-1.html",
+          "hash": "KnLBiINmj2iG1ee1zNvSIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex-1.html",
+          "hash": "/JC349cieY4X0n3PuMaWqA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph-1.html",
+          "hash": "GGzDqbSdKNPM8uHONpjBgw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex-1.html",
+          "hash": "Rx4czzuMMKG6Jpcbvo6UxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html",
+          "hash": "oThLMh1Een0ZbChcNIvHZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex-2.html",
+          "hash": "hrbvlAG2J4GJjuclN3BBQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph-2.html",
+          "hash": "mZEKIndJDKxXzgCxoeOFpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex-2.html",
+          "hash": "dOPqRHNQWy+26C92WCbieA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.html",
+          "hash": "j3y8y4RV3Kc1VbIwQ9A2kQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph-1.html",
+          "hash": "7axZwRyAv4J3QD3aj0cmPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html",
+          "hash": "/6AhTSYbh0TkmppLpEUVHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html",
+          "hash": "0AzCgZEt/SYQ2WGnRW9M0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html",
+          "hash": "sH/wF0ygn+2Lx7rEFW20kg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.html",
+          "hash": "9yPTeLipss7g4fLZnURNYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.HashSetNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.HashSetNode-1.html",
+          "hash": "SWEUVxyflDbmmT1jA8gxJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.HashSetType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.HashSetType.html",
+          "hash": "2LloypE+PyIVv+jQuImt/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.BinomialHeapNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.BinomialHeapNode-1.html",
+          "hash": "aehsyZqSfSwMCnSqNZWR4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.FibornacciHeapNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.FibornacciHeapNode-1.html",
+          "hash": "dZ6m22mkzSUpzo1A6YKRsw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Max.BMaxHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Max.BMaxHeap-1.html",
+          "hash": "xLr+SRfL9p+vNR/9Qh17bg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Max.BinomialMaxHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Max.BinomialMaxHeap-1.html",
+          "hash": "YBR8inNA2AXARIJ5iHcoUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Max.D_aryMaxHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Max.D_aryMaxHeap-1.html",
+          "hash": "M4kIzerDDd3CKYgRlCVWtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Max.FibornacciMaxHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Max.FibornacciMaxHeap-1.html",
+          "hash": "/dZ7zk5a7xwbNOUQ1Eoj9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Max.PairingMaxHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Max.PairingMaxHeap-1.html",
+          "hash": "G3J3+pnAGFSug6f1LphURw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Max.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Max.html",
+          "hash": "eWvWRgmpDdzAzoS80sKwtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Min.BMinHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Min.BMinHeap-1.html",
+          "hash": "J3WBaLubVeDzn8QjRgYB8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Min.BinomialMinHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Min.BinomialMinHeap-1.html",
+          "hash": "HqgcNeHPf89eyPmrR3QPqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Min.D_aryMinHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Min.D_aryMinHeap-1.html",
+          "hash": "FyLlpk5js2gPJNdgMFiTMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Min.FibornacciMinHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Min.FibornacciMinHeap-1.html",
+          "hash": "pYtigVoA/fy4rW4YtAsLuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Min.PairingMinHeap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Min.PairingMinHeap-1.html",
+          "hash": "iMv4DHKVWk3hG1IQiAUb7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.Min.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.Min.html",
+          "hash": "FEaoC/KOZsjEv6pN+2YRsQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.PairingHeapNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.PairingHeapNode-1.html",
+          "hash": "8K84NYw4x9+lbstSugF0fw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Heap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Heap.html",
+          "hash": "TfCIXfdJBdxQweBTh5wRKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.IDistanceCalculator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.IDistanceCalculator-1.html",
+          "hash": "C3+SHTnbkmptSrUzwV5rLA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.KDTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.KDTree-1.html",
+          "hash": "XlzVhWlDlXXHBxZAG+YfZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Queues.AsQueue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Queues.AsQueue-1.html",
+          "hash": "XXOgagcVx6j+szrtoHL/Iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Queues.PriorityQueue.MaxPriorityQueue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Queues.PriorityQueue.MaxPriorityQueue-1.html",
+          "hash": "/dhgopc3wmaq+xhjxPM28g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Queues.PriorityQueue.MinPriorityQueue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Queues.PriorityQueue.MinPriorityQueue-1.html",
+          "hash": "JYxPtTttgsIs2ReumcYBvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Queues.PriorityQueue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Queues.PriorityQueue.html",
+          "hash": "IfgjA6TEz6vmVMfwU/dWpQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Queues.QueueType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Queues.QueueType.html",
+          "hash": "7Ez4pYchFvOIY8cBYPL34A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Queues.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Queues.html",
+          "hash": "KewOM4Zu5ctoDUr4bOL7Pw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.RedBlackTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html",
+          "hash": "0OGgmBXLHpFol9Msvjqh8w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.SegmentTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.SegmentTree-1.html",
+          "hash": "BH62w5nI8ZgcHIdtIJLjPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Set.BloomFilter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Set.BloomFilter-1.html",
+          "hash": "vtiiw/qiQ0PaU+4AbuO8mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Set.DisJointSet-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Set.DisJointSet-1.html",
+          "hash": "B8PtlOpnbETKO8odFD1bBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Set.SparseSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Set.SparseSet.html",
+          "hash": "dPdFmFzhWvTYJi7hU5efcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Set.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Set.html",
+          "hash": "Dp7zag6IuHCcc3RQyDKjZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html",
+          "hash": "K1LXcCsDFekag9JNwa9PeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.SinglyLinkedListNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.SinglyLinkedListNode-1.html",
+          "hash": "CPl5xoDsEB19Mp2dc4w2Iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.SkipList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.SkipList-1.html",
+          "hash": "9vGy14MRzrsCwAYagVgAYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.SplayTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.SplayTree-1.html",
+          "hash": "R5WRuqbQ5jO0gnZnIaIP0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.StackType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.StackType.html",
+          "hash": "YssbdUStBxCuCpw8ZLIa+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.SuffixTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.SuffixTree-1.html",
+          "hash": "UfBmoSgxyv1XHzwfbmd48g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html",
+          "hash": "eXC2IY+oM5beL8ThQND/xA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.TreapTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.TreapTree-1.html",
+          "hash": "Auq3v3i0qnBEjWrdGTbh0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Tree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Tree-1.html",
+          "hash": "Pfs0DChxFQc8wTC1mh65SQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Tree.BPTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Tree.BPTree-1.html",
+          "hash": "VHASrdgjHH+ZGnjS2DCGLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html",
+          "hash": "lqkWCa7BEUZnjZ1622/cTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Tree.BTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Tree.BTree-1.html",
+          "hash": "k9Cixtys8EgBSVeJcRsDNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Tree.ExpressionTree-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Tree.ExpressionTree-1.html",
+          "hash": "lZvzeTbUfNyuEZz5yp0Agg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Tree.IBSTNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Tree.IBSTNode-1.html",
+          "hash": "BovlhCFaYtFq7KKkfqn4cw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Tree.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Tree.html",
+          "hash": "EP9ZM3RD3kstWtCGgZDCBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.TreeDictionaryNode-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.TreeDictionaryNode-2.html",
+          "hash": "zbzSoPF5f52JtRisgz6oqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.TreeHashSet-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.TreeHashSet-1.html",
+          "hash": "r8qDh2hU6XzIwxdOYUt4Tg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.TreeNode-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.TreeNode-1.html",
+          "hash": "NFwfepJC0hSfCEleq0XYBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.Trie-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.Trie-1.html",
+          "hash": "YkmoziPfzo2q7yYIkHOirA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DataStructures.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DataStructures.html",
+          "hash": "RkTP95NFsfGW2a5Anq6+PA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DistributedSystems.ConsistentHash-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DistributedSystems.ConsistentHash-1.html",
+          "hash": "S17VilV95OMQgozJ68JFaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DistributedSystems.LRUCache-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DistributedSystems.LRUCache-2.html",
+          "hash": "Rt/HZchjo2rEs7a5UrkoWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.DistributedSystems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.DistributedSystems.html",
+          "hash": "pXXVileKrLCsqJikjOBZrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.ClosestPointPair.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.ClosestPointPair.html",
+          "hash": "kWoBdPj5Say+whK3NYnvPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.ConvexHull.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.ConvexHull.html",
+          "hash": "dlr9KDaL2Dq5RE+At4meCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.Line.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.Line.html",
+          "hash": "rwP+VmzxvceGssMuTJMo7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.LineIntersection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.LineIntersection.html",
+          "hash": "7H4qtnH9tnn2bV0r7VDJhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.Point.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.Point.html",
+          "hash": "+vqIkXFWXj/lsCcamHyQWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.PointInsidePolygon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.PointInsidePolygon.html",
+          "hash": "rAveLq34kPiy33GBJtAJbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.PointRotation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.PointRotation.html",
+          "hash": "i+7VU6foin1/eq3Ys7luxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.Rectangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.Rectangle.html",
+          "hash": "rRv56uRsciY0atXCKQWvxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.RectangleIntersection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.RectangleIntersection.html",
+          "hash": "o1oYgZ1MrtDE9Igfw9pEZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Geometry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Geometry.html",
+          "hash": "Tn0t/st+xHLJ8hffb1dA9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.ArticulationPoint.TarjansArticulationFinder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.ArticulationPoint.TarjansArticulationFinder-1.html",
+          "hash": "eFq1l1p9NmEH2Afk9S8i0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.ArticulationPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.ArticulationPoint.html",
+          "hash": "GJA4wGu4wMU6rui3CJvBnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.BellmanFordShortestPath-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.BellmanFordShortestPath-2.html",
+          "hash": "wjG9lFEHAwgv6dcy2eGxSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Bridge.Bridge-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Bridge.Bridge-1.html",
+          "hash": "vF+np/aUNcP4CydO7Wpi2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Bridge.TarjansBridgeFinder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Bridge.TarjansBridgeFinder-1.html",
+          "hash": "q12Jn6my6LvlZ7Yy89qtqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Bridge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Bridge.html",
+          "hash": "YGSnxlRM4kMS/PC9OteWkA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Coloring.MColorResult-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Coloring.MColorResult-2.html",
+          "hash": "H3f4cINI2liEGRfpI7bQmw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Coloring.MColorer-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Coloring.MColorer-2.html",
+          "hash": "W3L4lbrlkL+JxrxsCmbfDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Coloring.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Coloring.html",
+          "hash": "SIG3ksilZ9e3lMXrgFhe/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Connectivity.KosarajuStronglyConnected-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Connectivity.KosarajuStronglyConnected-1.html",
+          "hash": "+t/sBprvnMvIo69FghlJbw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Connectivity.TarjansBiConnected-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Connectivity.TarjansBiConnected-1.html",
+          "hash": "uMEfmsGDNJ/hF8xiMTG+Pw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Connectivity.TarjansStronglyConnected-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Connectivity.TarjansStronglyConnected-1.html",
+          "hash": "wu2f/xZqnfhpbGonUsacbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Connectivity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Connectivity.html",
+          "hash": "gRJXeUY41q9iXTMAe6+pZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Cover.MinVertexCover-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Cover.MinVertexCover-1.html",
+          "hash": "iXZn+jx8/8yz6cadh5Y0aw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Cover.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Cover.html",
+          "hash": "Dhu9If/+n4qXHhDmcZae/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Cut.MinCut-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Cut.MinCut-2.html",
+          "hash": "Co06DRGFzzvzFKo3wqIbzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Cut.MinCutEdge-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Cut.MinCutEdge-1.html",
+          "hash": "bHXmakfSAAv4o9th4JpL4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Cut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Cut.html",
+          "hash": "TnEpVcJLItgKtFxK+m0awg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Cycle.CycleDetector-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Cycle.CycleDetector-1.html",
+          "hash": "itgu+K+ECzXojzTvL3GGhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Cycle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Cycle.html",
+          "hash": "d2LPXDCGsfG6Z/80f32i+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.DijikstraShortestPath-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.DijikstraShortestPath-2.html",
+          "hash": "hiTOslygAzFsipANHm6f+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow-2.html",
+          "hash": "Cf2pvTDGxKaFH328j7OiRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Flow.FordFulkersonMaxFlow-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Flow.FordFulkersonMaxFlow-2.html",
+          "hash": "CBb3zhSQG0TThAuW7IucgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Flow.IFlowOperators-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Flow.IFlowOperators-1.html",
+          "hash": "v9N7goRnwpyldcRptuorWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow-2.html",
+          "hash": "TQwTLsMXPTccDBK2yqbf6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Flow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Flow.html",
+          "hash": "VsGlCRY7FLSXM7s1J/36TA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.IShortestPathOperators-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.IShortestPathOperators-1.html",
+          "hash": "QQ7V3aZk1umcI49X4xq8DA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Matching.BiPartiteMatching-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Matching.BiPartiteMatching-1.html",
+          "hash": "6Cuhj6iWxkhbxIrFomIy/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Matching.HopcroftKarpMatching-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Matching.HopcroftKarpMatching-1.html",
+          "hash": "HU8r/y4Ernr4i8Rk8Sa3rQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Matching.IBiPartiteMatchOperators-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Matching.IBiPartiteMatchOperators-1.html",
+          "hash": "BHfGtdcF5hEBhurJqUyINQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Matching.MatchEdge-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Matching.MatchEdge-1.html",
+          "hash": "y1QVSO53sWl2oRP1kuc9Fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Matching.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Matching.html",
+          "hash": "QOxrzdcgSCm1Pcg2jFzkdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals-2.html",
+          "hash": "zF0eNtkMPHvEcPY/rJmBeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.MSTEdge-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.MSTEdge-2.html",
+          "hash": "6BzwA0/J3ipOJQK4ZJXtAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Prims-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Prims-2.html",
+          "hash": "/nBaIvFqe3Ed7XDWwjrTZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.html",
+          "hash": "eP6RY58jIJcoAXwbNDYeDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Search.BiDirectional-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Search.BiDirectional-1.html",
+          "hash": "xlEG6liEvAcUAKuPnX6BVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Search.BreadthFirst-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Search.BreadthFirst-1.html",
+          "hash": "u6H8rWHG7Ph3kbMi34LYjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Search.DepthFirst-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Search.DepthFirst-1.html",
+          "hash": "x5ZBsszoNhAghirtxtUjig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.Search.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.Search.html",
+          "hash": "CCKwEmy59+NU3SNY1h30/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.AllPairShortestPathResult-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.AllPairShortestPathResult-2.html",
+          "hash": "i4oH2oQTRMxCK6Z7ZsiCAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.FloydWarshallShortestPath-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.FloydWarshallShortestPath-2.html",
+          "hash": "osd24GdITTYGrDvgHLEg7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.IJohnsonsShortestPathOperators-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.IJohnsonsShortestPathOperators-2.html",
+          "hash": "AjIRj27J+mLB5wB20egzTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.JohnsonsShortestPath-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.JohnsonsShortestPath-2.html",
+          "hash": "wzvoxWgzz2UmoIQW//HK4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.ShortestPath.html",
+          "hash": "CNdQYEPhtyuHdV87fa67zA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.ShortestPathResult-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.ShortestPathResult-2.html",
+          "hash": "wdZ9+ouqoDzgbn6PYLEw7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.TopologicalSort.DepthFirstTopSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.TopologicalSort.DepthFirstTopSort-1.html",
+          "hash": "p7iaYnkxqEreMQ7gly6RPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.TopologicalSort.KahnsTopSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.TopologicalSort.KahnsTopSort-1.html",
+          "hash": "bCQKz3jCu9W0LZ/bgkMIIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.TopologicalSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.TopologicalSort.html",
+          "hash": "Is7Atjg3Rlcej+NI7tQDpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.html",
+          "hash": "dJ60PV0JqsVVw+qRvt71KA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.GraphAlgorithms.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.GraphAlgorithms.html",
+          "hash": "56zkgx92xRR7Ee9wB5CWKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Miscellaneous.MatrixMultiplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Miscellaneous.MatrixMultiplication.html",
+          "hash": "w0195dp5dPErppzjmfB/pw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Miscellaneous.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Miscellaneous.html",
+          "hash": "2h3K8sHi7IRewAXezGcNQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.NumericalMethods.FastExponentiation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.NumericalMethods.FastExponentiation.html",
+          "hash": "l0ERIqLRdZa5885h+eKI+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.NumericalMethods.KthSmallest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.NumericalMethods.KthSmallest-1.html",
+          "hash": "PJOnPgnQX6FH2Swy4RPACA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.NumericalMethods.MedianStream.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.NumericalMethods.MedianStream.html",
+          "hash": "G7utEg+/NmTW9C6O4pd2LA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.NumericalMethods.PrimeGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.NumericalMethods.PrimeGenerator.html",
+          "hash": "t7s6RmysQgEg8QeLxEXEoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.NumericalMethods.PrimeTester.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.NumericalMethods.PrimeTester.html",
+          "hash": "0TzoxyUgY79lUDovsAOHbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.NumericalMethods.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.NumericalMethods.html",
+          "hash": "93zsJkz8T99xGadGBoDRPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Search.BinarySearch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Search.BinarySearch.html",
+          "hash": "lWXXw638AvcdYVlXS38+Xg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Search.SearchAlmostSorted.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Search.SearchAlmostSorted.html",
+          "hash": "GeaOERROSA+QgAQzbBOtoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Search.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Search.html",
+          "hash": "Qt2jg5f1Ay9B7Pp3aPA+ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.BubbleSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.BubbleSort-1.html",
+          "hash": "Ie3n73zwB+/CUC/GtlbVvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.BucketSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.BucketSort.html",
+          "hash": "JvXjwu+Wm8FbJaeBNw0LAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.CountingSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.CountingSort.html",
+          "hash": "hoEoN9vqJEu/wFsCuzjxmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.HeapSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.HeapSort-1.html",
+          "hash": "htH38X6PvfaCl4juXRtUeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.InsertionSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.InsertionSort-1.html",
+          "hash": "1e+kzZEi7kqjXJ50htq8HA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.MergeSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.MergeSort-1.html",
+          "hash": "0/FKi7eWc8cNEJIcbTbmjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.QuickSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.QuickSort-1.html",
+          "hash": "j5E20foQUI+s4XEID9Nq8w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.RadixSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.RadixSort.html",
+          "hash": "Zwau7jd30HuZfAv1VKTmKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.SelectionSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.SelectionSort-1.html",
+          "hash": "cr64gZ3FJEdWgBdR04sCuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.ShellSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.ShellSort-1.html",
+          "hash": "8hCaUnRxRzY9QLrCZdTUyg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.SortAlmostSorted.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.SortAlmostSorted.html",
+          "hash": "m85C1TpxnxP+fDCSJNxghQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.TreeSort-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.TreeSort-1.html",
+          "hash": "6qEjULZMGge/IJQ0c+HGXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.Sorting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.Sorting.html",
+          "hash": "Zf/aIzBaXCa+NONc4JMtYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.String.ManachersPalindrome.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.String.ManachersPalindrome.html",
+          "hash": "jE3vRDqN0YNwZ8RrZgZ+og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.String.Search.KMP.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.String.Search.KMP.html",
+          "hash": "zMyyupK/xkeIRc5aD1NZKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.String.Search.RabinKarp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.String.Search.RabinKarp.html",
+          "hash": "01VMgABcXHwHoeCaSmWPJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.String.Search.ZAlgorithm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.String.Search.ZAlgorithm.html",
+          "hash": "9/VskDg85Vstn+JcUTGsAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.String.Search.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.String.Search.html",
+          "hash": "x2+qGcsAyq7Ee5bnFNdsBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Advanced.Algorithms.String.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Advanced.Algorithms.String.html",
+          "hash": "Wx5Wpx+o1KD9FdJFKnH1sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "U7gN8CC4K2h54aUQbKunCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
