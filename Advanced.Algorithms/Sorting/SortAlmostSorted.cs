@@ -5,10 +5,7 @@ using Advanced.Algorithms.DataStructures.Heap.Min;
 
 namespace Advanced.Algorithms.Sorting
 {
-    /// <summary>
-    /// Problem statement below
-    /// http://www.geeksforgeeks.org/nearly-sorted-algorithm/
-    /// </summary>
+
     public class SortAlmostSorted
     {
         /// <summary>

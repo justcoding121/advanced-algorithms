@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Tests.BitAlgorithms
 {
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/divisibility-9-using-bitwise-operators/
-    /// </summary>
+
     [TestClass]
     public class IsMultipleOfNine_Tests
     {

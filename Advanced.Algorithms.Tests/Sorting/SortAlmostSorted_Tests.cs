@@ -3,10 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Sorting
 {
-    /// <summary>
-    /// Problem statement below
-    /// http://www.geeksforgeeks.org/nearly-sorted-algorithm/
-    /// </summary>
+
     [TestClass]
     public class SortAlmostSorted_Tests
     {

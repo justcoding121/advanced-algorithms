@@ -3,10 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Search
 {
-    /// <summary>
-    /// Problem statement below
-    /// http://www.geeksforgeeks.org/search-almost-sorted-array/
-    /// </summary>
+
     [TestClass]
     public class SearchAlmostSorted_Tests
     {

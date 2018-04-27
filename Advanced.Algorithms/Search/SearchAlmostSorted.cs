@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Search
 {
-    /// <summary>
-    /// Problem statement below
-    /// http://www.geeksforgeeks.org/search-almost-sorted-array/
-    /// </summary>
+
     public class SearchAlmostSorted
     {
         public static int Search(int[] input, int element)

@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.BitAlgorithms
 {
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/divisibility-9-using-bitwise-operators/
-    /// </summary>
+
     public class IsMultipleOfNine
     {
         //Any number N can be expressed as some multiple of 8 and remainder

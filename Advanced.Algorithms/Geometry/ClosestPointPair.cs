@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Geometry
 {
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/closest-pair-of-points/
-    /// </summary>
+
     public class ClosestPointPair
     {
         public static double Find(List<int[]> points)

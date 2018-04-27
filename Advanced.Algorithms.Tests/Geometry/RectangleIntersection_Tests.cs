@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Tests.Geometry
 {
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/find-two-rectangles-overlap/
-    /// </summary>
+
     [TestClass]
     public class RectangleIntersection_Tests
     {

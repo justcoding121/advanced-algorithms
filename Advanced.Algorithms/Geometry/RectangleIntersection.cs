@@ -12,10 +12,7 @@ namespace Advanced.Algorithms.Geometry
         public Point leftTopCorner { get; set; }
         public Point rightBottomCorner { get; set; }
     }
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/find-two-rectangles-overlap/
-    /// </summary>
+
     public class RectangleIntersection
     {
         /// <summary>

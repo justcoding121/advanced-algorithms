@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Tests.BitAlgorithms
 {
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/smallest-power-of-2-greater-than-or-equal-to-n/
-    /// </summary>
+
     [TestClass]
     public class NextPowOfTwo_Tests
     {
