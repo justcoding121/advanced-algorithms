@@ -27,7 +27,7 @@
   "api/Advanced.Algorithms.BitAlgorithms.html": {
     "href": "api/Advanced.Algorithms.BitAlgorithms.html",
     "title": "Namespace Advanced.Algorithms.BitAlgorithms | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.BitAlgorithms Classes BaseConversion BitHacks CalcLogarithm DivisionModulus Compute modulus division by power of 2 without a division operator. GCD IntToBinary IsMultipleOfNine Problem details below http://www.geeksforgeeks.org/divisibility-9-using-bitwise-operators/ IsMultipleOfThree Problem details below http://www.geeksforgeeks.org/write-an-efficient-method-to-check-if-a-number-is-multiple-of-3/ NextPowOfTwo Problem details below http://www.geeksforgeeks.org/smallest-power-of-2-greater-than-or-equal-to-n/ ToggleCase"
+    "keywords": "Namespace Advanced.Algorithms.BitAlgorithms Classes BaseConversion BitHacks CalcLogarithm DivisionModulus Compute modulus division by power of 2 without a division operator. GCD IntToBinary IsMultipleOfNine IsMultipleOfThree NextPowOfTwo ToggleCase"
   },
   "api/Advanced.Algorithms.BitAlgorithms.IntToBinary.html": {
     "href": "api/Advanced.Algorithms.BitAlgorithms.IntToBinary.html",
@@ -37,17 +37,17 @@
   "api/Advanced.Algorithms.BitAlgorithms.IsMultipleOfNine.html": {
     "href": "api/Advanced.Algorithms.BitAlgorithms.IsMultipleOfNine.html",
     "title": "Class IsMultipleOfNine | Advanced Algorithms",
-    "keywords": "Class IsMultipleOfNine Problem details below http://www.geeksforgeeks.org/divisibility-9-using-bitwise-operators/ Inheritance Object IsMultipleOfNine Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.BitAlgorithms Assembly : Advanced.Algorithms.dll Syntax public class IsMultipleOfNine Methods IsTrue(Int32) Declaration public static bool IsTrue(int x) Parameters Type Name Description Int32 x Returns Type Description Boolean"
+    "keywords": "Class IsMultipleOfNine Inheritance Object IsMultipleOfNine Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.BitAlgorithms Assembly : Advanced.Algorithms.dll Syntax public class IsMultipleOfNine Methods IsTrue(Int32) Declaration public static bool IsTrue(int x) Parameters Type Name Description Int32 x Returns Type Description Boolean"
   },
   "api/Advanced.Algorithms.BitAlgorithms.IsMultipleOfThree.html": {
     "href": "api/Advanced.Algorithms.BitAlgorithms.IsMultipleOfThree.html",
     "title": "Class IsMultipleOfThree | Advanced Algorithms",
-    "keywords": "Class IsMultipleOfThree Problem details below http://www.geeksforgeeks.org/write-an-efficient-method-to-check-if-a-number-is-multiple-of-3/ Inheritance Object IsMultipleOfThree Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.BitAlgorithms Assembly : Advanced.Algorithms.dll Syntax public class IsMultipleOfThree Methods IsTrue(Int32) Based on the observation that a number is multiple of 3 if difference of odd and even set bits in binary form of the number is also a multiple of 3. Declaration public static bool IsTrue(int v) Parameters Type Name Description Int32 v Returns Type Description Boolean"
+    "keywords": "Class IsMultipleOfThree Inheritance Object IsMultipleOfThree Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.BitAlgorithms Assembly : Advanced.Algorithms.dll Syntax public class IsMultipleOfThree Methods IsTrue(Int32) Based on the observation that a number is multiple of 3 if difference of odd and even set bits in binary form of the number is also a multiple of 3. Declaration public static bool IsTrue(int v) Parameters Type Name Description Int32 v Returns Type Description Boolean"
   },
   "api/Advanced.Algorithms.BitAlgorithms.NextPowOfTwo.html": {
     "href": "api/Advanced.Algorithms.BitAlgorithms.NextPowOfTwo.html",
     "title": "Class NextPowOfTwo | Advanced Algorithms",
-    "keywords": "Class NextPowOfTwo Problem details below http://www.geeksforgeeks.org/smallest-power-of-2-greater-than-or-equal-to-n/ Inheritance Object NextPowOfTwo Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.BitAlgorithms Assembly : Advanced.Algorithms.dll Syntax public class NextPowOfTwo"
+    "keywords": "Class NextPowOfTwo Inheritance Object NextPowOfTwo Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.BitAlgorithms Assembly : Advanced.Algorithms.dll Syntax public class NextPowOfTwo"
   },
   "api/Advanced.Algorithms.BitAlgorithms.ToggleCase.html": {
     "href": "api/Advanced.Algorithms.BitAlgorithms.ToggleCase.html",
@@ -572,7 +572,7 @@
   "api/Advanced.Algorithms.Geometry.ClosestPointPair.html": {
     "href": "api/Advanced.Algorithms.Geometry.ClosestPointPair.html",
     "title": "Class ClosestPointPair | Advanced Algorithms",
-    "keywords": "Class ClosestPointPair Problem details below http://www.geeksforgeeks.org/closest-pair-of-points/ Inheritance Object ClosestPointPair Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class ClosestPointPair Methods Find(List<Point>, Int32, Int32) Declaration public static double Find(List<Point> points, int left, int right) Parameters Type Name Description List < Point > points Int32 left Int32 right Returns Type Description Double Find(List<Int32[]>) Declaration public static double Find(List<int[]> points) Parameters Type Name Description List < Int32 []> points Returns Type Description Double"
+    "keywords": "Class ClosestPointPair Inheritance Object ClosestPointPair Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class ClosestPointPair Methods Find(List<Point>, Int32, Int32) Declaration public static double Find(List<Point> points, int left, int right) Parameters Type Name Description List < Point > points Int32 left Int32 right Returns Type Description Double Find(List<Int32[]>) Declaration public static double Find(List<int[]> points) Parameters Type Name Description List < Int32 []> points Returns Type Description Double"
   },
   "api/Advanced.Algorithms.Geometry.ConvexHull.html": {
     "href": "api/Advanced.Algorithms.Geometry.ConvexHull.html",
@@ -582,7 +582,7 @@
   "api/Advanced.Algorithms.Geometry.html": {
     "href": "api/Advanced.Algorithms.Geometry.html",
     "title": "Namespace Advanced.Algorithms.Geometry | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Geometry Classes ClosestPointPair Problem details below http://www.geeksforgeeks.org/closest-pair-of-points/ ConvexHull Convex hull using jarvis's algorithm LineIntersection PointInsidePolygon Problem details below http://www.geeksforgeeks.org/how-to-check-if-a-given-point-lies-inside-a-polygon/ PointRotation RectangleIntersection Problem details below http://www.geeksforgeeks.org/find-two-rectangles-overlap/ Structs Line Point Rectangle"
+    "keywords": "Namespace Advanced.Algorithms.Geometry Classes ClosestPointPair ConvexHull Convex hull using jarvis's algorithm LineIntersection PointInsidePolygon PointRotation RectangleIntersection Structs Line Point Rectangle"
   },
   "api/Advanced.Algorithms.Geometry.Line.html": {
     "href": "api/Advanced.Algorithms.Geometry.Line.html",
@@ -602,7 +602,7 @@
   "api/Advanced.Algorithms.Geometry.PointInsidePolygon.html": {
     "href": "api/Advanced.Algorithms.Geometry.PointInsidePolygon.html",
     "title": "Class PointInsidePolygon | Advanced Algorithms",
-    "keywords": "Class PointInsidePolygon Problem details below http://www.geeksforgeeks.org/how-to-check-if-a-given-point-lies-inside-a-polygon/ Inheritance Object PointInsidePolygon Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class PointInsidePolygon Methods IsInside(List<Int32[]>, Int32[]) Declaration public static bool IsInside(List<int[]> polygonEdgePoints, int[] testPoint) Parameters Type Name Description List < Int32 []> polygonEdgePoints Int32 [] testPoint Returns Type Description Boolean"
+    "keywords": "Class PointInsidePolygon Inheritance Object PointInsidePolygon Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class PointInsidePolygon Methods IsInside(List<Int32[]>, Int32[]) Declaration public static bool IsInside(List<int[]> polygonEdgePoints, int[] testPoint) Parameters Type Name Description List < Int32 []> polygonEdgePoints Int32 [] testPoint Returns Type Description Boolean"
   },
   "api/Advanced.Algorithms.Geometry.PointRotation.html": {
     "href": "api/Advanced.Algorithms.Geometry.PointRotation.html",
@@ -617,7 +617,7 @@
   "api/Advanced.Algorithms.Geometry.RectangleIntersection.html": {
     "href": "api/Advanced.Algorithms.Geometry.RectangleIntersection.html",
     "title": "Class RectangleIntersection | Advanced Algorithms",
-    "keywords": "Class RectangleIntersection Problem details below http://www.geeksforgeeks.org/find-two-rectangles-overlap/ Inheritance Object RectangleIntersection Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class RectangleIntersection Methods FindIntersection(Rectangle, Rectangle) Returns the rectangle formed by the intersection if do intersect Otherwise default value of Rectangle struct Declaration public static Rectangle FindIntersection(Rectangle A, Rectangle B) Parameters Type Name Description Rectangle A Rectangle B Returns Type Description Rectangle"
+    "keywords": "Class RectangleIntersection Inheritance Object RectangleIntersection Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class RectangleIntersection Methods FindIntersection(Rectangle, Rectangle) Returns the rectangle formed by the intersection if do intersect Otherwise default value of Rectangle struct Declaration public static Rectangle FindIntersection(Rectangle A, Rectangle B) Parameters Type Name Description Rectangle A Rectangle B Returns Type Description Rectangle"
   },
   "api/Advanced.Algorithms.GraphAlgorithms.ArticulationPoint.html": {
     "href": "api/Advanced.Algorithms.GraphAlgorithms.ArticulationPoint.html",
@@ -922,12 +922,12 @@
   "api/Advanced.Algorithms.Search.html": {
     "href": "api/Advanced.Algorithms.Search.html",
     "title": "Namespace Advanced.Algorithms.Search | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Search Classes BinarySearch SearchAlmostSorted Problem statement below http://www.geeksforgeeks.org/search-almost-sorted-array/"
+    "keywords": "Namespace Advanced.Algorithms.Search Classes BinarySearch SearchAlmostSorted"
   },
   "api/Advanced.Algorithms.Search.SearchAlmostSorted.html": {
     "href": "api/Advanced.Algorithms.Search.SearchAlmostSorted.html",
     "title": "Class SearchAlmostSorted | Advanced Algorithms",
-    "keywords": "Class SearchAlmostSorted Problem statement below http://www.geeksforgeeks.org/search-almost-sorted-array/ Inheritance Object SearchAlmostSorted Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Search Assembly : Advanced.Algorithms.dll Syntax public class SearchAlmostSorted Methods Search(Int32[], Int32) Declaration public static int Search(int[] input, int element) Parameters Type Name Description Int32 [] input Int32 element Returns Type Description Int32"
+    "keywords": "Class SearchAlmostSorted Inheritance Object SearchAlmostSorted Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Search Assembly : Advanced.Algorithms.dll Syntax public class SearchAlmostSorted Methods Search(Int32[], Int32) Declaration public static int Search(int[] input, int element) Parameters Type Name Description Int32 [] input Int32 element Returns Type Description Int32"
   },
   "api/Advanced.Algorithms.Sorting.BubbleSort-1.html": {
     "href": "api/Advanced.Algorithms.Sorting.BubbleSort-1.html",
@@ -952,7 +952,7 @@
   "api/Advanced.Algorithms.Sorting.html": {
     "href": "api/Advanced.Algorithms.Sorting.html",
     "title": "Namespace Advanced.Algorithms.Sorting | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Sorting Classes BubbleSort<T> BucketSort A bucket sort implementation CountingSort A counting sort implementation HeapSort<T> InsertionSort<T> MergeSort<T> QuickSort<T> RadixSort A radix sort implementation SelectionSort<T> ShellSort<T> A shell sort implementation SortAlmostSorted Problem statement below http://www.geeksforgeeks.org/nearly-sorted-algorithm/ TreeSort<T>"
+    "keywords": "Namespace Advanced.Algorithms.Sorting Classes BubbleSort<T> BucketSort A bucket sort implementation CountingSort A counting sort implementation HeapSort<T> InsertionSort<T> MergeSort<T> QuickSort<T> RadixSort A radix sort implementation SelectionSort<T> ShellSort<T> A shell sort implementation SortAlmostSorted TreeSort<T>"
   },
   "api/Advanced.Algorithms.Sorting.InsertionSort-1.html": {
     "href": "api/Advanced.Algorithms.Sorting.InsertionSort-1.html",
@@ -987,7 +987,7 @@
   "api/Advanced.Algorithms.Sorting.SortAlmostSorted.html": {
     "href": "api/Advanced.Algorithms.Sorting.SortAlmostSorted.html",
     "title": "Class SortAlmostSorted | Advanced Algorithms",
-    "keywords": "Class SortAlmostSorted Problem statement below http://www.geeksforgeeks.org/nearly-sorted-algorithm/ Inheritance Object SortAlmostSorted Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Sorting Assembly : Advanced.Algorithms.dll Syntax public class SortAlmostSorted Methods Sort(Int32[], Int32) Sort the given input where elements are misplaced almost by a distance k Declaration public static int[] Sort(int[] input, int k) Parameters Type Name Description Int32 [] input Int32 k Returns Type Description Int32 []"
+    "keywords": "Class SortAlmostSorted Inheritance Object SortAlmostSorted Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Sorting Assembly : Advanced.Algorithms.dll Syntax public class SortAlmostSorted Methods Sort(Int32[], Int32) Sort the given input where elements are misplaced almost by a distance k Declaration public static int[] Sort(int[] input, int k) Parameters Type Name Description Int32 [] input Int32 k Returns Type Description Int32 []"
   },
   "api/Advanced.Algorithms.Sorting.TreeSort-1.html": {
     "href": "api/Advanced.Algorithms.Sorting.TreeSort-1.html",
