@@ -222,12 +222,11 @@ namespace Advanced.Algorithms.DataStructures
         internal List<RangeTreeNode<T>> GetInRange(T start, T end)
         {
             return GetInRange(new List<RangeTreeNode<T>>(),
-                new Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool>(),
+                new System.Collections.Generic.Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool>(),
                 tree.Root, start, end);
         }
 
-        private List<RangeTreeNode<T>> GetInRange(List<RangeTreeNode<T>> result,
-            Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool> visited,
+        private List<RangeTreeNode<T>> GetInRange(List<RangeTreeNode<T>> result, System.Collections.Generic.Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool> visited,
             RedBlackTreeNode<RangeTreeNode<T>> currentNode,
             T start, T end)
         {

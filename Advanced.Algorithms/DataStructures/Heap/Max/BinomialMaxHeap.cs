@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Heap.Max
 {
@@ -41,11 +40,9 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
             {
                 return;
             }
-                
 
-            int i = 0;
             var cur = heapForest.Head;
-            var next = heapForest.Head.Next != null ? heapForest.Head.Next : null;
+            var next = heapForest.Head.Next;
 
             //TODO
             while (next != null)
@@ -55,20 +52,8 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
                 //we are good to move ahead
                 if (cur.Data.Degree != next.Data.Degree)
                 {
-                    i++;
-
                     cur = next;
-
-                    if (cur.Next != null)
-                    {
-                        next = cur.Next;
-                    }
-                    else
-                    {
-                        next = null;
-                    }
-
-                    continue;
+                    next = cur.Next;
                 }
                 //degress of cur & next are same
                 else
@@ -77,7 +62,6 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
                     if (next.Next != null &&
                         cur.Data.Degree == next.Next.Data.Degree)
                     {
-                        i++;
                         cur = next;
                         next = cur.Next;
                         continue;
@@ -91,40 +75,25 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
                         next.Data.Parent = cur.Data;
                         heapForest.Delete(next);
 
-                        if (cur.Next != null)
-                        {
-                            next = cur.Next;
-                        }
-                        else
-                        {
-                            next = null;
-                        }
+                        next = cur.Next;
 
                         continue;
                     }
 
                     //case 4 cur value is greater than next
-                    if (cur.Data.Value.CompareTo(next.Data.Value) < 0)
+                    if (cur.Data.Value.CompareTo(next.Data.Value) >= 0)
                     {
-                        //add current as child of next
-                        next.Data.Children.Add(cur.Data);
-                        cur.Data.Parent = next.Data;
-
-                        heapForest.Delete(cur);
-
-                        cur = next;
-
-                        if (cur.Next != null)
-                        {
-                            next = cur.Next;
-                        }
-                        else
-                        {
-                            next = null;
-                        }
-
                         continue;
                     }
+
+                    //add current as child of next
+                    next.Data.Children.Add(cur.Data);
+                    cur.Data.Parent = next.Data;
+
+                    heapForest.Delete(cur);
+
+                    cur = next;
+                    next = cur.Next;
 
                 }
 
@@ -159,10 +128,10 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
 
             var newHeapForest = new DoublyLinkedList<BinomialHeapNode<T>>();
             //add removed roots children as new trees to forest
-            for (int i = 0; i < maxTree.Data.Children.Count; i++)
+            foreach (var node in maxTree.Data.Children)
             {
-                maxTree.Data.Children[i].Parent = null;
-                newHeapForest.InsertLast(maxTree.Data.Children[i]);
+                node.Parent = null;
+                newHeapForest.InsertLast(node);
             }
 
             MergeSortedForests(newHeapForest);
@@ -178,7 +147,6 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         /// Update the Heap with new value for this node pointer
         /// O(log(n)) complexity
         /// </summary>
-        /// <param name="key"></param>
         public void IncrementKey(BinomialHeapNode<T> node)
         {
             var current = node;

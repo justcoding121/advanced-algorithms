@@ -11,7 +11,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         /// Checks if given number is even
         /// </summary>
-        /// <param name="number"></param>
         /// <returns></returns>
         public static bool IsEven(int x)
         {
@@ -21,7 +20,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         /// Checks if given number is a power of 2
         /// </summary>
-        /// <param name="number"></param>
         /// <returns></returns>
         public static bool IsPowerOf2(int x)
         {
@@ -36,7 +34,7 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <returns></returns>
         public static bool HasOppositeSigns(int x, int y)
         {
-            var mask = 1 << 31;
+            const int mask = 1 << 31;
 
             return ((x & mask) == 0 && (y & mask) != 0)
                  || ((x & mask) != 0 && (y & mask) == 0);
@@ -45,7 +43,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         /// Checks if nth bit from right is set, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
         public static bool IsSet(int x, int n)
@@ -57,7 +54,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         /// Sets nth bit from right, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
         public static int SetBit(int x, int n)
@@ -70,7 +66,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         /// Unsets nth bit from right, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
         public static int UnsetBit(int x, int n)
@@ -82,7 +77,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         /// Toggles nth bit from right, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <param name="n"></param>
         /// <returns></returns>
         public static int ToggleBit(int x, int n)
@@ -93,7 +87,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         ///  Turns On first Unset bit from right, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <returns></returns>
         public static int TurnOnBitAfterRightmostSetBit(int x)
         {
@@ -107,7 +100,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         /// Turns Off first set bit from right, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <returns></returns>
         public static int TurnOffRightmostSetBit(int x)
         {
@@ -121,7 +113,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         /// Gets the first right most sub bits starting with a set bit, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <returns></returns>
         public static int GetRightmostSubBitsStartingWithASetBit(int x)
         {
@@ -136,7 +127,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         ///  Gets the first right most sub bits starting with a Unset bit, with rightmost being 0th bit
         ///  eg. 1011 => 0011
         /// </summary>
-        /// <param name="number"></param>
         /// <returns></returns>
         public static int GetRightmostSubBitsStartingWithAnUnsetBit(int x)
         {
@@ -177,7 +167,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         ///  Sets all the first right most sub bits starting with a set bit, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <returns></returns>
         public static int RightPropogateRightmostSetBit(int x)
         {
@@ -191,7 +180,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary>
         ///  UnSets all the first right most sub bits starting with a unset bit, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <returns></returns>
         public static int RightPropogateRightmostUnsetBit(int x)
         {
@@ -204,7 +192,6 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <summary> 
         /// Update the nth bit from right with given boolean value, with rightmost being 0th bit
         /// </summary>
-        /// <param name="number"></param>
         /// <param name="n"></param>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -213,13 +200,13 @@ namespace Advanced.Algorithms.BitAlgorithms
             if (value)
             {
                 //1011 (n=2) => 1111
-                var mask = 1;
+                const int mask = 1;
                 return x | (mask << n);
             }
             else
             {
                 //1111 (n=2) => 1011
-                var mask = 1;
+                const int mask = 1;
                 return x & ~(mask << n);
             }
 
@@ -232,7 +219,7 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <returns></returns>
         public static int CountSetBits(int x)
         {
-            int count = 0;
+            var count = 0;
             while (x > 0)
             {
                 //unset the LSB in each step
@@ -301,7 +288,6 @@ namespace Advanced.Algorithms.BitAlgorithms
             count += ((x & 0x1) == 1 ? 0 : 1);
 
             return count;
-
 
         }
 

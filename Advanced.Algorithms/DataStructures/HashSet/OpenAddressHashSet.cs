@@ -9,14 +9,13 @@ namespace Advanced.Algorithms.DataStructures
     /// A hash table implementation (value value HashSet) with Open Addressing
     /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
     /// </summary>
-    /// <typeparam name="K"></typeparam>
-    /// <typeparam name="V"></typeparam>
-    internal class OpenAddressHashSet<V> : IHashSet<V> 
+    /// <typeparam name="TV"></typeparam>
+    internal class OpenAddressHashSet<TV> : IHashSet<TV> 
     {
 
-        private HashSetNode<V>[] hashArray;
+        private HashSetNode<TV>[] hashArray;
         private int bucketSize => hashArray.Length;
-        private int initialBucketSize;
+        private readonly int initialBucketSize;
 
 
         public int Count { get; private set; }
@@ -25,11 +24,11 @@ namespace Advanced.Algorithms.DataStructures
         public OpenAddressHashSet(int initialBucketSize = 2)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new HashSetNode<V>[initialBucketSize];
+            hashArray = new HashSetNode<TV>[initialBucketSize];
         }
 
         //O(1) time complexity; worst case O(n)
-        public bool Contains(V value)
+        public bool Contains(TV value)
         {
             var hashCode = getHash(value);
             var index = hashCode % bucketSize;
@@ -73,10 +72,10 @@ namespace Advanced.Algorithms.DataStructures
 
         //O(1) time complexity; worst case O(n)
         //add an item to this hash table
-        public void Add(V value)
+        public void Add(TV value)
         {
 
-            Grow();
+            grow();
 
             var hashCode = getHash(value);
 
@@ -84,7 +83,7 @@ namespace Advanced.Algorithms.DataStructures
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new HashSetNode<V>(value);
+                hashArray[index] = new HashSetNode<TV>(value);
             }
             else
             {
@@ -114,7 +113,7 @@ namespace Advanced.Algorithms.DataStructures
                     }
                 }
 
-                hashArray[index] = new HashSetNode<V>(value);
+                hashArray[index] = new HashSetNode<TV>(value);
             }
 
             Count++;
@@ -122,7 +121,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         //O(1) time complexity; worst case O(n)
-        public void Remove(V value)
+        public void Remove(TV value)
         {
             var hashCode = getHash(value);
             var curIndex = hashCode % bucketSize;
@@ -138,7 +137,7 @@ namespace Advanced.Algorithms.DataStructures
                 //prevent circling around infinitely
                 var hitKey = current.Value;
 
-                HashSetNode<V> target = null;
+                HashSetNode<TV> target = null;
 
                 while (current != null)
                 {
@@ -206,7 +205,7 @@ namespace Advanced.Algorithms.DataStructures
 
             Count--;
 
-            Shrink();
+            shrink();
 
         }
 
@@ -215,122 +214,45 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Clear()
         {
-            hashArray = new HashSetNode<V>[initialBucketSize];
+            hashArray = new HashSetNode<TV>[initialBucketSize];
             Count = 0;
         }
 
 
-        private void SetValue(V value)
-        {
-            var index = getHash(value) % bucketSize;
-
-            if (hashArray[index] == null)
-            {
-                throw new Exception("Item not found");
-            }
-            else
-            {
-                var current = hashArray[index];
-                var hitKey = current.Value;
-
-                while (current != null)
-                {
-                    if (current.Value.Equals(value))
-                    {
-                        Remove(value);
-                        Add(value);
-                        return;
-                    }
-
-                    index++;
-
-                    //wrap around
-                    if (index == bucketSize)
-                        index = 0;
-
-                    current = hashArray[index];
-
-                    //reached original hit again
-                    if (current != null && current.Value.Equals(hitKey))
-                    {
-                        throw new Exception("Item not found");
-                    }
-                }
-            }
-
-            throw new Exception("Item not found");
-        }
-
-        private V GetValue(V value)
-        {
-            var index = getHash(value) % bucketSize;
-
-            if (hashArray[index] == null)
-            {
-                throw new Exception("Item not found");
-            }
-            else
-            {
-                var current = hashArray[index];
-                var hitKey = current.Value;
-
-                while (current != null)
-                {
-                    if (current.Value.Equals(value))
-                    {
-                        return current.Value;
-                    }
-
-                    index++;
-
-                    //wrap around
-                    if (index == bucketSize)
-                        index = 0;
-
-                    current = hashArray[index];
-
-                    //reached original hit again
-                    if (current != null && current.Value.Equals(hitKey))
-                    {
-                        throw new Exception("Item not found");
-                    }
-                }
-            }
-
-            throw new Exception("Item not found");
-        }
         /// <summary>
         /// Grow array if needed
         /// </summary>
-        private void Grow()
+        private void grow()
         {
-            if (bucketSize * 0.7 <= Count)
+            if (!(bucketSize * 0.7 <= Count))
             {
-                var orgBucketSize = bucketSize;
-                var currentArray = hashArray;
-
-                //increase array size exponentially on demand
-                hashArray = new HashSetNode<V>[bucketSize * 2];
-
-                for (int i = 0; i < orgBucketSize; i++)
-                {
-                    var current = currentArray[i];
-
-                    if (current != null)
-                    {
-                        Add(current.Value);
-                        Count--;
-                    }
-                }
-
-                currentArray = null;
+                return;
             }
+
+            var orgBucketSize = bucketSize;
+            var currentArray = hashArray;
+
+            //increase array size exponentially on demand
+            hashArray = new HashSetNode<TV>[bucketSize * 2];
+
+            for (int i = 0; i < orgBucketSize; i++)
+            {
+                var current = currentArray[i];
+
+                if (current != null)
+                {
+                    Add(current.Value);
+                    Count--;
+                }
+            }
+
+            currentArray = null;
         }
 
         /// <summary>
         /// Shrink if needed
         /// </summary>
-        private void Shrink()
+        private void shrink()
         {
             if (Count <= bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
             {
@@ -339,7 +261,7 @@ namespace Advanced.Algorithms.DataStructures
                 var currentArray = hashArray;
 
                 //reduce array by half logarithamic
-                hashArray = new HashSetNode<V>[bucketSize / 2];
+                hashArray = new HashSetNode<TV>[bucketSize / 2];
 
                 for (int i = 0; i < orgBucketSize; i++)
                 {
@@ -359,9 +281,8 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// get hash
         /// </summary>
-        /// <param name="v"></param>
         /// <returns></returns>
-        private int getHash(V value)
+        private int getHash(TV value)
         {
             return Math.Abs(value.GetHashCode());
         }
@@ -372,15 +293,15 @@ namespace Advanced.Algorithms.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<V>> GetEnumerator()
+        public IEnumerator<HashSetNode<TV>> GetEnumerator()
         {
-            return new AsOpenAddressHashSetEnumerator<V>(hashArray, hashArray.Length);
+            return new OpenAddressHashSetEnumerator<TV>(hashArray, hashArray.Length);
         }
 
     }
 
     //  implement IEnumerator.
-    public class AsOpenAddressHashSetEnumerator<V> : IEnumerator<HashSetNode<V>> 
+    public class OpenAddressHashSetEnumerator<V> : IEnumerator<HashSetNode<V>> 
     {
         internal HashSetNode<V>[] hashArray;
 
@@ -389,7 +310,7 @@ namespace Advanced.Algorithms.DataStructures
         int position = -1;
         int length;
 
-        public AsOpenAddressHashSetEnumerator(HashSetNode<V>[] hashArray, int length)
+        public OpenAddressHashSetEnumerator(HashSetNode<V>[] hashArray, int length)
         {
             this.length = length;
             this.hashArray = hashArray;
@@ -410,13 +331,7 @@ namespace Advanced.Algorithms.DataStructures
             position = -1;
         }
 
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
+        object IEnumerator.Current => Current;
 
         public HashSetNode<V> Current
         {

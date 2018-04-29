@@ -414,17 +414,17 @@ namespace Advanced.Algorithms.DataStructures
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new AsDoublyLinkedListEnumerator<T>(ref Head);
+            return new DoublyLinkedListEnumerator<T>(ref Head);
         }
     }
 
     //  implement IEnumerator.
-    public class AsDoublyLinkedListEnumerator<T> : IEnumerator<T> 
+    public class DoublyLinkedListEnumerator<T> : IEnumerator<T> 
     {
         internal DoublyLinkedListNode<T> headNode;
         internal DoublyLinkedListNode<T> currentNode;
 
-        internal AsDoublyLinkedListEnumerator(ref DoublyLinkedListNode<T> headNode)
+        internal DoublyLinkedListEnumerator(ref DoublyLinkedListNode<T> headNode)
         {
             this.headNode = headNode;
         }

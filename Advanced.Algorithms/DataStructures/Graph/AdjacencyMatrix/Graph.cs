@@ -15,8 +15,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
     {
         public int VerticesCount => usedSize;
 
-        private Dictionary<T, int> vertexIndices;
-        private Dictionary<int, T> reverseVertexIndices;
+        private System.Collections.Generic.Dictionary<T, int> vertexIndices;
+        private System.Collections.Generic.Dictionary<int, T> reverseVertexIndices;
 
         private BitArray[] matrix;
 
@@ -27,8 +27,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         public Graph()
         {
             maxSize = 1;
-            vertexIndices = new Dictionary<T, int>();
-            reverseVertexIndices = new Dictionary<int, T>();
+            vertexIndices = new System.Collections.Generic.Dictionary<T, int>();
+            reverseVertexIndices = new System.Collections.Generic.Dictionary<int, T>();
             matrix = new BitArray[maxSize];
 
             for (int i = 0; i < maxSize; i++)
@@ -230,8 +230,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
                 newMatrix[i] = new BitArray(maxSize * 2);
             }
 
-            var newVertexIndices = new Dictionary<T, int>();
-            var newReverseIndices = new Dictionary<int, T>();
+            var newVertexIndices = new System.Collections.Generic.Dictionary<T, int>();
+            var newReverseIndices = new System.Collections.Generic.Dictionary<int, T>();
 
             int k = 0;
             foreach (var vertex in vertexIndices)
@@ -274,8 +274,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
                 newMatrix[i] = new BitArray(maxSize / 2);
             }
 
-            var newVertexIndices = new Dictionary<T, int>();
-            var newReverseIndices = new Dictionary<int, T>();
+            var newVertexIndices = new System.Collections.Generic.Dictionary<T, int>();
+            var newReverseIndices = new System.Collections.Generic.Dictionary<int, T>();
 
             int k = 0;
             foreach (var vertex in vertexIndices)

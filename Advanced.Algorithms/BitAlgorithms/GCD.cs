@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Advanced.Algorithms.BitAlgorithms
+﻿namespace Advanced.Algorithms.BitAlgorithms
 {
     //GCD without division or mod operators 
     //GCD by substraction
-    public class GCD
+    public class Gcd
     {
         public static int Find(int a, int b)
         {
@@ -16,6 +10,7 @@ namespace Advanced.Algorithms.BitAlgorithms
             {
                 return a;
             }
+
             if (a == 0)
             {
                 return b;
@@ -26,6 +21,7 @@ namespace Advanced.Algorithms.BitAlgorithms
             {
                 a = -a;
             }
+
             if (b < 0)
             {
                 b = -b;
@@ -40,33 +36,32 @@ namespace Advanced.Algorithms.BitAlgorithms
             }
 
             // a is even, b is odd
-            else if ((a & 1) == 0)
+
+            if ((a & 1) == 0)
             {
                 //divide a by 2
                 return Find(a >> 1, b);
             }
 
             // a is odd, b is even
-            else if ((b & 1) == 0)
+            if ((b & 1) == 0)
             {
                 //divide by by 2
                 return Find(a, b >> 1);
             }
             // a and b odd, a >= b
-            else if (a >= b)
+
+            if (a >= b)
             {
                 //since substracting two odd numbers gives an even number
                 //divide (a-b) by 2 to reduce calculations
                 return Find((a - b) >> 1, b);
             }
             // a and b odd, a < b
-            else
-            {
-                //since substracting two odd numbers gives an even number
-                //divide (b-a) by 2 to reduce calculations
-                return Find(a, (b - a) >> 1);
-            }
 
+            //since substracting two odd numbers gives an even number
+            //divide (b-a) by 2 to reduce calculations
+            return Find(a, (b - a) >> 1);
         }
     }
 }

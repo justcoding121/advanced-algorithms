@@ -28,7 +28,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <summary>
         /// expression stack
         /// </summary>
-        private Stack<ExpressionTreeNode<T>> expStack;
+        private System.Collections.Generic.Stack<ExpressionTreeNode<T>> expStack;
 
         /// <summary>
         /// construct tree for given expression with given operators
@@ -37,7 +37,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <param name="operators"></param>
         public void Construct(T[] expression, T[] operators)
         {
-            expStack = new Stack<ExpressionTreeNode<T>>();
+            expStack = new System.Collections.Generic.Stack<ExpressionTreeNode<T>>();
 
             for (int i = 0; i < expression.Length; i++)
             {

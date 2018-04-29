@@ -54,7 +54,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             }
 
             //degree - node dictionary
-            var mergeDictionary = new Dictionary<int, FibornacciHeapNode<T>>();
+            var mergeDictionary = new System.Collections.Generic.Dictionary<int, FibornacciHeapNode<T>>();
 
             var current = heapForestHead;
             minNode = current;

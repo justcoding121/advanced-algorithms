@@ -9,14 +9,14 @@ namespace Advanced.Algorithms.DataStructures
     /// A hash table implementation (key value dictionary) with Open Addressing
     /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
     /// </summary>
-    /// <typeparam name="K"></typeparam>
-    /// <typeparam name="V"></typeparam>
-    internal class OpenAddressDictionary<K, V> : AsIDictionary<K, V> 
+    /// <typeparam name="TK"></typeparam>
+    /// <typeparam name="TV"></typeparam>
+    internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV> 
     {
 
-        private DictionaryNode<K, V>[] hashArray;
+        private DictionaryNode<TK, TV>[] hashArray;
         private int bucketSize => hashArray.Length;
-        private int initialBucketSize;
+        private readonly int initialBucketSize;
 
 
         public int Count { get; private set; }
@@ -25,17 +25,16 @@ namespace Advanced.Algorithms.DataStructures
         public OpenAddressDictionary(int initialBucketSize = 2)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new DictionaryNode<K, V>[initialBucketSize];
+            hashArray = new DictionaryNode<TK, TV>[initialBucketSize];
         }
 
-        public V this[K key]
+        public TV this[TK key]
         {
-            get { return GetValue(key); }
-            set { SetValue(key, value); }
-
+            get => getValue(key);
+            set => setValue(key, value);
         }
         //O(1) time complexity; worst case O(n)
-        public bool ContainsKey(K key)
+        public bool ContainsKey(TK key)
         {
             var hashCode = getHash(key);
             var index = hashCode % bucketSize;
@@ -44,33 +43,31 @@ namespace Advanced.Algorithms.DataStructures
             {
                 return false;
             }
-            else
+
+            var current = hashArray[index];
+
+            //keep track of this so that we won't circle around infinitely
+            var hitKey = current.Key;
+
+            while (current != null)
             {
-                var current = hashArray[index];
-
-                //keep track of this so that we won't circle around infinitely
-                var hitKey = current.Key;
-
-                while (current != null)
+                if (current.Key.Equals(key))
                 {
-                    if (current.Key.Equals(key))
-                    {
-                        return true;
-                    }
+                    return true;
+                }
 
-                    index++;
+                index++;
 
-                    //wrap around
-                    if (index == bucketSize)
-                        index = 0;
+                //wrap around
+                if (index == bucketSize)
+                    index = 0;
 
-                    current = hashArray[index];
+                current = hashArray[index];
 
-                    //reached original hit again
-                    if (current != null && current.Key.Equals(hitKey))
-                    {
-                        break;
-                    }
+                //reached original hit again
+                if (current != null && current.Key.Equals(hitKey))
+                {
+                    break;
                 }
             }
 
@@ -79,7 +76,7 @@ namespace Advanced.Algorithms.DataStructures
 
         //O(1) time complexity; worst case O(n)
         //add an item to this hash table
-        public void Add(K key, V value)
+        public void Add(TK key, TV value)
         {
 
             Grow();
@@ -90,7 +87,7 @@ namespace Advanced.Algorithms.DataStructures
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new DictionaryNode<K, V>(key, value);
+                hashArray[index] = new DictionaryNode<TK, TV>(key, value);
             }
             else
             {
@@ -120,7 +117,7 @@ namespace Advanced.Algorithms.DataStructures
                     }
                 }
 
-                hashArray[index] = new DictionaryNode<K, V>(key, value);
+                hashArray[index] = new DictionaryNode<TK, TV>(key, value);
             }
 
             Count++;
@@ -128,7 +125,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         //O(1) time complexity; worst case O(n)
-        public void Remove(K key)
+        public void Remove(TK key)
         {
             var hashCode = getHash(key);
             var curIndex = hashCode % bucketSize;
@@ -144,7 +141,7 @@ namespace Advanced.Algorithms.DataStructures
                 //prevent circling around infinitely
                 var hitKey = current.Key;
 
-                DictionaryNode<K, V> target = null;
+                DictionaryNode<TK, TV> target = null;
 
                 while (current != null)
                 {
@@ -212,7 +209,7 @@ namespace Advanced.Algorithms.DataStructures
 
             Count--;
 
-            Shrink();
+            shrink();
 
         }
 
@@ -221,12 +218,12 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Clear()
         {
-            hashArray = new DictionaryNode<K, V>[initialBucketSize];
+            hashArray = new DictionaryNode<TK, TV>[initialBucketSize];
             Count = 0;
         }
 
 
-        private void SetValue(K key, V value)
+        private void setValue(TK key, TV value)
         {
             var index = getHash(key) % bucketSize;
 
@@ -267,7 +264,7 @@ namespace Advanced.Algorithms.DataStructures
             throw new Exception("Item not found");
         }
 
-        private V GetValue(K key)
+        private TV getValue(TK key)
         {
             var index = getHash(key) % bucketSize;
 
@@ -316,7 +313,7 @@ namespace Advanced.Algorithms.DataStructures
                 var currentArray = hashArray;
 
                 //increase array size exponentially on demand
-                hashArray = new DictionaryNode<K, V>[bucketSize * 2];
+                hashArray = new DictionaryNode<TK, TV>[bucketSize * 2];
 
                 for (int i = 0; i < orgBucketSize; i++)
                 {
@@ -336,7 +333,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Shrink if needed
         /// </summary>
-        private void Shrink()
+        private void shrink()
         {
             if (Count <= bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
             {
@@ -345,7 +342,7 @@ namespace Advanced.Algorithms.DataStructures
                 var currentArray = hashArray;
 
                 //reduce array by half logarithamic
-                hashArray = new DictionaryNode<K, V>[bucketSize / 2];
+                hashArray = new DictionaryNode<TK, TV>[bucketSize / 2];
 
                 for (int i = 0; i < orgBucketSize; i++)
                 {
@@ -365,9 +362,9 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// get hash
         /// </summary>
-        /// <param name="v"></param>
+        /// <param name="key"></param>
         /// <returns></returns>
-        private int getHash(K key)
+        private int getHash(TK key)
         {
             return Math.Abs(key.GetHashCode());
         }
@@ -378,34 +375,34 @@ namespace Advanced.Algorithms.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<DictionaryNode<K, V>> GetEnumerator()
+        public IEnumerator<DictionaryNode<TK, TV>> GetEnumerator()
         {
-            return new AsOpenAddressDictionaryEnumerator<K, V>(hashArray, hashArray.Length);
+            return new OpenAddressDictionaryEnumerator<TK, TV>(hashArray, hashArray.Length);
         }
 
     }
 
     //  implement IEnumerator.
-    public class AsOpenAddressDictionaryEnumerator<K, V> : IEnumerator<DictionaryNode<K, V>> 
+    public class OpenAddressDictionaryEnumerator<TK, TV> : IEnumerator<DictionaryNode<TK, TV>> 
     {
-        internal DictionaryNode<K, V>[] hashArray;
+        internal DictionaryNode<TK, TV>[] HashArray;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
-        int length;
+        private readonly int length;
 
-        public AsOpenAddressDictionaryEnumerator(DictionaryNode<K, V>[] hashArray, int length)
+        public OpenAddressDictionaryEnumerator(DictionaryNode<TK, TV>[] hashArray, int length)
         {
             this.length = length;
-            this.hashArray = hashArray;
+            HashArray = hashArray;
         }
 
         public bool MoveNext()
         {
             position++;
 
-            while (position < length && hashArray[position] == null)
+            while (position < length && HashArray[position] == null)
                 position++;
 
             return (position < length);
@@ -416,22 +413,16 @@ namespace Advanced.Algorithms.DataStructures
             position = -1;
         }
 
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
+        object IEnumerator.Current => Current;
 
-        public DictionaryNode<K, V> Current
+        public DictionaryNode<TK, TV> Current
         {
             get
             {
 
                 try
                 {
-                    return hashArray[position];
+                    return HashArray[position];
                 }
                 catch (IndexOutOfRangeException)
                 {

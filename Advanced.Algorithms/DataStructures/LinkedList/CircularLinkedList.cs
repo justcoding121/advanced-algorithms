@@ -214,7 +214,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new AsCircularLinkedListEnumerator<T>(ref ReferenceNode);
+            return new CircularLinkedListEnumerator<T>(ref ReferenceNode);
         }
 
         /// <summary>
@@ -235,12 +235,12 @@ namespace Advanced.Algorithms.DataStructures
     }
 
     //  implement IEnumerator.
-    public class AsCircularLinkedListEnumerator<T> : IEnumerator<T> 
+    public class CircularLinkedListEnumerator<T> : IEnumerator<T> 
     {
         internal CircularLinkedListNode<T> referenceNode;
         internal CircularLinkedListNode<T> currentNode;
 
-        internal AsCircularLinkedListEnumerator(ref CircularLinkedListNode<T> referenceNode)
+        internal CircularLinkedListEnumerator(ref CircularLinkedListNode<T> referenceNode)
         {
             this.referenceNode = referenceNode;
         }

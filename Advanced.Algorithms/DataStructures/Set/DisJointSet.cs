@@ -21,8 +21,8 @@ namespace Advanced.Algorithms.DataStructures.Set
         /// <summary>
         /// A Map for faster access for members
         /// </summary>
-        private Dictionary<T, DisJointSetNode<T>> set 
-            = new Dictionary<T, DisJointSetNode<T>>();
+        private System.Collections.Generic.Dictionary<T, DisJointSetNode<T>> set 
+            = new System.Collections.Generic.Dictionary<T, DisJointSetNode<T>>();
 
         /// <summary>
         /// Creates a new set with given member

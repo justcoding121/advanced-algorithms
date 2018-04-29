@@ -9,13 +9,13 @@ namespace Advanced.Algorithms.DataStructures
     /// A hash table implementation (value value HashSet) with separate chaining
     /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
     /// </summary>
-    /// <typeparam name="V"></typeparam>
-    internal class SeparateChainingHashSet<V> : IHashSet<V>  
+    /// <typeparam name="TV"></typeparam>
+    internal class SeparateChainingHashSet<TV> : IHashSet<TV>  
     {
-
-        private DoublyLinkedList<HashSetNode<V>>[] hashArray;
+        private const double tolerance = 0.1;
+        private DoublyLinkedList<HashSetNode<TV>>[] hashArray;
         private int bucketSize => hashArray.Length;
-        private int initialBucketSize;
+        private readonly int initialBucketSize;
         private int filledBuckets;
 
         public int Count { get; private set; }
@@ -24,11 +24,11 @@ namespace Advanced.Algorithms.DataStructures
         public SeparateChainingHashSet(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new DoublyLinkedList<HashSetNode<V>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<HashSetNode<TV>>[initialBucketSize];
         }
 
         //O(1) time complexity; worst case O(n)
-        public bool Contains(V value)
+        public bool Contains(TV value)
         {
             var index = Math.Abs(value.GetHashCode()) % bucketSize;
 
@@ -56,16 +56,16 @@ namespace Advanced.Algorithms.DataStructures
 
         //O(1) time complexity; worst case O(n)
         //add an item to this hash table
-        public void Add(V value)
+        public void Add(TV value)
         {
-            Grow();
+            grow();
 
             var index = Math.Abs(value.GetHashCode()) % bucketSize;
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new DoublyLinkedList<HashSetNode<V>>();
-                hashArray[index].InsertFirst(new HashSetNode<V>(value));
+                hashArray[index] = new DoublyLinkedList<HashSetNode<TV>>();
+                hashArray[index].InsertFirst(new HashSetNode<TV>(value));
                 filledBuckets++;
             }
             else
@@ -82,14 +82,14 @@ namespace Advanced.Algorithms.DataStructures
                     current = current.Next;
                 }
 
-                hashArray[index].InsertFirst(new HashSetNode<V>(value));
+                hashArray[index].InsertFirst(new HashSetNode<TV>(value));
             }
 
             Count++;
         }
 
         //O(1) time complexity; worst case O(n)
-        public void Remove(V value)
+        public void Remove(TV value)
         {
             var index = Math.Abs(value.GetHashCode()) % bucketSize;
 
@@ -102,7 +102,7 @@ namespace Advanced.Algorithms.DataStructures
                 var current = hashArray[index].Head;
 
                 //VODO merge both search and remove to a single loop here!
-                DoublyLinkedListNode<HashSetNode<V>> item = null;
+                DoublyLinkedListNode<HashSetNode<TV>> item = null;
                 while (current != null)
                 {
                     if (current.Data.Value.Equals(value))
@@ -135,7 +135,7 @@ namespace Advanced.Algorithms.DataStructures
 
             Count--;
 
-            Shrink();
+            shrink();
 
         }
 
@@ -144,13 +144,13 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Clear()
         {
-            hashArray = new DoublyLinkedList<HashSetNode<V>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<HashSetNode<TV>>[initialBucketSize];
             Count = 0;
             filledBuckets = 0;
         }
 
 
-        private void SetValue(V value)
+        private void setValue(TV value)
         {
             var index = Math.Abs(value.GetHashCode()) % bucketSize;
 
@@ -178,35 +178,10 @@ namespace Advanced.Algorithms.DataStructures
             throw new Exception("Item not found");
         }
 
-        private V GetValue(V value)
-        {
-            var index = Math.Abs(value.GetHashCode()) % bucketSize;
-
-            if (hashArray[index] == null)
-            {
-                throw new Exception("Item not found");
-            }
-            else
-            {
-                var current = hashArray[index].Head;
-
-                while (current != null)
-                {
-                    if (current.Data.Value.Equals(value))
-                    {
-                        return current.Data.Value;
-                    }
-
-                    current = current.Next;
-                }
-            }
-
-            throw new Exception("Item not found");
-        }
         /// <summary>
         /// Grow array if needed
         /// </summary>
-        private void Grow()
+        private void grow()
         {
             if (filledBuckets >= bucketSize * 0.7)
             {
@@ -214,7 +189,7 @@ namespace Advanced.Algorithms.DataStructures
                 //increase array size exponentially on demand
                 var newBucketSize = bucketSize * 2;
 
-                var biggerArray = new DoublyLinkedList<HashSetNode<V>>[newBucketSize];
+                var biggerArray = new DoublyLinkedList<HashSetNode<TV>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -237,7 +212,7 @@ namespace Advanced.Algorithms.DataStructures
                                 if (biggerArray[newIndex] == null)
                                 {
                                     filledBuckets++;
-                                    biggerArray[newIndex] = new DoublyLinkedList<HashSetNode<V>>();
+                                    biggerArray[newIndex] = new DoublyLinkedList<HashSetNode<TV>>();
                                 }
 
                                 biggerArray[newIndex].InsertFirst(current);
@@ -258,46 +233,42 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Shrink if needed
         /// </summary>
-        private void Shrink()
+        private void shrink()
         {
-            if (filledBuckets == bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
+            if (Math.Abs(filledBuckets - bucketSize * 0.3) < tolerance && bucketSize / 2 > initialBucketSize)
             {
                 filledBuckets = 0;
                 //reduce array by half 
                 var newBucketSize = bucketSize / 2;
 
-                var smallerArray = new DoublyLinkedList<HashSetNode<V>>[newBucketSize];
+                var smallerArray = new DoublyLinkedList<HashSetNode<TV>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
                     var item = hashArray[i];
 
                     //hashcode changes when bucket size changes
-                    if (item != null)
+                    if (item?.Head != null)
                     {
-                        if (item.Head != null)
+                        var current = item.Head;
+
+                        //find new location for each item
+                        while (current != null)
                         {
-                            var current = item.Head;
+                            var next = current.Next;
 
-                            //find new location for each item
-                            while (current != null)
+                            var newIndex = Math.Abs(current.Data.Value.GetHashCode()) % newBucketSize;
+
+                            if (smallerArray[newIndex] == null)
                             {
-                                var next = current.Next;
-
-                                var newIndex = Math.Abs(current.Data.Value.GetHashCode()) % newBucketSize;
-
-                                if (smallerArray[newIndex] == null)
-                                {
-                                    filledBuckets++;
-                                    smallerArray[newIndex] = new DoublyLinkedList<HashSetNode<V>>();
-                                }
-
-                                smallerArray[newIndex].InsertFirst(current);
-
-                                current = next;
+                                filledBuckets++;
+                                smallerArray[newIndex] = new DoublyLinkedList<HashSetNode<TV>>();
                             }
-                        }
 
+                            smallerArray[newIndex].InsertFirst(current);
+
+                            current = next;
+                        }
                     }
                 }
 
@@ -311,26 +282,26 @@ namespace Advanced.Algorithms.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<V>> GetEnumerator()
+        public IEnumerator<HashSetNode<TV>> GetEnumerator()
         {
-            return new AsSeparateChainingHashSetEnumerator<V>(hashArray, bucketSize);
+            return new SeparateChainingHashSetEnumerator<TV>(hashArray, bucketSize);
         }
 
     }
 
     //  implement IEnumerator.
-    public class AsSeparateChainingHashSetEnumerator<V> : IEnumerator<HashSetNode<V>> 
+    public class SeparateChainingHashSetEnumerator<TV> : IEnumerator<HashSetNode<TV>> 
     {
-        internal DoublyLinkedList<HashSetNode<V>>[] hashList;
+        internal DoublyLinkedList<HashSetNode<TV>>[] hashList;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
-        DoublyLinkedListNode<HashSetNode<V>> currentNode = null;
+        DoublyLinkedListNode<HashSetNode<TV>> currentNode = null;
 
         int length;
 
-        internal AsSeparateChainingHashSetEnumerator(DoublyLinkedList<HashSetNode<V>>[] hashList, int length)
+        internal SeparateChainingHashSetEnumerator(DoublyLinkedList<HashSetNode<TV>>[] hashList, int length)
         {
             this.length = length;
             this.hashList = hashList;
@@ -338,13 +309,13 @@ namespace Advanced.Algorithms.DataStructures
 
         public bool MoveNext()
         {
-            if (currentNode != null && currentNode.Next != null)
+            if (currentNode?.Next != null)
             {
                 currentNode = currentNode.Next;
                 return true;
             }
 
-            while (currentNode == null || currentNode.Next == null)
+            while (currentNode?.Next == null)
             {
                 position++;
 
@@ -385,7 +356,7 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        public HashSetNode<V> Current
+        public HashSetNode<TV> Current
         {
             get
             {

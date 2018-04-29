@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.DataStructures
     public class TreeHashSet<V> where V : IComparable
     {
         //use red-black tree as our balanced BST since it gives good performance for both deletion/insertion
-        private RedBlackTree<V> binarySearchTree;
+        private readonly RedBlackTree<V> binarySearchTree;
 
         public int Count => binarySearchTree.Count;
 
@@ -48,9 +48,9 @@ namespace Advanced.Algorithms.DataStructures
 
             var allNodeValues = new ArrayList<V>();
 
-            for (int i = 0; i < nodes.Count; i++)
+            foreach (var node in nodes)
             {
-                allNodeValues.Add(nodes[i]);
+                allNodeValues.Add(node);
             }
 
             nodes.Clear();

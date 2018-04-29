@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void Dictionary_SeparateChaining_Test()
         {
-            var Dictionary = new AsDictionary<int, int>(DictionaryType.SeparateChaining);
+            var Dictionary = new Dictionary<int, int>(DictionaryType.SeparateChaining);
             int nodeCount = 1000 * 10;
             //insert test
 
@@ -60,7 +60,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void Dictionary_OpenAddressing_Test()
         {
-            var Dictionary = new AsDictionary<int, int>(DictionaryType.OpenAddressing);
+            var Dictionary = new Dictionary<int, int>(DictionaryType.OpenAddressing);
             int nodeCount = 1000 * 10;
             //insert test
 

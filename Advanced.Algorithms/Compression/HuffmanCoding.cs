@@ -1,7 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Advanced.Algorithms.DataStructures.Heap.Min;
 
 namespace Advanced.Algorithms.Compression
@@ -16,7 +14,7 @@ namespace Advanced.Algorithms.Compression
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public Dictionary<T, byte[]> Compress(T[] input)
+        public System.Collections.Generic.Dictionary<T, byte[]> Compress(T[] input)
         {
             var frequencies = computeFrequency(input);
 
@@ -58,8 +56,7 @@ namespace Advanced.Algorithms.Compression
         /// <param name="currentNode"></param>
         /// <param name="pathStack"></param>
         /// <param name="result"></param>
-        private void DFS(FrequencyWrap currentNode, List<byte> pathStack,
-            Dictionary<T, byte[]> result)
+        private void DFS(FrequencyWrap currentNode, List<byte> pathStack, Dictionary<T, byte[]> result)
         {
             if(currentNode.IsLeaf)
             {
@@ -124,7 +121,7 @@ namespace Advanced.Algorithms.Compression
 
             public int CompareTo(object obj)
             {
-                return Frequency.CompareTo((obj as FrequencyWrap).Frequency);
+                return Frequency.CompareTo(((FrequencyWrap) obj).Frequency);
             }
         }
 

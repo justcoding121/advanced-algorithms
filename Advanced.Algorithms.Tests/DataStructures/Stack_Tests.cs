@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void ArrayStack_Test()
         {
-            var stack = new AsStack<string>();
+            var stack = new Stack<string>();
 
             stack.Push("a");
             stack.Push("b");
@@ -35,7 +35,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void LinkedListStack_Test()
         {
-            var stack = new AsStack<string>(StackType.LinkedList);
+            var stack = new Stack<string>(StackType.LinkedList);
 
             stack.Push("a");
             stack.Push("b");

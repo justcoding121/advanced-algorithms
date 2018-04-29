@@ -482,7 +482,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <summary>
         /// return the node containing min value which will be a leaf at the left most
         /// </summary>
-        /// <param name="AsBPTreeNode"></param>
+        /// <param name="BPTreeNode"></param>
         /// <returns></returns>
         private BPTreeNode<T> findMinNode(BPTreeNode<T> node)
         {
@@ -500,7 +500,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <summary>
         /// return the node containing max value which will be a leaf at the right most
         /// </summary>
-        /// <param name="AsBPTreeNode"></param>
+        /// <param name="BPTreeNode"></param>
         /// <returns></returns>
         private BPTreeNode<T> findMaxNode(BPTreeNode<T> node)
         {

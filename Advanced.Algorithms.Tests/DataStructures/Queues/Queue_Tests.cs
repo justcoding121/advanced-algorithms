@@ -11,7 +11,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Queues
         [TestMethod]
         public void ArrayQueue_Test()
         {
-            var Queue = new AsQueue<string>();
+            var Queue = new Queue<string>();
 
             Queue.Enqueue("a");
             Queue.Enqueue("b");
@@ -39,7 +39,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Queues
         [TestMethod]
         public void LinkedListQueue_Test()
         {
-            var Queue = new AsQueue<string>(QueueType.LinkedList);
+            var Queue = new Queue<string>(QueueType.LinkedList);
 
             Queue.Enqueue("a");
             Queue.Enqueue("b");

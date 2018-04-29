@@ -26,7 +26,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree
             //gather all unique edges
             DFS(graph, graph.ReferenceVertex,
                 new BMinHeap<MSTEdge<T, W>>(),
-                new HashSet<T>(),
+                new System.Collections.Generic.HashSet<T>(),
                 edges);
 
             return edges;
@@ -43,8 +43,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree
         /// <param name="spanTreeEdges">result MST edges</param>
         private void DFS(WeightedGraph<T, W> graph,
             WeightedGraphVertex<T, W> currentVertex,
-           BMinHeap<MSTEdge<T, W>> spanTreeNeighbours,
-           HashSet<T> spanTreeVertices,
+           BMinHeap<MSTEdge<T, W>> spanTreeNeighbours, System.Collections.Generic.HashSet<T> spanTreeVertices,
            List<MSTEdge<T, W>> spanTreeEdges)
         {
             //add all edges to Fibornacci Heap

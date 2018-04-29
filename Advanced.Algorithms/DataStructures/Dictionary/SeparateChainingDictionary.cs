@@ -11,12 +11,13 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>
-    internal class SeparateChainingDictionary<K, V> : AsIDictionary<K, V>  
+    internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>  
     {
+        private const double tolerance = 0.1;
 
         private DoublyLinkedList<DictionaryNode<K, V>>[] hashArray;
         private int bucketSize => hashArray.Length;
-        private int initialBucketSize;
+        private readonly int initialBucketSize;
         private int filledBuckets;
 
         public int Count { get; private set; }
@@ -30,9 +31,8 @@ namespace Advanced.Algorithms.DataStructures
 
         public V this[K key]
         {
-            get { return GetValue(key); }
-            set { SetValue(key, value); }
-
+            get => getValue(key);
+            set => setValue(key, value);
         }
         //O(1) time complexity; worst case O(n)
         public bool ContainsKey(K key)
@@ -65,7 +65,7 @@ namespace Advanced.Algorithms.DataStructures
         //add an item to this hash table
         public void Add(K key, V value)
         {
-            Grow();
+            grow();
 
             var index = Math.Abs(key.GetHashCode()) % bucketSize;
 
@@ -142,7 +142,7 @@ namespace Advanced.Algorithms.DataStructures
 
             Count--;
 
-            Shrink();
+            shrink();
 
         }
 
@@ -157,7 +157,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
 
-        private void SetValue(K key, V value)
+        private void setValue(K key, V value)
         {
             var index = Math.Abs(key.GetHashCode()) % bucketSize;
 
@@ -185,7 +185,7 @@ namespace Advanced.Algorithms.DataStructures
             throw new Exception("Item not found");
         }
 
-        private V GetValue(K key)
+        private V getValue(K key)
         {
             var index = Math.Abs(key.GetHashCode()) % bucketSize;
 
@@ -213,7 +213,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Grow array if needed
         /// </summary>
-        private void Grow()
+        private void grow()
         {
             if (filledBuckets >= bucketSize * 0.7)
             {
@@ -265,9 +265,9 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Shrink if needed
         /// </summary>
-        private void Shrink()
+        private void shrink()
         {
-            if (filledBuckets == bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
+            if (Math.Abs(filledBuckets - bucketSize * 0.3) < tolerance && bucketSize / 2 > initialBucketSize)
             {
                 filledBuckets = 0;
                 //reduce array by half 
@@ -275,36 +275,32 @@ namespace Advanced.Algorithms.DataStructures
 
                 var smallerArray = new DoublyLinkedList<DictionaryNode<K, V>>[newBucketSize];
 
-                for (int i = 0; i < bucketSize; i++)
+                for (var i = 0; i < bucketSize; i++)
                 {
                     var item = hashArray[i];
 
                     //hashcode changes when bucket size changes
-                    if (item != null)
+                    if (item?.Head != null)
                     {
-                        if (item.Head != null)
+                        var current = item.Head;
+
+                        //find new location for each item
+                        while (current != null)
                         {
-                            var current = item.Head;
+                            var next = current.Next;
 
-                            //find new location for each item
-                            while (current != null)
+                            var newIndex = Math.Abs(current.Data.Key.GetHashCode()) % newBucketSize;
+
+                            if (smallerArray[newIndex] == null)
                             {
-                                var next = current.Next;
-
-                                var newIndex = Math.Abs(current.Data.Key.GetHashCode()) % newBucketSize;
-
-                                if (smallerArray[newIndex] == null)
-                                {
-                                    filledBuckets++;
-                                    smallerArray[newIndex] = new DoublyLinkedList<DictionaryNode<K, V>>();
-                                }
-
-                                smallerArray[newIndex].InsertFirst(current);
-
-                                current = next;
+                                filledBuckets++;
+                                smallerArray[newIndex] = new DoublyLinkedList<DictionaryNode<K, V>>();
                             }
-                        }
 
+                            smallerArray[newIndex].InsertFirst(current);
+
+                            current = next;
+                        }
                     }
                 }
 
@@ -320,47 +316,47 @@ namespace Advanced.Algorithms.DataStructures
 
         public IEnumerator<DictionaryNode<K, V>> GetEnumerator()
         {
-            return new AsSeparateChainingDictionaryEnumerator<K, V>(hashArray, bucketSize);
+            return new SeparateChainingDictionaryEnumerator<K, V>(hashArray, bucketSize);
         }
 
     }
 
     //  implement IEnumerator.
-    public class AsSeparateChainingDictionaryEnumerator<K, V> : IEnumerator<DictionaryNode<K, V>> 
+    public class SeparateChainingDictionaryEnumerator<TK, TV> : IEnumerator<DictionaryNode<TK, TV>> 
     {
-        internal DoublyLinkedList<DictionaryNode<K, V>>[] hashList;
+        internal DoublyLinkedList<DictionaryNode<TK, TV>>[] HashList;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
-        DoublyLinkedListNode<DictionaryNode<K, V>> currentNode = null;
+        DoublyLinkedListNode<DictionaryNode<TK, TV>> currentNode = null;
 
         int length;
 
-        internal AsSeparateChainingDictionaryEnumerator(DoublyLinkedList<DictionaryNode<K, V>>[] hashList, int length)
+        internal SeparateChainingDictionaryEnumerator(DoublyLinkedList<DictionaryNode<TK, TV>>[] hashList, int length)
         {
             this.length = length;
-            this.hashList = hashList;
+            this.HashList = hashList;
         }
 
         public bool MoveNext()
         {
-            if (currentNode != null && currentNode.Next != null)
+            if (currentNode?.Next != null)
             {
                 currentNode = currentNode.Next;
                 return true;
             }
 
-            while (currentNode == null || currentNode.Next == null)
+            while (currentNode?.Next == null)
             {
                 position++;
 
                 if (position < length)
                 {
-                    if (hashList[position] == null)
+                    if (HashList[position] == null)
                         continue;
 
-                    currentNode = hashList[position].Head;
+                    currentNode = HashList[position].Head;
 
                     if (currentNode == null)
                         continue;
@@ -384,15 +380,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
 
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
+        object IEnumerator.Current => Current;
 
-        public DictionaryNode<K, V> Current
+        public DictionaryNode<TK, TV> Current
         {
             get
             {

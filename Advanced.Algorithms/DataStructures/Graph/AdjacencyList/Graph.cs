@@ -12,12 +12,12 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     {
         public T Value { get; set; }
 
-        public HashSet<GraphVertex<T>> Edges { get; set; }
+        public System.Collections.Generic.HashSet<GraphVertex<T>> Edges { get; set; }
 
         public GraphVertex(T value)
         {
             Value = value;
-            Edges = new HashSet<GraphVertex<T>>();
+            Edges = new System.Collections.Generic.HashSet<GraphVertex<T>>();
         }
 
     }
@@ -30,14 +30,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     public class Graph<T>
     {
         public int VerticesCount => Vertices.Count;
-        internal Dictionary<T, GraphVertex<T>> Vertices { get; set; }
+        internal System.Collections.Generic.Dictionary<T, GraphVertex<T>> Vertices { get; set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public Graph()
         {
-            Vertices = new Dictionary<T, GraphVertex<T>>();
+            Vertices = new System.Collections.Generic.Dictionary<T, GraphVertex<T>>();
         }
 
 

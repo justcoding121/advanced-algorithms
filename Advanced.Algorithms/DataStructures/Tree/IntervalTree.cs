@@ -30,7 +30,7 @@ namespace Advanced.Algorithms.DataStructures
     public class DIntervalTree<T> where T : IComparable
     {
         private int dimensions;
-        private AsIntervalTree<T> tree;
+        private IntervalTree<T> tree;
 
         public int Count { get; private set; }
 
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             this.dimensions = dimensions;
-            this.tree = new AsIntervalTree<T>();
+            this.tree = new IntervalTree<T>();
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             validateDimensions(start, end);
 
-            var currentTrees = new List<AsIntervalTree<T>>();
+            var currentTrees = new List<IntervalTree<T>>();
 
             currentTrees.Add(tree);
 
@@ -111,7 +111,7 @@ namespace Advanced.Algorithms.DataStructures
             //and insert next dimension value to each overlapping node
             for (int i = 0; i < dimensions; i++)
             {
-                var allOverlaps = new List<AsIntervalTree<T>>();
+                var allOverlaps = new List<IntervalTree<T>>();
 
                 foreach (var tree in currentTrees)
                 {
@@ -139,10 +139,10 @@ namespace Advanced.Algorithms.DataStructures
         {
             validateDimensions(start, end);
 
-            var currentTrees = new List<AsIntervalTree<T>>();
+            var currentTrees = new List<IntervalTree<T>>();
             currentTrees.Add(tree);
 
-            var allOverlaps = new List<AsIntervalTree<T>>();
+            var allOverlaps = new List<IntervalTree<T>>();
             var overlaps = tree.GetOverlaps(new AsInterval<T>(start[0], end[0]));
 
             foreach (var overlap in overlaps)
@@ -163,13 +163,13 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <param name="index"></param>
-        private void DeleteOverlaps(List<AsIntervalTree<T>> currentTrees, T[] start, T[] end, int index)
+        private void DeleteOverlaps(List<IntervalTree<T>> currentTrees, T[] start, T[] end, int index)
         {
             //base case
             if (index == start.Length)
                 return;
 
-            var allOverlaps = new List<AsIntervalTree<T>>();
+            var allOverlaps = new List<IntervalTree<T>>();
 
             foreach (var tree in currentTrees)
             {
@@ -229,7 +229,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        private List<DInterval<T>> GetOverlaps(AsIntervalTree<T> currentTree, 
+        private List<DInterval<T>> GetOverlaps(IntervalTree<T> currentTree, 
             T[] start, T[] end, int dimension)
         {
             var nodes = currentTree.GetOverlaps(new AsInterval<T>(start[dimension], end[dimension]));
@@ -300,7 +300,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// holds intervals for the next dimension
         /// </summary>
-        internal AsIntervalTree<T> NextDimensionIntervals { get; set; }
+        internal IntervalTree<T> NextDimensionIntervals { get; set; }
 
         /// <summary>
         /// Mark the matching end index when overlap search 
@@ -318,7 +318,7 @@ namespace Advanced.Algorithms.DataStructures
             Start = start;
             End = new List<T>();
             End.Add(end);
-            NextDimensionIntervals = new AsIntervalTree<T>();
+            NextDimensionIntervals = new IntervalTree<T>();
         }
     }
 
@@ -327,10 +327,10 @@ namespace Advanced.Algorithms.DataStructures
     /// TODO support multiple dimensions
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    internal class AsIntervalTree<T> where T : IComparable
+    internal class IntervalTree<T> where T : IComparable
     {
         //use a height balanced binary search tree
-        private AsIntervalRedBlackTree RedBlackTree
+        private readonly AsIntervalRedBlackTree redBlackTree
             = new AsIntervalRedBlackTree();
 
         public int Count { get; private set; }
@@ -343,7 +343,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             SortInterval(newInterval);
 
-            RedBlackTree.Insert(newInterval);
+            redBlackTree.Insert(newInterval);
             Count++;
         }
 
@@ -355,7 +355,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             SortInterval(interval);
 
-            RedBlackTree.Delete(interval);
+            redBlackTree.Delete(interval);
             Count--;
         }
 
@@ -368,7 +368,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             SortInterval(searchInterval);
 
-            return GetOverlap(RedBlackTree.Root, searchInterval);
+            return GetOverlap(redBlackTree.Root, searchInterval);
         }
 
         /// <summary>
@@ -380,7 +380,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             SortInterval(searchInterval);
 
-            return GetOverlaps(RedBlackTree.Root, searchInterval);
+            return GetOverlaps(redBlackTree.Root, searchInterval);
         }
 
         /// <summary>
@@ -392,7 +392,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             SortInterval(searchInterval);
 
-            return GetOverlap(RedBlackTree.Root, searchInterval) != null;
+            return GetOverlap(redBlackTree.Root, searchInterval) != null;
         }
 
         /// <summary>

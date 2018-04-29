@@ -78,15 +78,15 @@ namespace Advanced.Algorithms.GraphAlgorithms
             }
 
             //track progress for distance to each Vertex from source
-            var progress = new Dictionary<T, W>();
+            var progress = new System.Collections.Generic.Dictionary<T, W>();
 
             //trace our current path by mapping current vertex to its Parent
-            var parentMap = new Dictionary<T, T>();
+            var parentMap = new System.Collections.Generic.Dictionary<T, T>();
 
             //min heap to pick next closest vertex 
             var minHeap = new FibornacciMinHeap<MinHeapWrap<T, W>>();
             //keep references of heap Node for decrement key operation
-            var heapMapping = new Dictionary<T, FibornacciHeapNode<MinHeapWrap<T, W>>>();
+            var heapMapping = new System.Collections.Generic.Dictionary<T, FibornacciHeapNode<MinHeapWrap<T, W>>>();
 
             //add vertices to min heap and progress map
             foreach (var vertex in graph.Vertices)
@@ -169,11 +169,10 @@ namespace Advanced.Algorithms.GraphAlgorithms
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph,
-            Dictionary<T, T> parentMap, T source, T destination)
+        private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph, System.Collections.Generic.Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
-            var pathStack = new Stack<T>();
+            var pathStack = new System.Collections.Generic.Stack<T>();
 
             pathStack.Push(destination);
 
