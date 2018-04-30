@@ -1,7 +1,4 @@
-﻿/// <summary>
-/// A Z algorithm implementation for pattern search
-/// </summary>
-namespace Advanced.Algorithms.String.Search
+﻿namespace Advanced.Algorithms.String.Search
 {
     public class ZAlgorithm
     {
@@ -15,7 +12,7 @@ namespace Advanced.Algorithms.String.Search
         /// <returns></returns>
         public int Search(string input, string pattern)
         {
-            var z = Z(pattern + input, pattern.Length);
+            var z = this.z(pattern + input, pattern.Length);
 
             for (int i = pattern.Length; i < z.Length; i++)
             {
@@ -36,11 +33,11 @@ namespace Advanced.Algorithms.String.Search
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        private int[] Z(string input, int patternLength)
+        private int[] z(string input, int patternLength)
         {
             var result = new int[input.Length];
 
-            int prefixIndex = 0;
+            var prefixIndex = 0;
             for (int i = 1; i < input.Length; i++)
             {
                 var k = i;
@@ -76,7 +73,6 @@ namespace Advanced.Algorithms.String.Search
                         else
                         {
                             //move left end of z box to current element
-                            left = m;
                             prefixIndex = result[prefixIndex];
 
                             //cannot exceed size of input

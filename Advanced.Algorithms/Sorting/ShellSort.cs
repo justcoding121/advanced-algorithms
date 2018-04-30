@@ -24,16 +24,20 @@ namespace Advanced.Algorithms.Sorting
             {
                 for (int i = k; i < array.Length; i = i + k, j = j + k)
                 {
-                    if (array[i].CompareTo(array[j]) < 0)
+                    if (array[i].CompareTo(array[j]) >= 0)
                     {
-                        swap(array, i, j);
-
-                        if (i > k)
-                        {
-                            i -= k * 2;
-                            j -= k * 2;
-                        }
+                        continue;
                     }
+
+                    swap(array, i, j);
+
+                    if (i <= k)
+                    {
+                        continue;
+                    }
+
+                    i -= k * 2;
+                    j -= k * 2;
                 }
 
                 j = 0;

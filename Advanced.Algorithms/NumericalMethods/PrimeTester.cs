@@ -36,7 +36,7 @@ namespace Advanced.Algorithms.NumericalMethods
             //inside the loop
             //check until square root of number
             var sqrt = Math.Sqrt(number);
-            for (int i = 5; i <= sqrt; i = i + 6)
+            for (var i = 5; i <= sqrt; i = i + 6)
             {
                 //check for two potential primes
                 if (number % i == 0 || number % (i + 2) == 0)

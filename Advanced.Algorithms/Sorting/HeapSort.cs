@@ -1,5 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures;
-using System;
+﻿using System;
 using Advanced.Algorithms.DataStructures.Heap.Min;
 
 namespace Advanced.Algorithms.Sorting
@@ -11,14 +10,14 @@ namespace Advanced.Algorithms.Sorting
         {
             //heapify
             var heap = new BMinHeap<T>();
-            for (int i = 0; i < array.Length; i++)
+            foreach (var item in array)
             {
-                heap.Insert(array[i]);
+                heap.Insert(item);
             }
 
             //now extract min until empty and return them as sorted array
             var sortedArray = new T[array.Length];
-            int j = 0;
+            var j = 0;
             while (heap.Count > 0)
             {
                 sortedArray[j] = heap.ExtractMin();

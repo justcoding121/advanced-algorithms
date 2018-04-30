@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Miscellaneous
 {
     public class MatrixMultiplication
     {
-        internal static int[,] Multiply(int[,] a, int[,] b)
+        public static int[,] Multiply(int[,] a, int[,] b)
         {
             if (a.GetLength(1) != b.GetLength(0))
             {

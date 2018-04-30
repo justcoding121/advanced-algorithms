@@ -10,15 +10,15 @@ namespace Advanced.Algorithms.Sorting
         {
             //create BST
             var tree = new RedBlackTree<T>();
-            for (int i = 0; i < array.Length; i++)
+            foreach (var item in array)
             {
-                tree.Insert(array[i]);
+                tree.Insert(item);
             }
 
             //now extract min until empty
             //and return them as sorted array
             var sortedArray = new T[array.Length];
-            int j = 0;
+            var j = 0;
             while (tree.Count > 0)
             {
                 //can be optimized by consolidating FindMin & Delete!

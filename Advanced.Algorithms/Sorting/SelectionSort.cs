@@ -12,12 +12,14 @@ namespace Advanced.Algorithms.Sorting
                 //select the smallest item in sub array and move it to front
                 for (int j = i + 1; j < array.Length; j++)
                 {
-                    if (array[j].CompareTo(array[i]) < 0)
+                    if (array[j].CompareTo(array[i]) >= 0)
                     {
-                        var temp = array[i];
-                        array[i] = array[j];
-                        array[j] = temp;
+                        continue;
                     }
+
+                    var temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
                 }
             }
 
