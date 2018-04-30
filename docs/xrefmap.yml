@@ -9229,12 +9229,12 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.LineIntersection
   fullName: Advanced.Algorithms.Geometry.LineIntersection
   nameWithType: LineIntersection
-- uid: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line)
-  name: FindIntersection(Line, Line)
-  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_FindIntersection_Advanced_Algorithms_Geometry_Line_Advanced_Algorithms_Geometry_Line_
-  commentId: M:Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line)
-  fullName: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Advanced.Algorithms.Geometry.Line, Advanced.Algorithms.Geometry.Line)
-  nameWithType: LineIntersection.FindIntersection(Line, Line)
+- uid: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line,System.Double)
+  name: FindIntersection(Line, Line, Double)
+  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_FindIntersection_Advanced_Algorithms_Geometry_Line_Advanced_Algorithms_Geometry_Line_System_Double_
+  commentId: M:Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line,System.Double)
+  fullName: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Advanced.Algorithms.Geometry.Line, Advanced.Algorithms.Geometry.Line, System.Double)
+  nameWithType: LineIntersection.FindIntersection(Line, Line, Double)
 - uid: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection*
   name: FindIntersection
   href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_FindIntersection_
@@ -9321,32 +9321,32 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.Rectangle
   fullName: Advanced.Algorithms.Geometry.Rectangle
   nameWithType: Rectangle
-- uid: Advanced.Algorithms.Geometry.Rectangle.leftTopCorner
-  name: leftTopCorner
-  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_leftTopCorner
-  commentId: P:Advanced.Algorithms.Geometry.Rectangle.leftTopCorner
-  fullName: Advanced.Algorithms.Geometry.Rectangle.leftTopCorner
-  nameWithType: Rectangle.leftTopCorner
-- uid: Advanced.Algorithms.Geometry.Rectangle.leftTopCorner*
-  name: leftTopCorner
-  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_leftTopCorner_
-  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.leftTopCorner
+- uid: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+  name: LeftTopCorner
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_LeftTopCorner
+  commentId: P:Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+  fullName: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+  nameWithType: Rectangle.LeftTopCorner
+- uid: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner*
+  name: LeftTopCorner
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_LeftTopCorner_
+  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
   isSpec: "True"
-  fullName: Advanced.Algorithms.Geometry.Rectangle.leftTopCorner
-  nameWithType: Rectangle.leftTopCorner
-- uid: Advanced.Algorithms.Geometry.Rectangle.rightBottomCorner
-  name: rightBottomCorner
-  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_rightBottomCorner
-  commentId: P:Advanced.Algorithms.Geometry.Rectangle.rightBottomCorner
-  fullName: Advanced.Algorithms.Geometry.Rectangle.rightBottomCorner
-  nameWithType: Rectangle.rightBottomCorner
-- uid: Advanced.Algorithms.Geometry.Rectangle.rightBottomCorner*
-  name: rightBottomCorner
-  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_rightBottomCorner_
-  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.rightBottomCorner
+  fullName: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+  nameWithType: Rectangle.LeftTopCorner
+- uid: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  name: RightBottomCorner
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_RightBottomCorner
+  commentId: P:Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  fullName: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  nameWithType: Rectangle.RightBottomCorner
+- uid: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner*
+  name: RightBottomCorner
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_RightBottomCorner_
+  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
   isSpec: "True"
-  fullName: Advanced.Algorithms.Geometry.Rectangle.rightBottomCorner
-  nameWithType: Rectangle.rightBottomCorner
+  fullName: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  nameWithType: Rectangle.RightBottomCorner
 - uid: Advanced.Algorithms.Geometry.RectangleIntersection
   name: RectangleIntersection
   href: api/Advanced.Algorithms.Geometry.RectangleIntersection.html
@@ -11100,6 +11100,22 @@ references:
   commentId: T:Advanced.Algorithms.Miscellaneous.MatrixMultiplication
   fullName: Advanced.Algorithms.Miscellaneous.MatrixMultiplication
   nameWithType: MatrixMultiplication
+- uid: Advanced.Algorithms.Miscellaneous.MatrixMultiplication.Multiply(System.Int32[0:,0:],System.Int32[0:,0:])
+  name: Multiply(Int32[,], Int32[,])
+  href: api/Advanced.Algorithms.Miscellaneous.MatrixMultiplication.html#Advanced_Algorithms_Miscellaneous_MatrixMultiplication_Multiply_System_Int32_0__0___System_Int32_0__0___
+  commentId: M:Advanced.Algorithms.Miscellaneous.MatrixMultiplication.Multiply(System.Int32[0:,0:],System.Int32[0:,0:])
+  name.vb: Multiply(Int32(,), Int32(,))
+  fullName: Advanced.Algorithms.Miscellaneous.MatrixMultiplication.Multiply(System.Int32[,], System.Int32[,])
+  fullName.vb: Advanced.Algorithms.Miscellaneous.MatrixMultiplication.Multiply(System.Int32(,), System.Int32(,))
+  nameWithType: MatrixMultiplication.Multiply(Int32[,], Int32[,])
+  nameWithType.vb: MatrixMultiplication.Multiply(Int32(,), Int32(,))
+- uid: Advanced.Algorithms.Miscellaneous.MatrixMultiplication.Multiply*
+  name: Multiply
+  href: api/Advanced.Algorithms.Miscellaneous.MatrixMultiplication.html#Advanced_Algorithms_Miscellaneous_MatrixMultiplication_Multiply_
+  commentId: Overload:Advanced.Algorithms.Miscellaneous.MatrixMultiplication.Multiply
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Miscellaneous.MatrixMultiplication.Multiply
+  nameWithType: MatrixMultiplication.Multiply
 - uid: Advanced.Algorithms.NumericalMethods
   name: Advanced.Algorithms.NumericalMethods
   href: api/Advanced.Algorithms.NumericalMethods.html
@@ -11607,19 +11623,6 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.String.ManachersPalindrome.FindLongestPalindrome
   nameWithType: ManachersPalindrome.FindLongestPalindrome
-- uid: Advanced.Algorithms.String.ManachersPalindrome.FindLongestPalindromeR(System.String)
-  name: FindLongestPalindromeR(String)
-  href: api/Advanced.Algorithms.String.ManachersPalindrome.html#Advanced_Algorithms_String_ManachersPalindrome_FindLongestPalindromeR_System_String_
-  commentId: M:Advanced.Algorithms.String.ManachersPalindrome.FindLongestPalindromeR(System.String)
-  fullName: Advanced.Algorithms.String.ManachersPalindrome.FindLongestPalindromeR(System.String)
-  nameWithType: ManachersPalindrome.FindLongestPalindromeR(String)
-- uid: Advanced.Algorithms.String.ManachersPalindrome.FindLongestPalindromeR*
-  name: FindLongestPalindromeR
-  href: api/Advanced.Algorithms.String.ManachersPalindrome.html#Advanced_Algorithms_String_ManachersPalindrome_FindLongestPalindromeR_
-  commentId: Overload:Advanced.Algorithms.String.ManachersPalindrome.FindLongestPalindromeR
-  isSpec: "True"
-  fullName: Advanced.Algorithms.String.ManachersPalindrome.FindLongestPalindromeR
-  nameWithType: ManachersPalindrome.FindLongestPalindromeR
 - uid: Advanced.Algorithms.String.Search
   name: Advanced.Algorithms.String.Search
   href: api/Advanced.Algorithms.String.Search.html
