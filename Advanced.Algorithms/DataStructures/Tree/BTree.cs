@@ -83,7 +83,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
 
         internal BTreeNode<T> Root;
 
-        private int maxKeysPerNode;
+        private readonly int maxKeysPerNode;
         private int minKeysPerNode => maxKeysPerNode / 2;
 
         public BTree(int maxKeysPerNode)
@@ -136,7 +136,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             //if leaf then its time to insert
             if (node.IsLeaf)
             {
-                for (int i = 0; i < node.KeyCount; i++)
+                for (var i = 0; i < node.KeyCount; i++)
                 {
 
                     if (value.CompareTo(node.Keys[i]) == 0)
@@ -148,7 +148,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             else
             {
                 //if not leaf then drill down to leaf
-                for (int i = 0; i < node.KeyCount; i++)
+                for (var i = 0; i < node.KeyCount; i++)
                 {
                     if (value.CompareTo(node.Keys[i]) == 0)
                     {
@@ -163,7 +163,8 @@ namespace Advanced.Algorithms.DataStructures.Tree
                     }
                     //current value is grearer than new value
                     //and current value is last element 
-                    else if (node.KeyCount == i + 1)
+
+                    if (node.KeyCount == i + 1)
                     {
                         return find(node.Children[i + 1], value);
                     }
@@ -181,15 +182,13 @@ namespace Advanced.Algorithms.DataStructures.Tree
         {
             if (Root == null)
             {
-                Root = new BTreeNode<T>(maxKeysPerNode, null);
-                Root.Keys[0] = newValue;
+                Root = new BTreeNode<T>(maxKeysPerNode, null) {Keys = {[0] = newValue}};
                 Root.KeyCount++;
                 Count++;
                 return;
             }
 
             var leafToInsert = findInsertionLeaf(Root, newValue);
-
             insertAndSplit(ref leafToInsert, newValue, null, null);
             Count++;
         }
@@ -210,7 +209,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             }
 
             //if not leaf then drill down to leaf
-            for (int i = 0; i < node.KeyCount; i++)
+            for (var i = 0; i < node.KeyCount; i++)
             {
                 //current value is less than new value
                 //drill down to left child of current value
@@ -220,7 +219,8 @@ namespace Advanced.Algorithms.DataStructures.Tree
                 }
                 //current value is grearer than new value
                 //and current value is last element 
-                else if (node.KeyCount == i + 1)
+
+                if (node.KeyCount == i + 1)
                 {
                     return findInsertionLeaf(node.Children[i + 1], newValue);
                 }
@@ -235,6 +235,8 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="node"></param>
         /// <param name="newValue"></param>
+        /// <param name="newValueLeft"></param>
+        /// <param name="newValueRight"></param>
         private void insertAndSplit(ref BTreeNode<T> node, T newValue,
             BTreeNode<T> newValueLeft, BTreeNode<T> newValueRight)
         {
@@ -267,12 +269,12 @@ namespace Advanced.Algorithms.DataStructures.Tree
                 var newValueInserted = false;
 
                 //keep track of each insertion
-                int insertionCount = 0;
+                var insertionCount = 0;
 
                 //insert newValue and existing values in sorted order
                 //to left & right nodes
                 //set new median during sorting
-                for (int i = 0; i < node.KeyCount; i++)
+                for (var i = 0; i < node.KeyCount; i++)
                 {
 
                     //if insertion count reached new median
@@ -307,17 +309,15 @@ namespace Advanced.Algorithms.DataStructures.Tree
                             insertionCount++;
                             continue;
                         }
-                        else
-                        {
-                            //median is next node
-                            newMedian = node.Keys[i];
 
-                            //now fill right node
-                            currentNode = right;
-                            currentNodeIndex = 0;
+                        //median is next node
+                        newMedian = node.Keys[i];
 
-                            continue;
-                        }
+                        //now fill right node
+                        currentNode = right;
+                        currentNodeIndex = 0;
+
+                        continue;
 
                     }
 
@@ -395,35 +395,37 @@ namespace Advanced.Algorithms.DataStructures.Tree
             var inserted = false;
 
             //insert in sorted order
-            for (int i = 0; i < node.KeyCount; i++)
+            for (var i = 0; i < node.KeyCount; i++)
             {
-                if (newValue.CompareTo(node.Keys[i]) < 0)
+                if (newValue.CompareTo(node.Keys[i]) >= 0)
                 {
-                    insertAt(node.Keys, i, newValue);
-                    node.KeyCount++;
-
-                    //Insert children if any
-                    setChild(node, i, newValueLeft);
-                    insertChild(node, i + 1, newValueRight);
-
-
-                    inserted = true;
-                    break;
+                    continue;
                 }
+
+                insertAt(node.Keys, i, newValue);
+                node.KeyCount++;
+
+                //Insert children if any
+                setChild(node, i, newValueLeft);
+                insertChild(node, i + 1, newValueRight);
+
+
+                inserted = true;
+                break;
             }
 
             //newValue is the greatest
             //element should be inserted at the end then
-            if (!inserted)
+            if (inserted)
             {
-                node.Keys[node.KeyCount] = newValue;
-                node.KeyCount++;
-
-                setChild(node, node.KeyCount - 1, newValueLeft);
-                setChild(node, node.KeyCount, newValueRight);
-
-
+                return;
             }
+
+            node.Keys[node.KeyCount] = newValue;
+            node.KeyCount++;
+
+            setChild(node, node.KeyCount - 1, newValueLeft);
+            setChild(node, node.KeyCount, newValueRight);
         }
 
 
@@ -441,36 +443,38 @@ namespace Advanced.Algorithms.DataStructures.Tree
                 throw new Exception("Item do not exist in this tree.");
             }
 
-            for (int i = 0; i < node.KeyCount; i++)
+            for (var i = 0; i < node.KeyCount; i++)
             {
-                if (value.CompareTo(node.Keys[i]) == 0)
+                if (value.CompareTo(node.Keys[i]) != 0)
                 {
-                    //if node is leaf and no underflow
-                    //then just remove the node
-                    if (node.IsLeaf)
-                    {
-                        removeAt(node.Keys, i);
-                        node.KeyCount--;
-
-                        balance(node);
-
-                    }
-                    else
-                    {
-                        //replace with max node of left tree
-                        var maxNode = findMaxNode(node.Children[i]);
-                        node.Keys[i] = maxNode.Keys[maxNode.KeyCount - 1];
-
-                        removeAt(maxNode.Keys, maxNode.KeyCount - 1);
-                        maxNode.KeyCount--;
-
-                        balance(maxNode);
-
-                    }
-
-                    Count--;
-                    return;
+                    continue;
                 }
+
+                //if node is leaf and no underflow
+                //then just remove the node
+                if (node.IsLeaf)
+                {
+                    removeAt(node.Keys, i);
+                    node.KeyCount--;
+
+                    balance(node);
+
+                }
+                else
+                {
+                    //replace with max node of left tree
+                    var maxNode = findMaxNode(node.Children[i]);
+                    node.Keys[i] = maxNode.Keys[maxNode.KeyCount - 1];
+
+                    removeAt(maxNode.Keys, maxNode.KeyCount - 1);
+                    maxNode.KeyCount--;
+
+                    balance(maxNode);
+
+                }
+
+                Count--;
+                return;
 
             }
 
@@ -480,37 +484,21 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <summary>
         /// return the node containing max value which will be a leaf at the right most
         /// </summary>
-        /// <param name="asBTreeNode"></param>
         /// <returns></returns>
         private BTreeNode<T> findMinNode(BTreeNode<T> node)
         {
             //if leaf return node
-            if (node.IsLeaf)
-            {
-                return node;
-            }
-
-            //step in to left most child
-            return findMinNode(node.Children[0]);
-
+            return node.IsLeaf ? node : findMinNode(node.Children[0]);
         }
 
         /// <summary>
         /// return the node containing max value which will be a leaf at the right most
         /// </summary>
-        /// <param name="asBTreeNode"></param>
         /// <returns></returns>
         private BTreeNode<T> findMaxNode(BTreeNode<T> node)
         {
             //if leaf return node
-            if (node.IsLeaf)
-            {
-                return node;
-            }
-
-            //step in to right most child
-            return findMaxNode(node.Children[node.KeyCount]);
-
+            return node.IsLeaf ? node : findMaxNode(node.Children[node.KeyCount]);
         }
 
         /// <summary>
@@ -550,8 +538,6 @@ namespace Advanced.Algorithms.DataStructures.Tree
             {
                 sandwich(leftSibling, node);
             }
-
-
         }
 
         /// <summary>
@@ -567,7 +553,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             var newNode = new BTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
             var newIndex = 0;
 
-            for (int i = 0; i < leftSibling.KeyCount; i++)
+            for (var i = 0; i < leftSibling.KeyCount; i++)
             {
                 newNode.Keys[newIndex] = leftSibling.Keys[i];
 
@@ -593,7 +579,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             newNode.Keys[newIndex] = parent.Keys[separatorIndex];
             newIndex++;
 
-            for (int i = 0; i < rightSibling.KeyCount; i++)
+            for (var i = 0; i < rightSibling.KeyCount; i++)
             {
                 newNode.Keys[newIndex] = rightSibling.Keys[i];
 
@@ -703,7 +689,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             //if leaf then its time to insert
             if (node.IsLeaf)
             {
-                for (int i = 0; i < node.KeyCount; i++)
+                for (var i = 0; i < node.KeyCount; i++)
                 {
                     if (value.CompareTo(node.Keys[i]) == 0)
                     {
@@ -714,7 +700,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             else
             {
                 //if not leaf then drill down to leaf
-                for (int i = 0; i < node.KeyCount; i++)
+                for (var i = 0; i < node.KeyCount; i++)
                 {
                     if (value.CompareTo(node.Keys[i]) == 0)
                     {
@@ -729,7 +715,8 @@ namespace Advanced.Algorithms.DataStructures.Tree
                     }
                     //current value is grearer than new value
                     //and current value is last element 
-                    else if (node.KeyCount == i + 1)
+
+                    if (node.KeyCount == i + 1)
                     {
                         return findDeletionNode(node.Children[i + 1], value);
                     }
@@ -753,14 +740,13 @@ namespace Advanced.Algorithms.DataStructures.Tree
             {
                 return 0;
             }
-            else if (node.Index == parent.KeyCount)
+
+            if (node.Index == parent.KeyCount)
             {
                 return node.Index - 1;
             }
-            else
-            {
-                return node.Index;
-            }
+
+            return node.Index;
 
         }
 
@@ -773,13 +759,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         {
             var parent = node.Parent;
 
-            if (node.Index == parent.KeyCount)
-            {
-                return null;
-            }
-
-            return parent.Children[node.Index + 1];
-
+            return node.Index == parent.KeyCount ? null : parent.Children[node.Index + 1];
         }
 
         /// <summary>
@@ -789,24 +769,20 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <returns></returns>
         private BTreeNode<T> getLeftSibling(BTreeNode<T> node)
         {
-            if (node.Index == 0)
-            {
-                return null;
-            }
-
-            return node.Parent.Children[node.Index - 1];
-
+            return node.Index == 0 ? null : node.Parent.Children[node.Index - 1];
         }
 
         private void setChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
         {
             parent.Children[childIndex] = child;
 
-            if (child != null)
+            if (child == null)
             {
-                child.Parent = parent;
-                child.Index = childIndex;
+                return;
             }
+
+            child.Parent = parent;
+            child.Index = childIndex;
 
         }
 
@@ -820,7 +796,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             }
 
             //update indices
-            for (int i = childIndex; i <= parent.KeyCount; i++)
+            for (var i = childIndex; i <= parent.KeyCount; i++)
             {
                 if (parent.Children[i] != null)
                 {
@@ -834,7 +810,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             removeAt(parent.Children, childIndex);
 
             //update indices
-            for (int i = childIndex; i <= parent.KeyCount; i++)
+            for (var i = childIndex; i <= parent.KeyCount; i++)
             {
                 if (parent.Children[i] != null)
                 {
@@ -849,11 +825,11 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// And then insert at index
         /// Assumes array have atleast one empty index at end
         /// </summary>
-        /// <typeparam name="S"></typeparam>
+        /// <typeparam name="TS"></typeparam>
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <param name="newValue"></param>
-        private void insertAt<S>(S[] array, int index, S newValue)
+        private void insertAt<TS>(TS[] array, int index, TS newValue)
         {
             //shift elements right by one indice from index
             Array.Copy(array, index, array, index + 1, array.Length - index - 1);
@@ -864,11 +840,10 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <summary>
         /// Shift array left at index    
         /// </summary>
-        /// <typeparam name="S"></typeparam>
+        /// <typeparam name="TS"></typeparam>
         /// <param name="array"></param>
         /// <param name="index"></param>
-        /// <param name="newValue"></param>
-        private void removeAt<S>(S[] array, int index)
+        private void removeAt<TS>(TS[] array, int index)
         {
             //shift elements right by one indice from index
             Array.Copy(array, index + 1, array, index, array.Length - index - 1);

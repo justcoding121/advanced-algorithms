@@ -82,26 +82,27 @@ namespace Advanced.Algorithms.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         private BinaryTreeNode<T> find(BinaryTreeNode<T> parent, T value)
         {
-            if (parent == null)
+            while (true)
             {
-                return null;
+                if (parent == null)
+                {
+                    return null;
+                }
+
+                if (parent.Value.CompareTo(value) == 0)
+                {
+                    return parent;
+                }
+
+                var left = find(parent.Left, value);
+
+                if (left != null)
+                {
+                    return left;
+                }
+
+                parent = parent.Right;
             }
-
-            if (parent.Value.CompareTo(value) == 0)
-            {
-                return parent;
-            }
-
-            var left = find(parent.Left, value);
-
-            if (left != null)
-            {
-                return left;
-            }
-
-            var right = find(parent.Right, value);
-
-            return right;
         }
 
         /// <summary>

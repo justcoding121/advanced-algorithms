@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// add operation on generic type
         /// </summary>
-        private Func<T, T, T> sumOperation;
+        private readonly Func<T, T, T> sumOperation;
 
         /// <summary>
         /// constructs a Fenwick tree using the specified sum operation function
@@ -40,7 +40,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             Tree = new T[input.Length + 1];
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 var j = i + 1;
                 while (j < input.Length)
@@ -71,7 +71,6 @@ namespace Advanced.Algorithms.DataStructures
             while (currentIndex > 0)
             {
                 sum = sumOperation(sum, Tree[currentIndex]);
-
                 currentIndex = getParentIndex(currentIndex);
             }
 

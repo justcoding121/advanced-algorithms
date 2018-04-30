@@ -16,8 +16,8 @@ namespace Advanced.Algorithms.DataStructures
 
         public DInterval(T[] start, T[] end)
         {
-            this.Start = start;
-            this.End = end;
+            Start = start;
+            End = end;
         }
     }
 
@@ -29,7 +29,7 @@ namespace Advanced.Algorithms.DataStructures
     /// <typeparam name="T"></typeparam>
     public class DIntervalTree<T> where T : IComparable
     {
-        private int dimensions;
+        private readonly int dimensions;
         private IntervalTree<T> tree;
 
         public int Count { get; private set; }
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             this.dimensions = dimensions;
-            this.tree = new IntervalTree<T>();
+            tree = new IntervalTree<T>();
         }
 
         /// <summary>
@@ -54,17 +54,13 @@ namespace Advanced.Algorithms.DataStructures
         {
             if (start.Length != dimensions || start.Length != end.Length)
             {
-                throw new Exception(string.Format("Expecting {0} points in start and end values for this interval.",
-                    dimensions));
+                throw new Exception($"Expecting {dimensions} points in start and end values for this interval.");
             }
 
-            for (int i = 0; i < start.Length; i++)
+            if (start.Where((t, i) => t.Equals(defaultValue.Value)
+                                      || end[i].Equals(defaultValue.Value)).Any())
             {
-                if (start[i].Equals(defaultValue.Value)
-                    || end[i].Equals(defaultValue.Value))
-                {
-                    throw new Exception("Points cannot contain Minimum Value or Null values");
-                }
+                throw new Exception("Points cannot contain Minimum Value or Null values");
             }
         }
 
@@ -72,13 +68,12 @@ namespace Advanced.Algorithms.DataStructures
         /// A cached function to override default(T)
         /// So that for value types we can return min value as default
         /// </summary>
-        /// <param name="s"></param>
         /// <returns></returns>
-        private Lazy<T> defaultValue = new Lazy<T>(() =>
+        private readonly Lazy<T> defaultValue = new Lazy<T>(() =>
         {
             var s = typeof(T);
 
-            bool isValueType = false;
+            bool isValueType;
 
 #if NET40
             isValueType = s.IsValueType;
@@ -103,13 +98,12 @@ namespace Advanced.Algorithms.DataStructures
         {
             validateDimensions(start, end);
 
-            var currentTrees = new List<IntervalTree<T>>();
+            var currentTrees = new List<IntervalTree<T>> {tree};
 
-            currentTrees.Add(tree);
 
             //get all overlaps
             //and insert next dimension value to each overlapping node
-            for (int i = 0; i < dimensions; i++)
+            for (var i = 0; i < dimensions; i++)
             {
                 var allOverlaps = new List<IntervalTree<T>>();
 
@@ -138,9 +132,6 @@ namespace Advanced.Algorithms.DataStructures
         public void Delete(T[] start, T[] end)
         {
             validateDimensions(start, end);
-
-            var currentTrees = new List<IntervalTree<T>>();
-            currentTrees.Add(tree);
 
             var allOverlaps = new List<IntervalTree<T>>();
             var overlaps = tree.GetOverlaps(new AsInterval<T>(start[0], end[0]));
@@ -310,14 +301,13 @@ namespace Advanced.Algorithms.DataStructures
 
         public int CompareTo(object obj)
         {
-            return this.Start.CompareTo((obj as AsInterval<T>).Start);
+            return this.Start.CompareTo(((AsInterval<T>) obj).Start);
         }
 
         public AsInterval(T start, T end)
         {
             Start = start;
-            End = new List<T>();
-            End.Add(end);
+            End = new List<T> {end};
             NextDimensionIntervals = new IntervalTree<T>();
         }
     }
@@ -401,48 +391,51 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="value"></param>
         private void SortInterval(AsInterval<T> value)
         {
-            if (value.Start.CompareTo(value.End[0]) > 0)
+            if (value.Start.CompareTo(value.End[0]) <= 0)
             {
-                var tmp = value.End[0];
-                value.End[0] = value.Start;
-                value.Start = tmp;
+                return;
             }
+
+            var tmp = value.End[0];
+            value.End[0] = value.Start;
+            value.Start = tmp;
         }
+
         /// <summary>
         /// Returns an interval that overlaps with this interval
         /// </summary>
         /// <param name="interval"></param>
         /// <returns></returns>
-        private AsInterval<T> GetOverlap(AsIntervalRedBlackTreeNode<AsInterval<T>> current,
-            AsInterval<T> searchInterval)
+        private AsInterval<T> GetOverlap(AsIntervalRedBlackTreeNode<AsInterval<T>> current, AsInterval<T> searchInterval)
         {
-            if (current == null)
+            while (true)
             {
-                return null;
+                if (current == null)
+                {
+                    return null;
+                }
+
+                if (doOverlap(current.Value, searchInterval))
+                {
+                    return current.Value;
+                }
+
+                //if left max is greater than search start
+                //then the search interval can occur in left sub tree
+                if (current.Left != null && current.Left.Value.MaxEnd.CompareTo(searchInterval.Start) >= 0)
+                {
+                    current = current.Left;
+                    continue;
+                }
+
+                //otherwise look in right subtree
+                current = current.Right;
             }
-
-            if (doOverlap(current.Value, searchInterval))
-            {
-                return current.Value;
-            }
-
-            //if left max is greater than search start
-            //then the search interval can occur in left sub tree
-            if (current.Left != null
-                && current.Left.Value.MaxEnd.CompareTo(searchInterval.Start) >= 0)
-            {
-                return GetOverlap(current.Left, searchInterval);
-            }
-
-            //otherwise look in right subtree
-            return GetOverlap(current.Right, searchInterval);
-
         }
 
         /// <summary>
         /// Returns all intervals that overlaps with this interval
         /// </summary>
-        /// <param name="interval"></param>
         /// <returns></returns>
         private List<AsInterval<T>> GetOverlaps(AsIntervalRedBlackTreeNode<AsInterval<T>> current,
             AsInterval<T> searchInterval, List<AsInterval<T>> result = null)
@@ -488,19 +481,21 @@ namespace Advanced.Algorithms.DataStructures
             a.MatchingEndIndex = -1;
             b.MatchingEndIndex = -1;
 
-            for (int i = 0; i < a.End.Count; i++)
+            for (var i = 0; i < a.End.Count; i++)
             {
-                for (int j = 0; j < b.End.Count; j++)
+                for (var j = 0; j < b.End.Count; j++)
                 {
                  
                     //a.Start less than b.End and a.End greater than b.Start
-                    if (a.Start.CompareTo(b.End[j]) <= 0 && a.End[i].CompareTo(b.Start) >= 0)
+                    if (a.Start.CompareTo(b.End[j]) > 0 || a.End[i].CompareTo(b.Start) < 0)
                     {
-                        a.MatchingEndIndex = i;
-                        b.MatchingEndIndex = j;
-
-                        return true;
+                        continue;
                     }
+
+                    a.MatchingEndIndex = i;
+                    b.MatchingEndIndex = j;
+
+                    return true;
                 }
 
             }
@@ -546,11 +541,11 @@ namespace Advanced.Algorithms.DataStructures
             /// </summary>
             /// <param name="s"></param>
             /// <returns></returns>
-            private Lazy<T> defaultValue = new Lazy<T>(() =>
+            private readonly Lazy<T> defaultValue = new Lazy<T>(() =>
             {
                 var s = typeof(T);
 
-                bool isValueType = false;
+                bool isValueType;
 
 #if NET40
                 isValueType = s.IsValueType;
@@ -576,70 +571,74 @@ namespace Advanced.Algorithms.DataStructures
             /// </summary>
             /// <param name="node"></param>
             /// <param name="currentMax"></param>
-            private void UpdateMax(AsIntervalRedBlackTreeNode<AsInterval<T>> node, T currentMax,
-               bool recurseUp = true)
+            /// <param name="recurseUp"></param>
+            private void updateMax(AsIntervalRedBlackTreeNode<AsInterval<T>> node, T currentMax, bool recurseUp = true)
             {
-                if (node == null)
+                while (true)
                 {
-                    return;
-                }
-
-                if (node.Left != null && node.Right != null)
-                {
-                    //if current Max is less than current End
-                    //then update current Max
-                    if (currentMax.CompareTo(node.Left.Value.MaxEnd) < 0)
+                    if (node == null)
                     {
-                        currentMax = node.Left.Value.MaxEnd;
+                        return;
                     }
 
-                    if (currentMax.CompareTo(node.Right.Value.MaxEnd) < 0)
+                    if (node.Left != null && node.Right != null)
                     {
-                        currentMax = node.Right.Value.MaxEnd;
+                        //if current Max is less than current End
+                        //then update current Max
+                        if (currentMax.CompareTo(node.Left.Value.MaxEnd) < 0)
+                        {
+                            currentMax = node.Left.Value.MaxEnd;
+                        }
+
+                        if (currentMax.CompareTo(node.Right.Value.MaxEnd) < 0)
+                        {
+                            currentMax = node.Right.Value.MaxEnd;
+                        }
                     }
-                }
-                else if (node.Left != null)
-                {
-                    //if current Max is less than current End
-                    //then update current Max
-                    if (currentMax.CompareTo(node.Left.Value.MaxEnd) < 0)
+                    else if (node.Left != null)
                     {
-                        currentMax = node.Left.Value.MaxEnd;
+                        //if current Max is less than current End
+                        //then update current Max
+                        if (currentMax.CompareTo(node.Left.Value.MaxEnd) < 0)
+                        {
+                            currentMax = node.Left.Value.MaxEnd;
+                        }
                     }
-
-                }
-                else if (node.Right != null)
-                {
-                    if (currentMax.CompareTo(node.Right.Value.MaxEnd) < 0)
+                    else if (node.Right != null)
                     {
-                        currentMax = node.Right.Value.MaxEnd;
+                        if (currentMax.CompareTo(node.Right.Value.MaxEnd) < 0)
+                        {
+                            currentMax = node.Right.Value.MaxEnd;
+                        }
                     }
-                }
 
-                for (int i = 0; i < node.Value.End.Count; i++)
-                {
-                    if (currentMax.CompareTo(node.Value.End[i]) < 0)
+                    foreach (var v in node.Value.End)
                     {
-                        currentMax = node.Value.End[i];
+                        if (currentMax.CompareTo(v) < 0)
+                        {
+                            currentMax = v;
+                        }
                     }
+
+                    node.Value.MaxEnd = currentMax;
+
+
+                    if (recurseUp)
+                    {
+                        node = node.Parent;
+                        continue;
+                    }
+
+
+                    break;
                 }
-
-                node.Value.MaxEnd = currentMax;
-
-
-                if (recurseUp)
-                {
-                    UpdateMax(node.Parent, currentMax);
-                }
-
-
             }
 
             /// <summary>
             /// Update Max on new root after rotations
             /// </summary>
             /// <param name="newRoot"></param>
-            private void UpdateMax(AsIntervalRedBlackTreeNode<AsInterval<T>> newRoot, bool recurseUp = true)
+            private void updateMax(AsIntervalRedBlackTreeNode<AsInterval<T>> newRoot, bool recurseUp = true)
             {
                 if (newRoot == null)
                     return;
@@ -649,16 +648,16 @@ namespace Advanced.Algorithms.DataStructures
                 if (newRoot.Left != null)
                 {
                     newRoot.Left.Value.MaxEnd = defaultValue.Value;
-                    UpdateMax(newRoot.Left, newRoot.Left.Value.MaxEnd, recurseUp);
+                    updateMax(newRoot.Left, newRoot.Left.Value.MaxEnd, recurseUp);
                 }
 
                 if (newRoot.Right != null)
                 {
                     newRoot.Right.Value.MaxEnd = defaultValue.Value;
-                    UpdateMax(newRoot.Right, newRoot.Right.Value.MaxEnd, recurseUp);
+                    updateMax(newRoot.Right, newRoot.Right.Value.MaxEnd, recurseUp);
                 }
 
-                UpdateMax(newRoot, newRoot.Value.MaxEnd, recurseUp);
+                updateMax(newRoot, newRoot.Value.MaxEnd, recurseUp);
 
             }
 
@@ -667,7 +666,7 @@ namespace Advanced.Algorithms.DataStructures
             /// Rotate right
             /// </summary>
             /// <param name="node"></param>
-            private void RightRotate(AsIntervalRedBlackTreeNode<AsInterval<T>> node)
+            private void rightRotate(AsIntervalRedBlackTreeNode<AsInterval<T>> node)
             {
                 var prevRoot = node;
                 var leftRightChild = prevRoot.Left.Right;
@@ -705,14 +704,14 @@ namespace Advanced.Algorithms.DataStructures
                     Root = newRoot;
                 }
 
-                UpdateMax(newRoot, false);
+                updateMax(newRoot, false);
             }
 
             /// <summary>
             /// rotate left
             /// </summary>
             /// <param name="node"></param>
-            private void LeftRotate(AsIntervalRedBlackTreeNode<AsInterval<T>> node)
+            private void leftRotate(AsIntervalRedBlackTreeNode<AsInterval<T>> node)
             {
                 var prevRoot = node;
                 var rightLeftChild = prevRoot.Right.Left;
@@ -751,7 +750,7 @@ namespace Advanced.Algorithms.DataStructures
                     Root = newRoot;
                 }
 
-                UpdateMax(newRoot, false);
+                updateMax(newRoot, false);
             }
 
             /// <summary>
@@ -759,14 +758,13 @@ namespace Advanced.Algorithms.DataStructures
             /// </summary>
             /// <param name="node"></param>
             /// <returns></returns>
-            private AsIntervalRedBlackTreeNode<AsInterval<T>> FindMax(AsIntervalRedBlackTreeNode<AsInterval<T>> node)
+            private AsIntervalRedBlackTreeNode<AsInterval<T>> findMax(AsIntervalRedBlackTreeNode<AsInterval<T>> node)
             {
-                if (node.Right == null)
+                while (true)
                 {
-                    return node;
+                    if (node.Right == null) return node;
+                    node = node.Right;
                 }
-
-                return FindMax(node.Right);
             }
 
             //O(log(n)) always
@@ -775,9 +773,11 @@ namespace Advanced.Algorithms.DataStructures
                 //empty tree
                 if (Root == null)
                 {
-                    Root = new AsIntervalRedBlackTreeNode<AsInterval<T>>(null, value);
-                    Root.NodeColor = RedBlackTreeNodeColor.Black;
-                    UpdateMax(Root);
+                    Root = new AsIntervalRedBlackTreeNode<AsInterval<T>>(null, value)
+                    {
+                        NodeColor = RedBlackTreeNodeColor.Black
+                    };
+                    updateMax(Root);
                     Count++;
                     return;
                 }
@@ -802,7 +802,7 @@ namespace Advanced.Algorithms.DataStructures
                         //insert
                         var newNode = new AsIntervalRedBlackTreeNode<AsInterval<T>>(currentNode, newNodeValue);
                         currentNode.Right = newNode;
-                        UpdateMax(newNode);
+                        updateMax(newNode);
                         BalanceInsertion(newNode);
                         return newNode;
                     }
@@ -814,7 +814,8 @@ namespace Advanced.Algorithms.DataStructures
 
                 }
                 //current node is greater than new node
-                else if (compareResult > 0)
+
+                if (compareResult > 0)
                 {
 
                     if (currentNode.Left == null)
@@ -822,7 +823,7 @@ namespace Advanced.Algorithms.DataStructures
                         //insert
                         var newNode = new AsIntervalRedBlackTreeNode<AsInterval<T>>(currentNode, newNodeValue);
                         currentNode.Left = newNode;
-                        UpdateMax(newNode);
+                        updateMax(newNode);
                         BalanceInsertion(newNode);
                         return newNode;
                     }
@@ -832,14 +833,10 @@ namespace Advanced.Algorithms.DataStructures
                         return newNode;
                     }
                 }
-                else
-                {
-                    currentNode.Value.End.Add(newNodeValue.End[0]);
-                    UpdateMax(currentNode);
-                    return currentNode;
-                }
 
-
+                currentNode.Value.End.Add(newNodeValue.End[0]);
+                updateMax(currentNode);
+                return currentNode;
             }
 
             /// <summary>
@@ -848,115 +845,108 @@ namespace Advanced.Algorithms.DataStructures
             /// <param name="nodeToBalance"></param>
             private void BalanceInsertion(AsIntervalRedBlackTreeNode<AsInterval<T>> nodeToBalance)
             {
-                if (nodeToBalance == Root)
+                while (true)
                 {
-                    Root.NodeColor = RedBlackTreeNodeColor.Black;
-                    UpdateMax(Root);
-                    return;
-                }
-
-                //if node to balance is red
-                if (nodeToBalance.NodeColor == RedBlackTreeNodeColor.Red)
-                {
-
-                    //red-red relation; fix it!
-                    if (nodeToBalance.Parent.NodeColor == RedBlackTreeNodeColor.Red)
+                    if (nodeToBalance == Root)
                     {
-                        //red sibling
-                        if (nodeToBalance.Parent.Sibling != null
-                            && nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Red)
-                        {
-                            //mark both children of parent as black and move up balancing 
-                            nodeToBalance.Parent.Sibling.NodeColor = RedBlackTreeNodeColor.Black;
-                            nodeToBalance.Parent.NodeColor = RedBlackTreeNodeColor.Black;
-
-                            //root is always black
-                            if (nodeToBalance.Parent.Parent != Root)
-                            {
-                                nodeToBalance.Parent.Parent.NodeColor = RedBlackTreeNodeColor.Red;
-                            }
-
-                            nodeToBalance = nodeToBalance.Parent.Parent;
-
-                        }
-                        //absent sibling or black sibling
-                        else if (nodeToBalance.Parent.Sibling == null
-                            || nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Black)
-                        {
-
-                            if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsLeftChild)
-                            {
-
-                                var newRoot = nodeToBalance.Parent;
-                                swapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
-                                RightRotate(nodeToBalance.Parent.Parent);
-
-                                if (newRoot == Root)
-                                {
-                                    Root.NodeColor = RedBlackTreeNodeColor.Black;
-                                }
-
-                                nodeToBalance = newRoot;
-
-                            }
-                            else if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsRightChild)
-                            {
-
-                                RightRotate(nodeToBalance.Parent);
-
-                                var newRoot = nodeToBalance;
-
-                                swapColors(nodeToBalance.Parent, nodeToBalance);
-                                LeftRotate(nodeToBalance.Parent);
-
-                                if (newRoot == Root)
-                                {
-                                    Root.NodeColor = RedBlackTreeNodeColor.Black;
-                                }
-
-                                nodeToBalance = newRoot;
-
-                            }
-                            else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsRightChild)
-                            {
-
-                                var newRoot = nodeToBalance.Parent;
-                                swapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
-                                LeftRotate(nodeToBalance.Parent.Parent);
-
-                                if (newRoot == Root)
-                                {
-                                    Root.NodeColor = RedBlackTreeNodeColor.Black;
-                                }
-                                nodeToBalance = newRoot;
-
-                            }
-                            else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsLeftChild)
-                            {
-
-                                LeftRotate(nodeToBalance.Parent);
-
-                                var newRoot = nodeToBalance;
-
-                                swapColors(nodeToBalance.Parent, nodeToBalance);
-                                RightRotate(nodeToBalance.Parent);
-
-                                if (newRoot == Root)
-                                {
-                                    Root.NodeColor = RedBlackTreeNodeColor.Black;
-                                }
-                                nodeToBalance = newRoot;
-
-                            }
-                        }
-
+                        Root.NodeColor = RedBlackTreeNodeColor.Black;
+                        updateMax(Root);
+                        return;
                     }
 
-                }
+                    //if node to balance is red
+                    if (nodeToBalance.NodeColor == RedBlackTreeNodeColor.Red)
+                    {
+                        //red-red relation; fix it!
+                        if (nodeToBalance.Parent.NodeColor == RedBlackTreeNodeColor.Red)
+                        {
+                            //red sibling
+                            if (nodeToBalance.Parent.Sibling != null && nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Red)
+                            {
+                                //mark both children of parent as black and move up balancing 
+                                nodeToBalance.Parent.Sibling.NodeColor = RedBlackTreeNodeColor.Black;
+                                nodeToBalance.Parent.NodeColor = RedBlackTreeNodeColor.Black;
 
-                if (nodeToBalance.Parent != null)
-                {
-                    BalanceInsertion(nodeToBalance.Parent);
+                                //root is always black
+                                if (nodeToBalance.Parent.Parent != Root)
+                                {
+                                    nodeToBalance.Parent.Parent.NodeColor = RedBlackTreeNodeColor.Red;
+                                }
+
+                                nodeToBalance = nodeToBalance.Parent.Parent;
+                            }
+                            //absent sibling or black sibling
+                            else if (nodeToBalance.Parent.Sibling == null || nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Black)
+                            {
+                                if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsLeftChild)
+                                {
+                                    var newRoot = nodeToBalance.Parent;
+                                    swapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
+                                    rightRotate(nodeToBalance.Parent.Parent);
+
+                                    if (newRoot == Root)
+                                    {
+                                        Root.NodeColor = RedBlackTreeNodeColor.Black;
+                                    }
+
+                                    nodeToBalance = newRoot;
+                                }
+                                else if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsRightChild)
+                                {
+                                    rightRotate(nodeToBalance.Parent);
+
+                                    var newRoot = nodeToBalance;
+
+                                    swapColors(nodeToBalance.Parent, nodeToBalance);
+                                    leftRotate(nodeToBalance.Parent);
+
+                                    if (newRoot == Root)
+                                    {
+                                        Root.NodeColor = RedBlackTreeNodeColor.Black;
+                                    }
+
+                                    nodeToBalance = newRoot;
+                                }
+                                else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsRightChild)
+                                {
+                                    var newRoot = nodeToBalance.Parent;
+                                    swapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
+                                    leftRotate(nodeToBalance.Parent.Parent);
+
+                                    if (newRoot == Root)
+                                    {
+                                        Root.NodeColor = RedBlackTreeNodeColor.Black;
+                                    }
+
+                                    nodeToBalance = newRoot;
+                                }
+                                else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsLeftChild)
+                                {
+                                    leftRotate(nodeToBalance.Parent);
+
+                                    var newRoot = nodeToBalance;
+
+                                    swapColors(nodeToBalance.Parent, nodeToBalance);
+                                    rightRotate(nodeToBalance.Parent);
+
+                                    if (newRoot == Root)
+                                    {
+                                        Root.NodeColor = RedBlackTreeNodeColor.Black;
+                                    }
+
+                                    nodeToBalance = newRoot;
+                                }
+                            }
+                        }
+                    }
+
+                    if (nodeToBalance.Parent != null)
+                    {
+                        nodeToBalance = nodeToBalance.Parent;
+                        continue;
+                    }
+
+                    break;
                 }
             }
 
@@ -993,138 +983,126 @@ namespace Advanced.Algorithms.DataStructures
             /// <param name="node"></param>
             /// <param name="value"></param>
             /// <returns></returns>
-            private AsIntervalRedBlackTreeNode<AsInterval<T>> delete(AsIntervalRedBlackTreeNode<AsInterval<T>> node,
-                AsInterval<T> value, bool deleteByStartOnly)
+            private AsIntervalRedBlackTreeNode<AsInterval<T>> delete(AsIntervalRedBlackTreeNode<AsInterval<T>> node, AsInterval<T> value, bool deleteByStartOnly)
             {
-
-                var compareResult = node.Value.CompareTo(value);
-
-                //node is less than the search value so move right to find the deletion node
-                if (compareResult < 0)
+                while (true)
                 {
-                    if (node.Right == null)
+                    if (node != null)
                     {
-                        throw new Exception("Item do not exist");
-                    }
+                        var compareResult = node.Value.CompareTo(value);
 
-                    return delete(node.Right, value, deleteByStartOnly);
-                }
-                //node is less than the search value so move left to find the deletion node
-                else if (compareResult > 0)
-                {
-                    if (node.Left == null)
-                    {
-                        throw new Exception("Item do not exist");
-                    }
-
-                    return delete(node.Left, value, deleteByStartOnly);
-                }
-                else
-                {
-                    AsIntervalRedBlackTreeNode<AsInterval<T>> nodeToBalance = null;
-
-                    //if not a leaf deletion caused by replacement 
-                    //of an ancestor deleted with this node
-                    if (!deleteByStartOnly)
-                    {
-                        var index = GetIndex(node.Value.End, value);
-
-                        if (index == -1)
+                        //node is less than the search value so move right to find the deletion node
+                        if (compareResult < 0)
                         {
-                            throw new Exception("Interval do not exist");
+                            node = node.Right ?? throw new Exception("Item do not exist");
                         }
-
-                        if (node.Value.End.Count > 1)
+                        //node is less than the search value so move left to find the deletion node
+                        else if (compareResult > 0)
                         {
-                            node.Value.End.RemoveAt(index);
-                            UpdateMax(node);
-                            return node;
+                            node = node.Left ?? throw new Exception("Item do not exist");
                         }
-                    }
-
-                    //node is a leaf node
-                    if (node.IsLeaf)
-                    {
-                        //if color is red, we are good; no need to balance
-                        if (node.NodeColor == RedBlackTreeNodeColor.Red)
-                        {
-
-                            deleteLeaf(node);
-                            UpdateMax(node.Parent);
-                            return node.Parent;
-                        }
-
-
-                        nodeToBalance = handleDoubleBlack(node);
-                        deleteLeaf(node);
-                        UpdateMax(node.Parent);
-
-                    }
-                    else
-                    {
-                        //case one - right tree is null (move sub tree up)
-                        if (node.Left != null && node.Right == null)
-                        {
-
-                            nodeToBalance = handleDoubleBlack(node);
-                            deleteLeftNode(node);
-                            UpdateMax(node.Parent);
-
-                        }
-                        //case two - left tree is null  (move sub tree up)
-                        else if (node.Right != null && node.Left == null)
-                        {
-
-                            nodeToBalance = handleDoubleBlack(node);
-                            deleteRightNode(node);
-                            UpdateMax(node.Parent);
-
-                        }
-                        //case three - two child trees 
-                        //replace the node value with maximum element of left subtree (left max node)
-                        //and then delete the left max node
                         else
                         {
-                            var index = GetIndex(node.Value.End, value);
+                            AsIntervalRedBlackTreeNode<AsInterval<T>> nodeToBalance = null;
 
-                            if (index == -1)
+                            //if not a leaf deletion caused by replacement 
+                            //of an ancestor deleted with this node
+                            if (!deleteByStartOnly)
                             {
-                                throw new Exception("Interval do not exist");
+                                var index = getIndex(node.Value.End, value);
+
+                                if (index == -1)
+                                {
+                                    throw new Exception("Interval do not exist");
+                                }
+
+                                if (node.Value.End.Count > 1)
+                                {
+                                    node.Value.End.RemoveAt(index);
+                                    updateMax(node);
+                                    return node;
+                                }
                             }
 
-                            //if this is the only element
-                            //do regular bst deletion
-                            if (node.Value.End.Count == 1 && index == 0)
+                            //node is a leaf node
+                            if (node.IsLeaf)
                             {
-                                var maxLeftNode = FindMax(node.Left);
+                                //if color is red, we are good; no need to balance
+                                if (node.NodeColor == RedBlackTreeNodeColor.Red)
+                                {
+                                    deleteLeaf(node);
+                                    updateMax(node.Parent);
+                                    return node.Parent;
+                                }
 
-                                node.Value = maxLeftNode.Value;
-                                node.Value.MaxEnd = defaultValue.Value;
 
-                                //delete left max node
-                                return delete(node.Left, maxLeftNode.Value, true);
+                                nodeToBalance = handleDoubleBlack(node);
+                                deleteLeaf(node);
+                                updateMax(node.Parent);
                             }
                             else
                             {
-                                //just remove the end
-                                node.Value.End.RemoveAt(index);
-                                UpdateMax(node);
-                                return node;
+                                //case one - right tree is null (move sub tree up)
+                                if (node.Left != null && node.Right == null)
+                                {
+                                    nodeToBalance = handleDoubleBlack(node);
+                                    deleteLeftNode(node);
+                                    updateMax(node.Parent);
+                                }
+                                //case two - left tree is null  (move sub tree up)
+                                else if (node.Right != null && node.Left == null)
+                                {
+                                    nodeToBalance = handleDoubleBlack(node);
+                                    deleteRightNode(node);
+                                    updateMax(node.Parent);
+                                }
+                                //case three - two child trees 
+                                //replace the node value with maximum element of left subtree (left max node)
+                                //and then delete the left max node
+                                else
+                                {
+                                    var index = getIndex(node.Value.End, value);
+
+                                    if (index == -1)
+                                    {
+                                        throw new Exception("Interval do not exist");
+                                    }
+
+                                    //if this is the only element
+                                    //do regular bst deletion
+                                    if (node.Value.End.Count == 1 && index == 0)
+                                    {
+                                        var maxLeftNode = findMax(node.Left);
+
+                                        node.Value = maxLeftNode.Value;
+                                        node.Value.MaxEnd = defaultValue.Value;
+
+                                        //delete left max node
+                                        node = node.Left;
+                                        value = maxLeftNode.Value;
+                                        deleteByStartOnly = true;
+                                        continue;
+                                    }
+
+                                    //just remove the end
+                                    node.Value.End.RemoveAt(index);
+                                    updateMax(node);
+                                    return node;
+                                }
                             }
+
+                            var returnNode = nodeToBalance;
+
+                            //handle six cases
+                            while (nodeToBalance != null)
+                            {
+                                nodeToBalance = handleDoubleBlack(nodeToBalance);
+                            }
+
+                            return returnNode;
                         }
                     }
-
-                    var returnNode = nodeToBalance;
-
-                    //handle six cases
-                    while (nodeToBalance != null)
-                    {
-                        nodeToBalance = handleDoubleBlack(nodeToBalance);
-                    }
-
-                    return returnNode;
                 }
-
             }
 
             /// <summary>
@@ -1133,10 +1111,10 @@ namespace Advanced.Algorithms.DataStructures
             /// <param name="end"></param>
             /// <param name="value"></param>
             /// <returns></returns>
-            private int GetIndex(List<T> end, AsInterval<T> value)
+            private int getIndex(List<T> end, AsInterval<T> value)
             {
                 var index = -1;
-                for (int i = 0; i < end.Count; i++)
+                for (var i = 0; i < end.Count; i++)
                 {
                     if (end[i].CompareTo(value.End[0]) == 0)
                     {
@@ -1181,7 +1159,6 @@ namespace Advanced.Algorithms.DataStructures
                     Root.Right.Parent = null;
                     Root = Root.Right;
                     Root.NodeColor = RedBlackTreeNodeColor.Black;
-                    return;
                 }
                 else
                 {
@@ -1198,13 +1175,14 @@ namespace Advanced.Algorithms.DataStructures
 
                     node.Right.Parent = node.Parent;
 
-                    if (node.Right.NodeColor == RedBlackTreeNodeColor.Red)
+                    if (node.Right.NodeColor != RedBlackTreeNodeColor.Red)
                     {
-                        //black deletion! But we can take its red child and recolor it to black
-                        //and we are done!
-                        node.Right.NodeColor = RedBlackTreeNodeColor.Black;
                         return;
                     }
+
+                    //black deletion! But we can take its red child and recolor it to black
+                    //and we are done!
+                    node.Right.NodeColor = RedBlackTreeNodeColor.Black;
                 }
             }
 
@@ -1220,7 +1198,6 @@ namespace Advanced.Algorithms.DataStructures
                     Root.Left.Parent = null;
                     Root = Root.Left;
                     Root.NodeColor = RedBlackTreeNodeColor.Black;
-                    return;
                 }
                 else
                 {
@@ -1237,13 +1214,14 @@ namespace Advanced.Algorithms.DataStructures
 
                     node.Left.Parent = node.Parent;
 
-                    if (node.Left.NodeColor == RedBlackTreeNodeColor.Red)
+                    if (node.Left.NodeColor != RedBlackTreeNodeColor.Red)
                     {
-                        //black deletion! But we can take its red child and recolor it to black
-                        //and we are done!
-                        node.Left.NodeColor = RedBlackTreeNodeColor.Black;
                         return;
                     }
+
+                    //black deletion! But we can take its red child and recolor it to black
+                    //and we are done!
+                    node.Left.NodeColor = RedBlackTreeNodeColor.Black;
                 }
             }
 
@@ -1261,21 +1239,21 @@ namespace Advanced.Algorithms.DataStructures
                      && node.Parent.NodeColor == RedBlackTreeNodeColor.Black
                      && node.Sibling != null
                      && node.Sibling.NodeColor == RedBlackTreeNodeColor.Red
-                     && ((node.Sibling.Left == null && node.Sibling.Right == null)
-                     || (node.Sibling.Left != null && node.Sibling.Right != null
-                       && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
-                       && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black)))
+                     && (node.Sibling.Left == null && node.Sibling.Right == null
+                     || node.Sibling.Left != null && node.Sibling.Right != null
+                                                  && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
+                                                  && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black))
                 {
                     node.Parent.NodeColor = RedBlackTreeNodeColor.Red;
                     node.Sibling.NodeColor = RedBlackTreeNodeColor.Black;
 
                     if (node.Sibling.IsRightChild)
                     {
-                        LeftRotate(node.Parent);
+                        leftRotate(node.Parent);
                     }
                     else
                     {
-                        RightRotate(node.Parent);
+                        rightRotate(node.Parent);
                     }
 
                     return node;
@@ -1285,15 +1263,14 @@ namespace Advanced.Algorithms.DataStructures
                  && node.Parent.NodeColor == RedBlackTreeNodeColor.Black
                  && node.Sibling != null
                  && node.Sibling.NodeColor == RedBlackTreeNodeColor.Black
-                 && ((node.Sibling.Left == null && node.Sibling.Right == null)
-                 || (node.Sibling.Left != null && node.Sibling.Right != null
-                   && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
-                   && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black)))
+                 && (node.Sibling.Left == null && node.Sibling.Right == null
+                 || node.Sibling.Left != null && node.Sibling.Right != null
+                                              && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
+                                              && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black))
                 {
                     //pushed up the double black problem up to parent
                     //so now it needs to be fixed
                     node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
-
                     return node.Parent;
                 }
 
@@ -1303,10 +1280,10 @@ namespace Advanced.Algorithms.DataStructures
                      && node.Parent.NodeColor == RedBlackTreeNodeColor.Red
                      && node.Sibling != null
                      && node.Sibling.NodeColor == RedBlackTreeNodeColor.Black
-                     && ((node.Sibling.Left == null && node.Sibling.Right == null)
-                     || (node.Sibling.Left != null && node.Sibling.Right != null
-                       && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
-                       && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black)))
+                     && (node.Sibling.Left == null && node.Sibling.Right == null
+                     || node.Sibling.Left != null && node.Sibling.Right != null
+                                                  && node.Sibling.Left.NodeColor == RedBlackTreeNodeColor.Black
+                                                  && node.Sibling.Right.NodeColor == RedBlackTreeNodeColor.Black))
                 {
                     //just swap the color of parent and sibling
                     //which will compensate the loss of black count 
@@ -1330,7 +1307,7 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
                     node.Sibling.Left.NodeColor = RedBlackTreeNodeColor.Black;
-                    RightRotate(node.Sibling);
+                    rightRotate(node.Sibling);
 
                     return node;
                 }
@@ -1348,7 +1325,7 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
                     node.Sibling.Right.NodeColor = RedBlackTreeNodeColor.Black;
-                    LeftRotate(node.Sibling);
+                    leftRotate(node.Sibling);
 
                     return node;
                 }
@@ -1366,7 +1343,7 @@ namespace Advanced.Algorithms.DataStructures
                     //and mark the red right child of sibling to black 
                     //to compensate the loss of Black on right side of parent
                     node.Sibling.Right.NodeColor = RedBlackTreeNodeColor.Black;
-                    LeftRotate(node.Parent);
+                    leftRotate(node.Parent);
 
                     return null;
                 }
@@ -1384,14 +1361,13 @@ namespace Advanced.Algorithms.DataStructures
                     //and mark the red left child of sibling to black
                     //to compensate the loss of Black on right side of parent
                     node.Sibling.Left.NodeColor = RedBlackTreeNodeColor.Black;
-                    RightRotate(node.Parent);
+                    rightRotate(node.Parent);
 
                     return null;
                 }
 
                 return null;
             }
-
 
         }
     }
