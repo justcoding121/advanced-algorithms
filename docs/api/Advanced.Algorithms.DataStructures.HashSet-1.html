@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class WeightedGraph&lt;T, TW&gt;
+    <title>Class HashSet&lt;TV&gt;
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class WeightedGraph&lt;T, TW&gt;
+    <meta name="title" content="Class HashSet&lt;TV&gt;
    | Advanced Algorithms ">
     <meta name="generator" content="docfx 2.35.2.0">
     
@@ -78,18 +78,24 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2">
+            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.DataStructures.HashSet`1">
   
   
-  <h1 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2" class="text-break">Class WeightedGraph&lt;T, TW&gt;
+  <h1 id="Advanced_Algorithms_DataStructures_HashSet_1" data-uid="Advanced.Algorithms.DataStructures.HashSet`1" class="text-break">Class HashSet&lt;TV&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A weighted graph implementation using dynamically growinng/shrinking adjacency matrix array</p>
+  <div class="markdown level0 summary"><p>A hash table implementation (key value HashSet) with separate chaining
+TODO improve performance by using a Prime number greater than total elements as Bucket Size</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">WeightedGraph&lt;T, TW&gt;</span></div>
+    <div class="level1"><span class="xref">HashSet&lt;TV&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Advanced.Algorithms.DataStructures.HashSetNode-1.html">HashSetNode</a>&lt;TV&gt;&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -115,12 +121,11 @@
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.html">Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.html">Advanced.Algorithms.DataStructures</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
-  <h5 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_syntax">Syntax</h5>
+  <h5 id="Advanced_Algorithms_DataStructures_HashSet_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WeightedGraph&lt;T, TW&gt;
-    where TW : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class HashSet&lt;TV&gt; : IEnumerable&lt;HashSetNode&lt;TV&gt;&gt;, IEnumerable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -132,11 +137,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="parametername">TW</span></td>
+        <td><span class="parametername">TV</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -145,26 +146,47 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2__ctor_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.#ctor*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2__ctor" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.#ctor">WeightedGraph()</h4>
-  <div class="markdown level1 summary"><p>Constructor</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WeightedGraph()</code></pre>
-  </div>
-  <h3 id="properties">Properties
-  </h3>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_VerticesCount_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.VerticesCount*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_VerticesCount" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.VerticesCount">VerticesCount</h4>
+  <a id="Advanced_Algorithms_DataStructures_HashSet_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_HashSet_1__ctor_Advanced_Algorithms_DataStructures_HashSetType_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.#ctor(Advanced.Algorithms.DataStructures.HashSetType,System.Int32)">HashSet(HashSetType, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int VerticesCount { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public HashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.DataStructures.HashSetType.html">HashSetType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">initialBucketSize</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_HashSet_1_Count_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Count*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Count" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -185,16 +207,13 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_AddEdge_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.AddEdge*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_AddEdge__0__0__1_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.AddEdge(`0,`0,`1)">AddEdge(T, T, TW)</h4>
-  <div class="markdown level1 summary"><p>Add a new edge to this graph with given weight 
-and between given source and destination vertex
-O(1) complexity</p>
-</div>
+  <a id="Advanced_Algorithms_DataStructures_HashSet_1_Add_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Add*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Add__0_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Add(`0)">Add(TV)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddEdge(T source, T dest, TW weight)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Add(TV value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -207,46 +226,7 @@ O(1) complexity</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">source</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">dest</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">TW</span></td>
-        <td><span class="parametername">weight</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_AddVertex_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.AddVertex*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_AddVertex__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.AddVertex(`0)">AddVertex(T)</h4>
-  <div class="markdown level1 summary"><p>Add a new vertex to this graph
-O(1) complexity</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddVertex(T value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
+        <td><span class="xref">TV</span></td>
         <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
@@ -254,57 +234,24 @@ O(1) complexity</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_GetAllEdges_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetAllEdges*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_GetAllEdges__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetAllEdges(`0)">GetAllEdges(T)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Tuple&lt;T, TW&gt;&gt; GetAllEdges(T vertex)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">vertex</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">System.Tuple</span>&lt;T, TW&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_HasEdge_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.HasEdge*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_HasEdge__0__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.HasEdge(`0,`0)">HasEdge(T, T)</h4>
-  <div class="markdown level1 summary"><p>Do we have an edge between given source and destination
-O(1) complexity</p>
+  <a id="Advanced_Algorithms_DataStructures_HashSet_1_Clear_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Clear*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Clear" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>clear hash table</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasEdge(T source, T dest)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_HashSet_1_Contains_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Contains*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Contains__0_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Contains(`0)">Contains(TV)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(TV value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -317,13 +264,8 @@ O(1) complexity</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">source</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">dest</span></td>
+        <td><span class="xref">TV</span></td>
+        <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -345,49 +287,38 @@ O(1) complexity</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_RemoveEdge_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.RemoveEdge*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_RemoveEdge__0__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.RemoveEdge(`0,`0)">RemoveEdge(T, T)</h4>
-  <div class="markdown level1 summary"><p>Remove given edge
-O(1) complexity</p>
-</div>
+  <a id="Advanced_Algorithms_DataStructures_HashSet_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RemoveEdge(T source, T dest)</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;HashSetNode&lt;TV&gt;&gt; GetEnumerator()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">source</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">dest</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="Advanced.Algorithms.DataStructures.HashSetNode-1.html">HashSetNode</a>&lt;TV&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_RemoveVertex_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.RemoveVertex*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_RemoveVertex__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.RemoveVertex(`0)">RemoveVertex(T)</h4>
-  <div class="markdown level1 summary"><p>remove given vertex from this graph
-O(V) complexity</p>
-</div>
+  <a id="Advanced_Algorithms_DataStructures_HashSet_1_Remove_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Remove*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Remove__0_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Remove(`0)">Remove(TV)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RemoveVertex(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Remove(TV value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -400,12 +331,46 @@ O(V) complexity</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T</span></td>
+        <td><span class="xref">TV</span></td>
         <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_HashSet_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           
