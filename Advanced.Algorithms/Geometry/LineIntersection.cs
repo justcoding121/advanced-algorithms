@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Geometry
 {
@@ -28,8 +24,9 @@ namespace Advanced.Algorithms.Geometry
         /// </summary>
         /// <param name="lineA"></param>
         /// <param name="lineB"></param>
-        /// <returns></returns>
-        public static Point FindIntersection(Line lineA, Line lineB)
+        /// <param name="tolerance">precision tolerance.</param>
+        /// <returns>The point of intersection.</returns>
+        public static Point FindIntersection(Line lineA, Line lineB, double tolerance = 0.001)
         {
             double x1 = lineA.x1, y1 = lineA.y1;
             double x2 = lineA.x2, y2 = lineA.y2;
@@ -38,25 +35,25 @@ namespace Advanced.Algorithms.Geometry
             double x4 = lineB.x2, y4 = lineB.y2;
 
             //equations of the form x=c (two vertical lines)
-            if (x1 == x2 && x3 == x4 && x1 == x3)
+            if (Math.Abs(x1 - x2) < tolerance && Math.Abs(x3 - x4) < tolerance && Math.Abs(x1 - x3) < tolerance)
             {
                 throw new Exception("Both lines overlap vertically, ambiguous intersection points.");
             }
 
             //equations of the form y=c (two horizontal lines)
-            if (y1 == y2 && y3 == y4 && y1 == y3)
+            if (Math.Abs(y1 - y2) < tolerance && Math.Abs(y3 - y4) < tolerance && Math.Abs(y1 - y3) < tolerance)
             {
                 throw new Exception("Both lines overlap horizontally, ambiguous intersection points.");
             }
 
             //equations of the form x=c (two vertical lines)
-            if (x1 == x2 && x3 == x4)
+            if (Math.Abs(x1 - x2) < tolerance && Math.Abs(x3 - x4) < tolerance)
             {
                 return default(Point);
             }
 
             //equations of the form y=c (two horizontal lines)
-            if (y1 == y2 && y3 == y4)
+            if (Math.Abs(y1 - y2) < tolerance && Math.Abs(y3 - y4) < tolerance)
             {
                 return default(Point);
             }
@@ -72,11 +69,11 @@ namespace Advanced.Algorithms.Geometry
             //-m2x + y = c2 --------(4)
 
             double x, y;
-            
+
             //lineA is vertical x1 = x2
             //slope will be infinity
             //so lets derive another solution
-            if (x1 == x2)
+            if (Math.Abs(x1 - x2) < tolerance)
             {
                 //compute slope of line 2 (m2) and c2
                 double m2 = (y4 - y3) / (x4 - x3);
@@ -92,7 +89,7 @@ namespace Advanced.Algorithms.Geometry
             //lineB is vertical x3 = x4
             //slope will be infinity
             //so lets derive another solution
-            else if (x3 == x4)
+            else if (Math.Abs(x3 - x4) < tolerance)
             {
                 //compute slope of line 1 (m1) and c2
                 double m1 = (y2 - y1) / (x2 - x1);
@@ -125,8 +122,8 @@ namespace Advanced.Algorithms.Geometry
                 //verify by plugging intersection point (x, y)
                 //in orginal equations (1) & (2) to see if they intersect
                 //otherwise x,y values will not be finite and will fail this check
-                if (!(-m1 * x + y == c1
-                    && -m2 * x + y == c2))
+                if (!(Math.Abs(-m1 * x + y - c1) < tolerance
+                    && Math.Abs(-m2 * x + y - c2) < tolerance))
                 {
                     return default(Point);
                 }
@@ -137,7 +134,7 @@ namespace Advanced.Algorithms.Geometry
             if (IsInsideLine(lineA, x, y) &&
                 IsInsideLine(lineB, x, y))
             {
-                return new Point() { x = x, y = y };
+                return new Point { x = x, y = y };
             }
 
             //return default null (no intersection)
@@ -154,10 +151,10 @@ namespace Advanced.Algorithms.Geometry
         /// <returns></returns>
         private static bool IsInsideLine(Line line, double x, double y)
         {
-            return ((x >= line.x1 && x <= line.x2)
-                        || (x >= line.x2 && x <= line.x1))
-                   && ((y >= line.y1 && y <= line.y2)
-                        || (y >= line.y2 && y <= line.y1));
+            return (x >= line.x1 && x <= line.x2
+                        || x >= line.x2 && x <= line.x1)
+                   && (y >= line.y1 && y <= line.y2
+                        || y >= line.y2 && y <= line.y1);
         }
     }
 }

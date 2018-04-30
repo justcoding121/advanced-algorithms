@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Geometry
 {
@@ -22,7 +18,7 @@ namespace Advanced.Algorithms.Geometry
             var y = sinTheta * (point.x - center.x) +
                     cosTheta * (point.y - center.y) + center.y;
 
-            return new Point() { x = x, y = y };
+            return new Point { x = x, y = y };
         }
     }
 }

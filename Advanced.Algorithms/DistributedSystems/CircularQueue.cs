@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures.DistributedSystems
 {
@@ -12,10 +13,10 @@ namespace Advanced.Algorithms.DataStructures.DistributedSystems
         private T[] queue;
 
         //points to the index of next element to be deleted
-        private int start = 0;
+        private int start;
 
         //points to the index new element should be inserted
-        private int end = 0;
+        private int end;
 
         public int Count { get; private set; }
 
@@ -31,7 +32,7 @@ namespace Advanced.Algorithms.DataStructures.DistributedSystems
         /// <param name="data"></param>
         public T Enqueue(T data)
         {
-            T deleted = default(T);
+            var deleted = default(T);
 
             //wrap around removing oldest element
             if (end > queue.Length - 1)
@@ -67,22 +68,11 @@ namespace Advanced.Algorithms.DataStructures.DistributedSystems
         /// O(bulk.Length) time complexity
         /// </summary>
         /// <param name="bulk"></param>
-        /// <returns></returns>
+        /// <returns>Deleted items.</returns>
         public IEnumerable<T> Enqueue(T[] bulk)
         {
-            var deletedList = new List<T>();
-
-            foreach (var item in bulk)
-            {
-                var deleted = Enqueue(item);
-
-                if (!deleted.Equals(default(T)))
-                {
-                    deletedList.Add(deleted);
-                }
-            }
-
-            return deletedList;
+            return bulk.Select(item => Enqueue(item))
+                .Where(deleted => !deleted.Equals(default(T))).ToList();
         }
 
         /// <summary>

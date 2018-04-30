@@ -9,14 +9,13 @@ namespace Advanced.Algorithms.DistributedSystems
 
     /// <summary>
     /// A consistant hash implementation with MurmurHash
-    /// Adapted from https://github.com/wsq003/consistent-hash/blob/master/ConsistentHash.cs
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class ConsistentHash<T>
     {
-        SortedDictionary<int, T> circle = new SortedDictionary<int, T>();
-        int[] circleKeys;
-        int replicas;
+        readonly SortedDictionary<int, T> circle = new SortedDictionary<int, T>();
+        private int[] circleKeys;
+        readonly int replicas;
 
         public ConsistentHash()
             : this(new List<T>(), 100) { }
@@ -24,7 +23,7 @@ namespace Advanced.Algorithms.DistributedSystems
         public ConsistentHash(IEnumerable<T> nodes, int replicas)
         {
             this.replicas = replicas;
-            foreach (T node in nodes)
+            foreach (var node in nodes)
             {
                 AddNode(node);
             }
@@ -36,9 +35,9 @@ namespace Advanced.Algorithms.DistributedSystems
         /// <param name="node"></param>
         public void AddNode(T node)
         {
-            for (int i = 0; i < replicas; i++)
+            for (var i = 0; i < replicas; i++)
             {
-                int hash = getHashCode(node.GetHashCode().ToString() + i);
+                var hash = getHashCode(node.GetHashCode().ToString() + i);
                 circle[hash] = node;
             }
 
@@ -52,8 +51,8 @@ namespace Advanced.Algorithms.DistributedSystems
         /// <returns></returns>
         public T GetNode(string key)
         {
-            int hash = getHashCode(key);
-            int first = Next_ClockWise(circleKeys, hash);
+            var hash = getHashCode(key);
+            var first = nextClockWise(circleKeys, hash);
             return circle[circleKeys[first]];
         }
 
@@ -63,9 +62,9 @@ namespace Advanced.Algorithms.DistributedSystems
         /// <param name="node"></param>
         public void RemoveNode(T node)
         {
-            for (int i = 0; i < replicas; i++)
+            for (var i = 0; i < replicas; i++)
             {
-                int hash = getHashCode(node.GetHashCode().ToString() + i);
+                var hash = getHashCode(node.GetHashCode().ToString() + i);
                 if (!circle.Remove(hash))
                 {
                     throw new Exception("Cannot remove a node that was never added.");
@@ -82,10 +81,10 @@ namespace Advanced.Algorithms.DistributedSystems
         /// <param name="keys"></param>
         /// <param name="hashCode"></param>
         /// <returns>Returns the index of bucket</returns>
-        int Next_ClockWise(int[] keys, int hashCode)
+        private int nextClockWise(int[] keys, int hashCode)
         {
-            int begin = 0;
-            int end = keys.Length - 1;
+            var begin = 0;
+            var end = keys.Length - 1;
 
             if (keys[end] < hashCode || keys[0] > hashCode)
             {
@@ -93,10 +92,9 @@ namespace Advanced.Algorithms.DistributedSystems
             }
 
             //do a binary search
-            int mid = begin;
             while (end - begin > 1)
             {
-                mid = (end + begin) / 2;
+                var mid = (end + begin) / 2;
                 if (keys[mid] >= hashCode)
                 {
                     end = mid;
@@ -118,6 +116,9 @@ namespace Advanced.Algorithms.DistributedSystems
 
     }
 
+    /// <summary>
+    /// Adapted from https://github.com/wsq003/consistent-hash/blob/master/ConsistentHash.cs
+    /// </summary>
     internal class MurmurHash2
     {
         internal static UInt32 Hash(Byte[] data)
