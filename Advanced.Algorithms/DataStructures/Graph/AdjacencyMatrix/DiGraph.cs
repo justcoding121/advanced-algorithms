@@ -31,7 +31,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             reverseVertexIndices = new System.Collections.Generic.Dictionary<int, T>();
             matrix = new BitArray[maxSize];
 
-            for (int i = 0; i < maxSize; i++)
+            for (var i = 0; i < maxSize; i++)
             {
                 matrix[i] = new BitArray(maxSize);
             }
@@ -99,7 +99,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             var index = vertexIndices[value];
 
             //clear edges
-            for (int i = 0; i < maxSize; i++)
+            for (var i = 0; i < maxSize; i++)
             {
                 matrix[i].Set(index, false);
                 matrix[index].Set(i, false);
@@ -191,12 +191,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             var sourceIndex = vertexIndices[source];
             var destIndex = vertexIndices[dest];
 
-            if (matrix[sourceIndex].Get(destIndex))
-            {
-                return true;
-            }
-
-            return false;
+            return matrix[sourceIndex].Get(destIndex);
         }
 
         public List<T> GetAllOutEdges(T vertex)
@@ -210,7 +205,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             var result = new List<T>();
 
-            for (int i = 0; i < maxSize; i++)
+            for (var i = 0; i < maxSize; i++)
             {
                 if(matrix[index].Get(i))
                 {
@@ -232,7 +227,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             var result = new List<T>();
 
-            for (int i = 0; i < maxSize; i++)
+            for (var i = 0; i < maxSize; i++)
             {
                 if (matrix[i].Get(index))
                 {
@@ -246,7 +241,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         private void doubleMatrixSize()
         {
             var newMatrix = new BitArray[maxSize * 2];
-            for (int i = 0; i < maxSize * 2; i++)
+            for (var i = 0; i < maxSize * 2; i++)
             {
                 newMatrix[i] = new BitArray(maxSize * 2);
             }
@@ -254,7 +249,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             var newVertexIndices = new System.Collections.Generic.Dictionary<T, int>();
             var newReverseIndices = new System.Collections.Generic.Dictionary<int, T>();
 
-            int k = 0;
+            var k = 0;
             foreach (var vertex in vertexIndices)
             {
                 newVertexIndices.Add(vertex.Key, k);
@@ -263,20 +258,21 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             }
             nextAvailableIndex = k;
 
-            for (int i = 0; i < maxSize; i++)
+            for (var i = 0; i < maxSize; i++)
             {
                 newMatrix[i] = new BitArray(maxSize * 2);
-                for (int j = 0; j < maxSize; j++)
+                for (var j = 0; j < maxSize; j++)
                 {
-                    if (matrix[i].Get(j)
-                        && reverseVertexIndices.ContainsKey(i)
-                        && reverseVertexIndices.ContainsKey(j))
+                    if (!matrix[i].Get(j) || !reverseVertexIndices.ContainsKey(i) ||
+                        !reverseVertexIndices.ContainsKey(j))
                     {
-                        var newI = newVertexIndices[reverseVertexIndices[i]];
-                        var newJ = newVertexIndices[reverseVertexIndices[j]];
-
-                        newMatrix[newI].Set(newJ, true);
+                        continue;
                     }
+
+                    var newI = newVertexIndices[reverseVertexIndices[i]];
+                    var newJ = newVertexIndices[reverseVertexIndices[j]];
+
+                    newMatrix[newI].Set(newJ, true);
                 }
             }
 
@@ -289,7 +285,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         private void halfMatrixSize()
         {
             var newMatrix = new BitArray[maxSize / 2];
-            for (int i = 0; i < maxSize / 2; i++)
+            for (var i = 0; i < maxSize / 2; i++)
             {
                 newMatrix[i] = new BitArray(maxSize / 2);
             }
@@ -297,7 +293,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             var newVertexIndices = new System.Collections.Generic.Dictionary<T, int>();
             var newReverseIndices = new System.Collections.Generic.Dictionary<int, T>();
 
-            int k = 0;
+            var k = 0;
             foreach (var vertex in vertexIndices)
             {
                 newVertexIndices.Add(vertex.Key, k);
@@ -306,19 +302,20 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             }
             nextAvailableIndex = k;
 
-            for (int i = 0; i < maxSize; i++)
+            for (var i = 0; i < maxSize; i++)
             {
-                for (int j = 0; j < maxSize; j++)
+                for (var j = 0; j < maxSize; j++)
                 {
-                    if (matrix[i].Get(j) 
-                        && reverseVertexIndices.ContainsKey(i)
-                        && reverseVertexIndices.ContainsKey(j))
+                    if (!matrix[i].Get(j) || !reverseVertexIndices.ContainsKey(i) ||
+                        !reverseVertexIndices.ContainsKey(j))
                     {
-                        var newI = newVertexIndices[reverseVertexIndices[i]];
-                        var newJ = newVertexIndices[reverseVertexIndices[j]];
-
-                        newMatrix[newI].Set(newJ, true);
+                        continue;
                     }
+
+                    var newI = newVertexIndices[reverseVertexIndices[i]];
+                    var newJ = newVertexIndices[reverseVertexIndices[j]];
+
+                    newMatrix[newI].Set(newJ, true);
                 }
             }
 

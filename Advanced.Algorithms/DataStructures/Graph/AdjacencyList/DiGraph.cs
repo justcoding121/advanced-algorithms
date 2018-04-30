@@ -216,12 +216,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// <returns></returns>
         public DiGraphVertex<T> FindVertex(T value)
         {
-            if (Vertices.ContainsKey(value))
-            {
-                return Vertices[value];
-            }
-
-            return null;
+            return Vertices.ContainsKey(value) ? Vertices[value] : null;
         }
 
         /// <summary>
