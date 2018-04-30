@@ -4,19 +4,19 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Tree
 {
-    internal class BPTreeNode<T> : BNode<T> where T : IComparable
+    internal class BpTreeNode<T> : BNode<T> where T : IComparable
     {
-        internal BPTreeNode<T> Parent { get; set; }
-        internal BPTreeNode<T>[] Children { get; set; }
+        internal BpTreeNode<T> Parent { get; set; }
+        internal BpTreeNode<T>[] Children { get; set; }
 
         internal bool IsLeaf => Children[0] == null;
 
-        internal BPTreeNode(int maxKeysPerNode, BPTreeNode<T> parent)
+        internal BpTreeNode(int maxKeysPerNode, BpTreeNode<T> parent)
             : base(maxKeysPerNode)
         {
 
             Parent = parent;
-            Children = new BPTreeNode<T>[maxKeysPerNode + 1];
+            Children = new BpTreeNode<T>[maxKeysPerNode + 1];
 
         }
 
@@ -41,12 +41,12 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <summary>
         /// Pointer to sibling leaf on left for faster enumeration
         /// </summary>
-        public BPTreeNode<T> Prev { get; set; }
+        public BpTreeNode<T> Prev { get; set; }
 
         /// <summary>
         /// Pointer to sibling leaf on right for faster enumeration
         /// </summary>
-        public BPTreeNode<T> Next { get; set; }
+        public BpTreeNode<T> Next { get; set; }
 
     }
 
@@ -56,19 +56,19 @@ namespace Advanced.Algorithms.DataStructures.Tree
     /// TODO: make sure duplicates are handled correctly if its not already
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BPTree<T> : IEnumerable<T> where T : IComparable
+    public class BpTree<T> : IEnumerable<T> where T : IComparable
     {
         public int Count { get; private set; }
 
-        internal BPTreeNode<T> Root;
+        internal BpTreeNode<T> Root;
 
         /// <summary>
         ///Keep a reference of Bottom Left Node
         ///For faster enumeration with IEnumerable implementation using Next pointer
         /// </summary>
-        internal BPTreeNode<T> BottomLeftNode;
+        internal BpTreeNode<T> BottomLeftNode;
 
-        private int maxKeysPerNode;
+        private readonly int maxKeysPerNode;
         private int minKeysPerNode => maxKeysPerNode / 2;
 
         public T Max
@@ -93,7 +93,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             }
         }
 
-        public BPTree(int maxKeysPerNode)
+        public BpTree(int maxKeysPerNode)
         {
             if (maxKeysPerNode < 3)
             {
@@ -113,7 +113,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <param name="node"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        private BPTreeNode<T> find(BPTreeNode<T> node, T value)
+        private BpTreeNode<T> find(BpTreeNode<T> node, T value)
         {
             //if leaf then its time to insert
             if (node.IsLeaf)
@@ -158,7 +158,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         {
             if (Root == null)
             {
-                Root = new BPTreeNode<T>(maxKeysPerNode, null);
+                Root = new BpTreeNode<T>(maxKeysPerNode, null);
                 Root.Keys[0] = newValue;
                 Root.KeyCount++;
                 Count++;
@@ -179,7 +179,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <param name="node"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
-        private BPTreeNode<T> findInsertionLeaf(BPTreeNode<T> node, T newValue)
+        private BpTreeNode<T> findInsertionLeaf(BpTreeNode<T> node, T newValue)
         {
             //if leaf then its time to insert
             if (node.IsLeaf)
@@ -213,14 +213,14 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="node"></param>
         /// <param name="newValue"></param>
-        private void insertAndSplit(ref BPTreeNode<T> node, T newValue,
-            BPTreeNode<T> newValueLeft, BPTreeNode<T> newValueRight)
+        private void insertAndSplit(ref BpTreeNode<T> node, T newValue,
+            BpTreeNode<T> newValueLeft, BpTreeNode<T> newValueRight)
         {
             //add new item to current node
             //this increases the height of B+ tree by one by adding a new root at top
             if (node == null)
             {
-                node = new BPTreeNode<T>(maxKeysPerNode, null);
+                node = new BpTreeNode<T>(maxKeysPerNode, null);
                 Root = node;
             }
 
@@ -230,8 +230,8 @@ namespace Advanced.Algorithms.DataStructures.Tree
             if (node.KeyCount == maxKeysPerNode)
             {
                 //divide the current node values + new Node as left & right sub nodes
-                var left = new BPTreeNode<T>(maxKeysPerNode, null);
-                var right = new BPTreeNode<T>(maxKeysPerNode, null);
+                var left = new BpTreeNode<T>(maxKeysPerNode, null);
+                var right = new BpTreeNode<T>(maxKeysPerNode, null);
 
                 //connect leaves via linked list for faster enumeration
                 if (node.IsLeaf)
@@ -398,8 +398,8 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <param name="newValue"></param>
         /// <param name="newValueLeft"></param>
         /// <param name="newValueRight"></param>
-        private void insertNonFullNode(ref BPTreeNode<T> node, T newValue,
-            BPTreeNode<T> newValueLeft, BPTreeNode<T> newValueRight)
+        private void insertNonFullNode(ref BpTreeNode<T> node, T newValue,
+            BpTreeNode<T> newValueLeft, BpTreeNode<T> newValueRight)
         {
             var inserted = false;
 
@@ -484,7 +484,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="BPTreeNode"></param>
         /// <returns></returns>
-        private BPTreeNode<T> findMinNode(BPTreeNode<T> node)
+        private BpTreeNode<T> findMinNode(BpTreeNode<T> node)
         {
             //if leaf return node
             if (node.IsLeaf)
@@ -502,7 +502,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="BPTreeNode"></param>
         /// <returns></returns>
-        private BPTreeNode<T> findMaxNode(BPTreeNode<T> node)
+        private BpTreeNode<T> findMaxNode(BpTreeNode<T> node)
         {
             //if leaf return node
             if (node.IsLeaf)
@@ -519,7 +519,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// Balance a node which is short of Keys by rotations or merge
         /// </summary>
         /// <param name="node"></param>
-        private void balance(BPTreeNode<T> node, T deleteKey)
+        private void balance(BpTreeNode<T> node, T deleteKey)
         {
             if (node == Root)
             {
@@ -577,7 +577,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <param name="node"></param>
         /// <param name="deleteKey"></param>
         /// <param name="nextMin"></param>
-        private void updateIndex(BPTreeNode<T> node, T deleteKey, bool spiralUp)
+        private void updateIndex(BpTreeNode<T> node, T deleteKey, bool spiralUp)
         {
             if (node == null)
                 return;
@@ -610,12 +610,12 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <param name="leftSibling"></param>
         /// <param name="rightSibling"></param>
         /// <param name="deleteKey"></param>
-        private void sandwich(BPTreeNode<T> leftSibling, BPTreeNode<T> rightSibling, T deleteKey)
+        private void sandwich(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling, T deleteKey)
         {
             var separatorIndex = getNextSeparatorIndex(leftSibling);
             var parent = leftSibling.Parent;
 
-            var newNode = new BPTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
+            var newNode = new BpTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
 
             //if leaves are merged then update the Next & Prev pointers
             if (leftSibling.IsLeaf)
@@ -755,7 +755,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="rightSibling"></param>
         /// <param name="leftSibling"></param>
-        private void rightRotate(BPTreeNode<T> leftSibling, BPTreeNode<T> rightSibling)
+        private void rightRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
         {
             var parentIndex = getNextSeparatorIndex(leftSibling);
 
@@ -793,7 +793,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="leftSibling"></param>
         /// <param name="rightSibling"></param>
-        private void leftRotate(BPTreeNode<T> leftSibling, BPTreeNode<T> rightSibling)
+        private void leftRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
         {
             var parentIndex = getNextSeparatorIndex(leftSibling);
 
@@ -836,7 +836,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <param name="node"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        private BPTreeNode<T> findDeletionNode(BPTreeNode<T> node, T value)
+        private BpTreeNode<T> findDeletionNode(BpTreeNode<T> node, T value)
         {
             //if leaf then its time to insert
             if (node.IsLeaf)
@@ -878,7 +878,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="leftChildNode"></param>
         /// <returns></returns>
-        private int getPrevSeparatorIndex(BPTreeNode<T> node)
+        private int getPrevSeparatorIndex(BpTreeNode<T> node)
         {
             var parent = node.Parent;
 
@@ -903,7 +903,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        private int getNextSeparatorIndex(BPTreeNode<T> node)
+        private int getNextSeparatorIndex(BpTreeNode<T> node)
         {
             var parent = node.Parent;
 
@@ -926,7 +926,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        private BPTreeNode<T> getRightSibling(BPTreeNode<T> node)
+        private BpTreeNode<T> getRightSibling(BpTreeNode<T> node)
         {
             var parent = node.Parent;
 
@@ -944,7 +944,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        private BPTreeNode<T> getLeftSibling(BPTreeNode<T> node)
+        private BpTreeNode<T> getLeftSibling(BpTreeNode<T> node)
         {
             if (node.Index == 0)
             {
@@ -954,7 +954,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             return node.Parent.Children[node.Index - 1];
         }
 
-        private void setChild(BPTreeNode<T> parent, int childIndex, BPTreeNode<T> child)
+        private void setChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
         {
             parent.Children[childIndex] = child;
 
@@ -966,7 +966,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
 
         }
 
-        private void insertChild(BPTreeNode<T> parent, int childIndex, BPTreeNode<T> child)
+        private void insertChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
         {
             InsertAt(parent.Children, childIndex, child);
 
@@ -985,7 +985,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             }
         }
 
-        private void removeChild(BPTreeNode<T> parent, int childIndex)
+        private void removeChild(BpTreeNode<T> parent, int childIndex)
         {
             removeAt(parent.Children, childIndex);
 
@@ -1047,11 +1047,11 @@ namespace Advanced.Algorithms.DataStructures.Tree
     //  implement IEnumerator.
     public class BPTreeEnumerator<T> : IEnumerator<T> where T : IComparable
     {
-        private BPTreeNode<T> bottomLeftNode;
-        private BPTreeNode<T> current;
+        private BpTreeNode<T> bottomLeftNode;
+        private BpTreeNode<T> current;
         private int i = -1;
 
-        public BPTreeEnumerator(BPTree<T> tree)
+        public BPTreeEnumerator(BpTree<T> tree)
         {
             bottomLeftNode = tree.BottomLeftNode;
             current = bottomLeftNode;

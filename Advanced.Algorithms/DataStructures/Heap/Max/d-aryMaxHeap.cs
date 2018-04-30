@@ -8,19 +8,20 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
     public class D_aryMaxHeap<T> where T : IComparable
     {
         private T[] heapArray;
-        private int K;
+        private int k;
         public int Count = 0;
 
         public D_aryMaxHeap(int k, IEnumerable<T> initial = null)
         {
-            K = k;
+            this.k = k;
 
             if (initial != null)
             {
-                var initArray = new T[initial.Count()];
+                var items = initial as T[] ?? initial.ToArray();
+                var initArray = new T[items.Count()];
 
                 int i = 0;
-                foreach (var item in initial)
+                foreach (var item in items)
                 {
                     initArray[i] = item;
                     i++;
@@ -43,11 +44,11 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         /// <param name="initial"></param>
         private void BulkInit(T[] initial)
         {
-            var i = (initial.Length - 1) / K;
+            var i = (initial.Length - 1) / k;
 
             while (i >= 0)
             {
-                BulkInitRecursive(i, initial);
+                bulkInitRecursive(i, initial);
                 i--;
             }
 
@@ -58,24 +59,29 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         /// Recursively load bulk init values
         /// </summary>
         /// <param name="i"></param>
-        private void BulkInitRecursive(int i, T[] initial)
+        /// <param name="initial"></param>
+        private void bulkInitRecursive(int i, T[] initial)
         {
-            var parent = i;
-            var max = findMaxChildIndex(i, initial);
-
-            if (max !=-1 
-                && initial[max].CompareTo(initial[parent]) > 0)
+            while (true)
             {
-                var temp = initial[max];
-                initial[max] = initial[parent];
-                initial[parent] = temp;
+                var parent = i;
+                var max = findMaxChildIndex(i, initial);
 
-                BulkInitRecursive(max, initial);
+                if (max != -1 && initial[max].CompareTo(initial[parent]) > 0)
+                {
+                    var temp = initial[max];
+                    initial[max] = initial[parent];
+                    initial[parent] = temp;
+
+                    i = max;
+                    continue;
+                }
+
+                break;
             }
-
         }
 
-       
+
         //O(log(n) base K)
         public void Insert(T newItem)
         {
@@ -87,12 +93,12 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
             heapArray[Count] = newItem;
 
             //percolate up
-            for (int i = Count; i > 0; i = (i - 1) / K)
+            for (int i = Count; i > 0; i = (i - 1) / k)
             {
-                if (heapArray[i].CompareTo(heapArray[(i - 1) / K]) > 0)
+                if (heapArray[i].CompareTo(heapArray[(i - 1) / k]) > 0)
                 {
-                    var temp = heapArray[(i - 1) / K];
-                    heapArray[(i - 1) / K] = heapArray[i];
+                    var temp = heapArray[(i - 1) / k];
+                    heapArray[(i - 1) / k] = heapArray[i];
                     heapArray[i] = temp;
                 }
                 else
@@ -160,21 +166,21 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         /// <returns></returns>
         private int findMaxChildIndex(int currentParent, T[] heap)
         {
-            var currentMax = currentParent * K + 1;
+            var currentMax = currentParent * k + 1;
 
             if (currentMax >= Count)
                 return -1;
 
-            for (int i = 2; i <= K; i++)
+            for (int i = 2; i <= k; i++)
             {
-                if (currentParent * K + i >= Count)
+                if (currentParent * k + i >= Count)
                     break;
 
-                var nextSibling = heap[currentParent * K + i];
+                var nextSibling = heap[currentParent * k + i];
 
                 if (heap[currentMax].CompareTo(nextSibling) < 0)
                 {
-                    currentMax = currentParent * K + i;
+                    currentMax = currentParent * k + i;
                 }
             }
 

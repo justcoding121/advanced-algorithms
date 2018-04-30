@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
 namespace Advanced.Algorithms.DataStructures.Set
@@ -46,7 +45,6 @@ namespace Advanced.Algorithms.DataStructures.Set
         /// <summary>
         /// Returns the reference member of the set where this member is part of
         /// </summary>
-        /// <param name="set"></param>
         /// <returns></returns>
         public T FindSet(T member)
         {
@@ -76,19 +74,15 @@ namespace Advanced.Algorithms.DataStructures.Set
                 node.Parent = FindSet(node.Parent);
                 return node.Parent;
             }
-            else
-            {
-                //reached root so return the Root (reference Member)
-                return parent;
-            }
+
+            //reached root so return the Root (reference Member)
+            return parent;
         }
 
         /// <summary>
         /// Union's their sets if given members are in differant sets
         /// Otherwise do nothing
         /// </summary>
-        /// <param name="setAMember"></param>
-        /// <param name="setBMember"></param>
         public void Union(T memberA, T memberB)
         {
             var rootA = FindSet(memberA);

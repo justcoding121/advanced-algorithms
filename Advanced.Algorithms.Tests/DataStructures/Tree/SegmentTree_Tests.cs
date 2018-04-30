@@ -5,13 +5,13 @@ using System;
 namespace Advanced.Algorithms.Tests.DataStructures.Tree
 {
     [TestClass]
-    public class AsSegmentTreeTests
+    public class SegmentTreeTests
     {
         /// <summary>
         /// Smoke test
         /// </summary>
         [TestMethod]
-        public void AsSegmentTree_Sum_Smoke_Test()
+        public void SegmentTree_Sum_Smoke_Test()
         {
             var testArray = new int[] { 1, 3, 5, 7, 9, 11 };
           

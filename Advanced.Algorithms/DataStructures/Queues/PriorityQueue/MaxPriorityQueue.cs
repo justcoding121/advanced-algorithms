@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.DataStructures.Queues.PriorityQueue
     /// TODO implement IEnumerable
     public class MaxPriorityQueue<T> where T : IComparable
     {
-        private BMaxHeap<T> maxHeap = new BMaxHeap<T>();
+        private readonly BMaxHeap<T> maxHeap = new BMaxHeap<T>();
 
         public void Enqueue(T queueItem)
         {

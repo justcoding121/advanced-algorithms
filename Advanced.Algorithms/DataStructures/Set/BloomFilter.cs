@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.DataStructures.Set
 {    
@@ -16,7 +12,7 @@ namespace Advanced.Algorithms.DataStructures.Set
     /// </summary>
     public class BloomFilter<T>
     {
-        private BitArray filter;
+        private readonly BitArray filter;
 
         /// <summary>
         /// Higher the size lower the collision and 
@@ -36,7 +32,7 @@ namespace Advanced.Algorithms.DataStructures.Set
             var hashCode = key.GetHashCode();
        
             //set 8 consecutive bits (a byte)
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
             {
                 var index = Math.Abs(hashCode + i) % filter.Length;
                 filter[index] = true;
@@ -53,7 +49,7 @@ namespace Advanced.Algorithms.DataStructures.Set
            
 
             //set 8 consecutive bits (a byte)
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
             {
                 var index = Math.Abs(hashCode + i) % filter.Length;
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Heap.Min
 {
@@ -23,9 +22,9 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             newHeapForest.InsertFirst(newNode);
 
             //updated pointer
-            MergeSortedForests(newHeapForest);
+            mergeSortedForests(newHeapForest);
 
-            Meld();
+            meld();
 
             Count++;
 
@@ -35,17 +34,16 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// <summary>
         /// Merge roots with same degrees in Forest 
         /// </summary>
-        private void Meld()
+        private void meld()
         {
             if (heapForest.Head == null)
             {
                 return;
             }
-                
 
-            int i = 0;
+
             var cur = heapForest.Head;
-            var next = heapForest.Head.Next != null ? heapForest.Head.Next : null;
+            var next = heapForest.Head.Next;
 
             //TODO
             while (next != null)
@@ -55,20 +53,8 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
                 //we are good to move ahead
                 if (cur.Data.Degree != next.Data.Degree)
                 {
-                    i++;
-
                     cur = next;
-
-                    if (cur.Next != null)
-                    {
-                        next = cur.Next;
-                    }
-                    else
-                    {
-                        next = null;
-                    }
-
-                    continue;
+                    next = cur.Next;
                 }
                 //degress of cur & next are same
                 else
@@ -77,7 +63,6 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
                     if (next.Next != null &&
                         cur.Data.Degree == next.Next.Data.Degree)
                     {
-                        i++;
                         cur = next;
                         next = cur.Next;
                         continue;
@@ -91,15 +76,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
                         next.Data.Parent = cur.Data;
                         heapForest.Delete(next);
 
-                        if (cur.Next != null)
-                        {
-                            next = cur.Next;
-                        }
-                        else
-                        {
-                            next = null;
-                        }
-
+                        next = cur.Next;
                         continue;
                     }
 
@@ -113,17 +90,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
                         heapForest.Delete(cur);
 
                         cur = next;
-
-                        if (cur.Next != null)
-                        {
-                            next = cur.Next;
-                        }
-                        else
-                        {
-                            next = null;
-                        }
-
-                        continue;
+                        next = cur.Next;
                     }
 
                 }
@@ -159,15 +126,15 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
 
             var newHeapForest = new DoublyLinkedList<BinomialHeapNode<T>>();
             //add removed roots children as new trees to forest
-            for (int i = 0; i < minTree.Data.Children.Count; i++)
+            foreach (var child in minTree.Data.Children)
             {
-                minTree.Data.Children[i].Parent = null;
-                newHeapForest.InsertLast(minTree.Data.Children[i]);
+                child.Parent = null;
+                newHeapForest.InsertLast(child);
             }
 
-            MergeSortedForests(newHeapForest);
+            mergeSortedForests(newHeapForest);
 
-            Meld();
+            meld();
 
             Count--;
 
@@ -178,7 +145,6 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// Update the Heap with new value for this node pointer
         /// O(log(n)) complexity
         /// </summary>
-        /// <param name="key"></param>
         public void DecrementKey(BinomialHeapNode<T> node)
         {
             var current = node;
@@ -201,9 +167,9 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// <param name="binomialHeap"></param>
         public void Union(BinomialMinHeap<T> binomialHeap)
         {
-            MergeSortedForests(binomialHeap.heapForest);
+            mergeSortedForests(binomialHeap.heapForest);
 
-            Meld();
+            meld();
 
             Count += binomialHeap.Count;
         }
@@ -212,7 +178,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// & returns the last inserted node (pointer required for decrement-key)
         /// </summary>
         /// <param name="newHeapForest"></param>
-        private void MergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
+        private void mergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
         {
             var @new = newHeapForest.Head;
 

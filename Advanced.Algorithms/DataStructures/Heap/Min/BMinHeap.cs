@@ -19,10 +19,11 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         {      
             if (initial != null)
             {
-                var initArray = new T[initial.Count()];
+                var items = initial as T[] ?? initial.ToArray();
+                var initArray = new T[items.Count()];
 
-                int i = 0;
-                foreach(var item in initial)
+                var i = 0;
+                foreach(var item in items)
                 {
                     initArray[i] = item;
                     i++;
@@ -48,7 +49,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
 
             while (i >= 0)
             {
-                BulkInitRecursive(i, initial);
+                bulkInitRecursive(i, initial);
                 i--;
             }
 
@@ -56,35 +57,39 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         }
 
         /// <summary>
-        /// Recursively 
+        /// load bulk 
         /// </summary>
         /// <param name="i"></param>
-        private void BulkInitRecursive(int i, T[] initial)
+        /// <param name="initial"></param>
+        private void bulkInitRecursive(int i, T[] initial)
         {
-            var parent = i;
-
-            var left = 2 * i + 1;
-            var right = 2 * i + 2;
-
-            var min = left < initial.Length && right < initial.Length ?
-                            initial[left].CompareTo(initial[right]) < 0 ? left : right
-                            : left < initial.Length ?
-                                left : right < initial.Length ?
-                                        right : -1;
-            
-            if(min!=-1
-                && initial[min].CompareTo(initial[parent])<0)
+            while (true)
             {
-                var temp = initial[min];
-                initial[min] = initial[parent];
-                initial[parent] = temp;
+                var parent = i;
 
-                //if min is child then drill down child
-                BulkInitRecursive(min, initial);
+                var left = 2 * i + 1;
+                var right = 2 * i + 2;
+
+                var min = left < initial.Length && right < initial.Length ? initial[left].CompareTo(initial[right]) < 0 ? left : right
+                    : left < initial.Length ? left
+                    : right < initial.Length ? right : -1;
+
+                if (min != -1 && initial[min].CompareTo(initial[parent]) < 0)
+                {
+                    var temp = initial[min];
+                    initial[min] = initial[parent];
+                    initial[parent] = temp;
+
+                    //if min is child then drill down child
+                    i = min;
+                    continue;
+                }
+
+
+                break;
             }
-
-
         }
+
         //o(log(n))
         public void Insert(T newItem)
         {

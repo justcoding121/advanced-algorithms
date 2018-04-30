@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.DataStructures.Heap
 {
@@ -23,7 +19,7 @@ namespace Advanced.Algorithms.DataStructures.Heap
 
         public int CompareTo(object obj)
         {
-            return this.Value.CompareTo((obj as PairingHeapNode<T>).Value);
+            return Value.CompareTo(((PairingHeapNode<T>) obj).Value);
         }
     }
 

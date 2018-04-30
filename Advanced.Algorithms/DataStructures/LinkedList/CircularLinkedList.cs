@@ -63,12 +63,13 @@ namespace Advanced.Algorithms.DataStructures
         {
             if (ReferenceNode.Next == ReferenceNode)
             {
-                if (ReferenceNode == current)
+                if (ReferenceNode != current)
                 {
-                    ReferenceNode = null;
-                    return;
+                    throw new Exception("Not found");
                 }
-                throw new Exception("Not found");
+
+                ReferenceNode = null;
+                return;
             }
 
             current.Prev.Next = current.Next;
@@ -127,7 +128,6 @@ namespace Advanced.Algorithms.DataStructures
                     break;
                 }
 
-                ///move to next item
                 current = current.Next;
             }
 
@@ -193,10 +193,8 @@ namespace Advanced.Algorithms.DataStructures
             {
                 return result;
             }
-            else
-            {
-                result.Add(current.Data);
-            }
+
+            result.Add(current.Data);
 
             while (current.Next != ReferenceNode)
             {
@@ -222,15 +220,12 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="newList"></param>
         internal void Union(CircularLinkedList<T> newList)
-        {
-           
+        {       
             ReferenceNode.Prev.Next = newList.ReferenceNode;
             ReferenceNode.Prev = newList.ReferenceNode.Prev;
 
             newList.ReferenceNode.Prev.Next = ReferenceNode;
             newList.ReferenceNode.Prev = ReferenceNode.Prev;
-
-
         }
     }
 
@@ -272,13 +267,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
 
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
+        object IEnumerator.Current => Current;
 
         public T Current
         {

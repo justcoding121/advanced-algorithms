@@ -11,7 +11,7 @@ namespace Advanced.Algorithms.DataStructures
     public class ArrayList<T> : IEnumerable<T>
     {
 
-        private int initialArraySize;
+        private readonly int initialArraySize;
         private int arraySize;
 
         private T[] array;
@@ -31,12 +31,14 @@ namespace Advanced.Algorithms.DataStructures
             arraySize = initalArraySize;
             array = new T[arraySize];
 
-            if(initial!=null)
+            if (initial == null)
             {
-                foreach(var item in initial)
-                {
-                    Add(item);
-                }
+                return;
+            }
+
+            foreach(var item in initial)
+            {
+                Add(item);
             }
         }
 
@@ -54,12 +56,12 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         public T this[int index]
         {
-            get { return ItemAt(index); }
-            set { SetItem(index, value); }
+            get => itemAt(index);
+            set => setItem(index, value);
         }
 
         //O(1)
-        private T ItemAt(int i)
+        private T itemAt(int i)
         {
             if (i >= Length)
                 throw new System.Exception("Index exeeds array size");
@@ -70,7 +72,7 @@ namespace Advanced.Algorithms.DataStructures
         //O(1) amortized 
         public void Add(T item)
         {
-            Grow();
+            grow();
 
             array[currentEndPosition] = item;
             currentEndPosition++;
@@ -83,9 +85,9 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="item"></param>
         public void InsertAt(int index, T item)
         {
-            Grow();
+            grow();
 
-            Shift(index);
+            shift(index);
 
             array[index] = item;
             currentEndPosition++;
@@ -96,7 +98,7 @@ namespace Advanced.Algorithms.DataStructures
         /// create a blank field at index
         /// </summary>
         /// <param name="index"></param>
-        private void Shift(int index)
+        private void shift(int index)
         {
             Array.Copy(array, index, array, index + 1, Length - index);
         }
@@ -112,7 +114,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         //O(1)
-        private void SetItem(int i, T item)
+        private void setItem(int i, T item)
         {
             if (i >= Length)
                 throw new System.Exception("Index exeeds array size");
@@ -127,47 +129,51 @@ namespace Advanced.Algorithms.DataStructures
                 throw new System.Exception("Index exeeds array size");
 
             //shift elements
-            for (int j = i; j < arraySize - 1; j++)
+            for (var j = i; j < arraySize - 1; j++)
             {
                 array[j] = array[j + 1];
             }
 
             currentEndPosition--;
 
-            Shrink();
+            shrink();
         }
 
 
         /// <summary>
         /// Grow array if needed
         /// </summary>
-        private void Grow()
+        private void grow()
         {
-            if (currentEndPosition == arraySize)
+            if (currentEndPosition != arraySize)
             {
-                //increase array size exponentially on demand
-                arraySize *= 2;
-
-                var biggerArray = new T[arraySize];
-                Array.Copy(array, 0, biggerArray, 0, currentEndPosition);
-                array = biggerArray;
+                return;
             }
+
+            //increase array size exponentially on demand
+            arraySize *= 2;
+
+            var biggerArray = new T[arraySize];
+            Array.Copy(array, 0, biggerArray, 0, currentEndPosition);
+            array = biggerArray;
         }
 
         /// <summary>
         /// Shrink array if needed
         /// </summary>
-        private void Shrink()
+        private void shrink()
         {
-            if (currentEndPosition == arraySize / 2 && arraySize != initialArraySize)
+            if (currentEndPosition != arraySize / 2 || arraySize == initialArraySize)
             {
-                //reduce array by half 
-                arraySize /= 2;
-
-                var smallerArray = new T[arraySize];
-                Array.Copy(array, 0, smallerArray, 0, currentEndPosition);
-                array = smallerArray;
+                return;
             }
+
+            //reduce array by half 
+            arraySize /= 2;
+
+            var smallerArray = new T[arraySize];
+            Array.Copy(array, 0, smallerArray, 0, currentEndPosition);
+            array = smallerArray;
         }
 
 
@@ -220,8 +226,8 @@ namespace Advanced.Algorithms.DataStructures
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
-        int position = -1;
-        int length;
+        private int position = -1;
+        private int length;
 
         public ArrayListEnumerator(T[] list, int length)
         {
@@ -240,13 +246,7 @@ namespace Advanced.Algorithms.DataStructures
             position = -1;
         }
 
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
+        object IEnumerator.Current => Current;
 
         public T Current
         {

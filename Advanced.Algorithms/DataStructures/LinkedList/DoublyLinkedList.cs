@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public DoublyLinkedListNode(T data)
         {
-            this.Data = data;
+            Data = data;
         }
     }
 
@@ -161,7 +161,6 @@ namespace Advanced.Algorithms.DataStructures
                 node.Previous = data;
 
             }
-
 
             return data;
         }
@@ -373,12 +372,9 @@ namespace Advanced.Algorithms.DataStructures
             return i;
         }
 
-  
+
         //O(1) always
-        public bool IsEmpty()
-        {
-            return Head == null;
-        }
+        public bool IsEmpty() => Head == null;
 
         //O(1) always
         public void DeleteAll()
@@ -456,13 +452,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
 
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
+        object IEnumerator.Current => Current;
 
         public T Current
         {

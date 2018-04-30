@@ -11,7 +11,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
         /// Smoke test
         /// </summary>
         [TestMethod]
-        public void AsFenwickTree_Sum_Smoke_Test()
+        public void FenwickTree_Sum_Smoke_Test()
         {
             var testArray = new int[] { 1, 3, 5, 7, 9, 11 };
 

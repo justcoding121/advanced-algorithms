@@ -91,9 +91,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             var lastData = prev.Next.Data;
-
             prev.Next = null;
-
             return lastData;
         }
 
@@ -166,17 +164,14 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         //O(1) always
-        public bool IsEmpty()
-        {
-            return Head == null;
-        }
+        public bool IsEmpty() => Head == null;
 
         //O(1) always
         public void DeleteAll()
         {
             if (Head == null)
             {
-                throw new System.Exception("Empty list");
+                throw new Exception("Empty list");
             }
 
             Head = null;

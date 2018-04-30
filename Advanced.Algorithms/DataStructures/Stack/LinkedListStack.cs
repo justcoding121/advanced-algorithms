@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.DataStructures
     {
         public int Count { get; private set; }
 
-        private SinglyLinkedList<T> list = new SinglyLinkedList<T>();
+        private readonly SinglyLinkedList<T> list = new SinglyLinkedList<T>();
 
         //O(1)
         public T Pop()
@@ -32,14 +32,8 @@ namespace Advanced.Algorithms.DataStructures
         //O(1)
         public T Peek()
         {
-            if(Count == 0)
-            {
-                return default(T);
-            }
-
-            return list.Head.Data;
+            return Count == 0 ? default(T) : list.Head.Data;
         }
-
-      
+     
     }
 }
