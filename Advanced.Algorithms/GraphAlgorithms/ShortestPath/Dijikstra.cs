@@ -55,7 +55,7 @@ namespace Advanced.Algorithms.GraphAlgorithms
     /// <typeparam name="T"></typeparam>
     public class DijikstraShortestPath<T, W> where W : IComparable
     {
-        IShortestPathOperators<W> operators;
+        readonly IShortestPathOperators<W> operators;
         public DijikstraShortestPath(IShortestPathOperators<W> operators)
         {
             this.operators = operators;
@@ -71,8 +71,7 @@ namespace Advanced.Algorithms.GraphAlgorithms
         public ShortestPathResult<T, W> GetShortestPath(WeightedDiGraph<T, W> graph, T source, T destination)
         {
             //regular argument checks
-            if (graph == null || graph.FindVertex(source) == null
-                || graph.FindVertex(destination) == null)
+            if (graph?.FindVertex(source) == null || graph.FindVertex(destination) == null)
             {
                 throw new ArgumentException();
             }
@@ -114,7 +113,6 @@ namespace Advanced.Algorithms.GraphAlgorithms
             }
 
             //start from source vertex as current 
-            var sourceVertex = graph.Vertices[source];
             var current = new MinHeapWrap<T, W>()
             {
                 Distance = operators.DefaultValue,

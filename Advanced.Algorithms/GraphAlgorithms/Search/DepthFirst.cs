@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
         /// <returns></returns>
         public bool Find(Graph<T> graph, T vertex)
         {
-            return DFS(graph.ReferenceVertex, new HashSet<T>(), vertex);
+            return dfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
         /// <param name="visited"></param>
         /// <param name="searchVetex"></param>
         /// <returns></returns>
-        private bool DFS(GraphVertex<T> current,
+        private bool dfs(GraphVertex<T> current,
             HashSet<T> visited, T searchVetex)
         {
             visited.Add(current.Value);
@@ -39,13 +39,14 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
 
             foreach (var edge in current.Edges)
             {
-                if (!visited.Contains(edge.Value))
+                if (visited.Contains(edge.Value))
                 {
-                    if (DFS(edge, visited, searchVetex))
-                    {
-                        return true;
-                    }
+                    continue;
+                }
 
+                if (dfs(edge, visited, searchVetex))
+                {
+                    return true;
                 }
             }
 

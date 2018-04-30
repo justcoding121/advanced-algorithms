@@ -24,7 +24,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.TopologicalSort
             {
                 if(!visited.Contains(vertex.Key))
                 {
-                    DFS(vertex.Value, visited, pathStack);
+                    dfs(vertex.Value, visited, pathStack);
                 }
                 
             }
@@ -45,7 +45,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.TopologicalSort
         /// <param name="vertex"></param>
         /// <param name="visited"></param>
         /// <param name="pathStack"></param>
-        private void DFS(DiGraphVertex<T> vertex, 
+        private void dfs(DiGraphVertex<T> vertex, 
             HashSet<T> visited, Stack<T> pathStack)
         {
             visited.Add(vertex.Value);
@@ -54,7 +54,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.TopologicalSort
             {
                 if(!visited.Contains(edge.Value))
                 {
-                    DFS(edge, visited, pathStack);
+                    dfs(edge, visited, pathStack);
                 }
             }
 

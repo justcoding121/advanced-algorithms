@@ -28,30 +28,31 @@ namespace Advanced.Algorithms.GraphAlgorithms.Coloring
         public MColorResult<T, C> Color(Graph<T> graph, C[] colors)
         {
 
-            GraphVertex<T> first = graph.ReferenceVertex;
+            var first = graph.ReferenceVertex;
 
-            var progress = CanColor(first, colors, 
+            var progress = canColor(first, colors, 
                 new Dictionary<GraphVertex<T>, C>(),
                 new HashSet<GraphVertex<T>>());
 
-            if (progress.Count == graph.VerticesCount)
+            if (progress.Count != graph.VerticesCount)
             {
-                var result = new Dictionary<C, List<T>>();
-
-                foreach(var vertex in progress)
-                {
-                    if(!result.ContainsKey(vertex.Value))
-                    {
-                        result.Add(vertex.Value, new List<T>());
-                    }
-
-                    result[vertex.Value].Add(vertex.Key.Value);
-                }
-
-                return new MColorResult<T, C>(true, result);
+                return new MColorResult<T, C>(false, null);
             }
 
-            return new MColorResult<T, C>(false, null);
+            var result = new Dictionary<C, List<T>>();
+
+            foreach(var vertex in progress)
+            {
+                if(!result.ContainsKey(vertex.Value))
+                {
+                    result.Add(vertex.Value, new List<T>());
+                }
+
+                result[vertex.Value].Add(vertex.Key.Value);
+            }
+
+            return new MColorResult<T, C>(true, result);
+
         }
 
         /// <summary>
@@ -62,16 +63,18 @@ namespace Advanced.Algorithms.GraphAlgorithms.Coloring
         /// <param name="progress"></param>
         /// <param name="visited"></param>
         /// <returns></returns>
-        private Dictionary<GraphVertex<T>, C> CanColor(GraphVertex<T> vertex, C[] colors, 
+        private Dictionary<GraphVertex<T>, C> canColor(GraphVertex<T> vertex, C[] colors, 
              Dictionary<GraphVertex<T>, C> progress, HashSet<GraphVertex<T>> visited)
         {
-            for (int i = 0; i < colors.Length; i++)
+            foreach (var item in colors)
             {
-                if (isSafe(progress, vertex, colors[i]))
+                if (!isSafe(progress, vertex, item))
                 {
-                    progress.Add(vertex, colors[i]);
-                    break;
+                    continue;
                 }
+
+                progress.Add(vertex, item);
+                break;
             }
 
             if (visited.Contains(vertex) == false)
@@ -85,7 +88,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Coloring
                         continue;
                     }
 
-                    CanColor(edge, colors, progress, visited);
+                    canColor(edge, colors, progress, visited);
                 }
             }
 

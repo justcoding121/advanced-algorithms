@@ -34,7 +34,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
     /// <typeparam name="T"></typeparam>
     public class BiPartiteMatching<T>
     {
-        IBiPartiteMatchOperators<T> operators;
+        readonly IBiPartiteMatchOperators<T> operators;
         public BiPartiteMatching(IBiPartiteMatchOperators<T> operators)
         {
             this.operators = operators;
@@ -56,7 +56,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
                 throw new Exception("Graph is not BiPartite.");
             }
 
-            return GetMaxBiPartiteMatching(graph, colorResult.Partitions);
+            return getMaxBiPartiteMatching(graph, colorResult.Partitions);
 
         }
 
@@ -66,7 +66,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
         /// <param name="graph"></param>
         /// <param name="partitions"></param>
         /// <returns></returns>
-        private List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph,
+        private List<MatchEdge<T>> getMaxBiPartiteMatching(Graph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
             //add unit edges from dymmy source to group 1 vertices
@@ -110,13 +110,11 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
         /// <param name="dummySink"></param>
         /// <param name="partitions"></param>
         /// <returns></returns>
-        private WeightedDiGraph<T, int> createFlowGraph(Graph<T> graph,
+        private static WeightedDiGraph<T, int> createFlowGraph(Graph<T> graph,
             T dummySource, T dummySink,
             Dictionary<int, List<T>> partitions)
         {
             var workGraph = new WeightedDiGraph<T, int>();
-
-
             workGraph.AddVertex(dummySource);
 
             foreach (var group1Vertex in partitions[1])
@@ -140,7 +138,6 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
                 {
                     workGraph.AddEdge(group1Vertex, edge.Value, 1);
                 }
-
             }
 
             return workGraph;

@@ -15,13 +15,13 @@ namespace Advanced.Algorithms.GraphAlgorithms
     {
         public static int GetMinWeight(WeightedDiGraph<int, int> graph)
         {
-            return GetMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
+            return getMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
                                 graph.VerticesCount,
                                 new HashSet<WeightedDiGraphVertex<int, int>>(),
                                 new Dictionary<string, int>());
         }
 
-        public static int GetMinWeight(WeightedDiGraphVertex<int, int> currentVertex,
+        private static int getMinWeight(WeightedDiGraphVertex<int, int> currentVertex,
             WeightedDiGraphVertex<int, int> tgtVertex,
             int remainingVertexCount,
             HashSet<WeightedDiGraphVertex<int, int>> visited,
@@ -50,7 +50,7 @@ namespace Advanced.Algorithms.GraphAlgorithms
 
                 if (!visited.Contains(vertex.Key))
                 {
-                    var result = GetMinWeight(vertex.Key, tgtVertex, remainingVertexCount - 1, visited, cache);
+                    var result = getMinWeight(vertex.Key, tgtVertex, remainingVertexCount - 1, visited, cache);
 
                     if (result != int.MaxValue)
                     {

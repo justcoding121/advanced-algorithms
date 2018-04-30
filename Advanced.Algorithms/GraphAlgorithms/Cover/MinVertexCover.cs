@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cover
     {
         public List<GraphVertex<T>> GetMinVertexCover(Graph<T> graph)
         {
-            return GetMinVertexCover(graph.ReferenceVertex, new HashSet<GraphVertex<T>>(),
+            return getMinVertexCover(graph.ReferenceVertex, new HashSet<GraphVertex<T>>(),
                 new List<GraphVertex<T>>());
         }
 
@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cover
         /// <param name="visited"></param>
         /// <param name="cover"></param>
         /// <returns></returns>
-        private List<GraphVertex<T>> GetMinVertexCover(GraphVertex<T> vertex,
+        private List<GraphVertex<T>> getMinVertexCover(GraphVertex<T> vertex,
             HashSet<GraphVertex<T>> visited, List<GraphVertex<T>> cover)
         {
             visited.Add(vertex);
@@ -34,7 +34,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cover
 
                 if(!visited.Contains(edge))
                 {
-                    GetMinVertexCover(edge, visited, cover);
+                    getMinVertexCover(edge, visited, cover);
                 }
             }
 

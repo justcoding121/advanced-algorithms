@@ -47,7 +47,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
     /// <typeparam name="W"></typeparam>
     public class FordFulkersonMaxFlow<T, W> where W : IComparable
     {
-        IFlowOperators<W> operators;
+        readonly IFlowOperators<W> operators;
         public FordFulkersonMaxFlow(IFlowOperators<W> operators)
         {
             this.operators = operators;
@@ -67,7 +67,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
         {
             var residualGraph = createResidualGraph(graph);
 
-            List<T> path = DFS(residualGraph, source, sink);
+            var path = DFS(residualGraph, source, sink);
 
             var result = operators.defaultWeight;
 

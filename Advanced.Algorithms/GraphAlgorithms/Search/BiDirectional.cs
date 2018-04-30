@@ -13,12 +13,10 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
         /// <summary>
         /// Returns true if Path exists from source to destination
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="vertex"></param>
         /// <returns></returns>
         public bool PathExists(DiGraph<T> graph, T source, T destination)
         {
-            return BDS(graph, source, destination);
+            return bfs(graph, source, destination);
         }
 
         /// <summary>
@@ -29,7 +27,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        private bool BDS(DiGraph<T> graph, T source, T destination)
+        private bool bfs(DiGraph<T> graph, T source, T destination)
         {
             var visitedA = new HashSet<T>();
             var visitedB = new HashSet<T>();
@@ -58,11 +56,13 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
 
                     foreach (var edge in current.OutEdges)
                     {
-                        if (!visitedA.Contains(edge.Value))
+                        if (visitedA.Contains(edge.Value))
                         {
-                            visitedA.Add(edge.Value);
-                            bfsQueueA.Enqueue(edge);
+                            continue;
                         }
+
+                        visitedA.Add(edge.Value);
+                        bfsQueueA.Enqueue(edge);
                     }
                 }
 
@@ -78,11 +78,13 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
 
                     foreach (var edge in current.InEdges)
                     {
-                        if (!visitedB.Contains(edge.Value))
+                        if (visitedB.Contains(edge.Value))
                         {
-                            visitedB.Add(edge.Value);
-                            bfsQueueB.Enqueue(edge);
+                            continue;
                         }
+
+                        visitedB.Add(edge.Value);
+                        bfsQueueB.Enqueue(edge);
                     }
                 }
 

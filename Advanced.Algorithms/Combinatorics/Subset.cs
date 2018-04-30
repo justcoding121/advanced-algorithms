@@ -8,12 +8,12 @@ namespace Advanced.Algorithms.Combinatorics
         {
             var result = new List<List<T>>();
 
-            Recurse(input, 0, new List<T>(), new HashSet<int>(), result);
+            recurse(input, 0, new List<T>(), new HashSet<int>(), result);
 
             return result;
         }
 
-        private static void Recurse<T>(List<T> input,
+        private static void recurse<T>(List<T> input,
             int k, List<T> prefix, HashSet<int> prefixIndices,
             List<List<T>> result)
         {
@@ -29,7 +29,7 @@ namespace Advanced.Algorithms.Combinatorics
                 prefix.Add(input[j]);
                 prefixIndices.Add(j);
 
-                Recurse(input, j, prefix, prefixIndices, result);
+                recurse(input, j, prefix, prefixIndices, result);
 
                 prefix.RemoveAt(prefix.Count - 1);
                 prefixIndices.Remove(j);

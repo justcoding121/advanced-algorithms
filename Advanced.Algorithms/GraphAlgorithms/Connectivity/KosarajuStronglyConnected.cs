@@ -25,13 +25,12 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
             {
                 if(!visited.Contains(vertex.Value.Value))
                 {
-                    KosarajuStep1(vertex.Value, visited, finishStack);
-                }
-                
+                    kosarajuStep1(vertex.Value, visited, finishStack);
+                }           
             }
 
             //reverse edges
-            var reverseGraph = ReverseEdges(graph);
+            var reverseGraph = reverseEdges(graph);
 
             visited.Clear();
 
@@ -44,7 +43,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
 
                 if (!visited.Contains(currentVertex.Value))
                 {
-                    result.Add(KosarajuStep2(currentVertex, visited,
+                    result.Add(kosarajuStep2(currentVertex, visited,
                         finishStack, new List<T>()));
                 }
             }
@@ -58,7 +57,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
         /// <param name="currentVertex"></param>
         /// <param name="visited"></param>
         /// <param name="finishStack"></param>
-        private void KosarajuStep1(DiGraphVertex<T> currentVertex,
+        private void kosarajuStep1(DiGraphVertex<T> currentVertex,
             HashSet<T> visited,
             Stack<T> finishStack)
         {
@@ -68,7 +67,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
             {
                 if(!visited.Contains(edge.Value))
                 {
-                    KosarajuStep1(edge, visited, finishStack);
+                    kosarajuStep1(edge, visited, finishStack);
                 }
             }
 
@@ -84,7 +83,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
         /// <param name="finishStack"></param>
         /// <param name="result"></param>
         /// <returns></returns>
-        private List<T> KosarajuStep2(DiGraphVertex<T> currentVertex,
+        private List<T> kosarajuStep2(DiGraphVertex<T> currentVertex,
             HashSet<T> visited, Stack<T> finishStack,
             List<T> result)
         {
@@ -95,7 +94,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
             {
                 if (!visited.Contains(edge.Value))
                 {
-                    KosarajuStep2(edge, visited, finishStack, result);
+                    kosarajuStep2(edge, visited, finishStack, result);
                 }
             }
 
@@ -105,9 +104,8 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
         /// <summary>
         /// create a clone graph with reverse edge directions
         /// </summary>
-        /// <param name="workGraph"></param>
         /// <returns></returns>
-        private DiGraph<T> ReverseEdges(DiGraph<T> graph)
+        private DiGraph<T> reverseEdges(DiGraph<T> graph)
         {
             var newGraph = new DiGraph<T>();
 
@@ -127,7 +125,5 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
 
             return newGraph;
         }
-
-
     }
 }

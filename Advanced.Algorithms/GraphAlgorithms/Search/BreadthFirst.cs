@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
         /// <returns></returns>
         public bool Find(Graph<T> graph, T vertex)
         {
-            return BFS(graph.ReferenceVertex, new HashSet<T>(), vertex);
+            return bfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
         /// <param name="HashSet"></param>
         /// <param name="searchVertex"></param>
         /// <returns></returns>
-        private bool BFS(GraphVertex<T> referenceVertex,
+        private bool bfs(GraphVertex<T> referenceVertex,
             HashSet<T> visited, T searchVertex)
         {
             var bfsQueue = new Queue<GraphVertex<T>>();
@@ -46,11 +46,13 @@ namespace Advanced.Algorithms.GraphAlgorithms.Search
 
                 foreach (var edge in current.Edges)
                 {
-                    if (!visited.Contains(edge.Value))
+                    if (visited.Contains(edge.Value))
                     {
-                        visited.Add(edge.Value);
-                        bfsQueue.Enqueue(edge);
+                        continue;
                     }
+
+                    visited.Add(edge.Value);
+                    bfsQueue.Enqueue(edge);
                 }
             }
 
