@@ -870,23 +870,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Delete
   nameWithType: AVLTree<T>.Delete
   nameWithType.vb: AVLTree(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.findMax
-  name: findMax()
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_findMax
-  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.findMax
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.findMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).findMax()
-  nameWithType: AVLTree<T>.findMax()
-  nameWithType.vb: AVLTree(Of T).findMax()
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.findMax*
-  name: findMax
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_findMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.findMax
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.FindMax
+  name: FindMax()
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_FindMax
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.FindMax
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.FindMax()
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).FindMax()
+  nameWithType: AVLTree<T>.FindMax()
+  nameWithType.vb: AVLTree(Of T).FindMax()
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.FindMax*
+  name: FindMax
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_FindMax_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.FindMax
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.findMax
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).findMax
-  nameWithType: AVLTree<T>.findMax
-  nameWithType.vb: AVLTree(Of T).findMax
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.FindMax
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).FindMax
+  nameWithType: AVLTree<T>.FindMax
+  nameWithType.vb: AVLTree(Of T).FindMax
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.FindMin
   name: FindMin()
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_FindMin
@@ -1281,23 +1281,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).FindMin
   nameWithType: BST<T>.FindMin
   nameWithType.vb: BST(Of T).FindMin
-- uid: Advanced.Algorithms.DataStructures.BST`1.GetHeight
-  name: GetHeight()
-  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_GetHeight
-  commentId: M:Advanced.Algorithms.DataStructures.BST`1.GetHeight
-  fullName: Advanced.Algorithms.DataStructures.BST<T>.GetHeight()
-  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).GetHeight()
-  nameWithType: BST<T>.GetHeight()
-  nameWithType.vb: BST(Of T).GetHeight()
-- uid: Advanced.Algorithms.DataStructures.BST`1.GetHeight*
-  name: GetHeight
-  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_GetHeight_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BST`1.GetHeight
+- uid: Advanced.Algorithms.DataStructures.BST`1.getHeight
+  name: getHeight()
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_getHeight
+  commentId: M:Advanced.Algorithms.DataStructures.BST`1.getHeight
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.getHeight()
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).getHeight()
+  nameWithType: BST<T>.getHeight()
+  nameWithType.vb: BST(Of T).getHeight()
+- uid: Advanced.Algorithms.DataStructures.BST`1.getHeight*
+  name: getHeight
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_getHeight_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BST`1.getHeight
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BST<T>.GetHeight
-  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).GetHeight
-  nameWithType: BST<T>.GetHeight
-  nameWithType.vb: BST(Of T).GetHeight
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.getHeight
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).getHeight
+  nameWithType: BST<T>.getHeight
+  nameWithType.vb: BST(Of T).getHeight
 - uid: Advanced.Algorithms.DataStructures.BST`1.HasItem(`0)
   name: HasItem(T)
   href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_HasItem__0_
@@ -7954,120 +7954,120 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTree(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: BpTree<T>.IEnumerable.GetEnumerator
   nameWithType.vb: BpTree(Of T).System.Collections.IEnumerable.GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1
-  name: BPTreeEnumerator<T>
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1
-  name.vb: BPTreeEnumerator(Of T)
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T)
-  nameWithType: BPTreeEnumerator<T>
-  nameWithType.vb: BPTreeEnumerator(Of T)
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.#ctor(Advanced.Algorithms.DataStructures.Tree.BpTree{`0})
-  name: BPTreeEnumerator(BpTree<T>)
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1__ctor_Advanced_Algorithms_DataStructures_Tree_BpTree__0__
-  commentId: M:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.#ctor(Advanced.Algorithms.DataStructures.Tree.BpTree{`0})
-  name.vb: BPTreeEnumerator(BpTree(Of T))
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.BPTreeEnumerator(Advanced.Algorithms.DataStructures.Tree.BpTree<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).BPTreeEnumerator(Advanced.Algorithms.DataStructures.Tree.BpTree(Of T))
-  nameWithType: BPTreeEnumerator<T>.BPTreeEnumerator(BpTree<T>)
-  nameWithType.vb: BPTreeEnumerator(Of T).BPTreeEnumerator(BpTree(Of T))
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.#ctor*
-  name: BPTreeEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.#ctor
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1
+  name: BpTreeEnumerator<T>
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1
+  name.vb: BpTreeEnumerator(Of T)
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T)
+  nameWithType: BpTreeEnumerator<T>
+  nameWithType.vb: BpTreeEnumerator(Of T)
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.#ctor(Advanced.Algorithms.DataStructures.Tree.BpTree{`0})
+  name: BpTreeEnumerator(BpTree<T>)
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1__ctor_Advanced_Algorithms_DataStructures_Tree_BpTree__0__
+  commentId: M:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.#ctor(Advanced.Algorithms.DataStructures.Tree.BpTree{`0})
+  name.vb: BpTreeEnumerator(BpTree(Of T))
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.BpTreeEnumerator(Advanced.Algorithms.DataStructures.Tree.BpTree<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).BpTreeEnumerator(Advanced.Algorithms.DataStructures.Tree.BpTree(Of T))
+  nameWithType: BpTreeEnumerator<T>.BpTreeEnumerator(BpTree<T>)
+  nameWithType.vb: BpTreeEnumerator(Of T).BpTreeEnumerator(BpTree(Of T))
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.#ctor*
+  name: BpTreeEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.#ctor
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.BPTreeEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).BPTreeEnumerator
-  nameWithType: BPTreeEnumerator<T>.BPTreeEnumerator
-  nameWithType.vb: BPTreeEnumerator(Of T).BPTreeEnumerator
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Current
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.BpTreeEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).BpTreeEnumerator
+  nameWithType: BpTreeEnumerator<T>.BpTreeEnumerator
+  nameWithType.vb: BpTreeEnumerator(Of T).BpTreeEnumerator
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Current
   name: Current
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_Current
-  commentId: P:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Current
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).Current
-  nameWithType: BPTreeEnumerator<T>.Current
-  nameWithType.vb: BPTreeEnumerator(Of T).Current
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Current*
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_Current
+  commentId: P:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Current
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.Current
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).Current
+  nameWithType: BpTreeEnumerator<T>.Current
+  nameWithType.vb: BpTreeEnumerator(Of T).Current
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Current*
   name: Current
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_Current_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Current
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_Current_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Current
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).Current
-  nameWithType: BPTreeEnumerator<T>.Current
-  nameWithType.vb: BPTreeEnumerator(Of T).Current
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Dispose
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.Current
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).Current
+  nameWithType: BpTreeEnumerator<T>.Current
+  nameWithType.vb: BpTreeEnumerator(Of T).Current
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Dispose
   name: Dispose()
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_Dispose
-  commentId: M:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Dispose
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.Dispose()
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).Dispose()
-  nameWithType: BPTreeEnumerator<T>.Dispose()
-  nameWithType.vb: BPTreeEnumerator(Of T).Dispose()
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Dispose*
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_Dispose
+  commentId: M:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Dispose
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.Dispose()
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).Dispose()
+  nameWithType: BpTreeEnumerator<T>.Dispose()
+  nameWithType.vb: BpTreeEnumerator(Of T).Dispose()
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Dispose*
   name: Dispose
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_Dispose_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Dispose
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_Dispose_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Dispose
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.Dispose
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).Dispose
-  nameWithType: BPTreeEnumerator<T>.Dispose
-  nameWithType.vb: BPTreeEnumerator(Of T).Dispose
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.MoveNext
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.Dispose
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).Dispose
+  nameWithType: BpTreeEnumerator<T>.Dispose
+  nameWithType.vb: BpTreeEnumerator(Of T).Dispose
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.MoveNext
   name: MoveNext()
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_MoveNext
-  commentId: M:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.MoveNext
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.MoveNext()
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).MoveNext()
-  nameWithType: BPTreeEnumerator<T>.MoveNext()
-  nameWithType.vb: BPTreeEnumerator(Of T).MoveNext()
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.MoveNext*
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_MoveNext
+  commentId: M:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.MoveNext
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.MoveNext()
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).MoveNext()
+  nameWithType: BpTreeEnumerator<T>.MoveNext()
+  nameWithType.vb: BpTreeEnumerator(Of T).MoveNext()
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.MoveNext*
   name: MoveNext
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_MoveNext_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.MoveNext
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_MoveNext_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.MoveNext
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.MoveNext
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).MoveNext
-  nameWithType: BPTreeEnumerator<T>.MoveNext
-  nameWithType.vb: BPTreeEnumerator(Of T).MoveNext
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Reset
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.MoveNext
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).MoveNext
+  nameWithType: BpTreeEnumerator<T>.MoveNext
+  nameWithType.vb: BpTreeEnumerator(Of T).MoveNext
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Reset
   name: Reset()
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_Reset
-  commentId: M:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Reset
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.Reset()
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).Reset()
-  nameWithType: BPTreeEnumerator<T>.Reset()
-  nameWithType.vb: BPTreeEnumerator(Of T).Reset()
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Reset*
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_Reset
+  commentId: M:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Reset
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.Reset()
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).Reset()
+  nameWithType: BpTreeEnumerator<T>.Reset()
+  nameWithType.vb: BpTreeEnumerator(Of T).Reset()
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Reset*
   name: Reset
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_Reset_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.Reset
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_Reset_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.Reset
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.Reset
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).Reset
-  nameWithType: BPTreeEnumerator<T>.Reset
-  nameWithType.vb: BPTreeEnumerator(Of T).Reset
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.System#Collections#IEnumerator#Current
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.Reset
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).Reset
+  nameWithType: BpTreeEnumerator<T>.Reset
+  nameWithType.vb: BpTreeEnumerator(Of T).Reset
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.System#Collections#IEnumerator#Current
   name: IEnumerator.Current
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_System_Collections_IEnumerator_Current
-  commentId: P:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.System#Collections#IEnumerator#Current
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_System_Collections_IEnumerator_Current
+  commentId: P:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.System#Collections#IEnumerator#Current
   name.vb: System.Collections.IEnumerator.Current
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.System.Collections.IEnumerator.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).System.Collections.IEnumerator.Current
-  nameWithType: BPTreeEnumerator<T>.IEnumerator.Current
-  nameWithType.vb: BPTreeEnumerator(Of T).System.Collections.IEnumerator.Current
-- uid: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.System#Collections#IEnumerator#Current*
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.System.Collections.IEnumerator.Current
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).System.Collections.IEnumerator.Current
+  nameWithType: BpTreeEnumerator<T>.IEnumerator.Current
+  nameWithType.vb: BpTreeEnumerator(Of T).System.Collections.IEnumerator.Current
+- uid: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.System#Collections#IEnumerator#Current*
   name: IEnumerator.Current
-  href: api/Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BPTreeEnumerator_1_System_Collections_IEnumerator_Current_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator`1.System#Collections#IEnumerator#Current
+  href: api/Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator-1.html#Advanced_Algorithms_DataStructures_Tree_BpTreeEnumerator_1_System_Collections_IEnumerator_Current_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator`1.System#Collections#IEnumerator#Current
   isSpec: "True"
   name.vb: System.Collections.IEnumerator.Current
-  fullName: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator<T>.System.Collections.IEnumerator.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BPTreeEnumerator(Of T).System.Collections.IEnumerator.Current
-  nameWithType: BPTreeEnumerator<T>.IEnumerator.Current
-  nameWithType.vb: BPTreeEnumerator(Of T).System.Collections.IEnumerator.Current
+  fullName: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator<T>.System.Collections.IEnumerator.Current
+  fullName.vb: Advanced.Algorithms.DataStructures.Tree.BpTreeEnumerator(Of T).System.Collections.IEnumerator.Current
+  nameWithType: BpTreeEnumerator<T>.IEnumerator.Current
+  nameWithType.vb: BpTreeEnumerator(Of T).System.Collections.IEnumerator.Current
 - uid: Advanced.Algorithms.DataStructures.Tree.BTree`1
   name: BTree<T>
   href: api/Advanced.Algorithms.DataStructures.Tree.BTree-1.html
