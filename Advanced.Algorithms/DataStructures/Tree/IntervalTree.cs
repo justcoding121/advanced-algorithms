@@ -30,7 +30,7 @@ namespace Advanced.Algorithms.DataStructures
     public class DIntervalTree<T> where T : IComparable
     {
         private readonly int dimensions;
-        private IntervalTree<T> tree;
+        private readonly IntervalTree<T> tree;
 
         public int Count { get; private set; }
 
@@ -52,6 +52,16 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="end"></param>
         private void validateDimensions(T[] start, T[] end)
         {
+            if (start == null)
+            {
+                throw new ArgumentNullException(nameof(start));
+            }
+
+            if (end == null)
+            {
+                throw new ArgumentNullException(nameof(end));
+            }
+
             if (start.Length != dimensions || start.Length != end.Length)
             {
                 throw new Exception($"Expecting {dimensions} points in start and end values for this interval.");
@@ -301,7 +311,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public int CompareTo(object obj)
         {
-            return this.Start.CompareTo(((AsInterval<T>) obj).Start);
+            return Start.CompareTo(((AsInterval<T>) obj).Start);
         }
 
         public AsInterval(T start, T end)
@@ -331,8 +341,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="newInterval"></param>
         public void Insert(AsInterval<T> newInterval)
         {
-            SortInterval(newInterval);
-
+            sortInterval(newInterval);
             redBlackTree.Insert(newInterval);
             Count++;
         }
@@ -343,7 +352,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="interval"></param>
         public void Delete(AsInterval<T> interval)
         {
-            SortInterval(interval);
+            sortInterval(interval);
 
             redBlackTree.Delete(interval);
             Count--;
@@ -356,9 +365,8 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         internal AsInterval<T> GetOverlap(AsInterval<T> searchInterval)
         {
-            SortInterval(searchInterval);
-
-            return GetOverlap(redBlackTree.Root, searchInterval);
+            sortInterval(searchInterval);
+            return getOverlap(redBlackTree.Root, searchInterval);
         }
 
         /// <summary>
@@ -368,9 +376,8 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         internal List<AsInterval<T>> GetOverlaps(AsInterval<T> searchInterval)
         {
-            SortInterval(searchInterval);
-
-            return GetOverlaps(redBlackTree.Root, searchInterval);
+            sortInterval(searchInterval);
+            return getOverlaps(redBlackTree.Root, searchInterval);
         }
 
         /// <summary>
@@ -380,16 +387,15 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         internal bool DoOverlap(AsInterval<T> searchInterval)
         {
-            SortInterval(searchInterval);
-
-            return GetOverlap(redBlackTree.Root, searchInterval) != null;
+            sortInterval(searchInterval);
+            return getOverlap(redBlackTree.Root, searchInterval) != null;
         }
 
         /// <summary>
         /// Swap intervals so that start always appear before end
         /// </summary>
         /// <param name="value"></param>
-        private void SortInterval(AsInterval<T> value)
+        private void sortInterval(AsInterval<T> value)
         {
             if (value.Start.CompareTo(value.End[0]) <= 0)
             {
@@ -406,7 +412,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="interval"></param>
         /// <returns></returns>
-        private AsInterval<T> GetOverlap(AsIntervalRedBlackTreeNode<AsInterval<T>> current, AsInterval<T> searchInterval)
+        private AsInterval<T> getOverlap(AsIntervalRedBlackTreeNode<AsInterval<T>> current, AsInterval<T> searchInterval)
         {
             while (true)
             {
@@ -437,7 +443,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Returns all intervals that overlaps with this interval
         /// </summary>
         /// <returns></returns>
-        private List<AsInterval<T>> GetOverlaps(AsIntervalRedBlackTreeNode<AsInterval<T>> current,
+        private List<AsInterval<T>> getOverlaps(AsIntervalRedBlackTreeNode<AsInterval<T>> current,
             AsInterval<T> searchInterval, List<AsInterval<T>> result = null)
         {
             if (result == null)
@@ -460,11 +466,11 @@ namespace Advanced.Algorithms.DataStructures
             if (current.Left != null
                 && current.Left.Value.MaxEnd.CompareTo(searchInterval.Start) >= 0)
             {
-                GetOverlaps(current.Left, searchInterval, result);
+                getOverlaps(current.Left, searchInterval, result);
             }
 
             //otherwise look in right subtree
-            GetOverlaps(current.Right, searchInterval, result);
+            getOverlaps(current.Right, searchInterval, result);
 
             return result;
         }
@@ -539,7 +545,6 @@ namespace Advanced.Algorithms.DataStructures
             /// A cached function to override default(T)
             /// So that for value types we can return min value as default
             /// </summary>
-            /// <param name="s"></param>
             /// <returns></returns>
             private readonly Lazy<T> defaultValue = new Lazy<T>(() =>
             {
@@ -803,7 +808,7 @@ namespace Advanced.Algorithms.DataStructures
                         var newNode = new AsIntervalRedBlackTreeNode<AsInterval<T>>(currentNode, newNodeValue);
                         currentNode.Right = newNode;
                         updateMax(newNode);
-                        BalanceInsertion(newNode);
+                        balanceInsertion(newNode);
                         return newNode;
                     }
                     else
@@ -824,7 +829,7 @@ namespace Advanced.Algorithms.DataStructures
                         var newNode = new AsIntervalRedBlackTreeNode<AsInterval<T>>(currentNode, newNodeValue);
                         currentNode.Left = newNode;
                         updateMax(newNode);
-                        BalanceInsertion(newNode);
+                        balanceInsertion(newNode);
                         return newNode;
                     }
                     else
@@ -843,7 +848,7 @@ namespace Advanced.Algorithms.DataStructures
             /// balance after insertion
             /// </summary>
             /// <param name="nodeToBalance"></param>
-            private void BalanceInsertion(AsIntervalRedBlackTreeNode<AsInterval<T>> nodeToBalance)
+            private void balanceInsertion(AsIntervalRedBlackTreeNode<AsInterval<T>> nodeToBalance)
             {
                 while (true)
                 {
@@ -982,32 +987,89 @@ namespace Advanced.Algorithms.DataStructures
             /// </summary>
             /// <param name="node"></param>
             /// <param name="value"></param>
+            /// <param name="deleteByStartOnly"></param>
             /// <returns></returns>
-            private AsIntervalRedBlackTreeNode<AsInterval<T>> delete(AsIntervalRedBlackTreeNode<AsInterval<T>> node, AsInterval<T> value, bool deleteByStartOnly)
+            private void delete(AsIntervalRedBlackTreeNode<AsInterval<T>> node, AsInterval<T> value,
+                bool deleteByStartOnly)
             {
                 while (true)
                 {
-                    if (node != null)
+                    if (node == null)
                     {
-                        var compareResult = node.Value.CompareTo(value);
+                        continue;
+                    }
 
-                        //node is less than the search value so move right to find the deletion node
-                        if (compareResult < 0)
+                    var compareResult = node.Value.CompareTo(value);
+
+                    //node is less than the search value so move right to find the deletion node
+                    if (compareResult < 0)
+                    {
+                        node = node.Right ?? throw new Exception("Item do not exist");
+                    }
+                    //node is less than the search value so move left to find the deletion node
+                    else if (compareResult > 0)
+                    {
+                        node = node.Left ?? throw new Exception("Item do not exist");
+                    }
+                    else
+                    {
+                        AsIntervalRedBlackTreeNode<AsInterval<T>> nodeToBalance;
+
+                        //if not a leaf deletion caused by replacement 
+                        //of an ancestor deleted with this node
+                        if (!deleteByStartOnly)
                         {
-                            node = node.Right ?? throw new Exception("Item do not exist");
+                            var index = getIndex(node.Value.End, value);
+
+                            if (index == -1)
+                            {
+                                throw new Exception("Interval do not exist");
+                            }
+
+                            if (node.Value.End.Count > 1)
+                            {
+                                node.Value.End.RemoveAt(index);
+                                updateMax(node);
+                                return;
+                            }
                         }
-                        //node is less than the search value so move left to find the deletion node
-                        else if (compareResult > 0)
+
+                        //node is a leaf node
+                        if (node.IsLeaf)
                         {
-                            node = node.Left ?? throw new Exception("Item do not exist");
+                            //if color is red, we are good; no need to balance
+                            if (node.NodeColor == RedBlackTreeNodeColor.Red)
+                            {
+                                deleteLeaf(node);
+                                updateMax(node.Parent);
+                                return;
+                            }
+
+
+                            nodeToBalance = handleDoubleBlack(node);
+                            deleteLeaf(node);
+                            updateMax(node.Parent);
                         }
                         else
                         {
-                            AsIntervalRedBlackTreeNode<AsInterval<T>> nodeToBalance = null;
-
-                            //if not a leaf deletion caused by replacement 
-                            //of an ancestor deleted with this node
-                            if (!deleteByStartOnly)
+                            //case one - right tree is null (move sub tree up)
+                            if (node.Left != null && node.Right == null)
+                            {
+                                nodeToBalance = handleDoubleBlack(node);
+                                deleteLeftNode(node);
+                                updateMax(node.Parent);
+                            }
+                            //case two - left tree is null  (move sub tree up)
+                            else if (node.Right != null && node.Left == null)
+                            {
+                                nodeToBalance = handleDoubleBlack(node);
+                                deleteRightNode(node);
+                                updateMax(node.Parent);
+                            }
+                            //case three - two child trees 
+                            //replace the node value with maximum element of left subtree (left max node)
+                            //and then delete the left max node
+                            else
                             {
                                 var index = getIndex(node.Value.End, value);
 
@@ -1016,91 +1078,36 @@ namespace Advanced.Algorithms.DataStructures
                                     throw new Exception("Interval do not exist");
                                 }
 
-                                if (node.Value.End.Count > 1)
+                                //if this is the only element
+                                //do regular bst deletion
+                                if (node.Value.End.Count == 1 && index == 0)
                                 {
-                                    node.Value.End.RemoveAt(index);
-                                    updateMax(node);
-                                    return node;
+                                    var maxLeftNode = findMax(node.Left);
+
+                                    node.Value = maxLeftNode.Value;
+                                    node.Value.MaxEnd = defaultValue.Value;
+
+                                    //delete left max node
+                                    node = node.Left;
+                                    value = maxLeftNode.Value;
+                                    deleteByStartOnly = true;
+                                    continue;
                                 }
+
+                                //just remove the end
+                                node.Value.End.RemoveAt(index);
+                                updateMax(node);
+                                return;
                             }
-
-                            //node is a leaf node
-                            if (node.IsLeaf)
-                            {
-                                //if color is red, we are good; no need to balance
-                                if (node.NodeColor == RedBlackTreeNodeColor.Red)
-                                {
-                                    deleteLeaf(node);
-                                    updateMax(node.Parent);
-                                    return node.Parent;
-                                }
-
-
-                                nodeToBalance = handleDoubleBlack(node);
-                                deleteLeaf(node);
-                                updateMax(node.Parent);
-                            }
-                            else
-                            {
-                                //case one - right tree is null (move sub tree up)
-                                if (node.Left != null && node.Right == null)
-                                {
-                                    nodeToBalance = handleDoubleBlack(node);
-                                    deleteLeftNode(node);
-                                    updateMax(node.Parent);
-                                }
-                                //case two - left tree is null  (move sub tree up)
-                                else if (node.Right != null && node.Left == null)
-                                {
-                                    nodeToBalance = handleDoubleBlack(node);
-                                    deleteRightNode(node);
-                                    updateMax(node.Parent);
-                                }
-                                //case three - two child trees 
-                                //replace the node value with maximum element of left subtree (left max node)
-                                //and then delete the left max node
-                                else
-                                {
-                                    var index = getIndex(node.Value.End, value);
-
-                                    if (index == -1)
-                                    {
-                                        throw new Exception("Interval do not exist");
-                                    }
-
-                                    //if this is the only element
-                                    //do regular bst deletion
-                                    if (node.Value.End.Count == 1 && index == 0)
-                                    {
-                                        var maxLeftNode = findMax(node.Left);
-
-                                        node.Value = maxLeftNode.Value;
-                                        node.Value.MaxEnd = defaultValue.Value;
-
-                                        //delete left max node
-                                        node = node.Left;
-                                        value = maxLeftNode.Value;
-                                        deleteByStartOnly = true;
-                                        continue;
-                                    }
-
-                                    //just remove the end
-                                    node.Value.End.RemoveAt(index);
-                                    updateMax(node);
-                                    return node;
-                                }
-                            }
-
-                            var returnNode = nodeToBalance;
-
-                            //handle six cases
-                            while (nodeToBalance != null)
-                            {
-                                nodeToBalance = handleDoubleBlack(nodeToBalance);
-                            }
-
-                            return returnNode;
                         }
+
+                        //handle six cases
+                        while (nodeToBalance != null)
+                        {
+                            nodeToBalance = handleDoubleBlack(nodeToBalance);
+                        }
+
+                        return;
                     }
                 }
             }

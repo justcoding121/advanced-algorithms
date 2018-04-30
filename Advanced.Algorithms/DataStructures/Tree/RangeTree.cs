@@ -55,7 +55,7 @@ namespace Advanced.Algorithms.DataStructures
             var currentTree = tree;
             //get all overlaps
             //and insert next dimension value to each overlapping node
-            for (int i = 0; i < dimensions; i++)
+            for (var i = 0; i < dimensions; i++)
             {
                 currentTree = currentTree.Insert(value[i]).tree;
             }
@@ -102,8 +102,8 @@ namespace Advanced.Algorithms.DataStructures
 
             //delete node if next dimension has no elements
             //or when this is the last dimension and we found element
-            if (found && ((currentDimension + 1 == dimensions)
-                || (node.tree.Count == 0 && currentDimension + 1 < dimensions)))
+            if (node != null && found && (currentDimension + 1 == dimensions
+                                          || node.tree.Count == 0 && currentDimension + 1 < dimensions))
             {
                 tree.Delete(value[currentDimension]);
             }
@@ -121,7 +121,7 @@ namespace Advanced.Algorithms.DataStructures
             validateDimensions(start);
             validateDimensions(end);
 
-            return GetInRange(tree, start, end, 0);
+            return getInRange(tree, start, end, 0);
 
         }
 
@@ -133,7 +133,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="end"></param>
         /// <param name="dimension"></param>
         /// <returns></returns>
-        private List<T[]> GetInRange(
+        private List<T[]> getInRange(
             RangeTree<T> currentTree,
             T[] start, T[] end, int dimension)
         {
@@ -158,7 +158,7 @@ namespace Advanced.Algorithms.DataStructures
 
                 foreach (var node in nodes)
                 {
-                    var nextDimResult = GetInRange(node.tree, start, end, dimension + 1);
+                    var nextDimResult = getInRange(node.tree, start, end, dimension + 1);
 
                     foreach (var nextResult in nextDimResult)
                     {
@@ -176,15 +176,17 @@ namespace Advanced.Algorithms.DataStructures
         /// validate dimensions for point length
         /// </summary>
         /// <param name="start"></param>
-        /// <param name="end"></param>
         private void validateDimensions(T[] start)
         {
-            if (start.Length != dimensions)
+            if (start == null)
             {
-                throw new Exception(string.Format("Expecting {0} points.",
-                    dimensions));
+                throw new ArgumentNullException(nameof(start));
             }
 
+            if (start.Length != dimensions)
+            {
+                throw new Exception($"Expecting {dimensions} points.");
+            }
         }
     }
 
@@ -221,12 +223,12 @@ namespace Advanced.Algorithms.DataStructures
 
         internal List<RangeTreeNode<T>> GetInRange(T start, T end)
         {
-            return GetInRange(new List<RangeTreeNode<T>>(),
+            return getInRange(new List<RangeTreeNode<T>>(),
                 new System.Collections.Generic.Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool>(),
                 tree.Root, start, end);
         }
 
-        private List<RangeTreeNode<T>> GetInRange(List<RangeTreeNode<T>> result, System.Collections.Generic.Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool> visited,
+        private List<RangeTreeNode<T>> getInRange(List<RangeTreeNode<T>> result, System.Collections.Generic.Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool> visited,
             RedBlackTreeNode<RangeTreeNode<T>> currentNode,
             T start, T end)
         {
@@ -234,12 +236,14 @@ namespace Advanced.Algorithms.DataStructures
             if (currentNode.IsLeaf)
             {
                 //start is less than current node
-                if (InRange(currentNode, start, end))
+                if (!inRange(currentNode, start, end))
                 {
-                    foreach (var v in currentNode.Values)
-                    {
-                        result.Add(v);
-                    }
+                    return result;
+                }
+
+                foreach (var v in currentNode.Values)
+                {
+                    result.Add(v);
                 }
             }
             //if start is less than current
@@ -250,13 +254,13 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     if (currentNode.Left != null)
                     {
-                        GetInRange(result, visited, currentNode.Left, start, end);
+                        getInRange(result, visited, currentNode.Left, start, end);
                     }
 
 
                     //start is less than current node
                     if (!visited.ContainsKey(currentNode)
-                        && InRange(currentNode, start, end))
+                        && inRange(currentNode, start, end))
                     {
                         foreach (var v in currentNode.Values)
                         {
@@ -269,24 +273,29 @@ namespace Advanced.Algorithms.DataStructures
                 //if start is greater than current
                 //and end is greater than current
                 //move right
-                if (end.CompareTo(currentNode.Value.Data) >= 0)
+                if (end.CompareTo(currentNode.Value.Data) < 0)
+                {
+                    return result;
+                }
+
                 {
                     if (currentNode.Right != null)
                     {
-                        GetInRange(result, visited, currentNode.Right, start, end);
+                        getInRange(result, visited, currentNode.Right, start, end);
                     }
 
                     //start is less than current node
-                    if (!visited.ContainsKey(currentNode)
-                        && InRange(currentNode, start, end))
+                    if (visited.ContainsKey(currentNode) || !inRange(currentNode, start, end))
                     {
-                        foreach (var v in currentNode.Values)
-                        {
-                            result.Add(v);
-                        }
-
-                        visited.Add(currentNode, false);
+                        return result;
                     }
+
+                    foreach (var v in currentNode.Values)
+                    {
+                        result.Add(v);
+                    }
+
+                    visited.Add(currentNode, false);
                 }
             }
 
@@ -300,7 +309,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        private bool InRange(RedBlackTreeNode<RangeTreeNode<T>> currentNode, T start, T end)
+        private bool inRange(RedBlackTreeNode<RangeTreeNode<T>> currentNode, T start, T end)
         {
             //start is less than current & end is greater than current
             return start.CompareTo(currentNode.Value.Data) <= 0

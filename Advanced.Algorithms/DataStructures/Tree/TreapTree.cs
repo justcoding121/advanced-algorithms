@@ -18,35 +18,15 @@ namespace Advanced.Algorithms.DataStructures
         internal bool IsLeftChild => this.Parent.Left == this;
         internal bool IsRightChild => this.Parent.Right == this;
 
-        IBSTNode<T> IBSTNode<T>.Left
-        {
-            get
-            {
-                return Left;
-            }
-        }
-
-        IBSTNode<T> IBSTNode<T>.Right
-        {
-            get
-            {
-                return Right;
-            }
-        }
-
-        T IBSTNode<T>.Value
-        {
-            get
-            {
-                return Value;
-            }
-        }
+        IBSTNode<T> IBSTNode<T>.Left => Left;
+        IBSTNode<T> IBSTNode<T>.Right => Right;
+        T IBSTNode<T>.Value => Value;
 
         internal TreapTreeNode(TreapTreeNode<T> parent, T value, int priority)
         {
-            this.Parent = parent;
-            this.Value = value;
-            this.Priority = priority;
+            Parent = parent;
+            Value = value;
+            Priority = priority;
         }
 
     }
@@ -67,24 +47,24 @@ namespace Advanced.Algorithms.DataStructures
                 return false;
             }
 
-            return Find(Root, value) != null;
+            return find(Root, value) != null;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
         public int GetHeight()
         {
-            return GetHeight(Root);
+            return getHeight(Root);
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
-        private int GetHeight(TreapTreeNode<T> node)
+        private int getHeight(TreapTreeNode<T> node)
         {
             if (node == null)
             {
                 return -1;
             }
 
-            return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
+            return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -99,54 +79,47 @@ namespace Advanced.Algorithms.DataStructures
 
             var newNode = insert(Root, value);
 
-            Heapify(newNode);
+            heapify(newNode);
             Count++;
         }
 
         //O(log(n)) always
-        private TreapTreeNode<T> insert(
-            TreapTreeNode<T> currentNode, T newNodeValue)
+        private TreapTreeNode<T> insert(TreapTreeNode<T> currentNode, T newNodeValue)
         {
-
-            var compareResult = currentNode.Value.CompareTo(newNodeValue);
-
-            //current node is less than new item
-            if (compareResult < 0)
+            while (true)
             {
-                //no right child
-                if (currentNode.Right == null)
+                var compareResult = currentNode.Value.CompareTo(newNodeValue);
+
+                //current node is less than new item
+                if (compareResult < 0)
                 {
-                    //insert
-                    currentNode.Right = new TreapTreeNode<T>(currentNode, newNodeValue, rndGenerator.Next());
-                    return currentNode.Right;
+                    //no right child
+                    if (currentNode.Right == null)
+                    {
+                        //insert
+                        currentNode.Right = new TreapTreeNode<T>(currentNode, newNodeValue, rndGenerator.Next());
+                        return currentNode.Right;
+                    }
+
+                    currentNode = currentNode.Right;
+                }
+                //current node is greater than new node
+                else if (compareResult > 0)
+                {
+                    if (currentNode.Left == null)
+                    {
+                        //insert
+                        currentNode.Left = new TreapTreeNode<T>(currentNode, newNodeValue, rndGenerator.Next());
+                        return currentNode.Left;
+                    }
+
+                    currentNode = currentNode.Left;
                 }
                 else
                 {
-                    return insert(currentNode.Right, newNodeValue);
-                }
-
-            }
-            //current node is greater than new node
-            else if (compareResult > 0)
-            {
-
-                if (currentNode.Left == null)
-                {
-                    //insert
-                    currentNode.Left = new TreapTreeNode<T>(currentNode, newNodeValue, rndGenerator.Next());
-                    return currentNode.Left;
-                }
-                else
-                {
-                    return insert(currentNode.Left, newNodeValue);
+                    throw new Exception("Item exists");
                 }
             }
-            else
-            {
-                throw new Exception("Item exists");
-            }
-
-
         }
 
         //remove the node with the given identifier from the descendants 
@@ -165,67 +138,65 @@ namespace Advanced.Algorithms.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         private void delete(TreapTreeNode<T> node, T value)
         {
-            var compareResult = node.Value.CompareTo(value);
-
-            //node is less than the search value so move right to find the deletion node
-            if (compareResult < 0)
+            while (true)
             {
-                if (node.Right == null)
+                if (node != null)
                 {
-                    throw new Exception("Item do not exist");
+                    var compareResult = node.Value.CompareTo(value);
+
+                    //node is less than the search value so move right to find the deletion node
+                    if (compareResult < 0)
+                    {
+                        node = node.Right ?? throw new Exception("Item do not exist");
+                        continue;
+                    }
+                    //node is less than the search value so move left to find the deletion node
+
+                    if (compareResult > 0)
+                    {
+                        node = node.Left ?? throw new Exception("Item do not exist");
+                        continue;
+                    }
                 }
 
-                delete(node.Right, value);
-            }
-            //node is less than the search value so move left to find the deletion node
-            else if (compareResult > 0)
-            {
-                if (node.Left == null)
-                {
-                    throw new Exception("Item do not exist");
-                }
-
-                delete(node.Left, value);
-            }
-            else
-            {
-                var parent = node.Parent;
                 //node is a leaf node
-                if (node.IsLeaf)
+                if (node != null && node.IsLeaf)
                 {
                     deleteLeaf(node);
                 }
                 else
                 {
                     //case one - right tree is null (move sub tree up)
-                    if (node.Left != null && node.Right == null)
+                    if (node?.Left != null && node.Right == null)
                     {
                         deleteLeftNode(node);
-
                     }
                     //case two - left tree is null  (move sub tree up)
-                    else if (node.Right != null && node.Left == null)
+                    else if (node?.Right != null && node.Left == null)
                     {
                         deleteRightNode(node);
-
                     }
                     //case three - two child trees 
                     //replace the node value with maximum element of left subtree (left max node)
                     //and then delete the left max node
                     else
                     {
-                        var maxLeftNode = FindMax(node.Left);
+                        if (node != null)
+                        {
+                            var maxLeftNode = findMax(node.Left);
 
-                        node.Value = maxLeftNode.Value;
+                            node.Value = maxLeftNode.Value;
 
-                        //delete left max node
-                        delete(node.Left, maxLeftNode.Value);
+                            //delete left max node
+                            node = node.Left;
+                            value = maxLeftNode.Value;
+                        }
 
+                        continue;
                     }
                 }
 
-
-
+                break;
             }
         }
 
@@ -256,22 +227,19 @@ namespace Advanced.Algorithms.DataStructures
                 Root = Root.Right;
                 return;
             }
+
+            //node is left child of parent
+            if (node.IsLeftChild)
+            {
+                node.Parent.Left = node.Right;
+            }
+            //node is right child of parent
             else
             {
-                //node is left child of parent
-                if (node.IsLeftChild)
-                {
-                    node.Parent.Left = node.Right;
-                }
-                //node is right child of parent
-                else
-                {
-                    node.Parent.Right = node.Right;
-                }
-
-                node.Right.Parent = node.Parent;
-
+                node.Parent.Right = node.Right;
             }
+
+            node.Right.Parent = node.Parent;
         }
 
         private void deleteLeftNode(TreapTreeNode<T> node)
@@ -283,115 +251,91 @@ namespace Advanced.Algorithms.DataStructures
                 Root = Root.Left;
                 return;
             }
+
+            //node is left child of parent
+            if (node.IsLeftChild)
+            {
+                node.Parent.Left = node.Left;
+            }
+            //node is right child of parent
             else
             {
-                //node is left child of parent
-                if (node.IsLeftChild)
-                {
-                    node.Parent.Left = node.Left;
-                }
-                //node is right child of parent
-                else
-                {
-                    node.Parent.Right = node.Left;
-                }
-
-                node.Left.Parent = node.Parent;
-
+                node.Parent.Right = node.Left;
             }
+
+            node.Left.Parent = node.Parent;
         }
 
         public T FindMax()
         {
-            return FindMax(Root).Value;
+            return findMax(Root).Value;
         }
 
 
-        private TreapTreeNode<T> FindMax(TreapTreeNode<T> node)
+        private TreapTreeNode<T> findMax(TreapTreeNode<T> node)
         {
-            if (node.Right == null)
+            while (true)
             {
-                return node;
+                if (node.Right == null) return node;
+                node = node.Right;
             }
-
-            return FindMax(node.Right);
         }
 
         public T FindMin()
         {
-            return FindMin(Root).Value;
+            return findMin(Root).Value;
         }
 
-        private TreapTreeNode<T> FindMin(TreapTreeNode<T> node)
+        private TreapTreeNode<T> findMin(TreapTreeNode<T> node)
         {
-            if (node.Left == null)
+            while (true)
             {
-                return node;
+                if (node.Left == null)
+                {
+                    return node;
+                }
+
+                node = node.Left;
             }
-
-            return FindMin(node.Left);
-        }
-
-        //O(log(n)) worst O(n) for unbalanced tree
-        private TreapTreeNode<T> Find(T value)
-        {
-            if (Root == null)
-            {
-                return null;
-            }
-
-            return Find(Root, value);
         }
 
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(log(n)) worst O(n) for unbalanced tree
-        private TreapTreeNode<T> Find(TreapTreeNode<T> parent, T value)
+        private TreapTreeNode<T> find(TreapTreeNode<T> parent, T value)
         {
-            if (parent == null)
+            while (true)
             {
-                return null;
+                if (parent == null)
+                {
+                    return null;
+                }
+
+                if (parent.Value.CompareTo(value) == 0)
+                {
+                    return parent;
+                }
+
+                var left = find(parent.Left, value);
+
+                if (left != null)
+                {
+                    return left;
+                }
+
+                parent = parent.Right;
             }
-
-            if (parent.Value.CompareTo(value) == 0)
-            {
-                return parent;
-            }
-
-            var left = Find(parent.Left, value);
-
-            if (left != null)
-            {
-                return left;
-            }
-
-            var right = Find(parent.Right, value);
-
-            if (right != null)
-            {
-                return right;
-            }
-
-            return null;
-
         }
 
         //reorder the tree node so that heap property is valid
-        private void Heapify(TreapTreeNode<T> node)
+        private void heapify(TreapTreeNode<T> node)
         {
             while (node.Parent != null)
             {
                 if (node.Priority < node.Parent.Priority)
                 {
-                    if (node.IsLeftChild)
-                    {
-                        node = RightRotate(node.Parent);
-                    }
-                    else
-                    {
-                        node = LeftRotate(node.Parent);
-                    }
+                    node = node.IsLeftChild ? rightRotate(node.Parent) : leftRotate(node.Parent);
                 }
                 else
                 {
@@ -406,7 +350,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="currentRoot"></param>
         /// <returns></returns>
-        private TreapTreeNode<T> RightRotate(TreapTreeNode<T> currentRoot)
+        private TreapTreeNode<T> rightRotate(TreapTreeNode<T> currentRoot)
         {
             var prevRoot = currentRoot;
             var leftRightChild = prevRoot.Left.Right;
@@ -453,7 +397,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="currentRoot"></param>
         /// <returns></returns>
-        private TreapTreeNode<T> LeftRotate(TreapTreeNode<T> currentRoot)
+        private TreapTreeNode<T> leftRotate(TreapTreeNode<T> currentRoot)
         {
             var prevRoot = currentRoot;
             var rightLeftChild = prevRoot.Right.Left;
@@ -494,7 +438,5 @@ namespace Advanced.Algorithms.DataStructures
 
             return newRoot;
         }
-
-
     }
 }

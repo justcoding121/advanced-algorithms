@@ -16,34 +16,14 @@ namespace Advanced.Algorithms.DataStructures
         internal bool IsLeftChild => this.Parent.Left == this;
         internal bool IsRightChild => this.Parent.Right == this;
 
-        IBSTNode<T> IBSTNode<T>.Left
-        {
-            get
-            {
-                return Left;
-            }
-        }
-
-        IBSTNode<T> IBSTNode<T>.Right
-        {
-            get
-            {
-                return Right;
-            }
-        }
-
-        T IBSTNode<T>.Value
-        {
-            get
-            {
-                return Value;
-            }
-        }
+        IBSTNode<T> IBSTNode<T>.Left => Left;
+        IBSTNode<T> IBSTNode<T>.Right => Right;
+        T IBSTNode<T>.Value => Value;
 
         internal SplayTreeNode(SplayTreeNode<T> parent, T value)
         {
-            this.Parent = parent;
-            this.Value = value;
+            Parent = parent;
+            Value = value;
         }
 
     }
@@ -63,7 +43,7 @@ namespace Advanced.Algorithms.DataStructures
                 return false;
             }
 
-            return Find(Root, value) != null;
+            return find(Root, value) != null;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -95,54 +75,47 @@ namespace Advanced.Algorithms.DataStructures
 
             var newNode = insert(Root, value);
 
-            Splay(newNode);
+            splay(newNode);
             Count++;
         }
 
         //O(log(n)) always
-        private SplayTreeNode<T> insert(
-            SplayTreeNode<T> currentNode, T newNodeValue)
+        private SplayTreeNode<T> insert(SplayTreeNode<T> currentNode, T newNodeValue)
         {
-
-            var compareResult = currentNode.Value.CompareTo(newNodeValue);
-
-            //current node is less than new item
-            if (compareResult < 0)
+            while (true)
             {
-                //no right child
-                if (currentNode.Right == null)
+                var compareResult = currentNode.Value.CompareTo(newNodeValue);
+
+                //current node is less than new item
+                if (compareResult < 0)
                 {
-                    //insert
-                    currentNode.Right = new SplayTreeNode<T>(currentNode, newNodeValue);
-                    return currentNode.Right;
+                    //no right child
+                    if (currentNode.Right == null)
+                    {
+                        //insert
+                        currentNode.Right = new SplayTreeNode<T>(currentNode, newNodeValue);
+                        return currentNode.Right;
+                    }
+
+                    currentNode = currentNode.Right;
+                }
+                //current node is greater than new node
+                else if (compareResult > 0)
+                {
+                    if (currentNode.Left == null)
+                    {
+                        //insert
+                        currentNode.Left = new SplayTreeNode<T>(currentNode, newNodeValue);
+                        return currentNode.Left;
+                    }
+
+                    currentNode = currentNode.Left;
                 }
                 else
                 {
-                    return insert(currentNode.Right, newNodeValue);
-                }
-
-            }
-            //current node is greater than new node
-            else if (compareResult > 0)
-            {
-
-                if (currentNode.Left == null)
-                {
-                    //insert
-                    currentNode.Left = new SplayTreeNode<T>(currentNode, newNodeValue);
-                    return currentNode.Left;
-                }
-                else
-                {
-                    return insert(currentNode.Left, newNodeValue);
+                    throw new Exception("Item exists");
                 }
             }
-            else
-            {
-                throw new Exception("Item exists");
-            }
-
-
         }
 
         //remove the node with the given identifier from the descendants 
@@ -161,30 +134,24 @@ namespace Advanced.Algorithms.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         private void delete(SplayTreeNode<T> node, T value)
         {
-            var compareResult = node.Value.CompareTo(value);
-
-            //node is less than the search value so move right to find the deletion node
-            if (compareResult < 0)
+            while (true)
             {
-                if (node.Right == null)
+                var compareResult = node.Value.CompareTo(value);
+
+                //node is less than the search value so move right to find the deletion node
+                if (compareResult < 0)
                 {
-                    throw new Exception("Item do not exist");
+                    node = node.Right ?? throw new Exception("Item do not exist");
+                    continue;
+                }
+                //node is less than the search value so move left to find the deletion node
+
+                if (compareResult > 0)
+                {
+                    node = node.Left ?? throw new Exception("Item do not exist");
+                    continue;
                 }
 
-                delete(node.Right, value);
-            }
-            //node is less than the search value so move left to find the deletion node
-            else if (compareResult > 0)
-            {
-                if (node.Left == null)
-                {
-                    throw new Exception("Item do not exist");
-                }
-
-                delete(node.Left, value);
-            }
-            else
-            {
                 var parent = node.Parent;
                 //node is a leaf node
                 if (node.IsLeaf)
@@ -197,13 +164,11 @@ namespace Advanced.Algorithms.DataStructures
                     if (node.Left != null && node.Right == null)
                     {
                         deleteLeftNode(node);
-
                     }
                     //case two - left tree is null  (move sub tree up)
                     else if (node.Right != null && node.Left == null)
                     {
                         deleteRightNode(node);
-
                     }
                     //case three - two child trees 
                     //replace the node value with maximum element of left subtree (left max node)
@@ -219,11 +184,12 @@ namespace Advanced.Algorithms.DataStructures
                     }
                 }
 
-                if(parent!=null)
+                if (parent != null)
                 {
-                    Splay(parent);
+                    splay(parent);
                 }
-                
+
+                break;
             }
         }
 
@@ -254,22 +220,19 @@ namespace Advanced.Algorithms.DataStructures
                 Root = Root.Right;
                 return;
             }
+
+            //node is left child of parent
+            if (node.IsLeftChild)
+            {
+                node.Parent.Left = node.Right;
+            }
+            //node is right child of parent
             else
             {
-                //node is left child of parent
-                if (node.IsLeftChild)
-                {
-                    node.Parent.Left = node.Right;
-                }
-                //node is right child of parent
-                else
-                {
-                    node.Parent.Right = node.Right;
-                }
-
-                node.Right.Parent = node.Parent;
-
+                node.Parent.Right = node.Right;
             }
+
+            node.Right.Parent = node.Parent;
         }
 
         private void deleteLeftNode(SplayTreeNode<T> node)
@@ -281,22 +244,19 @@ namespace Advanced.Algorithms.DataStructures
                 Root = Root.Left;
                 return;
             }
+
+            //node is left child of parent
+            if (node.IsLeftChild)
+            {
+                node.Parent.Left = node.Left;
+            }
+            //node is right child of parent
             else
             {
-                //node is left child of parent
-                if (node.IsLeftChild)
-                {
-                    node.Parent.Left = node.Left;
-                }
-                //node is right child of parent
-                else
-                {
-                    node.Parent.Right = node.Left;
-                }
-
-                node.Left.Parent = node.Parent;
-
+                node.Parent.Right = node.Left;
             }
+
+            node.Left.Parent = node.Parent;
         }
 
         public T FindMax()
@@ -307,12 +267,11 @@ namespace Advanced.Algorithms.DataStructures
 
         private SplayTreeNode<T> FindMax(SplayTreeNode<T> node)
         {
-            if (node.Right == null)
+            while (true)
             {
-                return node;
+                if (node.Right == null) return node;
+                node = node.Right;
             }
-
-            return FindMax(node.Right);
         }
 
         public T FindMin()
@@ -322,107 +281,72 @@ namespace Advanced.Algorithms.DataStructures
 
         private SplayTreeNode<T> FindMin(SplayTreeNode<T> node)
         {
-            if (node.Left == null)
+            while (true)
             {
-                return node;
+                if (node.Left == null) return node;
+                node = node.Left;
             }
-
-            return FindMin(node.Left);
         }
-
-        //O(log(n)) worst O(n) for unbalanced tree
-        private SplayTreeNode<T> Find(T value)
-        {
-            if (Root == null)
-            {
-                return null;
-            }
-
-            return Find(Root, value);
-        }
-
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(log(n)) worst O(n) for unbalanced tree
-        private SplayTreeNode<T> Find(SplayTreeNode<T> parent, T value)
+        private SplayTreeNode<T> find(SplayTreeNode<T> parent, T value)
         {
-            if (parent == null)
+            while (true)
             {
-                return null;
+                if (parent == null)
+                {
+                    return null;
+                }
+
+                if (parent.Value.CompareTo(value) == 0)
+                {
+                    return parent;
+                }
+
+                var left = find(parent.Left, value);
+
+                if (left != null) return left;
+                parent = parent.Right;
             }
-
-            if (parent.Value.CompareTo(value) == 0)
-            {
-                return parent;
-            }
-
-            var left = Find(parent.Left, value);
-
-            if (left != null)
-            {
-                return left;
-            }
-
-            var right = Find(parent.Right, value);
-
-            if (right != null)
-            {
-                return right;
-            }
-
-            return null;
-
         }
 
-        private void Splay(SplayTreeNode<T> x)
+        private void splay(SplayTreeNode<T> x)
         {
             while (x.Parent != null)
             {
                 if (x.Parent.Parent == null)
                 {
                     //zig step
-                    if (x.IsLeftChild)
-                    {
-                        x = RightRotate(x.Parent);
-                    }
-                    //zig step mirror
-                    else
-                    {
-                        x = LeftRotate(x.Parent);
-                    }
-
+                    x = x.IsLeftChild ? rightRotate(x.Parent) : leftRotate(x.Parent);
                 }
                 //zig-zig step
                 else if (x.IsLeftChild && x.Parent.IsLeftChild)
 
                 {
-                    RightRotate(x.Parent.Parent);
-                    x = RightRotate(x.Parent);
+                    rightRotate(x.Parent.Parent);
+                    x = rightRotate(x.Parent);
                 }
                 //zig-zig step mirror
                 else if (x.IsRightChild && x.Parent.IsRightChild)
                 {
-                    LeftRotate(x.Parent.Parent);
-                    x = LeftRotate(x.Parent);
+                    leftRotate(x.Parent.Parent);
+                    x = leftRotate(x.Parent);
                 }
                 //zig-zag step
                 else if (x.IsLeftChild && x.Parent.IsRightChild)
                 {
-                    RightRotate(x.Parent);
-                    x = LeftRotate(x.Parent);
+                    rightRotate(x.Parent);
+                    x = leftRotate(x.Parent);
                 }
                 //zig-zag step mirror
                 else //if (x.IsRightChild && x.Parent.IsLeftChild)
                 {
-                    LeftRotate(x.Parent);
-                    x = RightRotate(x.Parent);
+                    leftRotate(x.Parent);
+                    x = rightRotate(x.Parent);
                 }
-
-
             }
-
-
         }
 
         /// <summary>
@@ -430,7 +354,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="currentRoot"></param>
         /// <returns></returns>
-        private SplayTreeNode<T> RightRotate(SplayTreeNode<T> currentRoot)
+        private SplayTreeNode<T> rightRotate(SplayTreeNode<T> currentRoot)
         {
             var prevRoot = currentRoot;
             var leftRightChild = prevRoot.Left.Right;
@@ -477,7 +401,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="currentRoot"></param>
         /// <returns></returns>
-        private SplayTreeNode<T> LeftRotate(SplayTreeNode<T> currentRoot)
+        private SplayTreeNode<T> leftRotate(SplayTreeNode<T> currentRoot)
         {
             var prevRoot = currentRoot;
             var rightLeftChild = prevRoot.Right.Left;
@@ -518,7 +442,6 @@ namespace Advanced.Algorithms.DataStructures
 
             return newRoot;
         }
-
 
     }
 }

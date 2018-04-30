@@ -8,8 +8,8 @@ namespace Advanced.Algorithms.DataStructures
     /// <typeparam name="T"></typeparam>
     public class FenwickTree<T>
     {
-        private int length => Tree.Length - 1;
-        private T[] Tree;
+        private int length => tree.Length - 1;
+        private T[] tree;
 
         /// <summary>
         /// add operation on generic type
@@ -29,23 +29,23 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             this.sumOperation = sumOperation;
-            Construct(input);
+            construct(input);
         }
 
         /// <summary>
         /// construct fenwick tree from input array
         /// </summary>
         /// <param name="input"></param>
-        private void Construct(T[] input)
+        private void construct(T[] input)
         {
-            Tree = new T[input.Length + 1];
+            tree = new T[input.Length + 1];
 
             for (var i = 0; i < input.Length; i++)
             {
                 var j = i + 1;
                 while (j < input.Length)
                 {
-                    Tree[j] = sumOperation(Tree[j], input[i]);
+                    tree[j] = sumOperation(tree[j], input[i]);
                     j = getNextIndex(j);
                 }
             }
@@ -70,7 +70,7 @@ namespace Advanced.Algorithms.DataStructures
 
             while (currentIndex > 0)
             {
-                sum = sumOperation(sum, Tree[currentIndex]);
+                sum = sumOperation(sum, tree[currentIndex]);
                 currentIndex = getParentIndex(currentIndex);
             }
 

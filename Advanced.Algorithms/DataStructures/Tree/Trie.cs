@@ -36,7 +36,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="entry"></param>
         public void Insert(T[] entry)
         {
-            Insert(Root, entry, 0);
+            insert(Root, entry, 0);
             Count++;
         }
 
@@ -46,23 +46,28 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="currentNode"></param>
         /// <param name="entry"></param>
         /// <param name="currentIndex"></param>
-        private void Insert(TrieNode<T> currentNode, T[] entry, int currentIndex)
+        private void insert(TrieNode<T> currentNode, T[] entry, int currentIndex)
         {
-            if (currentIndex == entry.Length)
+            while (true)
             {
-                currentNode.IsEnd = true;
-                return;
-            }
+                if (currentIndex == entry.Length)
+                {
+                    currentNode.IsEnd = true;
+                    return;
+                }
 
-            if (currentNode.Children.ContainsKey(entry[currentIndex]) == false)
-            {
-                var newNode = new TrieNode<T>();
-                currentNode.Children.Add(entry[currentIndex], newNode);
-                Insert(newNode, entry, currentIndex + 1);
-            }
-            else
-            {
-                Insert(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
+                if (currentNode.Children.ContainsKey(entry[currentIndex]) == false)
+                {
+                    var newNode = new TrieNode<T>();
+                    currentNode.Children.Add(entry[currentIndex], newNode);
+                    currentNode = newNode;
+                    currentIndex = currentIndex + 1;
+                }
+                else
+                {
+                    currentNode = currentNode.Children[entry[currentIndex]];
+                    currentIndex = currentIndex + 1;
+                }
             }
         }
 
@@ -73,7 +78,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="entry"></param>
         public void Delete(T[] entry)
         {
-            Delete(Root, entry, 0);
+            delete(Root, entry, 0);
             Count--;
         }
 
@@ -83,7 +88,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="currentNode"></param>
         /// <param name="entry"></param>
         /// <param name="currentIndex"></param>
-        private void Delete(TrieNode<T> currentNode, T[] entry, int currentIndex)
+        private void delete(TrieNode<T> currentNode, T[] entry, int currentIndex)
         {
             if (currentIndex == entry.Length)
             {
@@ -100,10 +105,8 @@ namespace Advanced.Algorithms.DataStructures
             {
                 throw new Exception("Item not in trie.");
             }
-            else
-            {
-                Delete(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
-            }
+
+            delete(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
 
             if (currentNode.Children[entry[currentIndex]].IsEmpty 
                 && !currentNode.IsEnd)
@@ -119,7 +122,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         public List<T[]> StartsWith(T[] prefix)
         {
-            return StartsWith(Root, prefix, 0);
+            return startsWith(Root, prefix, 0);
         }
 
         /// <summary>
@@ -130,25 +133,25 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="searchPrefix"></param>
         /// <param name="currentIndex"></param>
         /// <returns></returns>
-        private List<T[]> StartsWith(TrieNode<T> currentNode, T[] searchPrefix, int currentIndex)
+        private List<T[]> startsWith(TrieNode<T> currentNode, T[] searchPrefix, int currentIndex)
         {
-            if (currentIndex == searchPrefix.Length)
+            while (true)
             {
-                var result = new List<T[]>();
+                if (currentIndex == searchPrefix.Length)
+                {
+                    var result = new List<T[]>();
 
-                //gather sub entries and prefix them with search entry prefix
-                GatherStartsWith(result , searchPrefix, null, currentNode);
+                    //gather sub entries and prefix them with search entry prefix
+                    gatherStartsWith(result, searchPrefix, null, currentNode);
 
-                return result;
-            }
+                    return result;
+                }
 
-            if (currentNode.Children.ContainsKey(searchPrefix[currentIndex]) == false)
-            {
-                return new List<T[]>();
-            }
-            else
-            {
-                return StartsWith(currentNode.Children[searchPrefix[currentIndex]], searchPrefix, currentIndex + 1);
+                if (currentNode.Children.ContainsKey(searchPrefix[currentIndex]) == false)
+                    return new List<T[]>();
+
+                currentNode = currentNode.Children[searchPrefix[currentIndex]];
+                currentIndex = currentIndex + 1;
             }
         }
 
@@ -159,7 +162,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="searchPrefix"></param>
         /// <param name="suffix"></param>
         /// <param name="node"></param>
-        private void GatherStartsWith(List<T[]> result, T[] searchPrefix, T[] suffix,
+        private void gatherStartsWith(List<T[]> result, T[] searchPrefix, T[] suffix,
             TrieNode<T> node)
         {
             //end of word
@@ -190,13 +193,13 @@ namespace Advanced.Algorithms.DataStructures
                     var newPrefix = new T[suffix.Length + 1];
                     Array.Copy(suffix, newPrefix, suffix.Length);
                     newPrefix[newPrefix.Length - 1] = child.Key;
-                    GatherStartsWith(result, searchPrefix, newPrefix, child.Value);
+                    gatherStartsWith(result, searchPrefix, newPrefix, child.Value);
                 }
                 else
                 {
                     var newPrefix = new T[1];
                     newPrefix[0] = child.Key;
-                    GatherStartsWith(result, searchPrefix, newPrefix, child.Value);
+                    gatherStartsWith(result, searchPrefix, newPrefix, child.Value);
                 }
                
             }
@@ -209,7 +212,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         public bool Contains(T[] entry)
         {
-            return Contains(Root, entry, 0);
+            return contains(Root, entry, 0);
         }
 
         /// <summary>
@@ -219,25 +222,22 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="entry"></param>
         /// <param name="currentIndex"></param>
         /// <returns></returns>
-        private bool Contains(TrieNode<T> currentNode, T[] entry, int currentIndex)
+        private bool contains(TrieNode<T> currentNode, T[] entry, int currentIndex)
         {
-            if (currentIndex == entry.Length)
+            while (true)
             {
-                if (!currentNode.IsEnd)
+                if (currentIndex == entry.Length)
+                {
+                    return currentNode.IsEnd;
+                }
+
+                if (currentNode.Children.ContainsKey(entry[currentIndex]) == false)
                 {
                     return false;
                 }
 
-                return true;
-            }
-
-            if (currentNode.Children.ContainsKey(entry[currentIndex]) == false)
-            {
-                return false;
-            }
-            else
-            {
-                return Contains(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
+                currentNode = currentNode.Children[entry[currentIndex]];
+                currentIndex = currentIndex + 1;
             }
         }
     }

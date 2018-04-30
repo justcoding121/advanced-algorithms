@@ -4,13 +4,13 @@ namespace Advanced.Algorithms.DataStructures
 {
     public class SegmentTree<T>
     {
-        private int length;
-        private T[] segmentTree;
+        private readonly int length;
+        private readonly T[] segmentTree;
 
         /// <summary>
         /// Example operations Sum, Min, Max
         /// </summary>
-        private Func<T, T, T> operation;
+        private readonly Func<T, T, T> operation;
 
         /// <summary>
         /// default value to eliminate node during range search
@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.DataStructures
         /// default value for Min operation is Max Value (int.Max if T is int)
         /// default value for Max operation is Min Value(int.Min if T is int) 
         /// </summary>
-        private Func<T> defaultValue;
+        private readonly Func<T> defaultValue;
 
         /// <summary>
         /// constructs a segment tree using the specified operation function
@@ -30,6 +30,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="input"></param>
         /// <param name="operation"></param>
+        /// <param name="defaultValue"></param>
         public SegmentTree(T[] input, Func<T, T, T> operation, Func<T> defaultValue)
         {
             if (input == null || operation == null)
@@ -39,16 +40,16 @@ namespace Advanced.Algorithms.DataStructures
 
             var maxHeight = Math.Ceiling(Math.Log(input.Length, 2));
             var maxTreeNodes = 2 * (int)(Math.Pow(2, maxHeight)) - 1;
-            this.segmentTree = new T[maxTreeNodes];
+            segmentTree = new T[maxTreeNodes];
             this.operation = operation;
             this.defaultValue = defaultValue;
 
-            this.length = input.Length;
+            length = input.Length;
 
-            Construct(input, 0, input.Length - 1, 0);
+            construct(input, 0, input.Length - 1, 0);
         }
 
-        private T Construct(T[] input, int left, int right, int currentIndex)
+        private T construct(T[] input, int left, int right, int currentIndex)
         {
             if (left == right)
             {
@@ -56,10 +57,10 @@ namespace Advanced.Algorithms.DataStructures
                 return segmentTree[currentIndex];
             }
 
-            var midIndex = GetMidIndex(left, right);
+            var midIndex = getMidIndex(left, right);
 
-            segmentTree[currentIndex] = operation(Construct(input, left, midIndex, 2 * currentIndex + 1),
-                 Construct(input, midIndex + 1, right, 2 * currentIndex + 2));
+            segmentTree[currentIndex] = operation(construct(input, left, midIndex, 2 * currentIndex + 1),
+                 construct(input, midIndex + 1, right, 2 * currentIndex + 2));
 
             return segmentTree[currentIndex];
         }
@@ -91,14 +92,14 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             //partial overlap so dig in
-            var midIndex = GetMidIndex(left, right);
+            var midIndex = getMidIndex(left, right);
             return operation(getRangeResult(start, end, left, midIndex, 2 * currentIndex + 1),
                              getRangeResult(start, end, midIndex + 1, right, 2 * currentIndex + 2));
 
         }
 
 
-        private int GetMidIndex(int left, int right)
+        private int getMidIndex(int left, int right)
         {
             return left + ((right - left) / 2);
         }
