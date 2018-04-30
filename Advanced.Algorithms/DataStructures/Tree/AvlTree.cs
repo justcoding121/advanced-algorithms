@@ -76,7 +76,6 @@ namespace Advanced.Algorithms.DataStructures
 
             var compareResult = node.Value.CompareTo(value);
 
-
             //node is less than the value so move right for insertion
             if (compareResult < 0)
             {
@@ -108,7 +107,6 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             UpdateHeight(node);
-
             balance(node);
 
         }
@@ -260,7 +258,7 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        public T findMax()
+        public T FindMax()
         {
             return findMax(Root).Value;
         }

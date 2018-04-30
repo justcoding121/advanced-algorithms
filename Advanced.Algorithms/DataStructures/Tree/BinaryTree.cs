@@ -15,8 +15,8 @@ namespace Advanced.Algorithms.DataStructures
 
         public BinaryTreeNode(BinaryTreeNode<T> parent, T value)
         {
-            this.Parent = parent;
-            this.Value = value;
+            Parent = parent;
+            Value = value;
         }
 
         public int CompareTo(object obj)
@@ -42,9 +42,6 @@ namespace Advanced.Algorithms.DataStructures
         public BinaryTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
-        private BinaryTreeNode<T> lastInsertionNode { get; set; }
-
-
         //O(log(n))
         public bool HasItem(T value)
         {
@@ -53,7 +50,7 @@ namespace Advanced.Algorithms.DataStructures
                 return false;
             }
 
-            return Find(Root, value) != null;
+            return find(Root, value) != null;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -74,21 +71,16 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
-        private BinaryTreeNode<T> Find(T value)
+        private BinaryTreeNode<T> find(T value)
         {
-            if (Root == null)
-            {
-                return null;
-            }
-
-            return Find(Root, value);
+            return Root == null ? null : find(Root, value);
         }
 
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(log(n)) worst O(n) for unbalanced tree
-        private BinaryTreeNode<T> Find(BinaryTreeNode<T> parent, T value)
+        private BinaryTreeNode<T> find(BinaryTreeNode<T> parent, T value)
         {
             if (parent == null)
             {
@@ -100,32 +92,24 @@ namespace Advanced.Algorithms.DataStructures
                 return parent;
             }
 
-            var left = Find(parent.Left, value);
+            var left = find(parent.Left, value);
 
             if (left != null)
             {
                 return left;
             }
 
-            var right = Find(parent.Right, value);
+            var right = find(parent.Right, value);
 
-            if (right != null)
-            {
-                return right;
-            }
-
-            return null;
-
+            return right;
         }
 
         /// <summary>
         /// only inserts to unambiguous nodes (a node with two children cannot be inserted with a new child unambiguously)
         ///  O(log(n)) worst O(n) for unbalanced tree
         /// </summary>
-        /// <param name="value"></param>
         public void Insert(T parentValue, T newValue)
-        {
-           
+        {          
             if(Root == null)
             {
                 Root = new BinaryTreeNode<T>(null, newValue);
@@ -133,38 +117,39 @@ namespace Advanced.Algorithms.DataStructures
                 return;
             }
 
-            var parent = Find(parentValue);
+            var parent = find(parentValue);
 
             if (parent == null)
             {
                 throw new Exception("Cannot find parent node");
             }
 
-            var exists = Find(Root, newValue) != null;
+            var exists = find(Root, newValue) != null;
 
             if (exists)
             {
                 throw new ArgumentNullException("value already exists");
             }
 
-            if (parent.Left == null && parent.Right == null)
+            switch (parent.Left)
             {
-                parent.Left = new BinaryTreeNode<T>(parent, newValue);
-            }
-            else
-            {
-                if (parent.Left == null)
-                {
+                case null when parent.Right == null:
                     parent.Left = new BinaryTreeNode<T>(parent, newValue);
-                }
-                else if (parent.Right == null)
-                {
-                    parent.Right = new BinaryTreeNode<T>(parent, newValue);
-                }
-                else
-                {
-                    throw new Exception("Cannot insert to a parent with two child node unambiguosly");
-                }
+                    break;
+                case null:
+                    parent.Left = new BinaryTreeNode<T>(parent, newValue);
+                    break;
+                default:
+                    if (parent.Right == null)
+                    {
+                        parent.Right = new BinaryTreeNode<T>(parent, newValue);
+                    }
+                    else
+                    {
+                        throw new Exception("Cannot insert to a parent with two child node unambiguosly");
+                    }
+
+                    break;
             }
 
             Count++;
@@ -177,36 +162,34 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="value"></param>
         public void Delete(T value)
         {
-            var node = Find(value);
+            var node = find(value);
 
             if (node == null)
             {
                 throw new Exception("Cannot find node");
             }
 
-            if (node.Left == null && node.Right == null)
+            switch (node.Left)
             {
-                if (node.Parent == null)
-                {
-                    Root = null;
-                }
-                else
-                {
-                    if (node.Parent.Left == node)
+                case null when node.Right == null:
+                    if (node.Parent == null)
                     {
-                        node.Parent.Left = null;
+                        Root = null;
                     }
                     else
                     {
-                        node.Parent.Right = null;
+                        if (node.Parent.Left == node)
+                        {
+                            node.Parent.Left = null;
+                        }
+                        else
+                        {
+                            node.Parent.Right = null;
+                        }
                     }
-                }
 
-            }
-            else
-            {
-                if (node.Left == null && node.Right != null)
-                {
+                    break;
+                case null when node.Right != null:
                     node.Right.Parent = node.Parent;
 
                     if (node.Parent.Left == node)
@@ -217,25 +200,28 @@ namespace Advanced.Algorithms.DataStructures
                     {
                         node.Parent.Right = node.Right;
                     }
-                }
-                else if (node.Right == null && node.Left != null)
-                {
-                    node.Left.Parent = node.Parent;
 
-                    if (node.Parent.Left == node)
+                    break;
+                default:
+                    if (node.Right == null && node.Left != null)
                     {
-                        node.Parent.Left = node.Left;
+                        node.Left.Parent = node.Parent;
+
+                        if (node.Parent.Left == node)
+                        {
+                            node.Parent.Left = node.Left;
+                        }
+                        else
+                        {
+                            node.Parent.Right = node.Left;
+                        }
                     }
                     else
                     {
-                        node.Parent.Right = node.Left;
+                        throw new Exception("Cannot delete two child node unambiguosly");
                     }
-                }
-                else
-                {
-                    throw new Exception("Cannot delete two child node unambiguosly");
-                }
-   
+
+                    break;
             }
 
             Count--;
