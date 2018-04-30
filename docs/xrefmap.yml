@@ -9808,24 +9808,6 @@ references:
   fullName.vb: Advanced.Algorithms.GraphAlgorithms.Cut.MinCut(Of T, W).ComputeMinCut
   nameWithType: MinCut<T, W>.ComputeMinCut
   nameWithType.vb: MinCut(Of T, W).ComputeMinCut
-- uid: Advanced.Algorithms.GraphAlgorithms.Cut.MinCut`2.GetReachable(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0)
-  name: GetReachable(WeightedDiGraph<T, W>, WeightedDiGraph<T, W>, T)
-  href: api/Advanced.Algorithms.GraphAlgorithms.Cut.MinCut-2.html#Advanced_Algorithms_GraphAlgorithms_Cut_MinCut_2_GetReachable_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1__Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0_
-  commentId: M:Advanced.Algorithms.GraphAlgorithms.Cut.MinCut`2.GetReachable(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0)
-  name.vb: GetReachable(WeightedDiGraph(Of T, W), WeightedDiGraph(Of T, W), T)
-  fullName: Advanced.Algorithms.GraphAlgorithms.Cut.MinCut<T, W>.GetReachable(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T)
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.Cut.MinCut(Of T, W).GetReachable(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T)
-  nameWithType: MinCut<T, W>.GetReachable(WeightedDiGraph<T, W>, WeightedDiGraph<T, W>, T)
-  nameWithType.vb: MinCut(Of T, W).GetReachable(WeightedDiGraph(Of T, W), WeightedDiGraph(Of T, W), T)
-- uid: Advanced.Algorithms.GraphAlgorithms.Cut.MinCut`2.GetReachable*
-  name: GetReachable
-  href: api/Advanced.Algorithms.GraphAlgorithms.Cut.MinCut-2.html#Advanced_Algorithms_GraphAlgorithms_Cut_MinCut_2_GetReachable_
-  commentId: Overload:Advanced.Algorithms.GraphAlgorithms.Cut.MinCut`2.GetReachable
-  isSpec: "True"
-  fullName: Advanced.Algorithms.GraphAlgorithms.Cut.MinCut<T, W>.GetReachable
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.Cut.MinCut(Of T, W).GetReachable
-  nameWithType: MinCut<T, W>.GetReachable
-  nameWithType.vb: MinCut(Of T, W).GetReachable
 - uid: Advanced.Algorithms.GraphAlgorithms.Cut.MinCutEdge`1
   name: MinCutEdge<T>
   href: api/Advanced.Algorithms.GraphAlgorithms.Cut.MinCutEdge-1.html
@@ -10015,24 +9997,24 @@ references:
   fullName.vb: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow(Of T, W).ComputeMaxFlow
   nameWithType: EdmondKarpMaxFlow<T, W>.ComputeMaxFlow
   nameWithType.vb: EdmondKarpMaxFlow(Of T, W).ComputeMaxFlow
-- uid: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow`2.ComputeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name: ComputeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W>, T, T)
-  href: api/Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_GraphAlgorithms_Flow_EdmondKarpMaxFlow_2_ComputeMaxFlowAndReturnResidualGraph_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
-  commentId: M:Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow`2.ComputeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name.vb: ComputeMaxFlowAndReturnResidualGraph(WeightedDiGraph(Of T, W), T, T)
-  fullName: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow<T, W>.ComputeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow(Of T, W).ComputeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
-  nameWithType: EdmondKarpMaxFlow<T, W>.ComputeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W>, T, T)
-  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).ComputeMaxFlowAndReturnResidualGraph(WeightedDiGraph(Of T, W), T, T)
-- uid: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow`2.ComputeMaxFlowAndReturnResidualGraph*
-  name: ComputeMaxFlowAndReturnResidualGraph
-  href: api/Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_GraphAlgorithms_Flow_EdmondKarpMaxFlow_2_ComputeMaxFlowAndReturnResidualGraph_
-  commentId: Overload:Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow`2.ComputeMaxFlowAndReturnResidualGraph
+- uid: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: computeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_GraphAlgorithms_Flow_EdmondKarpMaxFlow_2_computeMaxFlowAndReturnResidualGraph_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: computeMaxFlowAndReturnResidualGraph(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow<T, W>.computeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow(Of T, W).computeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: EdmondKarpMaxFlow<T, W>.computeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).computeMaxFlowAndReturnResidualGraph(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph*
+  name: computeMaxFlowAndReturnResidualGraph
+  href: api/Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_GraphAlgorithms_Flow_EdmondKarpMaxFlow_2_computeMaxFlowAndReturnResidualGraph_
+  commentId: Overload:Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph
   isSpec: "True"
-  fullName: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow<T, W>.ComputeMaxFlowAndReturnResidualGraph
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow(Of T, W).ComputeMaxFlowAndReturnResidualGraph
-  nameWithType: EdmondKarpMaxFlow<T, W>.ComputeMaxFlowAndReturnResidualGraph
-  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).ComputeMaxFlowAndReturnResidualGraph
+  fullName: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow<T, W>.computeMaxFlowAndReturnResidualGraph
+  fullName.vb: Advanced.Algorithms.GraphAlgorithms.Flow.EdmondKarpMaxFlow(Of T, W).computeMaxFlowAndReturnResidualGraph
+  nameWithType: EdmondKarpMaxFlow<T, W>.computeMaxFlowAndReturnResidualGraph
+  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).computeMaxFlowAndReturnResidualGraph
 - uid: Advanced.Algorithms.GraphAlgorithms.Flow.FordFulkersonMaxFlow`2
   name: FordFulkersonMaxFlow<T, W>
   href: api/Advanced.Algorithms.GraphAlgorithms.Flow.FordFulkersonMaxFlow-2.html
@@ -10218,24 +10200,6 @@ references:
   fullName.vb: Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow(Of T, W).ComputeMaxFlow
   nameWithType: PushRelabelMaxFlow<T, W>.ComputeMaxFlow
   nameWithType.vb: PushRelabelMaxFlow(Of T, W).ComputeMaxFlow
-- uid: Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow`2.ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name: ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W>, T, T)
-  href: api/Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow-2.html#Advanced_Algorithms_GraphAlgorithms_Flow_PushRelabelMaxFlow_2_ComputeMaxFlowAndReturnFlowPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
-  commentId: M:Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow`2.ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name.vb: ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph(Of T, W), T, T)
-  fullName: Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
-  nameWithType: PushRelabelMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W>, T, T)
-  nameWithType.vb: PushRelabelMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph(Of T, W), T, T)
-- uid: Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow`2.ComputeMaxFlowAndReturnFlowPath*
-  name: ComputeMaxFlowAndReturnFlowPath
-  href: api/Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow-2.html#Advanced_Algorithms_GraphAlgorithms_Flow_PushRelabelMaxFlow_2_ComputeMaxFlowAndReturnFlowPath_
-  commentId: Overload:Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow`2.ComputeMaxFlowAndReturnFlowPath
-  isSpec: "True"
-  fullName: Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.Flow.PushRelabelMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath
-  nameWithType: PushRelabelMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath
-  nameWithType.vb: PushRelabelMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath
 - uid: Advanced.Algorithms.GraphAlgorithms.IShortestPathOperators`1
   name: IShortestPathOperators<W>
   href: api/Advanced.Algorithms.GraphAlgorithms.IShortestPathOperators-1.html
@@ -10485,32 +10449,32 @@ references:
   fullName: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree
   nameWithType: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree
 - uid: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals`2
-  name: Kruskals<T, W>
+  name: Kruskals<T, TW>
   href: api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals-2.html
   commentId: T:Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals`2
-  name.vb: Kruskals(Of T, W)
-  fullName: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals<T, W>
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals(Of T, W)
-  nameWithType: Kruskals<T, W>
-  nameWithType.vb: Kruskals(Of T, W)
+  name.vb: Kruskals(Of T, TW)
+  fullName: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals<T, TW>
+  fullName.vb: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals(Of T, TW)
+  nameWithType: Kruskals<T, TW>
+  nameWithType.vb: Kruskals(Of T, TW)
 - uid: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals`2.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
-  name: FindMinimumSpanningTree(WeightedGraph<T, W>)
+  name: FindMinimumSpanningTree(WeightedGraph<T, TW>)
   href: api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals-2.html#Advanced_Algorithms_GraphAlgorithms_MinimumSpanningTree_Kruskals_2_FindMinimumSpanningTree_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph__0__1__
   commentId: M:Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals`2.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
-  name.vb: FindMinimumSpanningTree(WeightedGraph(Of T, W))
-  fullName: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals<T, W>.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, W>)
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals(Of T, W).FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, W))
-  nameWithType: Kruskals<T, W>.FindMinimumSpanningTree(WeightedGraph<T, W>)
-  nameWithType.vb: Kruskals(Of T, W).FindMinimumSpanningTree(WeightedGraph(Of T, W))
+  name.vb: FindMinimumSpanningTree(WeightedGraph(Of T, TW))
+  fullName: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals<T, TW>.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, TW>)
+  fullName.vb: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals(Of T, TW).FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, TW))
+  nameWithType: Kruskals<T, TW>.FindMinimumSpanningTree(WeightedGraph<T, TW>)
+  nameWithType.vb: Kruskals(Of T, TW).FindMinimumSpanningTree(WeightedGraph(Of T, TW))
 - uid: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals`2.FindMinimumSpanningTree*
   name: FindMinimumSpanningTree
   href: api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals-2.html#Advanced_Algorithms_GraphAlgorithms_MinimumSpanningTree_Kruskals_2_FindMinimumSpanningTree_
   commentId: Overload:Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals`2.FindMinimumSpanningTree
   isSpec: "True"
-  fullName: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals<T, W>.FindMinimumSpanningTree
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals(Of T, W).FindMinimumSpanningTree
-  nameWithType: Kruskals<T, W>.FindMinimumSpanningTree
-  nameWithType.vb: Kruskals(Of T, W).FindMinimumSpanningTree
+  fullName: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals<T, TW>.FindMinimumSpanningTree
+  fullName.vb: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.Kruskals(Of T, TW).FindMinimumSpanningTree
+  nameWithType: Kruskals<T, TW>.FindMinimumSpanningTree
+  nameWithType.vb: Kruskals(Of T, TW).FindMinimumSpanningTree
 - uid: Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.MSTEdge`2
   name: MSTEdge<T, W>
   href: api/Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree.MSTEdge-2.html
@@ -11072,15 +11036,6 @@ references:
   fullName.vb: Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of System.Int32, System.Int32))
   nameWithType: TravellingSalesman.GetMinWeight(WeightedDiGraph<Int32, Int32>)
   nameWithType.vb: TravellingSalesman.GetMinWeight(WeightedDiGraph(Of Int32, Int32))
-- uid: Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex{System.Int32,System.Int32},Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex{System.Int32,System.Int32},System.Int32,System.Collections.Generic.HashSet{Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex{System.Int32,System.Int32}},System.Collections.Generic.Dictionary{System.String,System.Int32})
-  name: GetMinWeight(WeightedDiGraphVertex<Int32, Int32>, WeightedDiGraphVertex<Int32, Int32>, Int32, HashSet<WeightedDiGraphVertex<Int32, Int32>>, Dictionary<String, Int32>)
-  href: api/Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.html#Advanced_Algorithms_GraphAlgorithms_TravellingSalesman_GetMinWeight_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_System_Int32_System_Int32__Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_System_Int32_System_Int32__System_Int32_System_Collections_Generic_HashSet_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_System_Int32_System_Int32___System_Collections_Generic_Dictionary_System_String_System_Int32__
-  commentId: M:Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex{System.Int32,System.Int32},Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex{System.Int32,System.Int32},System.Int32,System.Collections.Generic.HashSet{Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex{System.Int32,System.Int32}},System.Collections.Generic.Dictionary{System.String,System.Int32})
-  name.vb: GetMinWeight(WeightedDiGraphVertex(Of Int32, Int32), WeightedDiGraphVertex(Of Int32, Int32), Int32, HashSet(Of WeightedDiGraphVertex(Of Int32, Int32)), Dictionary(Of String, Int32))
-  fullName: Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex<System.Int32, System.Int32>, Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex<System.Int32, System.Int32>, System.Int32, System.Collections.Generic.HashSet<Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex<System.Int32, System.Int32>>, System.Collections.Generic.Dictionary<System.String, System.Int32>)
-  fullName.vb: Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex(Of System.Int32, System.Int32), Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex(Of System.Int32, System.Int32), System.Int32, System.Collections.Generic.HashSet(Of Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex(Of System.Int32, System.Int32)), System.Collections.Generic.Dictionary(Of System.String, System.Int32))
-  nameWithType: TravellingSalesman.GetMinWeight(WeightedDiGraphVertex<Int32, Int32>, WeightedDiGraphVertex<Int32, Int32>, Int32, HashSet<WeightedDiGraphVertex<Int32, Int32>>, Dictionary<String, Int32>)
-  nameWithType.vb: TravellingSalesman.GetMinWeight(WeightedDiGraphVertex(Of Int32, Int32), WeightedDiGraphVertex(Of Int32, Int32), Int32, HashSet(Of WeightedDiGraphVertex(Of Int32, Int32)), Dictionary(Of String, Int32))
 - uid: Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.GetMinWeight*
   name: GetMinWeight
   href: api/Advanced.Algorithms.GraphAlgorithms.TravellingSalesman.html#Advanced_Algorithms_GraphAlgorithms_TravellingSalesman_GetMinWeight_
