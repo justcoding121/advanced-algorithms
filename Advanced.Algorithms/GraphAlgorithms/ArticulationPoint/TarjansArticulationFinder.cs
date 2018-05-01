@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.ArticulationPoint
         public List<T> FindArticulationPoints(Graph<T> graph)
         {
             int visitTime = 0;
-            return DFS(graph.ReferenceVertex, new List<T>(),
+            return dfs(graph.ReferenceVertex, new List<T>(),
                 new Dictionary<T, int>(), new Dictionary<T, int>(),
                 new Dictionary<T, T>(),
                 ref visitTime);
@@ -30,13 +30,12 @@ namespace Advanced.Algorithms.GraphAlgorithms.ArticulationPoint
         /// </summary>
         /// <param name="currentVertex"></param>
         /// <param name="result"></param>
-        /// <param name="discovery"></param>
         /// <param name="discoveryTimeMap"></param>
         /// <param name="lowTimeMap"></param>
         /// <param name="parent"></param>
         /// <param name="discoveryTime"></param>
         /// <returns></returns>
-        private List<T> DFS(GraphVertex<T> currentVertex,
+        private List<T> dfs(GraphVertex<T> currentVertex,
              List<T> result,
              Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
              Dictionary<T, T> parent, ref int discoveryTime)
@@ -58,7 +57,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.ArticulationPoint
                     parent.Add(edge.Value, currentVertex.Value);
 
                     discoveryTime++;
-                    DFS(edge, result,
+                    dfs(edge, result,
                                 discoveryTimeMap, lowTimeMap, parent, ref discoveryTime);
 
                     //if neighbours lowTime is greater than current
@@ -93,8 +92,8 @@ namespace Advanced.Algorithms.GraphAlgorithms.ArticulationPoint
 
             //if root of DFS with two or more children
             //or visitTime of this Vertex <=lowTime of any neighbour 
-            if ((parent.ContainsKey(currentVertex.Value) == false && discoveryChildCount >= 2) ||
-                    (parent.ContainsKey(currentVertex.Value) && isArticulationPoint))
+            if (parent.ContainsKey(currentVertex.Value) == false && discoveryChildCount >= 2 ||
+                    parent.ContainsKey(currentVertex.Value) && isArticulationPoint)
             {
                 result.Add(currentVertex.Value);
             }

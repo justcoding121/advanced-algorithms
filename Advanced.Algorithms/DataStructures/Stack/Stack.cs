@@ -17,13 +17,13 @@ namespace Advanced.Algorithms.DataStructures
         LinkedList = 1
     }
     //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class AsStack<T>
+    public class Stack<T>
     {
         private readonly IStack<T> stack;
 
         public int Count => stack.Count;
 
-        public AsStack(StackType type = StackType.Array)
+        public Stack(StackType type = StackType.Array)
         {
             if (type == StackType.Array)
             {

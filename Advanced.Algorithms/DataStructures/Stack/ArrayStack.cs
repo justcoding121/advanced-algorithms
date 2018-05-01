@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures
     {
         public int Count { get; private set; }
 
-        private List<T> list = new List<T>();
+        private readonly List<T> list = new List<T>();
 
         //O(1)
         public T Pop()

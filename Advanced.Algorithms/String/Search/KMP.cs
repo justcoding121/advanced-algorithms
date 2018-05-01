@@ -53,7 +53,7 @@
             //now start matching
             j = 0;
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 if (input[i] == pattern[j])
                 {

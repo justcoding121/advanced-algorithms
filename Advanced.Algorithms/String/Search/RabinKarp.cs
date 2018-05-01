@@ -9,13 +9,14 @@ namespace Advanced.Algorithms.String.Search
         /// To reduce collisions
         /// </summary>
         private const int primeNumber = 101;
+        private double tolerance = 0.00001;
 
         public int Search(string input, string pattern)
         {
             var patternHash = computeHash(pattern);
             var hash = computeHash(input.Substring(0, pattern.Length));
 
-            if(hash == patternHash)
+            if(Math.Abs(hash - patternHash) < tolerance)
             {
                if(valid(pattern, input.Substring(0, pattern.Length)))
                 {
@@ -25,12 +26,12 @@ namespace Advanced.Algorithms.String.Search
 
             var lashHash = hash;
 
-            for (int i = 1; i < input.Length - pattern.Length + 1; i++)
+            for (var i = 1; i < input.Length - pattern.Length + 1; i++)
             {
                 var newHash = computeHash(lashHash, pattern.Length, input[i - 1], 
                     input[i + pattern.Length - 1]);
 
-                if (newHash == patternHash)
+                if (Math.Abs(newHash - patternHash) < tolerance)
                 {
                     if (valid(pattern, input.Substring(i, pattern.Length)))
                     {
@@ -53,12 +54,7 @@ namespace Advanced.Algorithms.String.Search
         /// <returns></returns>
         private bool valid(string pattern, string match)
         {
-            if(pattern.Equals(match))
-            {
-                return true;
-            }
-
-            return false;
+            return pattern.Equals(match);
         }
 
         /// <summary>
@@ -82,6 +78,7 @@ namespace Advanced.Algorithms.String.Search
         /// </summary>
         /// <param name="lastHash"></param>
         /// <param name="patternLength"></param>
+        /// <param name="removedChar"></param>
         /// <param name="newChar"></param>
         /// <returns></returns>
         private double computeHash(double lastHash, int patternLength,

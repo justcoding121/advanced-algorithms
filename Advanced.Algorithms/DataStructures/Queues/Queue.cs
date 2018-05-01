@@ -14,13 +14,13 @@
     }
 
     //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class AsQueue<T> 
+    public class Queue<T> 
     {
-        private IQueue<T> queue;
+        private readonly IQueue<T> queue;
 
         public int Count => queue.Count;
 
-        public AsQueue(QueueType type = QueueType.Array)
+        public Queue(QueueType type = QueueType.Array)
         {
             if (type == QueueType.Array)
             {

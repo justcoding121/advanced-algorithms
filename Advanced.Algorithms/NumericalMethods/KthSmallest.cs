@@ -1,5 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures;
-using System;
+﻿using System;
 using Advanced.Algorithms.DataStructures.Heap.Min;
 
 namespace Advanced.Algorithms.NumericalMethods
@@ -30,7 +29,7 @@ namespace Advanced.Algorithms.NumericalMethods
             var minHeap = new BMinHeap<T>(input);
 
             //0,1,2...(k-1) min extraction
-            for (int i = 0; i < k - 1; i++)
+            for (var i = 0; i < k - 1; i++)
             {
                 minHeap.ExtractMin();
             }

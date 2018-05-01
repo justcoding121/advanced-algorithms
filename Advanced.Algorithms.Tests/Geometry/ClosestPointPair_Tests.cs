@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Tests.Geometry
 {
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/closest-pair-of-points/
-    /// </summary>
+
     [TestClass]
     public class ClosestPointPair_Tests
     {

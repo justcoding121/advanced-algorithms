@@ -32,7 +32,7 @@ namespace Advanced.Algorithms.DataStructures
                 throw new ArgumentException();
             }
 
-            for (int i = 0; i < entry.Length; i++)
+            for (var i = 0; i < entry.Length; i++)
             {
                 var suffix = new T[entry.Length - i];
                 Array.Copy(entry, i, suffix, 0, entry.Length - i);
@@ -55,7 +55,7 @@ namespace Advanced.Algorithms.DataStructures
                 throw new ArgumentException();
             }
 
-            for (int i = 0; i < entry.Length; i++)
+            for (var i = 0; i < entry.Length; i++)
             {
                 var suffix = new T[entry.Length - i];
                 Array.Copy(entry, i, suffix, 0, entry.Length - i);

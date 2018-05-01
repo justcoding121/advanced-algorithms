@@ -13,8 +13,8 @@ namespace Advanced.Algorithms.DataStructures
 
         public TreeNode(TreeNode<T> parent, T value)
         {
-            this.Parent = parent;
-            this.Value = value;
+            Parent = parent;
+            Value = value;
 
             Children = new SinglyLinkedList<TreeNode<T>>();
         }
@@ -34,40 +34,39 @@ namespace Advanced.Algorithms.DataStructures
     //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class Tree<T> where T : IComparable
     {
-
-        private TreeNode<T> Root { get; set; }
+        private TreeNode<T> root { get; set; }
         public int Count { get; private set; }
-
 
         //O(n)
         public bool HasItem(T value)
         {
-            if (Root == null)
+            if (root == null)
             {
                 return false;
             }
 
-            return Find(Root, value) != null;
+            return find(root, value) != null;
         }
 
         //O(n)
-        private TreeNode<T> Find(T value)
+        private TreeNode<T> find(T value)
         {
-            if (Root == null)
+            if (root == null)
             {
                 return null;
             }
 
-            return Find(Root, value);
+            return find(root, value);
         }
 
         //O(n)
         public int GetHeight()
         {
-            return GetHeight(Root);
+            return getHeight(root);
         }
+
         //O(n)
-        private int GetHeight(TreeNode<T> node)
+        private int getHeight(TreeNode<T> node)
         {
             if (node == null)
             {
@@ -76,11 +75,11 @@ namespace Advanced.Algorithms.DataStructures
 
             var children = node.Children.GetAllNodes();
 
-            int currentHeight = -1;
+            var currentHeight = -1;
 
-            for (int i = 0; i < children.Count; i++)
+            foreach (var child in children)
             {
-                var childHeight = GetHeight(children[i]);
+                var childHeight = getHeight(child);
 
                 if (currentHeight < childHeight)
                 {
@@ -97,25 +96,25 @@ namespace Advanced.Algorithms.DataStructures
         //add the new child under this parent
         public void Insert(T parentValue, T value)
         {
-            if (Root == null)
+            if (root == null)
             {
-                Root = new TreeNode<T>(null, value);
+                root = new TreeNode<T>(null, value);
                 Count++;
                 return;
             }
 
-            var parent = Find(parentValue);
+            var parent = find(parentValue);
 
             if (parent == null)
             {
-                throw new ArgumentNullException("parent");
+                throw new ArgumentNullException();
             }
 
-            var exists = Find(Root, value) != null;
+            var exists = find(root, value) != null;
 
             if (exists)
             {
-                throw new ArgumentNullException("value already exists");
+                throw new ArgumentException("value already exists");
             }
 
             parent.Children.InsertFirst(new TreeNode<T>(parent, value));
@@ -124,81 +123,78 @@ namespace Advanced.Algorithms.DataStructures
 
         public void Delete(T value)
         {
-            Delete(Root.Value, value);
+            Delete(root.Value, value);
         }
 
         //O(n)
         //remove the node with the given identifier from the descendants if it can be deleted unambiguosly
         public void Delete(T parentValue, T value)
         {
-            var parent = Find(parentValue);
+            var parent = find(parentValue);
 
             if (parent == null)
             {
                 throw new Exception("Cannot find parent");
             }
 
-            var itemToRemove = Find(parent, value);
+            var itemToRemove = find(parent, value);
 
             if (itemToRemove == null)
             {
                 throw new Exception("Cannot find item");
             }
 
-            if (itemToRemove != null)
+            //if item is root
+            if (itemToRemove.Parent == null)
             {
-                //if item is root
-                if (itemToRemove.Parent == null)
+                if (itemToRemove.Children.Count() == 0)
                 {
-                    if (itemToRemove.Children.Count() == 0)
-                    {
-                        Root = null;
-                    }
-                    else
-                    {
-                        if (itemToRemove.Children.Count() == 1)
-                        {
-                            Root = itemToRemove.Children.DeleteFirst();
-                            Root.Parent = null;
-                        }
-                        else
-                        {
-                            throw new Exception("Node have multiple children. Cannot delete node unambiguosly");
-                        }
-                    }
-
+                    root = null;
                 }
                 else
                 {
-                    if (itemToRemove.Children.Count() == 0)
+                    if (itemToRemove.Children.Count() == 1)
                     {
+                        root = itemToRemove.Children.DeleteFirst();
+                        root.Parent = null;
+                    }
+                    else
+                    {
+                        throw new Exception("Node have multiple children. Cannot delete node unambiguosly");
+                    }
+                }
+
+            }
+            else
+            {
+                if (itemToRemove.Children.Count() == 0)
+                {
+                    itemToRemove.Parent.Children.Delete(itemToRemove);
+                }
+                else
+                {
+                    if (itemToRemove.Children.Count() == 1)
+                    {
+                        var orphan = itemToRemove.Children.DeleteFirst();
+                        orphan.Parent = itemToRemove.Parent;
+
+                        itemToRemove.Parent.Children.InsertFirst(orphan);
                         itemToRemove.Parent.Children.Delete(itemToRemove);
                     }
                     else
                     {
-                        if (itemToRemove.Children.Count() == 1)
-                        {
-                            var orphan = itemToRemove.Children.DeleteFirst();
-                            orphan.Parent = itemToRemove.Parent;
-
-                            itemToRemove.Parent.Children.InsertFirst(orphan);
-                            itemToRemove.Parent.Children.Delete(itemToRemove);
-                        }
-                        else
-                        {
-                            throw new Exception("Node have multiple children. Cannot delete node unambiguosly");
-                        }
+                        throw new Exception("Node have multiple children. Cannot delete node unambiguosly");
                     }
                 }
-                Count--;
             }
+            Count--;
 
 
         }
 
         //O(n)
         //find the node with the given identifier among descendants of parent
-        private TreeNode<T> Find(TreeNode<T> parent, T value)
+        private TreeNode<T> find(TreeNode<T> parent, T value)
         {
 
             if (parent.Value.CompareTo(value) == 0)
@@ -208,9 +204,9 @@ namespace Advanced.Algorithms.DataStructures
 
             var children = parent.Children.GetAllNodes();
 
-            for (int i = 0; i < children.Count; i++)
+            foreach (var child in children)
             {
-                var result = Find(children[i], value);
+                var result = find(child, value);
 
                 if (result != null)
                 {

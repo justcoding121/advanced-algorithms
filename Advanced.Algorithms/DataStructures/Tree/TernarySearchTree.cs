@@ -36,7 +36,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="entry"></param>
         public void Insert(T[] entry)
         {
-            Insert(ref Root, entry, 0);
+            insert(ref Root, entry, 0);
             Count++;
         }
 
@@ -46,7 +46,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="currentNode"></param>
         /// <param name="entry"></param>
         /// <param name="currentIndex"></param>
-        private void Insert(ref TernarySearchTreeNode<T> currentNode,
+        private void insert(ref TernarySearchTreeNode<T> currentNode,
             T[] entry, int currentIndex)
         {
             //create new node if empty
@@ -69,21 +69,21 @@ namespace Advanced.Algorithms.DataStructures
             {
                 //move left
                 var left = currentNode.Left;
-                Insert(ref left, entry, currentIndex);
+                insert(ref left, entry, currentIndex);
                 currentNode.Left = left;
             }
             else if (compareResult < 0)
             {
                 //move right
                 var right = currentNode.Right;
-                Insert(ref right, entry, currentIndex);
+                insert(ref right, entry, currentIndex);
                 currentNode.Right = right;
             }
             else
             {
                 //if equal we just skip to next element
                 var middle = currentNode.Middle;
-                Insert(ref middle, entry, currentIndex + 1);
+                insert(ref middle, entry, currentIndex + 1);
                 currentNode.Middle = middle;
             }
         }
@@ -95,7 +95,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="entry"></param>
         public void Delete(T[] entry)
         {
-            Delete(Root, entry, 0);
+            delete(Root, entry, 0);
             Count--;
         }
 
@@ -105,7 +105,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="currentNode"></param>
         /// <param name="entry"></param>
         /// <param name="currentIndex"></param>
-        private void Delete(TernarySearchTreeNode<T> currentNode,
+        private void delete(TernarySearchTreeNode<T> currentNode,
             T[] entry, int currentIndex)
         {
             //empty node
@@ -137,7 +137,7 @@ namespace Advanced.Algorithms.DataStructures
                 //move left
                 child = currentNode.Left;
 
-                Delete(child, entry, currentIndex);
+                delete(child, entry, currentIndex);
                 //delete if middle is not end
                 //and we if have'nt deleted the node yet
                 if (child.HasChildren == false
@@ -151,7 +151,7 @@ namespace Advanced.Algorithms.DataStructures
             {
                 //move right
                 child = currentNode.Right;
-                Delete(child, entry, currentIndex);
+                delete(child, entry, currentIndex);
                 //delete if middle is not end
                 //and we if have'nt deleted the node yet
                 if (child.HasChildren == false
@@ -165,7 +165,7 @@ namespace Advanced.Algorithms.DataStructures
             {
                 //if equal we just skip to next element
                 child = currentNode.Middle;
-                Delete(child, entry, currentIndex + 1);
+                delete(child, entry, currentIndex + 1);
                 //delete if middle is not end
                 //and we if have'nt deleted the node yet
                 if (child.HasChildren == false
@@ -184,7 +184,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         public List<T[]> StartsWith(T[] prefix)
         {
-            return StartsWith(Root, prefix, 0);
+            return startsWith(Root, prefix, 0);
         }
 
         /// <summary>
@@ -195,92 +195,95 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="searchPrefix"></param>
         /// <param name="currentIndex"></param>
         /// <returns></returns>
-        private List<T[]> StartsWith(TernarySearchTreeNode<T> currentNode,
-            T[] searchPrefix, int currentIndex)
+        private List<T[]> startsWith(TernarySearchTreeNode<T> currentNode, T[] searchPrefix, int currentIndex)
         {
-
-            if (currentNode == null)
+            while (true)
             {
-                return new List<T[]>();
-            }
-
-            var compareResult = currentNode.Value.CompareTo(searchPrefix[currentIndex]);
-            //current is greater? move left, move right otherwise
-            //if current is equal then move center
-            if (compareResult > 0)
-            {
-                //move left
-                return StartsWith(currentNode.Left, searchPrefix, currentIndex);
-            }
-            else if (compareResult < 0)
-            {
-                //move right
-                return StartsWith(currentNode.Right, searchPrefix, currentIndex);
-            }
-            else
-            {
-                //end of search Prefix, so gather all words under it
-                if (currentIndex == searchPrefix.Length - 1)
+                if (currentNode == null)
                 {
-                    var result = new List<T[]>();
-
-                    GatherStartsWith(result,
-                        searchPrefix, currentNode.Middle);
-
-                    return result;
+                    return new List<T[]>();
                 }
-                //if equal we just skip to next element
-                return StartsWith(currentNode.Middle, searchPrefix, currentIndex + 1);
+
+                var compareResult = currentNode.Value.CompareTo(searchPrefix[currentIndex]);
+                //current is greater? move left, move right otherwise
+                //if current is equal then move center
+                if (compareResult > 0)
+                {
+                    //move left
+                    currentNode = currentNode.Left;
+                    continue;
+                }
+
+                if (compareResult < 0)
+                {
+                    //move right
+                    currentNode = currentNode.Right;
+                    continue;
+                }
+
+                //end of search Prefix, so gather all words under it
+                if (currentIndex != searchPrefix.Length - 1)
+                {
+                    currentNode = currentNode.Middle;
+                    currentIndex = currentIndex + 1;
+                    continue;
+                }
+
+                var result = new List<T[]>();
+
+                gatherStartsWith(result, searchPrefix, currentNode.Middle);
+
+                return result;
+                
             }
         }
 
         /// <summary>
         /// Gathers all suffixes under this node appending with the given prefix
         /// </summary>
-        /// <param name="result"></param>
-        /// <param name="searchPrefix"></param>
-        /// <param name="prefix"></param>
-        /// <param name="node"></param>
-        private void GatherStartsWith(List<T[]> result, T[] prefix,
-            TernarySearchTreeNode<T> node)
+        private void gatherStartsWith(List<T[]> result, T[] prefix, TernarySearchTreeNode<T> node)
         {
-            if (node == null)
+            while (true)
             {
-                result.Add(prefix);
-                return;
+                if (node == null)
+                {
+                    result.Add(prefix);
+                    return;
+                }
+
+                //end of word
+                if (node.IsEnd)
+                {
+                    //append to end of prefix for new prefix
+                    var newPrefix = new T[prefix.Length + 1];
+                    Array.Copy(prefix, newPrefix, prefix.Length);
+                    newPrefix[newPrefix.Length - 1] = node.Value;
+                    result.Add(newPrefix);
+                }
+
+                if (node.Left != null)
+                {
+                    gatherStartsWith(result, prefix, node.Left);
+                }
+
+                if (node.Middle != null)
+                {
+                    //append to end of prefix for new prefix
+                    var newPrefix = new T[prefix.Length + 1];
+                    Array.Copy(prefix, newPrefix, prefix.Length);
+                    newPrefix[newPrefix.Length - 1] = node.Value;
+
+                    gatherStartsWith(result, newPrefix, node.Middle);
+                }
+
+                if (node.Right != null)
+                {
+                    node = node.Right;
+                    continue;
+                }
+
+                break;
             }
-
-            //end of word
-            if (node.IsEnd)
-            {
-                //append to end of prefix for new prefix
-                var newPrefix = new T[prefix.Length + 1];
-                Array.Copy(prefix, newPrefix, prefix.Length);
-                newPrefix[newPrefix.Length - 1] = node.Value;
-                result.Add(newPrefix);
-            }
-
-            if (node.Left != null)
-            {
-                GatherStartsWith(result, prefix, node.Left);
-            }
-
-            if (node.Middle != null)
-            {
-                //append to end of prefix for new prefix
-                var newPrefix = new T[prefix.Length + 1];
-                Array.Copy(prefix, newPrefix, prefix.Length);
-                newPrefix[newPrefix.Length - 1] = node.Value;
-
-                GatherStartsWith(result, newPrefix, node.Middle);
-            }
-
-            if (node.Right != null)
-            {
-                GatherStartsWith(result, prefix, node.Right);
-            }
-
-
         }
 
         /// <summary>
@@ -290,7 +293,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         public bool Contains(T[] entry)
         {
-            return Contains(Root, entry, 0);
+            return contains(Root, entry, 0);
         }
 
         /// <summary>
@@ -300,44 +303,43 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="entry"></param>
         /// <param name="currentIndex"></param>
         /// <returns></returns>
-        private bool Contains(TernarySearchTreeNode<T> currentNode, T[] entry, int currentIndex)
+        private bool contains(TernarySearchTreeNode<T> currentNode, T[] entry, int currentIndex)
         {
-            //create new node if empty
-            if (currentNode == null)
+            while (true)
             {
-                return false;
-            }
-
-            //end of word, so return
-            if (currentIndex == entry.Length - 1)
-            {
-                if (currentNode.IsEnd)
+                //create new node if empty
+                if (currentNode == null)
                 {
-                    return true;
+                    return false;
                 }
 
-                return false;
-            }
+                //end of word, so return
+                if (currentIndex == entry.Length - 1)
+                {
+                    return currentNode.IsEnd;
+                }
 
-            var compareResult = currentNode.Value.CompareTo(entry[currentIndex]);
-            //current is greater? move left, move right otherwise
-            //if current is equal then move center
-            if (compareResult > 0)
-            {
-                //move left
-                return Contains(currentNode.Left, entry, currentIndex);
-            }
-            else if (compareResult < 0)
-            {
-                //move right
-                return Contains(currentNode.Right, entry, currentIndex);
-            }
-            else
-            {
+                var compareResult = currentNode.Value.CompareTo(entry[currentIndex]);
+                //current is greater? move left, move right otherwise
+                //if current is equal then move center
+                if (compareResult > 0)
+                {
+                    //move left
+                    currentNode = currentNode.Left;
+                    continue;
+                }
+
+                if (compareResult < 0)
+                {
+                    //move right
+                    currentNode = currentNode.Right;
+                    continue;
+                }
+
                 //if equal we just skip to next element
-                return Contains(currentNode.Middle, entry, currentIndex + 1);
+                currentNode = currentNode.Middle;
+                currentIndex = currentIndex + 1;
             }
-
         }
     }
 }

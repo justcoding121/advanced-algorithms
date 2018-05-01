@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree
         }
         public int CompareTo(object obj)
         {
-            return Weight.CompareTo((obj as MSTEdge<T,W>).Weight);
+            return Weight.CompareTo(((MSTEdge<T, W>) obj).Weight);
         }
     }
 
@@ -34,36 +34,36 @@ namespace Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree
     /// using merge sort & disjoint set
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    public class Kruskals<T, W> where W : IComparable
+    /// <typeparam name="TW"></typeparam>
+    public class Kruskals<T, TW> where TW : IComparable
     {
         /// <summary>
         /// Find Minimum Spanning Tree of given weighted graph
         /// </summary>
         /// <param name="graph"></param>
         /// <returns>List of MST edges</returns>
-        public List<MSTEdge<T,W>>
-            FindMinimumSpanningTree(WeightedGraph<T, W> graph)
+        public List<MSTEdge<T,TW>>
+            FindMinimumSpanningTree(WeightedGraph<T, TW> graph)
         {
-            var edges = new List<MSTEdge<T,W>>();
+            var edges = new List<MSTEdge<T,TW>>();
 
 
             //gather all unique edges
-            DFS(graph.ReferenceVertex, new HashSet<T>(), 
+            dfs(graph.ReferenceVertex, new HashSet<T>(), 
                 new Dictionary<T, HashSet<T>>(),
                 edges);
 
             //quick sort preparation
-            var sortArray = new MSTEdge<T,W>[edges.Count];
+            var sortArray = new MSTEdge<T,TW>[edges.Count];
             for (int i = 0; i < edges.Count; i++)
             {
                 sortArray[i] = edges[i];
             }
 
             //quick sort edges
-            var sortedEdges = MergeSort<MSTEdge<T,W>>.Sort(sortArray);
+            var sortedEdges = MergeSort<MSTEdge<T,TW>>.Sort(sortArray);
 
-            var result = new List<MSTEdge<T,W>>();
+            var result = new List<MSTEdge<T,TW>>();
             var disJointSet = new DisJointSet<T>();
 
             //create set
@@ -106,10 +106,10 @@ namespace Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree
         /// <param name="visitedVertices"></param>
         /// <param name="visitedEdges"></param>
         /// <param name="result"></param>
-        private void DFS(WeightedGraphVertex<T, W> currentVertex,
+        private void dfs(WeightedGraphVertex<T, TW> currentVertex,
             HashSet<T> visitedVertices,
             Dictionary<T, HashSet<T>> visitedEdges,
-            List<MSTEdge<T,W>> result)
+            List<MSTEdge<T,TW>> result)
         {
             if (!visitedVertices.Contains(currentVertex.Value))
             {
@@ -120,7 +120,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree
                     if (!visitedEdges.ContainsKey(currentVertex.Value)
                         || !visitedEdges[currentVertex.Value].Contains(edge.Key.Value))
                     {
-                        result.Add(new MSTEdge<T, W>(currentVertex.Value, edge.Key.Value, edge.Value));
+                        result.Add(new MSTEdge<T, TW>(currentVertex.Value, edge.Key.Value, edge.Value));
 
                         //update visited edge
                         if(!visitedEdges.ContainsKey(currentVertex.Value))
@@ -139,12 +139,10 @@ namespace Advanced.Algorithms.GraphAlgorithms.MinimumSpanningTree
                         visitedEdges[edge.Key.Value].Add(currentVertex.Value);
                     }
 
-
-                    DFS(edge.Key, visitedVertices, visitedEdges, result);
+                    dfs(edge.Key, visitedVertices, visitedEdges, result);
                 }
 
             }
-
         
         }
 

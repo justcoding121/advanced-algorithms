@@ -2,13 +2,13 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class TreeDictionaryNode<K, V> : IComparable
-                                 where K : IComparable
+    public class TreeDictionaryNode<TK, TV> : IComparable
+                                 where TK : IComparable
     {
-        public K Key { get; private set; }
-        public V Value { get; set; }
+        public TK Key { get; }
+        public TV Value { get; set; }
 
-        public TreeDictionaryNode(K key, V value)
+        public TreeDictionaryNode(TK key, TV value)
         {
             this.Key = key;
             this.Value = value;
@@ -16,8 +16,12 @@ namespace Advanced.Algorithms.DataStructures
 
         public int CompareTo(object obj)
         {
-            var itemToComare = obj as TreeDictionaryNode<K, V>;
-            return Key.CompareTo(itemToComare.Key);
+            if (obj is TreeDictionaryNode<TK, TV> itemToComare)
+            {
+                return Key.CompareTo(itemToComare.Key);
+            }
+
+            throw new ArgumentException();
         }
     }
 
@@ -26,59 +30,59 @@ namespace Advanced.Algorithms.DataStructures
     /// A Dictionary implementation using balanced binary search tree (log(n) operations in worst case)
     /// This may be better than regular Dictionary implementation which can give o(K) in worst case (but O(1) when collisions K is avoided )
     /// </summary>
-    /// <typeparam name="K"></typeparam>
-    /// <typeparam name="V"></typeparam>
-    public class AsTreeDictionary<K, V> where K : IComparable
+    /// <typeparam name="TK"></typeparam>
+    /// <typeparam name="TV"></typeparam>
+    public class TreeDictionary<TK, TV> where TK : IComparable
     {
         //use red-black tree as our balanced BST since it gives good performance for both deletion/insertion
-        private RedBlackTree<TreeDictionaryNode<K, V>> binarySearchTree;
+        private readonly RedBlackTree<TreeDictionaryNode<TK, TV>> binarySearchTree;
 
         public int Count => binarySearchTree.Count;
 
-        public AsTreeDictionary()
+        public TreeDictionary()
         {
-            binarySearchTree = new RedBlackTree<TreeDictionaryNode<K, V>>();
+            binarySearchTree = new RedBlackTree<TreeDictionaryNode<TK, TV>>();
         }
 
         //O(log(n) time complexity; 
-        public bool ContainsKey(K key)
+        public bool ContainsKey(TK key)
         {
             return binarySearchTree
-                .HasItem(new TreeDictionaryNode<K, V>(key, default(V)));
+                .HasItem(new TreeDictionaryNode<TK, TV>(key, default(TV)));
         }
 
         //O(log(n) time complexity; 
-        public V GetValue(K key)
+        public TV GetValue(TK key)
         {
             return binarySearchTree
-                .Find(new TreeDictionaryNode<K, V>(key, default(V)))
+                .Find(new TreeDictionaryNode<TK, TV>(key, default(TV)))
                 .Value
                 .Value;
         }
 
         //O(log(n) time complexity; 
         //add an item to this hash table
-        public void Add(K key, V value)
+        public void Add(TK key, TV value)
         {
-            binarySearchTree.Insert(new TreeDictionaryNode<K, V>(key, value));
+            binarySearchTree.Insert(new TreeDictionaryNode<TK, TV>(key, value));
         }
 
         //O(log(n) time complexity
-        public void Remove(K key)
+        public void Remove(TK key)
         {
-            binarySearchTree.Delete(new TreeDictionaryNode<K, V>(key, default(V)));
+            binarySearchTree.Delete(new TreeDictionaryNode<TK, TV>(key, default(TV)));
         }
 
         //O(n) time complexity
-        public ArrayList<TreeDictionaryNode<K, V>> GetAll()
+        public ArrayList<TreeDictionaryNode<TK, TV>> GetAll()
         {
             var nodes = binarySearchTree.GetAllNodes();
 
-            var allNodeValues = new ArrayList<TreeDictionaryNode<K, V>>();
+            var allNodeValues = new ArrayList<TreeDictionaryNode<TK, TV>>();
 
-            for (int i = 0; i < nodes.Count; i++)
+            foreach (var node in nodes)
             {
-                allNodeValues.Add(nodes[i]);
+                allNodeValues.Add(node);
             }
 
             nodes.Clear();

@@ -1,5 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures;
-using System;
+﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace Advanced.Algorithms.String
@@ -26,31 +26,32 @@ namespace Advanced.Algorithms.String
             var array = input.ToCharArray();
             var modifiedInput = new StringBuilder();
 
-            for (int i = 0; i < array.Length; i++)
+            foreach (var item in array)
             {
                 modifiedInput.Append("$");
-                modifiedInput.Append(array[i].ToString());
+                modifiedInput.Append(item.ToString());
             }
             modifiedInput.Append("$");
 
-            var result = FindLongestPalindromeR(modifiedInput.ToString());
+            var result = findLongestPalindromeR(modifiedInput.ToString());
 
             //remove length of $ sentinel
             return result / 2;
         }
+
         /// <summary>
         /// Find the longest palindrome in linear time
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public int FindLongestPalindromeR(string input)
+        private int findLongestPalindromeR(string input)
         {
             var palindromeLengths = new int[input.Length];
 
             int left = -1, right = 1;
             int length = 1;
 
-            int i = 0;
+            var i = 0;
             //loop through each char
             while (i < input.Length)
             {
@@ -100,7 +101,6 @@ namespace Advanced.Algorithms.String
                             palindromeLengths[r] = (2 * (l - (left + 1))) + 1;
                             r++;
                             l--;
-                            continue;
                         }
                         //mirror palindrome is totally contained
                         //in our current palindrome
@@ -111,7 +111,6 @@ namespace Advanced.Algorithms.String
                             palindromeLengths[r] = palindromeLengths[l];
                             r++;
                             l--;
-                            continue;
                         }
                         //mirror palindrome exactly fits inside right side
                         //of current palindrome
@@ -146,18 +145,16 @@ namespace Advanced.Algorithms.String
                 {
                     continue;
                 }
-                else
-                {
-                    //reset as usual
-                    left = i;
-                    right = i + 2;
-                    length = 1;
-                }
+
+                //reset as usual
+                left = i;
+                right = i + 2;
+                length = 1;
 
                 i++;
             }
 
-            return FindMax(palindromeLengths);
+            return findMax(palindromeLengths);
         }
 
         /// <summary>
@@ -165,20 +162,9 @@ namespace Advanced.Algorithms.String
         /// </summary>
         /// <param name="palindromeLengths"></param>
         /// <returns></returns>
-        private int FindMax(int[] palindromeLengths)
+        private int findMax(int[] palindromeLengths)
         {
-            var max = int.MinValue;
-
-            for (int i = 0; i < palindromeLengths.Length; i++)
-            {
-                if (max < palindromeLengths[i])
-                {
-                    max = palindromeLengths[i];
-                }
-            }
-
-            return max;
-
+            return palindromeLengths.Concat(new[] {int.MinValue}).Max();
         }
     }
 }

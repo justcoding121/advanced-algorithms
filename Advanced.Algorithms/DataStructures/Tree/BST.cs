@@ -16,34 +16,16 @@ namespace Advanced.Algorithms.DataStructures
         internal bool IsLeftChild => this.Parent.Left == this;
         internal bool IsRightChild => this.Parent.Right == this;
 
-        IBSTNode<T> IBSTNode<T>.Left
-        {
-            get
-            {
-                return Left;
-            }
-        }
+        IBSTNode<T> IBSTNode<T>.Left => Left;
 
-        IBSTNode<T> IBSTNode<T>.Right
-        {
-            get
-            {
-                return Right;
-            }
-        }
+        IBSTNode<T> IBSTNode<T>.Right => Right;
 
-        T IBSTNode<T>.Value
-        {
-            get
-            {
-                return Value;
-            }
-        }
+        T IBSTNode<T>.Value => Value;
 
         internal BSTNode(BSTNode<T> parent, T value)
         {
-            this.Parent = parent;
-            this.Value = value;
+            Parent = parent;
+            Value = value;
         }
 
     }
@@ -63,24 +45,24 @@ namespace Advanced.Algorithms.DataStructures
                 return false;
             }
 
-            return Find(Root, value) != null;
+            return find(Root, value) != null;
         }
 
         //worst O(n) for unbalanced tree
-        public int GetHeight()
+        public int getHeight()
         {
-            return GetHeight(Root);
+            return getHeight(Root);
         }
 
         //worst O(n) for unbalanced tree
-        private int GetHeight(BSTNode<T> node)
+        private int getHeight(BSTNode<T> node)
         {
             if (node == null)
             {
                 return -1;
             }
 
-            return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
+            return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
         }
 
 
@@ -115,48 +97,44 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         //worst O(n) for unbalanced tree
-        private BSTNode<T> insert(
-            BSTNode<T> currentNode, T newNodeValue)
+        private BSTNode<T> insert(BSTNode<T> currentNode, T newNodeValue)
         {
-            var compareResult = currentNode.Value.CompareTo(newNodeValue);
-
-            //current node is less than new item
-            if (compareResult < 0)
+            while (true)
             {
-                //no right child
-                if (currentNode.Right == null)
+                var compareResult = currentNode.Value.CompareTo(newNodeValue);
+
+                //current node is less than new item
+                if (compareResult < 0)
                 {
+                    //no right child
+                    if (currentNode.Right != null)
+                    {
+                        currentNode = currentNode.Right;
+                        continue;
+                    }
+
                     //insert
                     currentNode.Right = new BSTNode<T>(currentNode, newNodeValue);
                     return currentNode.Right;
                 }
-                else
-                {
-                    return insert(currentNode.Right, newNodeValue);
-                }
+                //current node is greater than new node
 
-            }
-            //current node is greater than new node
-            else if (compareResult > 0)
-            {
-
-                if (currentNode.Left == null)
+                if (compareResult > 0)
                 {
-                    //insert
-                    currentNode.Left = new BSTNode<T>(currentNode, newNodeValue);
-                    return currentNode.Left;
+                    if (currentNode.Left == null)
+                    {
+                        //insert
+                        currentNode.Left = new BSTNode<T>(currentNode, newNodeValue);
+                        return currentNode.Left;
+                    }
+
+                    currentNode = currentNode.Left;
                 }
                 else
                 {
-                    return insert(currentNode.Left, newNodeValue);
+                    throw new Exception("Item exists");
                 }
             }
-            else
-            {
-                throw new Exception("Item exists");
-            }
-
-
         }
 
         //remove the node with the given identifier from the descendants 
@@ -189,64 +167,63 @@ namespace Advanced.Algorithms.DataStructures
         //worst O(n) for unbalanced tree
         private BSTNode<T> delete(BSTNode<T> node, T value)
         {
-            var compareResult = node.Value.CompareTo(value);
-
-            //node is less than the search value so move right to find the deletion node
-            if (compareResult < 0)
+            while (true)
             {
-                if (node.Right == null)
+                if (node != null)
                 {
-                    throw new Exception("Item do not exist");
+                    var compareResult = node.Value.CompareTo(value);
+
+                    //node is less than the search value so move right to find the deletion node
+                    if (compareResult < 0)
+                    {
+                        node = node.Right ?? throw new Exception("Item do not exist");
+                        continue;
+                    }
+                    //node is less than the search value so move left to find the deletion node
+
+                    if (compareResult > 0)
+                    {
+                        node = node.Left ?? throw new Exception("Item do not exist");
+                        continue;
+                    }
                 }
 
-                return delete(node.Right, value);
-            }
-            //node is less than the search value so move left to find the deletion node
-            else if (compareResult > 0)
-            {
-                if (node.Left == null)
-                {
-                    throw new Exception("Item do not exist");
-                }
-
-                return delete(node.Left, value);
-            }
-            else
-            {
                 //node is a leaf node
-                if (node.IsLeaf)
+                if (node != null && node.IsLeaf)
                 {
                     deleteLeaf(node);
                     return node.Parent;
                 }
-                else
+
+                //case one - right tree is null (move sub tree up)
+                if (node?.Left != null && node.Right == null)
                 {
-                    //case one - right tree is null (move sub tree up)
-                    if (node.Left != null && node.Right == null)
-                    {
-                        deleteLeftNode(node);
-                        return node.Parent;
-                    }
-                    //case two - left tree is null  (move sub tree up)
-                    else if (node.Right != null && node.Left == null)
-                    {
-                        deleteRightNode(node);
-                        return node.Parent;
-
-                    }
-                    //case three - two child trees 
-                    //replace the node value with maximum element of left subtree (left max node)
-                    //and then delete the left max node
-                    else
-                    {
-                        var maxLeftNode = FindMax(node.Left);
-
-                        node.Value = maxLeftNode.Value;
-
-                        //delete left max node
-                        return delete(node.Left, maxLeftNode.Value);
-                    }
+                    deleteLeftNode(node);
+                    return node.Parent;
                 }
+                //case two - left tree is null  (move sub tree up)
+
+                if (node?.Right != null && node.Left == null)
+                {
+                    deleteRightNode(node);
+                    return node.Parent;
+                }
+                //case three - two child trees 
+                //replace the node value with maximum element of left subtree (left max node)
+                //and then delete the left max node
+
+                if (node == null)
+                {
+                    continue;
+                }
+
+                var maxLeftNode = FindMax(node.Left);
+
+                node.Value = maxLeftNode.Value;
+
+                //delete left max node
+                node = node.Left;
+                value = maxLeftNode.Value;
             }
         }
 
@@ -275,7 +252,6 @@ namespace Advanced.Algorithms.DataStructures
             {
                 Root.Right.Parent = null;
                 Root = Root.Right;
-                return;
             }
             else
             {
@@ -301,8 +277,7 @@ namespace Advanced.Algorithms.DataStructures
             if (node.Parent == null)
             {
                 Root.Left.Parent = null;
-                Root = Root.Left;       
-                return;
+                Root = Root.Left;
             }
             else
             {
@@ -330,73 +305,53 @@ namespace Advanced.Algorithms.DataStructures
 
         private BSTNode<T> FindMax(BSTNode<T> node)
         {
-            if (node.Right == null)
+            while (true)
             {
-                return node;
+                if (node.Right == null) return node;
+                node = node.Right;
             }
-
-            return FindMax(node.Right);
         }
 
         public T FindMin()
         {
-            return FindMin(Root).Value;
+            return findMin(Root).Value;
         }
 
-        private BSTNode<T> FindMin(BSTNode<T> node)
+        private BSTNode<T> findMin(BSTNode<T> node)
         {
-            if (node.Left == null)
+            while (true)
             {
-                return node;
+                if (node.Left == null) return node;
+                node = node.Left;
             }
-
-            return FindMin(node.Left);
         }
-
-        //worst O(n) for unbalanced tree
-        private BSTNode<T> Find(T value)
-        {
-            if (Root == null)
-            {
-                return null;
-            }
-
-            return Find(Root, value);
-        }
-
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //worst O(n) for unbalanced tree
-        private BSTNode<T> Find(BSTNode<T> parent, T value)
+        private BSTNode<T> find(BSTNode<T> parent, T value)
         {
-            if (parent == null)
+            while (true)
             {
-                return null;
+                if (parent == null)
+                {
+                    return null;
+                }
+
+                if (parent.Value.CompareTo(value) == 0)
+                {
+                    return parent;
+                }
+
+                var left = find(parent.Left, value);
+
+                if (left != null)
+                {
+                    return left;
+                }
+
+                parent = parent.Right;
             }
-
-            if (parent.Value.CompareTo(value) == 0)
-            {
-                return parent;
-            }
-
-            var left = Find(parent.Left, value);
-
-            if (left != null)
-            {
-                return left;
-            }
-
-            var right = Find(parent.Right, value);
-
-            if (right != null)
-            {
-                return right;
-            }
-
-            return null;
-
         }
-
     }
 }

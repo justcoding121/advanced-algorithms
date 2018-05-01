@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures.Queues.PriorityQueue
     /// assuming lower values of P have higher priority
     public class MinPriorityQueue<T> where T : IComparable
     {
-        private BMinHeap<T> minHeap = new BMinHeap<T>();
+        private readonly BMinHeap<T> minHeap = new BMinHeap<T>();
 
         public void Enqueue(T queueItem)
         {

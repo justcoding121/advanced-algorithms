@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.DataStructures
     //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class SkipList<T> where T : IComparable
     {
-        private Random coinFlipper = new Random();
+        private readonly Random coinFlipper = new Random();
 
         public int MaxHeight { get; private set; }
 
@@ -130,7 +130,7 @@ namespace Advanced.Algorithms.DataStructures
             var current = Head;
 
             //go down from top level
-            for (int i = MaxHeight - 1; i >= 0; i--)
+            for (var i = MaxHeight - 1; i >= 0; i--)
             {
                 //move on current level of linked list
                 //until next element is less than new value to delete

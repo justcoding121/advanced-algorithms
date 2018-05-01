@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Geometry
 {
@@ -32,7 +28,7 @@ namespace Advanced.Algorithms.Geometry
                 //pick a random point as next Point
                 var nextPointIndex = (currentPointIndex + 1) % points.Count;
 
-                for (int i = 0; i < points.Count; i++)
+                for (var i = 0; i < points.Count; i++)
                 {
                     if (i == nextPointIndex)
                     {
@@ -77,12 +73,8 @@ namespace Advanced.Algorithms.Geometry
             {
                 return Orientation.ClockWise;
             }
-            else if (result > 0)
-            {
-                return Orientation.AntiClockWise;
-            }
 
-            return Orientation.Colinear;
+            return result > 0 ? Orientation.AntiClockWise : Orientation.Colinear;
         }
 
 
@@ -90,7 +82,7 @@ namespace Advanced.Algorithms.Geometry
         {
             var left = 0;
 
-            for (int i = 1; i < points.Count; i++)
+            for (var i = 1; i < points.Count; i++)
             {
                 if (points[i][0] < points[left][0])
                 {

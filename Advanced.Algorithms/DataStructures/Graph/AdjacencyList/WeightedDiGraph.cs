@@ -8,19 +8,19 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// A weighted graph vertex
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    public class WeightedDiGraphVertex<T, W> where W : IComparable
+    /// <typeparam name="TW"></typeparam>
+    public class WeightedDiGraphVertex<T, TW> where TW : IComparable
     {
         public T Value { get; private set; }
-        public Dictionary<WeightedDiGraphVertex<T, W>, W> OutEdges { get; set; }
-        public Dictionary<WeightedDiGraphVertex<T, W>, W> InEdges { get; set; }
+        public System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW> OutEdges { get; set; }
+        public System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW> InEdges { get; set; }
 
         public WeightedDiGraphVertex(T value)
         {
-            this.Value = value;
+            Value = value;
 
-            OutEdges = new Dictionary<WeightedDiGraphVertex<T, W>, W>();
-            InEdges = new Dictionary<WeightedDiGraphVertex<T, W>, W>();
+            OutEdges = new System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
+            InEdges = new System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
         }
 
     }
@@ -30,25 +30,25 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// A weighted graph implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    public class WeightedDiGraph<T, W> where W : IComparable
+    /// <typeparam name="TW"></typeparam>
+    public class WeightedDiGraph<T, TW> where TW : IComparable
     {
         public int VerticesCount => Vertices.Count;
-        internal Dictionary<T, WeightedDiGraphVertex<T, W>> Vertices { get; set; }
+        internal System.Collections.Generic.Dictionary<T, WeightedDiGraphVertex<T, TW>> Vertices { get; set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public WeightedDiGraph()
         {
-            Vertices = new Dictionary<T, WeightedDiGraphVertex<T, W>>();
+            Vertices = new System.Collections.Generic.Dictionary<T, WeightedDiGraphVertex<T, TW>>();
         }
 
         /// <summary>
         /// return a reference vertex  to start traversing Vertices
         /// O(1) complexity
         /// </summary>
-        public WeightedDiGraphVertex<T, W> ReferenceVertex
+        public WeightedDiGraphVertex<T, TW> ReferenceVertex
         {
             get
             {
@@ -70,14 +70,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public WeightedDiGraphVertex<T, W> AddVertex(T value)
+        public WeightedDiGraphVertex<T, TW> AddVertex(T value)
         {
             if (value == null)
             {
                 throw new ArgumentNullException();
             }
 
-            var newVertex = new WeightedDiGraphVertex<T, W>(value);
+            var newVertex = new WeightedDiGraphVertex<T, TW>(value);
 
             Vertices.Add(value, newVertex);
 
@@ -121,7 +121,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// <param name="source"></param>
         /// <param name="dest"></param>
         /// <param name="weight"></param>
-        public void AddEdge(T source, T dest, W weight)
+        public void AddEdge(T source, T dest, TW weight)
         {
             if (source == null || dest == null)
             {
@@ -191,24 +191,24 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
              && Vertices[dest].InEdges.ContainsKey(Vertices[source]);
         }
 
-        public List<Tuple<T, W>> GetAllOutEdges(T vertex)
+        public List<Tuple<T, TW>> GetAllOutEdges(T vertex)
         {
             if (!Vertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].OutEdges.Select(x =>new Tuple<T,W>(x.Key.Value, x.Value)).ToList();
+            return Vertices[vertex].OutEdges.Select(x =>new Tuple<T,TW>(x.Key.Value, x.Value)).ToList();
         }
 
-        public List<Tuple<T, W>> GetAllInEdges(T vertex)
+        public List<Tuple<T, TW>> GetAllInEdges(T vertex)
         {
             if (!Vertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].InEdges.Select(x => new Tuple<T, W>(x.Key.Value, x.Value)).ToList();
+            return Vertices[vertex].InEdges.Select(x => new Tuple<T, TW>(x.Key.Value, x.Value)).ToList();
         }
 
         /// <summary>
@@ -217,7 +217,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public WeightedDiGraphVertex<T, W> FindVertex(T value)
+        public WeightedDiGraphVertex<T, TW> FindVertex(T value)
         {
             if(Vertices.ContainsKey(value))
             {
@@ -231,9 +231,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// clone object
         /// </summary>
         /// <returns></returns>
-        internal WeightedDiGraph<T,W> Clone()
+        internal WeightedDiGraph<T,TW> Clone()
         {
-            var newGraph = new WeightedDiGraph<T, W>();
+            var newGraph = new WeightedDiGraph<T, TW>();
 
             foreach(var vertex in Vertices)
             {

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.BitAlgorithms
 {
@@ -14,6 +11,7 @@ namespace Advanced.Algorithms.BitAlgorithms
         /// <param name="srcNumber">input number in source base system</param>
         /// <param name="srcBaseChars">Should be in correct order => eg. 0123456789 for decimal</param>
         /// <param name="dstBaseChars">>Should be in correct order => eg. 01 for binary</param>
+        /// <param name="precision">Precision.</param>
         /// <returns></returns>
         public static string Convert(string srcNumber,
                     string srcBaseChars,

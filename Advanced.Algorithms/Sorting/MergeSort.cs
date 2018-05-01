@@ -8,33 +8,29 @@ namespace Advanced.Algorithms.Sorting
         //O(n) memory
         public static T[] Sort(T[] array)
         {
-            PartitionMerge(array, 0, array.Length - 1);
-
+            partitionMerge(array, 0, array.Length - 1);
             return array;
         }
 
-        private static void PartitionMerge(T[] array, int leftIndex, int rightIndex)
+        private static void partitionMerge(T[] array, int leftIndex, int rightIndex)
         {
             if (leftIndex < 0 || rightIndex < 0 || (rightIndex - leftIndex + 1) < 2)
             {
                 return;
             }
 
-            int middle = (leftIndex + rightIndex) / 2;
+            var middle = (leftIndex + rightIndex) / 2;
 
-            PartitionMerge(array, leftIndex, middle);
-            PartitionMerge(array, middle + 1, rightIndex);
+            partitionMerge(array, leftIndex, middle);
+            partitionMerge(array, middle + 1, rightIndex);
 
-            Merge(array, leftIndex, middle, rightIndex);
+            merge(array, leftIndex, middle, rightIndex);
         }
 
         /// <summary>
         /// merge two sorted arrays
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        private static void Merge(T[] array, int leftStart, int middle, int rightEnd)
+        private static void merge(T[] array, int leftStart, int middle, int rightEnd)
         {
             var newLength = rightEnd - leftStart + 1;
 
@@ -60,7 +56,7 @@ namespace Advanced.Algorithms.Sorting
             //copy left overs
             if (i <= middle)
             {
-                for (int l = i; l <= middle; l++)
+                for (var l = i; l <= middle; l++)
                 {
                     result[k] = array[l];
                     k++;
@@ -68,7 +64,7 @@ namespace Advanced.Algorithms.Sorting
             }
             else
             {
-                for (int l = j; l <= rightEnd; l++)
+                for (var l = j; l <= rightEnd; l++)
                 {
                     result[k] = array[l];
                     k++;
@@ -77,7 +73,7 @@ namespace Advanced.Algorithms.Sorting
 
             k = 0;
             //now write back result
-            for (int g = leftStart; g <= rightEnd; g++)
+            for (var g = leftStart; g <= rightEnd; g++)
             {
                 array[g] = result[k];
                 k++;

@@ -31,7 +31,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.ShortestPath
 
     public class JohnsonsShortestPath<T, W> where W : IComparable
     {
-        IJohnsonsShortestPathOperators<T, W> operators;
+        readonly IJohnsonsShortestPathOperators<T, W> operators;
         public JohnsonsShortestPath(IJohnsonsShortestPathOperators<T, W> operators)
         {
             this.operators = operators;
@@ -58,11 +58,11 @@ namespace Advanced.Algorithms.GraphAlgorithms.ShortestPath
             }
 
             //now compute shortest path from random vertex to all other vertices
-            var bellmanFordSP = new BellmanFordShortestPath<T, W>(operators);
+            var bellmanFordSp = new BellmanFordShortestPath<T, W>(operators);
             var bellFordResult = new Dictionary<T, W>();
             foreach (var vertex in workGraph.Vertices)
             {
-                var result = bellmanFordSP.GetShortestPath(workGraph, randomVetex, vertex.Key);
+                var result = bellmanFordSp.GetShortestPath(workGraph, randomVetex, vertex.Key);
                 bellFordResult.Add(vertex.Key, result.Length);
             }
 

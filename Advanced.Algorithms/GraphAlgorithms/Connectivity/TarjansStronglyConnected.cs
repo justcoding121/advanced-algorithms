@@ -45,11 +45,11 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
         /// </summary>
         /// <param name="currentVertex"></param>
         /// <param name="result"></param>
-        /// <param name="discovery"></param>
         /// <param name="discoveryTimeMap"></param>
         /// <param name="lowTimeMap"></param>
-        /// <param name="parent"></param>
+        /// <param name="pathStackMap"></param>
         /// <param name="discoveryTime"></param>
+        /// <param name="pathStack"></param>
         /// <returns></returns>
         private void DFS(DiGraphVertex<T> currentVertex,
              List<List<T>> result,
@@ -93,24 +93,25 @@ namespace Advanced.Algorithms.GraphAlgorithms.Connectivity
 
             //if low is high this means we reached head of the DFS tree with strong connectivity
             //now print items in the stack
-            if (lowTimeMap[currentVertex.Value] == discoveryTimeMap[currentVertex.Value])
+            if (lowTimeMap[currentVertex.Value] != discoveryTimeMap[currentVertex.Value])
             {
-                var strongConnected = new List<T>();
-                while (!pathStack.Peek().Equals(currentVertex.Value))
-                {
-                    var vertex = pathStack.Pop();
-                    strongConnected.Add(vertex);
-                    pathStackMap.Remove(vertex);
-                }
-
-                //add current vertex
-                var finalVertex = pathStack.Pop();
-                strongConnected.Add(finalVertex);
-                pathStackMap.Remove(finalVertex);
-
-                result.Add(strongConnected);
-
+                return;
             }
+
+            var strongConnected = new List<T>();
+            while (!pathStack.Peek().Equals(currentVertex.Value))
+            {
+                var vertex = pathStack.Pop();
+                strongConnected.Add(vertex);
+                pathStackMap.Remove(vertex);
+            }
+
+            //add current vertex
+            var finalVertex = pathStack.Pop();
+            strongConnected.Add(finalVertex);
+            pathStackMap.Remove(finalVertex);
+
+            result.Add(strongConnected);
         }
     }
 }

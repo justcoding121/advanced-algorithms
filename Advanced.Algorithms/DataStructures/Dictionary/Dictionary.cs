@@ -5,13 +5,13 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.DataStructures
 {
 
-    internal interface AsIDictionary<K, V> : IEnumerable<DictionaryNode<K, V>>
+    internal interface IDictionary<TK, TV> : IEnumerable<DictionaryNode<TK, TV>>
     {
-        V this[K key] { get; set; }
+        TV this[TK key] { get; set; }
 
-        bool ContainsKey(K key);
-        void Add(K key, V value);
-        void Remove(K key);
+        bool ContainsKey(TK key);
+        void Add(TK key, TV value);
+        void Remove(TK key);
         void Clear();
 
         int Count { get; }
@@ -19,12 +19,12 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// key-value set
     /// </summary>
-    public class DictionaryNode<K, V> 
+    public class DictionaryNode<TK, TV> 
     {
-        public K Key;
-        public V Value;
+        public TK Key;
+        public TV Value;
 
-        public DictionaryNode(K key, V value)
+        public DictionaryNode(TK key, TV value)
         {
             this.Key = key;
             this.Value = value;
@@ -41,13 +41,13 @@ namespace Advanced.Algorithms.DataStructures
     /// A hash table implementation (key value dictionary) with separate chaining
     /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
     /// </summary>
-    /// <typeparam name="K"></typeparam>
-    /// <typeparam name="V"></typeparam>
-    public class AsDictionary<K, V> : IEnumerable<DictionaryNode<K, V>> 
+    /// <typeparam name="TK"></typeparam>
+    /// <typeparam name="TV"></typeparam>
+    public class Dictionary<TK, TV> : IEnumerable<DictionaryNode<TK, TV>> 
     {
-        private AsIDictionary<K, V> Dictionary;
+        private readonly IDictionary<TK, TV> dictionary;
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public AsDictionary(DictionaryType type = DictionaryType.SeparateChaining, int initialBucketSize = 2)
+        public Dictionary(DictionaryType type = DictionaryType.SeparateChaining, int initialBucketSize = 2)
         {
             if (initialBucketSize < 2)
             {
@@ -56,40 +56,39 @@ namespace Advanced.Algorithms.DataStructures
             }
             if (type == DictionaryType.SeparateChaining)
             {
-                Dictionary = new SeparateChainingDictionary<K, V>(initialBucketSize);
+                dictionary = new SeparateChainingDictionary<TK, TV>(initialBucketSize);
             }
             else
             {
-                Dictionary = new OpenAddressDictionary<K, V>(initialBucketSize);
+                dictionary = new OpenAddressDictionary<TK, TV>(initialBucketSize);
             }
         }
 
-        public int Count => Dictionary.Count;
+        public int Count => dictionary.Count;
 
-        public V this[K key]
+        public TV this[TK key]
         {
-            get { return Dictionary[key]; }
-            set { Dictionary[key] = value; }
-
+            get => dictionary[key];
+            set => dictionary[key] = value;
         }
 
         //O(1) time complexity; worst case O(n)
-        public bool ContainsKey(K key)
+        public bool ContainsKey(TK key)
         {
-            return Dictionary.ContainsKey(key);
+            return dictionary.ContainsKey(key);
         }
 
         //O(1) time complexity; worst case O(n)
         //add an item to this hash table
-        public void Add(K key, V value)
+        public void Add(TK key, TV value)
         {
-            Dictionary.Add(key, value);
+            dictionary.Add(key, value);
         }
 
         //O(1) time complexity; worst case O(n)
-        public void Remove(K key)
+        public void Remove(TK key)
         {
-            Dictionary.Remove(key);
+            dictionary.Remove(key);
         }
 
         /// <summary>
@@ -97,20 +96,19 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Clear()
         {
-            Dictionary.Clear();
+            dictionary.Clear();
         }
 
         //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return Dictionary.GetEnumerator();
+            return dictionary.GetEnumerator();
         }
 
-        public IEnumerator<DictionaryNode<K, V>> GetEnumerator()
+        public IEnumerator<DictionaryNode<TK, TV>> GetEnumerator()
         {
-            return Dictionary.GetEnumerator();
+            return dictionary.GetEnumerator();
         }
-
     }
 
 }

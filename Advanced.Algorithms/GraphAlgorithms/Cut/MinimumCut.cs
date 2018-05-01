@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cut
     /// <typeparam name="W"></typeparam>
     public class MinCut<T, W> where W : IComparable
     {
-        IFlowOperators<W> operators;
+        readonly IFlowOperators<W> operators;
         public MinCut(IFlowOperators<W> operators)
         {
             this.operators = operators;
@@ -37,13 +37,13 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cut
             var edmondsKarpMaxFlow = new EdmondKarpMaxFlow<T, W>(operators);
 
             var maxFlowResidualGraph = edmondsKarpMaxFlow
-                .ComputeMaxFlowAndReturnResidualGraph(graph, source, sink);
+                .computeMaxFlowAndReturnResidualGraph(graph, source, sink);
 
             //according to Min Max theory
             //the Min Cut can be obtained by Finding edges 
             //from Reachable Vertices from Source
             //to unreachable vertices in residual graph
-            var reachableVertices = GetReachable(graph, maxFlowResidualGraph, source);
+            var reachableVertices = getReachable(maxFlowResidualGraph, source);
 
             var result = new List<MinCutEdge<T>>();
 
@@ -68,13 +68,12 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cut
         /// <param name="residualGraph"></param>
         /// <param name="source"></param>
         /// <returns></returns>
-        public HashSet<T> GetReachable(WeightedDiGraph<T, W> graph,
-            WeightedDiGraph<T, W> residualGraph,
+        private HashSet<T> getReachable(WeightedDiGraph<T, W> residualGraph,
             T source)
         {
             var visited = new HashSet<T>();
 
-            DFS(graph, residualGraph.Vertices[source], visited);
+            dfs(residualGraph.Vertices[source], visited);
 
             return visited;
         }
@@ -82,25 +81,23 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cut
         /// <summary>
         /// Recursive DFS
         /// </summary>
-        /// <param name="currentResidualGraphVertex"></param>
-        /// <param name="visited"></param>
-        /// <param name="searchVetex"></param>
         /// <returns></returns>
-        private void DFS(WeightedDiGraph<T, W> graph,
-            WeightedDiGraphVertex<T, W> currentResidualGraphVertex,
+        private void dfs(WeightedDiGraphVertex<T, W> currentResidualGraphVertex,
             HashSet<T> visited)
         {
             visited.Add(currentResidualGraphVertex.Value);
 
             foreach (var edge in currentResidualGraphVertex.OutEdges)
             {
-                if (!visited.Contains(edge.Key.Value))
+                if (visited.Contains(edge.Key.Value))
                 {
-                    //reachable only if +ive weight (unsaturated edge)
-                    if (edge.Value.CompareTo(operators.defaultWeight) != 0)
-                    {
-                        DFS(graph, edge.Key, visited);
-                    }
+                    continue;
+                }
+
+                //reachable only if +ive weight (unsaturated edge)
+                if (edge.Value.CompareTo(operators.defaultWeight) != 0)
+                {
+                    dfs(edge.Key, visited);
                 }
 
             }

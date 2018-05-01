@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.GraphAlgorithms
     /// <typeparam name="T"></typeparam>
     public class BellmanFordShortestPath<T, W> where W : IComparable
     {
-        IShortestPathOperators<W> operators;
+        readonly IShortestPathOperators<W> operators;
         public BellmanFordShortestPath(IShortestPathOperators<W> operators)
         {
             this.operators = operators;
@@ -53,22 +53,24 @@ namespace Advanced.Algorithms.GraphAlgorithms
                 foreach (var vertex in graph.Vertices)
                 {
                     //skip not discovered nodes
-                    if (!progress[vertex.Key].Equals(operators.MaxValue))
+                    if (progress[vertex.Key].Equals(operators.MaxValue))
                     {
-                        foreach (var edge in vertex.Value.OutEdges)
+                        continue;
+                    }
+
+                    foreach (var edge in vertex.Value.OutEdges)
+                    {
+                        var currentDistance = progress[edge.Key.Value];
+                        var newDistance = operators.Sum(progress[vertex.Key],
+                            vertex.Value.OutEdges[edge.Key]);
+
+                        if (newDistance.CompareTo(currentDistance) < 0)
                         {
-                            var currentDistance = progress[edge.Key.Value];
-                            var newDistance = operators.Sum(progress[vertex.Key],
-                                                    vertex.Value.OutEdges[edge.Key]);
-
-                            if (newDistance.CompareTo(currentDistance) < 0)
-                            {
-                                updated = true;
-                                progress[edge.Key.Value] = newDistance;
-                                parentMap[edge.Key.Value] = vertex.Key;
-                            }
-
+                            updated = true;
+                            progress[edge.Key.Value] = newDistance;
+                            parentMap[edge.Key.Value] = vertex.Key;
                         }
+
                     }
                 }
 
@@ -114,7 +116,7 @@ namespace Advanced.Algorithms.GraphAlgorithms
                 resultPath.Add(pathStack.Pop());
             }
 
-            for (int i = 0; i < resultPath.Count - 1; i++)
+            for (var i = 0; i < resultPath.Count - 1; i++)
             {
                 resultLength = operators.Sum(resultLength,
                     graph.Vertices[resultPath[i]].OutEdges[graph.Vertices[resultPath[i + 1]]]);

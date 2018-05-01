@@ -1,56 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Geometry
 {
     //Only A & D is required to represent a Rectangle
     public struct Rectangle
     {
-        public Point leftTopCorner { get; set; }
-        public Point rightBottomCorner { get; set; }
+        public Point LeftTopCorner { get; set; }
+        public Point RightBottomCorner { get; set; }
     }
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/find-two-rectangles-overlap/
-    /// </summary>
+
     public class RectangleIntersection
     {
         /// <summary>
         /// Returns the rectangle formed by the intersection if do intersect
         /// Otherwise default value of Rectangle struct
         /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
         /// <returns></returns>
-        public static Rectangle FindIntersection(Rectangle A, Rectangle B)
+        public static Rectangle FindIntersection(Rectangle a, Rectangle b)
         {
             //check for intersection
-            if (A.leftTopCorner.x > B.rightBottomCorner.x // A is right of B   
-             || A.rightBottomCorner.x < B.leftTopCorner.x // A is left of B
-             || A.rightBottomCorner.y > B.leftTopCorner.y //A is above B
-             || A.leftTopCorner.y < B.rightBottomCorner.y)//A is below B
+            if (a.LeftTopCorner.x > b.RightBottomCorner.x // A is right of B   
+             || a.RightBottomCorner.x < b.LeftTopCorner.x // A is left of B
+             || a.RightBottomCorner.y > b.LeftTopCorner.y //A is above B
+             || a.LeftTopCorner.y < b.RightBottomCorner.y)//A is below B
             {
                 //no intersection
                 return default(Rectangle);
             }
 
-            var leftTopCorner = new Point();
+            var leftTopCorner = new Point
+            {
+                x = Math.Max(a.LeftTopCorner.x, b.LeftTopCorner.x),
+                y = Math.Min(a.LeftTopCorner.y, b.LeftTopCorner.y)
+            };
 
-            leftTopCorner.x = Math.Max(A.leftTopCorner.x, B.leftTopCorner.x);
-            leftTopCorner.y = Math.Min(A.leftTopCorner.y, B.leftTopCorner.y);
 
-            var rightBottomCorner = new Point();
+            var rightBottomCorner = new Point
+            {
+                x = Math.Min(a.RightBottomCorner.x, b.RightBottomCorner.x),
+                y = Math.Max(a.RightBottomCorner.y, b.RightBottomCorner.y)
+            };
 
-            rightBottomCorner.x = Math.Min(A.rightBottomCorner.x, B.rightBottomCorner.x);
-            rightBottomCorner.y = Math.Max(A.rightBottomCorner.y, B.rightBottomCorner.y);
 
             return new Rectangle()
             {
-                leftTopCorner = leftTopCorner,
-                rightBottomCorner = rightBottomCorner
+                LeftTopCorner = leftTopCorner,
+                RightBottomCorner = rightBottomCorner
             };
         }
     }

@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
     /// <typeparam name="W"></typeparam>
     public class PushRelabelMaxFlow<T, W> where W : IComparable
     {
-        IFlowOperators<W> operators;
+        readonly IFlowOperators<W> operators;
         public PushRelabelMaxFlow(IFlowOperators<W> operators)
         {
             this.operators = operators;
@@ -68,19 +68,19 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
 
             }
 
-            var overflowVertex = FindOverflowVertex(vertexStatusMap, source, sink);
+            var overflowVertex = findOverflowVertex(vertexStatusMap, source, sink);
             
             //until there is not more overflow vertices
             while (!overflowVertex.Equals(default(T)))
             {
                 //if we can't push this vertex
-                if (!Push(residualGraph.Vertices[overflowVertex], vertexStatusMap))
+                if (!push(residualGraph.Vertices[overflowVertex], vertexStatusMap))
                 {
                     //increase its height and try again
-                    Relabel(residualGraph.Vertices[overflowVertex], vertexStatusMap);
+                    relabel(residualGraph.Vertices[overflowVertex], vertexStatusMap);
                 }
 
-                overflowVertex = FindOverflowVertex(vertexStatusMap, source, sink);
+                overflowVertex = findOverflowVertex(vertexStatusMap, source, sink);
             }
 
             //overflow of sink will be the net flow
@@ -92,7 +92,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
         /// </summary>
         /// <param name="vertex"></param>
         /// <param name="vertexStatusMap"></param>
-        private void Relabel(WeightedDiGraphVertex<T, W> vertex, 
+        private void relabel(WeightedDiGraphVertex<T, W> vertex, 
             Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
             var min = int.MaxValue;
@@ -121,7 +121,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
         /// <param name="overflowVertex"></param>
         /// <param name="vertexStatusMap"></param>
         /// <returns></returns>
-        private bool Push(WeightedDiGraphVertex<T, W> overflowVertex, 
+        private bool push(WeightedDiGraphVertex<T, W> overflowVertex, 
             Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
             var overflow = vertexStatusMap[overflowVertex.Value].Overflow;
@@ -133,16 +133,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
                     && vertexStatusMap[edge.Key.Value].Height 
                        < vertexStatusMap[overflowVertex.Value].Height)
                 {
-                    var possibleWeightToPush = operators.defaultWeight;
-
-                    if(edge.Value.CompareTo(overflow) < 0)
-                    {
-                        possibleWeightToPush = edge.Value;
-                    }
-                    else
-                    {
-                        possibleWeightToPush = overflow;
-                    }
+                    var possibleWeightToPush = edge.Value.CompareTo(overflow) < 0 ? edge.Value : overflow;
 
                     //decrement overflow
                     vertexStatusMap[overflowVertex.Value].Overflow = 
@@ -173,7 +164,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        private T FindOverflowVertex(Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap,
+        private T findOverflowVertex(Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap,
             T source, T sink)
         {
             foreach(var vertexStatus in vertexStatusMap)
@@ -188,20 +179,6 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
 
             return default(T);
         }
-
-        /// <summary>
-        /// Return all flow Paths
-        /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="source"></param>
-        /// <param name="sink"></param>
-        /// <returns></returns>
-        public List<List<T>> ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W> graph,
-            T source, T sink)
-        {
-            throw new NotImplementedException();
-        }
-
 
         /// <summary>
         /// clones this graph and creates a residual graph

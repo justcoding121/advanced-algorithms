@@ -30,7 +30,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.ShortestPath
     }
     public class FloydWarshallShortestPath<T, W> where W : IComparable
     {
-        IShortestPathOperators<W> operators;
+        readonly IShortestPathOperators<W> operators;
         public FloydWarshallShortestPath(IShortestPathOperators<W> operators)
         {
             this.operators = operators;
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.ShortestPath
             //since array indices are int and T is unknown type
             var vertexIndex = new Dictionary<int, T>();
             var reverseVertexIndex = new Dictionary<T, int>();
-            int i = 0;
+            var i = 0;
             foreach (var vertex in graph.Vertices)
             {
                 vertexIndex.Add(i, vertex.Key);
@@ -96,11 +96,13 @@ namespace Advanced.Algorithms.GraphAlgorithms.ShortestPath
 
                         var sum = operators.Sum(result[i, k], result[k, j]);
 
-                        if (sum.CompareTo(result[i, j]) < 0)
+                        if (sum.CompareTo(result[i, j]) >= 0)
                         {
-                            result[i, j] = sum;
-                            parent[i, j] = parent[k, j];
+                            continue;
                         }
+
+                        result[i, j] = sum;
+                        parent[i, j] = parent[k, j];
                     }
                 }
             }

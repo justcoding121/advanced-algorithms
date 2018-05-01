@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.DataStructures.Heap
 {
@@ -21,12 +17,12 @@ namespace Advanced.Algorithms.DataStructures.Heap
 
         public FibornacciHeapNode(T value)
         {
-            this.Value = value;
+            Value = value;
         }
 
         public int CompareTo(object obj)
         {
-            return this.Value.CompareTo((obj as FibornacciHeapNode<T>).Value);
+            return Value.CompareTo(((FibornacciHeapNode<T>) obj).Value);
         }
     }
 

@@ -1,5 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Advanced.Algorithms.DataStructures.Heap.Max;
+﻿using Advanced.Algorithms.DataStructures.Heap.Max;
 using Advanced.Algorithms.DataStructures.Heap.Min;
 
 namespace Advanced.Algorithms.NumericalMethods
@@ -32,8 +31,6 @@ namespace Advanced.Algorithms.NumericalMethods
                 {
                     rightHeap.Insert(newValue);
                 }
-
-                return;
             }
             //left has more elements
             else if (leftHeap.Count > rightHeap.Count)
@@ -88,13 +85,9 @@ namespace Advanced.Algorithms.NumericalMethods
             }
 
             //pick left top if left heap has greater count
-            if (leftHeap.Count > rightHeap.Count)
-            {
-                return leftHeap.PeekMax();
-            }
+            return leftHeap.Count > rightHeap.Count ? leftHeap.PeekMax() : rightHeap.PeekMin();
 
             //pick right top otherwise
-            return rightHeap.PeekMin();
         }
     }
 }

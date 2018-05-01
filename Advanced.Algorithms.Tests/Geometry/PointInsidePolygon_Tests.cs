@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Tests.Geometry
 {
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/how-to-check-if-a-given-point-lies-inside-a-polygon/
-    /// </summary>
+
     [TestClass]
     public class PointInsidePolygon_Tests
     {

@@ -5,11 +5,11 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.DataStructures
 {
 
-    internal interface IHashSet<V> : IEnumerable<HashSetNode<V>>
+    internal interface IHashSet<TV> : IEnumerable<HashSetNode<TV>>
     {
-        bool Contains(V value);
-        void Add(V value);
-        void Remove(V key);
+        bool Contains(TV value);
+        void Add(TV value);
+        void Remove(TV key);
         void Clear();
 
         int Count { get; }
@@ -17,11 +17,11 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// key-value set
     /// </summary>
-    public class HashSetNode<V> 
+    public class HashSetNode<TV> 
     {
-        public V Value;
+        public TV Value;
 
-        public HashSetNode(V value)
+        public HashSetNode(TV value)
         {
             this.Value = value;
         }
@@ -38,12 +38,12 @@ namespace Advanced.Algorithms.DataStructures
     /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
     /// </summary>
     /// <typeparam name="K"></typeparam>
-    /// <typeparam name="V"></typeparam>
-    public class AsHashSet<V> : IEnumerable<HashSetNode<V>> 
+    /// <typeparam name="TV"></typeparam>
+    public class HashSet<TV> : IEnumerable<HashSetNode<TV>> 
     {
-        private IHashSet<V> HashSet;
+        private readonly IHashSet<TV> hashSet;
         //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public AsHashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)
+        public HashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)
         {
             if (initialBucketSize < 2)
             {
@@ -52,34 +52,34 @@ namespace Advanced.Algorithms.DataStructures
             }
             if (type == HashSetType.SeparateChaining)
             {
-                HashSet = new SeparateChainingHashSet<V>(initialBucketSize);
+                hashSet = new SeparateChainingHashSet<TV>(initialBucketSize);
             }
             else
             {
-                HashSet = new OpenAddressHashSet<V>(initialBucketSize);
+                hashSet = new OpenAddressHashSet<TV>(initialBucketSize);
             }
         }
 
-        public int Count => HashSet.Count;
+        public int Count => hashSet.Count;
 
 
         //O(1) time complexity; worst case O(n)
-        public bool Contains(V value)
+        public bool Contains(TV value)
         {
-            return HashSet.Contains(value);
+            return hashSet.Contains(value);
         }
 
         //O(1) time complexity; worst case O(n)
         //add an item to this hash table
-        public void Add(V value)
+        public void Add(TV value)
         {
-            HashSet.Add(value);
+            hashSet.Add(value);
         }
 
         //O(1) time complexity; worst case O(n)
-        public void Remove(V value)
+        public void Remove(TV value)
         {
-            HashSet.Remove(value);
+            hashSet.Remove(value);
         }
 
         /// <summary>
@@ -87,18 +87,18 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Clear()
         {
-            HashSet.Clear();
+            hashSet.Clear();
         }
 
         //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return HashSet.GetEnumerator();
+            return hashSet.GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<V>> GetEnumerator()
+        public IEnumerator<HashSetNode<TV>> GetEnumerator()
         {
-            return HashSet.GetEnumerator();
+            return hashSet.GetEnumerator();
         }
 
     }

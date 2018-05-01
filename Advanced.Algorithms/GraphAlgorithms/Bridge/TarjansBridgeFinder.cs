@@ -30,7 +30,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Bridge
         public List<Bridge<T>> FindBridges(Graph<T> graph)
         {
             int visitTime = 0;
-            return DFS(graph.ReferenceVertex, new List<Bridge<T>>(),
+            return dfs(graph.ReferenceVertex, new List<Bridge<T>>(),
                 new Dictionary<T, int>(), new Dictionary<T, int>(),
                 new Dictionary<T, T>(),
                 ref visitTime);
@@ -42,13 +42,12 @@ namespace Advanced.Algorithms.GraphAlgorithms.Bridge
         /// </summary>
         /// <param name="currentVertex"></param>
         /// <param name="result"></param>
-        /// <param name="discovery"></param>
         /// <param name="discoveryTimeMap"></param>
         /// <param name="lowTimeMap"></param>
         /// <param name="parent"></param>
         /// <param name="discoveryTime"></param>
         /// <returns></returns>
-        private List<Bridge<T>> DFS(GraphVertex<T> currentVertex,
+        private List<Bridge<T>> dfs(GraphVertex<T> currentVertex,
              List<Bridge<T>> result,
              Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
              Dictionary<T, T> parent, ref int discoveryTime)
@@ -58,17 +57,15 @@ namespace Advanced.Algorithms.GraphAlgorithms.Bridge
             lowTimeMap.Add(currentVertex.Value, discoveryTime);
 
             //discovery childs in this iteration
-            var discoveryChildCount = 0;
 
             foreach (var edge in currentVertex.Edges)
             {
                 if (!discoveryTimeMap.ContainsKey(edge.Value))
                 {
-                    discoveryChildCount++;
                     parent.Add(edge.Value, currentVertex.Value);
 
                     discoveryTime++;
-                    DFS(edge, result,
+                    dfs(edge, result,
                                 discoveryTimeMap, lowTimeMap, parent, ref discoveryTime);
 
                     //propogate lowTime index of neighbour so that ancestors can see check for back edge

@@ -19,19 +19,21 @@ namespace Advanced.Algorithms.NumericalMethods
             for (int i = 2; i < sqrt; i++)
             {
                 //mark multiples of current number as true
-                if (!primeTable[i])
+                if (primeTable[i])
                 {
-                    for (int j = 2 * i; j <= max; j = j + i)
-                    {
-                        primeTable[j] = true;
-                    }
+                    continue;
+                }
+
+                for (var j = 2 * i; j <= max; j = j + i)
+                {
+                    primeTable[j] = true;
                 }
             }
 
             //now write back results
             var result = new List<int>();
 
-            for (int i = 2; i < primeTable.Length; i++)
+            for (var i = 2; i < primeTable.Length; i++)
             {
                 if (!primeTable[i])
                 {

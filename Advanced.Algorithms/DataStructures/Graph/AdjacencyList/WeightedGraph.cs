@@ -8,17 +8,17 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// A weighted graph vertex
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    public class WeightedGraphVertex<T, W> where W : IComparable
+    /// <typeparam name="TW"></typeparam>
+    public class WeightedGraphVertex<T, TW> where TW : IComparable
     {
         public T Value { get; private set; }
 
-        public Dictionary<WeightedGraphVertex<T, W>, W> Edges { get; set; }
+        public System.Collections.Generic.Dictionary<WeightedGraphVertex<T, TW>, TW> Edges { get; set; }
 
         public WeightedGraphVertex(T value)
         {
             Value = value;
-            Edges = new Dictionary<WeightedGraphVertex<T, W>, W>();
+            Edges = new System.Collections.Generic.Dictionary<WeightedGraphVertex<T, TW>, TW>();
 
         }
 
@@ -29,18 +29,18 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// A weighted graph implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    public class WeightedGraph<T, W> where W : IComparable
+    /// <typeparam name="TW"></typeparam>
+    public class WeightedGraph<T, TW> where TW : IComparable
     {
         public int VerticesCount => Vertices.Count;
-        internal Dictionary<T, WeightedGraphVertex<T, W>> Vertices { get; set; }
+        internal System.Collections.Generic.Dictionary<T, WeightedGraphVertex<T, TW>> Vertices { get; set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public WeightedGraph()
         {
-            Vertices = new Dictionary<T, WeightedGraphVertex<T, W>>();
+            Vertices = new System.Collections.Generic.Dictionary<T, WeightedGraphVertex<T, TW>>();
         }
 
 
@@ -48,7 +48,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// return a reference vertex  to start traversing Vertices
         /// O(1) complexity
         /// </summary>
-        public WeightedGraphVertex<T, W> ReferenceVertex
+        public WeightedGraphVertex<T, TW> ReferenceVertex
         {
             get
             {
@@ -71,14 +71,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public WeightedGraphVertex<T, W> AddVertex(T value)
+        public WeightedGraphVertex<T, TW> AddVertex(T value)
         {
             if (value == null)
             {
                 throw new ArgumentNullException();
             }
 
-            var newVertex = new WeightedGraphVertex<T, W>(value);
+            var newVertex = new WeightedGraphVertex<T, TW>(value);
 
             Vertices.Add(value, newVertex);
 
@@ -119,7 +119,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// <param name="source"></param>
         /// <param name="dest"></param>
         /// <param name="weight"></param>
-        public void AddEdge(T source, T dest, W weight)
+        public void AddEdge(T source, T dest, TW weight)
         {
             if (source == null || dest == null)
             {
@@ -185,14 +185,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
 
-        public List<Tuple<T, W>> GetAllEdges(T vertex)
+        public List<Tuple<T, TW>> GetAllEdges(T vertex)
         {
             if (!Vertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].Edges.Select(x => new Tuple<T, W>(x.Key.Value, x.Value)).ToList();
+            return Vertices[vertex].Edges.Select(x => new Tuple<T, TW>(x.Key.Value, x.Value)).ToList();
         }
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public WeightedGraphVertex<T, W> FindVertex(T value)
+        public WeightedGraphVertex<T, TW> FindVertex(T value)
         {
             if (Vertices.ContainsKey(value))
             {

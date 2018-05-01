@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
     /// <typeparam name="W"></typeparam>
     public class EdmondKarpMaxFlow<T, W> where W : IComparable
     {
-        IFlowOperators<W> operators;
+        readonly IFlowOperators<W> operators;
         public EdmondKarpMaxFlow(IFlowOperators<W> operators)
         {
             this.operators = operators;
@@ -33,14 +33,14 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
         {
             var residualGraph = createResidualGraph(graph);
 
-            List<T> path = BFS(residualGraph, source, sink);
+            var path = bfs(residualGraph, source, sink);
 
             var result = operators.defaultWeight;
 
             while (path != null)
             {
-                result = operators.AddWeights(result, AugmentResidualGraph(graph, residualGraph, path));
-                path = BFS(residualGraph, source, sink);
+                result = operators.AddWeights(result, augmentResidualGraph(graph, residualGraph, path));
+                path = bfs(residualGraph, source, sink);
             }
 
             return result;
@@ -56,19 +56,19 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns>Residual Graph</returns>
-        public WeightedDiGraph<T, W> ComputeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W> graph,
+        public WeightedDiGraph<T, W> computeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
             var residualGraph = createResidualGraph(graph);
 
-            List<T> path = BFS(residualGraph, source, sink);
+            var path = bfs(residualGraph, source, sink);
 
             var result = operators.defaultWeight;
 
             while (path != null)
             {
-                result = operators.AddWeights(result, AugmentResidualGraph(graph, residualGraph, path));
-                path = BFS(residualGraph, source, sink);
+                result = operators.AddWeights(result, augmentResidualGraph(graph, residualGraph, path));
+                path = bfs(residualGraph, source, sink);
             }
 
             return residualGraph;
@@ -86,7 +86,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
         {
             var residualGraph = createResidualGraph(graph);
 
-            List<T> path = BFS(residualGraph, source, sink);
+            var path = bfs(residualGraph, source, sink);
             
             var flow = operators.defaultWeight;
 
@@ -94,8 +94,8 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
             while (path != null)
             {
                 result.Add(path);
-                flow = operators.AddWeights(flow, AugmentResidualGraph(graph, residualGraph, path));
-                path = BFS(residualGraph, source, sink);
+                flow = operators.AddWeights(flow, augmentResidualGraph(graph, residualGraph, path));
+                path = bfs(residualGraph, source, sink);
             }
 
             return result;
@@ -108,17 +108,17 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
         /// <param name="residualGraph"></param>
         /// <param name="path"></param>
         /// <returns></returns>
-        private W AugmentResidualGraph(WeightedDiGraph<T, W> graph,
+        private W augmentResidualGraph(WeightedDiGraph<T, W> graph,
             WeightedDiGraph<T, W> residualGraph, List<T> path)
         {
             var min = operators.MaxWeight;
 
             for (int i = 0; i < path.Count - 1; i++)
             {
-                var vertex_1 = residualGraph.FindVertex(path[i]);
-                var vertex_2 = residualGraph.FindVertex(path[i + 1]);
+                var vertex1 = residualGraph.FindVertex(path[i]);
+                var vertex2 = residualGraph.FindVertex(path[i + 1]);
 
-                var edgeValue = vertex_1.OutEdges[vertex_2];
+                var edgeValue = vertex1.OutEdges[vertex2];
 
                 if (min.CompareTo(edgeValue) > 0)
                 {
@@ -151,7 +151,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
         /// <param name="source"></param>
         /// <param name="sink"></param>
         /// <returns></returns>
-        private List<T> BFS(WeightedDiGraph<T, W> residualGraph, T source, T sink)
+        private List<T> bfs(WeightedDiGraph<T, W> residualGraph, T source, T sink)
         {
             //init parent lookup table to trace path
             var parentLookUp = new Dictionary<WeightedDiGraphVertex<T, W>, WeightedDiGraphVertex<T, W>>();
@@ -177,19 +177,17 @@ namespace Advanced.Algorithms.GraphAlgorithms.Flow
                 {
                     break;
                 }
-                else
+
+                foreach (var edge in currentVertex.OutEdges)
                 {
-                    foreach (var edge in currentVertex.OutEdges)
+                    //visit only if edge have available flow
+                    if (!visited.Contains(edge.Key)
+                        && edge.Value.CompareTo(operators.defaultWeight) > 0)
                     {
-                        //visit only if edge have available flow
-                        if (!visited.Contains(edge.Key)
-                            && edge.Value.CompareTo(operators.defaultWeight) > 0)
-                        {
-                            //keep track of this to trace out path once sink is found
-                            parentLookUp[edge.Key] = currentVertex;
-                            queue.Enqueue(edge.Key);
-                            visited.Add(edge.Key);                       
-                        }
+                        //keep track of this to trace out path once sink is found
+                        parentLookUp[edge.Key] = currentVertex;
+                        queue.Enqueue(edge.Key);
+                        visited.Add(edge.Key);                       
                     }
                 }
             }

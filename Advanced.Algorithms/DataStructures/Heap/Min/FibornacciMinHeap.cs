@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             var newNode = new FibornacciHeapNode<T>(newItem);
 
             //return pointer to new Node
-            MergeForests(newNode);
+            mergeForests(newNode);
 
             if (minNode == null)
             {
@@ -54,7 +54,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             }
 
             //degree - node dictionary
-            var mergeDictionary = new Dictionary<int, FibornacciHeapNode<T>>();
+            var mergeDictionary = new System.Collections.Generic.Dictionary<int, FibornacciHeapNode<T>>();
 
             var current = heapForestHead;
             minNode = current;
@@ -65,9 +65,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
                 //no same degree already in merge dictionary
                 //add to hash table
                 if (!mergeDictionary.ContainsKey(current.Degree))
-                {
-                  
-
+                {                 
                     mergeDictionary.Add(current.Degree, current);
 
                     if (minNode == current)
@@ -75,10 +73,9 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
                         minNode = null;
                     }
 
-                    DeleteNode(ref heapForestHead, current);
+                    deleteNode(ref heapForestHead, current);
 
                     current = next;
-                    continue;
                 }
                 //insert back to forest by merging current tree 
                 //with existing tree in merge dictionary
@@ -91,15 +88,15 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
                     {
                         current.Parent = existing;
 
-                        DeleteNode(ref heapForestHead, current);
+                        deleteNode(ref heapForestHead, current);
 
                         var childHead = existing.ChildrenHead;
-                        InsertNode(ref childHead, current);
+                        insertNode(ref childHead, current);
                         existing.ChildrenHead = childHead;
 
                         existing.Degree++;
 
-                        InsertNode(ref heapForestHead, existing);
+                        insertNode(ref heapForestHead, existing);
                         current = existing;
                         current.Next = next;
 
@@ -109,7 +106,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
                         existing.Parent = current;
 
                         var childHead = current.ChildrenHead;
-                        InsertNode(ref childHead, existing);
+                        insertNode(ref childHead, existing);
                         current.ChildrenHead = childHead;
 
                         current.Degree++;
@@ -133,7 +130,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             {
                 foreach (var node in mergeDictionary)
                 {
-                    InsertNode(ref heapForestHead, node.Value);
+                    insertNode(ref heapForestHead, node.Value);
 
                     if (minNode == null
                         || minNode.Value.CompareTo(node.Value.Value) > 0)
@@ -160,9 +157,9 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             var minValue = minNode.Value;
 
             //remove tree root
-            DeleteNode(ref heapForestHead, minNode);
+            deleteNode(ref heapForestHead, minNode);
 
-            MergeForests(minNode.ChildrenHead);
+            mergeForests(minNode.ChildrenHead);
             Meld();
 
             Count--;
@@ -175,7 +172,6 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// Update the Heap with new value for this node pointer
         /// O(1) complexity amortized
         /// </summary>
-        /// <param name="key"></param>
         public void DecrementKey(FibornacciHeapNode<T> node)
         {
 
@@ -187,31 +183,33 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
 
             var current = node;
 
-            if (current.Parent != null
-                && current.Value.CompareTo(current.Parent.Value) < 0)
+            if (current.Parent == null || current.Value.CompareTo(current.Parent.Value) >= 0)
             {
+                return;
+            }
 
-                var parent = current.Parent;
+            var parent = current.Parent;
 
-                //if parent already lost one child
-                //then cut current and parent
-                if (parent.LostChild)
+            //if parent already lost one child
+            //then cut current and parent
+            if (parent.LostChild)
+            {
+                parent.LostChild = false;
+
+                var grandParent = parent.Parent;
+
+                //mark grand parent
+                if (grandParent == null)
                 {
-                    parent.LostChild = false;
-
-                    var grandParent = parent.Parent;
-
-                    //mark grand parent
-                    if (grandParent != null)
-                    {
-                        Cut(parent);
-                        Cut(current);
-                    }
+                    return;
                 }
-                else
-                {
-                    Cut(current);
-                }
+
+                cut(parent);
+                cut(current);
+            }
+            else
+            {
+                cut(current);
             }
 
         }
@@ -219,14 +217,14 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// Delete this node from Heap Tree and adds it to forest as a new tree 
         /// </summary>
         /// <param name="node"></param>
-        private void Cut(FibornacciHeapNode<T> node)
+        private void cut(FibornacciHeapNode<T> node)
         {
             var parent = node.Parent;
 
             //cut child and attach to heap Forest
             //and mark parent for lost child
             var childHead = node.Parent.ChildrenHead;
-            DeleteNode(ref childHead, node);
+            deleteNode(ref childHead, node);
             node.Parent.ChildrenHead = childHead;
 
             node.Parent.Degree--;
@@ -237,7 +235,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             node.LostChild = false;
             node.Parent = null;
 
-            InsertNode(ref heapForestHead, node);
+            insertNode(ref heapForestHead, node);
 
             //update min
             if (minNode.Value.CompareTo(node.Value) > 0)
@@ -254,7 +252,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// <param name="FibornacciHeap"></param>
         public void Union(FibornacciMinHeap<T> FibornacciHeap)
         {
-            MergeForests(FibornacciHeap.heapForestHead);
+            mergeForests(FibornacciHeap.heapForestHead);
             Count = Count + FibornacciHeap.Count;
         }
 
@@ -262,19 +260,19 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// Merges the given fibornacci node list to current Forest 
         /// </summary>
         /// <param name="headPointer"></param>
-        private void MergeForests(FibornacciHeapNode<T> headPointer)
+        private void mergeForests(FibornacciHeapNode<T> headPointer)
         {
             var current = headPointer;
             while (current != null)
             {
                 var next = current.Next;
-                InsertNode(ref heapForestHead, current);
+                insertNode(ref heapForestHead, current);
                 current = next;
             }
 
         }
 
-        private void InsertNode(ref FibornacciHeapNode<T> head, FibornacciHeapNode<T> newNode)
+        private void insertNode(ref FibornacciHeapNode<T> head, FibornacciHeapNode<T> newNode)
         {
             newNode.Next = newNode.Previous = null;
 
@@ -290,7 +288,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             head = newNode;
         }
 
-        private void DeleteNode(ref FibornacciHeapNode<T> heapForestHead, FibornacciHeapNode<T> deletionNode)
+        private void deleteNode(ref FibornacciHeapNode<T> heapForestHead, FibornacciHeapNode<T> deletionNode)
         {
             if (deletionNode == heapForestHead)
             {
@@ -316,7 +314,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             deletionNode.Previous = null;
         }
 
-        /// <summary>
+        /// <summary/>
         ///  O(1) complexity 
         /// <returns></returns>
         public T PeekMin()

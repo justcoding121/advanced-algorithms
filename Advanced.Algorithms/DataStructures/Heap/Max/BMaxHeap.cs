@@ -19,10 +19,11 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         {
             if (initial != null)
             {
-                var initArray = new T[initial.Count()];
+                var items = initial as T[] ?? initial.ToArray();
+                var initArray = new T[items.Count()];
 
                 int i = 0;
-                foreach (var item in initial)
+                foreach (var item in items)
                 {
                     initArray[i] = item;
                     i++;
@@ -48,7 +49,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
 
             while (i >= 0)
             {
-                BulkInitRecursive(i, initial);
+                bulkInitRecursive(i, initial);
                 i--;
             }
 
@@ -59,31 +60,35 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         /// Recursively 
         /// </summary>
         /// <param name="i"></param>
-        private void BulkInitRecursive(int i, T[] initial)
+        /// <param name="initial"></param>
+        private void bulkInitRecursive(int i, T[] initial)
         {
-            var parent = i;
-
-            var left = 2 * i + 1;
-            var right = 2 * i + 2;
-
-            var max = left < initial.Length && right < initial.Length ?
-                            initial[left].CompareTo(initial[right]) > 0 ? left : right
-                            : left < initial.Length ?
-                                left : right < initial.Length ?
-                                        right : -1;
-
-            if (max != -1
-                && initial[max].CompareTo(initial[parent]) > 0)
+            while (true)
             {
-                var temp = initial[max];
-                initial[max] = initial[parent];
-                initial[parent] = temp;
+                var parent = i;
 
-                //if min is child then drill down child
-                BulkInitRecursive(max, initial);
+                var left = 2 * i + 1;
+                var right = 2 * i + 2;
+
+                var max = left < initial.Length && right < initial.Length ? initial[left].CompareTo(initial[right]) > 0 ? left : right
+                    : left < initial.Length ? left
+                    : right < initial.Length ? right : -1;
+
+                if (max != -1 && initial[max].CompareTo(initial[parent]) > 0)
+                {
+                    var temp = initial[max];
+                    initial[max] = initial[parent];
+                    initial[parent] = temp;
+
+                    //if min is child then drill down child
+                    i = max;
+                    continue;
+                }
+
+                break;
             }
-
         }
+
         //o(log(n))
         public void Insert(T newItem)
         {
@@ -117,12 +122,12 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
             {
                 throw new Exception("Empty heap");
             }
-            var Max = heapArray[0];
+            var max = heapArray[0];
 
             heapArray[0] = heapArray[Count - 1];
             Count--;
 
-            int parentIndex = 0;
+            var parentIndex = 0;
 
             //percolate down
             while (true)
@@ -137,12 +142,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
                     var leftChild = heapArray[leftIndex];
                     var rightChild = heapArray[rightIndex];
 
-                    var leftIsMax = false;
-
-                    if (leftChild.CompareTo(rightChild) > 0)
-                    {
-                        leftIsMax = true;
-                    }
+                    bool leftIsMax = leftChild.CompareTo(rightChild) > 0;
 
                     var maxChildIndex = leftIsMax ? leftIndex : rightIndex;
 
@@ -209,7 +209,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
                 halfArray();
             }
 
-            return Max;
+            return max;
         }
 
         //o(1)
@@ -227,7 +227,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         {
             var smallerArray = new T[heapArray.Length / 2];
 
-            for (int i = 0; i < Count; i++)
+            for (var i = 0; i < Count; i++)
             {
                 smallerArray[i] = heapArray[i];
             }
@@ -239,7 +239,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
         {
             var biggerArray = new T[heapArray.Length * 2];
 
-            for (int i = 0; i < Count; i++)
+            for (var i = 0; i < Count; i++)
             {
                 biggerArray[i] = heapArray[i];
             }

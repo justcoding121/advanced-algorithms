@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Geometry
 {
-    /// <summary>
-    /// Problem details below
-    /// http://www.geeksforgeeks.org/closest-pair-of-points/
-    /// </summary>
+
     public class ClosestPointPair
     {
         public static double Find(List<int[]> points)
@@ -38,7 +33,7 @@ namespace Advanced.Algorithms.Geometry
 
             var strips = new List<Point>();
 
-            for (int i = left; i <= right; i++)
+            for (var i = left; i <= right; i++)
             {
                 if (Math.Abs(points[i].x - midX) < min)
                 {
@@ -49,9 +44,9 @@ namespace Advanced.Algorithms.Geometry
             //vertical strips within the radius of min
             strips = strips.OrderBy(p => p.y).ToList();
 
-            for (int i = 0; i < strips.Count; i++)
+            for (var i = 0; i < strips.Count; i++)
             {
-                for (int j = i + 1; j < strips.Count && Math.Abs(strips[i].y - strips[j].y) < min; j++)
+                for (var j = i + 1; j < strips.Count && Math.Abs(strips[i].y - strips[j].y) < min; j++)
                 {
                     //check for radius 
                     min = Math.Min(min, getDistance(strips[i], strips[j]));
@@ -63,12 +58,12 @@ namespace Advanced.Algorithms.Geometry
 
         }
 
-        private static double bruteForce(List<Point> points, int left, int right)
+        private static double bruteForce(IList<Point> points, int left, int right)
         {
             var min = double.MaxValue;
-            for (int i = left; i < right; i++)
+            for (var i = left; i < right; i++)
             {
-                for (int j = left + 1; j <= right; j++)
+                for (var j = left + 1; j <= right; j++)
                 {
                     min = Math.Min(min, getDistance(points[i], points[j]));
                 }

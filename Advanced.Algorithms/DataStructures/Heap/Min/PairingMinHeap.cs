@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         public PairingHeapNode<T> Insert(T newItem)
         {
             var newNode = new PairingHeapNode<T>(newItem);
-            Root = Meld(Root, newNode);
+            Root = meld(Root, newNode);
             Count++;
 
             return newNode;
@@ -30,7 +30,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         ///  Melds all the nodes to one single Root Node
         /// </summary>
         /// <param name="headNode"></param>
-        private void Meld(PairingHeapNode<T> headNode)
+        private void meld(PairingHeapNode<T> headNode)
         {
             if (headNode == null)
                 return;
@@ -58,13 +58,13 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
                     {
                         var next = current.Next;
                         var nextNext = next.Next;
-                        passOneResult.Add(Meld(current, next));
+                        passOneResult.Add(meld(current, next));
                         current = nextNext;
                     }
                     else
                     {
                         var lastInserted = passOneResult[passOneResult.Count - 1];
-                        passOneResult[passOneResult.Count - 1] = Meld(lastInserted, current);
+                        passOneResult[passOneResult.Count - 1] = meld(lastInserted, current);
                         break;
 
                     }
@@ -81,10 +81,10 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             }
 
 
-            for (int i = passOneResult.Count - 2; i >= 0; i--)
+            for (var i = passOneResult.Count - 2; i >= 0; i--)
             {
                 current = passOneResult[i];
-                passTwoResult = Meld(passTwoResult, current);
+                passTwoResult = meld(passTwoResult, current);
             }
 
             Root = passTwoResult;
@@ -95,11 +95,9 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// </summary>
         /// <param name="node1"></param>
         /// <param name="node2"></param>
-        private PairingHeapNode<T> Meld(PairingHeapNode<T> node1,
+        private PairingHeapNode<T> meld(PairingHeapNode<T> node1,
             PairingHeapNode<T> node2)
         {
-
-
             if (node2 != null)
             {
                 node2.Previous = null;
@@ -114,18 +112,15 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             node1.Previous = null;
             node1.Next = null;
 
-            if (node1.Value.CompareTo(node2.Value) <= 0)
+            if (node2 != null && node1.Value.CompareTo(node2.Value) <= 0)
             {
 
-                AddChild(ref node1, node2);
+                addChild(ref node1, node2);
                 return node1;
             }
-            else
-            {
 
-                AddChild(ref node2, node1);
-                return node2;
-            }
+            addChild(ref node2, node1);
+            return node2;
         }
 
         /// <summary>
@@ -135,7 +130,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         public T ExtractMin()
         {
             var min = Root;
-            Meld(Root.ChildrenHead);
+            meld(Root.ChildrenHead);
             Count--;
             return min.Value;
         }
@@ -149,9 +144,9 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             if (node == Root)
                 return;
 
-            DeleteChild(node);
+            deleteChild(node);
 
-            Root = Meld(Root, node);
+            Root = meld(Root, node);
         }
 
         /// <summary>
@@ -160,7 +155,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// <param name="PairingHeap"></param>
         public void Merge(PairingMinHeap<T> PairingHeap)
         {
-            Root = Meld(Root, PairingHeap.Root);
+            Root = meld(Root, PairingHeap.Root);
             Count = Count + PairingHeap.Count;
         }
 
@@ -181,7 +176,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// </summary>
         /// <param name="parent"></param>
         /// <param name="child"></param>
-        private void AddChild(ref PairingHeapNode<T> parent, PairingHeapNode<T> child)
+        private void addChild(ref PairingHeapNode<T> parent, PairingHeapNode<T> child)
         {
             if (parent.ChildrenHead == null)
             {
@@ -208,7 +203,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         /// delete node from parent
         /// </summary>
         /// <param name="node"></param>
-        private void DeleteChild(PairingHeapNode<T> node)
+        private void deleteChild(PairingHeapNode<T> node)
         {
             //if this node is the child head pointer of parent
             if (node.IsHeadChild)
@@ -235,8 +230,6 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             }
         }
 
-
     }
-
 
 }

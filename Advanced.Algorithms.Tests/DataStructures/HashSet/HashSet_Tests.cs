@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void HashSet_SeparateChaining_Test()
         {
-            var HashSet = new AsHashSet<int>(HashSetType.SeparateChaining);
+            var HashSet = new HashSet<int>(HashSetType.SeparateChaining);
             int nodeCount = 1000 * 10;
             //insert test
 
@@ -60,7 +60,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void HashSet_OpenAddressing_Test()
         {
-            var HashSet = new AsHashSet<int>(HashSetType.OpenAddressing);
+            var HashSet = new HashSet<int>(HashSetType.OpenAddressing);
             int nodeCount = 1000 * 10;
             //insert test
 

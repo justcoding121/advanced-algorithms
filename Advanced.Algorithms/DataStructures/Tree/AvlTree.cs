@@ -24,31 +24,9 @@ namespace Advanced.Algorithms.DataStructures
         internal int Height { get; set; }
 
         //exposed to do common tests for Binary Trees
-        IBSTNode<T> IBSTNode<T>.Left
-        {
-            get
-            {
-                return Left;
-            }
-
-        }
-
-        IBSTNode<T> IBSTNode<T>.Right
-        {
-            get
-            {
-                return Right;
-            }
-
-        }
-
-        T IBSTNode<T>.Value
-        {
-            get
-            {
-                return Value;
-            }
-        }
+        IBSTNode<T> IBSTNode<T>.Left => Left;
+        IBSTNode<T> IBSTNode<T>.Right => Right;
+        T IBSTNode<T>.Value => Value;
     }
 
     //TODO support bulk initial loading
@@ -66,7 +44,7 @@ namespace Advanced.Algorithms.DataStructures
                 return false;
             }
 
-            return Find(Root, value) != null;
+            return find(Root, value) != null;
         }
 
         //O(1)
@@ -97,7 +75,6 @@ namespace Advanced.Algorithms.DataStructures
         {
 
             var compareResult = node.Value.CompareTo(value);
-
 
             //node is less than the value so move right for insertion
             if (compareResult < 0)
@@ -130,8 +107,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             UpdateHeight(node);
-
-            Balance(node);
+            balance(node);
 
         }
 
@@ -258,7 +234,7 @@ namespace Advanced.Algorithms.DataStructures
                     //and then delete the left max node
                     else
                     {
-                        var maxLeftNode = FindMax(node.Left);
+                        var maxLeftNode = findMax(node.Left);
 
                         node.Value = maxLeftNode.Value;
 
@@ -271,12 +247,12 @@ namespace Advanced.Algorithms.DataStructures
             if (baseCase)
             {
                 UpdateHeight(node.Parent);
-                Balance(node.Parent);
+                balance(node.Parent);
             }
             else
             {
                 UpdateHeight(node);
-                Balance(node);
+                balance(node);
             }
 
 
@@ -284,51 +260,57 @@ namespace Advanced.Algorithms.DataStructures
 
         public T FindMax()
         {
-            return FindMax(Root).Value;
+            return findMax(Root).Value;
         }
 
 
-        private AVLTreeNode<T> FindMax(AVLTreeNode<T> node)
+        private AVLTreeNode<T> findMax(AVLTreeNode<T> node)
         {
-            if (node.Right == null)
+            while (true)
             {
-                return node;
-            }
+                if (node.Right == null)
+                {
+                    return node;
+                }
 
-            return FindMax(node.Right);
+                node = node.Right;
+            }
         }
 
         public T FindMin()
         {
-            return FindMin(Root).Value;
+            return findMin(Root).Value;
         }
 
-        private AVLTreeNode<T> FindMin(AVLTreeNode<T> node)
+        private AVLTreeNode<T> findMin(AVLTreeNode<T> node)
         {
-            if (node.Left == null)
+            while (true)
             {
-                return node;
-            }
+                if (node.Left == null)
+                {
+                    return node;
+                }
 
-            return FindMin(node.Left);
+                node = node.Left;
+            }
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
-        private AVLTreeNode<T> Find(T value)
+        public bool Contains(T value)
         {
             if (Root == null)
             {
-                return null;
+                return false;
             }
 
-            return Find(Root, value);
+            return find(Root, value)!=null;
         }
 
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(log(n)) worst O(n) for unbalanced tree
-        private AVLTreeNode<T> Find(AVLTreeNode<T> parent, T value)
+        private AVLTreeNode<T> find(AVLTreeNode<T> parent, T value)
         {
             if (parent == null)
             {
@@ -340,25 +322,19 @@ namespace Advanced.Algorithms.DataStructures
                 return parent;
             }
 
-            var left = Find(parent.Left, value);
+            var left = find(parent.Left, value);
 
             if (left != null)
             {
                 return left;
             }
 
-            var right = Find(parent.Right, value);
+            var right = find(parent.Right, value);
 
-            if (right != null)
-            {
-                return right;
-            }
-
-            return null;
-
+            return right;
         }
 
-        private void Balance(AVLTreeNode<T> node)
+        private void balance(AVLTreeNode<T> node)
         {
             if (node == null)
                 return;
@@ -366,52 +342,52 @@ namespace Advanced.Algorithms.DataStructures
             if (node.Left == null && node.Right == null)
                 return;
 
-            var leftHeight = node.Left != null ? node.Left.Height + 1 : 0;
-            var rightHeight = node.Right != null ? node.Right.Height + 1 : 0;
+            var leftHeight = node.Left?.Height + 1 ?? 0;
+            var rightHeight = node.Right?.Height + 1 ?? 0;
 
             var balanceFactor = leftHeight - rightHeight;
             //tree is left heavy
             //differance >=2 then do rotations
             if (balanceFactor >= 2)
             {
-                leftHeight = node.Left.Left != null ? node.Left.Left.Height + 1 : 0;
-                rightHeight = node.Left.Right != null ? node.Left.Right.Height + 1 : 0;
+                leftHeight = node.Left?.Left?.Height + 1 ?? 0;
+                rightHeight = node.Left?.Right?.Height + 1 ?? 0;
 
                 //left child is left heavy
                 if (leftHeight > rightHeight)
                 {
-                    RightRotate(node);
+                    rightRotate(node);
                 }
                 //left child is right heavy
                 else
                 {
-                    LeftRotate(node.Left);
-                    RightRotate(node);
+                    leftRotate(node.Left);
+                    rightRotate(node);
                 }
             }
             //tree is right heavy
             //differance <=-2 then do rotations
             else if (balanceFactor <= -2)
             {
-                leftHeight = node.Right.Left != null ? node.Right.Left.Height + 1 : 0;
-                rightHeight = node.Right.Right != null ? node.Right.Right.Height + 1 : 0;
+                leftHeight = node.Right?.Left?.Height + 1 ?? 0;
+                rightHeight = node.Right?.Right?.Height + 1 ?? 0;
 
                 //right child is right heavy
                 if (rightHeight > leftHeight)
                 {
-                    LeftRotate(node);
+                    leftRotate(node);
                 }
                 //right child is left heavy
                 else
                 {
-                    RightRotate(node.Right);
-                    LeftRotate(node);
+                    rightRotate(node.Right);
+                    leftRotate(node);
                 }
 
             }
         }
 
-        private void RightRotate(AVLTreeNode<T> node)
+        private void rightRotate(AVLTreeNode<T> node)
         {
             var prevRoot = node;
             var leftRightChild = prevRoot.Left.Right;
@@ -453,7 +429,7 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        private void LeftRotate(AVLTreeNode<T> node)
+        private void leftRotate(AVLTreeNode<T> node)
         {
             var prevRoot = node;
             var rightLeftChild = prevRoot.Right.Left;
@@ -504,18 +480,18 @@ namespace Advanced.Algorithms.DataStructures
 
             if (node.Left != null)
             {
-                node.Left.Height = Math.Max(node.Left.Left == null ? 0 : node.Left.Left.Height + 1,
-                                                 node.Left.Right == null ? 0 : node.Left.Right.Height + 1);
+                node.Left.Height = Math.Max(node.Left.Left?.Height + 1 ?? 0,
+                                                 node.Left.Right?.Height + 1 ?? 0);
             }
 
             if (node.Right != null)
             {
-                node.Right.Height = Math.Max(node.Right.Left == null ? 0 : node.Right.Left.Height + 1,
-                                  node.Right.Right == null ? 0 : node.Right.Right.Height + 1);
+                node.Right.Height = Math.Max(node.Right.Left?.Height + 1 ?? 0,
+                                  node.Right.Right?.Height + 1 ?? 0);
             }
 
-            node.Height = Math.Max(node.Left == null ? 0 : node.Left.Height + 1,
-                                      node.Right == null ? 0 : node.Right.Height + 1);
+            node.Height = Math.Max(node.Left?.Height + 1 ?? 0,
+                                      node.Right?.Height + 1 ?? 0);
         }
     }
 }

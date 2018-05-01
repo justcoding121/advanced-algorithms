@@ -7,7 +7,7 @@ using System.Linq;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class AVLTree_Tests
+    public class AvlTreeTests
     {
         /// <summary>
         /// Smoke test

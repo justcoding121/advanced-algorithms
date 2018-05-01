@@ -34,7 +34,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
                 throw new Exception("Graph is not BiPartite.");
             }
 
-            return GetMaxBiPartiteMatching(graph, colorResult.Partitions);
+            return getMaxBiPartiteMatching(graph, colorResult.Partitions);
 
         }
 
@@ -44,23 +44,22 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
         /// <param name="graph"></param>
         /// <param name="partitions"></param>
         /// <returns></returns>
-        private List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph,
+        private List<MatchEdge<T>> getMaxBiPartiteMatching(Graph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
             var leftMatch = new Dictionary<T, T>();
             var rightMatch = new Dictionary<T, T>();
 
             //while there is an augmenting Path
-            while (BFS(graph, partitions, leftMatch, rightMatch))
+            while (bfs(graph, partitions, leftMatch, rightMatch))
             {
                 foreach (var vertex in partitions[2])
                 {
                     if (!rightMatch.ContainsKey(vertex))
                     {
-                        var visited = new HashSet<T>();
-                        visited.Add(vertex);
+                        var visited = new HashSet<T> {vertex};
 
-                        var pathResult = DFS(graph.Vertices[vertex],
+                        var pathResult = dfs(graph.Vertices[vertex],
                           leftMatch, rightMatch, visited, true);
                         
                         //XOR remaining done here (partially done inside DFS)
@@ -75,8 +74,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
                             {
                                 leftMatch.Add(pair.A, pair.B);
                                 rightMatch.Add(pair.B, pair.A);
-                            }
-                            
+                            }                   
                         }
                     }
 
@@ -111,13 +109,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
             }
         }
 
-        /// <summary>
-        /// Find a Path from free vertex on left to another free vertex on right
-        /// <param name="graph"></param>
-        /// <param name="partitions"></param>
-        /// <param name="leftMatch"></param>
-        /// <param name="rightMatch"></param>
-        private List<PathResult> DFS(GraphVertex<T> current,
+        private List<PathResult> dfs(GraphVertex<T> current,
             Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch,
             HashSet<T> visitPath,
             bool isRightSide)
@@ -140,30 +132,32 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
                 {
                     visitPath.Add(edge.Value);
                 }
-                var pathResult = DFS(edge, leftMatch, rightMatch, visitPath, !isRightSide);
-                if (pathResult!=null)
+                var pathResult = dfs(edge, leftMatch, rightMatch, visitPath, !isRightSide);
+                if (pathResult == null)
                 {
-                    //XOR (partially done here by removing same edges)
-                    //other part of XOR (adding new ones) is done after DFS method is finished
-                    if (leftMatch.ContainsKey(current.Value)
-                        && leftMatch[current.Value].Equals(edge.Value))
-                    {
-                        leftMatch.Remove(current.Value);
-                        rightMatch.Remove(edge.Value);
-                    }
-                    else if (rightMatch.ContainsKey(current.Value)
-                        && rightMatch[current.Value].Equals(edge.Value))
-                    {
-                        rightMatch.Remove(current.Value);
-                        leftMatch.Remove(edge.Value);
-                    }
-                    else
-                    {
-                        pathResult.Add(new PathResult(current.Value, edge.Value, isRightSide));
-                    }
-
-                    return pathResult;
+                    continue;
                 }
+
+                //XOR (partially done here by removing same edges)
+                //other part of XOR (adding new ones) is done after DFS method is finished
+                if (leftMatch.ContainsKey(current.Value)
+                    && leftMatch[current.Value].Equals(edge.Value))
+                {
+                    leftMatch.Remove(current.Value);
+                    rightMatch.Remove(edge.Value);
+                }
+                else if (rightMatch.ContainsKey(current.Value)
+                         && rightMatch[current.Value].Equals(edge.Value))
+                {
+                    rightMatch.Remove(current.Value);
+                    leftMatch.Remove(edge.Value);
+                }
+                else
+                {
+                    pathResult.Add(new PathResult(current.Value, edge.Value, isRightSide));
+                }
+
+                return pathResult;
 
             }
 
@@ -179,7 +173,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
         /// <param name="partitions"></param>
         /// <param name="leftMatch"></param>
         /// <param name="rightMatch"></param>
-        private bool BFS(Graph<T> graph,
+        private bool bfs(Graph<T> graph,
             Dictionary<int, List<T>> partitions,
             Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch)
         {
@@ -197,9 +191,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
                     queue.Enqueue(vertex);
                     visited.Add(vertex);
                 }
-
             }
-
 
             while (queue.Count > 0)
             {
@@ -214,12 +206,13 @@ namespace Advanced.Algorithms.GraphAlgorithms.Matching
 
                 foreach (var edge in graph.Vertices[current].Edges)
                 {
-                    if (!visited.Contains(edge.Value))
+                    if (visited.Contains(edge.Value))
                     {
-                        queue.Enqueue(edge.Value);
-                        visited.Add(edge.Value);
+                        continue;
                     }
 
+                    queue.Enqueue(edge.Value);
+                    visited.Add(edge.Value);
                 }
 
             }

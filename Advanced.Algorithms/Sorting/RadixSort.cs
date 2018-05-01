@@ -11,7 +11,6 @@ namespace Advanced.Algorithms.Sorting
         /// Sort given integers
         /// </summary>
         /// <param name="array"></param>
-        /// <param name="mst"></param>
         /// <returns></returns>
         public static int[] Sort(int[] array)
         {
@@ -25,7 +24,7 @@ namespace Advanced.Algorithms.Sorting
             }
 
             var @base = 1;
-            int max = getMax(array);
+            var max = getMax(array);
 
            
             while (max/@base > 0)
@@ -35,7 +34,7 @@ namespace Advanced.Algorithms.Sorting
 
                 for (i = 0; i < array.Length; i++)
                 {
-                    var bucketIndex = (array[i]/@base) % 10;
+                    var bucketIndex = array[i]/@base % 10;
 
                     if(buckets[bucketIndex] == null)
                     {
@@ -49,13 +48,15 @@ namespace Advanced.Algorithms.Sorting
                 i = 0;
                 foreach (var bucket in buckets)
                 {
-                    if (bucket != null)
+                    if (bucket == null)
                     {
-                        for (int j = 0; j < bucket.Count; j++)
-                        {
-                            array[i] = bucket[j];
-                            i++;
-                        }
+                        continue;
+                    }
+
+                    foreach (var item in bucket)
+                    {
+                        array[i] = item;
+                        i++;
                     }
                 }
 
@@ -74,11 +75,11 @@ namespace Advanced.Algorithms.Sorting
         {
             var max = int.MinValue;
 
-            for(int i =0;i<array.Length;i++)
+            foreach (var item in array)
             {
-                if(array[i] > max)
+                if(item > max)
                 {
-                    max = array[i];
+                    max = item;
                 }
             }
 

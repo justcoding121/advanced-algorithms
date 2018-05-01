@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
         /// Smoke test
         /// </summary>
         [TestMethod]
-        public void AsRangeTree1D_Smoke_Test()
+        public void RangeTree1D_Smoke_Test()
         {
             var tree = new DRangeTree<int>(1);
 
@@ -46,7 +46,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
         }
 
         [TestMethod]
-        public void AsRangeTree2D_Smoke_Test()
+        public void RangeTree2D_Smoke_Test()
         {
             var tree = new DRangeTree<int>(2);
 

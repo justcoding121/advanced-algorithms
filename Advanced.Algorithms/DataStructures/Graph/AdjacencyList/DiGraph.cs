@@ -12,14 +12,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     {
         public T Value { get; set; }
 
-        public HashSet<DiGraphVertex<T>> OutEdges { get; set; }
-        public HashSet<DiGraphVertex<T>> InEdges { get; set; }
+        public System.Collections.Generic.HashSet<DiGraphVertex<T>> OutEdges { get; set; }
+        public System.Collections.Generic.HashSet<DiGraphVertex<T>> InEdges { get; set; }
 
         public DiGraphVertex(T value)
         {
             Value = value;
-            OutEdges = new HashSet<DiGraphVertex<T>>();
-            InEdges = new HashSet<DiGraphVertex<T>>();
+            OutEdges = new System.Collections.Generic.HashSet<DiGraphVertex<T>>();
+            InEdges = new System.Collections.Generic.HashSet<DiGraphVertex<T>>();
         }
 
     }
@@ -32,14 +32,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     public class DiGraph<T>
     {
         public int VerticesCount => Vertices.Count;
-        internal Dictionary<T, DiGraphVertex<T>> Vertices { get; set; }
+        internal System.Collections.Generic.Dictionary<T, DiGraphVertex<T>> Vertices { get; set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public DiGraph()
         {
-            Vertices = new Dictionary<T, DiGraphVertex<T>>();
+            Vertices = new System.Collections.Generic.Dictionary<T, DiGraphVertex<T>>();
         }
 
         /// <summary>
@@ -216,12 +216,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// <returns></returns>
         public DiGraphVertex<T> FindVertex(T value)
         {
-            if (Vertices.ContainsKey(value))
-            {
-                return Vertices[value];
-            }
-
-            return null;
+            return Vertices.ContainsKey(value) ? Vertices[value] : null;
         }
 
         /// <summary>

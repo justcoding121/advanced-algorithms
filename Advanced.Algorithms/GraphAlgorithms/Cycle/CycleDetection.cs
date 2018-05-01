@@ -23,7 +23,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cycle
             {
                 if (!visited.Contains(vertex.Value.Value))
                 {
-                    if (DFS(vertex.Value, visited, visiting))
+                    if (dfs(vertex.Value, visited, visiting))
                     {
                         return true;
                     }
@@ -33,7 +33,7 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cycle
             return false;
         }
 
-        private bool DFS(DiGraphVertex<T> current, 
+        private bool dfs(DiGraphVertex<T> current, 
             HashSet<T> visited, HashSet<T> visiting)
         {
             visiting.Add(current.Value);
@@ -46,15 +46,17 @@ namespace Advanced.Algorithms.GraphAlgorithms.Cycle
                 {
                     return true;
                 }
-             
-                if (!visited.Contains(edge.Value))
+
+                if (visited.Contains(edge.Value))
                 {
-                    if(DFS(edge, visited, visiting))
-                    {
-                        return true;
-                    }
+                    continue;
                 }
-             
+
+                if(dfs(edge, visited, visiting))
+                {
+                    return true;
+                }
+
             }
 
             visiting.Remove(current.Value);

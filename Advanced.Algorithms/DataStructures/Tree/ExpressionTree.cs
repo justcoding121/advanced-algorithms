@@ -28,7 +28,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <summary>
         /// expression stack
         /// </summary>
-        private Stack<ExpressionTreeNode<T>> expStack;
+        private System.Collections.Generic.Stack<ExpressionTreeNode<T>> expStack;
 
         /// <summary>
         /// construct tree for given expression with given operators
@@ -37,13 +37,13 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <param name="operators"></param>
         public void Construct(T[] expression, T[] operators)
         {
-            expStack = new Stack<ExpressionTreeNode<T>>();
+            expStack = new System.Collections.Generic.Stack<ExpressionTreeNode<T>>();
 
-            for (int i = 0; i < expression.Length; i++)
+            foreach (var exp in expression)
             {
-                var newNode = new ExpressionTreeNode<T>(expression[i]);
+                var newNode = new ExpressionTreeNode<T>(exp);
 
-                if (Contains(operators, expression[i]))
+                if (Contains(operators, exp))
                 {
                     var right = expStack.Pop();
                     var left = expStack.Pop();
@@ -65,9 +65,9 @@ namespace Advanced.Algorithms.DataStructures.Tree
         /// <returns></returns>
         private bool Contains(T[] operators, T test)
         {
-            for (int i = 0; i < operators.Length; i++)
+            foreach (var op in operators)
             {
-                if (operators[i].Equals(test))
+                if (op.Equals(test))
                 {
                     return true;
                 }

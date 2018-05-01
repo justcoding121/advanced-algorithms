@@ -13,8 +13,6 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Sort given integers using bucket sort with merge sort as sub sort
         /// </summary>
-        /// <param name="array"></param>
-        /// <param name="mst"></param>
         /// <returns></returns>
         public static int[] Sort(int[] array, int bucketSize)
         {
@@ -28,17 +26,19 @@ namespace Advanced.Algorithms.Sorting
             int i;
             for (i = 0; i < array.Length; i++)
             {
-                if (bucketSize != 0)
+                if (bucketSize == 0)
                 {
-                    var bucketIndex = array[i] / bucketSize;
-
-                    if (!buckets.ContainsKey(bucketIndex))
-                    {
-                        buckets.Add(bucketIndex, new List<int>());
-                    }
-
-                    buckets[bucketIndex].Add(array[i]);
+                    continue;
                 }
+
+                var bucketIndex = array[i] / bucketSize;
+
+                if (!buckets.ContainsKey(bucketIndex))
+                {
+                    buckets.Add(bucketIndex, new List<int>());
+                }
+
+                buckets[bucketIndex].Add(array[i]);
             }
 
             i = 0;

@@ -6,8 +6,8 @@ namespace Advanced.Algorithms.DataStructures.Set
     //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class SparseSet
     {
-        private int[] sparse;
-        private int[] dense;
+        private readonly int[] sparse;
+        private readonly int[] dense;
 
         public int Length { get; private set; }
 
@@ -74,13 +74,7 @@ namespace Advanced.Algorithms.DataStructures.Set
         public bool HasItem(int value)
         {
             var index = sparse[value];
-
-            if(index == -1 || dense[index] != value)
-            {
-                return false;
-            }
-
-            return true;
+            return index != -1 && dense[index] == value;
         }
 
         public void Clear()

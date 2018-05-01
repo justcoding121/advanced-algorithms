@@ -9,7 +9,6 @@
         /// Sort given integers
         /// </summary>
         /// <param name="array"></param>
-        /// <param name="mst"></param>
         /// <returns></returns>
         public static int[] Sort(int[] array)
         {
@@ -19,19 +18,19 @@
             var countArray = new int[max + 1];
 
             //count the appearances of elements
-            for (int i = 0; i < array.Length; i++)
+            foreach (var item in array)
             {
-                if (array[i] < 0)
+                if (item < 0)
                 {
                     throw new System.Exception("Negative numbers not supported.");
                 }
 
-                countArray[array[i]]++;
+                countArray[item]++;
             }
 
             //now aggregate & assign the sum from left to right
             var sum = countArray[0];
-            for (int i = 1; i <= max; i++)
+            for (var i = 1; i <= max; i++)
             {
                 sum += countArray[i];
                 countArray[i] = sum;
@@ -40,11 +39,11 @@
             var result = new int[array.Length];
 
             //now assign result
-            for (int i = 0; i < array.Length; i++)
+            foreach (var item in array)
             {
-                var index = countArray[array[i]];
-                result[index-1] = array[i];
-                countArray[array[i]]--;
+                var index = countArray[item];
+                result[index-1] = item;
+                countArray[item]--;
             }
 
             return result;
@@ -59,11 +58,11 @@
         {
             var max = int.MinValue;
 
-            for (int i = 0; i < array.Length; i++)
+            foreach (var item in array)
             {
-                if (array[i] > max)
+                if (item > max)
                 {
-                    max = array[i];
+                    max = item;
                 }
             }
 

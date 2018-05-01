@@ -10,15 +10,15 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
     /// A weighted graph implementation using dynamically growinng/shrinking adjacency matrix array
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    public class WeightedGraph<T, W> where W : IComparable
+    /// <typeparam name="TW"></typeparam>
+    public class WeightedGraph<T, TW> where TW : IComparable
     {
         public int VerticesCount => usedSize;
 
-        private Dictionary<T, int> vertexIndices;
-        private Dictionary<int, T> reverseVertexIndices;
+        private System.Collections.Generic.Dictionary<T, int> vertexIndices;
+        private System.Collections.Generic.Dictionary<int, T> reverseVertexIndices;
 
-        private W[,] matrix;
+        private TW[,] matrix;
 
         private int maxSize;
         private int usedSize;
@@ -30,9 +30,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         public WeightedGraph()
         {
             maxSize = 1;
-            vertexIndices = new Dictionary<T, int>();
-            reverseVertexIndices = new Dictionary<int, T>();
-            matrix = new W[maxSize, maxSize];
+            vertexIndices = new System.Collections.Generic.Dictionary<T, int>();
+            reverseVertexIndices = new System.Collections.Generic.Dictionary<int, T>();
+            matrix = new TW[maxSize, maxSize];
         }
 
       
@@ -96,8 +96,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             //clear edges
             for (int i = 0; i < maxSize; i++)
             {
-                matrix[i, index] = default(W);
-                matrix[index, i] = default(W);
+                matrix[i, index] = default(TW);
+                matrix[index, i] = default(TW);
             }
 
             reverseVertexIndices.Remove(index);
@@ -115,9 +115,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         /// <param name="source"></param>
         /// <param name="dest"></param>
         /// <param name="weight"></param>
-        public void AddEdge(T source, T dest, W weight)
+        public void AddEdge(T source, T dest, TW weight)
         {
-            if (weight.Equals(default(W)))
+            if (weight.Equals(default(TW)))
             {
                 throw new Exception("Cannot add default edge weight.");
             }
@@ -134,8 +134,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             var sourceIndex = vertexIndices[source];
             var destIndex = vertexIndices[dest];
-            if (!matrix[sourceIndex, destIndex].Equals(default(W))
-                && !matrix[destIndex, sourceIndex].Equals(default(W)))
+            if (!matrix[sourceIndex, destIndex].Equals(default(TW))
+                && !matrix[destIndex, sourceIndex].Equals(default(TW)))
             {
                 throw new Exception("Edge already exists.");
             }
@@ -165,14 +165,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             var sourceIndex = vertexIndices[source];
             var destIndex = vertexIndices[dest];
-            if (matrix[sourceIndex, destIndex].Equals(default(W))
-                && matrix[destIndex, sourceIndex].Equals(default(W)))
+            if (matrix[sourceIndex, destIndex].Equals(default(TW))
+                && matrix[destIndex, sourceIndex].Equals(default(TW)))
             {
                 throw new Exception("Edge do not exists.");
             }
 
-            matrix[sourceIndex, destIndex] = default(W);
-            matrix[destIndex, sourceIndex] = default(W);
+            matrix[sourceIndex, destIndex] = default(TW);
+            matrix[destIndex, sourceIndex] = default(TW);
         }
 
         /// <summary>
@@ -197,8 +197,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             var sourceIndex = vertexIndices[source];
             var destIndex = vertexIndices[dest];
 
-            if (!matrix[sourceIndex, destIndex].Equals(default(W))
-                && !matrix[destIndex, sourceIndex].Equals(default(W)))
+            if (!matrix[sourceIndex, destIndex].Equals(default(TW))
+                && !matrix[destIndex, sourceIndex].Equals(default(TW)))
             {
                 return true;
             }
@@ -206,7 +206,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             return false;
         }
 
-        public List<Tuple<T,W>> GetAllEdges(T vertex)
+        public List<Tuple<T,TW>> GetAllEdges(T vertex)
         {
             if (!vertexIndices.ContainsKey(vertex))
             {
@@ -215,13 +215,13 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             var index = vertexIndices[vertex];
 
-            var result = new List<Tuple<T, W>>();
+            var result = new List<Tuple<T, TW>>();
 
             for (int i = 0; i < maxSize; i++)
             {
-                if (!matrix[i,index].Equals(default(W)))
+                if (!matrix[i,index].Equals(default(TW)))
                 {
-                    result.Add(new Tuple<T, W>(reverseVertexIndices[i], matrix[i, index]));
+                    result.Add(new Tuple<T, TW>(reverseVertexIndices[i], matrix[i, index]));
                 }
             }
 
@@ -230,10 +230,10 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
         private void doubleMatrixSize()
         {
-            var newMatrix = new W[maxSize * 2, maxSize * 2];
+            var newMatrix = new TW[maxSize * 2, maxSize * 2];
 
-            var newVertexIndices = new Dictionary<T, int>();
-            var newReverseIndices = new Dictionary<int, T>();
+            var newVertexIndices = new System.Collections.Generic.Dictionary<T, int>();
+            var newReverseIndices = new System.Collections.Generic.Dictionary<int, T>();
 
             int k = 0;
             foreach (var vertex in vertexIndices)
@@ -249,7 +249,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
                 for (int j = i; j < maxSize; j++)
                 {
-                    if (!matrix[i, j].Equals(default(W)) && !matrix[j, i].Equals(default(W))
+                    if (!matrix[i, j].Equals(default(TW)) && !matrix[j, i].Equals(default(TW))
                         && reverseVertexIndices.ContainsKey(i)
                         && reverseVertexIndices.ContainsKey(j))
                     {
@@ -270,10 +270,10 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
         private void halfMatrixSize()
         {
-            var newMatrix = new W[maxSize * 2, maxSize * 2];
+            var newMatrix = new TW[maxSize * 2, maxSize * 2];
 
-            var newVertexIndices = new Dictionary<T, int>();
-            var newReverseIndices = new Dictionary<int, T>();
+            var newVertexIndices = new System.Collections.Generic.Dictionary<T, int>();
+            var newReverseIndices = new System.Collections.Generic.Dictionary<int, T>();
 
             int k = 0;
             foreach (var vertex in vertexIndices)
@@ -288,7 +288,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             {
                 for (int j = i; j < maxSize; j++)
                 {
-                    if (!matrix[i, j].Equals(default(W)) && !matrix[j,i].Equals(default(W))
+                    if (!matrix[i, j].Equals(default(TW)) && !matrix[j,i].Equals(default(TW))
                         && reverseVertexIndices.ContainsKey(i)
                         && reverseVertexIndices.ContainsKey(j))
                     {

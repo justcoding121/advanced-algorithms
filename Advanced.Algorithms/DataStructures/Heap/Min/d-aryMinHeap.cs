@@ -17,10 +17,11 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
 
             if (initial != null)
             {
-                var initArray = new T[initial.Count()];
+                var items = initial as T[] ?? initial.ToArray();
+                var initArray = new T[items.Count()];
 
                 int i = 0;
-                foreach (var item in initial)
+                foreach (var item in items)
                 {
                     initArray[i] = item;
                     i++;
@@ -55,27 +56,30 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         }
 
         /// <summary>
-        /// Recursively load bulk init values
+        /// load bulk init values
         /// </summary>
-        /// <param name="i"></param>
         private void BulkInitRecursive(int i, T[] initial)
         {
-            var parent = i;
-            var min = findMinChildIndex(i, initial);
-
-            if (min !=-1 
-                && initial[min].CompareTo(initial[parent]) < 0)
+            while (true)
             {
-                var temp = initial[min];
-                initial[min] = initial[parent];
-                initial[parent] = temp;
+                var parent = i;
+                var min = findMinChildIndex(i, initial);
 
-                BulkInitRecursive(min, initial);
+                if (min != -1 && initial[min].CompareTo(initial[parent]) < 0)
+                {
+                    var temp = initial[min];
+                    initial[min] = initial[parent];
+                    initial[parent] = temp;
+
+                    i = min;
+                    continue;
+                }
+
+                break;
             }
-
         }
 
-       
+
         //O(log(n) base K)
         public void Insert(T newItem)
         {
@@ -116,7 +120,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
             heapArray[0] = heapArray[Count - 1];
             Count--;
 
-            int currentParent = 0;
+            var currentParent = 0;
             //now percolate down
             while (true)
             {
@@ -196,7 +200,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         {
             var smallerArray = new T[heapArray.Length / 2];
 
-            for (int i = 0; i < Count; i++)
+            for (var i = 0; i < Count; i++)
             {
                 smallerArray[i] = heapArray[i];
             }
@@ -208,7 +212,7 @@ namespace Advanced.Algorithms.DataStructures.Heap.Min
         {
             var biggerArray = new T[heapArray.Length * 2];
 
-            for (int i = 0; i < Count; i++)
+            for (var i = 0; i < Count; i++)
             {
                 biggerArray[i] = heapArray[i];
             }

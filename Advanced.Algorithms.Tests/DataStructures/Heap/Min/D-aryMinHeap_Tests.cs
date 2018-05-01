@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Heap.Min
         /// A tree test
         /// </summary>
         [TestMethod]
-        public void AsD_aryHeap_Test()
+        public void D_aryHeap_Test()
         {
             var rnd = new Random();
             var initial = Enumerable.Range(0, 51).OrderBy(x => rnd.Next()).ToList();

@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void TreeDictionary_Test()
         {
-            var Dictionary = new AsTreeDictionary<int, int>();
+            var Dictionary = new TreeDictionary<int, int>();
 
             int nodeCount = 1000;
             //insert test

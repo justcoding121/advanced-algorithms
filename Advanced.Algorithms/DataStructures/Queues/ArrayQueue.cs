@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.DataStructures.Queues
     //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     internal class ArrayQueue<T> : IQueue<T>
     {
-        private List<T> list = new List<T>();
+        private readonly List<T> list = new List<T>();
 
         public int Count { get; private set; }
         //O(1)
