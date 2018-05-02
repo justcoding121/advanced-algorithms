@@ -1,6 +1,397 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+- uid: Advanced.Algorithms.Binary
+  name: Advanced.Algorithms.Binary
+  href: api/Advanced.Algorithms.Binary.html
+  commentId: N:Advanced.Algorithms.Binary
+  fullName: Advanced.Algorithms.Binary
+  nameWithType: Advanced.Algorithms.Binary
+- uid: Advanced.Algorithms.Binary.BaseConversion
+  name: BaseConversion
+  href: api/Advanced.Algorithms.Binary.BaseConversion.html
+  commentId: T:Advanced.Algorithms.Binary.BaseConversion
+  fullName: Advanced.Algorithms.Binary.BaseConversion
+  nameWithType: BaseConversion
+- uid: Advanced.Algorithms.Binary.BaseConversion.Convert(System.String,System.String,System.String,System.Int32)
+  name: Convert(String, String, String, Int32)
+  href: api/Advanced.Algorithms.Binary.BaseConversion.html#Advanced_Algorithms_Binary_BaseConversion_Convert_System_String_System_String_System_String_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BaseConversion.Convert(System.String,System.String,System.String,System.Int32)
+  fullName: Advanced.Algorithms.Binary.BaseConversion.Convert(System.String, System.String, System.String, System.Int32)
+  nameWithType: BaseConversion.Convert(String, String, String, Int32)
+- uid: Advanced.Algorithms.Binary.BaseConversion.Convert*
+  name: Convert
+  href: api/Advanced.Algorithms.Binary.BaseConversion.html#Advanced_Algorithms_Binary_BaseConversion_Convert_
+  commentId: Overload:Advanced.Algorithms.Binary.BaseConversion.Convert
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BaseConversion.Convert
+  nameWithType: BaseConversion.Convert
+- uid: Advanced.Algorithms.Binary.BitHacks
+  name: BitHacks
+  href: api/Advanced.Algorithms.Binary.BitHacks.html
+  commentId: T:Advanced.Algorithms.Binary.BitHacks
+  fullName: Advanced.Algorithms.Binary.BitHacks
+  nameWithType: BitHacks
+- uid: Advanced.Algorithms.Binary.BitHacks.CountSetBits(System.Int32)
+  name: CountSetBits(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_CountSetBits_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.CountSetBits(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.CountSetBits(System.Int32)
+  nameWithType: BitHacks.CountSetBits(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.CountSetBits*
+  name: CountSetBits
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_CountSetBits_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.CountSetBits
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.CountSetBits
+  nameWithType: BitHacks.CountSetBits
+- uid: Advanced.Algorithms.Binary.BitHacks.CountTrailingZerosByBinarySearch(System.Int32)
+  name: CountTrailingZerosByBinarySearch(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_CountTrailingZerosByBinarySearch_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.CountTrailingZerosByBinarySearch(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.CountTrailingZerosByBinarySearch(System.Int32)
+  nameWithType: BitHacks.CountTrailingZerosByBinarySearch(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.CountTrailingZerosByBinarySearch*
+  name: CountTrailingZerosByBinarySearch
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_CountTrailingZerosByBinarySearch_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.CountTrailingZerosByBinarySearch
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.CountTrailingZerosByBinarySearch
+  nameWithType: BitHacks.CountTrailingZerosByBinarySearch
+- uid: Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithAnUnsetBit(System.Int32)
+  name: GetRightmostSubBitsStartingWithAnUnsetBit(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_GetRightmostSubBitsStartingWithAnUnsetBit_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithAnUnsetBit(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithAnUnsetBit(System.Int32)
+  nameWithType: BitHacks.GetRightmostSubBitsStartingWithAnUnsetBit(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithAnUnsetBit*
+  name: GetRightmostSubBitsStartingWithAnUnsetBit
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_GetRightmostSubBitsStartingWithAnUnsetBit_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithAnUnsetBit
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithAnUnsetBit
+  nameWithType: BitHacks.GetRightmostSubBitsStartingWithAnUnsetBit
+- uid: Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithASetBit(System.Int32)
+  name: GetRightmostSubBitsStartingWithASetBit(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_GetRightmostSubBitsStartingWithASetBit_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithASetBit(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithASetBit(System.Int32)
+  nameWithType: BitHacks.GetRightmostSubBitsStartingWithASetBit(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithASetBit*
+  name: GetRightmostSubBitsStartingWithASetBit
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_GetRightmostSubBitsStartingWithASetBit_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithASetBit
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.GetRightmostSubBitsStartingWithASetBit
+  nameWithType: BitHacks.GetRightmostSubBitsStartingWithASetBit
+- uid: Advanced.Algorithms.Binary.BitHacks.HasOppositeSigns(System.Int32,System.Int32)
+  name: HasOppositeSigns(Int32, Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_HasOppositeSigns_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.HasOppositeSigns(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.HasOppositeSigns(System.Int32, System.Int32)
+  nameWithType: BitHacks.HasOppositeSigns(Int32, Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.HasOppositeSigns*
+  name: HasOppositeSigns
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_HasOppositeSigns_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.HasOppositeSigns
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.HasOppositeSigns
+  nameWithType: BitHacks.HasOppositeSigns
+- uid: Advanced.Algorithms.Binary.BitHacks.IsEven(System.Int32)
+  name: IsEven(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_IsEven_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.IsEven(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.IsEven(System.Int32)
+  nameWithType: BitHacks.IsEven(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.IsEven*
+  name: IsEven
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_IsEven_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.IsEven
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.IsEven
+  nameWithType: BitHacks.IsEven
+- uid: Advanced.Algorithms.Binary.BitHacks.IsPowerOf2(System.Int32)
+  name: IsPowerOf2(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_IsPowerOf2_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.IsPowerOf2(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.IsPowerOf2(System.Int32)
+  nameWithType: BitHacks.IsPowerOf2(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.IsPowerOf2*
+  name: IsPowerOf2
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_IsPowerOf2_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.IsPowerOf2
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.IsPowerOf2
+  nameWithType: BitHacks.IsPowerOf2
+- uid: Advanced.Algorithms.Binary.BitHacks.IsSet(System.Int32,System.Int32)
+  name: IsSet(Int32, Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_IsSet_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.IsSet(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.IsSet(System.Int32, System.Int32)
+  nameWithType: BitHacks.IsSet(Int32, Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.IsSet*
+  name: IsSet
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_IsSet_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.IsSet
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.IsSet
+  nameWithType: BitHacks.IsSet
+- uid: Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostSetBit(System.Int32)
+  name: RightPropogateRightmostSetBit(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_RightPropogateRightmostSetBit_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostSetBit(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostSetBit(System.Int32)
+  nameWithType: BitHacks.RightPropogateRightmostSetBit(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostSetBit*
+  name: RightPropogateRightmostSetBit
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_RightPropogateRightmostSetBit_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostSetBit
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostSetBit
+  nameWithType: BitHacks.RightPropogateRightmostSetBit
+- uid: Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostUnsetBit(System.Int32)
+  name: RightPropogateRightmostUnsetBit(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_RightPropogateRightmostUnsetBit_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostUnsetBit(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostUnsetBit(System.Int32)
+  nameWithType: BitHacks.RightPropogateRightmostUnsetBit(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostUnsetBit*
+  name: RightPropogateRightmostUnsetBit
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_RightPropogateRightmostUnsetBit_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostUnsetBit
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.RightPropogateRightmostUnsetBit
+  nameWithType: BitHacks.RightPropogateRightmostUnsetBit
+- uid: Advanced.Algorithms.Binary.BitHacks.SetBit(System.Int32,System.Int32)
+  name: SetBit(Int32, Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_SetBit_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.SetBit(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.SetBit(System.Int32, System.Int32)
+  nameWithType: BitHacks.SetBit(Int32, Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.SetBit*
+  name: SetBit
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_SetBit_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.SetBit
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.SetBit
+  nameWithType: BitHacks.SetBit
+- uid: Advanced.Algorithms.Binary.BitHacks.ToggleBit(System.Int32,System.Int32)
+  name: ToggleBit(Int32, Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_ToggleBit_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.ToggleBit(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.ToggleBit(System.Int32, System.Int32)
+  nameWithType: BitHacks.ToggleBit(Int32, Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.ToggleBit*
+  name: ToggleBit
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_ToggleBit_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.ToggleBit
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.ToggleBit
+  nameWithType: BitHacks.ToggleBit
+- uid: Advanced.Algorithms.Binary.BitHacks.TurnOffRightmostSetBit(System.Int32)
+  name: TurnOffRightmostSetBit(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_TurnOffRightmostSetBit_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.TurnOffRightmostSetBit(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.TurnOffRightmostSetBit(System.Int32)
+  nameWithType: BitHacks.TurnOffRightmostSetBit(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.TurnOffRightmostSetBit*
+  name: TurnOffRightmostSetBit
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_TurnOffRightmostSetBit_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.TurnOffRightmostSetBit
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.TurnOffRightmostSetBit
+  nameWithType: BitHacks.TurnOffRightmostSetBit
+- uid: Advanced.Algorithms.Binary.BitHacks.TurnOnBitAfterRightmostSetBit(System.Int32)
+  name: TurnOnBitAfterRightmostSetBit(Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_TurnOnBitAfterRightmostSetBit_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.TurnOnBitAfterRightmostSetBit(System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.TurnOnBitAfterRightmostSetBit(System.Int32)
+  nameWithType: BitHacks.TurnOnBitAfterRightmostSetBit(Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.TurnOnBitAfterRightmostSetBit*
+  name: TurnOnBitAfterRightmostSetBit
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_TurnOnBitAfterRightmostSetBit_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.TurnOnBitAfterRightmostSetBit
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.TurnOnBitAfterRightmostSetBit
+  nameWithType: BitHacks.TurnOnBitAfterRightmostSetBit
+- uid: Advanced.Algorithms.Binary.BitHacks.UnsetBit(System.Int32,System.Int32)
+  name: UnsetBit(Int32, Int32)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_UnsetBit_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.UnsetBit(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.Binary.BitHacks.UnsetBit(System.Int32, System.Int32)
+  nameWithType: BitHacks.UnsetBit(Int32, Int32)
+- uid: Advanced.Algorithms.Binary.BitHacks.UnsetBit*
+  name: UnsetBit
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_UnsetBit_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.UnsetBit
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.UnsetBit
+  nameWithType: BitHacks.UnsetBit
+- uid: Advanced.Algorithms.Binary.BitHacks.UpdateBitToValue(System.Int32,System.Int32,System.Boolean)
+  name: UpdateBitToValue(Int32, Int32, Boolean)
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_UpdateBitToValue_System_Int32_System_Int32_System_Boolean_
+  commentId: M:Advanced.Algorithms.Binary.BitHacks.UpdateBitToValue(System.Int32,System.Int32,System.Boolean)
+  fullName: Advanced.Algorithms.Binary.BitHacks.UpdateBitToValue(System.Int32, System.Int32, System.Boolean)
+  nameWithType: BitHacks.UpdateBitToValue(Int32, Int32, Boolean)
+- uid: Advanced.Algorithms.Binary.BitHacks.UpdateBitToValue*
+  name: UpdateBitToValue
+  href: api/Advanced.Algorithms.Binary.BitHacks.html#Advanced_Algorithms_Binary_BitHacks_UpdateBitToValue_
+  commentId: Overload:Advanced.Algorithms.Binary.BitHacks.UpdateBitToValue
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.BitHacks.UpdateBitToValue
+  nameWithType: BitHacks.UpdateBitToValue
+- uid: Advanced.Algorithms.Binary.DivisionModulus
+  name: DivisionModulus
+  href: api/Advanced.Algorithms.Binary.DivisionModulus.html
+  commentId: T:Advanced.Algorithms.Binary.DivisionModulus
+  fullName: Advanced.Algorithms.Binary.DivisionModulus
+  nameWithType: DivisionModulus
+- uid: Advanced.Algorithms.Binary.DivisionModulus.GetModulus(System.Int32,System.Int32)
+  name: GetModulus(Int32, Int32)
+  href: api/Advanced.Algorithms.Binary.DivisionModulus.html#Advanced_Algorithms_Binary_DivisionModulus_GetModulus_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.DivisionModulus.GetModulus(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.Binary.DivisionModulus.GetModulus(System.Int32, System.Int32)
+  nameWithType: DivisionModulus.GetModulus(Int32, Int32)
+- uid: Advanced.Algorithms.Binary.DivisionModulus.GetModulus*
+  name: GetModulus
+  href: api/Advanced.Algorithms.Binary.DivisionModulus.html#Advanced_Algorithms_Binary_DivisionModulus_GetModulus_
+  commentId: Overload:Advanced.Algorithms.Binary.DivisionModulus.GetModulus
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.DivisionModulus.GetModulus
+  nameWithType: DivisionModulus.GetModulus
+- uid: Advanced.Algorithms.Binary.Gcd
+  name: Gcd
+  href: api/Advanced.Algorithms.Binary.Gcd.html
+  commentId: T:Advanced.Algorithms.Binary.Gcd
+  fullName: Advanced.Algorithms.Binary.Gcd
+  nameWithType: Gcd
+- uid: Advanced.Algorithms.Binary.Gcd.Find(System.Int32,System.Int32)
+  name: Find(Int32, Int32)
+  href: api/Advanced.Algorithms.Binary.Gcd.html#Advanced_Algorithms_Binary_Gcd_Find_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.Gcd.Find(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.Binary.Gcd.Find(System.Int32, System.Int32)
+  nameWithType: Gcd.Find(Int32, Int32)
+- uid: Advanced.Algorithms.Binary.Gcd.Find*
+  name: Find
+  href: api/Advanced.Algorithms.Binary.Gcd.html#Advanced_Algorithms_Binary_Gcd_Find_
+  commentId: Overload:Advanced.Algorithms.Binary.Gcd.Find
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.Gcd.Find
+  nameWithType: Gcd.Find
+- uid: Advanced.Algorithms.Binary.IntToBinary
+  name: IntToBinary
+  href: api/Advanced.Algorithms.Binary.IntToBinary.html
+  commentId: T:Advanced.Algorithms.Binary.IntToBinary
+  fullName: Advanced.Algorithms.Binary.IntToBinary
+  nameWithType: IntToBinary
+- uid: Advanced.Algorithms.Binary.IntToBinary.GetBinary(System.Int32,System.Int32)
+  name: GetBinary(Int32, Int32)
+  href: api/Advanced.Algorithms.Binary.IntToBinary.html#Advanced_Algorithms_Binary_IntToBinary_GetBinary_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.IntToBinary.GetBinary(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.Binary.IntToBinary.GetBinary(System.Int32, System.Int32)
+  nameWithType: IntToBinary.GetBinary(Int32, Int32)
+- uid: Advanced.Algorithms.Binary.IntToBinary.GetBinary*
+  name: GetBinary
+  href: api/Advanced.Algorithms.Binary.IntToBinary.html#Advanced_Algorithms_Binary_IntToBinary_GetBinary_
+  commentId: Overload:Advanced.Algorithms.Binary.IntToBinary.GetBinary
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.IntToBinary.GetBinary
+  nameWithType: IntToBinary.GetBinary
+- uid: Advanced.Algorithms.Binary.IsMultipleOfNine
+  name: IsMultipleOfNine
+  href: api/Advanced.Algorithms.Binary.IsMultipleOfNine.html
+  commentId: T:Advanced.Algorithms.Binary.IsMultipleOfNine
+  fullName: Advanced.Algorithms.Binary.IsMultipleOfNine
+  nameWithType: IsMultipleOfNine
+- uid: Advanced.Algorithms.Binary.IsMultipleOfNine.IsTrue(System.Int32)
+  name: IsTrue(Int32)
+  href: api/Advanced.Algorithms.Binary.IsMultipleOfNine.html#Advanced_Algorithms_Binary_IsMultipleOfNine_IsTrue_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.IsMultipleOfNine.IsTrue(System.Int32)
+  fullName: Advanced.Algorithms.Binary.IsMultipleOfNine.IsTrue(System.Int32)
+  nameWithType: IsMultipleOfNine.IsTrue(Int32)
+- uid: Advanced.Algorithms.Binary.IsMultipleOfNine.IsTrue*
+  name: IsTrue
+  href: api/Advanced.Algorithms.Binary.IsMultipleOfNine.html#Advanced_Algorithms_Binary_IsMultipleOfNine_IsTrue_
+  commentId: Overload:Advanced.Algorithms.Binary.IsMultipleOfNine.IsTrue
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.IsMultipleOfNine.IsTrue
+  nameWithType: IsMultipleOfNine.IsTrue
+- uid: Advanced.Algorithms.Binary.IsMultipleOfThree
+  name: IsMultipleOfThree
+  href: api/Advanced.Algorithms.Binary.IsMultipleOfThree.html
+  commentId: T:Advanced.Algorithms.Binary.IsMultipleOfThree
+  fullName: Advanced.Algorithms.Binary.IsMultipleOfThree
+  nameWithType: IsMultipleOfThree
+- uid: Advanced.Algorithms.Binary.IsMultipleOfThree.IsTrue(System.Int32)
+  name: IsTrue(Int32)
+  href: api/Advanced.Algorithms.Binary.IsMultipleOfThree.html#Advanced_Algorithms_Binary_IsMultipleOfThree_IsTrue_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.IsMultipleOfThree.IsTrue(System.Int32)
+  fullName: Advanced.Algorithms.Binary.IsMultipleOfThree.IsTrue(System.Int32)
+  nameWithType: IsMultipleOfThree.IsTrue(Int32)
+- uid: Advanced.Algorithms.Binary.IsMultipleOfThree.IsTrue*
+  name: IsTrue
+  href: api/Advanced.Algorithms.Binary.IsMultipleOfThree.html#Advanced_Algorithms_Binary_IsMultipleOfThree_IsTrue_
+  commentId: Overload:Advanced.Algorithms.Binary.IsMultipleOfThree.IsTrue
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.IsMultipleOfThree.IsTrue
+  nameWithType: IsMultipleOfThree.IsTrue
+- uid: Advanced.Algorithms.Binary.Logarithm
+  name: Logarithm
+  href: api/Advanced.Algorithms.Binary.Logarithm.html
+  commentId: T:Advanced.Algorithms.Binary.Logarithm
+  fullName: Advanced.Algorithms.Binary.Logarithm
+  nameWithType: Logarithm
+- uid: Advanced.Algorithms.Binary.Logarithm.CalcBase10LogFloor(System.Int32)
+  name: CalcBase10LogFloor(Int32)
+  href: api/Advanced.Algorithms.Binary.Logarithm.html#Advanced_Algorithms_Binary_Logarithm_CalcBase10LogFloor_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.Logarithm.CalcBase10LogFloor(System.Int32)
+  fullName: Advanced.Algorithms.Binary.Logarithm.CalcBase10LogFloor(System.Int32)
+  nameWithType: Logarithm.CalcBase10LogFloor(Int32)
+- uid: Advanced.Algorithms.Binary.Logarithm.CalcBase10LogFloor*
+  name: CalcBase10LogFloor
+  href: api/Advanced.Algorithms.Binary.Logarithm.html#Advanced_Algorithms_Binary_Logarithm_CalcBase10LogFloor_
+  commentId: Overload:Advanced.Algorithms.Binary.Logarithm.CalcBase10LogFloor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.Logarithm.CalcBase10LogFloor
+  nameWithType: Logarithm.CalcBase10LogFloor
+- uid: Advanced.Algorithms.Binary.Logarithm.CalcBase2LogFloor(System.Int32)
+  name: CalcBase2LogFloor(Int32)
+  href: api/Advanced.Algorithms.Binary.Logarithm.html#Advanced_Algorithms_Binary_Logarithm_CalcBase2LogFloor_System_Int32_
+  commentId: M:Advanced.Algorithms.Binary.Logarithm.CalcBase2LogFloor(System.Int32)
+  fullName: Advanced.Algorithms.Binary.Logarithm.CalcBase2LogFloor(System.Int32)
+  nameWithType: Logarithm.CalcBase2LogFloor(Int32)
+- uid: Advanced.Algorithms.Binary.Logarithm.CalcBase2LogFloor*
+  name: CalcBase2LogFloor
+  href: api/Advanced.Algorithms.Binary.Logarithm.html#Advanced_Algorithms_Binary_Logarithm_CalcBase2LogFloor_
+  commentId: Overload:Advanced.Algorithms.Binary.Logarithm.CalcBase2LogFloor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.Logarithm.CalcBase2LogFloor
+  nameWithType: Logarithm.CalcBase2LogFloor
+- uid: Advanced.Algorithms.Binary.NextPowOfTwo
+  name: NextPowOfTwo
+  href: api/Advanced.Algorithms.Binary.NextPowOfTwo.html
+  commentId: T:Advanced.Algorithms.Binary.NextPowOfTwo
+  fullName: Advanced.Algorithms.Binary.NextPowOfTwo
+  nameWithType: NextPowOfTwo
+- uid: Advanced.Algorithms.Binary.ToggleCase
+  name: ToggleCase
+  href: api/Advanced.Algorithms.Binary.ToggleCase.html
+  commentId: T:Advanced.Algorithms.Binary.ToggleCase
+  fullName: Advanced.Algorithms.Binary.ToggleCase
+  nameWithType: ToggleCase
+- uid: Advanced.Algorithms.Binary.ToggleCase.Toggle(System.String)
+  name: Toggle(String)
+  href: api/Advanced.Algorithms.Binary.ToggleCase.html#Advanced_Algorithms_Binary_ToggleCase_Toggle_System_String_
+  commentId: M:Advanced.Algorithms.Binary.ToggleCase.Toggle(System.String)
+  fullName: Advanced.Algorithms.Binary.ToggleCase.Toggle(System.String)
+  nameWithType: ToggleCase.Toggle(String)
+- uid: Advanced.Algorithms.Binary.ToggleCase.Toggle*
+  name: Toggle
+  href: api/Advanced.Algorithms.Binary.ToggleCase.html#Advanced_Algorithms_Binary_ToggleCase_Toggle_
+  commentId: Overload:Advanced.Algorithms.Binary.ToggleCase.Toggle
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Binary.ToggleCase.Toggle
+  nameWithType: ToggleCase.Toggle
 - uid: Advanced.Algorithms.Combinatorics
   name: Advanced.Algorithms.Combinatorics
   href: api/Advanced.Algorithms.Combinatorics.html
@@ -8421,6 +8812,252 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).StartsWith
   nameWithType: Trie<T>.StartsWith
   nameWithType.vb: Trie(Of T).StartsWith
+- uid: Advanced.Algorithms.Distributed
+  name: Advanced.Algorithms.Distributed
+  href: api/Advanced.Algorithms.Distributed.html
+  commentId: N:Advanced.Algorithms.Distributed
+  fullName: Advanced.Algorithms.Distributed
+  nameWithType: Advanced.Algorithms.Distributed
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1
+  name: CircularQueue<T>
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html
+  commentId: T:Advanced.Algorithms.Distributed.CircularQueue`1
+  name.vb: CircularQueue(Of T)
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T)
+  nameWithType: CircularQueue<T>
+  nameWithType.vb: CircularQueue(Of T)
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.#ctor(System.Int32)
+  name: CircularQueue(Int32)
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1__ctor_System_Int32_
+  commentId: M:Advanced.Algorithms.Distributed.CircularQueue`1.#ctor(System.Int32)
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.CircularQueue(System.Int32)
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).CircularQueue(System.Int32)
+  nameWithType: CircularQueue<T>.CircularQueue(Int32)
+  nameWithType.vb: CircularQueue(Of T).CircularQueue(Int32)
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.#ctor*
+  name: CircularQueue
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1__ctor_
+  commentId: Overload:Advanced.Algorithms.Distributed.CircularQueue`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.CircularQueue
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).CircularQueue
+  nameWithType: CircularQueue<T>.CircularQueue
+  nameWithType.vb: CircularQueue(Of T).CircularQueue
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1_Count
+  commentId: P:Advanced.Algorithms.Distributed.CircularQueue`1.Count
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.Count
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).Count
+  nameWithType: CircularQueue<T>.Count
+  nameWithType.vb: CircularQueue(Of T).Count
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1_Count_
+  commentId: Overload:Advanced.Algorithms.Distributed.CircularQueue`1.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.Count
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).Count
+  nameWithType: CircularQueue<T>.Count
+  nameWithType.vb: CircularQueue(Of T).Count
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.Dequeue
+  name: Dequeue()
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1_Dequeue
+  commentId: M:Advanced.Algorithms.Distributed.CircularQueue`1.Dequeue
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.Dequeue()
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).Dequeue()
+  nameWithType: CircularQueue<T>.Dequeue()
+  nameWithType.vb: CircularQueue(Of T).Dequeue()
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.Dequeue(System.Int32)
+  name: Dequeue(Int32)
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1_Dequeue_System_Int32_
+  commentId: M:Advanced.Algorithms.Distributed.CircularQueue`1.Dequeue(System.Int32)
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.Dequeue(System.Int32)
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).Dequeue(System.Int32)
+  nameWithType: CircularQueue<T>.Dequeue(Int32)
+  nameWithType.vb: CircularQueue(Of T).Dequeue(Int32)
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.Dequeue*
+  name: Dequeue
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1_Dequeue_
+  commentId: Overload:Advanced.Algorithms.Distributed.CircularQueue`1.Dequeue
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.Dequeue
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).Dequeue
+  nameWithType: CircularQueue<T>.Dequeue
+  nameWithType.vb: CircularQueue(Of T).Dequeue
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.Enqueue(`0)
+  name: Enqueue(T)
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1_Enqueue__0_
+  commentId: M:Advanced.Algorithms.Distributed.CircularQueue`1.Enqueue(`0)
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.Enqueue(T)
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).Enqueue(T)
+  nameWithType: CircularQueue<T>.Enqueue(T)
+  nameWithType.vb: CircularQueue(Of T).Enqueue(T)
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.Enqueue(`0[])
+  name: Enqueue(T[])
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1_Enqueue__0___
+  commentId: M:Advanced.Algorithms.Distributed.CircularQueue`1.Enqueue(`0[])
+  name.vb: Enqueue(T())
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.Enqueue(T[])
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).Enqueue(T())
+  nameWithType: CircularQueue<T>.Enqueue(T[])
+  nameWithType.vb: CircularQueue(Of T).Enqueue(T())
+- uid: Advanced.Algorithms.Distributed.CircularQueue`1.Enqueue*
+  name: Enqueue
+  href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html#Advanced_Algorithms_Distributed_CircularQueue_1_Enqueue_
+  commentId: Overload:Advanced.Algorithms.Distributed.CircularQueue`1.Enqueue
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.CircularQueue<T>.Enqueue
+  fullName.vb: Advanced.Algorithms.Distributed.CircularQueue(Of T).Enqueue
+  nameWithType: CircularQueue<T>.Enqueue
+  nameWithType.vb: CircularQueue(Of T).Enqueue
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1
+  name: ConsistentHash<T>
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html
+  commentId: T:Advanced.Algorithms.Distributed.ConsistentHash`1
+  name.vb: ConsistentHash(Of T)
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T)
+  nameWithType: ConsistentHash<T>
+  nameWithType.vb: ConsistentHash(Of T)
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor
+  name: ConsistentHash()
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1__ctor
+  commentId: M:Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.ConsistentHash()
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).ConsistentHash()
+  nameWithType: ConsistentHash<T>.ConsistentHash()
+  nameWithType.vb: ConsistentHash(Of T).ConsistentHash()
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)
+  name: ConsistentHash(IEnumerable<T>, Int32)
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1__ctor_System_Collections_Generic_IEnumerable__0__System_Int32_
+  commentId: M:Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)
+  name.vb: ConsistentHash(IEnumerable(Of T), Int32)
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.ConsistentHash(System.Collections.Generic.IEnumerable<T>, System.Int32)
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).ConsistentHash(System.Collections.Generic.IEnumerable(Of T), System.Int32)
+  nameWithType: ConsistentHash<T>.ConsistentHash(IEnumerable<T>, Int32)
+  nameWithType.vb: ConsistentHash(Of T).ConsistentHash(IEnumerable(Of T), Int32)
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor*
+  name: ConsistentHash
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1__ctor_
+  commentId: Overload:Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.ConsistentHash
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).ConsistentHash
+  nameWithType: ConsistentHash<T>.ConsistentHash
+  nameWithType.vb: ConsistentHash(Of T).ConsistentHash
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.AddNode(`0)
+  name: AddNode(T)
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1_AddNode__0_
+  commentId: M:Advanced.Algorithms.Distributed.ConsistentHash`1.AddNode(`0)
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.AddNode(T)
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).AddNode(T)
+  nameWithType: ConsistentHash<T>.AddNode(T)
+  nameWithType.vb: ConsistentHash(Of T).AddNode(T)
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.AddNode*
+  name: AddNode
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1_AddNode_
+  commentId: Overload:Advanced.Algorithms.Distributed.ConsistentHash`1.AddNode
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.AddNode
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).AddNode
+  nameWithType: ConsistentHash<T>.AddNode
+  nameWithType.vb: ConsistentHash(Of T).AddNode
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.GetNode(System.String)
+  name: GetNode(String)
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1_GetNode_System_String_
+  commentId: M:Advanced.Algorithms.Distributed.ConsistentHash`1.GetNode(System.String)
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.GetNode(System.String)
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).GetNode(System.String)
+  nameWithType: ConsistentHash<T>.GetNode(String)
+  nameWithType.vb: ConsistentHash(Of T).GetNode(String)
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.GetNode*
+  name: GetNode
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1_GetNode_
+  commentId: Overload:Advanced.Algorithms.Distributed.ConsistentHash`1.GetNode
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.GetNode
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).GetNode
+  nameWithType: ConsistentHash<T>.GetNode
+  nameWithType.vb: ConsistentHash(Of T).GetNode
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.RemoveNode(`0)
+  name: RemoveNode(T)
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1_RemoveNode__0_
+  commentId: M:Advanced.Algorithms.Distributed.ConsistentHash`1.RemoveNode(`0)
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.RemoveNode(T)
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).RemoveNode(T)
+  nameWithType: ConsistentHash<T>.RemoveNode(T)
+  nameWithType.vb: ConsistentHash(Of T).RemoveNode(T)
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.RemoveNode*
+  name: RemoveNode
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1_RemoveNode_
+  commentId: Overload:Advanced.Algorithms.Distributed.ConsistentHash`1.RemoveNode
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.RemoveNode
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).RemoveNode
+  nameWithType: ConsistentHash<T>.RemoveNode
+  nameWithType.vb: ConsistentHash(Of T).RemoveNode
+- uid: Advanced.Algorithms.Distributed.LRUCache`2
+  name: LRUCache<K, V>
+  href: api/Advanced.Algorithms.Distributed.LRUCache-2.html
+  commentId: T:Advanced.Algorithms.Distributed.LRUCache`2
+  name.vb: LRUCache(Of K, V)
+  fullName: Advanced.Algorithms.Distributed.LRUCache<K, V>
+  fullName.vb: Advanced.Algorithms.Distributed.LRUCache(Of K, V)
+  nameWithType: LRUCache<K, V>
+  nameWithType.vb: LRUCache(Of K, V)
+- uid: Advanced.Algorithms.Distributed.LRUCache`2.#ctor(System.Int32)
+  name: LRUCache(Int32)
+  href: api/Advanced.Algorithms.Distributed.LRUCache-2.html#Advanced_Algorithms_Distributed_LRUCache_2__ctor_System_Int32_
+  commentId: M:Advanced.Algorithms.Distributed.LRUCache`2.#ctor(System.Int32)
+  fullName: Advanced.Algorithms.Distributed.LRUCache<K, V>.LRUCache(System.Int32)
+  fullName.vb: Advanced.Algorithms.Distributed.LRUCache(Of K, V).LRUCache(System.Int32)
+  nameWithType: LRUCache<K, V>.LRUCache(Int32)
+  nameWithType.vb: LRUCache(Of K, V).LRUCache(Int32)
+- uid: Advanced.Algorithms.Distributed.LRUCache`2.#ctor*
+  name: LRUCache
+  href: api/Advanced.Algorithms.Distributed.LRUCache-2.html#Advanced_Algorithms_Distributed_LRUCache_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Distributed.LRUCache`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.LRUCache<K, V>.LRUCache
+  fullName.vb: Advanced.Algorithms.Distributed.LRUCache(Of K, V).LRUCache
+  nameWithType: LRUCache<K, V>.LRUCache
+  nameWithType.vb: LRUCache(Of K, V).LRUCache
+- uid: Advanced.Algorithms.Distributed.LRUCache`2.Get(`0)
+  name: Get(K)
+  href: api/Advanced.Algorithms.Distributed.LRUCache-2.html#Advanced_Algorithms_Distributed_LRUCache_2_Get__0_
+  commentId: M:Advanced.Algorithms.Distributed.LRUCache`2.Get(`0)
+  fullName: Advanced.Algorithms.Distributed.LRUCache<K, V>.Get(K)
+  fullName.vb: Advanced.Algorithms.Distributed.LRUCache(Of K, V).Get(K)
+  nameWithType: LRUCache<K, V>.Get(K)
+  nameWithType.vb: LRUCache(Of K, V).Get(K)
+- uid: Advanced.Algorithms.Distributed.LRUCache`2.Get*
+  name: Get
+  href: api/Advanced.Algorithms.Distributed.LRUCache-2.html#Advanced_Algorithms_Distributed_LRUCache_2_Get_
+  commentId: Overload:Advanced.Algorithms.Distributed.LRUCache`2.Get
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.LRUCache<K, V>.Get
+  fullName.vb: Advanced.Algorithms.Distributed.LRUCache(Of K, V).Get
+  nameWithType: LRUCache<K, V>.Get
+  nameWithType.vb: LRUCache(Of K, V).Get
+- uid: Advanced.Algorithms.Distributed.LRUCache`2.Put(`0,`1)
+  name: Put(K, V)
+  href: api/Advanced.Algorithms.Distributed.LRUCache-2.html#Advanced_Algorithms_Distributed_LRUCache_2_Put__0__1_
+  commentId: M:Advanced.Algorithms.Distributed.LRUCache`2.Put(`0,`1)
+  fullName: Advanced.Algorithms.Distributed.LRUCache<K, V>.Put(K, V)
+  fullName.vb: Advanced.Algorithms.Distributed.LRUCache(Of K, V).Put(K, V)
+  nameWithType: LRUCache<K, V>.Put(K, V)
+  nameWithType.vb: LRUCache(Of K, V).Put(K, V)
+- uid: Advanced.Algorithms.Distributed.LRUCache`2.Put*
+  name: Put
+  href: api/Advanced.Algorithms.Distributed.LRUCache-2.html#Advanced_Algorithms_Distributed_LRUCache_2_Put_
+  commentId: Overload:Advanced.Algorithms.Distributed.LRUCache`2.Put
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.LRUCache<K, V>.Put
+  fullName.vb: Advanced.Algorithms.Distributed.LRUCache(Of K, V).Put
+  nameWithType: LRUCache<K, V>.Put
+  nameWithType.vb: LRUCache(Of K, V).Put
 - uid: Advanced.Algorithms.Geometry
   name: Advanced.Algorithms.Geometry
   href: api/Advanced.Algorithms.Geometry.html
@@ -8681,6 +9318,1605 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Geometry.RectangleIntersection.FindIntersection
   nameWithType: RectangleIntersection.FindIntersection
+- uid: Advanced.Algorithms.Graph
+  name: Advanced.Algorithms.Graph
+  href: api/Advanced.Algorithms.Graph.html
+  commentId: N:Advanced.Algorithms.Graph
+  fullName: Advanced.Algorithms.Graph
+  nameWithType: Advanced.Algorithms.Graph
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2
+  name: AllPairShortestPathResult<T, W>
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html
+  commentId: T:Advanced.Algorithms.Graph.AllPairShortestPathResult`2
+  name.vb: AllPairShortestPathResult(Of T, W)
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W)
+  nameWithType: AllPairShortestPathResult<T, W>
+  nameWithType.vb: AllPairShortestPathResult(Of T, W)
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor(`0,`0,`1,System.Collections.Generic.List{`0})
+  name: AllPairShortestPathResult(T, T, W, List<T>)
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2__ctor__0__0__1_System_Collections_Generic_List__0__
+  commentId: M:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor(`0,`0,`1,System.Collections.Generic.List{`0})
+  name.vb: AllPairShortestPathResult(T, T, W, List(Of T))
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.AllPairShortestPathResult(T, T, W, System.Collections.Generic.List<T>)
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).AllPairShortestPathResult(T, T, W, System.Collections.Generic.List(Of T))
+  nameWithType: AllPairShortestPathResult<T, W>.AllPairShortestPathResult(T, T, W, List<T>)
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).AllPairShortestPathResult(T, T, W, List(Of T))
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor*
+  name: AllPairShortestPathResult
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.AllPairShortestPathResult
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).AllPairShortestPathResult
+  nameWithType: AllPairShortestPathResult<T, W>.AllPairShortestPathResult
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).AllPairShortestPathResult
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Destination
+  name: Destination
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Destination
+  commentId: P:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Destination
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.Destination
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).Destination
+  nameWithType: AllPairShortestPathResult<T, W>.Destination
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).Destination
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Destination*
+  name: Destination
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Destination_
+  commentId: Overload:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Destination
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.Destination
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).Destination
+  nameWithType: AllPairShortestPathResult<T, W>.Destination
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).Destination
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Distance
+  name: Distance
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Distance
+  commentId: P:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Distance
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.Distance
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).Distance
+  nameWithType: AllPairShortestPathResult<T, W>.Distance
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).Distance
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Distance*
+  name: Distance
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Distance_
+  commentId: Overload:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Distance
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.Distance
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).Distance
+  nameWithType: AllPairShortestPathResult<T, W>.Distance
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).Distance
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Path
+  name: Path
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Path
+  commentId: P:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Path
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.Path
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).Path
+  nameWithType: AllPairShortestPathResult<T, W>.Path
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).Path
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Path*
+  name: Path
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Path_
+  commentId: Overload:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Path
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.Path
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).Path
+  nameWithType: AllPairShortestPathResult<T, W>.Path
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).Path
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Source
+  name: Source
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Source
+  commentId: P:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Source
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.Source
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).Source
+  nameWithType: AllPairShortestPathResult<T, W>.Source
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).Source
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Source*
+  name: Source
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Source_
+  commentId: Overload:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Source
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.Source
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).Source
+  nameWithType: AllPairShortestPathResult<T, W>.Source
+  nameWithType.vb: AllPairShortestPathResult(Of T, W).Source
+- uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2
+  name: BellmanFordShortestPath<T, W>
+  href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html
+  commentId: T:Advanced.Algorithms.Graph.BellmanFordShortestPath`2
+  name.vb: BellmanFordShortestPath(Of T, W)
+  fullName: Advanced.Algorithms.Graph.BellmanFordShortestPath<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W)
+  nameWithType: BellmanFordShortestPath<T, W>
+  nameWithType.vb: BellmanFordShortestPath(Of T, W)
+- uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2.#ctor(Advanced.Algorithms.Graph.IShortestPathOperators{`1})
+  name: BellmanFordShortestPath(IShortestPathOperators<W>)
+  href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html#Advanced_Algorithms_Graph_BellmanFordShortestPath_2__ctor_Advanced_Algorithms_Graph_IShortestPathOperators__1__
+  commentId: M:Advanced.Algorithms.Graph.BellmanFordShortestPath`2.#ctor(Advanced.Algorithms.Graph.IShortestPathOperators{`1})
+  name.vb: BellmanFordShortestPath(IShortestPathOperators(Of W))
+  fullName: Advanced.Algorithms.Graph.BellmanFordShortestPath<T, W>.BellmanFordShortestPath(Advanced.Algorithms.Graph.IShortestPathOperators<W>)
+  fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W).BellmanFordShortestPath(Advanced.Algorithms.Graph.IShortestPathOperators(Of W))
+  nameWithType: BellmanFordShortestPath<T, W>.BellmanFordShortestPath(IShortestPathOperators<W>)
+  nameWithType.vb: BellmanFordShortestPath(Of T, W).BellmanFordShortestPath(IShortestPathOperators(Of W))
+- uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2.#ctor*
+  name: BellmanFordShortestPath
+  href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html#Advanced_Algorithms_Graph_BellmanFordShortestPath_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.BellmanFordShortestPath`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.BellmanFordShortestPath<T, W>.BellmanFordShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W).BellmanFordShortestPath
+  nameWithType: BellmanFordShortestPath<T, W>.BellmanFordShortestPath
+  nameWithType.vb: BellmanFordShortestPath(Of T, W).BellmanFordShortestPath
+- uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: GetShortestPath(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html#Advanced_Algorithms_Graph_BellmanFordShortestPath_2_GetShortestPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.BellmanFordShortestPath`2.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: GetShortestPath(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.BellmanFordShortestPath<T, W>.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W).GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: BellmanFordShortestPath<T, W>.GetShortestPath(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: BellmanFordShortestPath(Of T, W).GetShortestPath(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2.GetShortestPath*
+  name: GetShortestPath
+  href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html#Advanced_Algorithms_Graph_BellmanFordShortestPath_2_GetShortestPath_
+  commentId: Overload:Advanced.Algorithms.Graph.BellmanFordShortestPath`2.GetShortestPath
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.BellmanFordShortestPath<T, W>.GetShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W).GetShortestPath
+  nameWithType: BellmanFordShortestPath<T, W>.GetShortestPath
+  nameWithType.vb: BellmanFordShortestPath(Of T, W).GetShortestPath
+- uid: Advanced.Algorithms.Graph.BiDirectional`1
+  name: BiDirectional<T>
+  href: api/Advanced.Algorithms.Graph.BiDirectional-1.html
+  commentId: T:Advanced.Algorithms.Graph.BiDirectional`1
+  name.vb: BiDirectional(Of T)
+  fullName: Advanced.Algorithms.Graph.BiDirectional<T>
+  fullName.vb: Advanced.Algorithms.Graph.BiDirectional(Of T)
+  nameWithType: BiDirectional<T>
+  nameWithType.vb: BiDirectional(Of T)
+- uid: Advanced.Algorithms.Graph.BiDirectional`1.PathExists(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0},`0,`0)
+  name: PathExists(DiGraph<T>, T, T)
+  href: api/Advanced.Algorithms.Graph.BiDirectional-1.html#Advanced_Algorithms_Graph_BiDirectional_1_PathExists_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph__0___0__0_
+  commentId: M:Advanced.Algorithms.Graph.BiDirectional`1.PathExists(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0},`0,`0)
+  name.vb: PathExists(DiGraph(Of T), T, T)
+  fullName: Advanced.Algorithms.Graph.BiDirectional<T>.PathExists(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.BiDirectional(Of T).PathExists(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T), T, T)
+  nameWithType: BiDirectional<T>.PathExists(DiGraph<T>, T, T)
+  nameWithType.vb: BiDirectional(Of T).PathExists(DiGraph(Of T), T, T)
+- uid: Advanced.Algorithms.Graph.BiDirectional`1.PathExists*
+  name: PathExists
+  href: api/Advanced.Algorithms.Graph.BiDirectional-1.html#Advanced_Algorithms_Graph_BiDirectional_1_PathExists_
+  commentId: Overload:Advanced.Algorithms.Graph.BiDirectional`1.PathExists
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.BiDirectional<T>.PathExists
+  fullName.vb: Advanced.Algorithms.Graph.BiDirectional(Of T).PathExists
+  nameWithType: BiDirectional<T>.PathExists
+  nameWithType.vb: BiDirectional(Of T).PathExists
+- uid: Advanced.Algorithms.Graph.BiPartiteMatching`1
+  name: BiPartiteMatching<T>
+  href: api/Advanced.Algorithms.Graph.BiPartiteMatching-1.html
+  commentId: T:Advanced.Algorithms.Graph.BiPartiteMatching`1
+  name.vb: BiPartiteMatching(Of T)
+  fullName: Advanced.Algorithms.Graph.BiPartiteMatching<T>
+  fullName.vb: Advanced.Algorithms.Graph.BiPartiteMatching(Of T)
+  nameWithType: BiPartiteMatching<T>
+  nameWithType.vb: BiPartiteMatching(Of T)
+- uid: Advanced.Algorithms.Graph.BiPartiteMatching`1.#ctor(Advanced.Algorithms.Graph.IBiPartiteMatchOperators{`0})
+  name: BiPartiteMatching(IBiPartiteMatchOperators<T>)
+  href: api/Advanced.Algorithms.Graph.BiPartiteMatching-1.html#Advanced_Algorithms_Graph_BiPartiteMatching_1__ctor_Advanced_Algorithms_Graph_IBiPartiteMatchOperators__0__
+  commentId: M:Advanced.Algorithms.Graph.BiPartiteMatching`1.#ctor(Advanced.Algorithms.Graph.IBiPartiteMatchOperators{`0})
+  name.vb: BiPartiteMatching(IBiPartiteMatchOperators(Of T))
+  fullName: Advanced.Algorithms.Graph.BiPartiteMatching<T>.BiPartiteMatching(Advanced.Algorithms.Graph.IBiPartiteMatchOperators<T>)
+  fullName.vb: Advanced.Algorithms.Graph.BiPartiteMatching(Of T).BiPartiteMatching(Advanced.Algorithms.Graph.IBiPartiteMatchOperators(Of T))
+  nameWithType: BiPartiteMatching<T>.BiPartiteMatching(IBiPartiteMatchOperators<T>)
+  nameWithType.vb: BiPartiteMatching(Of T).BiPartiteMatching(IBiPartiteMatchOperators(Of T))
+- uid: Advanced.Algorithms.Graph.BiPartiteMatching`1.#ctor*
+  name: BiPartiteMatching
+  href: api/Advanced.Algorithms.Graph.BiPartiteMatching-1.html#Advanced_Algorithms_Graph_BiPartiteMatching_1__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.BiPartiteMatching`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.BiPartiteMatching<T>.BiPartiteMatching
+  fullName.vb: Advanced.Algorithms.Graph.BiPartiteMatching(Of T).BiPartiteMatching
+  nameWithType: BiPartiteMatching<T>.BiPartiteMatching
+  nameWithType.vb: BiPartiteMatching(Of T).BiPartiteMatching
+- uid: Advanced.Algorithms.Graph.BiPartiteMatching`1.GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name: GetMaxBiPartiteMatching(Graph<T>)
+  href: api/Advanced.Algorithms.Graph.BiPartiteMatching-1.html#Advanced_Algorithms_Graph_BiPartiteMatching_1_GetMaxBiPartiteMatching_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0__
+  commentId: M:Advanced.Algorithms.Graph.BiPartiteMatching`1.GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name.vb: GetMaxBiPartiteMatching(Graph(Of T))
+  fullName: Advanced.Algorithms.Graph.BiPartiteMatching<T>.GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.BiPartiteMatching(Of T).GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T))
+  nameWithType: BiPartiteMatching<T>.GetMaxBiPartiteMatching(Graph<T>)
+  nameWithType.vb: BiPartiteMatching(Of T).GetMaxBiPartiteMatching(Graph(Of T))
+- uid: Advanced.Algorithms.Graph.BiPartiteMatching`1.GetMaxBiPartiteMatching*
+  name: GetMaxBiPartiteMatching
+  href: api/Advanced.Algorithms.Graph.BiPartiteMatching-1.html#Advanced_Algorithms_Graph_BiPartiteMatching_1_GetMaxBiPartiteMatching_
+  commentId: Overload:Advanced.Algorithms.Graph.BiPartiteMatching`1.GetMaxBiPartiteMatching
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.BiPartiteMatching<T>.GetMaxBiPartiteMatching
+  fullName.vb: Advanced.Algorithms.Graph.BiPartiteMatching(Of T).GetMaxBiPartiteMatching
+  nameWithType: BiPartiteMatching<T>.GetMaxBiPartiteMatching
+  nameWithType.vb: BiPartiteMatching(Of T).GetMaxBiPartiteMatching
+- uid: Advanced.Algorithms.Graph.BreadthFirst`1
+  name: BreadthFirst<T>
+  href: api/Advanced.Algorithms.Graph.BreadthFirst-1.html
+  commentId: T:Advanced.Algorithms.Graph.BreadthFirst`1
+  name.vb: BreadthFirst(Of T)
+  fullName: Advanced.Algorithms.Graph.BreadthFirst<T>
+  fullName.vb: Advanced.Algorithms.Graph.BreadthFirst(Of T)
+  nameWithType: BreadthFirst<T>
+  nameWithType.vb: BreadthFirst(Of T)
+- uid: Advanced.Algorithms.Graph.BreadthFirst`1.Find(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0},`0)
+  name: Find(Graph<T>, T)
+  href: api/Advanced.Algorithms.Graph.BreadthFirst-1.html#Advanced_Algorithms_Graph_BreadthFirst_1_Find_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0___0_
+  commentId: M:Advanced.Algorithms.Graph.BreadthFirst`1.Find(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0},`0)
+  name.vb: Find(Graph(Of T), T)
+  fullName: Advanced.Algorithms.Graph.BreadthFirst<T>.Find(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>, T)
+  fullName.vb: Advanced.Algorithms.Graph.BreadthFirst(Of T).Find(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T), T)
+  nameWithType: BreadthFirst<T>.Find(Graph<T>, T)
+  nameWithType.vb: BreadthFirst(Of T).Find(Graph(Of T), T)
+- uid: Advanced.Algorithms.Graph.BreadthFirst`1.Find*
+  name: Find
+  href: api/Advanced.Algorithms.Graph.BreadthFirst-1.html#Advanced_Algorithms_Graph_BreadthFirst_1_Find_
+  commentId: Overload:Advanced.Algorithms.Graph.BreadthFirst`1.Find
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.BreadthFirst<T>.Find
+  fullName.vb: Advanced.Algorithms.Graph.BreadthFirst(Of T).Find
+  nameWithType: BreadthFirst<T>.Find
+  nameWithType.vb: BreadthFirst(Of T).Find
+- uid: Advanced.Algorithms.Graph.Bridge`1
+  name: Bridge<T>
+  href: api/Advanced.Algorithms.Graph.Bridge-1.html
+  commentId: T:Advanced.Algorithms.Graph.Bridge`1
+  name.vb: Bridge(Of T)
+  fullName: Advanced.Algorithms.Graph.Bridge<T>
+  fullName.vb: Advanced.Algorithms.Graph.Bridge(Of T)
+  nameWithType: Bridge<T>
+  nameWithType.vb: Bridge(Of T)
+- uid: Advanced.Algorithms.Graph.Bridge`1.#ctor(`0,`0)
+  name: Bridge(T, T)
+  href: api/Advanced.Algorithms.Graph.Bridge-1.html#Advanced_Algorithms_Graph_Bridge_1__ctor__0__0_
+  commentId: M:Advanced.Algorithms.Graph.Bridge`1.#ctor(`0,`0)
+  fullName: Advanced.Algorithms.Graph.Bridge<T>.Bridge(T, T)
+  fullName.vb: Advanced.Algorithms.Graph.Bridge(Of T).Bridge(T, T)
+  nameWithType: Bridge<T>.Bridge(T, T)
+  nameWithType.vb: Bridge(Of T).Bridge(T, T)
+- uid: Advanced.Algorithms.Graph.Bridge`1.#ctor*
+  name: Bridge
+  href: api/Advanced.Algorithms.Graph.Bridge-1.html#Advanced_Algorithms_Graph_Bridge_1__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.Bridge`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.Bridge<T>.Bridge
+  fullName.vb: Advanced.Algorithms.Graph.Bridge(Of T).Bridge
+  nameWithType: Bridge<T>.Bridge
+  nameWithType.vb: Bridge(Of T).Bridge
+- uid: Advanced.Algorithms.Graph.Bridge`1.vertexA
+  name: vertexA
+  href: api/Advanced.Algorithms.Graph.Bridge-1.html#Advanced_Algorithms_Graph_Bridge_1_vertexA
+  commentId: P:Advanced.Algorithms.Graph.Bridge`1.vertexA
+  fullName: Advanced.Algorithms.Graph.Bridge<T>.vertexA
+  fullName.vb: Advanced.Algorithms.Graph.Bridge(Of T).vertexA
+  nameWithType: Bridge<T>.vertexA
+  nameWithType.vb: Bridge(Of T).vertexA
+- uid: Advanced.Algorithms.Graph.Bridge`1.vertexA*
+  name: vertexA
+  href: api/Advanced.Algorithms.Graph.Bridge-1.html#Advanced_Algorithms_Graph_Bridge_1_vertexA_
+  commentId: Overload:Advanced.Algorithms.Graph.Bridge`1.vertexA
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.Bridge<T>.vertexA
+  fullName.vb: Advanced.Algorithms.Graph.Bridge(Of T).vertexA
+  nameWithType: Bridge<T>.vertexA
+  nameWithType.vb: Bridge(Of T).vertexA
+- uid: Advanced.Algorithms.Graph.Bridge`1.vertexB
+  name: vertexB
+  href: api/Advanced.Algorithms.Graph.Bridge-1.html#Advanced_Algorithms_Graph_Bridge_1_vertexB
+  commentId: P:Advanced.Algorithms.Graph.Bridge`1.vertexB
+  fullName: Advanced.Algorithms.Graph.Bridge<T>.vertexB
+  fullName.vb: Advanced.Algorithms.Graph.Bridge(Of T).vertexB
+  nameWithType: Bridge<T>.vertexB
+  nameWithType.vb: Bridge(Of T).vertexB
+- uid: Advanced.Algorithms.Graph.Bridge`1.vertexB*
+  name: vertexB
+  href: api/Advanced.Algorithms.Graph.Bridge-1.html#Advanced_Algorithms_Graph_Bridge_1_vertexB_
+  commentId: Overload:Advanced.Algorithms.Graph.Bridge`1.vertexB
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.Bridge<T>.vertexB
+  fullName.vb: Advanced.Algorithms.Graph.Bridge(Of T).vertexB
+  nameWithType: Bridge<T>.vertexB
+  nameWithType.vb: Bridge(Of T).vertexB
+- uid: Advanced.Algorithms.Graph.CycleDetector`1
+  name: CycleDetector<T>
+  href: api/Advanced.Algorithms.Graph.CycleDetector-1.html
+  commentId: T:Advanced.Algorithms.Graph.CycleDetector`1
+  name.vb: CycleDetector(Of T)
+  fullName: Advanced.Algorithms.Graph.CycleDetector<T>
+  fullName.vb: Advanced.Algorithms.Graph.CycleDetector(Of T)
+  nameWithType: CycleDetector<T>
+  nameWithType.vb: CycleDetector(Of T)
+- uid: Advanced.Algorithms.Graph.CycleDetector`1.HasCycle(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name: HasCycle(DiGraph<T>)
+  href: api/Advanced.Algorithms.Graph.CycleDetector-1.html#Advanced_Algorithms_Graph_CycleDetector_1_HasCycle_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph__0__
+  commentId: M:Advanced.Algorithms.Graph.CycleDetector`1.HasCycle(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name.vb: HasCycle(DiGraph(Of T))
+  fullName: Advanced.Algorithms.Graph.CycleDetector<T>.HasCycle(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.CycleDetector(Of T).HasCycle(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T))
+  nameWithType: CycleDetector<T>.HasCycle(DiGraph<T>)
+  nameWithType.vb: CycleDetector(Of T).HasCycle(DiGraph(Of T))
+- uid: Advanced.Algorithms.Graph.CycleDetector`1.HasCycle*
+  name: HasCycle
+  href: api/Advanced.Algorithms.Graph.CycleDetector-1.html#Advanced_Algorithms_Graph_CycleDetector_1_HasCycle_
+  commentId: Overload:Advanced.Algorithms.Graph.CycleDetector`1.HasCycle
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.CycleDetector<T>.HasCycle
+  fullName.vb: Advanced.Algorithms.Graph.CycleDetector(Of T).HasCycle
+  nameWithType: CycleDetector<T>.HasCycle
+  nameWithType.vb: CycleDetector(Of T).HasCycle
+- uid: Advanced.Algorithms.Graph.DepthFirst`1
+  name: DepthFirst<T>
+  href: api/Advanced.Algorithms.Graph.DepthFirst-1.html
+  commentId: T:Advanced.Algorithms.Graph.DepthFirst`1
+  name.vb: DepthFirst(Of T)
+  fullName: Advanced.Algorithms.Graph.DepthFirst<T>
+  fullName.vb: Advanced.Algorithms.Graph.DepthFirst(Of T)
+  nameWithType: DepthFirst<T>
+  nameWithType.vb: DepthFirst(Of T)
+- uid: Advanced.Algorithms.Graph.DepthFirst`1.Find(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0},`0)
+  name: Find(Graph<T>, T)
+  href: api/Advanced.Algorithms.Graph.DepthFirst-1.html#Advanced_Algorithms_Graph_DepthFirst_1_Find_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0___0_
+  commentId: M:Advanced.Algorithms.Graph.DepthFirst`1.Find(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0},`0)
+  name.vb: Find(Graph(Of T), T)
+  fullName: Advanced.Algorithms.Graph.DepthFirst<T>.Find(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>, T)
+  fullName.vb: Advanced.Algorithms.Graph.DepthFirst(Of T).Find(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T), T)
+  nameWithType: DepthFirst<T>.Find(Graph<T>, T)
+  nameWithType.vb: DepthFirst(Of T).Find(Graph(Of T), T)
+- uid: Advanced.Algorithms.Graph.DepthFirst`1.Find*
+  name: Find
+  href: api/Advanced.Algorithms.Graph.DepthFirst-1.html#Advanced_Algorithms_Graph_DepthFirst_1_Find_
+  commentId: Overload:Advanced.Algorithms.Graph.DepthFirst`1.Find
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.DepthFirst<T>.Find
+  fullName.vb: Advanced.Algorithms.Graph.DepthFirst(Of T).Find
+  nameWithType: DepthFirst<T>.Find
+  nameWithType.vb: DepthFirst(Of T).Find
+- uid: Advanced.Algorithms.Graph.DepthFirstTopSort`1
+  name: DepthFirstTopSort<T>
+  href: api/Advanced.Algorithms.Graph.DepthFirstTopSort-1.html
+  commentId: T:Advanced.Algorithms.Graph.DepthFirstTopSort`1
+  name.vb: DepthFirstTopSort(Of T)
+  fullName: Advanced.Algorithms.Graph.DepthFirstTopSort<T>
+  fullName.vb: Advanced.Algorithms.Graph.DepthFirstTopSort(Of T)
+  nameWithType: DepthFirstTopSort<T>
+  nameWithType.vb: DepthFirstTopSort(Of T)
+- uid: Advanced.Algorithms.Graph.DepthFirstTopSort`1.GetTopSort(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name: GetTopSort(DiGraph<T>)
+  href: api/Advanced.Algorithms.Graph.DepthFirstTopSort-1.html#Advanced_Algorithms_Graph_DepthFirstTopSort_1_GetTopSort_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph__0__
+  commentId: M:Advanced.Algorithms.Graph.DepthFirstTopSort`1.GetTopSort(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name.vb: GetTopSort(DiGraph(Of T))
+  fullName: Advanced.Algorithms.Graph.DepthFirstTopSort<T>.GetTopSort(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.DepthFirstTopSort(Of T).GetTopSort(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T))
+  nameWithType: DepthFirstTopSort<T>.GetTopSort(DiGraph<T>)
+  nameWithType.vb: DepthFirstTopSort(Of T).GetTopSort(DiGraph(Of T))
+- uid: Advanced.Algorithms.Graph.DepthFirstTopSort`1.GetTopSort*
+  name: GetTopSort
+  href: api/Advanced.Algorithms.Graph.DepthFirstTopSort-1.html#Advanced_Algorithms_Graph_DepthFirstTopSort_1_GetTopSort_
+  commentId: Overload:Advanced.Algorithms.Graph.DepthFirstTopSort`1.GetTopSort
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.DepthFirstTopSort<T>.GetTopSort
+  fullName.vb: Advanced.Algorithms.Graph.DepthFirstTopSort(Of T).GetTopSort
+  nameWithType: DepthFirstTopSort<T>.GetTopSort
+  nameWithType.vb: DepthFirstTopSort(Of T).GetTopSort
+- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2
+  name: DijikstraShortestPath<T, W>
+  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html
+  commentId: T:Advanced.Algorithms.Graph.DijikstraShortestPath`2
+  name.vb: DijikstraShortestPath(Of T, W)
+  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W)
+  nameWithType: DijikstraShortestPath<T, W>
+  nameWithType.vb: DijikstraShortestPath(Of T, W)
+- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.#ctor(Advanced.Algorithms.Graph.IShortestPathOperators{`1})
+  name: DijikstraShortestPath(IShortestPathOperators<W>)
+  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2__ctor_Advanced_Algorithms_Graph_IShortestPathOperators__1__
+  commentId: M:Advanced.Algorithms.Graph.DijikstraShortestPath`2.#ctor(Advanced.Algorithms.Graph.IShortestPathOperators{`1})
+  name.vb: DijikstraShortestPath(IShortestPathOperators(Of W))
+  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.DijikstraShortestPath(Advanced.Algorithms.Graph.IShortestPathOperators<W>)
+  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).DijikstraShortestPath(Advanced.Algorithms.Graph.IShortestPathOperators(Of W))
+  nameWithType: DijikstraShortestPath<T, W>.DijikstraShortestPath(IShortestPathOperators<W>)
+  nameWithType.vb: DijikstraShortestPath(Of T, W).DijikstraShortestPath(IShortestPathOperators(Of W))
+- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.#ctor*
+  name: DijikstraShortestPath
+  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.DijikstraShortestPath`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.DijikstraShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).DijikstraShortestPath
+  nameWithType: DijikstraShortestPath<T, W>.DijikstraShortestPath
+  nameWithType.vb: DijikstraShortestPath(Of T, W).DijikstraShortestPath
+- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: GetShortestPath(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2_GetShortestPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.DijikstraShortestPath`2.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: GetShortestPath(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: DijikstraShortestPath<T, W>.GetShortestPath(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: DijikstraShortestPath(Of T, W).GetShortestPath(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.GetShortestPath*
+  name: GetShortestPath
+  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2_GetShortestPath_
+  commentId: Overload:Advanced.Algorithms.Graph.DijikstraShortestPath`2.GetShortestPath
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.GetShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).GetShortestPath
+  nameWithType: DijikstraShortestPath<T, W>.GetShortestPath
+  nameWithType.vb: DijikstraShortestPath(Of T, W).GetShortestPath
+- uid: Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2
+  name: EdmondKarpMaxFlow<T, W>
+  href: api/Advanced.Algorithms.Graph.EdmondKarpMaxFlow-2.html
+  commentId: T:Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2
+  name.vb: EdmondKarpMaxFlow(Of T, W)
+  fullName: Advanced.Algorithms.Graph.EdmondKarpMaxFlow<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.EdmondKarpMaxFlow(Of T, W)
+  nameWithType: EdmondKarpMaxFlow<T, W>
+  nameWithType.vb: EdmondKarpMaxFlow(Of T, W)
+- uid: Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.#ctor(Advanced.Algorithms.Graph.IFlowOperators{`1})
+  name: EdmondKarpMaxFlow(IFlowOperators<W>)
+  href: api/Advanced.Algorithms.Graph.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2__ctor_Advanced_Algorithms_Graph_IFlowOperators__1__
+  commentId: M:Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.#ctor(Advanced.Algorithms.Graph.IFlowOperators{`1})
+  name.vb: EdmondKarpMaxFlow(IFlowOperators(Of W))
+  fullName: Advanced.Algorithms.Graph.EdmondKarpMaxFlow<T, W>.EdmondKarpMaxFlow(Advanced.Algorithms.Graph.IFlowOperators<W>)
+  fullName.vb: Advanced.Algorithms.Graph.EdmondKarpMaxFlow(Of T, W).EdmondKarpMaxFlow(Advanced.Algorithms.Graph.IFlowOperators(Of W))
+  nameWithType: EdmondKarpMaxFlow<T, W>.EdmondKarpMaxFlow(IFlowOperators<W>)
+  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).EdmondKarpMaxFlow(IFlowOperators(Of W))
+- uid: Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.#ctor*
+  name: EdmondKarpMaxFlow
+  href: api/Advanced.Algorithms.Graph.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.EdmondKarpMaxFlow<T, W>.EdmondKarpMaxFlow
+  fullName.vb: Advanced.Algorithms.Graph.EdmondKarpMaxFlow(Of T, W).EdmondKarpMaxFlow
+  nameWithType: EdmondKarpMaxFlow<T, W>.EdmondKarpMaxFlow
+  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).EdmondKarpMaxFlow
+- uid: Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: ComputeMaxFlow(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_ComputeMaxFlow_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: ComputeMaxFlow(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.EdmondKarpMaxFlow<T, W>.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.EdmondKarpMaxFlow(Of T, W).ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: EdmondKarpMaxFlow<T, W>.ComputeMaxFlow(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).ComputeMaxFlow(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.ComputeMaxFlow*
+  name: ComputeMaxFlow
+  href: api/Advanced.Algorithms.Graph.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_ComputeMaxFlow_
+  commentId: Overload:Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.ComputeMaxFlow
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.EdmondKarpMaxFlow<T, W>.ComputeMaxFlow
+  fullName.vb: Advanced.Algorithms.Graph.EdmondKarpMaxFlow(Of T, W).ComputeMaxFlow
+  nameWithType: EdmondKarpMaxFlow<T, W>.ComputeMaxFlow
+  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).ComputeMaxFlow
+- uid: Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: computeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_computeMaxFlowAndReturnResidualGraph_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: computeMaxFlowAndReturnResidualGraph(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.EdmondKarpMaxFlow<T, W>.computeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.EdmondKarpMaxFlow(Of T, W).computeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: EdmondKarpMaxFlow<T, W>.computeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).computeMaxFlowAndReturnResidualGraph(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph*
+  name: computeMaxFlowAndReturnResidualGraph
+  href: api/Advanced.Algorithms.Graph.EdmondKarpMaxFlow-2.html#Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_computeMaxFlowAndReturnResidualGraph_
+  commentId: Overload:Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.EdmondKarpMaxFlow<T, W>.computeMaxFlowAndReturnResidualGraph
+  fullName.vb: Advanced.Algorithms.Graph.EdmondKarpMaxFlow(Of T, W).computeMaxFlowAndReturnResidualGraph
+  nameWithType: EdmondKarpMaxFlow<T, W>.computeMaxFlowAndReturnResidualGraph
+  nameWithType.vb: EdmondKarpMaxFlow(Of T, W).computeMaxFlowAndReturnResidualGraph
+- uid: Advanced.Algorithms.Graph.FloydWarshallShortestPath`2
+  name: FloydWarshallShortestPath<T, W>
+  href: api/Advanced.Algorithms.Graph.FloydWarshallShortestPath-2.html
+  commentId: T:Advanced.Algorithms.Graph.FloydWarshallShortestPath`2
+  name.vb: FloydWarshallShortestPath(Of T, W)
+  fullName: Advanced.Algorithms.Graph.FloydWarshallShortestPath<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W)
+  nameWithType: FloydWarshallShortestPath<T, W>
+  nameWithType.vb: FloydWarshallShortestPath(Of T, W)
+- uid: Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.#ctor(Advanced.Algorithms.Graph.IShortestPathOperators{`1})
+  name: FloydWarshallShortestPath(IShortestPathOperators<W>)
+  href: api/Advanced.Algorithms.Graph.FloydWarshallShortestPath-2.html#Advanced_Algorithms_Graph_FloydWarshallShortestPath_2__ctor_Advanced_Algorithms_Graph_IShortestPathOperators__1__
+  commentId: M:Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.#ctor(Advanced.Algorithms.Graph.IShortestPathOperators{`1})
+  name.vb: FloydWarshallShortestPath(IShortestPathOperators(Of W))
+  fullName: Advanced.Algorithms.Graph.FloydWarshallShortestPath<T, W>.FloydWarshallShortestPath(Advanced.Algorithms.Graph.IShortestPathOperators<W>)
+  fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W).FloydWarshallShortestPath(Advanced.Algorithms.Graph.IShortestPathOperators(Of W))
+  nameWithType: FloydWarshallShortestPath<T, W>.FloydWarshallShortestPath(IShortestPathOperators<W>)
+  nameWithType.vb: FloydWarshallShortestPath(Of T, W).FloydWarshallShortestPath(IShortestPathOperators(Of W))
+- uid: Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.#ctor*
+  name: FloydWarshallShortestPath
+  href: api/Advanced.Algorithms.Graph.FloydWarshallShortestPath-2.html#Advanced_Algorithms_Graph_FloydWarshallShortestPath_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.FloydWarshallShortestPath<T, W>.FloydWarshallShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W).FloydWarshallShortestPath
+  nameWithType: FloydWarshallShortestPath<T, W>.FloydWarshallShortestPath
+  nameWithType.vb: FloydWarshallShortestPath(Of T, W).FloydWarshallShortestPath
+- uid: Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
+  name: GetAllPairShortestPaths(WeightedGraph<T, W>)
+  href: api/Advanced.Algorithms.Graph.FloydWarshallShortestPath-2.html#Advanced_Algorithms_Graph_FloydWarshallShortestPath_2_GetAllPairShortestPaths_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph__0__1__
+  commentId: M:Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
+  name.vb: GetAllPairShortestPaths(WeightedGraph(Of T, W))
+  fullName: Advanced.Algorithms.Graph.FloydWarshallShortestPath<T, W>.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, W>)
+  fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W).GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, W))
+  nameWithType: FloydWarshallShortestPath<T, W>.GetAllPairShortestPaths(WeightedGraph<T, W>)
+  nameWithType.vb: FloydWarshallShortestPath(Of T, W).GetAllPairShortestPaths(WeightedGraph(Of T, W))
+- uid: Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.GetAllPairShortestPaths*
+  name: GetAllPairShortestPaths
+  href: api/Advanced.Algorithms.Graph.FloydWarshallShortestPath-2.html#Advanced_Algorithms_Graph_FloydWarshallShortestPath_2_GetAllPairShortestPaths_
+  commentId: Overload:Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.GetAllPairShortestPaths
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.FloydWarshallShortestPath<T, W>.GetAllPairShortestPaths
+  fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W).GetAllPairShortestPaths
+  nameWithType: FloydWarshallShortestPath<T, W>.GetAllPairShortestPaths
+  nameWithType.vb: FloydWarshallShortestPath(Of T, W).GetAllPairShortestPaths
+- uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2
+  name: FordFulkersonMaxFlow<T, W>
+  href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html
+  commentId: T:Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2
+  name.vb: FordFulkersonMaxFlow(Of T, W)
+  fullName: Advanced.Algorithms.Graph.FordFulkersonMaxFlow<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W)
+  nameWithType: FordFulkersonMaxFlow<T, W>
+  nameWithType.vb: FordFulkersonMaxFlow(Of T, W)
+- uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.#ctor(Advanced.Algorithms.Graph.IFlowOperators{`1})
+  name: FordFulkersonMaxFlow(IFlowOperators<W>)
+  href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html#Advanced_Algorithms_Graph_FordFulkersonMaxFlow_2__ctor_Advanced_Algorithms_Graph_IFlowOperators__1__
+  commentId: M:Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.#ctor(Advanced.Algorithms.Graph.IFlowOperators{`1})
+  name.vb: FordFulkersonMaxFlow(IFlowOperators(Of W))
+  fullName: Advanced.Algorithms.Graph.FordFulkersonMaxFlow<T, W>.FordFulkersonMaxFlow(Advanced.Algorithms.Graph.IFlowOperators<W>)
+  fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).FordFulkersonMaxFlow(Advanced.Algorithms.Graph.IFlowOperators(Of W))
+  nameWithType: FordFulkersonMaxFlow<T, W>.FordFulkersonMaxFlow(IFlowOperators<W>)
+  nameWithType.vb: FordFulkersonMaxFlow(Of T, W).FordFulkersonMaxFlow(IFlowOperators(Of W))
+- uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.#ctor*
+  name: FordFulkersonMaxFlow
+  href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html#Advanced_Algorithms_Graph_FordFulkersonMaxFlow_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.FordFulkersonMaxFlow<T, W>.FordFulkersonMaxFlow
+  fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).FordFulkersonMaxFlow
+  nameWithType: FordFulkersonMaxFlow<T, W>.FordFulkersonMaxFlow
+  nameWithType.vb: FordFulkersonMaxFlow(Of T, W).FordFulkersonMaxFlow
+- uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: ComputeMaxFlow(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html#Advanced_Algorithms_Graph_FordFulkersonMaxFlow_2_ComputeMaxFlow_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: ComputeMaxFlow(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.FordFulkersonMaxFlow<T, W>.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: FordFulkersonMaxFlow<T, W>.ComputeMaxFlow(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: FordFulkersonMaxFlow(Of T, W).ComputeMaxFlow(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlow*
+  name: ComputeMaxFlow
+  href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html#Advanced_Algorithms_Graph_FordFulkersonMaxFlow_2_ComputeMaxFlow_
+  commentId: Overload:Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlow
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.FordFulkersonMaxFlow<T, W>.ComputeMaxFlow
+  fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).ComputeMaxFlow
+  nameWithType: FordFulkersonMaxFlow<T, W>.ComputeMaxFlow
+  nameWithType.vb: FordFulkersonMaxFlow(Of T, W).ComputeMaxFlow
+- uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html#Advanced_Algorithms_Graph_FordFulkersonMaxFlow_2_ComputeMaxFlowAndReturnFlowPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.FordFulkersonMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: FordFulkersonMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlowAndReturnFlowPath*
+  name: ComputeMaxFlowAndReturnFlowPath
+  href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html#Advanced_Algorithms_Graph_FordFulkersonMaxFlow_2_ComputeMaxFlowAndReturnFlowPath_
+  commentId: Overload:Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlowAndReturnFlowPath
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.FordFulkersonMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath
+  fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath
+  nameWithType: FordFulkersonMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath
+  nameWithType.vb: FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath
+- uid: Advanced.Algorithms.Graph.HopcroftKarpMatching`1
+  name: HopcroftKarpMatching<T>
+  href: api/Advanced.Algorithms.Graph.HopcroftKarpMatching-1.html
+  commentId: T:Advanced.Algorithms.Graph.HopcroftKarpMatching`1
+  name.vb: HopcroftKarpMatching(Of T)
+  fullName: Advanced.Algorithms.Graph.HopcroftKarpMatching<T>
+  fullName.vb: Advanced.Algorithms.Graph.HopcroftKarpMatching(Of T)
+  nameWithType: HopcroftKarpMatching<T>
+  nameWithType.vb: HopcroftKarpMatching(Of T)
+- uid: Advanced.Algorithms.Graph.HopcroftKarpMatching`1.#ctor(Advanced.Algorithms.Graph.IBiPartiteMatchOperators{`0})
+  name: HopcroftKarpMatching(IBiPartiteMatchOperators<T>)
+  href: api/Advanced.Algorithms.Graph.HopcroftKarpMatching-1.html#Advanced_Algorithms_Graph_HopcroftKarpMatching_1__ctor_Advanced_Algorithms_Graph_IBiPartiteMatchOperators__0__
+  commentId: M:Advanced.Algorithms.Graph.HopcroftKarpMatching`1.#ctor(Advanced.Algorithms.Graph.IBiPartiteMatchOperators{`0})
+  name.vb: HopcroftKarpMatching(IBiPartiteMatchOperators(Of T))
+  fullName: Advanced.Algorithms.Graph.HopcroftKarpMatching<T>.HopcroftKarpMatching(Advanced.Algorithms.Graph.IBiPartiteMatchOperators<T>)
+  fullName.vb: Advanced.Algorithms.Graph.HopcroftKarpMatching(Of T).HopcroftKarpMatching(Advanced.Algorithms.Graph.IBiPartiteMatchOperators(Of T))
+  nameWithType: HopcroftKarpMatching<T>.HopcroftKarpMatching(IBiPartiteMatchOperators<T>)
+  nameWithType.vb: HopcroftKarpMatching(Of T).HopcroftKarpMatching(IBiPartiteMatchOperators(Of T))
+- uid: Advanced.Algorithms.Graph.HopcroftKarpMatching`1.#ctor*
+  name: HopcroftKarpMatching
+  href: api/Advanced.Algorithms.Graph.HopcroftKarpMatching-1.html#Advanced_Algorithms_Graph_HopcroftKarpMatching_1__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.HopcroftKarpMatching`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.HopcroftKarpMatching<T>.HopcroftKarpMatching
+  fullName.vb: Advanced.Algorithms.Graph.HopcroftKarpMatching(Of T).HopcroftKarpMatching
+  nameWithType: HopcroftKarpMatching<T>.HopcroftKarpMatching
+  nameWithType.vb: HopcroftKarpMatching(Of T).HopcroftKarpMatching
+- uid: Advanced.Algorithms.Graph.HopcroftKarpMatching`1.GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name: GetMaxBiPartiteMatching(Graph<T>)
+  href: api/Advanced.Algorithms.Graph.HopcroftKarpMatching-1.html#Advanced_Algorithms_Graph_HopcroftKarpMatching_1_GetMaxBiPartiteMatching_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0__
+  commentId: M:Advanced.Algorithms.Graph.HopcroftKarpMatching`1.GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name.vb: GetMaxBiPartiteMatching(Graph(Of T))
+  fullName: Advanced.Algorithms.Graph.HopcroftKarpMatching<T>.GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T))
+  nameWithType: HopcroftKarpMatching<T>.GetMaxBiPartiteMatching(Graph<T>)
+  nameWithType.vb: HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching(Graph(Of T))
+- uid: Advanced.Algorithms.Graph.HopcroftKarpMatching`1.GetMaxBiPartiteMatching*
+  name: GetMaxBiPartiteMatching
+  href: api/Advanced.Algorithms.Graph.HopcroftKarpMatching-1.html#Advanced_Algorithms_Graph_HopcroftKarpMatching_1_GetMaxBiPartiteMatching_
+  commentId: Overload:Advanced.Algorithms.Graph.HopcroftKarpMatching`1.GetMaxBiPartiteMatching
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.HopcroftKarpMatching<T>.GetMaxBiPartiteMatching
+  fullName.vb: Advanced.Algorithms.Graph.HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching
+  nameWithType: HopcroftKarpMatching<T>.GetMaxBiPartiteMatching
+  nameWithType.vb: HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching
+- uid: Advanced.Algorithms.Graph.IBiPartiteMatchOperators`1
+  name: IBiPartiteMatchOperators<T>
+  href: api/Advanced.Algorithms.Graph.IBiPartiteMatchOperators-1.html
+  commentId: T:Advanced.Algorithms.Graph.IBiPartiteMatchOperators`1
+  name.vb: IBiPartiteMatchOperators(Of T)
+  fullName: Advanced.Algorithms.Graph.IBiPartiteMatchOperators<T>
+  fullName.vb: Advanced.Algorithms.Graph.IBiPartiteMatchOperators(Of T)
+  nameWithType: IBiPartiteMatchOperators<T>
+  nameWithType.vb: IBiPartiteMatchOperators(Of T)
+- uid: Advanced.Algorithms.Graph.IBiPartiteMatchOperators`1.GetRandomUniqueVertex
+  name: GetRandomUniqueVertex()
+  href: api/Advanced.Algorithms.Graph.IBiPartiteMatchOperators-1.html#Advanced_Algorithms_Graph_IBiPartiteMatchOperators_1_GetRandomUniqueVertex
+  commentId: M:Advanced.Algorithms.Graph.IBiPartiteMatchOperators`1.GetRandomUniqueVertex
+  fullName: Advanced.Algorithms.Graph.IBiPartiteMatchOperators<T>.GetRandomUniqueVertex()
+  fullName.vb: Advanced.Algorithms.Graph.IBiPartiteMatchOperators(Of T).GetRandomUniqueVertex()
+  nameWithType: IBiPartiteMatchOperators<T>.GetRandomUniqueVertex()
+  nameWithType.vb: IBiPartiteMatchOperators(Of T).GetRandomUniqueVertex()
+- uid: Advanced.Algorithms.Graph.IBiPartiteMatchOperators`1.GetRandomUniqueVertex*
+  name: GetRandomUniqueVertex
+  href: api/Advanced.Algorithms.Graph.IBiPartiteMatchOperators-1.html#Advanced_Algorithms_Graph_IBiPartiteMatchOperators_1_GetRandomUniqueVertex_
+  commentId: Overload:Advanced.Algorithms.Graph.IBiPartiteMatchOperators`1.GetRandomUniqueVertex
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IBiPartiteMatchOperators<T>.GetRandomUniqueVertex
+  fullName.vb: Advanced.Algorithms.Graph.IBiPartiteMatchOperators(Of T).GetRandomUniqueVertex
+  nameWithType: IBiPartiteMatchOperators<T>.GetRandomUniqueVertex
+  nameWithType.vb: IBiPartiteMatchOperators(Of T).GetRandomUniqueVertex
+- uid: Advanced.Algorithms.Graph.IFlowOperators`1
+  name: IFlowOperators<W>
+  href: api/Advanced.Algorithms.Graph.IFlowOperators-1.html
+  commentId: T:Advanced.Algorithms.Graph.IFlowOperators`1
+  name.vb: IFlowOperators(Of W)
+  fullName: Advanced.Algorithms.Graph.IFlowOperators<W>
+  fullName.vb: Advanced.Algorithms.Graph.IFlowOperators(Of W)
+  nameWithType: IFlowOperators<W>
+  nameWithType.vb: IFlowOperators(Of W)
+- uid: Advanced.Algorithms.Graph.IFlowOperators`1.AddWeights(`0,`0)
+  name: AddWeights(W, W)
+  href: api/Advanced.Algorithms.Graph.IFlowOperators-1.html#Advanced_Algorithms_Graph_IFlowOperators_1_AddWeights__0__0_
+  commentId: M:Advanced.Algorithms.Graph.IFlowOperators`1.AddWeights(`0,`0)
+  fullName: Advanced.Algorithms.Graph.IFlowOperators<W>.AddWeights(W, W)
+  fullName.vb: Advanced.Algorithms.Graph.IFlowOperators(Of W).AddWeights(W, W)
+  nameWithType: IFlowOperators<W>.AddWeights(W, W)
+  nameWithType.vb: IFlowOperators(Of W).AddWeights(W, W)
+- uid: Advanced.Algorithms.Graph.IFlowOperators`1.AddWeights*
+  name: AddWeights
+  href: api/Advanced.Algorithms.Graph.IFlowOperators-1.html#Advanced_Algorithms_Graph_IFlowOperators_1_AddWeights_
+  commentId: Overload:Advanced.Algorithms.Graph.IFlowOperators`1.AddWeights
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IFlowOperators<W>.AddWeights
+  fullName.vb: Advanced.Algorithms.Graph.IFlowOperators(Of W).AddWeights
+  nameWithType: IFlowOperators<W>.AddWeights
+  nameWithType.vb: IFlowOperators(Of W).AddWeights
+- uid: Advanced.Algorithms.Graph.IFlowOperators`1.defaultWeight
+  name: defaultWeight
+  href: api/Advanced.Algorithms.Graph.IFlowOperators-1.html#Advanced_Algorithms_Graph_IFlowOperators_1_defaultWeight
+  commentId: P:Advanced.Algorithms.Graph.IFlowOperators`1.defaultWeight
+  fullName: Advanced.Algorithms.Graph.IFlowOperators<W>.defaultWeight
+  fullName.vb: Advanced.Algorithms.Graph.IFlowOperators(Of W).defaultWeight
+  nameWithType: IFlowOperators<W>.defaultWeight
+  nameWithType.vb: IFlowOperators(Of W).defaultWeight
+- uid: Advanced.Algorithms.Graph.IFlowOperators`1.defaultWeight*
+  name: defaultWeight
+  href: api/Advanced.Algorithms.Graph.IFlowOperators-1.html#Advanced_Algorithms_Graph_IFlowOperators_1_defaultWeight_
+  commentId: Overload:Advanced.Algorithms.Graph.IFlowOperators`1.defaultWeight
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IFlowOperators<W>.defaultWeight
+  fullName.vb: Advanced.Algorithms.Graph.IFlowOperators(Of W).defaultWeight
+  nameWithType: IFlowOperators<W>.defaultWeight
+  nameWithType.vb: IFlowOperators(Of W).defaultWeight
+- uid: Advanced.Algorithms.Graph.IFlowOperators`1.MaxWeight
+  name: MaxWeight
+  href: api/Advanced.Algorithms.Graph.IFlowOperators-1.html#Advanced_Algorithms_Graph_IFlowOperators_1_MaxWeight
+  commentId: P:Advanced.Algorithms.Graph.IFlowOperators`1.MaxWeight
+  fullName: Advanced.Algorithms.Graph.IFlowOperators<W>.MaxWeight
+  fullName.vb: Advanced.Algorithms.Graph.IFlowOperators(Of W).MaxWeight
+  nameWithType: IFlowOperators<W>.MaxWeight
+  nameWithType.vb: IFlowOperators(Of W).MaxWeight
+- uid: Advanced.Algorithms.Graph.IFlowOperators`1.MaxWeight*
+  name: MaxWeight
+  href: api/Advanced.Algorithms.Graph.IFlowOperators-1.html#Advanced_Algorithms_Graph_IFlowOperators_1_MaxWeight_
+  commentId: Overload:Advanced.Algorithms.Graph.IFlowOperators`1.MaxWeight
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IFlowOperators<W>.MaxWeight
+  fullName.vb: Advanced.Algorithms.Graph.IFlowOperators(Of W).MaxWeight
+  nameWithType: IFlowOperators<W>.MaxWeight
+  nameWithType.vb: IFlowOperators(Of W).MaxWeight
+- uid: Advanced.Algorithms.Graph.IFlowOperators`1.SubstractWeights(`0,`0)
+  name: SubstractWeights(W, W)
+  href: api/Advanced.Algorithms.Graph.IFlowOperators-1.html#Advanced_Algorithms_Graph_IFlowOperators_1_SubstractWeights__0__0_
+  commentId: M:Advanced.Algorithms.Graph.IFlowOperators`1.SubstractWeights(`0,`0)
+  fullName: Advanced.Algorithms.Graph.IFlowOperators<W>.SubstractWeights(W, W)
+  fullName.vb: Advanced.Algorithms.Graph.IFlowOperators(Of W).SubstractWeights(W, W)
+  nameWithType: IFlowOperators<W>.SubstractWeights(W, W)
+  nameWithType.vb: IFlowOperators(Of W).SubstractWeights(W, W)
+- uid: Advanced.Algorithms.Graph.IFlowOperators`1.SubstractWeights*
+  name: SubstractWeights
+  href: api/Advanced.Algorithms.Graph.IFlowOperators-1.html#Advanced_Algorithms_Graph_IFlowOperators_1_SubstractWeights_
+  commentId: Overload:Advanced.Algorithms.Graph.IFlowOperators`1.SubstractWeights
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IFlowOperators<W>.SubstractWeights
+  fullName.vb: Advanced.Algorithms.Graph.IFlowOperators(Of W).SubstractWeights
+  nameWithType: IFlowOperators<W>.SubstractWeights
+  nameWithType.vb: IFlowOperators(Of W).SubstractWeights
+- uid: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2
+  name: IJohnsonsShortestPathOperators<T, W>
+  href: api/Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators-2.html
+  commentId: T:Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2
+  name.vb: IJohnsonsShortestPathOperators(Of T, W)
+  fullName: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators(Of T, W)
+  nameWithType: IJohnsonsShortestPathOperators<T, W>
+  nameWithType.vb: IJohnsonsShortestPathOperators(Of T, W)
+- uid: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2.RandomVertex
+  name: RandomVertex()
+  href: api/Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators-2.html#Advanced_Algorithms_Graph_IJohnsonsShortestPathOperators_2_RandomVertex
+  commentId: M:Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2.RandomVertex
+  fullName: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators<T, W>.RandomVertex()
+  fullName.vb: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators(Of T, W).RandomVertex()
+  nameWithType: IJohnsonsShortestPathOperators<T, W>.RandomVertex()
+  nameWithType.vb: IJohnsonsShortestPathOperators(Of T, W).RandomVertex()
+- uid: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2.RandomVertex*
+  name: RandomVertex
+  href: api/Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators-2.html#Advanced_Algorithms_Graph_IJohnsonsShortestPathOperators_2_RandomVertex_
+  commentId: Overload:Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2.RandomVertex
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators<T, W>.RandomVertex
+  fullName.vb: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators(Of T, W).RandomVertex
+  nameWithType: IJohnsonsShortestPathOperators<T, W>.RandomVertex
+  nameWithType.vb: IJohnsonsShortestPathOperators(Of T, W).RandomVertex
+- uid: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2.Substract(`1,`1)
+  name: Substract(W, W)
+  href: api/Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators-2.html#Advanced_Algorithms_Graph_IJohnsonsShortestPathOperators_2_Substract__1__1_
+  commentId: M:Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2.Substract(`1,`1)
+  fullName: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators<T, W>.Substract(W, W)
+  fullName.vb: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators(Of T, W).Substract(W, W)
+  nameWithType: IJohnsonsShortestPathOperators<T, W>.Substract(W, W)
+  nameWithType.vb: IJohnsonsShortestPathOperators(Of T, W).Substract(W, W)
+- uid: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2.Substract*
+  name: Substract
+  href: api/Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators-2.html#Advanced_Algorithms_Graph_IJohnsonsShortestPathOperators_2_Substract_
+  commentId: Overload:Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators`2.Substract
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators<T, W>.Substract
+  fullName.vb: Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators(Of T, W).Substract
+  nameWithType: IJohnsonsShortestPathOperators<T, W>.Substract
+  nameWithType.vb: IJohnsonsShortestPathOperators(Of T, W).Substract
+- uid: Advanced.Algorithms.Graph.IShortestPathOperators`1
+  name: IShortestPathOperators<W>
+  href: api/Advanced.Algorithms.Graph.IShortestPathOperators-1.html
+  commentId: T:Advanced.Algorithms.Graph.IShortestPathOperators`1
+  name.vb: IShortestPathOperators(Of W)
+  fullName: Advanced.Algorithms.Graph.IShortestPathOperators<W>
+  fullName.vb: Advanced.Algorithms.Graph.IShortestPathOperators(Of W)
+  nameWithType: IShortestPathOperators<W>
+  nameWithType.vb: IShortestPathOperators(Of W)
+- uid: Advanced.Algorithms.Graph.IShortestPathOperators`1.DefaultValue
+  name: DefaultValue
+  href: api/Advanced.Algorithms.Graph.IShortestPathOperators-1.html#Advanced_Algorithms_Graph_IShortestPathOperators_1_DefaultValue
+  commentId: P:Advanced.Algorithms.Graph.IShortestPathOperators`1.DefaultValue
+  fullName: Advanced.Algorithms.Graph.IShortestPathOperators<W>.DefaultValue
+  fullName.vb: Advanced.Algorithms.Graph.IShortestPathOperators(Of W).DefaultValue
+  nameWithType: IShortestPathOperators<W>.DefaultValue
+  nameWithType.vb: IShortestPathOperators(Of W).DefaultValue
+- uid: Advanced.Algorithms.Graph.IShortestPathOperators`1.DefaultValue*
+  name: DefaultValue
+  href: api/Advanced.Algorithms.Graph.IShortestPathOperators-1.html#Advanced_Algorithms_Graph_IShortestPathOperators_1_DefaultValue_
+  commentId: Overload:Advanced.Algorithms.Graph.IShortestPathOperators`1.DefaultValue
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IShortestPathOperators<W>.DefaultValue
+  fullName.vb: Advanced.Algorithms.Graph.IShortestPathOperators(Of W).DefaultValue
+  nameWithType: IShortestPathOperators<W>.DefaultValue
+  nameWithType.vb: IShortestPathOperators(Of W).DefaultValue
+- uid: Advanced.Algorithms.Graph.IShortestPathOperators`1.MaxValue
+  name: MaxValue
+  href: api/Advanced.Algorithms.Graph.IShortestPathOperators-1.html#Advanced_Algorithms_Graph_IShortestPathOperators_1_MaxValue
+  commentId: P:Advanced.Algorithms.Graph.IShortestPathOperators`1.MaxValue
+  fullName: Advanced.Algorithms.Graph.IShortestPathOperators<W>.MaxValue
+  fullName.vb: Advanced.Algorithms.Graph.IShortestPathOperators(Of W).MaxValue
+  nameWithType: IShortestPathOperators<W>.MaxValue
+  nameWithType.vb: IShortestPathOperators(Of W).MaxValue
+- uid: Advanced.Algorithms.Graph.IShortestPathOperators`1.MaxValue*
+  name: MaxValue
+  href: api/Advanced.Algorithms.Graph.IShortestPathOperators-1.html#Advanced_Algorithms_Graph_IShortestPathOperators_1_MaxValue_
+  commentId: Overload:Advanced.Algorithms.Graph.IShortestPathOperators`1.MaxValue
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IShortestPathOperators<W>.MaxValue
+  fullName.vb: Advanced.Algorithms.Graph.IShortestPathOperators(Of W).MaxValue
+  nameWithType: IShortestPathOperators<W>.MaxValue
+  nameWithType.vb: IShortestPathOperators(Of W).MaxValue
+- uid: Advanced.Algorithms.Graph.IShortestPathOperators`1.Sum(`0,`0)
+  name: Sum(W, W)
+  href: api/Advanced.Algorithms.Graph.IShortestPathOperators-1.html#Advanced_Algorithms_Graph_IShortestPathOperators_1_Sum__0__0_
+  commentId: M:Advanced.Algorithms.Graph.IShortestPathOperators`1.Sum(`0,`0)
+  fullName: Advanced.Algorithms.Graph.IShortestPathOperators<W>.Sum(W, W)
+  fullName.vb: Advanced.Algorithms.Graph.IShortestPathOperators(Of W).Sum(W, W)
+  nameWithType: IShortestPathOperators<W>.Sum(W, W)
+  nameWithType.vb: IShortestPathOperators(Of W).Sum(W, W)
+- uid: Advanced.Algorithms.Graph.IShortestPathOperators`1.Sum*
+  name: Sum
+  href: api/Advanced.Algorithms.Graph.IShortestPathOperators-1.html#Advanced_Algorithms_Graph_IShortestPathOperators_1_Sum_
+  commentId: Overload:Advanced.Algorithms.Graph.IShortestPathOperators`1.Sum
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IShortestPathOperators<W>.Sum
+  fullName.vb: Advanced.Algorithms.Graph.IShortestPathOperators(Of W).Sum
+  nameWithType: IShortestPathOperators<W>.Sum
+  nameWithType.vb: IShortestPathOperators(Of W).Sum
+- uid: Advanced.Algorithms.Graph.JohnsonsShortestPath`2
+  name: JohnsonsShortestPath<T, W>
+  href: api/Advanced.Algorithms.Graph.JohnsonsShortestPath-2.html
+  commentId: T:Advanced.Algorithms.Graph.JohnsonsShortestPath`2
+  name.vb: JohnsonsShortestPath(Of T, W)
+  fullName: Advanced.Algorithms.Graph.JohnsonsShortestPath<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W)
+  nameWithType: JohnsonsShortestPath<T, W>
+  nameWithType.vb: JohnsonsShortestPath(Of T, W)
+- uid: Advanced.Algorithms.Graph.JohnsonsShortestPath`2.#ctor(Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators{`0,`1})
+  name: JohnsonsShortestPath(IJohnsonsShortestPathOperators<T, W>)
+  href: api/Advanced.Algorithms.Graph.JohnsonsShortestPath-2.html#Advanced_Algorithms_Graph_JohnsonsShortestPath_2__ctor_Advanced_Algorithms_Graph_IJohnsonsShortestPathOperators__0__1__
+  commentId: M:Advanced.Algorithms.Graph.JohnsonsShortestPath`2.#ctor(Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators{`0,`1})
+  name.vb: JohnsonsShortestPath(IJohnsonsShortestPathOperators(Of T, W))
+  fullName: Advanced.Algorithms.Graph.JohnsonsShortestPath<T, W>.JohnsonsShortestPath(Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators<T, W>)
+  fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W).JohnsonsShortestPath(Advanced.Algorithms.Graph.IJohnsonsShortestPathOperators(Of T, W))
+  nameWithType: JohnsonsShortestPath<T, W>.JohnsonsShortestPath(IJohnsonsShortestPathOperators<T, W>)
+  nameWithType.vb: JohnsonsShortestPath(Of T, W).JohnsonsShortestPath(IJohnsonsShortestPathOperators(Of T, W))
+- uid: Advanced.Algorithms.Graph.JohnsonsShortestPath`2.#ctor*
+  name: JohnsonsShortestPath
+  href: api/Advanced.Algorithms.Graph.JohnsonsShortestPath-2.html#Advanced_Algorithms_Graph_JohnsonsShortestPath_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.JohnsonsShortestPath`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.JohnsonsShortestPath<T, W>.JohnsonsShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W).JohnsonsShortestPath
+  nameWithType: JohnsonsShortestPath<T, W>.JohnsonsShortestPath
+  nameWithType.vb: JohnsonsShortestPath(Of T, W).JohnsonsShortestPath
+- uid: Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1})
+  name: GetAllPairShortestPaths(WeightedDiGraph<T, W>)
+  href: api/Advanced.Algorithms.Graph.JohnsonsShortestPath-2.html#Advanced_Algorithms_Graph_JohnsonsShortestPath_2_GetAllPairShortestPaths_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1__
+  commentId: M:Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1})
+  name.vb: GetAllPairShortestPaths(WeightedDiGraph(Of T, W))
+  fullName: Advanced.Algorithms.Graph.JohnsonsShortestPath<T, W>.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>)
+  fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W).GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W))
+  nameWithType: JohnsonsShortestPath<T, W>.GetAllPairShortestPaths(WeightedDiGraph<T, W>)
+  nameWithType.vb: JohnsonsShortestPath(Of T, W).GetAllPairShortestPaths(WeightedDiGraph(Of T, W))
+- uid: Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths*
+  name: GetAllPairShortestPaths
+  href: api/Advanced.Algorithms.Graph.JohnsonsShortestPath-2.html#Advanced_Algorithms_Graph_JohnsonsShortestPath_2_GetAllPairShortestPaths_
+  commentId: Overload:Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.JohnsonsShortestPath<T, W>.GetAllPairShortestPaths
+  fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W).GetAllPairShortestPaths
+  nameWithType: JohnsonsShortestPath<T, W>.GetAllPairShortestPaths
+  nameWithType.vb: JohnsonsShortestPath(Of T, W).GetAllPairShortestPaths
+- uid: Advanced.Algorithms.Graph.KahnsTopSort`1
+  name: KahnsTopSort<T>
+  href: api/Advanced.Algorithms.Graph.KahnsTopSort-1.html
+  commentId: T:Advanced.Algorithms.Graph.KahnsTopSort`1
+  name.vb: KahnsTopSort(Of T)
+  fullName: Advanced.Algorithms.Graph.KahnsTopSort<T>
+  fullName.vb: Advanced.Algorithms.Graph.KahnsTopSort(Of T)
+  nameWithType: KahnsTopSort<T>
+  nameWithType.vb: KahnsTopSort(Of T)
+- uid: Advanced.Algorithms.Graph.KahnsTopSort`1.GetTopSort(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name: GetTopSort(DiGraph<T>)
+  href: api/Advanced.Algorithms.Graph.KahnsTopSort-1.html#Advanced_Algorithms_Graph_KahnsTopSort_1_GetTopSort_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph__0__
+  commentId: M:Advanced.Algorithms.Graph.KahnsTopSort`1.GetTopSort(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name.vb: GetTopSort(DiGraph(Of T))
+  fullName: Advanced.Algorithms.Graph.KahnsTopSort<T>.GetTopSort(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.KahnsTopSort(Of T).GetTopSort(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T))
+  nameWithType: KahnsTopSort<T>.GetTopSort(DiGraph<T>)
+  nameWithType.vb: KahnsTopSort(Of T).GetTopSort(DiGraph(Of T))
+- uid: Advanced.Algorithms.Graph.KahnsTopSort`1.GetTopSort*
+  name: GetTopSort
+  href: api/Advanced.Algorithms.Graph.KahnsTopSort-1.html#Advanced_Algorithms_Graph_KahnsTopSort_1_GetTopSort_
+  commentId: Overload:Advanced.Algorithms.Graph.KahnsTopSort`1.GetTopSort
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.KahnsTopSort<T>.GetTopSort
+  fullName.vb: Advanced.Algorithms.Graph.KahnsTopSort(Of T).GetTopSort
+  nameWithType: KahnsTopSort<T>.GetTopSort
+  nameWithType.vb: KahnsTopSort(Of T).GetTopSort
+- uid: Advanced.Algorithms.Graph.KosarajuStronglyConnected`1
+  name: KosarajuStronglyConnected<T>
+  href: api/Advanced.Algorithms.Graph.KosarajuStronglyConnected-1.html
+  commentId: T:Advanced.Algorithms.Graph.KosarajuStronglyConnected`1
+  name.vb: KosarajuStronglyConnected(Of T)
+  fullName: Advanced.Algorithms.Graph.KosarajuStronglyConnected<T>
+  fullName.vb: Advanced.Algorithms.Graph.KosarajuStronglyConnected(Of T)
+  nameWithType: KosarajuStronglyConnected<T>
+  nameWithType.vb: KosarajuStronglyConnected(Of T)
+- uid: Advanced.Algorithms.Graph.KosarajuStronglyConnected`1.FindStronglyConnectedComponents(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name: FindStronglyConnectedComponents(DiGraph<T>)
+  href: api/Advanced.Algorithms.Graph.KosarajuStronglyConnected-1.html#Advanced_Algorithms_Graph_KosarajuStronglyConnected_1_FindStronglyConnectedComponents_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph__0__
+  commentId: M:Advanced.Algorithms.Graph.KosarajuStronglyConnected`1.FindStronglyConnectedComponents(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name.vb: FindStronglyConnectedComponents(DiGraph(Of T))
+  fullName: Advanced.Algorithms.Graph.KosarajuStronglyConnected<T>.FindStronglyConnectedComponents(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.KosarajuStronglyConnected(Of T).FindStronglyConnectedComponents(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T))
+  nameWithType: KosarajuStronglyConnected<T>.FindStronglyConnectedComponents(DiGraph<T>)
+  nameWithType.vb: KosarajuStronglyConnected(Of T).FindStronglyConnectedComponents(DiGraph(Of T))
+- uid: Advanced.Algorithms.Graph.KosarajuStronglyConnected`1.FindStronglyConnectedComponents*
+  name: FindStronglyConnectedComponents
+  href: api/Advanced.Algorithms.Graph.KosarajuStronglyConnected-1.html#Advanced_Algorithms_Graph_KosarajuStronglyConnected_1_FindStronglyConnectedComponents_
+  commentId: Overload:Advanced.Algorithms.Graph.KosarajuStronglyConnected`1.FindStronglyConnectedComponents
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.KosarajuStronglyConnected<T>.FindStronglyConnectedComponents
+  fullName.vb: Advanced.Algorithms.Graph.KosarajuStronglyConnected(Of T).FindStronglyConnectedComponents
+  nameWithType: KosarajuStronglyConnected<T>.FindStronglyConnectedComponents
+  nameWithType.vb: KosarajuStronglyConnected(Of T).FindStronglyConnectedComponents
+- uid: Advanced.Algorithms.Graph.Kruskals`2
+  name: Kruskals<T, TW>
+  href: api/Advanced.Algorithms.Graph.Kruskals-2.html
+  commentId: T:Advanced.Algorithms.Graph.Kruskals`2
+  name.vb: Kruskals(Of T, TW)
+  fullName: Advanced.Algorithms.Graph.Kruskals<T, TW>
+  fullName.vb: Advanced.Algorithms.Graph.Kruskals(Of T, TW)
+  nameWithType: Kruskals<T, TW>
+  nameWithType.vb: Kruskals(Of T, TW)
+- uid: Advanced.Algorithms.Graph.Kruskals`2.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
+  name: FindMinimumSpanningTree(WeightedGraph<T, TW>)
+  href: api/Advanced.Algorithms.Graph.Kruskals-2.html#Advanced_Algorithms_Graph_Kruskals_2_FindMinimumSpanningTree_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph__0__1__
+  commentId: M:Advanced.Algorithms.Graph.Kruskals`2.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
+  name.vb: FindMinimumSpanningTree(WeightedGraph(Of T, TW))
+  fullName: Advanced.Algorithms.Graph.Kruskals<T, TW>.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, TW>)
+  fullName.vb: Advanced.Algorithms.Graph.Kruskals(Of T, TW).FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, TW))
+  nameWithType: Kruskals<T, TW>.FindMinimumSpanningTree(WeightedGraph<T, TW>)
+  nameWithType.vb: Kruskals(Of T, TW).FindMinimumSpanningTree(WeightedGraph(Of T, TW))
+- uid: Advanced.Algorithms.Graph.Kruskals`2.FindMinimumSpanningTree*
+  name: FindMinimumSpanningTree
+  href: api/Advanced.Algorithms.Graph.Kruskals-2.html#Advanced_Algorithms_Graph_Kruskals_2_FindMinimumSpanningTree_
+  commentId: Overload:Advanced.Algorithms.Graph.Kruskals`2.FindMinimumSpanningTree
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.Kruskals<T, TW>.FindMinimumSpanningTree
+  fullName.vb: Advanced.Algorithms.Graph.Kruskals(Of T, TW).FindMinimumSpanningTree
+  nameWithType: Kruskals<T, TW>.FindMinimumSpanningTree
+  nameWithType.vb: Kruskals(Of T, TW).FindMinimumSpanningTree
+- uid: Advanced.Algorithms.Graph.MatchEdge`1
+  name: MatchEdge<T>
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html
+  commentId: T:Advanced.Algorithms.Graph.MatchEdge`1
+  name.vb: MatchEdge(Of T)
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T)
+  nameWithType: MatchEdge<T>
+  nameWithType.vb: MatchEdge(Of T)
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.#ctor(`0,`0)
+  name: MatchEdge(T, T)
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1__ctor__0__0_
+  commentId: M:Advanced.Algorithms.Graph.MatchEdge`1.#ctor(`0,`0)
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.MatchEdge(T, T)
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).MatchEdge(T, T)
+  nameWithType: MatchEdge<T>.MatchEdge(T, T)
+  nameWithType.vb: MatchEdge(Of T).MatchEdge(T, T)
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.#ctor*
+  name: MatchEdge
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.MatchEdge`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.MatchEdge
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).MatchEdge
+  nameWithType: MatchEdge<T>.MatchEdge
+  nameWithType.vb: MatchEdge(Of T).MatchEdge
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.Source
+  name: Source
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1_Source
+  commentId: P:Advanced.Algorithms.Graph.MatchEdge`1.Source
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.Source
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).Source
+  nameWithType: MatchEdge<T>.Source
+  nameWithType.vb: MatchEdge(Of T).Source
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.Source*
+  name: Source
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1_Source_
+  commentId: Overload:Advanced.Algorithms.Graph.MatchEdge`1.Source
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.Source
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).Source
+  nameWithType: MatchEdge<T>.Source
+  nameWithType.vb: MatchEdge(Of T).Source
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.Target
+  name: Target
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1_Target
+  commentId: P:Advanced.Algorithms.Graph.MatchEdge`1.Target
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.Target
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).Target
+  nameWithType: MatchEdge<T>.Target
+  nameWithType.vb: MatchEdge(Of T).Target
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.Target*
+  name: Target
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1_Target_
+  commentId: Overload:Advanced.Algorithms.Graph.MatchEdge`1.Target
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.Target
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).Target
+  nameWithType: MatchEdge<T>.Target
+  nameWithType.vb: MatchEdge(Of T).Target
+- uid: Advanced.Algorithms.Graph.MColorer`2
+  name: MColorer<T, C>
+  href: api/Advanced.Algorithms.Graph.MColorer-2.html
+  commentId: T:Advanced.Algorithms.Graph.MColorer`2
+  name.vb: MColorer(Of T, C)
+  fullName: Advanced.Algorithms.Graph.MColorer<T, C>
+  fullName.vb: Advanced.Algorithms.Graph.MColorer(Of T, C)
+  nameWithType: MColorer<T, C>
+  nameWithType.vb: MColorer(Of T, C)
+- uid: Advanced.Algorithms.Graph.MColorer`2.Color(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0},`1[])
+  name: Color(Graph<T>, C[])
+  href: api/Advanced.Algorithms.Graph.MColorer-2.html#Advanced_Algorithms_Graph_MColorer_2_Color_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0___1___
+  commentId: M:Advanced.Algorithms.Graph.MColorer`2.Color(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0},`1[])
+  name.vb: Color(Graph(Of T), C())
+  fullName: Advanced.Algorithms.Graph.MColorer<T, C>.Color(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>, C[])
+  fullName.vb: Advanced.Algorithms.Graph.MColorer(Of T, C).Color(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T), C())
+  nameWithType: MColorer<T, C>.Color(Graph<T>, C[])
+  nameWithType.vb: MColorer(Of T, C).Color(Graph(Of T), C())
+- uid: Advanced.Algorithms.Graph.MColorer`2.Color*
+  name: Color
+  href: api/Advanced.Algorithms.Graph.MColorer-2.html#Advanced_Algorithms_Graph_MColorer_2_Color_
+  commentId: Overload:Advanced.Algorithms.Graph.MColorer`2.Color
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MColorer<T, C>.Color
+  fullName.vb: Advanced.Algorithms.Graph.MColorer(Of T, C).Color
+  nameWithType: MColorer<T, C>.Color
+  nameWithType.vb: MColorer(Of T, C).Color
+- uid: Advanced.Algorithms.Graph.MColorResult`2
+  name: MColorResult<T, C>
+  href: api/Advanced.Algorithms.Graph.MColorResult-2.html
+  commentId: T:Advanced.Algorithms.Graph.MColorResult`2
+  name.vb: MColorResult(Of T, C)
+  fullName: Advanced.Algorithms.Graph.MColorResult<T, C>
+  fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C)
+  nameWithType: MColorResult<T, C>
+  nameWithType.vb: MColorResult(Of T, C)
+- uid: Advanced.Algorithms.Graph.MColorResult`2.#ctor(System.Boolean,System.Collections.Generic.Dictionary{`1,System.Collections.Generic.List{`0}})
+  name: MColorResult(Boolean, Dictionary<C, List<T>>)
+  href: api/Advanced.Algorithms.Graph.MColorResult-2.html#Advanced_Algorithms_Graph_MColorResult_2__ctor_System_Boolean_System_Collections_Generic_Dictionary__1_System_Collections_Generic_List__0___
+  commentId: M:Advanced.Algorithms.Graph.MColorResult`2.#ctor(System.Boolean,System.Collections.Generic.Dictionary{`1,System.Collections.Generic.List{`0}})
+  name.vb: MColorResult(Boolean, Dictionary(Of C, List(Of T)))
+  fullName: Advanced.Algorithms.Graph.MColorResult<T, C>.MColorResult(System.Boolean, System.Collections.Generic.Dictionary<C, System.Collections.Generic.List<T>>)
+  fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C).MColorResult(System.Boolean, System.Collections.Generic.Dictionary(Of C, System.Collections.Generic.List(Of T)))
+  nameWithType: MColorResult<T, C>.MColorResult(Boolean, Dictionary<C, List<T>>)
+  nameWithType.vb: MColorResult(Of T, C).MColorResult(Boolean, Dictionary(Of C, List(Of T)))
+- uid: Advanced.Algorithms.Graph.MColorResult`2.#ctor*
+  name: MColorResult
+  href: api/Advanced.Algorithms.Graph.MColorResult-2.html#Advanced_Algorithms_Graph_MColorResult_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.MColorResult`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MColorResult<T, C>.MColorResult
+  fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C).MColorResult
+  nameWithType: MColorResult<T, C>.MColorResult
+  nameWithType.vb: MColorResult(Of T, C).MColorResult
+- uid: Advanced.Algorithms.Graph.MColorResult`2.CanColor
+  name: CanColor
+  href: api/Advanced.Algorithms.Graph.MColorResult-2.html#Advanced_Algorithms_Graph_MColorResult_2_CanColor
+  commentId: P:Advanced.Algorithms.Graph.MColorResult`2.CanColor
+  fullName: Advanced.Algorithms.Graph.MColorResult<T, C>.CanColor
+  fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C).CanColor
+  nameWithType: MColorResult<T, C>.CanColor
+  nameWithType.vb: MColorResult(Of T, C).CanColor
+- uid: Advanced.Algorithms.Graph.MColorResult`2.CanColor*
+  name: CanColor
+  href: api/Advanced.Algorithms.Graph.MColorResult-2.html#Advanced_Algorithms_Graph_MColorResult_2_CanColor_
+  commentId: Overload:Advanced.Algorithms.Graph.MColorResult`2.CanColor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MColorResult<T, C>.CanColor
+  fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C).CanColor
+  nameWithType: MColorResult<T, C>.CanColor
+  nameWithType.vb: MColorResult(Of T, C).CanColor
+- uid: Advanced.Algorithms.Graph.MColorResult`2.Partitions
+  name: Partitions
+  href: api/Advanced.Algorithms.Graph.MColorResult-2.html#Advanced_Algorithms_Graph_MColorResult_2_Partitions
+  commentId: P:Advanced.Algorithms.Graph.MColorResult`2.Partitions
+  fullName: Advanced.Algorithms.Graph.MColorResult<T, C>.Partitions
+  fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C).Partitions
+  nameWithType: MColorResult<T, C>.Partitions
+  nameWithType.vb: MColorResult(Of T, C).Partitions
+- uid: Advanced.Algorithms.Graph.MColorResult`2.Partitions*
+  name: Partitions
+  href: api/Advanced.Algorithms.Graph.MColorResult-2.html#Advanced_Algorithms_Graph_MColorResult_2_Partitions_
+  commentId: Overload:Advanced.Algorithms.Graph.MColorResult`2.Partitions
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MColorResult<T, C>.Partitions
+  fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C).Partitions
+  nameWithType: MColorResult<T, C>.Partitions
+  nameWithType.vb: MColorResult(Of T, C).Partitions
+- uid: Advanced.Algorithms.Graph.MinCut`2
+  name: MinCut<T, W>
+  href: api/Advanced.Algorithms.Graph.MinCut-2.html
+  commentId: T:Advanced.Algorithms.Graph.MinCut`2
+  name.vb: MinCut(Of T, W)
+  fullName: Advanced.Algorithms.Graph.MinCut<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.MinCut(Of T, W)
+  nameWithType: MinCut<T, W>
+  nameWithType.vb: MinCut(Of T, W)
+- uid: Advanced.Algorithms.Graph.MinCut`2.#ctor(Advanced.Algorithms.Graph.IFlowOperators{`1})
+  name: MinCut(IFlowOperators<W>)
+  href: api/Advanced.Algorithms.Graph.MinCut-2.html#Advanced_Algorithms_Graph_MinCut_2__ctor_Advanced_Algorithms_Graph_IFlowOperators__1__
+  commentId: M:Advanced.Algorithms.Graph.MinCut`2.#ctor(Advanced.Algorithms.Graph.IFlowOperators{`1})
+  name.vb: MinCut(IFlowOperators(Of W))
+  fullName: Advanced.Algorithms.Graph.MinCut<T, W>.MinCut(Advanced.Algorithms.Graph.IFlowOperators<W>)
+  fullName.vb: Advanced.Algorithms.Graph.MinCut(Of T, W).MinCut(Advanced.Algorithms.Graph.IFlowOperators(Of W))
+  nameWithType: MinCut<T, W>.MinCut(IFlowOperators<W>)
+  nameWithType.vb: MinCut(Of T, W).MinCut(IFlowOperators(Of W))
+- uid: Advanced.Algorithms.Graph.MinCut`2.#ctor*
+  name: MinCut
+  href: api/Advanced.Algorithms.Graph.MinCut-2.html#Advanced_Algorithms_Graph_MinCut_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.MinCut`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MinCut<T, W>.MinCut
+  fullName.vb: Advanced.Algorithms.Graph.MinCut(Of T, W).MinCut
+  nameWithType: MinCut<T, W>.MinCut
+  nameWithType.vb: MinCut(Of T, W).MinCut
+- uid: Advanced.Algorithms.Graph.MinCut`2.ComputeMinCut(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: ComputeMinCut(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.MinCut-2.html#Advanced_Algorithms_Graph_MinCut_2_ComputeMinCut_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.MinCut`2.ComputeMinCut(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: ComputeMinCut(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.MinCut<T, W>.ComputeMinCut(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.MinCut(Of T, W).ComputeMinCut(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: MinCut<T, W>.ComputeMinCut(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: MinCut(Of T, W).ComputeMinCut(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.MinCut`2.ComputeMinCut*
+  name: ComputeMinCut
+  href: api/Advanced.Algorithms.Graph.MinCut-2.html#Advanced_Algorithms_Graph_MinCut_2_ComputeMinCut_
+  commentId: Overload:Advanced.Algorithms.Graph.MinCut`2.ComputeMinCut
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MinCut<T, W>.ComputeMinCut
+  fullName.vb: Advanced.Algorithms.Graph.MinCut(Of T, W).ComputeMinCut
+  nameWithType: MinCut<T, W>.ComputeMinCut
+  nameWithType.vb: MinCut(Of T, W).ComputeMinCut
+- uid: Advanced.Algorithms.Graph.MinCutEdge`1
+  name: MinCutEdge<T>
+  href: api/Advanced.Algorithms.Graph.MinCutEdge-1.html
+  commentId: T:Advanced.Algorithms.Graph.MinCutEdge`1
+  name.vb: MinCutEdge(Of T)
+  fullName: Advanced.Algorithms.Graph.MinCutEdge<T>
+  fullName.vb: Advanced.Algorithms.Graph.MinCutEdge(Of T)
+  nameWithType: MinCutEdge<T>
+  nameWithType.vb: MinCutEdge(Of T)
+- uid: Advanced.Algorithms.Graph.MinCutEdge`1.#ctor(`0,`0)
+  name: MinCutEdge(T, T)
+  href: api/Advanced.Algorithms.Graph.MinCutEdge-1.html#Advanced_Algorithms_Graph_MinCutEdge_1__ctor__0__0_
+  commentId: M:Advanced.Algorithms.Graph.MinCutEdge`1.#ctor(`0,`0)
+  fullName: Advanced.Algorithms.Graph.MinCutEdge<T>.MinCutEdge(T, T)
+  fullName.vb: Advanced.Algorithms.Graph.MinCutEdge(Of T).MinCutEdge(T, T)
+  nameWithType: MinCutEdge<T>.MinCutEdge(T, T)
+  nameWithType.vb: MinCutEdge(Of T).MinCutEdge(T, T)
+- uid: Advanced.Algorithms.Graph.MinCutEdge`1.#ctor*
+  name: MinCutEdge
+  href: api/Advanced.Algorithms.Graph.MinCutEdge-1.html#Advanced_Algorithms_Graph_MinCutEdge_1__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.MinCutEdge`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MinCutEdge<T>.MinCutEdge
+  fullName.vb: Advanced.Algorithms.Graph.MinCutEdge(Of T).MinCutEdge
+  nameWithType: MinCutEdge<T>.MinCutEdge
+  nameWithType.vb: MinCutEdge(Of T).MinCutEdge
+- uid: Advanced.Algorithms.Graph.MinCutEdge`1.Destination
+  name: Destination
+  href: api/Advanced.Algorithms.Graph.MinCutEdge-1.html#Advanced_Algorithms_Graph_MinCutEdge_1_Destination
+  commentId: P:Advanced.Algorithms.Graph.MinCutEdge`1.Destination
+  fullName: Advanced.Algorithms.Graph.MinCutEdge<T>.Destination
+  fullName.vb: Advanced.Algorithms.Graph.MinCutEdge(Of T).Destination
+  nameWithType: MinCutEdge<T>.Destination
+  nameWithType.vb: MinCutEdge(Of T).Destination
+- uid: Advanced.Algorithms.Graph.MinCutEdge`1.Destination*
+  name: Destination
+  href: api/Advanced.Algorithms.Graph.MinCutEdge-1.html#Advanced_Algorithms_Graph_MinCutEdge_1_Destination_
+  commentId: Overload:Advanced.Algorithms.Graph.MinCutEdge`1.Destination
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MinCutEdge<T>.Destination
+  fullName.vb: Advanced.Algorithms.Graph.MinCutEdge(Of T).Destination
+  nameWithType: MinCutEdge<T>.Destination
+  nameWithType.vb: MinCutEdge(Of T).Destination
+- uid: Advanced.Algorithms.Graph.MinCutEdge`1.Source
+  name: Source
+  href: api/Advanced.Algorithms.Graph.MinCutEdge-1.html#Advanced_Algorithms_Graph_MinCutEdge_1_Source
+  commentId: P:Advanced.Algorithms.Graph.MinCutEdge`1.Source
+  fullName: Advanced.Algorithms.Graph.MinCutEdge<T>.Source
+  fullName.vb: Advanced.Algorithms.Graph.MinCutEdge(Of T).Source
+  nameWithType: MinCutEdge<T>.Source
+  nameWithType.vb: MinCutEdge(Of T).Source
+- uid: Advanced.Algorithms.Graph.MinCutEdge`1.Source*
+  name: Source
+  href: api/Advanced.Algorithms.Graph.MinCutEdge-1.html#Advanced_Algorithms_Graph_MinCutEdge_1_Source_
+  commentId: Overload:Advanced.Algorithms.Graph.MinCutEdge`1.Source
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MinCutEdge<T>.Source
+  fullName.vb: Advanced.Algorithms.Graph.MinCutEdge(Of T).Source
+  nameWithType: MinCutEdge<T>.Source
+  nameWithType.vb: MinCutEdge(Of T).Source
+- uid: Advanced.Algorithms.Graph.MinVertexCover`1
+  name: MinVertexCover<T>
+  href: api/Advanced.Algorithms.Graph.MinVertexCover-1.html
+  commentId: T:Advanced.Algorithms.Graph.MinVertexCover`1
+  name.vb: MinVertexCover(Of T)
+  fullName: Advanced.Algorithms.Graph.MinVertexCover<T>
+  fullName.vb: Advanced.Algorithms.Graph.MinVertexCover(Of T)
+  nameWithType: MinVertexCover<T>
+  nameWithType.vb: MinVertexCover(Of T)
+- uid: Advanced.Algorithms.Graph.MinVertexCover`1.GetMinVertexCover(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name: GetMinVertexCover(Graph<T>)
+  href: api/Advanced.Algorithms.Graph.MinVertexCover-1.html#Advanced_Algorithms_Graph_MinVertexCover_1_GetMinVertexCover_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0__
+  commentId: M:Advanced.Algorithms.Graph.MinVertexCover`1.GetMinVertexCover(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name.vb: GetMinVertexCover(Graph(Of T))
+  fullName: Advanced.Algorithms.Graph.MinVertexCover<T>.GetMinVertexCover(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.MinVertexCover(Of T).GetMinVertexCover(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T))
+  nameWithType: MinVertexCover<T>.GetMinVertexCover(Graph<T>)
+  nameWithType.vb: MinVertexCover(Of T).GetMinVertexCover(Graph(Of T))
+- uid: Advanced.Algorithms.Graph.MinVertexCover`1.GetMinVertexCover*
+  name: GetMinVertexCover
+  href: api/Advanced.Algorithms.Graph.MinVertexCover-1.html#Advanced_Algorithms_Graph_MinVertexCover_1_GetMinVertexCover_
+  commentId: Overload:Advanced.Algorithms.Graph.MinVertexCover`1.GetMinVertexCover
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MinVertexCover<T>.GetMinVertexCover
+  fullName.vb: Advanced.Algorithms.Graph.MinVertexCover(Of T).GetMinVertexCover
+  nameWithType: MinVertexCover<T>.GetMinVertexCover
+  nameWithType.vb: MinVertexCover(Of T).GetMinVertexCover
+- uid: Advanced.Algorithms.Graph.MSTEdge`2
+  name: MSTEdge<T, W>
+  href: api/Advanced.Algorithms.Graph.MSTEdge-2.html
+  commentId: T:Advanced.Algorithms.Graph.MSTEdge`2
+  name.vb: MSTEdge(Of T, W)
+  fullName: Advanced.Algorithms.Graph.MSTEdge<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.MSTEdge(Of T, W)
+  nameWithType: MSTEdge<T, W>
+  nameWithType.vb: MSTEdge(Of T, W)
+- uid: Advanced.Algorithms.Graph.MSTEdge`2.CompareTo(System.Object)
+  name: CompareTo(Object)
+  href: api/Advanced.Algorithms.Graph.MSTEdge-2.html#Advanced_Algorithms_Graph_MSTEdge_2_CompareTo_System_Object_
+  commentId: M:Advanced.Algorithms.Graph.MSTEdge`2.CompareTo(System.Object)
+  fullName: Advanced.Algorithms.Graph.MSTEdge<T, W>.CompareTo(System.Object)
+  fullName.vb: Advanced.Algorithms.Graph.MSTEdge(Of T, W).CompareTo(System.Object)
+  nameWithType: MSTEdge<T, W>.CompareTo(Object)
+  nameWithType.vb: MSTEdge(Of T, W).CompareTo(Object)
+- uid: Advanced.Algorithms.Graph.MSTEdge`2.CompareTo*
+  name: CompareTo
+  href: api/Advanced.Algorithms.Graph.MSTEdge-2.html#Advanced_Algorithms_Graph_MSTEdge_2_CompareTo_
+  commentId: Overload:Advanced.Algorithms.Graph.MSTEdge`2.CompareTo
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MSTEdge<T, W>.CompareTo
+  fullName.vb: Advanced.Algorithms.Graph.MSTEdge(Of T, W).CompareTo
+  nameWithType: MSTEdge<T, W>.CompareTo
+  nameWithType.vb: MSTEdge(Of T, W).CompareTo
+- uid: Advanced.Algorithms.Graph.MSTEdge`2.Destination
+  name: Destination
+  href: api/Advanced.Algorithms.Graph.MSTEdge-2.html#Advanced_Algorithms_Graph_MSTEdge_2_Destination
+  commentId: P:Advanced.Algorithms.Graph.MSTEdge`2.Destination
+  fullName: Advanced.Algorithms.Graph.MSTEdge<T, W>.Destination
+  fullName.vb: Advanced.Algorithms.Graph.MSTEdge(Of T, W).Destination
+  nameWithType: MSTEdge<T, W>.Destination
+  nameWithType.vb: MSTEdge(Of T, W).Destination
+- uid: Advanced.Algorithms.Graph.MSTEdge`2.Destination*
+  name: Destination
+  href: api/Advanced.Algorithms.Graph.MSTEdge-2.html#Advanced_Algorithms_Graph_MSTEdge_2_Destination_
+  commentId: Overload:Advanced.Algorithms.Graph.MSTEdge`2.Destination
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MSTEdge<T, W>.Destination
+  fullName.vb: Advanced.Algorithms.Graph.MSTEdge(Of T, W).Destination
+  nameWithType: MSTEdge<T, W>.Destination
+  nameWithType.vb: MSTEdge(Of T, W).Destination
+- uid: Advanced.Algorithms.Graph.MSTEdge`2.Source
+  name: Source
+  href: api/Advanced.Algorithms.Graph.MSTEdge-2.html#Advanced_Algorithms_Graph_MSTEdge_2_Source
+  commentId: P:Advanced.Algorithms.Graph.MSTEdge`2.Source
+  fullName: Advanced.Algorithms.Graph.MSTEdge<T, W>.Source
+  fullName.vb: Advanced.Algorithms.Graph.MSTEdge(Of T, W).Source
+  nameWithType: MSTEdge<T, W>.Source
+  nameWithType.vb: MSTEdge(Of T, W).Source
+- uid: Advanced.Algorithms.Graph.MSTEdge`2.Source*
+  name: Source
+  href: api/Advanced.Algorithms.Graph.MSTEdge-2.html#Advanced_Algorithms_Graph_MSTEdge_2_Source_
+  commentId: Overload:Advanced.Algorithms.Graph.MSTEdge`2.Source
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MSTEdge<T, W>.Source
+  fullName.vb: Advanced.Algorithms.Graph.MSTEdge(Of T, W).Source
+  nameWithType: MSTEdge<T, W>.Source
+  nameWithType.vb: MSTEdge(Of T, W).Source
+- uid: Advanced.Algorithms.Graph.MSTEdge`2.Weight
+  name: Weight
+  href: api/Advanced.Algorithms.Graph.MSTEdge-2.html#Advanced_Algorithms_Graph_MSTEdge_2_Weight
+  commentId: P:Advanced.Algorithms.Graph.MSTEdge`2.Weight
+  fullName: Advanced.Algorithms.Graph.MSTEdge<T, W>.Weight
+  fullName.vb: Advanced.Algorithms.Graph.MSTEdge(Of T, W).Weight
+  nameWithType: MSTEdge<T, W>.Weight
+  nameWithType.vb: MSTEdge(Of T, W).Weight
+- uid: Advanced.Algorithms.Graph.MSTEdge`2.Weight*
+  name: Weight
+  href: api/Advanced.Algorithms.Graph.MSTEdge-2.html#Advanced_Algorithms_Graph_MSTEdge_2_Weight_
+  commentId: Overload:Advanced.Algorithms.Graph.MSTEdge`2.Weight
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MSTEdge<T, W>.Weight
+  fullName.vb: Advanced.Algorithms.Graph.MSTEdge(Of T, W).Weight
+  nameWithType: MSTEdge<T, W>.Weight
+  nameWithType.vb: MSTEdge(Of T, W).Weight
+- uid: Advanced.Algorithms.Graph.Prims`2
+  name: Prims<T, W>
+  href: api/Advanced.Algorithms.Graph.Prims-2.html
+  commentId: T:Advanced.Algorithms.Graph.Prims`2
+  name.vb: Prims(Of T, W)
+  fullName: Advanced.Algorithms.Graph.Prims<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.Prims(Of T, W)
+  nameWithType: Prims<T, W>
+  nameWithType.vb: Prims(Of T, W)
+- uid: Advanced.Algorithms.Graph.Prims`2.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
+  name: FindMinimumSpanningTree(WeightedGraph<T, W>)
+  href: api/Advanced.Algorithms.Graph.Prims-2.html#Advanced_Algorithms_Graph_Prims_2_FindMinimumSpanningTree_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph__0__1__
+  commentId: M:Advanced.Algorithms.Graph.Prims`2.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
+  name.vb: FindMinimumSpanningTree(WeightedGraph(Of T, W))
+  fullName: Advanced.Algorithms.Graph.Prims<T, W>.FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, W>)
+  fullName.vb: Advanced.Algorithms.Graph.Prims(Of T, W).FindMinimumSpanningTree(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, W))
+  nameWithType: Prims<T, W>.FindMinimumSpanningTree(WeightedGraph<T, W>)
+  nameWithType.vb: Prims(Of T, W).FindMinimumSpanningTree(WeightedGraph(Of T, W))
+- uid: Advanced.Algorithms.Graph.Prims`2.FindMinimumSpanningTree*
+  name: FindMinimumSpanningTree
+  href: api/Advanced.Algorithms.Graph.Prims-2.html#Advanced_Algorithms_Graph_Prims_2_FindMinimumSpanningTree_
+  commentId: Overload:Advanced.Algorithms.Graph.Prims`2.FindMinimumSpanningTree
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.Prims<T, W>.FindMinimumSpanningTree
+  fullName.vb: Advanced.Algorithms.Graph.Prims(Of T, W).FindMinimumSpanningTree
+  nameWithType: Prims<T, W>.FindMinimumSpanningTree
+  nameWithType.vb: Prims(Of T, W).FindMinimumSpanningTree
+- uid: Advanced.Algorithms.Graph.PushRelabelMaxFlow`2
+  name: PushRelabelMaxFlow<T, W>
+  href: api/Advanced.Algorithms.Graph.PushRelabelMaxFlow-2.html
+  commentId: T:Advanced.Algorithms.Graph.PushRelabelMaxFlow`2
+  name.vb: PushRelabelMaxFlow(Of T, W)
+  fullName: Advanced.Algorithms.Graph.PushRelabelMaxFlow<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.PushRelabelMaxFlow(Of T, W)
+  nameWithType: PushRelabelMaxFlow<T, W>
+  nameWithType.vb: PushRelabelMaxFlow(Of T, W)
+- uid: Advanced.Algorithms.Graph.PushRelabelMaxFlow`2.#ctor(Advanced.Algorithms.Graph.IFlowOperators{`1})
+  name: PushRelabelMaxFlow(IFlowOperators<W>)
+  href: api/Advanced.Algorithms.Graph.PushRelabelMaxFlow-2.html#Advanced_Algorithms_Graph_PushRelabelMaxFlow_2__ctor_Advanced_Algorithms_Graph_IFlowOperators__1__
+  commentId: M:Advanced.Algorithms.Graph.PushRelabelMaxFlow`2.#ctor(Advanced.Algorithms.Graph.IFlowOperators{`1})
+  name.vb: PushRelabelMaxFlow(IFlowOperators(Of W))
+  fullName: Advanced.Algorithms.Graph.PushRelabelMaxFlow<T, W>.PushRelabelMaxFlow(Advanced.Algorithms.Graph.IFlowOperators<W>)
+  fullName.vb: Advanced.Algorithms.Graph.PushRelabelMaxFlow(Of T, W).PushRelabelMaxFlow(Advanced.Algorithms.Graph.IFlowOperators(Of W))
+  nameWithType: PushRelabelMaxFlow<T, W>.PushRelabelMaxFlow(IFlowOperators<W>)
+  nameWithType.vb: PushRelabelMaxFlow(Of T, W).PushRelabelMaxFlow(IFlowOperators(Of W))
+- uid: Advanced.Algorithms.Graph.PushRelabelMaxFlow`2.#ctor*
+  name: PushRelabelMaxFlow
+  href: api/Advanced.Algorithms.Graph.PushRelabelMaxFlow-2.html#Advanced_Algorithms_Graph_PushRelabelMaxFlow_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.PushRelabelMaxFlow`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.PushRelabelMaxFlow<T, W>.PushRelabelMaxFlow
+  fullName.vb: Advanced.Algorithms.Graph.PushRelabelMaxFlow(Of T, W).PushRelabelMaxFlow
+  nameWithType: PushRelabelMaxFlow<T, W>.PushRelabelMaxFlow
+  nameWithType.vb: PushRelabelMaxFlow(Of T, W).PushRelabelMaxFlow
+- uid: Advanced.Algorithms.Graph.PushRelabelMaxFlow`2.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: ComputeMaxFlow(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.PushRelabelMaxFlow-2.html#Advanced_Algorithms_Graph_PushRelabelMaxFlow_2_ComputeMaxFlow_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.PushRelabelMaxFlow`2.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: ComputeMaxFlow(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.PushRelabelMaxFlow<T, W>.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.PushRelabelMaxFlow(Of T, W).ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: PushRelabelMaxFlow<T, W>.ComputeMaxFlow(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: PushRelabelMaxFlow(Of T, W).ComputeMaxFlow(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.PushRelabelMaxFlow`2.ComputeMaxFlow*
+  name: ComputeMaxFlow
+  href: api/Advanced.Algorithms.Graph.PushRelabelMaxFlow-2.html#Advanced_Algorithms_Graph_PushRelabelMaxFlow_2_ComputeMaxFlow_
+  commentId: Overload:Advanced.Algorithms.Graph.PushRelabelMaxFlow`2.ComputeMaxFlow
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.PushRelabelMaxFlow<T, W>.ComputeMaxFlow
+  fullName.vb: Advanced.Algorithms.Graph.PushRelabelMaxFlow(Of T, W).ComputeMaxFlow
+  nameWithType: PushRelabelMaxFlow<T, W>.ComputeMaxFlow
+  nameWithType.vb: PushRelabelMaxFlow(Of T, W).ComputeMaxFlow
+- uid: Advanced.Algorithms.Graph.ShortestPathResult`2
+  name: ShortestPathResult<T, W>
+  href: api/Advanced.Algorithms.Graph.ShortestPathResult-2.html
+  commentId: T:Advanced.Algorithms.Graph.ShortestPathResult`2
+  name.vb: ShortestPathResult(Of T, W)
+  fullName: Advanced.Algorithms.Graph.ShortestPathResult<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W)
+  nameWithType: ShortestPathResult<T, W>
+  nameWithType.vb: ShortestPathResult(Of T, W)
+- uid: Advanced.Algorithms.Graph.ShortestPathResult`2.#ctor(System.Collections.Generic.List{`0},`1)
+  name: ShortestPathResult(List<T>, W)
+  href: api/Advanced.Algorithms.Graph.ShortestPathResult-2.html#Advanced_Algorithms_Graph_ShortestPathResult_2__ctor_System_Collections_Generic_List__0___1_
+  commentId: M:Advanced.Algorithms.Graph.ShortestPathResult`2.#ctor(System.Collections.Generic.List{`0},`1)
+  name.vb: ShortestPathResult(List(Of T), W)
+  fullName: Advanced.Algorithms.Graph.ShortestPathResult<T, W>.ShortestPathResult(System.Collections.Generic.List<T>, W)
+  fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W).ShortestPathResult(System.Collections.Generic.List(Of T), W)
+  nameWithType: ShortestPathResult<T, W>.ShortestPathResult(List<T>, W)
+  nameWithType.vb: ShortestPathResult(Of T, W).ShortestPathResult(List(Of T), W)
+- uid: Advanced.Algorithms.Graph.ShortestPathResult`2.#ctor*
+  name: ShortestPathResult
+  href: api/Advanced.Algorithms.Graph.ShortestPathResult-2.html#Advanced_Algorithms_Graph_ShortestPathResult_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.ShortestPathResult`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.ShortestPathResult<T, W>.ShortestPathResult
+  fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W).ShortestPathResult
+  nameWithType: ShortestPathResult<T, W>.ShortestPathResult
+  nameWithType.vb: ShortestPathResult(Of T, W).ShortestPathResult
+- uid: Advanced.Algorithms.Graph.ShortestPathResult`2.Length
+  name: Length
+  href: api/Advanced.Algorithms.Graph.ShortestPathResult-2.html#Advanced_Algorithms_Graph_ShortestPathResult_2_Length
+  commentId: P:Advanced.Algorithms.Graph.ShortestPathResult`2.Length
+  fullName: Advanced.Algorithms.Graph.ShortestPathResult<T, W>.Length
+  fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W).Length
+  nameWithType: ShortestPathResult<T, W>.Length
+  nameWithType.vb: ShortestPathResult(Of T, W).Length
+- uid: Advanced.Algorithms.Graph.ShortestPathResult`2.Length*
+  name: Length
+  href: api/Advanced.Algorithms.Graph.ShortestPathResult-2.html#Advanced_Algorithms_Graph_ShortestPathResult_2_Length_
+  commentId: Overload:Advanced.Algorithms.Graph.ShortestPathResult`2.Length
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.ShortestPathResult<T, W>.Length
+  fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W).Length
+  nameWithType: ShortestPathResult<T, W>.Length
+  nameWithType.vb: ShortestPathResult(Of T, W).Length
+- uid: Advanced.Algorithms.Graph.ShortestPathResult`2.Path
+  name: Path
+  href: api/Advanced.Algorithms.Graph.ShortestPathResult-2.html#Advanced_Algorithms_Graph_ShortestPathResult_2_Path
+  commentId: P:Advanced.Algorithms.Graph.ShortestPathResult`2.Path
+  fullName: Advanced.Algorithms.Graph.ShortestPathResult<T, W>.Path
+  fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W).Path
+  nameWithType: ShortestPathResult<T, W>.Path
+  nameWithType.vb: ShortestPathResult(Of T, W).Path
+- uid: Advanced.Algorithms.Graph.ShortestPathResult`2.Path*
+  name: Path
+  href: api/Advanced.Algorithms.Graph.ShortestPathResult-2.html#Advanced_Algorithms_Graph_ShortestPathResult_2_Path_
+  commentId: Overload:Advanced.Algorithms.Graph.ShortestPathResult`2.Path
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.ShortestPathResult<T, W>.Path
+  fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W).Path
+  nameWithType: ShortestPathResult<T, W>.Path
+  nameWithType.vb: ShortestPathResult(Of T, W).Path
+- uid: Advanced.Algorithms.Graph.TarjansArticulationFinder`1
+  name: TarjansArticulationFinder<T>
+  href: api/Advanced.Algorithms.Graph.TarjansArticulationFinder-1.html
+  commentId: T:Advanced.Algorithms.Graph.TarjansArticulationFinder`1
+  name.vb: TarjansArticulationFinder(Of T)
+  fullName: Advanced.Algorithms.Graph.TarjansArticulationFinder<T>
+  fullName.vb: Advanced.Algorithms.Graph.TarjansArticulationFinder(Of T)
+  nameWithType: TarjansArticulationFinder<T>
+  nameWithType.vb: TarjansArticulationFinder(Of T)
+- uid: Advanced.Algorithms.Graph.TarjansArticulationFinder`1.FindArticulationPoints(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name: FindArticulationPoints(Graph<T>)
+  href: api/Advanced.Algorithms.Graph.TarjansArticulationFinder-1.html#Advanced_Algorithms_Graph_TarjansArticulationFinder_1_FindArticulationPoints_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0__
+  commentId: M:Advanced.Algorithms.Graph.TarjansArticulationFinder`1.FindArticulationPoints(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name.vb: FindArticulationPoints(Graph(Of T))
+  fullName: Advanced.Algorithms.Graph.TarjansArticulationFinder<T>.FindArticulationPoints(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.TarjansArticulationFinder(Of T).FindArticulationPoints(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T))
+  nameWithType: TarjansArticulationFinder<T>.FindArticulationPoints(Graph<T>)
+  nameWithType.vb: TarjansArticulationFinder(Of T).FindArticulationPoints(Graph(Of T))
+- uid: Advanced.Algorithms.Graph.TarjansArticulationFinder`1.FindArticulationPoints*
+  name: FindArticulationPoints
+  href: api/Advanced.Algorithms.Graph.TarjansArticulationFinder-1.html#Advanced_Algorithms_Graph_TarjansArticulationFinder_1_FindArticulationPoints_
+  commentId: Overload:Advanced.Algorithms.Graph.TarjansArticulationFinder`1.FindArticulationPoints
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.TarjansArticulationFinder<T>.FindArticulationPoints
+  fullName.vb: Advanced.Algorithms.Graph.TarjansArticulationFinder(Of T).FindArticulationPoints
+  nameWithType: TarjansArticulationFinder<T>.FindArticulationPoints
+  nameWithType.vb: TarjansArticulationFinder(Of T).FindArticulationPoints
+- uid: Advanced.Algorithms.Graph.TarjansBiConnected`1
+  name: TarjansBiConnected<T>
+  href: api/Advanced.Algorithms.Graph.TarjansBiConnected-1.html
+  commentId: T:Advanced.Algorithms.Graph.TarjansBiConnected`1
+  name.vb: TarjansBiConnected(Of T)
+  fullName: Advanced.Algorithms.Graph.TarjansBiConnected<T>
+  fullName.vb: Advanced.Algorithms.Graph.TarjansBiConnected(Of T)
+  nameWithType: TarjansBiConnected<T>
+  nameWithType.vb: TarjansBiConnected(Of T)
+- uid: Advanced.Algorithms.Graph.TarjansBiConnected`1.IsBiConnected(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name: IsBiConnected(Graph<T>)
+  href: api/Advanced.Algorithms.Graph.TarjansBiConnected-1.html#Advanced_Algorithms_Graph_TarjansBiConnected_1_IsBiConnected_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0__
+  commentId: M:Advanced.Algorithms.Graph.TarjansBiConnected`1.IsBiConnected(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name.vb: IsBiConnected(Graph(Of T))
+  fullName: Advanced.Algorithms.Graph.TarjansBiConnected<T>.IsBiConnected(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.TarjansBiConnected(Of T).IsBiConnected(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T))
+  nameWithType: TarjansBiConnected<T>.IsBiConnected(Graph<T>)
+  nameWithType.vb: TarjansBiConnected(Of T).IsBiConnected(Graph(Of T))
+- uid: Advanced.Algorithms.Graph.TarjansBiConnected`1.IsBiConnected*
+  name: IsBiConnected
+  href: api/Advanced.Algorithms.Graph.TarjansBiConnected-1.html#Advanced_Algorithms_Graph_TarjansBiConnected_1_IsBiConnected_
+  commentId: Overload:Advanced.Algorithms.Graph.TarjansBiConnected`1.IsBiConnected
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.TarjansBiConnected<T>.IsBiConnected
+  fullName.vb: Advanced.Algorithms.Graph.TarjansBiConnected(Of T).IsBiConnected
+  nameWithType: TarjansBiConnected<T>.IsBiConnected
+  nameWithType.vb: TarjansBiConnected(Of T).IsBiConnected
+- uid: Advanced.Algorithms.Graph.TarjansBridgeFinder`1
+  name: TarjansBridgeFinder<T>
+  href: api/Advanced.Algorithms.Graph.TarjansBridgeFinder-1.html
+  commentId: T:Advanced.Algorithms.Graph.TarjansBridgeFinder`1
+  name.vb: TarjansBridgeFinder(Of T)
+  fullName: Advanced.Algorithms.Graph.TarjansBridgeFinder<T>
+  fullName.vb: Advanced.Algorithms.Graph.TarjansBridgeFinder(Of T)
+  nameWithType: TarjansBridgeFinder<T>
+  nameWithType.vb: TarjansBridgeFinder(Of T)
+- uid: Advanced.Algorithms.Graph.TarjansBridgeFinder`1.FindBridges(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name: FindBridges(Graph<T>)
+  href: api/Advanced.Algorithms.Graph.TarjansBridgeFinder-1.html#Advanced_Algorithms_Graph_TarjansBridgeFinder_1_FindBridges_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0__
+  commentId: M:Advanced.Algorithms.Graph.TarjansBridgeFinder`1.FindBridges(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0})
+  name.vb: FindBridges(Graph(Of T))
+  fullName: Advanced.Algorithms.Graph.TarjansBridgeFinder<T>.FindBridges(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.TarjansBridgeFinder(Of T).FindBridges(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T))
+  nameWithType: TarjansBridgeFinder<T>.FindBridges(Graph<T>)
+  nameWithType.vb: TarjansBridgeFinder(Of T).FindBridges(Graph(Of T))
+- uid: Advanced.Algorithms.Graph.TarjansBridgeFinder`1.FindBridges*
+  name: FindBridges
+  href: api/Advanced.Algorithms.Graph.TarjansBridgeFinder-1.html#Advanced_Algorithms_Graph_TarjansBridgeFinder_1_FindBridges_
+  commentId: Overload:Advanced.Algorithms.Graph.TarjansBridgeFinder`1.FindBridges
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.TarjansBridgeFinder<T>.FindBridges
+  fullName.vb: Advanced.Algorithms.Graph.TarjansBridgeFinder(Of T).FindBridges
+  nameWithType: TarjansBridgeFinder<T>.FindBridges
+  nameWithType.vb: TarjansBridgeFinder(Of T).FindBridges
+- uid: Advanced.Algorithms.Graph.TarjansStronglyConnected`1
+  name: TarjansStronglyConnected<T>
+  href: api/Advanced.Algorithms.Graph.TarjansStronglyConnected-1.html
+  commentId: T:Advanced.Algorithms.Graph.TarjansStronglyConnected`1
+  name.vb: TarjansStronglyConnected(Of T)
+  fullName: Advanced.Algorithms.Graph.TarjansStronglyConnected<T>
+  fullName.vb: Advanced.Algorithms.Graph.TarjansStronglyConnected(Of T)
+  nameWithType: TarjansStronglyConnected<T>
+  nameWithType.vb: TarjansStronglyConnected(Of T)
+- uid: Advanced.Algorithms.Graph.TarjansStronglyConnected`1.FindStronglyConnectedComponents(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name: FindStronglyConnectedComponents(DiGraph<T>)
+  href: api/Advanced.Algorithms.Graph.TarjansStronglyConnected-1.html#Advanced_Algorithms_Graph_TarjansStronglyConnected_1_FindStronglyConnectedComponents_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph__0__
+  commentId: M:Advanced.Algorithms.Graph.TarjansStronglyConnected`1.FindStronglyConnectedComponents(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph{`0})
+  name.vb: FindStronglyConnectedComponents(DiGraph(Of T))
+  fullName: Advanced.Algorithms.Graph.TarjansStronglyConnected<T>.FindStronglyConnectedComponents(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.TarjansStronglyConnected(Of T).FindStronglyConnectedComponents(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T))
+  nameWithType: TarjansStronglyConnected<T>.FindStronglyConnectedComponents(DiGraph<T>)
+  nameWithType.vb: TarjansStronglyConnected(Of T).FindStronglyConnectedComponents(DiGraph(Of T))
+- uid: Advanced.Algorithms.Graph.TarjansStronglyConnected`1.FindStronglyConnectedComponents*
+  name: FindStronglyConnectedComponents
+  href: api/Advanced.Algorithms.Graph.TarjansStronglyConnected-1.html#Advanced_Algorithms_Graph_TarjansStronglyConnected_1_FindStronglyConnectedComponents_
+  commentId: Overload:Advanced.Algorithms.Graph.TarjansStronglyConnected`1.FindStronglyConnectedComponents
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.TarjansStronglyConnected<T>.FindStronglyConnectedComponents
+  fullName.vb: Advanced.Algorithms.Graph.TarjansStronglyConnected(Of T).FindStronglyConnectedComponents
+  nameWithType: TarjansStronglyConnected<T>.FindStronglyConnectedComponents
+  nameWithType.vb: TarjansStronglyConnected(Of T).FindStronglyConnectedComponents
+- uid: Advanced.Algorithms.Graph.TravellingSalesman
+  name: TravellingSalesman
+  href: api/Advanced.Algorithms.Graph.TravellingSalesman.html
+  commentId: T:Advanced.Algorithms.Graph.TravellingSalesman
+  fullName: Advanced.Algorithms.Graph.TravellingSalesman
+  nameWithType: TravellingSalesman
+- uid: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{System.Int32,System.Int32})
+  name: GetMinWeight(WeightedDiGraph<Int32, Int32>)
+  href: api/Advanced.Algorithms.Graph.TravellingSalesman.html#Advanced_Algorithms_Graph_TravellingSalesman_GetMinWeight_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_System_Int32_System_Int32__
+  commentId: M:Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{System.Int32,System.Int32})
+  name.vb: GetMinWeight(WeightedDiGraph(Of Int32, Int32))
+  fullName: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<System.Int32, System.Int32>)
+  fullName.vb: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of System.Int32, System.Int32))
+  nameWithType: TravellingSalesman.GetMinWeight(WeightedDiGraph<Int32, Int32>)
+  nameWithType.vb: TravellingSalesman.GetMinWeight(WeightedDiGraph(Of Int32, Int32))
+- uid: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight*
+  name: GetMinWeight
+  href: api/Advanced.Algorithms.Graph.TravellingSalesman.html#Advanced_Algorithms_Graph_TravellingSalesman_GetMinWeight_
+  commentId: Overload:Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight
+  nameWithType: TravellingSalesman.GetMinWeight
 - uid: Advanced.Algorithms.Miscellaneous
   name: Advanced.Algorithms.Miscellaneous
   href: api/Advanced.Algorithms.Miscellaneous.html
@@ -8709,6 +10945,128 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Miscellaneous.MatrixMultiplication.Multiply
   nameWithType: MatrixMultiplication.Multiply
+- uid: Advanced.Algorithms.Numerical
+  name: Advanced.Algorithms.Numerical
+  href: api/Advanced.Algorithms.Numerical.html
+  commentId: N:Advanced.Algorithms.Numerical
+  fullName: Advanced.Algorithms.Numerical
+  nameWithType: Advanced.Algorithms.Numerical
+- uid: Advanced.Algorithms.Numerical.FastExponentiation
+  name: FastExponentiation
+  href: api/Advanced.Algorithms.Numerical.FastExponentiation.html
+  commentId: T:Advanced.Algorithms.Numerical.FastExponentiation
+  fullName: Advanced.Algorithms.Numerical.FastExponentiation
+  nameWithType: FastExponentiation
+- uid: Advanced.Algorithms.Numerical.FastExponentiation.BySquaring(System.Int32,System.Int32)
+  name: BySquaring(Int32, Int32)
+  href: api/Advanced.Algorithms.Numerical.FastExponentiation.html#Advanced_Algorithms_Numerical_FastExponentiation_BySquaring_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Numerical.FastExponentiation.BySquaring(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.Numerical.FastExponentiation.BySquaring(System.Int32, System.Int32)
+  nameWithType: FastExponentiation.BySquaring(Int32, Int32)
+- uid: Advanced.Algorithms.Numerical.FastExponentiation.BySquaring*
+  name: BySquaring
+  href: api/Advanced.Algorithms.Numerical.FastExponentiation.html#Advanced_Algorithms_Numerical_FastExponentiation_BySquaring_
+  commentId: Overload:Advanced.Algorithms.Numerical.FastExponentiation.BySquaring
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Numerical.FastExponentiation.BySquaring
+  nameWithType: FastExponentiation.BySquaring
+- uid: Advanced.Algorithms.Numerical.KthSmallest`1
+  name: KthSmallest<T>
+  href: api/Advanced.Algorithms.Numerical.KthSmallest-1.html
+  commentId: T:Advanced.Algorithms.Numerical.KthSmallest`1
+  name.vb: KthSmallest(Of T)
+  fullName: Advanced.Algorithms.Numerical.KthSmallest<T>
+  fullName.vb: Advanced.Algorithms.Numerical.KthSmallest(Of T)
+  nameWithType: KthSmallest<T>
+  nameWithType.vb: KthSmallest(Of T)
+- uid: Advanced.Algorithms.Numerical.KthSmallest`1.FindKthSmallest(`0[],System.Int32)
+  name: FindKthSmallest(T[], Int32)
+  href: api/Advanced.Algorithms.Numerical.KthSmallest-1.html#Advanced_Algorithms_Numerical_KthSmallest_1_FindKthSmallest__0___System_Int32_
+  commentId: M:Advanced.Algorithms.Numerical.KthSmallest`1.FindKthSmallest(`0[],System.Int32)
+  name.vb: FindKthSmallest(T(), Int32)
+  fullName: Advanced.Algorithms.Numerical.KthSmallest<T>.FindKthSmallest(T[], System.Int32)
+  fullName.vb: Advanced.Algorithms.Numerical.KthSmallest(Of T).FindKthSmallest(T(), System.Int32)
+  nameWithType: KthSmallest<T>.FindKthSmallest(T[], Int32)
+  nameWithType.vb: KthSmallest(Of T).FindKthSmallest(T(), Int32)
+- uid: Advanced.Algorithms.Numerical.KthSmallest`1.FindKthSmallest*
+  name: FindKthSmallest
+  href: api/Advanced.Algorithms.Numerical.KthSmallest-1.html#Advanced_Algorithms_Numerical_KthSmallest_1_FindKthSmallest_
+  commentId: Overload:Advanced.Algorithms.Numerical.KthSmallest`1.FindKthSmallest
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Numerical.KthSmallest<T>.FindKthSmallest
+  fullName.vb: Advanced.Algorithms.Numerical.KthSmallest(Of T).FindKthSmallest
+  nameWithType: KthSmallest<T>.FindKthSmallest
+  nameWithType.vb: KthSmallest(Of T).FindKthSmallest
+- uid: Advanced.Algorithms.Numerical.MedianStream
+  name: MedianStream
+  href: api/Advanced.Algorithms.Numerical.MedianStream.html
+  commentId: T:Advanced.Algorithms.Numerical.MedianStream
+  fullName: Advanced.Algorithms.Numerical.MedianStream
+  nameWithType: MedianStream
+- uid: Advanced.Algorithms.Numerical.MedianStream.Add(System.Int32)
+  name: Add(Int32)
+  href: api/Advanced.Algorithms.Numerical.MedianStream.html#Advanced_Algorithms_Numerical_MedianStream_Add_System_Int32_
+  commentId: M:Advanced.Algorithms.Numerical.MedianStream.Add(System.Int32)
+  fullName: Advanced.Algorithms.Numerical.MedianStream.Add(System.Int32)
+  nameWithType: MedianStream.Add(Int32)
+- uid: Advanced.Algorithms.Numerical.MedianStream.Add*
+  name: Add
+  href: api/Advanced.Algorithms.Numerical.MedianStream.html#Advanced_Algorithms_Numerical_MedianStream_Add_
+  commentId: Overload:Advanced.Algorithms.Numerical.MedianStream.Add
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Numerical.MedianStream.Add
+  nameWithType: MedianStream.Add
+- uid: Advanced.Algorithms.Numerical.MedianStream.GetMedian
+  name: GetMedian()
+  href: api/Advanced.Algorithms.Numerical.MedianStream.html#Advanced_Algorithms_Numerical_MedianStream_GetMedian
+  commentId: M:Advanced.Algorithms.Numerical.MedianStream.GetMedian
+  fullName: Advanced.Algorithms.Numerical.MedianStream.GetMedian()
+  nameWithType: MedianStream.GetMedian()
+- uid: Advanced.Algorithms.Numerical.MedianStream.GetMedian*
+  name: GetMedian
+  href: api/Advanced.Algorithms.Numerical.MedianStream.html#Advanced_Algorithms_Numerical_MedianStream_GetMedian_
+  commentId: Overload:Advanced.Algorithms.Numerical.MedianStream.GetMedian
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Numerical.MedianStream.GetMedian
+  nameWithType: MedianStream.GetMedian
+- uid: Advanced.Algorithms.Numerical.PrimeGenerator
+  name: PrimeGenerator
+  href: api/Advanced.Algorithms.Numerical.PrimeGenerator.html
+  commentId: T:Advanced.Algorithms.Numerical.PrimeGenerator
+  fullName: Advanced.Algorithms.Numerical.PrimeGenerator
+  nameWithType: PrimeGenerator
+- uid: Advanced.Algorithms.Numerical.PrimeGenerator.GetAllPrimes(System.Int32)
+  name: GetAllPrimes(Int32)
+  href: api/Advanced.Algorithms.Numerical.PrimeGenerator.html#Advanced_Algorithms_Numerical_PrimeGenerator_GetAllPrimes_System_Int32_
+  commentId: M:Advanced.Algorithms.Numerical.PrimeGenerator.GetAllPrimes(System.Int32)
+  fullName: Advanced.Algorithms.Numerical.PrimeGenerator.GetAllPrimes(System.Int32)
+  nameWithType: PrimeGenerator.GetAllPrimes(Int32)
+- uid: Advanced.Algorithms.Numerical.PrimeGenerator.GetAllPrimes*
+  name: GetAllPrimes
+  href: api/Advanced.Algorithms.Numerical.PrimeGenerator.html#Advanced_Algorithms_Numerical_PrimeGenerator_GetAllPrimes_
+  commentId: Overload:Advanced.Algorithms.Numerical.PrimeGenerator.GetAllPrimes
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Numerical.PrimeGenerator.GetAllPrimes
+  nameWithType: PrimeGenerator.GetAllPrimes
+- uid: Advanced.Algorithms.Numerical.PrimeTester
+  name: PrimeTester
+  href: api/Advanced.Algorithms.Numerical.PrimeTester.html
+  commentId: T:Advanced.Algorithms.Numerical.PrimeTester
+  fullName: Advanced.Algorithms.Numerical.PrimeTester
+  nameWithType: PrimeTester
+- uid: Advanced.Algorithms.Numerical.PrimeTester.IsPrime(System.Int32)
+  name: IsPrime(Int32)
+  href: api/Advanced.Algorithms.Numerical.PrimeTester.html#Advanced_Algorithms_Numerical_PrimeTester_IsPrime_System_Int32_
+  commentId: M:Advanced.Algorithms.Numerical.PrimeTester.IsPrime(System.Int32)
+  fullName: Advanced.Algorithms.Numerical.PrimeTester.IsPrime(System.Int32)
+  nameWithType: PrimeTester.IsPrime(Int32)
+- uid: Advanced.Algorithms.Numerical.PrimeTester.IsPrime*
+  name: IsPrime
+  href: api/Advanced.Algorithms.Numerical.PrimeTester.html#Advanced_Algorithms_Numerical_PrimeTester_IsPrime_
+  commentId: Overload:Advanced.Algorithms.Numerical.PrimeTester.IsPrime
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Numerical.PrimeTester.IsPrime
+  nameWithType: PrimeTester.IsPrime
 - uid: Advanced.Algorithms.Search
   name: Advanced.Algorithms.Search
   href: api/Advanced.Algorithms.Search.html
