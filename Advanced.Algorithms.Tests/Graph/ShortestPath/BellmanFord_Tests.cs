@@ -1,9 +1,9 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.ShortestPath;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace Advanced.Algorithms.Tests.Graph.ShortestPath
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class BellmanFord_Tests

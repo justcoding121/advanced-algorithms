@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.Connectivity
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// StronglyConnected using Tarjan's algorithm

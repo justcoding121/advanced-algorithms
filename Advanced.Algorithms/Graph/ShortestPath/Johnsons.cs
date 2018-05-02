@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.Graph.ShortestPath
-{
 
+namespace Advanced.Algorithms.Graph
+{ 
     /// <summary>
     /// generic operators
     /// </summary>

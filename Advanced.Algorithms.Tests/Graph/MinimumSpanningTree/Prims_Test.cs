@@ -1,13 +1,9 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.Prims;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Advanced.Algorithms.Tests.Graph.MinimumSpanningTree
+
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class Prims_Tests

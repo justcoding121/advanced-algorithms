@@ -1,7 +1,7 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.Cycle
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// Cycle detection using Depth First Search

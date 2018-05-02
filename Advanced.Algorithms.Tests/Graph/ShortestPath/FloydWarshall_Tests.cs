@@ -1,9 +1,9 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
-using Advanced.Algorithms.Graph.ShortestPath;
 
-namespace Advanced.Algorithms.Tests.Graph.ShortestPath
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class FloydWarshalls_Tests

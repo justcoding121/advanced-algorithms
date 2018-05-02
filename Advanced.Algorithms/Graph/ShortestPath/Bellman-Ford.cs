@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.ShortestPath
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// A Bellman Ford algorithm implementation

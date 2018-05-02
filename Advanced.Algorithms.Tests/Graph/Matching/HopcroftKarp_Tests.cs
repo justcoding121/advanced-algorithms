@@ -1,8 +1,8 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.Matching;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.Graph.Matching
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class HopcroftKarp_Tests

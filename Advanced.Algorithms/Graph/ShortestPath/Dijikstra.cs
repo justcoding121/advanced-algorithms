@@ -3,7 +3,7 @@ using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.ShortestPath
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// generic operators

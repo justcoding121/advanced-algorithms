@@ -9075,6 +9075,25 @@ references:
   commentId: N:Advanced.Algorithms.String
   fullName: Advanced.Algorithms.String
   nameWithType: Advanced.Algorithms.String
+- uid: Advanced.Algorithms.String.KMP
+  name: KMP
+  href: api/Advanced.Algorithms.String.KMP.html
+  commentId: T:Advanced.Algorithms.String.KMP
+  fullName: Advanced.Algorithms.String.KMP
+  nameWithType: KMP
+- uid: Advanced.Algorithms.String.KMP.Search(System.String,System.String)
+  name: Search(String, String)
+  href: api/Advanced.Algorithms.String.KMP.html#Advanced_Algorithms_String_KMP_Search_System_String_System_String_
+  commentId: M:Advanced.Algorithms.String.KMP.Search(System.String,System.String)
+  fullName: Advanced.Algorithms.String.KMP.Search(System.String, System.String)
+  nameWithType: KMP.Search(String, String)
+- uid: Advanced.Algorithms.String.KMP.Search*
+  name: Search
+  href: api/Advanced.Algorithms.String.KMP.html#Advanced_Algorithms_String_KMP_Search_
+  commentId: Overload:Advanced.Algorithms.String.KMP.Search
+  isSpec: "True"
+  fullName: Advanced.Algorithms.String.KMP.Search
+  nameWithType: KMP.Search
 - uid: Advanced.Algorithms.String.ManachersPalindrome
   name: ManachersPalindrome
   href: api/Advanced.Algorithms.String.ManachersPalindrome.html
@@ -9094,66 +9113,41 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.String.ManachersPalindrome.FindLongestPalindrome
   nameWithType: ManachersPalindrome.FindLongestPalindrome
-- uid: Advanced.Algorithms.String.Search
-  name: Advanced.Algorithms.String.Search
-  href: api/Advanced.Algorithms.String.Search.html
-  commentId: N:Advanced.Algorithms.String.Search
-  fullName: Advanced.Algorithms.String.Search
-  nameWithType: Advanced.Algorithms.String.Search
-- uid: Advanced.Algorithms.String.Search.KMP
-  name: KMP
-  href: api/Advanced.Algorithms.String.Search.KMP.html
-  commentId: T:Advanced.Algorithms.String.Search.KMP
-  fullName: Advanced.Algorithms.String.Search.KMP
-  nameWithType: KMP
-- uid: Advanced.Algorithms.String.Search.KMP.Search(System.String,System.String)
-  name: Search(String, String)
-  href: api/Advanced.Algorithms.String.Search.KMP.html#Advanced_Algorithms_String_Search_KMP_Search_System_String_System_String_
-  commentId: M:Advanced.Algorithms.String.Search.KMP.Search(System.String,System.String)
-  fullName: Advanced.Algorithms.String.Search.KMP.Search(System.String, System.String)
-  nameWithType: KMP.Search(String, String)
-- uid: Advanced.Algorithms.String.Search.KMP.Search*
-  name: Search
-  href: api/Advanced.Algorithms.String.Search.KMP.html#Advanced_Algorithms_String_Search_KMP_Search_
-  commentId: Overload:Advanced.Algorithms.String.Search.KMP.Search
-  isSpec: "True"
-  fullName: Advanced.Algorithms.String.Search.KMP.Search
-  nameWithType: KMP.Search
-- uid: Advanced.Algorithms.String.Search.RabinKarp
+- uid: Advanced.Algorithms.String.RabinKarp
   name: RabinKarp
-  href: api/Advanced.Algorithms.String.Search.RabinKarp.html
-  commentId: T:Advanced.Algorithms.String.Search.RabinKarp
-  fullName: Advanced.Algorithms.String.Search.RabinKarp
+  href: api/Advanced.Algorithms.String.RabinKarp.html
+  commentId: T:Advanced.Algorithms.String.RabinKarp
+  fullName: Advanced.Algorithms.String.RabinKarp
   nameWithType: RabinKarp
-- uid: Advanced.Algorithms.String.Search.RabinKarp.Search(System.String,System.String)
+- uid: Advanced.Algorithms.String.RabinKarp.Search(System.String,System.String)
   name: Search(String, String)
-  href: api/Advanced.Algorithms.String.Search.RabinKarp.html#Advanced_Algorithms_String_Search_RabinKarp_Search_System_String_System_String_
-  commentId: M:Advanced.Algorithms.String.Search.RabinKarp.Search(System.String,System.String)
-  fullName: Advanced.Algorithms.String.Search.RabinKarp.Search(System.String, System.String)
+  href: api/Advanced.Algorithms.String.RabinKarp.html#Advanced_Algorithms_String_RabinKarp_Search_System_String_System_String_
+  commentId: M:Advanced.Algorithms.String.RabinKarp.Search(System.String,System.String)
+  fullName: Advanced.Algorithms.String.RabinKarp.Search(System.String, System.String)
   nameWithType: RabinKarp.Search(String, String)
-- uid: Advanced.Algorithms.String.Search.RabinKarp.Search*
+- uid: Advanced.Algorithms.String.RabinKarp.Search*
   name: Search
-  href: api/Advanced.Algorithms.String.Search.RabinKarp.html#Advanced_Algorithms_String_Search_RabinKarp_Search_
-  commentId: Overload:Advanced.Algorithms.String.Search.RabinKarp.Search
+  href: api/Advanced.Algorithms.String.RabinKarp.html#Advanced_Algorithms_String_RabinKarp_Search_
+  commentId: Overload:Advanced.Algorithms.String.RabinKarp.Search
   isSpec: "True"
-  fullName: Advanced.Algorithms.String.Search.RabinKarp.Search
+  fullName: Advanced.Algorithms.String.RabinKarp.Search
   nameWithType: RabinKarp.Search
-- uid: Advanced.Algorithms.String.Search.ZAlgorithm
+- uid: Advanced.Algorithms.String.ZAlgorithm
   name: ZAlgorithm
-  href: api/Advanced.Algorithms.String.Search.ZAlgorithm.html
-  commentId: T:Advanced.Algorithms.String.Search.ZAlgorithm
-  fullName: Advanced.Algorithms.String.Search.ZAlgorithm
+  href: api/Advanced.Algorithms.String.ZAlgorithm.html
+  commentId: T:Advanced.Algorithms.String.ZAlgorithm
+  fullName: Advanced.Algorithms.String.ZAlgorithm
   nameWithType: ZAlgorithm
-- uid: Advanced.Algorithms.String.Search.ZAlgorithm.Search(System.String,System.String)
+- uid: Advanced.Algorithms.String.ZAlgorithm.Search(System.String,System.String)
   name: Search(String, String)
-  href: api/Advanced.Algorithms.String.Search.ZAlgorithm.html#Advanced_Algorithms_String_Search_ZAlgorithm_Search_System_String_System_String_
-  commentId: M:Advanced.Algorithms.String.Search.ZAlgorithm.Search(System.String,System.String)
-  fullName: Advanced.Algorithms.String.Search.ZAlgorithm.Search(System.String, System.String)
+  href: api/Advanced.Algorithms.String.ZAlgorithm.html#Advanced_Algorithms_String_ZAlgorithm_Search_System_String_System_String_
+  commentId: M:Advanced.Algorithms.String.ZAlgorithm.Search(System.String,System.String)
+  fullName: Advanced.Algorithms.String.ZAlgorithm.Search(System.String, System.String)
   nameWithType: ZAlgorithm.Search(String, String)
-- uid: Advanced.Algorithms.String.Search.ZAlgorithm.Search*
+- uid: Advanced.Algorithms.String.ZAlgorithm.Search*
   name: Search
-  href: api/Advanced.Algorithms.String.Search.ZAlgorithm.html#Advanced_Algorithms_String_Search_ZAlgorithm_Search_
-  commentId: Overload:Advanced.Algorithms.String.Search.ZAlgorithm.Search
+  href: api/Advanced.Algorithms.String.ZAlgorithm.html#Advanced_Algorithms_String_ZAlgorithm_Search_
+  commentId: Overload:Advanced.Algorithms.String.ZAlgorithm.Search
   isSpec: "True"
-  fullName: Advanced.Algorithms.String.Search.ZAlgorithm.Search
+  fullName: Advanced.Algorithms.String.ZAlgorithm.Search
   nameWithType: ZAlgorithm.Search

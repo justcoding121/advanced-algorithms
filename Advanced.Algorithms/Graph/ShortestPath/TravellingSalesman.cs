@@ -3,7 +3,7 @@ using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.Graph.ShortestPath
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// Problem details below

@@ -1,8 +1,8 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.Cycle;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.Graph.Cycle
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class CycleDetection_Tests

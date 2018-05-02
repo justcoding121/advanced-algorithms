@@ -855,8 +855,7 @@ $(function () {
             state.selectedTabs.splice(index, 1);
           }
         }
-        var tab = firstVisibleTab;
-        tab.selected = true;
+        firstVisibleTab.selected = true;
         state.selectedTabs.push(tab.tabIds[0]);
       }
     }

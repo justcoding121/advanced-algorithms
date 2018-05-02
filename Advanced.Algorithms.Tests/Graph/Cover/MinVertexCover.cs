@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.Cover;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.Graph.Coloring
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class MinVertexCover_Tests

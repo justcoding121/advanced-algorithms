@@ -1,7 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.ArticulationPoint;
 
-namespace Advanced.Algorithms.Graph.Connectivity
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// Finds if a graph is BiConnected

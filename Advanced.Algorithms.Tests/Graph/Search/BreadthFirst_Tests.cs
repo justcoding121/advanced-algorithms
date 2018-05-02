@@ -1,7 +1,7 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.Search;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-namespace Advanced.Algorithms.Tests.Graph.Search
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class BreadFirst_Tests

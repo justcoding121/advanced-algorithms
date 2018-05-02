@@ -1,9 +1,9 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using Advanced.Algorithms.Graph.ArticulationPoint;
+using Advanced.Algorithms.Graph;
 
-namespace Advanced.Algorithms.Tests.Graph.ArticulationPoints
+namespace Advanced.Algorithms.Tests.Graph
 {
 
     [TestClass]

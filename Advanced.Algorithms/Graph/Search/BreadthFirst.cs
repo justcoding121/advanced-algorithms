@@ -1,7 +1,7 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.Search
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// Bread First Search implementation

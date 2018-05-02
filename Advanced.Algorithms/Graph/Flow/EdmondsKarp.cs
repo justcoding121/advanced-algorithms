@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.Flow
+namespace Advanced.Algorithms.Graph
 {
 
     /// <summary>

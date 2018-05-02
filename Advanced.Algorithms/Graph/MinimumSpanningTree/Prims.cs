@@ -2,10 +2,9 @@
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
-using Advanced.Algorithms.Graph.Kruskals;
 
-namespace Advanced.Algorithms.Graph.Prims
-{
+namespace Advanced.Algorithms.Graph
+{ 
     /// <summary>
     /// A Prims algorithm implementation
     /// </summary>

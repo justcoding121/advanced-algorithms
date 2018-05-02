@@ -2,9 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using Advanced.Algorithms.Graph.Bridge;
+using Advanced.Algorithms.Graph;
 
-namespace Advanced.Algorithms.Tests.Graph.BridgePoints
+namespace Advanced.Algorithms.Tests.Graph
 {
 
     [TestClass]

@@ -1,8 +1,8 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.Connectivity;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.Graph.Connectivity
+namespace Advanced.Algorithms.Tests.Graph
 {
 
     [TestClass]

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.Bridge
+namespace Advanced.Algorithms.Graph
 {
     public class Bridge<T>
     {

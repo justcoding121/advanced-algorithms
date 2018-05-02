@@ -1,8 +1,8 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.Kruskals;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.Graph.MinimumSpanningTree
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class Kruskals_Tests

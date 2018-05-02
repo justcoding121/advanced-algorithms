@@ -1,9 +1,8 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
-using Advanced.Algorithms.Graph.Flow;
 
-namespace Advanced.Algorithms.Graph.Cut
+namespace Advanced.Algorithms.Graph
 {
     public class MinCutEdge<T>
     {

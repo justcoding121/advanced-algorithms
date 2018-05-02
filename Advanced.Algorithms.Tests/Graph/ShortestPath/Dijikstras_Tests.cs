@@ -1,8 +1,8 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Advanced.Algorithms.Graph.ShortestPath;
 
-namespace Advanced.Algorithms.Tests.Graph.ShortestPath
+namespace Advanced.Algorithms.Tests.Grap
 {
     [TestClass]
     public class Dijikstras_Tests

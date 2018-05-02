@@ -1,7 +1,7 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.Cover
+namespace Advanced.Algorithms.Graph
 {
     public class MinVertexCover<T>
     {

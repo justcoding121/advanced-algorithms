@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.Graph.Flow
+namespace Advanced.Algorithms.Graph
 {
 
     /// <summary>

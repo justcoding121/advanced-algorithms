@@ -1,9 +1,8 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
-using Advanced.Algorithms.Graph.Cut;
-using Advanced.Algorithms.Graph.Flow;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.Graph.Flow
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class MinCut_Tests

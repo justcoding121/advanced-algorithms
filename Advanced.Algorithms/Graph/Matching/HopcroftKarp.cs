@@ -1,11 +1,10 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
-using Advanced.Algorithms.Graph.Coloring;
 
-namespace Advanced.Algorithms.Graph.Matching
-{
 
+namespace Advanced.Algorithms.Graph
+{ 
     /// <summary>
     ///  Compute Max BiParitite Edges using Hopcroft Karp algorithm
     /// </summary>

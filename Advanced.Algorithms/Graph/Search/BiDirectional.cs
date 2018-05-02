@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace Advanced.Algorithms.Graph.Search
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// A BiDirectional Path Search on DiGraph

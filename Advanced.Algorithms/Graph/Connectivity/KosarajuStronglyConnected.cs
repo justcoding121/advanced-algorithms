@@ -1,7 +1,7 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.Connectivity
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// A Kosaraju Strong Connected Component Algorithm Implementation

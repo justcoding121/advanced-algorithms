@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.Sort
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// Find Toplogical order of a graph using Kahn's algorithm

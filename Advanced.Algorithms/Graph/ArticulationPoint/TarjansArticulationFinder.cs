@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.Graph.ArticulationPoint
+namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// Articulation point finder using Tarjan's algorithm

@@ -2,9 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using Advanced.Algorithms.Graph.Connectivity;
+using Advanced.Algorithms.Graph;
 
-namespace Advanced.Algorithms.Tests.Graph.Connectivity
+namespace Advanced.Algorithms.Tests.Graph
 {
 
     [TestClass]
