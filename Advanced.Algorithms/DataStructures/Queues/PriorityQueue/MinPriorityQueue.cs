@@ -1,7 +1,6 @@
 ﻿using System;
-using Advanced.Algorithms.DataStructures.Heap.Min;
 
-namespace Advanced.Algorithms.DataStructures.Queues.PriorityQueue
+namespace Advanced.Algorithms.DataStructures
 {
     //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// priority queue implementation using min heap

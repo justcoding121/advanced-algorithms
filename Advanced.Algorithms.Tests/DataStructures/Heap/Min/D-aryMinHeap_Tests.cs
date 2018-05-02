@@ -1,11 +1,9 @@
 ﻿using Advanced.Algorithms.DataStructures;
-using Advanced.Algorithms.DataStructures.Heap.Min;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Heap.Min
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class AsD_aryMinTree_Tests

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Heap
+namespace Advanced.Algorithms.DataStructures
 {
     public class BinomialHeapNode<T> : IComparable where T : IComparable
     {

@@ -1,11 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures.Tree;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Advanced.Algorithms.DataStructures;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Tree.TestHelpers
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     internal static class BTreeTester
     {

@@ -1,5 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Tree;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures

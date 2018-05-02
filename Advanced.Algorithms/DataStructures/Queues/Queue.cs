@@ -1,4 +1,4 @@
-﻿namespace Advanced.Algorithms.DataStructures.Queues
+﻿namespace Advanced.Algorithms.DataStructures
 {
     internal interface IQueue<T>
     {

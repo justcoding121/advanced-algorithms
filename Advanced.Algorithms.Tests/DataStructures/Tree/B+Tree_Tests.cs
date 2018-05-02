@@ -1,11 +1,9 @@
-﻿using Advanced.Algorithms.DataStructures.Tree;
-using Advanced.Algorithms.Tests.DataStructures.Tree.TestHelpers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using Advanced.Algorithms.DataStructures;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Tree
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class BPTree_Tests

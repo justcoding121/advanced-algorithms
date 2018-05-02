@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Tree
+namespace Advanced.Algorithms.DataStructures
 {
     internal class BpTreeNode<T> : BNode<T> where T : IComparable
     {

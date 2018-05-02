@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Linq;
 
-namespace Advanced.Algorithms.DataStructures.Tree
+namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// abstract node shared by both B & B+ tree nodes

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Advanced.Algorithms.DataStructures.Heap.Min;
+using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Compression
 {
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.Compression
 
             var root = minHeap.ExtractMin();
 
-            var result = new Dictionary<T, byte[]>();
+            var result = new System.Collections.Generic.Dictionary<T, byte[]>();
 
             DFS(root, new List<byte>(), result);
 
@@ -56,7 +56,7 @@ namespace Advanced.Algorithms.Compression
         /// <param name="currentNode"></param>
         /// <param name="pathStack"></param>
         /// <param name="result"></param>
-        private void DFS(FrequencyWrap currentNode, List<byte> pathStack, Dictionary<T, byte[]> result)
+        private void DFS(FrequencyWrap currentNode, List<byte> pathStack, System.Collections.Generic.Dictionary<T, byte[]> result)
         {
             if(currentNode.IsLeaf)
             {
@@ -84,9 +84,9 @@ namespace Advanced.Algorithms.Compression
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        private Dictionary<T, int> computeFrequency(T[] input)
+        private System.Collections.Generic.Dictionary<T, int> computeFrequency(T[] input)
         {
-            var result = new Dictionary<T, int>();
+            var result = new System.Collections.Generic.Dictionary<T, int>();
 
             foreach (var item in input)
             {

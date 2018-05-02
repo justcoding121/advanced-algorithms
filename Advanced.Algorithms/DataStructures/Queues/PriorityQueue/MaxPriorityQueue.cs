@@ -1,7 +1,6 @@
 ﻿using System;
-using Advanced.Algorithms.DataStructures.Heap.Max;
 
-namespace Advanced.Algorithms.DataStructures.Queues.PriorityQueue
+namespace Advanced.Algorithms.DataStructures
 {
 
     /// priority queue implementation using max heap

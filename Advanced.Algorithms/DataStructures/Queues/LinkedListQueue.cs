@@ -1,4 +1,4 @@
-﻿namespace Advanced.Algorithms.DataStructures.Queues
+﻿namespace Advanced.Algorithms.DataStructures
 {
 
     //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already

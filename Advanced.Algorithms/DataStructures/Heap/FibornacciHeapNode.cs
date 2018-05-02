@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Advanced.Algorithms.DataStructures.Heap
+namespace Advanced.Algorithms.DataStructures
 {
     public class FibornacciHeapNode<T> : IComparable where T : IComparable
     {

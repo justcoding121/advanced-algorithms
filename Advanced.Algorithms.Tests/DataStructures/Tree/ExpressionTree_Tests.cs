@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures.Tree;
+﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Tree
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class ExpressionTree_Tests

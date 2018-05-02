@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Advanced.Algorithms.DataStructures.Heap.Min;
+using Advanced.Algorithms.DataStructures;
+
 
 namespace Advanced.Algorithms.Sorting
 {

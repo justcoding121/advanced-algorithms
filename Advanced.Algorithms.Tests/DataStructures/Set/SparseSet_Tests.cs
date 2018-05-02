@@ -1,12 +1,9 @@
-﻿using Advanced.Algorithms.DataStructures.Set;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Advanced.Algorithms.DataStructures;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Set
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class SparseSet_Tests

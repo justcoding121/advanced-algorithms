@@ -1,7 +1,7 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Lists
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class SkipList_Tests

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Advanced.Algorithms.DataStructures.Tree
+namespace Advanced.Algorithms.DataStructures
 {
     public interface IBSTNode<T> where T : IComparable
     {

@@ -11,11 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="BitAlgorithms\**" />
+    <Compile Remove="Binary\**" />
     <Compile Remove="DynamicProgramming\**" />
-    <EmbeddedResource Remove="BitAlgorithms\**" />
+    <EmbeddedResource Remove="Binary\**" />
     <EmbeddedResource Remove="DynamicProgramming\**" />
-    <None Remove="BitAlgorithms\**" />
+    <None Remove="Binary\**" />
     <None Remove="DynamicProgramming\**" />
   </ItemGroup>
 
@@ -26,16 +26,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="BitAlgorithms\BaseConversion.cs" />
-    <Compile Include="BitAlgorithms\BitHacks.cs" />
-    <Compile Include="BitAlgorithms\CalcLogarithm.cs" />
-    <Compile Include="BitAlgorithms\DivisionModulus.cs" />
-    <Compile Include="BitAlgorithms\GCD.cs" />
-    <Compile Include="BitAlgorithms\IntToBinary.cs" />
-    <Compile Include="BitAlgorithms\IsMultipleOfNine.cs" />
-    <Compile Include="BitAlgorithms\IsMultipleOfThree.cs" />
-    <Compile Include="BitAlgorithms\NextPowOfTwo.cs" />
-    <Compile Include="BitAlgorithms\ToggleCase.cs" />
+    <Compile Include="Binary\BaseConversion.cs" />
+    <Compile Include="Binary\BitHacks.cs" />
+    <Compile Include="Binary\Logarithm.cs" />
+    <Compile Include="Binary\DivisionModulus.cs" />
+    <Compile Include="Binary\GCD.cs" />
+    <Compile Include="Binary\IntToBinary.cs" />
+    <Compile Include="Binary\IsMultipleOfNine.cs" />
+    <Compile Include="Binary\IsMultipleOfThree.cs" />
+    <Compile Include="Binary\NextPowOfTwo.cs" />
+    <Compile Include="Binary\ToggleCase.cs" />
   </ItemGroup>
 
 </Project>

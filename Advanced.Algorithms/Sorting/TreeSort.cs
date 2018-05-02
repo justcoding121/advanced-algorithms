@@ -1,5 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures;
-using System;
+﻿using System;
+using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Sorting
 {
