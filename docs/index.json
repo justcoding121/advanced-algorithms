@@ -4,16 +4,6 @@
     "title": "Class BaseConversion | Advanced Algorithms",
     "keywords": "Class BaseConversion Inheritance Object BaseConversion Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Binary Assembly : Advanced.Algorithms.dll Syntax public class BaseConversion Methods Convert(String, String, String, Int32) Converts base of given number to the target base. Declaration public static string Convert(string srcNumber, string srcBaseChars, string dstBaseChars, int precision = 32) Parameters Type Name Description String srcNumber Input number in source base system. String srcBaseChars Source base system characters in increasing order. For example 0123456789 for base 10. String dstBaseChars Destination base system characters in increasing order. For example 01 for base 2. Int32 precision Required precision when dealing with fractions. Defaults to 32 places. Returns Type Description String The result in target base as a string."
   },
-  "api/Advanced.Algorithms.Binary.BitHacks.html": {
-    "href": "api/Advanced.Algorithms.Binary.BitHacks.html",
-    "title": "Class BitHacks | Advanced Algorithms",
-    "keywords": "Class BitHacks Inheritance Object BitHacks Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Binary Assembly : Advanced.Algorithms.dll Syntax public class BitHacks Methods CountSetBits(Int32) Returns the number of set bits in given integer x Declaration public static int CountSetBits(int x) Parameters Type Name Description Int32 x Returns Type Description Int32 CountTrailingZerosByBinarySearch(Int32) Counts the number of trailing zero bits in an efficient manner Declaration public static int CountTrailingZerosByBinarySearch(int x) Parameters Type Name Description Int32 x Returns Type Description Int32 GetRightmostSubBitsStartingWithAnUnsetBit(Int32) Gets the first right most sub bits starting with a Unset bit, with rightmost being 0th bit eg. 1011 => 0011 Declaration public static int GetRightmostSubBitsStartingWithAnUnsetBit(int x) Parameters Type Name Description Int32 x Returns Type Description Int32 GetRightmostSubBitsStartingWithASetBit(Int32) Gets the first right most sub bits starting with a set bit, with rightmost being 0th bit Declaration public static int GetRightmostSubBitsStartingWithASetBit(int x) Parameters Type Name Description Int32 x Returns Type Description Int32 HasOppositeSigns(Int32, Int32) Checks if given numbers are of opposite signs Declaration public static bool HasOppositeSigns(int x, int y) Parameters Type Name Description Int32 x Int32 y Returns Type Description Boolean IsEven(Int32) Checks if given number is even Declaration public static bool IsEven(int x) Parameters Type Name Description Int32 x Returns Type Description Boolean IsPowerOf2(Int32) Checks if given number is a power of 2 Declaration public static bool IsPowerOf2(int x) Parameters Type Name Description Int32 x Returns Type Description Boolean IsSet(Int32, Int32) Checks if nth bit from right is set, with rightmost being 0th bit Declaration public static bool IsSet(int x, int n) Parameters Type Name Description Int32 x Int32 n Returns Type Description Boolean RightPropogateRightmostSetBit(Int32) Sets all the first right most sub bits starting with a set bit, with rightmost being 0th bit Declaration public static int RightPropogateRightmostSetBit(int x) Parameters Type Name Description Int32 x Returns Type Description Int32 RightPropogateRightmostUnsetBit(Int32) UnSets all the first right most sub bits starting with a unset bit, with rightmost being 0th bit Declaration public static int RightPropogateRightmostUnsetBit(int x) Parameters Type Name Description Int32 x Returns Type Description Int32 SetBit(Int32, Int32) Sets nth bit from right, with rightmost being 0th bit Declaration public static int SetBit(int x, int n) Parameters Type Name Description Int32 x Int32 n Returns Type Description Int32 ToggleBit(Int32, Int32) Toggles nth bit from right, with rightmost being 0th bit Declaration public static int ToggleBit(int x, int n) Parameters Type Name Description Int32 x Int32 n Returns Type Description Int32 TurnOffRightmostSetBit(Int32) Turns Off first set bit from right, with rightmost being 0th bit Declaration public static int TurnOffRightmostSetBit(int x) Parameters Type Name Description Int32 x Returns Type Description Int32 TurnOnBitAfterRightmostSetBit(Int32) Turns On first Unset bit from right, with rightmost being 0th bit Declaration public static int TurnOnBitAfterRightmostSetBit(int x) Parameters Type Name Description Int32 x Returns Type Description Int32 UnsetBit(Int32, Int32) Unsets nth bit from right, with rightmost being 0th bit Declaration public static int UnsetBit(int x, int n) Parameters Type Name Description Int32 x Int32 n Returns Type Description Int32 UpdateBitToValue(Int32, Int32, Boolean) Update the nth bit from right with given boolean value, with rightmost being 0th bit Declaration public static int UpdateBitToValue(int x, int n, bool value) Parameters Type Name Description Int32 x Int32 n Boolean value Returns Type Description Int32"
-  },
-  "api/Advanced.Algorithms.Binary.DivisionModulus.html": {
-    "href": "api/Advanced.Algorithms.Binary.DivisionModulus.html",
-    "title": "Class DivisionModulus | Advanced Algorithms",
-    "keywords": "Class DivisionModulus Compute modulus division by power of 2 without a division operator. Inheritance Object DivisionModulus Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Binary Assembly : Advanced.Algorithms.dll Syntax public class DivisionModulus Methods GetModulus(Int32, Int32) Declaration public static int GetModulus(int numerator, int denominator) Parameters Type Name Description Int32 numerator Int32 denominator Returns Type Description Int32"
-  },
   "api/Advanced.Algorithms.Binary.Gcd.html": {
     "href": "api/Advanced.Algorithms.Binary.Gcd.html",
     "title": "Class Gcd | Advanced Algorithms",
@@ -22,37 +12,12 @@
   "api/Advanced.Algorithms.Binary.html": {
     "href": "api/Advanced.Algorithms.Binary.html",
     "title": "Namespace Advanced.Algorithms.Binary | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Binary Classes BaseConversion BitHacks DivisionModulus Compute modulus division by power of 2 without a division operator. Gcd IntToBinary IsMultipleOfNine IsMultipleOfThree Logarithm NextPowOfTwo ToggleCase"
-  },
-  "api/Advanced.Algorithms.Binary.IntToBinary.html": {
-    "href": "api/Advanced.Algorithms.Binary.IntToBinary.html",
-    "title": "Class IntToBinary | Advanced Algorithms",
-    "keywords": "Class IntToBinary Inheritance Object IntToBinary Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Binary Assembly : Advanced.Algorithms.dll Syntax public class IntToBinary Methods GetBinary(Int32, Int32) Declaration public static string GetBinary(int integer, int precision) Parameters Type Name Description Int32 integer Int32 precision Returns Type Description String"
-  },
-  "api/Advanced.Algorithms.Binary.IsMultipleOfNine.html": {
-    "href": "api/Advanced.Algorithms.Binary.IsMultipleOfNine.html",
-    "title": "Class IsMultipleOfNine | Advanced Algorithms",
-    "keywords": "Class IsMultipleOfNine Inheritance Object IsMultipleOfNine Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Binary Assembly : Advanced.Algorithms.dll Syntax public class IsMultipleOfNine Methods IsTrue(Int32) Declaration public static bool IsTrue(int x) Parameters Type Name Description Int32 x Returns Type Description Boolean"
-  },
-  "api/Advanced.Algorithms.Binary.IsMultipleOfThree.html": {
-    "href": "api/Advanced.Algorithms.Binary.IsMultipleOfThree.html",
-    "title": "Class IsMultipleOfThree | Advanced Algorithms",
-    "keywords": "Class IsMultipleOfThree Inheritance Object IsMultipleOfThree Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Binary Assembly : Advanced.Algorithms.dll Syntax public class IsMultipleOfThree Methods IsTrue(Int32) Based on the observation that a number is multiple of 3 if difference of odd and even set bits in binary form of the number is also a multiple of 3. Declaration public static bool IsTrue(int v) Parameters Type Name Description Int32 v Returns Type Description Boolean"
+    "keywords": "Namespace Advanced.Algorithms.Binary Classes BaseConversion Gcd Logarithm"
   },
   "api/Advanced.Algorithms.Binary.Logarithm.html": {
     "href": "api/Advanced.Algorithms.Binary.Logarithm.html",
     "title": "Class Logarithm | Advanced Algorithms",
     "keywords": "Class Logarithm Inheritance Object Logarithm Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Binary Assembly : Advanced.Algorithms.dll Syntax public class Logarithm Methods CalcBase10LogFloor(Int32) Declaration public static int CalcBase10LogFloor(int x) Parameters Type Name Description Int32 x Returns Type Description Int32 CalcBase2LogFloor(Int32) Declaration public static int CalcBase2LogFloor(int x) Parameters Type Name Description Int32 x Returns Type Description Int32"
-  },
-  "api/Advanced.Algorithms.Binary.NextPowOfTwo.html": {
-    "href": "api/Advanced.Algorithms.Binary.NextPowOfTwo.html",
-    "title": "Class NextPowOfTwo | Advanced Algorithms",
-    "keywords": "Class NextPowOfTwo Inheritance Object NextPowOfTwo Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Binary Assembly : Advanced.Algorithms.dll Syntax public class NextPowOfTwo"
-  },
-  "api/Advanced.Algorithms.Binary.ToggleCase.html": {
-    "href": "api/Advanced.Algorithms.Binary.ToggleCase.html",
-    "title": "Class ToggleCase | Advanced Algorithms",
-    "keywords": "Class ToggleCase Inheritance Object ToggleCase Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Binary Assembly : Advanced.Algorithms.dll Syntax public class ToggleCase Methods Toggle(String) Declaration public static string Toggle(string s) Parameters Type Name Description String s Returns Type Description String"
   },
   "api/Advanced.Algorithms.Combinatorics.Combination.html": {
     "href": "api/Advanced.Algorithms.Combinatorics.Combination.html",
@@ -769,16 +734,6 @@
     "title": "Class TravellingSalesman | Advanced Algorithms",
     "keywords": "Class TravellingSalesman Problem details below https://en.wikipedia.org/wiki/Travelling_salesman_problem Uses dynamic programming and have psuedo-polynomial time runtime complexity for this NP hard problem Inheritance Object TravellingSalesman Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Graph Assembly : Advanced.Algorithms.dll Syntax public class TravellingSalesman Methods GetMinWeight(WeightedDiGraph<Int32, Int32>) Declaration public static int GetMinWeight(WeightedDiGraph<int, int> graph) Parameters Type Name Description WeightedDiGraph < Int32 , Int32 > graph Returns Type Description Int32"
   },
-  "api/Advanced.Algorithms.Miscellaneous.html": {
-    "href": "api/Advanced.Algorithms.Miscellaneous.html",
-    "title": "Namespace Advanced.Algorithms.Miscellaneous | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Miscellaneous Classes MatrixMultiplication"
-  },
-  "api/Advanced.Algorithms.Miscellaneous.MatrixMultiplication.html": {
-    "href": "api/Advanced.Algorithms.Miscellaneous.MatrixMultiplication.html",
-    "title": "Class MatrixMultiplication | Advanced Algorithms",
-    "keywords": "Class MatrixMultiplication Inheritance Object MatrixMultiplication Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Miscellaneous Assembly : Advanced.Algorithms.dll Syntax public class MatrixMultiplication Methods Multiply(Int32[,], Int32[,]) Declaration public static int[, ] Multiply(int[, ] a, int[, ] b) Parameters Type Name Description Int32 [,] a Int32 [,] b Returns Type Description Int32 [,]"
-  },
   "api/Advanced.Algorithms.Numerical.FastExponentiation.html": {
     "href": "api/Advanced.Algorithms.Numerical.FastExponentiation.html",
     "title": "Class FastExponentiation | Advanced Algorithms",
@@ -787,17 +742,7 @@
   "api/Advanced.Algorithms.Numerical.html": {
     "href": "api/Advanced.Algorithms.Numerical.html",
     "title": "Namespace Advanced.Algorithms.Numerical | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Numerical Classes FastExponentiation KthSmallest<T> Returns the kth smallest element in given input MedianStream Keeps median of given stream An online algorithm PrimeGenerator PrimeTester Tests for Prime in School method optimized"
-  },
-  "api/Advanced.Algorithms.Numerical.KthSmallest-1.html": {
-    "href": "api/Advanced.Algorithms.Numerical.KthSmallest-1.html",
-    "title": "Class KthSmallest<T> | Advanced Algorithms",
-    "keywords": "Class KthSmallest<T> Returns the kth smallest element in given input Inheritance Object KthSmallest<T> Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Numerical Assembly : Advanced.Algorithms.dll Syntax public class KthSmallest<T> where T : IComparable Type Parameters Name Description T Methods FindKthSmallest(T[], Int32) Declaration public T FindKthSmallest(T[] input, int k) Parameters Type Name Description T[] input Int32 k Returns Type Description T"
-  },
-  "api/Advanced.Algorithms.Numerical.MedianStream.html": {
-    "href": "api/Advanced.Algorithms.Numerical.MedianStream.html",
-    "title": "Class MedianStream | Advanced Algorithms",
-    "keywords": "Class MedianStream Keeps median of given stream An online algorithm Inheritance Object MedianStream Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Numerical Assembly : Advanced.Algorithms.dll Syntax public class MedianStream Methods Add(Int32) Add a new item to stream Declaration public void Add(int newValue) Parameters Type Name Description Int32 newValue GetMedian() Returns the current median Declaration public int GetMedian() Returns Type Description Int32"
+    "keywords": "Namespace Advanced.Algorithms.Numerical Classes FastExponentiation PrimeGenerator PrimeTester Tests for Prime in School method optimized"
   },
   "api/Advanced.Algorithms.Numerical.PrimeGenerator.html": {
     "href": "api/Advanced.Algorithms.Numerical.PrimeGenerator.html",
@@ -817,12 +762,7 @@
   "api/Advanced.Algorithms.Search.html": {
     "href": "api/Advanced.Algorithms.Search.html",
     "title": "Namespace Advanced.Algorithms.Search | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Search Classes BinarySearch SearchAlmostSorted"
-  },
-  "api/Advanced.Algorithms.Search.SearchAlmostSorted.html": {
-    "href": "api/Advanced.Algorithms.Search.SearchAlmostSorted.html",
-    "title": "Class SearchAlmostSorted | Advanced Algorithms",
-    "keywords": "Class SearchAlmostSorted Inheritance Object SearchAlmostSorted Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Search Assembly : Advanced.Algorithms.dll Syntax public class SearchAlmostSorted Methods Search(Int32[], Int32) Declaration public static int Search(int[] input, int element) Parameters Type Name Description Int32 [] input Int32 element Returns Type Description Int32"
+    "keywords": "Namespace Advanced.Algorithms.Search Classes BinarySearch"
   },
   "api/Advanced.Algorithms.Sorting.BubbleSort-1.html": {
     "href": "api/Advanced.Algorithms.Sorting.BubbleSort-1.html",
@@ -847,7 +787,7 @@
   "api/Advanced.Algorithms.Sorting.html": {
     "href": "api/Advanced.Algorithms.Sorting.html",
     "title": "Namespace Advanced.Algorithms.Sorting | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Sorting Classes BubbleSort<T> BucketSort A bucket sort implementation CountingSort A counting sort implementation HeapSort<T> InsertionSort<T> MergeSort<T> QuickSort<T> RadixSort A radix sort implementation SelectionSort<T> ShellSort<T> A shell sort implementation SortAlmostSorted TreeSort<T>"
+    "keywords": "Namespace Advanced.Algorithms.Sorting Classes BubbleSort<T> BucketSort A bucket sort implementation CountingSort A counting sort implementation HeapSort<T> InsertionSort<T> MergeSort<T> QuickSort<T> RadixSort A radix sort implementation SelectionSort<T> ShellSort<T> A shell sort implementation TreeSort<T>"
   },
   "api/Advanced.Algorithms.Sorting.InsertionSort-1.html": {
     "href": "api/Advanced.Algorithms.Sorting.InsertionSort-1.html",
@@ -878,11 +818,6 @@
     "href": "api/Advanced.Algorithms.Sorting.ShellSort-1.html",
     "title": "Class ShellSort<T> | Advanced Algorithms",
     "keywords": "Class ShellSort<T> A shell sort implementation Inheritance Object ShellSort<T> Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Sorting Assembly : Advanced.Algorithms.dll Syntax public class ShellSort<T> where T : IComparable Type Parameters Name Description T Methods Sort(T[]) Sort given integers Declaration public static T[] Sort(T[] array) Parameters Type Name Description T[] array Returns Type Description T[]"
-  },
-  "api/Advanced.Algorithms.Sorting.SortAlmostSorted.html": {
-    "href": "api/Advanced.Algorithms.Sorting.SortAlmostSorted.html",
-    "title": "Class SortAlmostSorted | Advanced Algorithms",
-    "keywords": "Class SortAlmostSorted Inheritance Object SortAlmostSorted Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Sorting Assembly : Advanced.Algorithms.dll Syntax public class SortAlmostSorted Methods Sort(Int32[], Int32) Sort the given input where elements are misplaced almost by a distance k Declaration public static int[] Sort(int[] input, int k) Parameters Type Name Description Int32 [] input Int32 k Returns Type Description Int32 []"
   },
   "api/Advanced.Algorithms.Sorting.TreeSort-1.html": {
     "href": "api/Advanced.Algorithms.Sorting.TreeSort-1.html",
