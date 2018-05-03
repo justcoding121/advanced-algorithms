@@ -6,12 +6,12 @@ namespace Advanced.Algorithms.Binary
     public class BaseConversion
     {
         /// <summary>
-        /// Converts base of given number
+        /// Converts base of given number to the target base.
         /// </summary>
-        /// <param name="srcNumber">input number in source base system</param>
-        /// <param name="srcBaseChars">Should be in correct order => eg. 0123456789 for decimal</param>
-        /// <param name="dstBaseChars">>Should be in correct order => eg. 01 for binary</param>
-        /// <param name="precision">Precision.</param>
+        /// <param name="srcNumber">Input number in source base system.</param>
+        /// <param name="srcBaseChars">Source base system characters in increasing order. For example 0123456789 for base 10.</param>
+        /// <param name="dstBaseChars">Destination base system characters in increasing order. For example 01 for base 2.</param>
+        /// <param name="precision">Required precision when dealing with fractions. Defaults to 32 places.</param>
         /// <returns></returns>
         public static string Convert(string srcNumber,
                     string srcBaseChars,
@@ -31,12 +31,8 @@ namespace Advanced.Algorithms.Binary
             return ConvertWhole(srcNumber, srcBaseChars, dstBaseChars);
         }
         /// <summary>
-        /// Converts base of given number
+        /// Converts the whole part of source number.
         /// </summary>
-        /// <param name="srcNumber">input number in source base system</param>
-        /// <param name="srcBaseChars">Should be in correct order => eg. 0123456789 for decimal</param>
-        /// <param name="dstBaseChars">>Should be in correct order => eg. 01 for binary</param>
-        /// <returns></returns>
         private static string ConvertWhole(string srcNumber,
                 string srcBaseChars,
                 string dstBaseChars)
@@ -84,6 +80,9 @@ namespace Advanced.Algorithms.Binary
 
         }
 
+        /// <summary>
+        /// Converts the fractional part of source number.
+        /// </summary>
         private static string ConvertFraction(string srcNumber,
            string srcBaseChars,
            string dstBaseChars, int maxPrecision)
