@@ -101,8 +101,11 @@ Note: It is observed that among the implementations here in practice, with the e
 - [X] Multi-dimensional Range Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Tree/RangeTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Tree/RangeTreeTests.cs)) using nested Red-black tree
 - [X] Segment Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Tree/SegmentTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Tree/SegmentTree_Tests.cs))
 - [X] Binary Indexed Tree (Fenwick tree) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Tree/FenwickTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Tree/FenwickTree_Tests.cs))
+- [ ] QuadTree
+- [ ] OctTree
+- [ ] R-Tree
 
-TODO: Support multi-dimentional segment tree & binary indexed tree. Implement QuadTree, Octree & R-tree
+TODO: Support multi-dimentional segment tree & binary indexed tree.
 
 #### LookUp Trees
 
@@ -218,10 +221,12 @@ TODO: Support multi-dimentional segment tree & binary indexed tree. Implement Qu
 
 ## Sorting and Searching
 
-- [X] Median of stream of numbers ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Numerical/MedianStream.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Numerical/MedianStream_Tests.cs))
 - [X] Binary Search ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Search/BinarySearch.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Search/BinarySearch_Tests.cs))
 - [X] Search on almost sorted array ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Search/SearchAlmostSorted.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Search/SearchAlmostSorted_Tests.cs))
 - [X] Sort an almost sorted array ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Sorting/SortAlmostSorted.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Sorting/SortAlmostSorted_Tests.cs))
+- [X] Median of stream of numbers ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Numerical/MedianStream.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Numerical/MedianStream_Tests.cs))
+- [ ] Majority element using Moore’s voting algorithm
+- [ ] QuickSelect for kth smallest/largest in unordered collection using median of medians.
 
 ### Sorting Algorithms
 
@@ -250,6 +255,10 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 - [X] Circular Queue (Ring Buffer) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/CircularQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Distributed/CircularQueue_Tests.cs))
 - [X] Consistant Hash ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/ConsistentHash.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Distributed/ConsistentHash_Tests.cs))
 - [X] LRU Cache ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/LRUCache.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Distributed/LRUCache_Tests.cs))
+- [ ] Asynchronous Concurrent Producer/Consumer Bag
+- [ ] Asynchronous Concurrent Producer/Consumer Queue 
+- [ ] Asynchronous Concurrent Producer/Consumer Stack
+
 
 ## Numerical Methods
 
