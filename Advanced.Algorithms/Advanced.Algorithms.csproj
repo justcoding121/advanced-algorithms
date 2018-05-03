@@ -27,15 +27,8 @@
 
   <ItemGroup>
     <Compile Include="Binary\BaseConversion.cs" />
-    <Compile Include="Binary\BitHacks.cs" />
     <Compile Include="Binary\Logarithm.cs" />
-    <Compile Include="Binary\DivisionModulus.cs" />
     <Compile Include="Binary\GCD.cs" />
-    <Compile Include="Binary\IntToBinary.cs" />
-    <Compile Include="Binary\IsMultipleOfNine.cs" />
-    <Compile Include="Binary\IsMultipleOfThree.cs" />
-    <Compile Include="Binary\NextPowOfTwo.cs" />
-    <Compile Include="Binary\ToggleCase.cs" />
   </ItemGroup>
 
 </Project>

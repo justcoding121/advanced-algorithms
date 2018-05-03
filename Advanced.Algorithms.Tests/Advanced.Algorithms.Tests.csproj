@@ -57,15 +57,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Binary\BaseConversion_Tests.cs" />
-    <Compile Include="Binary\BitHacks_Tests.cs" />
     <Compile Include="Binary\CalcLogarithm_Tests.cs" />
-    <Compile Include="Binary\DivisionModulus_Tests.cs" />
     <Compile Include="Binary\GCD_Tests.cs" />
-    <Compile Include="Binary\IntToBinary_Tests.cs" />
-    <Compile Include="Binary\IsMultipleOfNine_Tests.cs" />
-    <Compile Include="Binary\IsMultipleOfThree_Tests.cs" />
-    <Compile Include="Binary\NextPowOfTwo_Tests.cs" />
-    <Compile Include="Binary\ToggleCase_Tests.cs" />
     <Compile Include="Combinatorics\Subset_Tests.cs" />
     <Compile Include="Combinatorics\Combination_Tests.cs" />
     <Compile Include="Combinatorics\Permutation_Tests.cs" />
@@ -129,7 +122,6 @@
     <Compile Include="Distributed\LRUCache_Tests.cs" />
     <Compile Include="Geometry\PointRotation_Tests.cs" />
     <Compile Include="Graph\ShortestPath\TravellingSalesman_Tests.cs" />
-    <Compile Include="Miscellaneous\MatrixMultiplication_Tests.cs" />
     <Compile Include="Geometry\ClosestPointPair_Tests.cs" />
     <Compile Include="Geometry\ConvexHull_Tests.cs" />
     <Compile Include="Geometry\PointInsidePolygon_Tests.cs" />
@@ -161,13 +153,10 @@
     <Compile Include="Graph\Sort\DepthFirstTopSort_Tests.cs" />
     <Compile Include="Graph\Sort\KahnTopSort_Tests.cs" />
     <Compile Include="Numerical\Exponentiation_Tests.cs" />
-    <Compile Include="Numerical\KthSmallest_Tests.cs" />
-    <Compile Include="Numerical\MedianStream_Tests.cs" />
     <Compile Include="Numerical\Primality_Tests.cs" />
     <Compile Include="Numerical\PrimeGenerator_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search\BinarySearch_Tests.cs" />
-    <Compile Include="Search\SearchAlmostSorted_Tests.cs" />
     <Compile Include="Sorting\BubbleSort_Tests.cs" />
     <Compile Include="Sorting\BucketSort_Tests.cs" />
     <Compile Include="Sorting\CountingSort_Tests.cs" />
@@ -178,7 +167,6 @@
     <Compile Include="Sorting\RadixSort_Tests.cs" />
     <Compile Include="Sorting\SelectionSort_Tests.cs" />
     <Compile Include="Sorting\ShellSort_Tests.cs" />
-    <Compile Include="Sorting\SortAlmostSorted_Tests.cs" />
     <Compile Include="Sorting\TreeSort_Tests.cs" />
     <Compile Include="String\Manachers_Tests.cs" />
     <Compile Include="String\Search\RabinKarp_Tests.cs" />
