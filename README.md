@@ -100,9 +100,9 @@ Note: It is observed that among the implementations here in practice, with the e
 - [X] Multi-dimensional Range Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Tree/RangeTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Tree/RangeTreeTests.cs)) using nested Red-black tree
 - [X] Segment Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Tree/SegmentTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Tree/SegmentTree_Tests.cs))
 - [X] Binary Indexed Tree (Fenwick tree) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Tree/FenwickTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Tree/FenwickTree_Tests.cs))
-- [ ] QuadTree
-- [ ] OctTree
-- [ ] R-Tree
+- [ ] QuadTree  (Implementation | Tests)
+- [ ] OctTree (Implementation | Tests)
+- [ ] R-Tree (Implementation | Tests)
 
 TODO: Support multi-dimentional segment tree & binary indexed tree.
 
@@ -219,8 +219,8 @@ TODO: implement trie compression.
 ## Sorting and Searching
 
 - [X] Binary Search ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Search/BinarySearch.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Search/BinarySearch_Tests.cs))
-- [ ] QuickSelect for kth smallest/largest in unordered collection using median of medians
-- [ ] Majority element using Moore’s voting algorithm
+- [ ] QuickSelect for kth smallest/largest in unordered collection using median of medians (Implementation | Tests)
+- [ ] Majority element using Moore’s voting algorithm (Implementation | Tests)
 
 ### Sorting Algorithms
 
@@ -249,9 +249,9 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 - [X] Circular Queue (Ring Buffer) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/CircularQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Distributed/CircularQueue_Tests.cs))
 - [X] Consistant Hash ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/ConsistentHash.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Distributed/ConsistentHash_Tests.cs))
 - [X] LRU Cache ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/LRUCache.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Distributed/LRUCache_Tests.cs))
-- [ ] Asynchronous concurrent producer/consumer Bag
-- [ ] Asynchronous concurrent producer/consumer Queue 
-- [ ] Asynchronous concurrent producer/consumer Stack
+- [ ] Asynchronous concurrent producer/consumer Bag (Implementation | Tests)
+- [ ] Asynchronous concurrent producer/consumer Queue (Implementation | Tests)
+- [ ] Asynchronous concurrent producer/consumer Stack (Implementation | Tests)
 
 ## Numerical Methods
 
@@ -267,7 +267,7 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 - [X] Check if given point inside polygon ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Geometry/PointInsidePolygon.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Geometry/PointInsidePolygon_Tests.cs))
 - [X] Rectangle intersection ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Geometry/RectangleIntersection.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Geometry/RectangleIntersection_Tests.cs))
 - [X] Point Rotation ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Geometry/PointRotation.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Geometry/PointRotation_Tests.cs))
-- [ ] Voronoi diagram using Fortune's sweep line algorithm 
+- [ ] Voronoi diagram using Fortune's sweep line algorithm (Implementation | Tests)  
 
 ## Bit Manipulation
 
