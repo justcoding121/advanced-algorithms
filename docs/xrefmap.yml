@@ -3387,50 +3387,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).Insert
   nameWithType: DRangeTree<T>.Insert
   nameWithType.vb: DRangeTree(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.ExpressionTree`1
-  name: ExpressionTree<T>
-  href: api/Advanced.Algorithms.DataStructures.ExpressionTree-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.ExpressionTree`1
-  name.vb: ExpressionTree(Of T)
-  fullName: Advanced.Algorithms.DataStructures.ExpressionTree<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.ExpressionTree(Of T)
-  nameWithType: ExpressionTree<T>
-  nameWithType.vb: ExpressionTree(Of T)
-- uid: Advanced.Algorithms.DataStructures.ExpressionTree`1.Construct(`0[],`0[])
-  name: Construct(T[], T[])
-  href: api/Advanced.Algorithms.DataStructures.ExpressionTree-1.html#Advanced_Algorithms_DataStructures_ExpressionTree_1_Construct__0____0___
-  commentId: M:Advanced.Algorithms.DataStructures.ExpressionTree`1.Construct(`0[],`0[])
-  name.vb: Construct(T(), T())
-  fullName: Advanced.Algorithms.DataStructures.ExpressionTree<T>.Construct(T[], T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.ExpressionTree(Of T).Construct(T(), T())
-  nameWithType: ExpressionTree<T>.Construct(T[], T[])
-  nameWithType.vb: ExpressionTree(Of T).Construct(T(), T())
-- uid: Advanced.Algorithms.DataStructures.ExpressionTree`1.Construct*
-  name: Construct
-  href: api/Advanced.Algorithms.DataStructures.ExpressionTree-1.html#Advanced_Algorithms_DataStructures_ExpressionTree_1_Construct_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ExpressionTree`1.Construct
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ExpressionTree<T>.Construct
-  fullName.vb: Advanced.Algorithms.DataStructures.ExpressionTree(Of T).Construct
-  nameWithType: ExpressionTree<T>.Construct
-  nameWithType.vb: ExpressionTree(Of T).Construct
-- uid: Advanced.Algorithms.DataStructures.ExpressionTree`1.GetInfix
-  name: GetInfix()
-  href: api/Advanced.Algorithms.DataStructures.ExpressionTree-1.html#Advanced_Algorithms_DataStructures_ExpressionTree_1_GetInfix
-  commentId: M:Advanced.Algorithms.DataStructures.ExpressionTree`1.GetInfix
-  fullName: Advanced.Algorithms.DataStructures.ExpressionTree<T>.GetInfix()
-  fullName.vb: Advanced.Algorithms.DataStructures.ExpressionTree(Of T).GetInfix()
-  nameWithType: ExpressionTree<T>.GetInfix()
-  nameWithType.vb: ExpressionTree(Of T).GetInfix()
-- uid: Advanced.Algorithms.DataStructures.ExpressionTree`1.GetInfix*
-  name: GetInfix
-  href: api/Advanced.Algorithms.DataStructures.ExpressionTree-1.html#Advanced_Algorithms_DataStructures_ExpressionTree_1_GetInfix_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ExpressionTree`1.GetInfix
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ExpressionTree<T>.GetInfix
-  fullName.vb: Advanced.Algorithms.DataStructures.ExpressionTree(Of T).GetInfix
-  nameWithType: ExpressionTree<T>.GetInfix
-  nameWithType.vb: ExpressionTree(Of T).GetInfix
 - uid: Advanced.Algorithms.DataStructures.FenwickTree`1
   name: FenwickTree<T>
   href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html
