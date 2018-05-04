@@ -101,7 +101,7 @@ Note: It is observed that among the implementations here in practice, with the e
 - [X] Segment Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Tree/SegmentTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Tree/SegmentTree_Tests.cs))
 - [X] Binary Indexed Tree (Fenwick tree) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Tree/FenwickTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Tree/FenwickTree_Tests.cs))
 - [ ] QuadTree  (Implementation | Tests)
-- [ ] OctTree (Implementation | Tests)
+- [ ] Octree (Implementation | Tests)
 - [ ] R-Tree (Implementation | Tests)
 
 TODO: Support multi-dimentional segment tree & binary indexed tree.
