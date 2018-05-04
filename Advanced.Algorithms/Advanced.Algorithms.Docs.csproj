@@ -111,7 +111,6 @@
     <Compile Include="DataStructures\Tree\BinaryTree.cs" />
     <Compile Include="DataStructures\Tree\BST.cs" />
     <Compile Include="DataStructures\Tree\BTree.cs" />
-    <Compile Include="DataStructures\Tree\ExpressionTree.cs" />
     <Compile Include="DataStructures\Tree\FenwickTree.cs" />
     <Compile Include="DataStructures\Tree\Interfaces.cs" />
     <Compile Include="DataStructures\Tree\IntervalTree.cs" />

@@ -114,10 +114,6 @@ TODO: Support multi-dimentional segment tree & binary indexed tree.
 
 TODO: implement trie compression.
 
-#### Parse Trees
-
-- [X] Expression Tree ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Tree/ExpressionTree.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Tree/ExpressionTree_Tests.cs))
-
 #### Set
 
 - [X] Disjoint Set ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/DataStructures/Set/DisJointSet.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/DataStructures/Set/DisJointSet_Tests.cs))

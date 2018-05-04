@@ -97,7 +97,6 @@
     <Compile Include="DataStructures\Set\DisJointSet_Tests.cs" />
     <Compile Include="DataStructures\Set\SparseSet_Tests.cs" />
     <Compile Include="DataStructures\Stack_Tests.cs" />
-    <Compile Include="DataStructures\Tree\ExpressionTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\RangeTreeTests.cs" />
     <Compile Include="DataStructures\Tree\TernarySearchTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\Trie_Tests.cs" />
