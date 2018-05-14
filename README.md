@@ -2,7 +2,7 @@
 
 Please don't take effort to create pull requests for new algorithms/data structures. This is just a personal hobby and [was originally not intented to be a library](https://github.com/justcoding121/Advanced-Algorithms/issues/2). Feel free fork and modify to fit your need if that's what you are looking for. You can however report issues/bugs here, I would be happy to take a look when I get time. :-)
 
-If you think theory is hard to understand, start with practice. Then look at theory, it will make sense and improve your understanding. Sometimes it may be needed to take a break, approach the problem another time when your mind is clear.
+If theory is hard to understand, start with practice. Then look at theory, it will make sense and improve understanding. Sometimes it may be needed to take a break, approach the problem another time when mind is clear.
 
 # Advanced Algorithms
 
