@@ -194,5 +194,12 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsTrue(tree.Count == 0);
 
         }
+
+        [TestMethod]
+        public void BPTree_Empty_Enumerator_Test()
+        {
+            var tree = new BpTree<int>(10);
+            Assert.IsFalse(tree.GetEnumerator().MoveNext());
+        }
     }
 }
