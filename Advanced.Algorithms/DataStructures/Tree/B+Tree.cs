@@ -1031,6 +1031,11 @@ namespace Advanced.Algorithms.DataStructures
 
         public bool MoveNext()
         {
+            if (current == null)
+            {
+                return false;
+            }
+
             if (i + 1 < current.KeyCount)
             {
                 i++;
