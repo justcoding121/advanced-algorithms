@@ -223,7 +223,7 @@ TODO: implement trie compression.
 ## Sorting and Searching
 
 - [X] Binary Search ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Search/BinarySearch.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Search/BinarySearch_Tests.cs))
-- [ ] QuickSelect for kth smallest/largest in unordered collection using median of medians (Implementation | Tests)
+- [ ] Quick select for kth smallest/largest in unordered collection using median of medians (Implementation | Tests)
 - [ ] Majority element using Moore’s voting algorithm (Implementation | Tests)
 
 ### Sorting Algorithms
@@ -253,6 +253,7 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 - [X] Circular Queue (Ring Buffer) ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/CircularQueue.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Distributed/CircularQueue_Tests.cs))
 - [X] Consistant Hash ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/ConsistentHash.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Distributed/ConsistentHash_Tests.cs))
 - [X] LRU Cache ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/LRUCache.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Distributed/LRUCache_Tests.cs))
+- [ ] Dining philosophers problem (Implementation | Tests)
 - [ ] Asynchronous concurrent producer/consumer Bag (Implementation | Tests)
 - [ ] Asynchronous concurrent producer/consumer Queue (Implementation | Tests)
 - [ ] Asynchronous concurrent producer/consumer Stack (Implementation | Tests)
