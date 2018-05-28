@@ -1,33 +1,25 @@
-﻿using System.Collections.Generic;
-
-namespace Advanced.Algorithms.Geometry
+﻿namespace Advanced.Algorithms.Geometry
 {
 
     public class PointInsidePolygon
     {
-        public static bool IsInside(List<int[]> polygonEdgePoints, int[] testPoint)
+        /// <summary>
+        ///     Checks whether the given point is inside given polygon.
+        /// </summary>
+        /// <param name="polygon">The polygon.</param>
+        /// <param name="point">The point to test.</param>
+        /// <returns></returns>
+        public static bool IsInside(Polygon polygon, Point point)
         {
             //a imaginary ray line from point to right infinity
-            var rayLine = new Line()
-            {
-                x1 = testPoint[0],
-                y1 = testPoint[1],
-                x2 = double.MaxValue,
-                y2 = testPoint[1]
-            };
+            var rayLine = new Line(point, new Point(double.MaxValue, point.Y));
 
             var intersectionCount = 0;
-            for (int i = 0; i < polygonEdgePoints.Count - 1; i++)
+            for (int i = 0; i < polygon.Edges.Count - 1; i++)
             {
-                var edgeLine = new Line()
-                {
-                    x1 = polygonEdgePoints[i][0],
-                    y1 = polygonEdgePoints[i][1],
-                    x2 = polygonEdgePoints[i + 1][0],
-                    y2 = polygonEdgePoints[i + 1][1]
-                };
+                var edgeLine = polygon.Edges[i];
 
-                if (!LineIntersection.FindIntersection(rayLine, edgeLine).Equals(default(Point)))
+                if (LineIntersection.FindIntersection(rayLine, edgeLine) != null)
                 {
                     intersectionCount++;
                 }

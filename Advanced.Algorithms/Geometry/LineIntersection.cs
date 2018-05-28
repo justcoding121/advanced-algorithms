@@ -2,21 +2,6 @@
 
 namespace Advanced.Algorithms.Geometry
 {
-    public struct Line
-    {
-        public double x1 { get; set; }
-        public double y1 { get; set; }
-
-        public double x2 { get; set; }
-        public double y2 { get; set; }
-    }
-
-    public struct Point
-    {
-        public double x { get; set; }
-        public double y { get; set; }
-    }
-
     public class LineIntersection
     {
         /// <summary>
@@ -28,11 +13,11 @@ namespace Advanced.Algorithms.Geometry
         /// <returns>The point of intersection.</returns>
         public static Point FindIntersection(Line lineA, Line lineB, double tolerance = 0.001)
         {
-            double x1 = lineA.x1, y1 = lineA.y1;
-            double x2 = lineA.x2, y2 = lineA.y2;
+            double x1 = lineA.Start.X, y1 = lineA.Start.Y;
+            double x2 = lineA.End.X, y2 = lineA.End.Y;
 
-            double x3 = lineB.x1, y3 = lineB.y1;
-            double x4 = lineB.x2, y4 = lineB.y2;
+            double x3 = lineB.Start.X, y3 = lineB.Start.Y;
+            double x4 = lineB.End.X, y4 = lineB.End.Y;
 
             //equations of the form x=c (two vertical lines)
             if (Math.Abs(x1 - x2) < tolerance && Math.Abs(x3 - x4) < tolerance && Math.Abs(x1 - x3) < tolerance)
@@ -49,13 +34,13 @@ namespace Advanced.Algorithms.Geometry
             //equations of the form x=c (two vertical lines)
             if (Math.Abs(x1 - x2) < tolerance && Math.Abs(x3 - x4) < tolerance)
             {
-                return default(Point);
+                return null;
             }
 
             //equations of the form y=c (two horizontal lines)
             if (Math.Abs(y1 - y2) < tolerance && Math.Abs(y3 - y4) < tolerance)
             {
-                return default(Point);
+                return null;
             }
 
             //general equation of line is y = mx + c where m is the slope
@@ -125,7 +110,7 @@ namespace Advanced.Algorithms.Geometry
                 if (!(Math.Abs(-m1 * x + y - c1) < tolerance
                     && Math.Abs(-m2 * x + y - c2) < tolerance))
                 {
-                    return default(Point);
+                    return null;
                 }
             }
 
@@ -134,11 +119,11 @@ namespace Advanced.Algorithms.Geometry
             if (IsInsideLine(lineA, x, y) &&
                 IsInsideLine(lineB, x, y))
             {
-                return new Point { x = x, y = y };
+                return new Point(x, y);
             }
 
             //return default null (no intersection)
-            return default(Point);
+            return null;
 
         }
 
@@ -151,10 +136,10 @@ namespace Advanced.Algorithms.Geometry
         /// <returns></returns>
         private static bool IsInsideLine(Line line, double x, double y)
         {
-            return (x >= line.x1 && x <= line.x2
-                        || x >= line.x2 && x <= line.x1)
-                   && (y >= line.y1 && y <= line.y2
-                        || y >= line.y2 && y <= line.y1);
+            return (x >= line.Start.X && x <= line.End.X
+                        || x >= line.End.X && x <= line.Start.X)
+                   && (y >= line.Start.Y && y <= line.End.Y
+                        || y >= line.End.Y && y <= line.Start.Y);
         }
     }
 }

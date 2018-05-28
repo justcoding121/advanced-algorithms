@@ -10,20 +10,20 @@ namespace Advanced.Algorithms.Tests.Geometry
         public void PointRotation_Smoke_Test()
         {
             var result = PointRotation.Rotate(
-                new Point() { x = 0, y = 0 },
-                new Point() { x = 5, y = 5 },
+                new Point(0, 0),
+                new Point(5, 5),
                 -45);
 
-            Assert.AreEqual(7, (int)result.x);
-            Assert.AreEqual(0, (int)result.y);
+            Assert.AreEqual(7, (int)result.X);
+            Assert.AreEqual(0, (int)result.Y);
 
             result = PointRotation.Rotate(
-                new Point() { x = 0, y = 0 },
-                new Point() { x = 5, y = 5 },
+                new Point(0, 0),
+                new Point(5, 5),
                 -90);
 
-            Assert.AreEqual(5, (int)result.x);
-            Assert.AreEqual(-5, (int)result.y);
+            Assert.AreEqual(5, (int)result.X);
+            Assert.AreEqual(-5, (int)result.Y);
         }
     }
 }
