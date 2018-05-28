@@ -502,37 +502,22 @@
   "api/Advanced.Algorithms.Geometry.html": {
     "href": "api/Advanced.Algorithms.Geometry.html",
     "title": "Namespace Advanced.Algorithms.Geometry | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Geometry Classes ClosestPointPair ConvexHull Convex hull using jarvis's algorithm LineIntersection PointInsidePolygon PointRotation RectangleIntersection Structs Line Point Rectangle"
-  },
-  "api/Advanced.Algorithms.Geometry.Line.html": {
-    "href": "api/Advanced.Algorithms.Geometry.Line.html",
-    "title": "Struct Line | Advanced Algorithms",
-    "keywords": "Struct Line Inherited Members ValueType.Equals(Object) ValueType.GetHashCode() ValueType.ToString() Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetType() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public struct Line Properties x1 Declaration public double x1 { get; set; } Property Value Type Description Double x2 Declaration public double x2 { get; set; } Property Value Type Description Double y1 Declaration public double y1 { get; set; } Property Value Type Description Double y2 Declaration public double y2 { get; set; } Property Value Type Description Double"
+    "keywords": "Namespace Advanced.Algorithms.Geometry Classes ClosestPointPair ConvexHull Convex hull using jarvis's algorithm LineIntersection PointInsidePolygon PointRotation RectangleIntersection"
   },
   "api/Advanced.Algorithms.Geometry.LineIntersection.html": {
     "href": "api/Advanced.Algorithms.Geometry.LineIntersection.html",
     "title": "Class LineIntersection | Advanced Algorithms",
     "keywords": "Class LineIntersection Inheritance Object LineIntersection Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class LineIntersection Methods FindIntersection(Line, Line, Double) Returns Point of intersection if do intersect otherwise default Point (null) Declaration public static Point FindIntersection(Line lineA, Line lineB, double tolerance = 0.001) Parameters Type Name Description Line lineA Line lineB Double tolerance precision tolerance. Returns Type Description Point The point of intersection."
   },
-  "api/Advanced.Algorithms.Geometry.Point.html": {
-    "href": "api/Advanced.Algorithms.Geometry.Point.html",
-    "title": "Struct Point | Advanced Algorithms",
-    "keywords": "Struct Point Inherited Members ValueType.Equals(Object) ValueType.GetHashCode() ValueType.ToString() Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetType() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public struct Point Properties x Declaration public double x { get; set; } Property Value Type Description Double y Declaration public double y { get; set; } Property Value Type Description Double"
-  },
   "api/Advanced.Algorithms.Geometry.PointInsidePolygon.html": {
     "href": "api/Advanced.Algorithms.Geometry.PointInsidePolygon.html",
     "title": "Class PointInsidePolygon | Advanced Algorithms",
-    "keywords": "Class PointInsidePolygon Inheritance Object PointInsidePolygon Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class PointInsidePolygon Methods IsInside(List<Int32[]>, Int32[]) Declaration public static bool IsInside(List<int[]> polygonEdgePoints, int[] testPoint) Parameters Type Name Description List < Int32 []> polygonEdgePoints Int32 [] testPoint Returns Type Description Boolean"
+    "keywords": "Class PointInsidePolygon Inheritance Object PointInsidePolygon Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class PointInsidePolygon Methods IsInside(Polygon, Point) Checks whether the given point is inside given polygon. Declaration public static bool IsInside(Polygon polygon, Point point) Parameters Type Name Description Polygon polygon The polygon. Point point The point to test. Returns Type Description Boolean"
   },
   "api/Advanced.Algorithms.Geometry.PointRotation.html": {
     "href": "api/Advanced.Algorithms.Geometry.PointRotation.html",
     "title": "Class PointRotation | Advanced Algorithms",
     "keywords": "Class PointRotation Inheritance Object PointRotation Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public class PointRotation Methods Rotate(Point, Point, Int32) Declaration public static Point Rotate(Point center, Point point, int angle) Parameters Type Name Description Point center Point point Int32 angle Returns Type Description Point"
-  },
-  "api/Advanced.Algorithms.Geometry.Rectangle.html": {
-    "href": "api/Advanced.Algorithms.Geometry.Rectangle.html",
-    "title": "Struct Rectangle | Advanced Algorithms",
-    "keywords": "Struct Rectangle Inherited Members ValueType.Equals(Object) ValueType.GetHashCode() ValueType.ToString() Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetType() Namespace : Advanced.Algorithms.Geometry Assembly : Advanced.Algorithms.dll Syntax public struct Rectangle Properties LeftTopCorner Declaration public Point LeftTopCorner { get; set; } Property Value Type Description Point RightBottomCorner Declaration public Point RightBottomCorner { get; set; } Property Value Type Description Point"
   },
   "api/Advanced.Algorithms.Geometry.RectangleIntersection.html": {
     "href": "api/Advanced.Algorithms.Geometry.RectangleIntersection.html",
