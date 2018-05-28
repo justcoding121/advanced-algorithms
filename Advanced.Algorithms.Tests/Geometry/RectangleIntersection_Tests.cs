@@ -38,7 +38,7 @@ namespace Advanced.Algorithms.Tests.Geometry
                 RightBottomCorner = new Point(15, 0)
             });
 
-            Assert.AreEqual(result, default(Rectangle));
+            Assert.AreEqual(result, null);
         }
 
     }

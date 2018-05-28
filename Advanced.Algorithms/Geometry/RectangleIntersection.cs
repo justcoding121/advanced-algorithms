@@ -21,7 +21,7 @@ namespace Advanced.Algorithms.Geometry
              || a.LeftTopCorner.Y < b.RightBottomCorner.Y)//A is below B
             {
                 //no intersection
-                return default(Rectangle);
+                return null;
             }
 
             var leftTopCorner = new Point
