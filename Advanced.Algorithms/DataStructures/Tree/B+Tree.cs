@@ -69,7 +69,7 @@ namespace Advanced.Algorithms.DataStructures
         internal BpTreeNode<T> BottomLeftNode;
 
         private readonly int maxKeysPerNode;
-        private int minKeysPerNode => maxKeysPerNode / 2;
+        private readonly int minKeysPerNode;
 
         public T Max
         {
@@ -101,6 +101,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             this.maxKeysPerNode = maxKeysPerNode;
+            this.minKeysPerNode = maxKeysPerNode / 2;
         }
 
         public bool HasItem(T value)

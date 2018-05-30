@@ -82,7 +82,7 @@ namespace Advanced.Algorithms.DataStructures
         internal BTreeNode<T> Root;
 
         private readonly int maxKeysPerNode;
-        private int minKeysPerNode => maxKeysPerNode / 2;
+        private int minKeysPerNode;
 
         public BTree(int maxKeysPerNode)
         {
@@ -92,6 +92,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             this.maxKeysPerNode = maxKeysPerNode;
+            this.minKeysPerNode = maxKeysPerNode / 2;
         }
 
         public T Max
