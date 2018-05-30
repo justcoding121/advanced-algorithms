@@ -46,5 +46,6 @@ namespace Advanced.Algorithms.Geometry
 
             return polygon;
         }
+
     }
 }

@@ -10,19 +10,16 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     internal class MBRectangle : Rectangle
     {
+        public MBRectangle() { }
+        public MBRectangle(Rectangle rectangle)
+        {
+            LeftTopCorner = rectangle.LeftTopCorner;
+            RightBottomCorner = rectangle.RightBottomCorner;
+        }
         /// <summary>
         ///     The actual polygon if this MBR is a leaf.
         /// </summary>
         internal Polygon Polygon { get; set; }
-
-        /// <summary>
-        ///     returns the required enlargement by area to fit the given polygon inside this minimum bounded rectangle.
-        /// </summary>
-        /// <param name="polygonToFit">The polygon to fit inside current MBR.</param>
-        internal double GetEnlargementArea(Polygon polygonToFit)
-        {
-            return Math.Abs(getMergedRectangle(polygonToFit.GetContainingRectangle()).Area() - Area());
-        }
 
         /// <summary>
         ///     returns the required enlargement area to fit the given rectangle inside this minimum bounded rectangle.
@@ -52,14 +49,15 @@ namespace Advanced.Algorithms.DataStructures
         {
             var mergedRectangle = new MBRectangle();
 
-            mergedRectangle.RightBottomCorner.X = RightBottomCorner.X < rectangleToMerge.RightBottomCorner.X ? rectangleToMerge.RightBottomCorner.X : RightBottomCorner.X;
-            mergedRectangle.RightBottomCorner.Y = RightBottomCorner.Y > rectangleToMerge.RightBottomCorner.Y ? rectangleToMerge.RightBottomCorner.Y : RightBottomCorner.Y;
+            mergedRectangle.LeftTopCorner = new Point(LeftTopCorner.X > rectangleToMerge.LeftTopCorner.X ? rectangleToMerge.LeftTopCorner.X : LeftTopCorner.X,
+             LeftTopCorner.Y < rectangleToMerge.LeftTopCorner.Y ? rectangleToMerge.LeftTopCorner.Y : LeftTopCorner.Y);
 
-            mergedRectangle.LeftTopCorner.X = LeftTopCorner.X > rectangleToMerge.LeftTopCorner.X ? rectangleToMerge.LeftTopCorner.X : LeftTopCorner.X;
-            mergedRectangle.LeftTopCorner.Y = LeftTopCorner.Y < rectangleToMerge.LeftTopCorner.Y ? rectangleToMerge.LeftTopCorner.Y : LeftTopCorner.Y;
+            mergedRectangle.RightBottomCorner = new Point(RightBottomCorner.X < rectangleToMerge.RightBottomCorner.X ? rectangleToMerge.RightBottomCorner.X : RightBottomCorner.X,
+                RightBottomCorner.Y > rectangleToMerge.RightBottomCorner.Y ? rectangleToMerge.RightBottomCorner.Y : RightBottomCorner.Y);
 
             return mergedRectangle;
         }
+       
     }
 
     internal class RTreeNode
@@ -75,7 +73,8 @@ namespace Advanced.Algorithms.DataStructures
         internal RTreeNode Parent { get; set; }
         internal RTreeNode[] Children { get; set; }
 
-        internal bool IsLeaf => Children[0] == null;
+        //leafs will hold the actual polygon
+        internal bool IsLeaf => Children[0] == null || Children[0].MBRectangle.Polygon != null;
 
         internal RTreeNode(int maxKeysPerNode, RTreeNode parent)
         {
@@ -83,17 +82,14 @@ namespace Advanced.Algorithms.DataStructures
             Children = new RTreeNode[maxKeysPerNode];
         }
 
-        internal void AddChild(MBRectangle rectangle)
+        internal void AddChild(RTreeNode child)
         {
             if (KeyCount == Children.Length)
             {
                 throw new Exception("No space to add child.");
             }
 
-            Children[KeyCount] = new RTreeNode(Children.Length, this);
-            Children[KeyCount].Index = KeyCount;
-            Children[KeyCount].MBRectangle = rectangle;
-            MBRectangle.Merge(rectangle);
+            SetChild(KeyCount, child);
             KeyCount++;
         }
 
@@ -104,8 +100,18 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="child"></param>
         internal void SetChild(int index, RTreeNode child)
         {
-            child.Index = index;
             Children[index] = child;
+            Children[index].Parent = this;
+            Children[index].Index = index;
+
+            if(MBRectangle == null)
+            {
+                MBRectangle = new MBRectangle(child.MBRectangle);
+            }
+            else
+            {
+                MBRectangle.Merge(child.MBRectangle);
+            }      
         }
 
         /// <summary>
@@ -114,16 +120,20 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="newPolygon"></param>
         /// <returns></returns>
-        internal RTreeNode GetMinimumEnlargementAreaMBR(Polygon newPolygon)
+        internal RTreeNode GetMinimumEnlargementAreaMBR(MBRectangle newPolygon)
         {
+            if(Children.Length == 0)
+            {
+                throw new Exception("Empty node.");
+            }
+
             //order by enlargement area
             //then by minimum area
-            var min = Children.Select(x => x.MBRectangle)
-                              .OrderBy(x => x.GetEnlargementArea(newPolygon))
-                              .ThenBy(x => x.Area())
-                              .FirstOrDefault();
-
-            return Children[Array.FindIndex(Children, m => m.MBRectangle == min)];
+            return Children[Children.Take(KeyCount)
+                              .Select((node, index) => new { node, index })
+                              .OrderBy(x => x.node.MBRectangle.GetEnlargementArea(newPolygon))
+                              .ThenBy(x => x.node.MBRectangle.Area())
+                              .First().index];
         }
 
     }
@@ -155,22 +165,25 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Inserts  to B-Tree
+        /// Inserts  to R-Tree
         /// </summary>
         /// <param name="newPolygon"></param>
         public void Insert(Polygon newPolygon)
         {
-            var newNode = new RTreeNode(maxKeysPerNode, null) { MBRectangle = newPolygon.GetContainingRectangle() };
+            var newNode = new RTreeNode(maxKeysPerNode, null)
+            {
+                MBRectangle = newPolygon.GetContainingRectangle()
+            };
 
             if (Root == null)
             {
-                Root = newNode;
-                Root.KeyCount++;
+                Root = new RTreeNode(maxKeysPerNode, null);
+                Root.AddChild(newNode);
                 Count++;
                 return;
             }
 
-            var leafToInsert = findInsertionLeaf(Root, newPolygon);
+            var leafToInsert = findInsertionLeaf(Root, newNode);
 
             insertAndSplit(ref leafToInsert, newNode);
             Count++;
@@ -183,7 +196,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="node"></param>
         /// <param name="newPolygon"></param>
         /// <returns></returns>
-        private RTreeNode findInsertionLeaf(RTreeNode node, Polygon newPolygon)
+        private RTreeNode findInsertionLeaf(RTreeNode node, RTreeNode newNode)
         {
             //if leaf then its time to insert
             if (node.IsLeaf)
@@ -191,7 +204,7 @@ namespace Advanced.Algorithms.DataStructures
                 return node;
             }
 
-            return findInsertionLeaf(node.GetMinimumEnlargementAreaMBR(newPolygon), newPolygon);
+            return findInsertionLeaf(node.GetMinimumEnlargementAreaMBR(newNode.MBRectangle), newNode);
         }
 
         /// <summary>
@@ -204,20 +217,20 @@ namespace Advanced.Algorithms.DataStructures
             //newValue have room to fit in this node
             if (node.KeyCount < maxKeysPerNode)
             {
-                node.AddChild(newValue.MBRectangle);
+                node.AddChild(newValue);
                 return;
             }
+
+            var e = new List<RTreeNode>(new RTreeNode[] { newValue });
+            e.AddRange(node.Children);
+
+            var distantPairs = getDistantPairs(e);
 
             //Let E be the set consisting of all current entries and new entry.
             //Select as seeds two entries e1, e2 ∈ E, where the distance between
             //left and right is the maximum among all other pairs of entries from E
             var e1 = new RTreeNode(maxKeysPerNode, null);
             var e2 = new RTreeNode(maxKeysPerNode, null);
-
-            var e = node.Children.Select(x => x.MBRectangle).ToList();
-            e.Add(newValue.MBRectangle);
-
-            Tuple<MBRectangle, MBRectangle> distantPairs = getDistantPairs(e);
 
             e1.AddChild(distantPairs.Item1);
             e2.AddChild(distantPairs.Item2);
@@ -234,13 +247,14 @@ namespace Advanced.Algorithms.DataStructures
             {
                 var current = e[e.Count - 1];
 
-                var leftEnlargementArea = e1.MBRectangle.GetEnlargementArea(current);
-                var rightEnlargementArea = e2.MBRectangle.GetEnlargementArea(current);
+                var leftEnlargementArea = e1.MBRectangle.GetEnlargementArea(current.MBRectangle);
+                var rightEnlargementArea = e2.MBRectangle.GetEnlargementArea(current.MBRectangle);
 
                 if (leftEnlargementArea == rightEnlargementArea)
                 {
                     var leftArea = e1.MBRectangle.Area();
                     var rightArea = e2.MBRectangle.Area();
+
                     if (leftArea == rightArea)
                     {
                         if (e1.KeyCount < e2.KeyCount)
@@ -261,7 +275,7 @@ namespace Advanced.Algorithms.DataStructures
                         e2.AddChild(current);
                     }
                 }
-                if (leftEnlargementArea < rightEnlargementArea)
+                else if (leftEnlargementArea < rightEnlargementArea)
                 {
                     e1.AddChild(current);
                 }
@@ -297,12 +311,12 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
 
-            //insert overflow element (newMedian) to parent
+            //insert overflow element to parent
             var parent = node.Parent;
             if (parent != null)
             {
                 //replace current node with e1
-                node.Parent.SetChild(node.Index, e1);
+                parent.SetChild(node.Index, e1);
                 //insert e2
                 insertAndSplit(ref parent, e2);
             }
@@ -311,8 +325,8 @@ namespace Advanced.Algorithms.DataStructures
                 //node is the root.
                 //increase the height of RTree by one by adding a new root.
                 Root = new RTreeNode(maxKeysPerNode, null);
-                Root.AddChild(e1.MBRectangle);
-                Root.AddChild(e2.MBRectangle);
+                Root.AddChild(e1);
+                Root.AddChild(e2);
             }
 
         }
@@ -322,19 +336,19 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="allEntries"></param>
         /// <returns></returns>
-        private Tuple<MBRectangle, MBRectangle> getDistantPairs(List<MBRectangle> allEntries)
+        private Tuple<RTreeNode, RTreeNode> getDistantPairs(List<RTreeNode> allEntries)
         {
-            Tuple<MBRectangle, MBRectangle> result = null;
+            Tuple<RTreeNode, RTreeNode> result = null;
 
-            double maxArea = 0.0;
+            double maxArea = Double.MinValue;
             for (int i = 0; i < allEntries.Count; i++)
             {
-                for (int j = i; j < allEntries.Count; j++)
+                for (int j = i + 1; j < allEntries.Count; j++)
                 {
-                    var currentArea = allEntries[i].GetEnlargementArea(allEntries[j]);
+                    var currentArea = allEntries[i].MBRectangle.GetEnlargementArea(allEntries[j].MBRectangle);
                     if (currentArea > maxArea)
                     {
-                        result = new Tuple<MBRectangle, MBRectangle>(allEntries[i], allEntries[j]);
+                        result = new Tuple<RTreeNode, RTreeNode>(allEntries[i], allEntries[j]);
                         maxArea = currentArea;
                     }
                 }
@@ -354,16 +368,33 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         internal static MBRectangle GetContainingRectangle(this Polygon polygon)
         {
-            var xMax = polygon.Edges.SelectMany(x => new double[] { x.Start.X, x.End.X }).Max();
-            var xMin = polygon.Edges.SelectMany(x => new double[] { x.Start.X, x.End.X }).Min();
+            var x = polygon.Edges.SelectMany(z => new double[] { z.Start.X, z.End.X })
+                .Aggregate(new
+                {
+                    Max = double.MinValue,
+                    Min = double.MaxValue
+                }, (accumulator, o) => new
+                {
+                    Max = Math.Max(o, accumulator.Max),
+                    Min = Math.Min(o, accumulator.Min),
+                });
 
-            var yMax = polygon.Edges.SelectMany(y => new double[] { y.Start.Y, y.End.Y }).Max();
-            var yMin = polygon.Edges.SelectMany(y => new double[] { y.Start.Y, y.End.Y }).Min();
+
+            var y = polygon.Edges.SelectMany(z => new double[] { z.Start.Y, z.End.Y })
+                   .Aggregate(new
+                   {
+                       Max = double.MinValue,
+                       Min = double.MaxValue
+                   }, (accumulator, o) => new
+                   {
+                       Max = Math.Max(o, accumulator.Max),
+                       Min = Math.Min(o, accumulator.Min),
+                   });
 
             return new MBRectangle()
             {
-                LeftTopCorner = new Point(xMin, yMax),
-                RightBottomCorner = new Point(xMax, yMin),
+                LeftTopCorner = new Point(x.Min, y.Max),
+                RightBottomCorner = new Point(x.Max, y.Min),
                 Polygon = polygon
             };
         }
