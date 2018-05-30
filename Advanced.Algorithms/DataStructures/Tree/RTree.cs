@@ -84,11 +84,6 @@ namespace Advanced.Algorithms.DataStructures
 
         internal void AddChild(RTreeNode child)
         {
-            if (KeyCount == Children.Length)
-            {
-                throw new Exception("No space to add child.");
-            }
-
             SetChild(KeyCount, child);
             KeyCount++;
         }
@@ -115,18 +110,13 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Select the node whose MBR will require the minimum area enlargement
-        /// to cover the new polygon to insert.
+        /// Select the child node whose MBR will require the minimum area enlargement
+        /// to cover the given polygon.
         /// </summary>
         /// <param name="newPolygon"></param>
         /// <returns></returns>
         internal RTreeNode GetMinimumEnlargementAreaMBR(MBRectangle newPolygon)
         {
-            if(Children.Length == 0)
-            {
-                throw new Exception("Empty node.");
-            }
-
             //order by enlargement area
             //then by minimum area
             return Children[Children.Take(KeyCount)
