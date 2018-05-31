@@ -54,6 +54,32 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
             Assert.AreEqual(randomPolygons.Count, 0);
         }
 
+        /// </summary>
+        [TestMethod]
+        public void RTree_Range_Search_Test()
+        {
+            var nodeCount = 1000;
+            var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
+            for (int i = 0; i < nodeCount; i++)
+            {
+                randomPolygons.Add(getRandomPolygon());
+            }
+            var order = 5;
+            var tree = new RTree(order);
+
+            foreach (var polygon in randomPolygons)
+            {
+                tree.Insert(polygon);
+            }
+
+            var searchRectangle = getRandomPolygon().GetContainingRectangle();
+
+            var expectedIntersections = randomPolygons.Where(x => RectangleIntersection.FindIntersection(searchRectangle, x.GetContainingRectangle()) != null).ToList();
+            var actualIntersections = tree.RangeSearch(searchRectangle);
+
+            Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+        }
+
         /// <summary>
         ///     get all the polygons under this node
         /// </summary>
@@ -109,7 +135,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
 
             while (edgeLength > 0)
             {
-                edgePoints.Add(new Point(random.Next(0, 10) * random.NextDouble(), random.Next(0, 10) * random.NextDouble()));
+                edgePoints.Add(new Point(random.Next(0, 100) * random.NextDouble(), random.Next(0, 100) * random.NextDouble()));
                 edgeLength--;
             }
 

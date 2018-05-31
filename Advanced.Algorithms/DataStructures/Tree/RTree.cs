@@ -57,7 +57,7 @@ namespace Advanced.Algorithms.DataStructures
 
             return mergedRectangle;
         }
-       
+
     }
 
     internal class RTreeNode
@@ -99,14 +99,14 @@ namespace Advanced.Algorithms.DataStructures
             Children[index].Parent = this;
             Children[index].Index = index;
 
-            if(MBRectangle == null)
+            if (MBRectangle == null)
             {
                 MBRectangle = new MBRectangle(child.MBRectangle);
             }
             else
             {
                 MBRectangle.Merge(child.MBRectangle);
-            }      
+            }
         }
 
         /// <summary>
@@ -345,6 +345,48 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             return result;
+        }
+
+        /// <summary>
+        ///     Returns a list of polygons whose minimum bounded rectangle intersects with given search rectangle.
+        /// </summary>
+        /// <param name="rectangle"></param>
+        /// <returns></returns>
+        public List<Polygon> RangeSearch(Rectangle searchRectangle)
+        {
+            return rangeSearch(Root, searchRectangle, new List<Polygon>());
+        }
+
+        /// <summary>
+        ///     Returns a list of polygons that's contained within given search rectangle.
+        /// </summary>
+        /// <param name="rectangle"></param>
+        /// <returns></returns>
+        private List<Polygon> rangeSearch(RTreeNode current, Rectangle searchRectangle, List<Polygon> result)
+        {
+            if (current.IsLeaf)
+            {
+                foreach (var node in current.Children.Take(current.KeyCount))
+                {
+                    if (RectangleIntersection.FindIntersection(node.MBRectangle, searchRectangle) != null)
+                    {
+                        result.Add(node.MBRectangle.Polygon);
+                    }
+                }
+
+                return result;
+            }
+
+            foreach (var node in current.Children.Take(current.KeyCount))
+            {
+                if (RectangleIntersection.FindIntersection(node.MBRectangle, searchRectangle) != null)
+                {
+                    rangeSearch(node, searchRectangle, result);
+                }
+            }
+
+            return result;
+
         }
 
     }
