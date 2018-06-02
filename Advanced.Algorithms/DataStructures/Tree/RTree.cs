@@ -13,8 +13,8 @@ namespace Advanced.Algorithms.DataStructures
         public MBRectangle() { }
         public MBRectangle(Rectangle rectangle)
         {
-            LeftTopCorner = rectangle.LeftTopCorner;
-            RightBottomCorner = rectangle.RightBottomCorner;
+            LeftTopCorner = new Point(rectangle.LeftTopCorner.X, rectangle.LeftTopCorner.Y);
+            RightBottomCorner = new Point(rectangle.RightBottomCorner.X, rectangle.RightBottomCorner.Y);
         }
         /// <summary>
         ///     The actual polygon if this MBR is a leaf.
@@ -74,7 +74,8 @@ namespace Advanced.Algorithms.DataStructures
         internal RTreeNode[] Children { get; set; }
 
         //leafs will hold the actual polygon
-        internal bool IsLeaf => Children[0] == null || Children[0].MBRectangle.Polygon != null;
+        internal bool IsLeaf => KeyCount == 0
+            || Children[0].MBRectangle.Polygon != null;
 
         internal RTreeNode(int maxKeysPerNode, RTreeNode parent)
         {
@@ -165,6 +166,12 @@ namespace Advanced.Algorithms.DataStructures
                 MBRectangle = newPolygon.GetContainingRectangle()
             };
 
+            insert(newNode);
+            Count++;
+        }
+
+        private void insert(RTreeNode newNode)
+        {
             if (Root == null)
             {
                 Root = new RTreeNode(maxKeysPerNode, null);
@@ -176,7 +183,6 @@ namespace Advanced.Algorithms.DataStructures
             var leafToInsert = findInsertionLeaf(Root, newNode);
 
             insertAndSplit(ref leafToInsert, newNode);
-            Count++;
         }
 
 
@@ -389,6 +395,115 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
+        public void Delete(Polygon polygon)
+        {
+            if (Root == null)
+            {
+                throw new Exception("Empty tree.");
+            }
+
+            var updatedLeafNode = findDeletionLeaf(Root, polygon.GetContainingRectangle(), polygon);
+
+            if (updatedLeafNode == null)
+            {
+                throw new Exception("Given polygon do not belong to this tree.");
+            }
+
+            condenseTree(updatedLeafNode);
+
+            if (Root.KeyCount == 1 && !Root.IsLeaf)
+            {
+                Root = Root.Children[0];
+            }
+
+            Count--;
+
+            if (Count == 0)
+            {
+                Root = null;
+            }
+        }
+
+        private RTreeNode findDeletionLeaf(RTreeNode current, Rectangle searchRectangle, Polygon searchPolygon)
+        {
+            if (current.IsLeaf)
+            {
+                foreach (var node in current.Children.Take(current.KeyCount))
+                {
+                    if (node.MBRectangle.Polygon == searchPolygon)
+                    {
+                        //delete and return the node that contained the deleted polygon
+                        removeAt(current.Children, node.Index);
+                        current.KeyCount--;
+                        updateIndex(current.Children, current.KeyCount, node.Index);
+                        return current;
+                    }
+                }
+            }
+
+            foreach (var node in current.Children.Take(current.KeyCount))
+            {
+                if (RectangleIntersection.FindIntersection(node.MBRectangle, searchRectangle) != null)
+                {
+                    var result = findDeletionLeaf(node, searchRectangle, searchPolygon);
+                    if (result != null)
+                    {
+                        return result;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        private void updateIndex(RTreeNode[] children, int keyCount, int index)
+        {
+            for (int i = index; i < keyCount; i++)
+            {
+                children[i].Index--;
+            }
+        }
+
+        private void removeAt(RTreeNode[] array, int index)
+        {
+            //shift elements right by one indice from index
+            Array.Copy(array, index + 1, array, index, array.Length - index - 1);
+        }
+
+        private void condenseTree(RTreeNode updatedleaf)
+        {
+            var current = updatedleaf;
+            var toReinsert = new List<RTreeNode>();
+
+            while (current != Root)
+            {
+                var parent = current.Parent;
+
+                if (current.KeyCount < minKeysPerNode)
+                {
+                    removeAt(parent.Children, current.Index);
+                    parent.KeyCount--;
+                    updateIndex(parent.Children, parent.KeyCount, current.Index);
+                    toReinsert.AddRange(current.Children.Take(current.KeyCount));
+                }
+                else
+                {
+                    //possible optimization
+                    current.MBRectangle = new MBRectangle(current.Children[0].MBRectangle);
+                    foreach (var node in current.Children.Skip(1).Take(current.KeyCount - 1))
+                    {
+                        current.MBRectangle.Merge(node.MBRectangle);
+                    }
+                }
+
+                current = parent;
+            }
+
+            foreach (var node in toReinsert)
+            {
+                insert(node);
+            }
+        }
     }
 
     internal static class PolygonExtensions

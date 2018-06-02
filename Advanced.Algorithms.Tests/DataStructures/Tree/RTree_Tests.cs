@@ -80,6 +80,37 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
             Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
         }
 
+        /// </summary>
+        [TestMethod]
+        public void RTree_Deletion_Test()
+        {
+                var nodeCount = 14;
+                var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
+                for (int i = 0; i < nodeCount; i++)
+                {
+                    randomPolygons.Add(getRandomPolygon());
+                }
+                var order = 5;
+                var tree = new RTree(order);
+
+                foreach (var polygon in randomPolygons)
+                {
+                    tree.Insert(polygon);
+                }
+
+                int j = randomPolygons.Count;
+                foreach (var polygon in randomPolygons)
+                {
+                    tree.Delete(polygon);
+                    j--;
+                    var polygons = new List<Polygon>();
+                    getPolygons(tree.Root, polygons);
+                    verifyHeightUniformity(tree.Root, order);
+                    Assert.AreEqual(j, polygons.Count);
+                }
+            
+        }
+
         /// <summary>
         ///     get all the polygons under this node
         /// </summary>
