@@ -127,6 +127,41 @@ namespace Advanced.Algorithms.DataStructures
                               .First().index];
         }
 
+        /// <summary>
+        ///     get all the polygons under this node
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="polygons"></param>
+        internal List<Polygon> GetPolygons()
+        {
+            var result = new List<Polygon>();
+
+            if (IsLeaf)
+            {
+                if (MBRectangle.Polygon != null)
+                {
+                    result.Add(MBRectangle.Polygon);
+                }
+            }
+
+            return getPolygons(this, result);
+        }
+
+        private List<Polygon> getPolygons(RTreeNode node, List<Polygon> polygons)
+        {
+            if (node.IsLeaf)
+            {
+                polygons.AddRange(node.Children.Take(node.KeyCount).Select(x => x.MBRectangle.Polygon));
+            }
+
+            foreach (var child in node.Children.Take(node.KeyCount))
+            {
+                getPolygons(child, polygons);
+            }
+
+            return polygons;
+        }
+
     }
 
     /// <summary>
@@ -501,7 +536,29 @@ namespace Advanced.Algorithms.DataStructures
 
             foreach (var node in toReinsert)
             {
-                insert(node);
+                var polygons = node.GetPolygons();
+                foreach (var polygon in polygons)
+                {
+                    Insert(polygon);
+                }
+            }
+        }
+
+        /// <summary>
+        ///     get all the polygons under this node
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="polygons"></param>
+        private void getPolygons(RTreeNode node, List<Polygon> polygons)
+        {
+            if (node.IsLeaf)
+            {
+                polygons.AddRange(node.Children.Take(node.KeyCount).Select(x => x.MBRectangle.Polygon));
+            }
+
+            foreach (var child in node.Children.Take(node.KeyCount))
+            {
+                getPolygons(child, polygons);
             }
         }
     }

@@ -40,8 +40,8 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
                 j++;
             }
 
-            var polygons = new List<Polygon>();
-            getPolygons(tree.Root, polygons);
+            var polygons = tree.Root.GetPolygons();
+
 
             Assert.AreEqual(j, polygons.Count);
 
@@ -84,49 +84,30 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
         [TestMethod]
         public void RTree_Deletion_Test()
         {
-                var nodeCount = 14;
-                var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
-                for (int i = 0; i < nodeCount; i++)
-                {
-                    randomPolygons.Add(getRandomPolygon());
-                }
-                var order = 5;
-                var tree = new RTree(order);
-
-                foreach (var polygon in randomPolygons)
-                {
-                    tree.Insert(polygon);
-                }
-
-                int j = randomPolygons.Count;
-                foreach (var polygon in randomPolygons)
-                {
-                    tree.Delete(polygon);
-                    j--;
-                    var polygons = new List<Polygon>();
-                    getPolygons(tree.Root, polygons);
-                    verifyHeightUniformity(tree.Root, order);
-                    Assert.AreEqual(j, polygons.Count);
-                }
-            
-        }
-
-        /// <summary>
-        ///     get all the polygons under this node
-        /// </summary>
-        /// <param name="node"></param>
-        /// <param name="polygons"></param>
-        private void getPolygons(RTreeNode node, List<Polygon> polygons)
-        {
-            if (node.IsLeaf)
+            var nodeCount = 1000;
+            var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
+            for (int i = 0; i < nodeCount; i++)
             {
-                polygons.AddRange(node.Children.Take(node.KeyCount).Select(x => x.MBRectangle.Polygon));
+                randomPolygons.Add(getRandomPolygon());
+            }
+            var order = 5;
+            var tree = new RTree(order);
+
+            foreach (var polygon in randomPolygons)
+            {
+                tree.Insert(polygon);
             }
 
-            foreach (var child in node.Children.Take(node.KeyCount))
+            int j = randomPolygons.Count;
+            foreach (var polygon in randomPolygons)
             {
-                getPolygons(child, polygons);
+                tree.Delete(polygon);
+                j--;
+                var polygons = tree.Root.GetPolygons();
+                verifyHeightUniformity(tree.Root, order);
+                Assert.AreEqual(j, polygons.Count);
             }
+
         }
 
         /// <summary>
