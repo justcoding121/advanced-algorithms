@@ -128,38 +128,38 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     get all the polygons under this node
+        ///     get all the leafs under this node
         /// </summary>
         /// <param name="node"></param>
         /// <param name="polygons"></param>
-        internal List<Polygon> GetPolygons()
+        internal List<RTreeNode> GetLeafs()
         {
-            var result = new List<Polygon>();
+            var result = new List<RTreeNode>();
 
             if (IsLeaf)
             {
                 if (MBRectangle.Polygon != null)
                 {
-                    result.Add(MBRectangle.Polygon);
+                    result.Add(this);
                 }
             }
 
-            return getPolygons(this, result);
+            return getLeafs(this, result);
         }
 
-        private List<Polygon> getPolygons(RTreeNode node, List<Polygon> polygons)
+        private List<RTreeNode> getLeafs(RTreeNode node, List<RTreeNode> leafs)
         {
             if (node.IsLeaf)
             {
-                polygons.AddRange(node.Children.Take(node.KeyCount).Select(x => x.MBRectangle.Polygon));
+                leafs.AddRange(node.Children.Take(node.KeyCount));
             }
 
             foreach (var child in node.Children.Take(node.KeyCount))
             {
-                getPolygons(child, polygons);
+                getLeafs(child, leafs);
             }
 
-            return polygons;
+            return leafs;
         }
 
     }
@@ -249,6 +249,7 @@ namespace Advanced.Algorithms.DataStructures
             if (node.KeyCount < maxKeysPerNode)
             {
                 node.AddChild(newValue);
+                expandAncestorMBRs(node);
                 return;
             }
 
@@ -362,6 +363,15 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
+        private void expandAncestorMBRs(RTreeNode node)
+        {
+            while (node.Parent != null)
+            {
+                node.Parent.MBRectangle.Merge(node.MBRectangle);
+                node = node.Parent;
+            }
+        }
+
         /// <summary>
         ///     Get the pairs of rectangles farther apart by comparing enlargement areas.
         /// </summary>
@@ -387,6 +397,40 @@ namespace Advanced.Algorithms.DataStructures
 
             return result;
         }
+
+        public bool Exists(Polygon searchPolygon)
+        {
+            return findLeaf(Root, searchPolygon.GetContainingRectangle(), searchPolygon) != null;
+        }
+
+        private RTreeNode findLeaf(RTreeNode current, Rectangle searchRectangle, Polygon searchPolygon)
+        {
+            if (current.IsLeaf)
+            {
+                foreach (var node in current.Children.Take(current.KeyCount))
+                {
+                    if (node.MBRectangle.Polygon == searchPolygon)
+                    {
+                        return node;
+                    }
+                }
+            }
+
+            foreach (var node in current.Children.Take(current.KeyCount))
+            {
+                if (RectangleIntersection.FindIntersection(node.MBRectangle, searchRectangle) != null)
+                {
+                    var result = findLeaf(node, searchRectangle, searchPolygon);
+                    if (result != null)
+                    {
+                        return result;
+                    }
+                }
+            }
+
+            return null;
+        }
+
 
         /// <summary>
         ///     Returns a list of polygons whose minimum bounded rectangle intersects with given search rectangle.
@@ -414,8 +458,6 @@ namespace Advanced.Algorithms.DataStructures
                         result.Add(node.MBRectangle.Polygon);
                     }
                 }
-
-                return result;
             }
 
             foreach (var node in current.Children.Take(current.KeyCount))
@@ -437,18 +479,21 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Empty tree.");
             }
 
-            var updatedLeafNode = findDeletionLeaf(Root, polygon.GetContainingRectangle(), polygon);
+            var nodeToDelete = findLeaf(Root, polygon.GetContainingRectangle(), polygon);
 
-            if (updatedLeafNode == null)
+            if (nodeToDelete == null)
             {
                 throw new Exception("Given polygon do not belong to this tree.");
             }
 
-            condenseTree(updatedLeafNode);
+            //delete 
+            deleteNode(nodeToDelete);
+            condenseTree(nodeToDelete.Parent);
 
             if (Root.KeyCount == 1 && !Root.IsLeaf)
             {
                 Root = Root.Children[0];
+                Root.Parent = null;
             }
 
             Count--;
@@ -459,36 +504,17 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        private RTreeNode findDeletionLeaf(RTreeNode current, Rectangle searchRectangle, Polygon searchPolygon)
+        private void deleteNode(RTreeNode nodeToDelete)
         {
-            if (current.IsLeaf)
-            {
-                foreach (var node in current.Children.Take(current.KeyCount))
-                {
-                    if (node.MBRectangle.Polygon == searchPolygon)
-                    {
-                        //delete and return the node that contained the deleted polygon
-                        removeAt(current.Children, node.Index);
-                        current.KeyCount--;
-                        updateIndex(current.Children, current.KeyCount, node.Index);
-                        return current;
-                    }
-                }
-            }
+            removeAt(nodeToDelete.Parent.Children, nodeToDelete.Index);
+            nodeToDelete.Parent.KeyCount--;
+            updateIndex(nodeToDelete.Parent.Children, nodeToDelete.Parent.KeyCount, nodeToDelete.Index);
+        }
 
-            foreach (var node in current.Children.Take(current.KeyCount))
-            {
-                if (RectangleIntersection.FindIntersection(node.MBRectangle, searchRectangle) != null)
-                {
-                    var result = findDeletionLeaf(node, searchRectangle, searchPolygon);
-                    if (result != null)
-                    {
-                        return result;
-                    }
-                }
-            }
-
-            return null;
+        private void removeAt(RTreeNode[] array, int index)
+        {
+            //shift elements right by one indice from index
+            Array.Copy(array, index + 1, array, index, array.Length - index - 1);
         }
 
         private void updateIndex(RTreeNode[] children, int keyCount, int index)
@@ -497,12 +523,6 @@ namespace Advanced.Algorithms.DataStructures
             {
                 children[i].Index--;
             }
-        }
-
-        private void removeAt(RTreeNode[] array, int index)
-        {
-            //shift elements right by one indice from index
-            Array.Copy(array, index + 1, array, index, array.Length - index - 1);
         }
 
         private void condenseTree(RTreeNode updatedleaf)
@@ -516,49 +536,36 @@ namespace Advanced.Algorithms.DataStructures
 
                 if (current.KeyCount < minKeysPerNode)
                 {
-                    removeAt(parent.Children, current.Index);
-                    parent.KeyCount--;
-                    updateIndex(parent.Children, parent.KeyCount, current.Index);
-                    toReinsert.AddRange(current.Children.Take(current.KeyCount));
+                    deleteNode(current);
+                    toReinsert.AddRange(current.Children.Take(current.KeyCount).SelectMany(x => x.GetLeafs()));
                 }
                 else
                 {
-                    //possible optimization
-                    current.MBRectangle = new MBRectangle(current.Children[0].MBRectangle);
-                    foreach (var node in current.Children.Skip(1).Take(current.KeyCount - 1))
-                    {
-                        current.MBRectangle.Merge(node.MBRectangle);
-                    }
+                    shrinkMBR(current);
                 }
 
                 current = parent;
             }
 
-            foreach (var node in toReinsert)
+            //update root
+            if (current.KeyCount > 0)
             {
-                var polygons = node.GetPolygons();
-                foreach (var polygon in polygons)
-                {
-                    Insert(polygon);
-                }
+                shrinkMBR(current);
             }
+
+            foreach (var leaf in toReinsert)
+            {
+                insert(leaf);
+            }
+          
         }
 
-        /// <summary>
-        ///     get all the polygons under this node
-        /// </summary>
-        /// <param name="node"></param>
-        /// <param name="polygons"></param>
-        private void getPolygons(RTreeNode node, List<Polygon> polygons)
+        private void shrinkMBR(RTreeNode current)
         {
-            if (node.IsLeaf)
+            current.MBRectangle = new MBRectangle(current.Children[0].MBRectangle);
+            foreach (var node in current.Children.Skip(1).Take(current.KeyCount - 1))
             {
-                polygons.AddRange(node.Children.Take(node.KeyCount).Select(x => x.MBRectangle.Polygon));
-            }
-
-            foreach (var child in node.Children.Take(node.KeyCount))
-            {
-                getPolygons(child, polygons);
+                current.MBRectangle.Merge(node.MBRectangle);
             }
         }
     }

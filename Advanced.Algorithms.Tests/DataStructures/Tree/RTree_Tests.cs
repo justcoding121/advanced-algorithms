@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Tests.DataStructures.Tree
 {
-
     [TestClass]
     public class RTree_Tests
     {
@@ -38,20 +37,13 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
                 var actualMaxHeight = verifyHeightUniformity(tree.Root, order);
                 Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
                 j++;
+
+                Assert.IsTrue(tree.Exists(polygon));
             }
 
-            var polygons = tree.Root.GetPolygons();
+            var leafs = tree.Root.GetLeafs();
 
-
-            Assert.AreEqual(j, polygons.Count);
-
-            while (randomPolygons.Count > 0)
-            {
-                polygons.Remove(randomPolygons.Last());
-                randomPolygons.Remove(randomPolygons.Last());
-            }
-
-            Assert.AreEqual(randomPolygons.Count, 0);
+            Assert.AreEqual(j, leafs.Count);
         }
 
         /// </summary>
@@ -102,14 +94,37 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
             foreach (var polygon in randomPolygons)
             {
                 tree.Delete(polygon);
+                Assert.IsFalse(tree.Exists(polygon));
                 j--;
-                var polygons = tree.Root.GetPolygons();
+                var polygons = tree.Root.GetLeafs();
                 verifyHeightUniformity(tree.Root, order);
                 Assert.AreEqual(j, polygons.Count);
             }
-
         }
 
+        [TestMethod]
+        public void RTree_Range_Stress_Test()
+        {
+            var nodeCount = 10000;
+            var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
+            for (int i = 0; i < nodeCount; i++)
+            {
+                randomPolygons.Add(getRandomPolygon());
+            }
+
+            var order = 12;
+            var tree = new RTree(order);
+
+            foreach (var polygon in randomPolygons)
+            {
+                tree.Insert(polygon);
+            }
+
+            foreach (var polygon in randomPolygons)
+            {
+                tree.Delete(polygon);
+            }
+        }
         /// <summary>
         ///     Verifies that all children have same height.
         /// </summary>
