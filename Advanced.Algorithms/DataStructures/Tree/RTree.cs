@@ -78,8 +78,9 @@ namespace Advanced.Algorithms.DataStructures
         internal RTreeNode[] Children { get; set; }
 
         //leafs will hold the actual polygon
-        internal bool IsLeaf => KeyCount == 0
-            || Children[0].MBRectangle.Polygon != null;
+        //we assume here that bottom two node levels as leafs
+        internal bool IsLeaf => MBRectangle.Polygon != null 
+                                || Children[0].MBRectangle.Polygon != null;
 
         internal RTreeNode(int maxKeysPerNode, RTreeNode parent)
         {
