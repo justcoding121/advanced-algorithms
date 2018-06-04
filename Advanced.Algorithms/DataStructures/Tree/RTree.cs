@@ -66,7 +66,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Array Index of this node in parent's Children array
         /// </summary>
         internal int Index;
-
+        internal int Height;
         internal MBRectangle MBRectangle { get; set; }
         internal int KeyCount;
 
@@ -108,6 +108,8 @@ namespace Advanced.Algorithms.DataStructures
             {
                 MBRectangle.Merge(child.MBRectangle);
             }
+
+            Height = child.Height + 1;
         }
 
         /// <summary>
@@ -201,25 +203,43 @@ namespace Advanced.Algorithms.DataStructures
                 MBRectangle = newPolygon.GetContainingRectangle()
             };
 
-            insert(newNode);
+            insertToLeaf(newNode);
             Count++;
         }
 
-        private void insert(RTreeNode newNode)
+        private void insertToLeaf(RTreeNode newNode)
         {
             if (Root == null)
             {
                 Root = new RTreeNode(maxKeysPerNode, null);
                 Root.AddChild(newNode);
-                Count++;
                 return;
             }
 
             var leafToInsert = findInsertionLeaf(Root, newNode);
-
-            insertAndSplit(ref leafToInsert, newNode);
+            insertAndSplit(leafToInsert, newNode);
         }
 
+        /// <summary>
+        ///     Inserts the given internal node to the level where it belongs using its height.
+        /// </summary>
+        /// <param name="internalNode"></param>
+        private void insertInternalNode(RTreeNode internalNode)
+        {
+            insertInternalNode(Root, internalNode);
+        }
+
+        private void insertInternalNode(RTreeNode currentNode, RTreeNode internalNode)
+        {
+            if (currentNode.Height == internalNode.Height + 1)
+            {
+                insertAndSplit(currentNode, internalNode);
+            }
+            else
+            {
+                insertInternalNode(currentNode.GetMinimumEnlargementAreaMBR(internalNode.MBRectangle), internalNode);
+            }
+        }
 
         /// <summary>
         ///     Find the leaf node to start initial insertion
@@ -243,7 +263,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="node"></param>
         /// <param name="newValue"></param>
-        private void insertAndSplit(ref RTreeNode node, RTreeNode newValue)
+        private void insertAndSplit(RTreeNode node, RTreeNode newValue)
         {
             //newValue have room to fit in this node
             if (node.KeyCount < maxKeysPerNode)
@@ -343,14 +363,13 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
 
-            //insert overflow element to parent
             var parent = node.Parent;
             if (parent != null)
             {
                 //replace current node with e1
                 parent.SetChild(node.Index, e1);
-                //insert e2
-                insertAndSplit(ref parent, e2);
+                //insert overflow element to parent
+                insertAndSplit(parent, e2);
             }
             else
             {
@@ -368,6 +387,7 @@ namespace Advanced.Algorithms.DataStructures
             while (node.Parent != null)
             {
                 node.Parent.MBRectangle.Merge(node.MBRectangle);
+                node.Parent.Height = node.Height + 1;
                 node = node.Parent;
             }
         }
@@ -405,6 +425,11 @@ namespace Advanced.Algorithms.DataStructures
 
         private RTreeNode findLeaf(RTreeNode current, Rectangle searchRectangle, Polygon searchPolygon)
         {
+            if (current == null)
+            {
+                return null;
+            }
+
             if (current.IsLeaf)
             {
                 foreach (var node in current.Children.Take(current.KeyCount))
@@ -418,7 +443,7 @@ namespace Advanced.Algorithms.DataStructures
 
             foreach (var node in current.Children.Take(current.KeyCount))
             {
-                if (RectangleIntersection.FindIntersection(node.MBRectangle, searchRectangle) != null)
+                if (RectangleIntersection.DoIntersect(node.MBRectangle, searchRectangle))
                 {
                     var result = findLeaf(node, searchRectangle, searchPolygon);
                     if (result != null)
@@ -453,7 +478,7 @@ namespace Advanced.Algorithms.DataStructures
             {
                 foreach (var node in current.Children.Take(current.KeyCount))
                 {
-                    if (RectangleIntersection.FindIntersection(node.MBRectangle, searchRectangle) != null)
+                    if (RectangleIntersection.DoIntersect(node.MBRectangle, searchRectangle))
                     {
                         result.Add(node.MBRectangle.Polygon);
                     }
@@ -462,7 +487,7 @@ namespace Advanced.Algorithms.DataStructures
 
             foreach (var node in current.Children.Take(current.KeyCount))
             {
-                if (RectangleIntersection.FindIntersection(node.MBRectangle, searchRectangle) != null)
+                if (RectangleIntersection.DoIntersect(node.MBRectangle, searchRectangle))
                 {
                     rangeSearch(node, searchRectangle, result);
                 }
@@ -528,7 +553,7 @@ namespace Advanced.Algorithms.DataStructures
         private void condenseTree(RTreeNode updatedleaf)
         {
             var current = updatedleaf;
-            var toReinsert = new List<RTreeNode>();
+            var toReinsert = new System.Collections.Generic.Stack<RTreeNode>();
 
             while (current != Root)
             {
@@ -537,7 +562,10 @@ namespace Advanced.Algorithms.DataStructures
                 if (current.KeyCount < minKeysPerNode)
                 {
                     deleteNode(current);
-                    toReinsert.AddRange(current.Children.Take(current.KeyCount).SelectMany(x => x.GetLeafs()));
+                    foreach (var node in current.Children.Take(current.KeyCount))
+                    {
+                        toReinsert.Push(node);
+                    }
                 }
                 else
                 {
@@ -553,11 +581,20 @@ namespace Advanced.Algorithms.DataStructures
                 shrinkMBR(current);
             }
 
-            foreach (var leaf in toReinsert)
+            while (toReinsert.Count > 0)
             {
-                insert(leaf);
+                var node = toReinsert.Pop();
+
+                if (node.Height > 0)
+                {
+                    insertInternalNode(node);
+                }
+                else
+                {
+                    insertToLeaf(node);
+                }
             }
-          
+
         }
 
         private void shrinkMBR(RTreeNode current)

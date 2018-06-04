@@ -15,10 +15,7 @@ namespace Advanced.Algorithms.Geometry
         public static Rectangle FindIntersection(Rectangle a, Rectangle b)
         {
             //check for intersection
-            if (a.LeftTopCorner.X > b.RightBottomCorner.X // A is right of B   
-             || a.RightBottomCorner.X < b.LeftTopCorner.X // A is left of B
-             || a.RightBottomCorner.Y > b.LeftTopCorner.Y //A is above B
-             || a.LeftTopCorner.Y < b.RightBottomCorner.Y)//A is below B
+            if (!DoIntersect(a, b))
             {
                 //no intersection
                 return null;
@@ -43,6 +40,21 @@ namespace Advanced.Algorithms.Geometry
                 LeftTopCorner = leftTopCorner,
                 RightBottomCorner = rightBottomCorner
             };
+        }
+
+        public static bool DoIntersect(Rectangle a, Rectangle b)
+        {
+            //check for intersection
+            if (a.LeftTopCorner.X > b.RightBottomCorner.X // A is right of B   
+             || a.RightBottomCorner.X < b.LeftTopCorner.X // A is left of B
+             || a.RightBottomCorner.Y > b.LeftTopCorner.Y //A is above B
+             || a.LeftTopCorner.Y < b.RightBottomCorner.Y)//A is below B
+            {
+                //no intersection
+                return false;
+            }
+
+            return true;
         }
     }
 }
