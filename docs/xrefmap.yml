@@ -8821,6 +8821,19 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.RectangleIntersection
   fullName: Advanced.Algorithms.Geometry.RectangleIntersection
   nameWithType: RectangleIntersection
+- uid: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect(Rectangle,Rectangle)
+  name: DoIntersect(Rectangle, Rectangle)
+  href: api/Advanced.Algorithms.Geometry.RectangleIntersection.html#Advanced_Algorithms_Geometry_RectangleIntersection_DoIntersect_Rectangle_Rectangle_
+  commentId: M:Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect(Rectangle,Rectangle)
+  fullName: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect(Rectangle, Rectangle)
+  nameWithType: RectangleIntersection.DoIntersect(Rectangle, Rectangle)
+- uid: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect*
+  name: DoIntersect
+  href: api/Advanced.Algorithms.Geometry.RectangleIntersection.html#Advanced_Algorithms_Geometry_RectangleIntersection_DoIntersect_
+  commentId: Overload:Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect
+  nameWithType: RectangleIntersection.DoIntersect
 - uid: Advanced.Algorithms.Geometry.RectangleIntersection.FindIntersection(Rectangle,Rectangle)
   name: FindIntersection(Rectangle, Rectangle)
   href: api/Advanced.Algorithms.Geometry.RectangleIntersection.html#Advanced_Algorithms_Geometry_RectangleIntersection_FindIntersection_Rectangle_Rectangle_
