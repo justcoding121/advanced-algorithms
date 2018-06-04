@@ -129,41 +129,6 @@ namespace Advanced.Algorithms.DataStructures
                               .First().index];
         }
 
-        /// <summary>
-        ///     get all the leafs under this node
-        /// </summary>
-        /// <param name="node"></param>
-        /// <param name="polygons"></param>
-        internal List<RTreeNode> GetLeafs()
-        {
-            var result = new List<RTreeNode>();
-
-            if (IsLeaf)
-            {
-                if (MBRectangle.Polygon != null)
-                {
-                    result.Add(this);
-                }
-            }
-
-            return getLeafs(this, result);
-        }
-
-        private List<RTreeNode> getLeafs(RTreeNode node, List<RTreeNode> leafs)
-        {
-            if (node.IsLeaf)
-            {
-                leafs.AddRange(node.Children.Take(node.KeyCount));
-            }
-
-            foreach (var child in node.Children.Take(node.KeyCount))
-            {
-                getLeafs(child, leafs);
-            }
-
-            return leafs;
-        }
-
     }
 
     /// <summary>
@@ -177,9 +142,12 @@ namespace Advanced.Algorithms.DataStructures
         private readonly int maxKeysPerNode;
         private readonly int minKeysPerNode;
 
-        public int Count { get; private set; }
+        //If we don't use leaf mappings then deletion/Exists will be slow
+        //because searching for deletion leaf is expensive when data is dense.
+        private Dictionary<Polygon, RTreeNode> leafMappings = new Dictionary<Polygon, RTreeNode>();
 
         internal RTreeNode Root;
+        public int Count { get; private set; }
 
         public RTree(int maxKeysPerNode)
         {
@@ -203,6 +171,7 @@ namespace Advanced.Algorithms.DataStructures
                 MBRectangle = newPolygon.GetContainingRectangle()
             };
 
+            leafMappings.Add(newPolygon, newNode);
             insertToLeaf(newNode);
             Count++;
         }
@@ -420,42 +389,8 @@ namespace Advanced.Algorithms.DataStructures
 
         public bool Exists(Polygon searchPolygon)
         {
-            return findLeaf(Root, searchPolygon.GetContainingRectangle(), searchPolygon) != null;
+            return leafMappings.ContainsKey(searchPolygon);
         }
-
-        private RTreeNode findLeaf(RTreeNode current, Rectangle searchRectangle, Polygon searchPolygon)
-        {
-            if (current == null)
-            {
-                return null;
-            }
-
-            if (current.IsLeaf)
-            {
-                foreach (var node in current.Children.Take(current.KeyCount))
-                {
-                    if (node.MBRectangle.Polygon == searchPolygon)
-                    {
-                        return node;
-                    }
-                }
-            }
-
-            foreach (var node in current.Children.Take(current.KeyCount))
-            {
-                if (RectangleIntersection.DoIntersect(node.MBRectangle, searchRectangle))
-                {
-                    var result = findLeaf(node, searchRectangle, searchPolygon);
-                    if (result != null)
-                    {
-                        return result;
-                    }
-                }
-            }
-
-            return null;
-        }
-
 
         /// <summary>
         ///     Returns a list of polygons whose minimum bounded rectangle intersects with given search rectangle.
@@ -504,12 +439,12 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Empty tree.");
             }
 
-            var nodeToDelete = findLeaf(Root, polygon.GetContainingRectangle(), polygon);
-
-            if (nodeToDelete == null)
+            if (!Exists(polygon))
             {
                 throw new Exception("Given polygon do not belong to this tree.");
             }
+
+            var nodeToDelete = leafMappings[polygon];
 
             //delete 
             deleteNode(nodeToDelete);
@@ -521,6 +456,7 @@ namespace Advanced.Algorithms.DataStructures
                 Root.Parent = null;
             }
 
+            leafMappings.Remove(polygon);
             Count--;
 
             if (Count == 0)

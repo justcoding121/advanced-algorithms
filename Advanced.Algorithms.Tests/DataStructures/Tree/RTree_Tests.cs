@@ -40,9 +40,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
                 Assert.IsTrue(tree.Exists(polygon));
             }
 
-            var leafs = tree.Root.GetLeafs();
-
-            Assert.AreEqual(j, leafs.Count);
+            Assert.AreEqual(j, tree.Count);
         }
 
         /// </summary>
@@ -99,10 +97,9 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
 
                 if (j > 0)
                 {
-                    var polygons = tree.Root.GetLeafs();
                     var actualMaxHeight = tree.Root.Height;
                     Assert.AreEqual(verifyHeightUniformityAndReturnHeight(tree.Root, order), actualMaxHeight);
-                    Assert.AreEqual(j, polygons.Count);
+                    Assert.AreEqual(j, tree.Count);
                 }
 
             }
@@ -126,11 +123,6 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
                 tree.Insert(polygon);
             }
 
-            //Deletion is slow because in this test data most polygons intersect.
-            //So searching for deletion leaf is expensive.
-            //In practice this should'nt be slow with sparse data.
-            //The tree can be optimized for dense data by avoiding search 
-            //using a dictionary<polygon, leafNode> inside the tree.
             foreach (var polygon in randomPolygons)
             {
                 tree.Delete(polygon);
