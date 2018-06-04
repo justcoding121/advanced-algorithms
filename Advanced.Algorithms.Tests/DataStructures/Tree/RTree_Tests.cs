@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
             var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
             for (int i = 0; i < nodeCount; i++)
             {
-                randomPolygons.Add(getRandomPolygon());
+                randomPolygons.Add(getRandomPointOrPolygon());
             }
             var order = 5;
             var tree = new RTree(order);
@@ -51,7 +51,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
             var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
             for (int i = 0; i < nodeCount; i++)
             {
-                randomPolygons.Add(getRandomPolygon());
+                randomPolygons.Add(getRandomPointOrPolygon());
             }
             var order = 5;
             var tree = new RTree(order);
@@ -61,7 +61,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
                 tree.Insert(polygon);
             }
 
-            var searchRectangle = getRandomPolygon().GetContainingRectangle();
+            var searchRectangle = getRandomPointOrPolygon().GetContainingRectangle();
 
             var expectedIntersections = randomPolygons.Where(x => RectangleIntersection.FindIntersection(searchRectangle, x.GetContainingRectangle()) != null).ToList();
             var actualIntersections = tree.RangeSearch(searchRectangle);
@@ -77,7 +77,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
             var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
             for (int i = 0; i < nodeCount; i++)
             {
-                randomPolygons.Add(getRandomPolygon());
+                randomPolygons.Add(getRandomPointOrPolygon());
             }
             var order = 5;
             var tree = new RTree(order);
@@ -108,11 +108,11 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
         [TestMethod]
         public void RTree_Stress_Test()
         {
-            var nodeCount = 2500;
+            var nodeCount = 10000;
             var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
             for (int i = 0; i < nodeCount; i++)
             {
-                randomPolygons.Add(getRandomPolygon());
+                randomPolygons.Add(getRandomPointOrPolygon());
             }
 
             var order = 5;
@@ -157,9 +157,10 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
 
         private static Random random = new Random();
 
-        private static Polygon getRandomPolygon()
+        private static Polygon getRandomPointOrPolygon()
         {
-            var edgeLength = random.Next(2, 5);
+            //if edge length is one we create a point otherwise we create a polygon
+            var edgeLength = random.Next(1, 5);
 
             var edgePoints = new List<Point>();
 

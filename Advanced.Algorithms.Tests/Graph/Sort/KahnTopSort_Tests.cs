@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.Tests.Graph
     public class KahnsTopSort_Tests
     {
         [TestMethod]
-        public void Top_Sort_Smoke_Test()
+        public void Kahns_Topological_Sort_Smoke_Test()
         {
             var graph = new DiGraph<char>();
 

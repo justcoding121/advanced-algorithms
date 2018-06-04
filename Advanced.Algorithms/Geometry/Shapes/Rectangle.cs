@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Geometry
 {
@@ -36,15 +37,16 @@ namespace Advanced.Algorithms.Geometry
 
         public Polygon ToPolygon()
         {
-            var polygon = new Polygon();
+
+            var edges = new List<Line>();
 
             //add all four edge lines of this rectangle
-            polygon.Edges.Add(new Line(LeftTopCorner, new Point(RightBottomCorner.X, LeftTopCorner.Y)));
-            polygon.Edges.Add(new Line(new Point(RightBottomCorner.X, LeftTopCorner.Y), RightBottomCorner));
-            polygon.Edges.Add(new Line(RightBottomCorner, new Point(LeftTopCorner.X, RightBottomCorner.Y)));
-            polygon.Edges.Add(new Line(new Point(LeftTopCorner.X, RightBottomCorner.Y), LeftTopCorner));
+            edges.Add(new Line(LeftTopCorner, new Point(RightBottomCorner.X, LeftTopCorner.Y)));
+            edges.Add(new Line(new Point(RightBottomCorner.X, LeftTopCorner.Y), RightBottomCorner));
+            edges.Add(new Line(RightBottomCorner, new Point(LeftTopCorner.X, RightBottomCorner.Y)));
+            edges.Add(new Line(new Point(LeftTopCorner.X, RightBottomCorner.Y), LeftTopCorner));
 
-            return polygon;
+            return new Polygon(edges);
         }
 
     }

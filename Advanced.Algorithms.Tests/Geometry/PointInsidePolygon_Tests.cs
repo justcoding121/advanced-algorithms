@@ -11,14 +11,11 @@ namespace Advanced.Algorithms.Tests.Geometry
         [TestMethod]
         public void PointInsidePolygon_Smoke_Test()
         {
-            var polygon = new Polygon()
-            {
-                Edges = new List<Line>() {
+            var polygon = new Polygon(new List<Line>() {
                     new Line(new Point(0,0),new Point(10,10)),
                     new Line(new Point(10,10),new Point(11,11)),
                     new Line(new Point(11,11),new Point(0,10))
-                }
-            };
+                });
 
             var testPoint = new Point(20, 20);
 

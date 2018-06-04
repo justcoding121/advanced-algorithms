@@ -10,12 +10,18 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     internal class MBRectangle : Rectangle
     {
-        public MBRectangle() { }
+        public MBRectangle(Point leftTopCorner, Point rightBottomCorner)
+        {
+            LeftTopCorner = leftTopCorner;
+            RightBottomCorner = rightBottomCorner;
+        }
+
         public MBRectangle(Rectangle rectangle)
         {
             LeftTopCorner = new Point(rectangle.LeftTopCorner.X, rectangle.LeftTopCorner.Y);
             RightBottomCorner = new Point(rectangle.RightBottomCorner.X, rectangle.RightBottomCorner.Y);
         }
+
         /// <summary>
         ///     The actual polygon if this MBR is a leaf.
         /// </summary>
@@ -47,15 +53,13 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="rectangleToMerge">The new rectangle.</param>
         private Rectangle getMergedRectangle(MBRectangle rectangleToMerge)
         {
-            var mergedRectangle = new MBRectangle();
+            var leftTopCorner = new Point(LeftTopCorner.X > rectangleToMerge.LeftTopCorner.X ? rectangleToMerge.LeftTopCorner.X : LeftTopCorner.X,
+              LeftTopCorner.Y < rectangleToMerge.LeftTopCorner.Y ? rectangleToMerge.LeftTopCorner.Y : LeftTopCorner.Y);
 
-            mergedRectangle.LeftTopCorner = new Point(LeftTopCorner.X > rectangleToMerge.LeftTopCorner.X ? rectangleToMerge.LeftTopCorner.X : LeftTopCorner.X,
-             LeftTopCorner.Y < rectangleToMerge.LeftTopCorner.Y ? rectangleToMerge.LeftTopCorner.Y : LeftTopCorner.Y);
-
-            mergedRectangle.RightBottomCorner = new Point(RightBottomCorner.X < rectangleToMerge.RightBottomCorner.X ? rectangleToMerge.RightBottomCorner.X : RightBottomCorner.X,
+            var rightBottomCorner = new Point(RightBottomCorner.X < rectangleToMerge.RightBottomCorner.X ? rectangleToMerge.RightBottomCorner.X : RightBottomCorner.X,
                 RightBottomCorner.Y > rectangleToMerge.RightBottomCorner.Y ? rectangleToMerge.RightBottomCorner.Y : RightBottomCorner.Y);
 
-            return mergedRectangle;
+            return new MBRectangle(leftTopCorner, rightBottomCorner);
         }
 
     }
@@ -541,6 +545,16 @@ namespace Advanced.Algorithms.DataStructures
                 current.MBRectangle.Merge(node.MBRectangle);
             }
         }
+
+        /// <summary>
+        ///     Clear all data in this R-tree.
+        /// </summary>
+        public void Clear()
+        {
+            Root = null;
+            leafMappings.Clear();
+            Count = 0;
+        }
     }
 
     internal static class PolygonExtensions
@@ -575,10 +589,8 @@ namespace Advanced.Algorithms.DataStructures
                        Min = Math.Min(o, accumulator.Min),
                    });
 
-            return new MBRectangle()
+            return new MBRectangle(new Point(x.Min, y.Max), new Point(x.Max, y.Min))
             {
-                LeftTopCorner = new Point(x.Min, y.Max),
-                RightBottomCorner = new Point(x.Max, y.Min),
                 Polygon = polygon
             };
         }
