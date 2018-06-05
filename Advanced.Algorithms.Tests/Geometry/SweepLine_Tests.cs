@@ -14,12 +14,21 @@ namespace Advanced.Algorithms.Tests.Geometry
         [TestMethod]
         public void SweepLine_Smoke_Test()
         {
-            var lines = getRandomLines(10);
+            while (true)
+            {
+                var lines = getRandomLines(3);
 
-            var expectedIntersections = getExpectedIntersections(lines);
-            var actualIntersections = SweepLineIntersection.FindIntersections(lines);
+                var expectedIntersections = getExpectedIntersections(lines);
+                var actualIntersections = SweepLineIntersection.FindIntersections(lines).ToList();
 
-            Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);          
+                if (expectedIntersections.Count != actualIntersections.Count)
+                {
+
+                }
+                // Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+
+
+            }
         }
 
 

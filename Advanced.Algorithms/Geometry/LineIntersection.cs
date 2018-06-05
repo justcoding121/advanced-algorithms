@@ -9,15 +9,22 @@ namespace Advanced.Algorithms.Geometry
         /// </summary>
         /// <param name="lineA"></param>
         /// <param name="lineB"></param>
-        /// <param name="tolerance">precision tolerance.</param>
+        /// <param name="precision">precision tolerance.</param>
         /// <returns>The point of intersection.</returns>
-        public static Point FindIntersection(Line lineA, Line lineB, double tolerance = 0.001)
+        public static Point FindIntersection(Line lineA, Line lineB, int precision = 3)
         {
+            if (lineA == lineB)
+            {
+                throw new Exception("Both lines are the same.");
+            }
+
             double x1 = lineA.Start.X, y1 = lineA.Start.Y;
             double x2 = lineA.End.X, y2 = lineA.End.Y;
 
             double x3 = lineB.Start.X, y3 = lineB.Start.Y;
             double x4 = lineB.End.X, y4 = lineB.End.Y;
+
+            var tolerance = Math.Round(Math.Pow(0.1, 3), precision);
 
             //equations of the form x=c (two vertical lines)
             if (Math.Abs(x1 - x2) < tolerance && Math.Abs(x3 - x4) < tolerance && Math.Abs(x1 - x3) < tolerance)
@@ -116,10 +123,10 @@ namespace Advanced.Algorithms.Geometry
 
             //x,y can intersect outside the line segment since line is infinitely long
             //so finally check if x, y is within both the line segments
-            if (IsInsideLine(lineA, x, y) &&
-                IsInsideLine(lineB, x, y))
+            if (IsInsideLine(lineA, Math.Round(x, precision), Math.Round(y, precision)) &&
+                IsInsideLine(lineB, Math.Round(x, precision), Math.Round(y, precision)))
             {
-                return new Point(x, y);
+                return new Point(Math.Round(x, precision), Math.Round(y, precision));
             }
 
             //return default null (no intersection)

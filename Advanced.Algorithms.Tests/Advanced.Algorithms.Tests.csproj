@@ -98,7 +98,6 @@
     <Compile Include="DataStructures\Set\DisJointSet_Tests.cs" />
     <Compile Include="DataStructures\Set\SparseSet_Tests.cs" />
     <Compile Include="DataStructures\Stack_Tests.cs" />
-    <Compile Include="DataStructures\Tree\RangeTreeTests.cs" />
     <Compile Include="DataStructures\Tree\TernarySearchTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\Trie_Tests.cs" />
     <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
@@ -121,7 +120,6 @@
     <Compile Include="Distributed\ConsistentHash_Tests.cs" />
     <Compile Include="Distributed\LRUCache_Tests.cs" />
     <Compile Include="Geometry\PointRotation_Tests.cs" />
-    <Compile Include="Geometry\SweepLine_Tests.cs" />
     <Compile Include="Graph\ShortestPath\TravellingSalesman_Tests.cs" />
     <Compile Include="Geometry\ClosestPointPair_Tests.cs" />
     <Compile Include="Geometry\ConvexHull_Tests.cs" />

@@ -17,8 +17,8 @@ namespace Advanced.Algorithms.DataStructures
     /// <typeparam name="T"></typeparam>
     internal class RedBlackTreeNode<T> : IBSTNode<T> where T : IComparable
     {
-        internal T Value => Values[0];
-        internal List<T> Values { get; set; }
+        internal T Value { get; set; }
+
         internal RedBlackTreeNode<T> Parent { get; set; }
 
         internal RedBlackTreeNode<T> Left { get; set; }
@@ -41,7 +41,7 @@ namespace Advanced.Algorithms.DataStructures
         internal RedBlackTreeNode(RedBlackTreeNode<T> parent, T value)
         {
             Parent = parent;
-            Values = new List<T> { value };
+            Value = value;
             NodeColor = RedBlackTreeNodeColor.Red;
         }
     }
@@ -320,8 +320,7 @@ namespace Advanced.Algorithms.DataStructures
                 else
                 {
                     //duplicate
-                    currentNode.Values.Add(newNodeValue);
-                    return currentNode;
+                    throw new Exception("Item with same key exists");
                 }
             }
         }
@@ -480,13 +479,7 @@ namespace Advanced.Algorithms.DataStructures
             }
             else
             {
-                //duplicate - easy fix
-                if (node.Values.Count > 1)
-                {
-                    node.Values.RemoveAt(node.Values.Count - 1);
-                    return;
-                }
-
+ 
                 //node is a leaf node
                 if (node.IsLeaf)
                 {
@@ -524,8 +517,7 @@ namespace Advanced.Algorithms.DataStructures
                     {
                         var maxLeftNode = findMax(node.Left);
 
-                        node.Values.Clear();
-                        node.Values.Add(maxLeftNode.Value);
+                        node.Value = maxLeftNode.Value;
 
                         //delete left max node
                         delete(node.Left, maxLeftNode.Value);

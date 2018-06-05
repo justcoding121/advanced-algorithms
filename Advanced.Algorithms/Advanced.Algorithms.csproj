@@ -20,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="DataStructures\Tree\RangeTree.cs" />
+    <Compile Remove="Geometry\SweepLine.cs" />
     <Compile Remove="Miscellaneous\BalanceParentheses.cs" />
     <Compile Remove="Miscellaneous\CountInversions.cs" />
     <Compile Remove="Sorting\ZigZagOrderer.cs" />

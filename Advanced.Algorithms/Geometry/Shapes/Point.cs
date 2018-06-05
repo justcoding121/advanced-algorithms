@@ -13,7 +13,15 @@
         public override bool Equals(object obj)
         {
             var tgt = obj as Point;
-            return tgt.X == X && tgt.Y == Y;
+            return (tgt.X == X) && (tgt.Y == Y);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1861411795;
+            hashCode = hashCode * -1521134295 + X.GetHashCode();
+            hashCode = hashCode * -1521134295 + Y.GetHashCode();
+            return hashCode;
         }
     }
 }
