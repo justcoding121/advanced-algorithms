@@ -297,9 +297,9 @@ namespace Advanced.Algorithms.DataStructures
                     if (currentNode.Right == null)
                     {
                         //insert
-                        currentNode.Right = new RedBlackTreeNode<T>(currentNode, newNodeValue);
+                        var node = currentNode.Right = new RedBlackTreeNode<T>(currentNode, newNodeValue);
                         balanceInsertion(currentNode.Right);
-                        return currentNode.Right;
+                        return node;
                     }
 
                     currentNode = currentNode.Right;
@@ -310,9 +310,9 @@ namespace Advanced.Algorithms.DataStructures
                     if (currentNode.Left == null)
                     {
                         //insert
-                        currentNode.Left = new RedBlackTreeNode<T>(currentNode, newNodeValue);
+                        var node = currentNode.Left = new RedBlackTreeNode<T>(currentNode, newNodeValue);
                         balanceInsertion(currentNode.Left);
-                        return currentNode.Left;
+                        return node;
                     }
 
                     currentNode = currentNode.Left;

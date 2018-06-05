@@ -121,6 +121,7 @@
     <Compile Include="Distributed\ConsistentHash_Tests.cs" />
     <Compile Include="Distributed\LRUCache_Tests.cs" />
     <Compile Include="Geometry\PointRotation_Tests.cs" />
+    <Compile Include="Geometry\SweepLine_Tests.cs" />
     <Compile Include="Graph\ShortestPath\TravellingSalesman_Tests.cs" />
     <Compile Include="Geometry\ClosestPointPair_Tests.cs" />
     <Compile Include="Geometry\ConvexHull_Tests.cs" />
