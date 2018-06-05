@@ -8764,12 +8764,12 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.LineIntersection
   fullName: Advanced.Algorithms.Geometry.LineIntersection
   nameWithType: LineIntersection
-- uid: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Line,Line,System.Double)
-  name: FindIntersection(Line, Line, Double)
-  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_FindIntersection_Line_Line_System_Double_
-  commentId: M:Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Line,Line,System.Double)
-  fullName: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Line, Line, System.Double)
-  nameWithType: LineIntersection.FindIntersection(Line, Line, Double)
+- uid: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Line,Line,System.Int32)
+  name: FindIntersection(Line, Line, Int32)
+  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_FindIntersection_Line_Line_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Line,Line,System.Int32)
+  fullName: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Line, Line, System.Int32)
+  nameWithType: LineIntersection.FindIntersection(Line, Line, Int32)
 - uid: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection*
   name: FindIntersection
   href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_FindIntersection_
