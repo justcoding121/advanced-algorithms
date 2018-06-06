@@ -43,6 +43,21 @@ namespace Advanced.Algorithms.Geometry
         }
     }
 
+    internal class LineEndPointNode : IComparable
+    {
+        internal LineEndPointNode(LineEndPoint endPoint)
+        {
+            EndPoints.Add(endPoint);
+        }
+
+        internal List<LineEndPoint> EndPoints { get; set; } = new List<LineEndPoint>();
+
+        public int CompareTo(object obj)
+        {
+            return EndPoints[0].Y.CompareTo((obj as LineEndPointNode).EndPoints[0].Y);
+        }
+    }
+
     public class SweepLineIntersection
     {
         public static List<Point> FindIntersections(IEnumerable<Line> lineSegments)
@@ -70,7 +85,7 @@ namespace Advanced.Algorithms.Geometry
 
             var lineRightLeftMap = lineLeftRightMap.ToDictionary(x => x.Value, x => x.Key);
 
-            var currentlyTracked = new RedBlackTree<LineEndPoint>();
+            var currentlyTracked = new BST<LineEndPointNode>();
 
             var result = new List<Point>();
 
@@ -79,142 +94,273 @@ namespace Advanced.Algorithms.Geometry
                                         .SelectMany(x => new[] { x.Key, x.Value })
                                         .OrderBy(x => x.X)
                                         .ThenByDescending(x => x.IsLeftEndPoint)
-                                        .ThenBy(x => x.Y))
+                                        .ThenBy(x=>x.Y))
             {
                 //if this is left end point then check for intersection
                 //between closest upper and lower segments with current line.
                 if (lineEndPoint.IsLeftEndPoint)
                 {
                     //left end
-                    var leftNode = currentlyTracked.InsertAndReturnNewNode(lineEndPoint);
+                    var leftNode = insert(currentlyTracked, lineEndPoint);
 
                     //get the closest upper line segment
-                    var upperLines = getClosestUpperEndPoint(leftNode, lineEndPoint);
+                    var upperLines = getClosestUpperEndPoints(leftNode, lineEndPoint);
 
                     //get the closest lower line segment
-                    var lowerLines = getClosestLowerEndPoint(leftNode, lineEndPoint);
+                    var lowerLines = getClosestLowerEndPoints(leftNode, lineEndPoint);
 
-                    foreach (var upperLine in upperLines)
-                    {
-                        var upperIntersection = LineIntersection.FindIntersection(upperLine, lineEndPoint.Line);
-                        if (upperIntersection != null)
-                        {
-                            result.Add(upperIntersection);
-                        }
-                    }
+                    //right end
+                    var rightNode = insert(currentlyTracked, lineLeftRightMap[lineEndPoint]);
 
-                    foreach (var lowerLine in lowerLines)
+                    upperLines.AddRange(getClosestUpperEndPoints(rightNode, lineLeftRightMap[lineEndPoint]));
+                    lowerLines.AddRange(getClosestLowerEndPoints(rightNode, lineLeftRightMap[lineEndPoint]));
+
+                    if (upperLines.Count > 0)
                     {
-                        //verify lower is not the same line as upper.
-                        if (!upperLines.Any(x => x == lowerLine))
+                        foreach (var upperLine in upperLines)
                         {
-                            var lowerIntersection = LineIntersection.FindIntersection(lineEndPoint.Line, lowerLine);
-                            if (lowerIntersection != null)
+                            var upperIntersection = LineIntersection.FindIntersection(upperLine, lineEndPoint.Line);
+                            if (upperIntersection != null)
                             {
-                                result.Add(lowerIntersection);
+                                result.Add(upperIntersection);
                             }
                         }
                     }
 
-                    //right end
-                    currentlyTracked.Insert(lineLeftRightMap[lineEndPoint]);
+                    //also verify lower is not the same line as upper.
+                    if (lowerLines.Count > 0)
+                    {
+                        foreach (var lowerLine in lowerLines)
+                        {
+                            if (!upperLines.Any(x => x == lowerLine))
+                            {
+                                var lowerIntersection = LineIntersection.FindIntersection(lineEndPoint.Line, lowerLine);
+                                if (lowerIntersection != null)
+                                {
+                                    result.Add(lowerIntersection);
+                                }
+                            }
+                        }
+                    }
+
+                    var linesInBetween = getLinesBetween(currentlyTracked, lineEndPoint, lineLeftRightMap[lineEndPoint]);
+
+                    foreach (var line in linesInBetween)
+                    {
+                        if (!upperLines.Any(x => x == line)
+                            && !lowerLines.Any(x => x == line))
+                        {
+                            var intersection = LineIntersection.FindIntersection(lineEndPoint.Line, line);
+                            if (intersection != null)
+                            {
+                                result.Add(intersection);
+                            }
+                        }
+                    }
+
+                  
                 }
                 //if this is right end point then check for intersection
                 //between closest upper and lower segments.
                 else
                 {
-                    //remove left
-                    currentlyTracked.Delete(lineRightLeftMap[lineEndPoint]);
-
-                    var rightNode = currentlyTracked.Find(lineEndPoint);
-
+                    var leftNode = currentlyTracked.FindNode(new LineEndPointNode(lineRightLeftMap[lineEndPoint]));
+                    
                     //get the closest upper line segment
-                    var upper = getClosestUpperEndPoint(rightNode, lineEndPoint);
+                    var upperLines = getClosestUpperEndPoints(leftNode, lineRightLeftMap[lineEndPoint]);
 
                     //get the closest lower line segment
-                    var lower = getClosestLowerEndPoint(rightNode, lineEndPoint);
+                    var lowerLines = getClosestLowerEndPoints(leftNode, lineRightLeftMap[lineEndPoint]);
+           
+                    var rightNode = currentlyTracked.FindNode(new LineEndPointNode(lineEndPoint));
+
+                    //get the closest upper line segment
+                    upperLines.AddRange(getClosestUpperEndPoints(rightNode, lineEndPoint));
+
+                    //get the closest lower line segment
+                    lowerLines.AddRange(getClosestLowerEndPoints(rightNode, lineEndPoint));
+
+                    //remove left
+                    delete(currentlyTracked, lineRightLeftMap[lineEndPoint]);
 
                     //remove right
-                    currentlyTracked.Delete(lineEndPoint);
+                    delete(currentlyTracked, lineEndPoint);
 
-                    if (upper.Count > 0
-                        && lower.Count > 0)
+                    foreach (var upperLine in upperLines)
                     {
-                        for (int i = 0; i < upper.Count; i++)
-                            for (int j = 0; j < lower.Count; j++)
+                        foreach (var lowerLine in lowerLines)
+                        {
+                            if (upperLine != null && lowerLine != null
+                                && upperLine != lowerLine)
                             {
-                                var upperLine = upper[i];
-                                var lowerLine = lower[j];
-
-                                if (upperLine != lowerLine)
+                                var intersection = LineIntersection.FindIntersection(upperLine, lowerLine);
+                                if (intersection != null)
                                 {
-                                    var intersection = LineIntersection.FindIntersection(upperLine, lowerLine);
-                                    if (intersection != null)
-                                    {
-                                        result.Add(intersection);
-                                    }
+                                    result.Add(intersection);
                                 }
-
                             }
+                        }
                     }
 
                 }
             }
 
-            return result;
+            return result.Distinct().ToList();
         }
 
-        private static List<Line> getClosestLowerEndPoint(RedBlackTreeNode<LineEndPoint> node, LineEndPoint currentLine)
+        /// <summary>
+        ///     Get the list of lines that is between the given line in currently tracked
+        /// </summary>
+        /// <param name="currentlyTracked"></param>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private static List<Line> getLinesBetween(BST<LineEndPointNode> currentlyTracked,
+            LineEndPoint left, LineEndPoint right)
         {
-            var result = node.Value.ToList();
+            var lower = left.Y < right.Y ? left : right;
+            var upper = left.Y > right.Y ? left : right;
 
-            //root or left child
-            if (node.Parent == null || node.IsLeftChild)
+            var result = new List<Line>();
+
+            var next = currentlyTracked.FindNode(new LineEndPointNode(lower));
+            var last = currentlyTracked.FindNode(new LineEndPointNode(upper));
+
+            if (next != null)
             {
-                if (node.Left != null)
+                result.AddRange(next.Value.EndPoints.Select(x => x.Line));
+            }
+
+            if (last != null && last != next)
+            {
+                result.AddRange(last.Value.EndPoints.Select(x => x.Line));
+            }
+
+            if (next != null)
+            {
+                next = getNextUpper(next);
+                while (next != null && next != last)
                 {
-                    result.AddRange(node.Left.Value);
+                    result.AddRange(next.Value.EndPoints.Select(x => x.Line));
+                    next = getNextUpper(next);
                 }
             }
-            //right child
+
+            return result.Where(x => x != left.Line).Distinct().ToList();
+        }
+
+        private static void delete(BST<LineEndPointNode> currentlyTracked, LineEndPoint lineEndPoint)
+        {
+            var existing = currentlyTracked.FindNode(new LineEndPointNode(lineEndPoint));
+
+            if (existing.Value.EndPoints.Count > 1)
+            {
+                existing.Value.EndPoints.Remove(lineEndPoint);
+            }
             else
             {
-                if (node.Left != null)
-                {
-                    result.AddRange(node.Left.Value);
-                }
-                else
-                {
-                    result.AddRange(node.Parent.Value);
-                }
+                currentlyTracked.Delete(existing.Value);
+            }
+        }
+
+        private static BSTNode<LineEndPointNode> insert(BST<LineEndPointNode> currentlyTracked, LineEndPoint lineEndPoint)
+        {
+            var newNode = new LineEndPointNode(lineEndPoint);
+            var existing = currentlyTracked.FindNode(newNode);
+
+            if (existing != null)
+            {
+                existing.Value.EndPoints.Add(lineEndPoint);
+                return existing;
+            }
+
+            currentlyTracked.Insert(newNode);
+
+            return currentlyTracked.FindNode(newNode);
+        }
+
+        private static List<Line> getClosestLowerEndPoints(BSTNode<LineEndPointNode> node, LineEndPoint currentLine)
+        {
+            var result = new List<LineEndPoint>();
+            result.AddRange(node.Value.EndPoints);
+
+            var nextLower = getNextLower(node);
+
+            if (nextLower != null)
+            {
+                result.AddRange(nextLower.Value.EndPoints);
             }
 
             return result.Where(x => x.Line != currentLine.Line)
-                         .Where(x => x.Y <= currentLine.Y)
                          .OrderByDescending(x => x.Y)
-                         .Take(1)
                          .Select(x => x.Line)
+                         .Distinct()
                          .ToList();
         }
 
-        private static List<Line> getClosestUpperEndPoint(RedBlackTreeNode<LineEndPoint> node, LineEndPoint currentLine)
+        private static BSTNode<LineEndPointNode> getNextLower(BSTNode<LineEndPointNode> node)
         {
-            var result = node.Values;
+            //root or left child
+            if (node.Parent == null || node.IsLeftChild)
+            {
+                if (node.Left != null)
+                {
+                    return node.Left;
+                }
+                else
+                {
+                    while (node.Parent != null && node.IsLeftChild)
+                    {
+                        node = node.Parent;
+                    }
 
+                    return node?.Parent;
+                }
+            }
+            //right child
+            else
+            {
+                if (node.Left != null)
+                {
+                    return node.Left;
+                }
+                else
+                {
+                    return node.Parent;
+                }
+            }
+
+        }
+
+        private static List<Line> getClosestUpperEndPoints(BSTNode<LineEndPointNode> node, LineEndPoint currentLine)
+        {
+            var result = new List<LineEndPoint>();
+            result.AddRange(node.Value.EndPoints);
+
+            var nextUpper = getNextUpper(node);
+
+            if (nextUpper != null)
+            {
+                result.AddRange(nextUpper.Value.EndPoints);
+            }
+
+            return result.Where(x => x.Line != currentLine.Line)
+                      .OrderBy(x => x.Y)
+                      .Select(x => x.Line)
+                      .ToList();
+        }
+
+        private static BSTNode<LineEndPointNode> getNextUpper(BSTNode<LineEndPointNode> node)
+        {
             //root or left child
             if (node.Parent == null || node.IsLeftChild)
             {
                 if (node.Right != null)
                 {
-                    result.AddRange(node.Right.Values);
+                    return node.Right;
                 }
                 else
                 {
-                    //not root
-                    if (node.Parent != null)
-                    {
-                        result.AddRange(node.Parent.Values);
-                    }
+                    return node?.Parent;
                 }
             }
             //right child
@@ -222,16 +368,18 @@ namespace Advanced.Algorithms.Geometry
             {
                 if (node.Right != null)
                 {
-                    result.AddRange(node.Right.Values);
+                    return node.Right;
+                }
+                else
+                {
+                    while (node.Parent != null && node.IsRightChild)
+                    {
+                        node = node.Parent;
+                    }
+
+                    return node?.Parent;
                 }
             }
-
-            return result.Where(x => x.Line != currentLine.Line)
-                      .Where(x => x.Y >= currentLine.Y)
-                      .OrderBy(x => x.Y)
-                      .Take(1)
-                      .Select(x => x.Line)
-                      .ToList();
         }
     }
 }

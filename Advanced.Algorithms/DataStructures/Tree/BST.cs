@@ -328,6 +328,14 @@ namespace Advanced.Algorithms.DataStructures
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //worst O(n) for unbalanced tree
+        internal BSTNode<T> FindNode(T value)
+        {
+            return find(Root, value);
+        }
+
+        //find the node with the given identifier among descendants of parent and parent
+        //uses pre-order traversal
+        //worst O(n) for unbalanced tree
         private BSTNode<T> find(BSTNode<T> parent, T value)
         {
             while (true)

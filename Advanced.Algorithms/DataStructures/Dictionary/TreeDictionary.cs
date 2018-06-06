@@ -55,7 +55,7 @@ namespace Advanced.Algorithms.DataStructures
         public TV GetValue(TK key)
         {
             return binarySearchTree
-                .Find(new TreeDictionaryNode<TK, TV>(key, default(TV)))
+                .FindNode(new TreeDictionaryNode<TK, TV>(key, default(TV)))
                 .Value
                 .Value;
         }

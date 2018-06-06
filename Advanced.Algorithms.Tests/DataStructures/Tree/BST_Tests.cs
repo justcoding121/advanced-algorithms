@@ -51,6 +51,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Insert(31);
             Assert.AreEqual(tree.getHeight(), 3);
 
+            Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+
             //delete
             tree.Delete(43);
             tree.Delete(11);

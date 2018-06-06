@@ -139,37 +139,55 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
-        internal RedBlackTreeNode<T> Find(T value)
+        internal RedBlackTreeNode<T> FindNode(T value)
         {
             return Root == null ? null : find(Root, value);
         }
 
+        //O(log(n)) worst O(n) for unbalanced tree
+        internal T Find(T value)
+        {
+            var result = FindNode(value);
+
+            if (result != null)
+            {
+                return result.Value;
+            }
+
+            return default(T);
+        }
+
+        //O(log(n)) worst O(n) for unbalanced tree
+        internal bool Exists(T value)
+        {
+            return FindNode(value) != null;
+        }
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(log(n)) worst O(n) for unbalanced tree
-        private RedBlackTreeNode<T> find(RedBlackTreeNode<T> parent, T value)
+        private RedBlackTreeNode<T> find(RedBlackTreeNode<T> current, T value)
         {
             while (true)
             {
-                if (parent == null)
+                if (current == null)
                 {
                     return null;
                 }
 
-                if (parent.Value.CompareTo(value) == 0)
+                if (current.Value.CompareTo(value) == 0)
                 {
-                    return parent;
+                    return current;
                 }
 
-                var left = find(parent.Left, value);
+                var left = find(current.Left, value);
 
                 if (left != null)
                 {
                     return left;
                 }
 
-                parent = parent.Right;
+                current = current.Right;
             }
         }
 
@@ -479,7 +497,7 @@ namespace Advanced.Algorithms.DataStructures
             }
             else
             {
- 
+
                 //node is a leaf node
                 if (node.IsLeaf)
                 {
