@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -27,16 +26,19 @@ namespace Advanced.Algorithms.DataStructures
         internal bool IsLeaf => Left == null && Right == null;
         internal RedBlackTreeNodeColor NodeColor { get; set; }
 
-        internal RedBlackTreeNode<T> Sibling => this.Parent.Left == this ?
-                                                this.Parent.Right : this.Parent.Left;
+        internal RedBlackTreeNode<T> Sibling => Parent.Left == this ?
+                                                Parent.Right : Parent.Left;
 
-        internal bool IsLeftChild => this.Parent.Left == this;
-        internal bool IsRightChild => this.Parent.Right == this;
+        internal bool IsLeftChild => Parent.Left == this;
+        internal bool IsRightChild => Parent.Right == this;
 
-        //exposed to do common tests for Binary Trees
+        //exposed to share logic on common operations with Binary search trees
+        IBSTNode<T> IBSTNode<T>.Parent => Parent;
         IBSTNode<T> IBSTNode<T>.Left => Left;
         IBSTNode<T> IBSTNode<T>.Right => Right;
         T IBSTNode<T>.Value => Value;
+        bool IBSTNode<T>.IsLeftChild => IsLeftChild;
+        bool IBSTNode<T>.IsRightChild => IsRightChild;
 
         internal RedBlackTreeNode(RedBlackTreeNode<T> parent, T value)
         {
@@ -55,12 +57,26 @@ namespace Advanced.Algorithms.DataStructures
         internal RedBlackTreeNode<T> Root { get; private set; }
         public int Count { get; private set; }
 
+        private readonly System.Collections.Generic.Dictionary<T, RedBlackTreeNode<T>> nodeLookUp;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
+        /// by using a dictionary<T, RedBlackTreeNode<T> at the cost of additional space.</param>
+        public RedBlackTree(bool enableNodeLookUp = false)
+        {
+            if (enableNodeLookUp)
+            {
+                nodeLookUp = new System.Collections.Generic.Dictionary<T, RedBlackTreeNode<T>>();
+            }
+        }
+
         //O(log(n)) worst O(n) for unbalanced tree
         public int GetHeight()
         {
             return getHeight(Root);
         }
-
 
         //O(log(n)) worst O(n) for unbalanced tree
         private int getHeight(RedBlackTreeNode<T> node)
@@ -80,33 +96,17 @@ namespace Advanced.Algorithms.DataStructures
                 return false;
             }
 
-            return find(Root, value) != null;
+            if (nodeLookUp != null)
+            {
+                return nodeLookUp.ContainsKey(value);
+            }
+
+            return find(value) != null;
         }
-        public T FindMax()
+
+        public T Max()
         {
             return findMax(Root).Value;
-        }
-
-        internal List<T> GetAllNodes()
-        {
-            var allNodes = new List<T>();
-
-            GetAllNodes(allNodes, Root);
-
-            return allNodes;
-        }
-
-        internal void GetAllNodes(List<T> allNodes, RedBlackTreeNode<T> currentNode)
-        {
-            while (true)
-            {
-                if (currentNode == null) return;
-
-                allNodes.Add(currentNode.Value);
-
-                GetAllNodes(allNodes, currentNode.Left);
-                currentNode = currentNode.Right;
-            }
         }
 
         internal void Clear()
@@ -124,7 +124,7 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        public T FindMin()
+        public T Min()
         {
             return findMin(Root).Value;
         }
@@ -141,26 +141,26 @@ namespace Advanced.Algorithms.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         internal RedBlackTreeNode<T> FindNode(T value)
         {
-            return Root == null ? null : find(Root, value);
-        }
-
-        //O(log(n)) worst O(n) for unbalanced tree
-        internal T Find(T value)
-        {
-            var result = FindNode(value);
-
-            if (result != null)
-            {
-                return result.Value;
-            }
-
-            return default(T);
+            return Root == null ? null : find(value);
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
         internal bool Exists(T value)
         {
             return FindNode(value) != null;
+        }
+
+        //find the node with the given identifier among descendants of parent and parent
+        //uses pre-order traversal
+        //O(log(n)) worst O(n) for unbalanced tree
+        private RedBlackTreeNode<T> find(T value)
+        {
+            if (nodeLookUp != null)
+            {
+                return nodeLookUp[value];
+            }
+
+            return find(Root, value);
         }
 
         //find the node with the given identifier among descendants of parent and parent
@@ -175,19 +175,22 @@ namespace Advanced.Algorithms.DataStructures
                     return null;
                 }
 
-                if (current.Value.CompareTo(value) == 0)
+                var compareResult = current.Value.CompareTo(value);
+
+                if (compareResult == 0)
                 {
                     return current;
                 }
 
-                var left = find(current.Left, value);
-
-                if (left != null)
+                if (compareResult > 0)
                 {
-                    return left;
+                    current = current.Left;
+                }
+                else
+                {
+                    current = current.Right;
                 }
 
-                current = current.Right;
             }
         }
 
@@ -228,6 +231,7 @@ namespace Advanced.Algorithms.DataStructures
             {
                 Root = newRoot;
             }
+
         }
 
         private void leftRotate(RedBlackTreeNode<T> node)
@@ -277,28 +281,22 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new RedBlackTreeNode<T>(null, value) { NodeColor = RedBlackTreeNodeColor.Black };
+                if (nodeLookUp != null)
+                {
+                    nodeLookUp[value] = Root;
+                }
                 Count++;
                 return;
             }
 
-            insert(Root, value);
-            Count++;
-        }
+            var newNode = insert(Root, value);
 
-        //O(log(n)) always
-        internal RedBlackTreeNode<T> InsertAndReturnNewNode(T value)
-        {
-            //empty tree
-            if (Root == null)
+            if (nodeLookUp != null)
             {
-                Root = new RedBlackTreeNode<T>(null, value) { NodeColor = RedBlackTreeNodeColor.Black };
-                Count++;
-                return Root;
+                nodeLookUp[value] = newNode;
             }
 
-            var newNode = insert(Root, value);
             Count++;
-            return newNode;
         }
 
         //O(log(n)) always
@@ -464,82 +462,73 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Empty Tree");
             }
 
-            delete(Root, value);
+            var node = find(value);
+
+            if (node == null)
+            {
+                throw new Exception("The given value was not found in this bst.");
+            }
+
+            delete(node);
+
+            if (nodeLookUp != null)
+            {
+                nodeLookUp.Remove(value);
+            }
+
             Count--;
         }
 
         //O(log(n)) always
-        private void delete(RedBlackTreeNode<T> node, T value)
+        private void delete(RedBlackTreeNode<T> node)
         {
             RedBlackTreeNode<T> nodeToBalance = null;
 
-            var compareResult = node.Value.CompareTo(value);
-
-            //node is less than the search value so move right to find the deletion node
-            if (compareResult < 0)
+            //node is a leaf node
+            if (node.IsLeaf)
             {
-                if (node.Right == null)
+                //if color is red, we are good; no need to balance
+                if (node.NodeColor == RedBlackTreeNodeColor.Red)
                 {
-                    throw new Exception("Item do not exist");
+                    deleteLeaf(node);
+                    return;
                 }
 
-                delete(node.Right, value);
-            }
-            //node is less than the search value so move left to find the deletion node
-            else if (compareResult > 0)
-            {
-                if (node.Left == null)
-                {
-                    throw new Exception("Item do not exist");
-                }
-
-                delete(node.Left, value);
+                nodeToBalance = handleDoubleBlack(node);
+                deleteLeaf(node);
             }
             else
             {
-
-                //node is a leaf node
-                if (node.IsLeaf)
+                //case one - right tree is null (move sub tree up)
+                if (node.Left != null && node.Right == null)
                 {
-
-                    //if color is red, we are good; no need to balance
-                    if (node.NodeColor == RedBlackTreeNodeColor.Red)
-                    {
-                        deleteLeaf(node);
-                        return;
-                    }
-
                     nodeToBalance = handleDoubleBlack(node);
-                    deleteLeaf(node);
+                    deleteLeftNode(node);
                 }
+                //case two - left tree is null  (move sub tree up)
+                else if (node.Right != null && node.Left == null)
+                {
+                    nodeToBalance = handleDoubleBlack(node);
+                    deleteRightNode(node);
+
+                }
+                //case three - two child trees 
+                //replace the node value with maximum element of left subtree (left max node)
+                //and then delete the left max node
                 else
                 {
-                    //case one - right tree is null (move sub tree up)
-                    if (node.Left != null && node.Right == null)
+                    var maxLeftNode = findMax(node.Left);
+
+                    node.Value = maxLeftNode.Value;
+
+                    if (nodeLookUp != null)
                     {
-                        nodeToBalance = handleDoubleBlack(node);
-                        deleteLeftNode(node);
-
+                        nodeLookUp[node.Value] = node;
                     }
-                    //case two - left tree is null  (move sub tree up)
-                    else if (node.Right != null && node.Left == null)
-                    {
-                        nodeToBalance = handleDoubleBlack(node);
-                        deleteRightNode(node);
 
-                    }
-                    //case three - two child trees 
-                    //replace the node value with maximum element of left subtree (left max node)
-                    //and then delete the left max node
-                    else
-                    {
-                        var maxLeftNode = findMax(node.Left);
-
-                        node.Value = maxLeftNode.Value;
-
-                        //delete left max node
-                        delete(node.Left, maxLeftNode.Value);
-                    }
+                    //delete left max node
+                    delete(maxLeftNode);
+                    return;
                 }
             }
 
@@ -779,6 +768,56 @@ namespace Advanced.Algorithms.DataStructures
                 return null;
             }
             return null;
+        }
+
+        /// <summary>
+        ///     Get the value previous to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T Previous(T value)
+        {
+            var node = FindNode(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as IBSTNode<T>).NextLower();
+            return next != null ? next.Value : default(T);
+        }
+
+
+        /// <summary>
+        ///     Get the value next to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T Next(T value)
+        {
+            var node = FindNode(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as IBSTNode<T>).NextUpper();
+            return next != null ? next.Value : default(T);
+        }
+
+        internal void Swap(T value1, T value2)
+        {
+            var node1 = find(value1);
+            var node2 = find(value2);
+
+            if (node1 == null || node2 == null)
+            {
+                throw new Exception("Value1, Value2 or both was not found in this BST.");
+            }
+
+            var tmp = node1.Value;
+            node1.Value = node2.Value;
+            node2.Value = tmp;
         }
     }
 }
