@@ -767,6 +767,12 @@ namespace Advanced.Algorithms.DataStructures
             var tmp = node1.Value;
             node1.Value = node2.Value;
             node2.Value = tmp;
+
+            if (nodeLookUp != null)
+            {
+                nodeLookUp[node1.Value] = node1;
+                nodeLookUp[node2.Value] = node2;
+            }
         }
     }
 }
