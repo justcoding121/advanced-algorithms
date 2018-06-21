@@ -17,7 +17,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //insert test
             var tree = new SplayTree<int>();
 
-
             tree.Insert(11);
             tree.Insert(6);
             tree.Insert(8);

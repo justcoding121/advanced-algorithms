@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.Sorting
             while (tree.Count > 0)
             {
                 //can be optimized by consolidating FindMin & Delete!
-                var min = tree.FindMin();
+                var min = tree.Min();
                 sortedArray[j] = min;
                 tree.Delete(min);
                 j++;

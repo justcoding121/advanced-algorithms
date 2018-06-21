@@ -73,23 +73,6 @@ namespace Advanced.Algorithms.DataStructures
             binarySearchTree.Delete(new TreeDictionaryNode<TK, TV>(key, default(TV)));
         }
 
-        //O(n) time complexity
-        public ArrayList<TreeDictionaryNode<TK, TV>> GetAll()
-        {
-            var nodes = binarySearchTree.GetAllNodes();
-
-            var allNodeValues = new ArrayList<TreeDictionaryNode<TK, TV>>();
-
-            foreach (var node in nodes)
-            {
-                allNodeValues.Add(node);
-            }
-
-            nodes.Clear();
-
-            return allNodeValues;
-        }
-
         internal void Clear()
         {
             binarySearchTree.Clear();

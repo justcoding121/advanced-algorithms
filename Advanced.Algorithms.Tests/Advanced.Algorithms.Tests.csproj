@@ -91,7 +91,11 @@
     <Compile Include="DataStructures\Lists\ArrayList_Tests.cs" />
     <Compile Include="DataStructures\Lists\SkipList_Tests.cs" />
     <Compile Include="DataStructures\Queues\PriorityQueue\MaxPriorityQueue_Tests.cs" />
+    <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\BST_Tests.cs" />
     <Compile Include="DataStructures\Tree\RTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\SplayTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\TreapTree_Tests.cs" />
     <Compile Include="Distributed\CircularQueue_Tests.cs" />
     <Compile Include="DataStructures\Queues\Queue_Tests.cs" />
     <Compile Include="DataStructures\Set\BloomFilter_Tests.cs" />
@@ -100,7 +104,6 @@
     <Compile Include="DataStructures\Stack_Tests.cs" />
     <Compile Include="DataStructures\Tree\TernarySearchTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\Trie_Tests.cs" />
-    <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\B+Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\FenwickTree_Tests.cs" />
@@ -109,9 +112,6 @@
     <Compile Include="DataStructures\Tree\SegmentTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\SuffixTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\TestHelpers\BTreeTester.cs" />
-    <Compile Include="DataStructures\Tree\TreapTree_Tests.cs" />
-    <Compile Include="DataStructures\Tree\SplayTree_Tests.cs" />
-    <Compile Include="DataStructures\Tree\BST_Tests.cs" />
     <Compile Include="DataStructures\Queues\PriorityQueue\MinPriorityQueue_Tests.cs" />
     <Compile Include="DataStructures\Tree\RedBlackTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />

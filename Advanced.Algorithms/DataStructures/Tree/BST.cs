@@ -2,31 +2,31 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class BSTNode<T> : IBSTNode<T> where T : IComparable
+    internal class BSTNode<T> : BSTNodeBase<T> where T : IComparable
     {
-        internal T Value { get; set; }
+        internal new BSTNode<T> Parent
+        {
+            get { return (BSTNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
 
-        internal BSTNode<T> Parent { get; set; }
+        internal new BSTNode<T> Left
+        {
+            get { return (BSTNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
 
-        internal BSTNode<T> Left { get; set; }
-        internal BSTNode<T> Right { get; set; }
-
-        internal bool IsLeaf => Left == null && Right == null;
-        internal bool IsLeftChild => this.Parent.Left == this;
-        internal bool IsRightChild => this.Parent.Right == this;
-
-        IBSTNode<T> IBSTNode<T>.Left => Left;
-
-        IBSTNode<T> IBSTNode<T>.Right => Right;
-
-        T IBSTNode<T>.Value => Value;
+        internal new BSTNode<T> Right
+        {
+            get { return (BSTNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
 
         internal BSTNode(BSTNode<T> parent, T value)
         {
             Parent = parent;
             Value = value;
         }
-
     }
 
     //TODO support initial bulk loading

@@ -2,22 +2,25 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class SplayTreeNode<T> : IBSTNode<T>  where T : IComparable
+    internal class SplayTreeNode<T> : BSTNodeBase<T>  where T : IComparable
     {
-        internal T Value { get; set; }
+        internal new SplayTreeNode<T> Parent
+        {
+            get { return (SplayTreeNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
 
-        internal SplayTreeNode<T> Parent { get; set; }
+        internal new SplayTreeNode<T> Left
+        {
+            get { return (SplayTreeNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
 
-        internal SplayTreeNode<T> Left { get; set; }
-        internal SplayTreeNode<T> Right { get; set; }
-
-        internal bool IsLeaf => Left == null && Right == null;
-        internal bool IsLeftChild => this.Parent.Left == this;
-        internal bool IsRightChild => this.Parent.Right == this;
-
-        IBSTNode<T> IBSTNode<T>.Left => Left;
-        IBSTNode<T> IBSTNode<T>.Right => Right;
-        T IBSTNode<T>.Value => Value;
+        internal new SplayTreeNode<T> Right
+        {
+            get { return (SplayTreeNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
 
         internal SplayTreeNode(SplayTreeNode<T> parent, T value)
         {

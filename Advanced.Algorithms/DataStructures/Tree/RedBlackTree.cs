@@ -14,31 +14,30 @@ namespace Advanced.Algorithms.DataStructures
     /// Red black tree node
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    internal class RedBlackTreeNode<T> : IBSTNode<T> where T : IComparable
+    internal class RedBlackTreeNode<T> : BSTNodeBase<T> where T : IComparable
     {
-        internal T Value { get; set; }
+        internal new RedBlackTreeNode<T> Parent
+        {
+            get { return (RedBlackTreeNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
 
-        internal RedBlackTreeNode<T> Parent { get; set; }
+        internal new RedBlackTreeNode<T> Left
+        {
+            get { return (RedBlackTreeNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
 
-        internal RedBlackTreeNode<T> Left { get; set; }
-        internal RedBlackTreeNode<T> Right { get; set; }
+        internal new RedBlackTreeNode<T> Right
+        {
+            get { return (RedBlackTreeNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
 
-        internal bool IsLeaf => Left == null && Right == null;
         internal RedBlackTreeNodeColor NodeColor { get; set; }
 
         internal RedBlackTreeNode<T> Sibling => Parent.Left == this ?
                                                 Parent.Right : Parent.Left;
-
-        internal bool IsLeftChild => Parent.Left == this;
-        internal bool IsRightChild => Parent.Right == this;
-
-        //exposed to share logic on common operations with Binary search trees
-        IBSTNode<T> IBSTNode<T>.Parent => Parent;
-        IBSTNode<T> IBSTNode<T>.Left => Left;
-        IBSTNode<T> IBSTNode<T>.Right => Right;
-        T IBSTNode<T>.Value => Value;
-        bool IBSTNode<T>.IsLeftChild => IsLeftChild;
-        bool IBSTNode<T>.IsRightChild => IsRightChild;
 
         internal RedBlackTreeNode(RedBlackTreeNode<T> parent, T value)
         {
@@ -75,19 +74,9 @@ namespace Advanced.Algorithms.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         public int GetHeight()
         {
-            return getHeight(Root);
+            return Root.GetHeight();
         }
-
-        //O(log(n)) worst O(n) for unbalanced tree
-        private int getHeight(RedBlackTreeNode<T> node)
-        {
-            if (node == null)
-            {
-                return -1;
-            }
-
-            return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
-        }
+        
         //O(log(n)) always
         public bool HasItem(T value)
         {
@@ -104,39 +93,32 @@ namespace Advanced.Algorithms.DataStructures
             return find(value) != null;
         }
 
-        public T Max()
-        {
-            return findMax(Root).Value;
-        }
-
         internal void Clear()
         {
             Root = null;
             Count = 0;
         }
 
-        private RedBlackTreeNode<T> findMax(RedBlackTreeNode<T> node)
+        public T Max()
         {
-            while (true)
-            {
-                if (node.Right == null) return node;
-                node = node.Right;
-            }
+            return Root.FindMax().Value;
         }
 
-        public T Min()
+        private RedBlackTreeNode<T> findMax(RedBlackTreeNode<T> node)
         {
-            return findMin(Root).Value;
+            return node.FindMax() as RedBlackTreeNode<T>;
         }
 
         private RedBlackTreeNode<T> findMin(RedBlackTreeNode<T> node)
         {
-            while (true)
-            {
-                if (node.Left == null) return node;
-                node = node.Left;
-            }
+            return node.FindMin() as RedBlackTreeNode<T>;
         }
+
+        public T Min()
+        {
+            return Root.FindMin().Value;
+        }
+
 
         //O(log(n)) worst O(n) for unbalanced tree
         internal RedBlackTreeNode<T> FindNode(T value)
@@ -160,38 +142,7 @@ namespace Advanced.Algorithms.DataStructures
                 return nodeLookUp[value];
             }
 
-            return find(Root, value);
-        }
-
-        //find the node with the given identifier among descendants of parent and parent
-        //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
-        private RedBlackTreeNode<T> find(RedBlackTreeNode<T> current, T value)
-        {
-            while (true)
-            {
-                if (current == null)
-                {
-                    return null;
-                }
-
-                var compareResult = current.Value.CompareTo(value);
-
-                if (compareResult == 0)
-                {
-                    return current;
-                }
-
-                if (compareResult > 0)
-                {
-                    current = current.Left;
-                }
-                else
-                {
-                    current = current.Right;
-                }
-
-            }
+            return Root.Find<T>(value) as RedBlackTreeNode<T>;
         }
 
         private void rightRotate(RedBlackTreeNode<T> node)
@@ -272,7 +223,6 @@ namespace Advanced.Algorithms.DataStructures
                 Root = newRoot;
             }
         }
-
 
         //O(log(n)) always
         public void Insert(T value)
@@ -783,10 +733,9 @@ namespace Advanced.Algorithms.DataStructures
                 return default(T);
             }
 
-            var next = (node as IBSTNode<T>).NextLower();
+            var next = (node as BSTNodeBase<T>).NextLower();
             return next != null ? next.Value : default(T);
         }
-
 
         /// <summary>
         ///     Get the value next to given value in this BST.
@@ -801,7 +750,7 @@ namespace Advanced.Algorithms.DataStructures
                 return default(T);
             }
 
-            var next = (node as IBSTNode<T>).NextUpper();
+            var next = (node as BSTNodeBase<T>).NextUpper();
             return next != null ? next.Value : default(T);
         }
 

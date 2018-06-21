@@ -2,16 +2,25 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class AVLTreeNode<T> : IBSTNode<T> where T : IComparable
+    internal class AVLTreeNode<T> : BSTNodeBase<T> where T : IComparable
     {
-        internal T Value { get; set; }
+        internal new AVLTreeNode<T> Parent
+        {
+            get { return (AVLTreeNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
 
-        internal AVLTreeNode<T> Parent { get; set; }
+        internal new AVLTreeNode<T> Left
+        {
+            get { return (AVLTreeNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
 
-        internal AVLTreeNode<T> Left { get; set; }
-        internal AVLTreeNode<T> Right { get; set; }
-
-        internal bool IsLeaf => Left == null && Right == null;
+        internal new AVLTreeNode<T> Right
+        {
+            get { return (AVLTreeNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
 
         internal AVLTreeNode(AVLTreeNode<T> parent, T value)
         {
@@ -21,11 +30,6 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         internal int Height { get; set; }
-
-        //exposed to do common tests for Binary Trees
-        IBSTNode<T> IBSTNode<T>.Left => Left;
-        IBSTNode<T> IBSTNode<T>.Right => Right;
-        T IBSTNode<T>.Value => Value;
     }
 
     //TODO support bulk initial loading

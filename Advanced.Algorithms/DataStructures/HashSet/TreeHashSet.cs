@@ -40,24 +40,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             binarySearchTree.Delete(value);
         }
-
-        //O(n) time complexity
-        public ArrayList<V> GetAll()
-        {
-            var nodes = binarySearchTree.GetAllNodes();
-
-            var allNodeValues = new ArrayList<V>();
-
-            foreach (var node in nodes)
-            {
-                allNodeValues.Add(node);
-            }
-
-            nodes.Clear();
-
-            return allNodeValues;
-        }
-
+       
         internal void Clear()
         {
             binarySearchTree.Clear();
