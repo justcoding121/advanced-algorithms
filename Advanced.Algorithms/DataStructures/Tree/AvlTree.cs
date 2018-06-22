@@ -504,7 +504,6 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
 
-
             //move prev root as left child of current root
             newRoot.Left = prevRoot;
             prevRoot.Parent = newRoot;
