@@ -504,6 +504,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T)
   nameWithType: AVLTree<T>
   nameWithType.vb: AVLTree(Of T)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.#ctor(System.Boolean)
+  name: AVLTree(Boolean)
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1__ctor_System_Boolean_
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.#ctor(System.Boolean)
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.AVLTree(System.Boolean)
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).AVLTree(System.Boolean)
+  nameWithType: AVLTree<T>.AVLTree(Boolean)
+  nameWithType.vb: AVLTree(Of T).AVLTree(Boolean)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.#ctor*
+  name: AVLTree
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.AVLTree
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).AVLTree
+  nameWithType: AVLTree<T>.AVLTree
+  nameWithType.vb: AVLTree(Of T).AVLTree
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.Contains(`0)
   name: Contains(T)
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Contains__0_
@@ -640,6 +657,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Insert
   nameWithType: AVLTree<T>.Insert
   nameWithType.vb: AVLTree(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.Next(`0)
+  name: Next(T)
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Next__0_
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.Next(`0)
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.Next(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Next(T)
+  nameWithType: AVLTree<T>.Next(T)
+  nameWithType.vb: AVLTree(Of T).Next(T)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.Next*
+  name: Next
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Next_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.Next
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.Next
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Next
+  nameWithType: AVLTree<T>.Next
+  nameWithType.vb: AVLTree(Of T).Next
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.Previous(`0)
+  name: Previous(T)
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Previous__0_
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.Previous(`0)
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.Previous(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Previous(T)
+  nameWithType: AVLTree<T>.Previous(T)
+  nameWithType.vb: AVLTree(Of T).Previous(T)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.Previous*
+  name: Previous
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Previous_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.Previous
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.Previous
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Previous
+  nameWithType: AVLTree<T>.Previous
+  nameWithType.vb: AVLTree(Of T).Previous
 - uid: Advanced.Algorithms.DataStructures.BinaryTree`1
   name: BinaryTree<T>
   href: api/Advanced.Algorithms.DataStructures.BinaryTree-1.html
