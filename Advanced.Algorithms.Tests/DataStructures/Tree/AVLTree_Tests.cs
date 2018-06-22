@@ -100,7 +100,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var tree = new AVLTree<int>();
+            var tree = new AVLTree<int>(true);
 
             for (int i = 0; i < nodeCount; i++)
             {
