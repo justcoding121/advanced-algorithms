@@ -1373,6 +1373,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T)
   nameWithType: BMinHeap<T>
   nameWithType.vb: BMinHeap(Of T)
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor
+  name: BMinHeap()
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap()
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap()
+  nameWithType: BMinHeap<T>.BMinHeap()
+  nameWithType.vb: BMinHeap(Of T).BMinHeap()
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IComparer{`0})
+  name: BMinHeap(IComparer<T>)
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IComparer{`0})
+  name.vb: BMinHeap(IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(System.Collections.Generic.IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(System.Collections.Generic.IComparer(Of T))
+  nameWithType: BMinHeap<T>.BMinHeap(IComparer<T>)
+  nameWithType.vb: BMinHeap(Of T).BMinHeap(IComparer(Of T))
 - uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0})
   name: BMinHeap(IEnumerable<T>)
   href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IEnumerable__0__
@@ -1382,6 +1399,15 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(System.Collections.Generic.IEnumerable(Of T))
   nameWithType: BMinHeap<T>.BMinHeap(IEnumerable<T>)
   nameWithType.vb: BMinHeap(Of T).BMinHeap(IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})
+  name: BMinHeap(IEnumerable<T>, IComparer<T>)
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})
+  name.vb: BMinHeap(IEnumerable(Of T), IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IComparer(Of T))
+  nameWithType: BMinHeap<T>.BMinHeap(IEnumerable<T>, IComparer<T>)
+  nameWithType.vb: BMinHeap(Of T).BMinHeap(IEnumerable(Of T), IComparer(Of T))
 - uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor*
   name: BMinHeap
   href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_
@@ -1408,6 +1434,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Count
   nameWithType: BMinHeap<T>.Count
   nameWithType.vb: BMinHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Delete(`0)
+  name: Delete(T)
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Delete__0_
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.Delete(`0)
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Delete(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Delete(T)
+  nameWithType: BMinHeap<T>.Delete(T)
+  nameWithType.vb: BMinHeap(Of T).Delete(T)
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Delete*
+  name: Delete
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Delete_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.Delete
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Delete
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Delete
+  nameWithType: BMinHeap<T>.Delete
+  nameWithType.vb: BMinHeap(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Exists(`0)
+  name: Exists(T)
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Exists__0_
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.Exists(`0)
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Exists(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Exists(T)
+  nameWithType: BMinHeap<T>.Exists(T)
+  nameWithType.vb: BMinHeap(Of T).Exists(T)
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Exists*
+  name: Exists
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Exists_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.Exists
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Exists
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Exists
+  nameWithType: BMinHeap<T>.Exists
+  nameWithType.vb: BMinHeap(Of T).Exists
 - uid: Advanced.Algorithms.DataStructures.BMinHeap`1.ExtractMin
   name: ExtractMin()
   href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_ExtractMin
@@ -6438,14 +6498,15 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T)
   nameWithType: RedBlackTree<T>
   nameWithType.vb: RedBlackTree(Of T)
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean)
-  name: RedBlackTree(Boolean)
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_System_Boolean_
-  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean)
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RedBlackTree(System.Boolean)
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RedBlackTree(System.Boolean)
-  nameWithType: RedBlackTree<T>.RedBlackTree(Boolean)
-  nameWithType.vb: RedBlackTree(Of T).RedBlackTree(Boolean)
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,System.Collections.Generic.IEqualityComparer{`0})
+  name: RedBlackTree(Boolean, IEqualityComparer<T>)
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_System_Boolean_System_Collections_Generic_IEqualityComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,System.Collections.Generic.IEqualityComparer{`0})
+  name.vb: RedBlackTree(Boolean, IEqualityComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RedBlackTree(System.Boolean, System.Collections.Generic.IEqualityComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RedBlackTree(System.Boolean, System.Collections.Generic.IEqualityComparer(Of T))
+  nameWithType: RedBlackTree<T>.RedBlackTree(Boolean, IEqualityComparer<T>)
+  nameWithType.vb: RedBlackTree(Of T).RedBlackTree(Boolean, IEqualityComparer(Of T))
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor*
   name: RedBlackTree
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_
@@ -8766,6 +8827,38 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Geometry.ConvexHull.Find
   nameWithType: ConvexHull.Find
+- uid: Advanced.Algorithms.Geometry.LineExtensions
+  name: LineExtensions
+  href: api/Advanced.Algorithms.Geometry.LineExtensions.html
+  commentId: T:Advanced.Algorithms.Geometry.LineExtensions
+  fullName: Advanced.Algorithms.Geometry.LineExtensions
+  nameWithType: LineExtensions
+- uid: Advanced.Algorithms.Geometry.LineExtensions.Intersection(Line,Line,System.Int32)
+  name: Intersection(Line, Line, Int32)
+  href: api/Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersection_Line_Line_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.LineExtensions.Intersection(Line,Line,System.Int32)
+  fullName: Advanced.Algorithms.Geometry.LineExtensions.Intersection(Line, Line, System.Int32)
+  nameWithType: LineExtensions.Intersection(Line, Line, Int32)
+- uid: Advanced.Algorithms.Geometry.LineExtensions.Intersection*
+  name: Intersection
+  href: api/Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersection_
+  commentId: Overload:Advanced.Algorithms.Geometry.LineExtensions.Intersection
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.LineExtensions.Intersection
+  nameWithType: LineExtensions.Intersection
+- uid: Advanced.Algorithms.Geometry.LineExtensions.Intersects(Line,Line,System.Int32)
+  name: Intersects(Line, Line, Int32)
+  href: api/Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersects_Line_Line_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.LineExtensions.Intersects(Line,Line,System.Int32)
+  fullName: Advanced.Algorithms.Geometry.LineExtensions.Intersects(Line, Line, System.Int32)
+  nameWithType: LineExtensions.Intersects(Line, Line, Int32)
+- uid: Advanced.Algorithms.Geometry.LineExtensions.Intersects*
+  name: Intersects
+  href: api/Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersects_
+  commentId: Overload:Advanced.Algorithms.Geometry.LineExtensions.Intersects
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.LineExtensions.Intersects
+  nameWithType: LineExtensions.Intersects
 - uid: Advanced.Algorithms.Geometry.LineIntersection
   name: LineIntersection
   href: api/Advanced.Algorithms.Geometry.LineIntersection.html
