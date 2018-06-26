@@ -141,13 +141,49 @@
   
   
   <a id="Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IEnumerable__0__" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0})">BMinHeap(IEnumerable&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Initialize with optional init value</p>
-</div>
+  <h4 id="Advanced_Algorithms_DataStructures_BMinHeap_1__ctor" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor">BMinHeap()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BMinHeap(IEnumerable&lt;T&gt; initial = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public BMinHeap()</code></pre>
+  </div>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IComparer__0__" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IComparer{`0})">BMinHeap(IComparer&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BMinHeap(IComparer&lt;T&gt; comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;T&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IEnumerable__0__" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0})">BMinHeap(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BMinHeap(IEnumerable&lt;T&gt; initial)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -162,6 +198,39 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><span class="parametername">initial</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IComparer__0__" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})">BMinHeap(IEnumerable&lt;T&gt;, IComparer&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialize with optional init value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BMinHeap(IEnumerable&lt;T&gt; initial, IComparer&lt;T&gt; comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
+        <td><span class="parametername">initial</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;T&gt;</td>
+        <td><span class="parametername">comparer</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -195,6 +264,75 @@
   </table>
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_BMinHeap_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.Delete*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_BMinHeap_1_Delete__0_" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.Delete(`0)">Delete(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Delete(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_BMinHeap_1_Exists_" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.Exists*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_BMinHeap_1_Exists__0_" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.Exists(`0)">Exists(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Exists(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Advanced_Algorithms_DataStructures_BMinHeap_1_ExtractMin_" data-uid="Advanced.Algorithms.DataStructures.BMinHeap`1.ExtractMin*"></a>
