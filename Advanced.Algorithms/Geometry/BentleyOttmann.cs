@@ -80,10 +80,10 @@ namespace Advanced.Algorithms.Geometry
 
                         if (verticalHorizontalLines.Count > 0)
                         {
-                            foreach (var verticalLine in verticalHorizontalLines)
+                            foreach (var line in verticalHorizontalLines)
                             {
-                                var intersection = findIntersection(currentEvent, verticalLine);
-                                recordIntersection(currentEvent, verticalLine, intersection);
+                                var intersection = findIntersection(currentEvent, line);
+                                recordIntersection(currentEvent, line, intersection);
                             }
                         }
 
@@ -91,10 +91,10 @@ namespace Advanced.Algorithms.Geometry
                         {
                             verticalHorizontalLines.Add(currentEvent);
 
-                            foreach (var verticalLine in normalLines)
+                            foreach (var line in normalLines)
                             {
-                                var intersection = findIntersection(currentEvent, verticalLine);
-                                recordIntersection(currentEvent, verticalLine, intersection);
+                                var intersection = findIntersection(currentEvent, line);
+                                recordIntersection(currentEvent, line, intersection);
                             }
 
                             break;
