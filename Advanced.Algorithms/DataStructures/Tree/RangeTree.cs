@@ -198,7 +198,6 @@ namespace Advanced.Algorithms.DataStructures
     /// <typeparam name="T"></typeparam>
     internal class RangeTree<T> where T : IComparable
     {
-
         internal RedBlackTree<RangeTreeNode<T>> tree
             = new RedBlackTree<RangeTreeNode<T>>();
 
@@ -256,7 +255,6 @@ namespace Advanced.Algorithms.DataStructures
                     {
                         getInRange(result, visited, currentNode.Left, start, end);
                     }
-
 
                     //start is less than current node
                     if (!visited.ContainsKey(currentNode)

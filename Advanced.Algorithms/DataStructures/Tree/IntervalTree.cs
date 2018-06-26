@@ -509,7 +509,6 @@ namespace Advanced.Algorithms.DataStructures
             return false;
         }
 
-
         internal class AsIntervalRedBlackTreeNode<T> where T : IComparable
         {
             internal T Value { get; set; }

@@ -7,21 +7,18 @@
             X = x;
             Y = y;
         }
-        public double X { get; set; }
-        public double Y { get; set; }
 
-        public override bool Equals(object obj)
+        public double X { get; private set; }
+        public double Y { get; private set; }
+
+        public override string ToString()
         {
-            var tgt = obj as Point;
-            return (tgt.X == X) && (tgt.Y == Y);
+            return X.ToString("F") + " " + Y.ToString("F");
         }
 
-        public override int GetHashCode()
+        public Point Clone()
         {
-            var hashCode = 1861411795;
-            hashCode = hashCode * -1521134295 + X.GetHashCode();
-            hashCode = hashCode * -1521134295 + Y.GetHashCode();
-            return hashCode;
+            return new Point(X, Y);
         }
     }
 }

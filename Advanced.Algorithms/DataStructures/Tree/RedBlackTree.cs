@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -63,11 +64,11 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         /// by using a dictionary<T, RedBlackTreeNode<T> at the cost of additional space.</param>
-        public RedBlackTree(bool enableNodeLookUp = false)
+        public RedBlackTree(bool enableNodeLookUp = false, IEqualityComparer<T> equalityComparer = null)
         {
             if (enableNodeLookUp)
             {
-                nodeLookUp = new System.Collections.Generic.Dictionary<T, RedBlackTreeNode<T>>();
+                nodeLookUp = new System.Collections.Generic.Dictionary<T, RedBlackTreeNode<T>>(equalityComparer);
             }
         }
 
@@ -76,7 +77,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             return Root.GetHeight();
         }
-        
+
         //O(log(n)) always
         public bool HasItem(T value)
         {

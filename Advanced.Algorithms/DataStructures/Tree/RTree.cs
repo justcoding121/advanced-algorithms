@@ -567,7 +567,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         internal static MBRectangle GetContainingRectangle(this Polygon polygon)
         {
-            var x = polygon.Edges.SelectMany(z => new double[] { z.Start.X, z.End.X })
+            var x = polygon.Edges.SelectMany(z => new double[] { z.Left.X, z.Right.X })
                 .Aggregate(new
                 {
                     Max = double.MinValue,
@@ -579,7 +579,7 @@ namespace Advanced.Algorithms.DataStructures
                 });
 
 
-            var y = polygon.Edges.SelectMany(z => new double[] { z.Start.Y, z.End.Y })
+            var y = polygon.Edges.SelectMany(z => new double[] { z.Left.Y, z.Right.Y })
                    .Aggregate(new
                    {
                        Max = double.MinValue,

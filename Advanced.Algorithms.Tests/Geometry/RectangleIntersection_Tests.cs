@@ -10,6 +10,8 @@ namespace Advanced.Algorithms.Tests.Geometry
         [TestMethod]
         public void RectIntersection_Smoke_Test()
         {
+            var rectangleComparer = new RectangleComparer();
+
             var result = RectangleIntersection.FindIntersection(new Rectangle()
             {
                 LeftTopCorner = new Point(0, 10),
@@ -21,11 +23,11 @@ namespace Advanced.Algorithms.Tests.Geometry
                 RightBottomCorner = new Point(15, 0)
             });
 
-            Assert.AreEqual(result, new Rectangle()
+            Assert.IsTrue(rectangleComparer.Equals(result, new Rectangle()
             {
                 LeftTopCorner = new Point(5, 5),
                 RightBottomCorner = new Point(10, 0)
-            });
+            }));
 
             result = RectangleIntersection.FindIntersection(new Rectangle()
             {
@@ -38,7 +40,7 @@ namespace Advanced.Algorithms.Tests.Geometry
                 RightBottomCorner = new Point(15, 0)
             });
 
-            Assert.AreEqual(result, null);
+            Assert.IsTrue(rectangleComparer.Equals(result, null));
         }
 
     }

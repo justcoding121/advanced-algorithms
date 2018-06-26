@@ -25,16 +25,6 @@ namespace Advanced.Algorithms.Geometry
         internal double Length => Math.Abs(RightBottomCorner.X - LeftTopCorner.X);
         internal double Breadth => Math.Abs(LeftTopCorner.Y - RightBottomCorner.Y);
 
-        public override bool Equals(object obj)
-        {
-            var tgt = obj as Rectangle;
-
-            return tgt.LeftTopCorner.X == LeftTopCorner.X
-                && tgt.LeftTopCorner.Y == LeftTopCorner.Y
-                && tgt.RightBottomCorner.X == RightBottomCorner.X
-                && tgt.RightBottomCorner.Y == RightBottomCorner.Y;
-        }
-
         public Polygon ToPolygon()
         {
 

@@ -8,22 +8,41 @@ namespace Advanced.Algorithms.DataStructures
     public class BMinHeap<T> where T : IComparable
     {
         private T[] heapArray;
+        private readonly IComparer<T> comparer;
 
         public int Count { get; private set; }
+
+        public BMinHeap()
+            : this(null, null) { }
+
+        public BMinHeap(IEnumerable<T> initial)
+            : this(initial, null) { }
+
+        public BMinHeap(IComparer<T> comparer)
+            : this(null, comparer) { }
 
         /// <summary>
         /// Initialize with optional init value
         /// </summary>
         /// <param name="initial"></param>
-        public BMinHeap(IEnumerable<T> initial = null)
-        {      
+        public BMinHeap(IEnumerable<T> initial, IComparer<T> comparer)
+        {
+            if (comparer != null)
+            {
+                this.comparer = comparer;
+            }
+            else
+            {
+                this.comparer = Comparer<T>.Default;
+            }
+
             if (initial != null)
             {
                 var items = initial as T[] ?? initial.ToArray();
                 var initArray = new T[items.Count()];
 
                 var i = 0;
-                foreach(var item in items)
+                foreach (var item in items)
                 {
                     initArray[i] = item;
                     i++;
@@ -70,11 +89,11 @@ namespace Advanced.Algorithms.DataStructures
                 var left = 2 * i + 1;
                 var right = 2 * i + 2;
 
-                var min = left < initial.Length && right < initial.Length ? initial[left].CompareTo(initial[right]) < 0 ? left : right
+                var min = left < initial.Length && right < initial.Length ? comparer.Compare(initial[left], initial[right]) < 0 ? left : right
                     : left < initial.Length ? left
                     : right < initial.Length ? right : -1;
 
-                if (min != -1 && initial[min].CompareTo(initial[parent]) < 0)
+                if (min != -1 && comparer.Compare(initial[min], initial[parent]) < 0)
                 {
                     var temp = initial[min];
                     initial[min] = initial[parent];
@@ -102,7 +121,7 @@ namespace Advanced.Algorithms.DataStructures
 
             for (int i = Count; i > 0; i = (i - 1) / 2)
             {
-                if (heapArray[i].CompareTo(heapArray[(i - 1) / 2]) < 0)
+                if (comparer.Compare(heapArray[i], heapArray[(i - 1) / 2]) < 0)
                 {
                     var temp = heapArray[(i - 1) / 2];
                     heapArray[(i - 1) / 2] = heapArray[i];
@@ -123,12 +142,18 @@ namespace Advanced.Algorithms.DataStructures
             {
                 throw new Exception("Empty heap");
             }
+
             var min = heapArray[0];
 
-            heapArray[0] = heapArray[Count - 1];
-            Count--;
+            delete(0);
 
-            int parentIndex = 0;
+            return min;
+        }
+
+        private void delete(int parentIndex)
+        {
+            heapArray[parentIndex] = heapArray[Count - 1];
+            Count--;
 
             //percolate down
             while (true)
@@ -145,14 +170,14 @@ namespace Advanced.Algorithms.DataStructures
 
                     var leftIsMin = false;
 
-                    if (leftChild.CompareTo(rightChild) < 0)
+                    if (comparer.Compare(leftChild, rightChild) < 0)
                     {
                         leftIsMin = true;
                     }
 
                     var minChildIndex = leftIsMin ? leftIndex : rightIndex;
 
-                    if (heapArray[minChildIndex].CompareTo(parent) < 0)
+                    if (comparer.Compare(heapArray[minChildIndex], parent) < 0)
                     {
                         var temp = heapArray[parentIndex];
                         heapArray[parentIndex] = heapArray[minChildIndex];
@@ -175,7 +200,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
                 else if (leftIndex < Count)
                 {
-                    if (heapArray[leftIndex].CompareTo(parent) < 0)
+                    if (comparer.Compare(heapArray[leftIndex], parent) < 0)
                     {
                         var temp = heapArray[parentIndex];
                         heapArray[parentIndex] = heapArray[leftIndex];
@@ -190,7 +215,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
                 else if (rightIndex < Count)
                 {
-                    if (heapArray[rightIndex].CompareTo(parent) < 0)
+                    if (comparer.Compare(heapArray[rightIndex], parent) < 0)
                     {
                         var temp = heapArray[parentIndex];
                         heapArray[parentIndex] = heapArray[rightIndex];
@@ -214,8 +239,6 @@ namespace Advanced.Algorithms.DataStructures
             {
                 halfArray();
             }
-
-            return min;
         }
 
         //o(1)
@@ -227,6 +250,38 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             return heapArray[0];
+        }
+
+        public void Delete(T value)
+        {
+            var index = findIndex(value);
+
+            if (index != -1)
+            {
+                delete(index);
+                return;
+            }
+
+            throw new Exception("Item not found.");
+
+        }
+
+        public bool Exists(T value)
+        {
+            return findIndex(value) != -1;
+        }
+
+        //TODO optimize search
+        private int findIndex(T value)
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                if (heapArray[i].Equals(value))
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         private void halfArray()
