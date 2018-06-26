@@ -205,14 +205,20 @@ namespace Advanced.Algorithms.DataStructures
 
         public RangeTreeNode<T> Find(T value)
         {
-            return tree.Find(new RangeTreeNode<T>(value)).Value;
+            var result = tree.FindNode(new RangeTreeNode<T>(value));
+            if (result == null)
+            {
+                throw new Exception("Item not found in this tree.");
+            }
+
+            return result.Value;
         }
 
         internal RangeTreeNode<T> Insert(T value)
         {
             var newNode = new RangeTreeNode<T>(value);
-            var result = tree.InsertAndReturnNewNode(newNode);
-            return result.Value;
+            tree.Insert(newNode);
+            return newNode;
         }
 
         internal void Delete(T value)
@@ -240,10 +246,8 @@ namespace Advanced.Algorithms.DataStructures
                     return result;
                 }
 
-                foreach (var v in currentNode.Values)
-                {
-                    result.Add(v);
-                }
+                result.Add(currentNode.Value);
+
             }
             //if start is less than current
             //move left
@@ -260,11 +264,7 @@ namespace Advanced.Algorithms.DataStructures
                     if (!visited.ContainsKey(currentNode)
                         && inRange(currentNode, start, end))
                     {
-                        foreach (var v in currentNode.Values)
-                        {
-                            result.Add(v);
-                        }
-
+                        result.Add(currentNode.Value);
                         visited.Add(currentNode, false);
                     }
                 }
@@ -288,11 +288,7 @@ namespace Advanced.Algorithms.DataStructures
                         return result;
                     }
 
-                    foreach (var v in currentNode.Values)
-                    {
-                        result.Add(v);
-                    }
-
+                    result.Add(currentNode.Value);
                     visited.Add(currentNode, false);
                 }
             }

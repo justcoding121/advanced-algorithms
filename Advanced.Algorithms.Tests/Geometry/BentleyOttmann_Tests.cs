@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Advanced.Algorithms.Tests.Geometry
@@ -65,17 +66,32 @@ namespace Advanced.Algorithms.Tests.Geometry
         [TestMethod]
         public void BentleyOttmann_Stress_Test()
         {
-            var lines = new List<Line>();
+            while (true)
+            {
+                var lines = new List<Line>();
 
-            lines.AddRange(getRandomLines(100));
+                lines.AddRange(getRandomLines(1000));
 
-            var expectedIntersections = getExpectedIntersections(lines);
+                var stopWatch = new Stopwatch();
 
-            var bentleyOttmannAlgorithm = new BentleyOttmann();
+                stopWatch.Start();
+                var expectedIntersections = getExpectedIntersections(lines);
+                stopWatch.Stop();
 
-            var actualIntersections = bentleyOttmannAlgorithm.FindIntersections(lines);
+                var naiveElapsedTime = stopWatch.ElapsedMilliseconds;
 
-            Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+                var bentleyOttmannAlgorithm = new BentleyOttmann();
+                stopWatch.Reset();
+
+                stopWatch.Start();
+                var actualIntersections = bentleyOttmannAlgorithm.FindIntersections(lines);
+                stopWatch.Stop();
+
+                var actualElapsedTime = stopWatch.ElapsedMilliseconds;
+
+                Assert.IsTrue(actualElapsedTime <= naiveElapsedTime);
+                Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+            }
         }
 
         private static Random random = new Random();
@@ -88,7 +104,7 @@ namespace Advanced.Algorithms.Tests.Geometry
             {
                 for (int j = i + 1; j < lines.Count; j++)
                 {
-                    var intersection = LineIntersection.FindIntersection(lines[i], lines[j]);
+                    var intersection = LineIntersection.Find(lines[i], lines[j]);
 
                     if (intersection != null)
                     {
@@ -116,9 +132,6 @@ namespace Advanced.Algorithms.Tests.Geometry
         private static List<Line> getRandomLines(int lineCount)
         {
             var lines = new List<Line>();
-
-            lines.AddRange(verticalLines());
-            lines.AddRange(horizontalLines());
 
             while (lineCount > 0)
             {
@@ -159,8 +172,13 @@ namespace Advanced.Algorithms.Tests.Geometry
 
         private static Line getRandomLine()
         {
-            return new Line(new Point(random.Next(0, 1000) * random.NextDouble(), random.Next(0, 1000) * random.NextDouble()),
-                new Point(random.Next(0, 1000) * random.NextDouble(), random.Next(0, 1000) * random.NextDouble()));
+            var leftX = random.Next(0, 1000000) * random.NextDouble();
+            var leftY = random.Next(0, 1000000) * random.NextDouble();
+
+            var rightX = leftX + random.Next(0, 10000);
+            var rightY = leftY + random.Next(0, 10000);
+
+            return new Line(new Point(leftX, leftY), new Point(rightX, rightY));
         }
     }
 }

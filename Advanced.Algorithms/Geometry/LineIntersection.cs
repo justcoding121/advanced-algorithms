@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.Geometry
         /// <param name="lineB"></param>
         /// <param name="precision">precision tolerance.</param>
         /// <returns>The point of intersection.</returns>
-        public static Point FindIntersection(Line lineA, Line lineB, int precision = 5)
+        public static Point Find(Line lineA, Line lineB, int precision = 5)
         {
             var tolerance = Math.Round(Math.Pow(0.1, precision), precision);
             return FindIntersection(lineA, lineB, tolerance);
@@ -207,12 +207,12 @@ namespace Advanced.Algorithms.Geometry
     {
         public static bool Intersects(this Line lineA, Line lineB, int precision = 5)
         {
-            return LineIntersection.FindIntersection(lineA, lineB, precision) != null;
+            return LineIntersection.Find(lineA, lineB, precision) != null;
         }
 
         public static Point Intersection(this Line lineA, Line lineB, int precision = 5)
         {
-            return LineIntersection.FindIntersection(lineA, lineB, precision);
+            return LineIntersection.Find(lineA, lineB, precision);
         }
 
         internal static bool Intersects(this Line lineA, Line lineB, double tolerance)

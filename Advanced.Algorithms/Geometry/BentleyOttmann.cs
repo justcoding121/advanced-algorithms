@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Geometry
 
         private HashSet<Event> verticalHorizontalLines;
         private HashSet<Event> normalLines;
-        
+
         private DataStructures.BMinHeap<Event> eventQueue;
         private HashSet<Event> eventQueueLookUp;
 
@@ -27,7 +27,7 @@ namespace Advanced.Algorithms.Geometry
 
         internal Line SweepLine;
 
-        public BentleyOttmann(int precision = 7)
+        public BentleyOttmann(int precision = 5)
         {
             this.precision = precision;
             pointComparer = new PointComparer();
@@ -48,6 +48,11 @@ namespace Advanced.Algorithms.Geometry
             rightLeftEventLookUp = lineSegments
                                    .Select(x =>
                                    {
+                                       if (x.Left.X < 0 || x.Left.Y < 0 || x.Right.X < 0 || x.Right.Y < 0)
+                                       {
+                                           throw new Exception("Negative coordinates are not supported.");
+                                       }
+
                                        return new KeyValuePair<Event, Event>(
                                           new Event(x.Left, pointComparer, EventType.Start, x, this),
                                           new Event(x.Right, pointComparer, EventType.End, x, this)
@@ -61,7 +66,6 @@ namespace Advanced.Algorithms.Geometry
                                 }), new PointComparer());
 
             eventQueue = new DataStructures.BMinHeap<Event>(eventQueueLookUp, new EventQueueComparer());
-
         }
 
         public Dictionary<Point, List<Line>> FindIntersections(IEnumerable<Line> lineSegments)

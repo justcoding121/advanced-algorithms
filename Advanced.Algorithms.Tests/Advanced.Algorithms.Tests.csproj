@@ -93,6 +93,8 @@
     <Compile Include="DataStructures\Queues\PriorityQueue\MaxPriorityQueue_Tests.cs" />
     <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BST_Tests.cs" />
+    <Compile Include="DataStructures\Tree\KdTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\RangeTreeTests.cs" />
     <Compile Include="DataStructures\Tree\RTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\SplayTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\TreapTree_Tests.cs" />
@@ -108,7 +110,6 @@
     <Compile Include="DataStructures\Tree\BTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\FenwickTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\IntervalTree_Tests.cs" />
-    <Compile Include="DataStructures\Tree\KdTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\SegmentTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\SuffixTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\TestHelpers\BTreeTester.cs" />

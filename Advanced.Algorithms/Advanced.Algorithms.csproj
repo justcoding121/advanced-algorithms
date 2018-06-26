@@ -20,13 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="DataStructures\Tree\RangeTree.cs" />
-    <Compile Remove="Miscellaneous\BalanceParentheses.cs" />
-    <Compile Remove="Miscellaneous\CountInversions.cs" />
-    <Compile Remove="Sorting\ZigZagOrderer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Include="Binary\BaseConversion.cs" />
     <Compile Include="Binary\Logarithm.cs" />
     <Compile Include="Binary\GCD.cs" />

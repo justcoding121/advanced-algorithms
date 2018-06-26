@@ -19,7 +19,7 @@
             {
                 var edgeLine = polygon.Edges[i];
 
-                if (LineIntersection.FindIntersection(rayLine, edgeLine) != null)
+                if (LineIntersection.Find(rayLine, edgeLine) != null)
                 {
                     intersectionCount++;
                 }
