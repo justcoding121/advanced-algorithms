@@ -8865,19 +8865,19 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.LineIntersection
   fullName: Advanced.Algorithms.Geometry.LineIntersection
   nameWithType: LineIntersection
-- uid: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Line,Line,System.Int32)
-  name: FindIntersection(Line, Line, Int32)
-  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_FindIntersection_Line_Line_System_Int32_
-  commentId: M:Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Line,Line,System.Int32)
-  fullName: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection(Line, Line, System.Int32)
-  nameWithType: LineIntersection.FindIntersection(Line, Line, Int32)
-- uid: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection*
-  name: FindIntersection
-  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_FindIntersection_
-  commentId: Overload:Advanced.Algorithms.Geometry.LineIntersection.FindIntersection
+- uid: Advanced.Algorithms.Geometry.LineIntersection.Find(Line,Line,System.Int32)
+  name: Find(Line, Line, Int32)
+  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_Find_Line_Line_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.LineIntersection.Find(Line,Line,System.Int32)
+  fullName: Advanced.Algorithms.Geometry.LineIntersection.Find(Line, Line, System.Int32)
+  nameWithType: LineIntersection.Find(Line, Line, Int32)
+- uid: Advanced.Algorithms.Geometry.LineIntersection.Find*
+  name: Find
+  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_Find_
+  commentId: Overload:Advanced.Algorithms.Geometry.LineIntersection.Find
   isSpec: "True"
-  fullName: Advanced.Algorithms.Geometry.LineIntersection.FindIntersection
-  nameWithType: LineIntersection.FindIntersection
+  fullName: Advanced.Algorithms.Geometry.LineIntersection.Find
+  nameWithType: LineIntersection.Find
 - uid: Advanced.Algorithms.Geometry.PointInsidePolygon
   name: PointInsidePolygon
   href: api/Advanced.Algorithms.Geometry.PointInsidePolygon.html
