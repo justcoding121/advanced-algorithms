@@ -5,10 +5,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Binary
 {
     [TestClass]
-    public class CalcLogarithm_Tests
+    public class Logarithm_Tests
     {
         [TestMethod]
-        public void CalcLogarithm_Smoke_Test()
+        public void Logarithm_Smoke_Test()
         {
             Assert.AreEqual(3, Logarithm.CalcBase2LogFloor(9));
             Assert.AreEqual(3, Logarithm.CalcBase2LogFloor(8));

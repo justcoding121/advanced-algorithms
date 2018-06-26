@@ -57,7 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Binary\BaseConversion_Tests.cs" />
-    <Compile Include="Binary\CalcLogarithm_Tests.cs" />
+    <Compile Include="Binary\Logarithm_Tests.cs" />
     <Compile Include="Binary\GCD_Tests.cs" />
     <Compile Include="Combinatorics\Subset_Tests.cs" />
     <Compile Include="Combinatorics\Combination_Tests.cs" />
