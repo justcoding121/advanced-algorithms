@@ -142,7 +142,7 @@ namespace Advanced.Algorithms.Geometry
 
                     case EventType.Intersection:
 
-                        var intersectionLines = intersectionEvents[currentEvent as Point].ToList();
+                        var intersectionLines = intersectionEvents[currentEvent as Point];
 
                         foreach (var item in intersectionLines)
                         {
