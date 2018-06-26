@@ -66,32 +66,30 @@ namespace Advanced.Algorithms.Tests.Geometry
         [TestMethod]
         public void BentleyOttmann_Stress_Test()
         {
-            while (true)
-            {
-                var lines = new List<Line>();
+            var lines = new List<Line>();
 
-                lines.AddRange(getRandomLines(1000));
+            lines.AddRange(getRandomLines(1000));
 
-                var stopWatch = new Stopwatch();
+            var stopWatch = new Stopwatch();
 
-                stopWatch.Start();
-                var expectedIntersections = getExpectedIntersections(lines);
-                stopWatch.Stop();
+            stopWatch.Start();
+            var expectedIntersections = getExpectedIntersections(lines);
+            stopWatch.Stop();
 
-                var naiveElapsedTime = stopWatch.ElapsedMilliseconds;
+            var naiveElapsedTime = stopWatch.ElapsedMilliseconds;
 
-                var bentleyOttmannAlgorithm = new BentleyOttmann();
-                stopWatch.Reset();
+            var bentleyOttmannAlgorithm = new BentleyOttmann();
+            stopWatch.Reset();
 
-                stopWatch.Start();
-                var actualIntersections = bentleyOttmannAlgorithm.FindIntersections(lines);
-                stopWatch.Stop();
+            stopWatch.Start();
+            var actualIntersections = bentleyOttmannAlgorithm.FindIntersections(lines);
+            stopWatch.Stop();
 
-                var actualElapsedTime = stopWatch.ElapsedMilliseconds;
+            var actualElapsedTime = stopWatch.ElapsedMilliseconds;
 
-                Assert.IsTrue(actualElapsedTime <= naiveElapsedTime);
-                Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
-            }
+            Assert.IsTrue(actualElapsedTime <= naiveElapsedTime);
+            Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+
         }
 
         private static Random random = new Random();
