@@ -158,6 +158,7 @@
     <Compile Include="Numerical\PrimeGenerator_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search\BinarySearch_Tests.cs" />
+    <Compile Include="Search\BoyerMoore_Tests.cs" />
     <Compile Include="Search\QuickSelect_Tests.cs" />
     <Compile Include="Sorting\BubbleSort_Tests.cs" />
     <Compile Include="Sorting\BucketSort_Tests.cs" />
