@@ -223,7 +223,7 @@ TODO: implement trie compression.
 ## Sorting and Searching
 
 - [X] Binary Search ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Search/BinarySearch.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Search/BinarySearch_Tests.cs))
-- [ ] Quick select for kth smallest/largest in unordered collection using median of medians (Implementation | Tests)
+- [X] Quick select for kth smallest/largest in unordered collection using median of medians ([Implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Search/QuickSelect.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.Tests/Search/QuickSelect_Tests.cs))
 - [ ] Majority element using Moore’s voting algorithm (Implementation | Tests)
 
 ### Sorting Algorithms

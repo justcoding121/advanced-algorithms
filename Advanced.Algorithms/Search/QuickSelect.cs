@@ -1,24 +1,41 @@
-﻿using System;
+﻿using Advanced.Algorithms.Sorting;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Search
 {
-    public class QuickSelect
+    public class QuickSelect<T> where T : IComparable
     {
-        public static int FindSmallest(int[] input, int k)
+        public static T FindSmallest(IEnumerable<T> input, int k)
         {
+            var inputArray = input.ToArray();
+
             var left = 0;
-            var right = input.Length - 1;
+            var right = inputArray.Length - 1;
 
             var rnd = new Random();
 
             while (left <= right)
             {
-                int pivot = rnd.Next(left, right);
-                int newPivot = partition(input, left, right, pivot);
+                var median = medianOfMedian(inputArray, left, right);
+
+                int pivot = 0;
+
+                for (int i = left; i <= right; i++)
+                {
+                    if (inputArray[i].Equals(median))
+                    {
+                        pivot = i;
+                        break;
+                    }
+                }
+
+                int newPivot = partition(inputArray, left, right, pivot);
 
                 if (newPivot == k - 1)
                 {
-                    return input[newPivot];
+                    return inputArray[newPivot];
                 }
                 else if (newPivot > k - 1)
                 {
@@ -30,13 +47,52 @@ namespace Advanced.Algorithms.Search
                 }
             }
 
-            return -1;
+            return default(T);
+        }
+
+        private static T medianOfMedian(T[] input, int left, int right)
+        {
+            if (left.CompareTo(right) == 0)
+            {
+                return input[left];
+            }
+
+            var size = 5;
+            var currentLeft = left;
+
+            var medians = new T[(right - left) / size + 1];
+            var medianIndex = -1;
+            while (currentLeft <= right)
+            {
+                var currentRight = currentLeft + size - 1;
+
+                if (currentRight <= right)
+                {
+                    sort(input, currentLeft, currentRight);
+                    medians[++medianIndex] = median(input, currentLeft, currentRight);
+                }
+                else
+                {
+                    sort(input, currentLeft, right);
+                    medians[++medianIndex] = median(input, currentLeft, right);
+                }
+
+                currentLeft = currentRight + 1;
+            }
+
+            if (medians.Length == 1)
+            {
+                return medians[0];
+            }
+
+            return medianOfMedian(medians, 0, medians.Length - 1);
+
         }
 
         //partition using pivot
-        private static int partition(int[] input, int left, int right, int pivot)
+        private static int partition(T[] input, int left, int right, int pivot)
         {
-            int pivotValue = input[pivot];
+            var pivotValue = input[pivot];
             var newPivot = left;
 
             //prevent comparing pivot against itself
@@ -44,7 +100,7 @@ namespace Advanced.Algorithms.Search
 
             for (int i = left; i < right; i++)
             {
-                if (input[i] < pivotValue)
+                if (input[i].CompareTo(pivotValue) < 0)
                 {
                     swap(input, i, newPivot);
                     newPivot++;
@@ -57,7 +113,17 @@ namespace Advanced.Algorithms.Search
             return newPivot;
         }
 
-        private static void swap(int[] input, int i, int j)
+        private static void sort(T[] input, int left, int right)
+        {
+            MergeSort<T>.PartitionMerge(input, left, right);
+        }
+
+        private static T median(T[] input, int left, int right)
+        {
+            return input[left + (right - left) / 2];
+        }
+
+        private static void swap(T[] input, int i, int j)
         {
             if (i != j)
             {
