@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct Line
+    <title>Class Line
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct Line
+    <meta name="title" content="Class Line
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.36.1.0">
+    <meta name="generator" content="docfx 2.37.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -81,20 +81,22 @@
             <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Geometry.Line">
   
   
-  <h1 id="Advanced_Algorithms_Geometry_Line" data-uid="Advanced.Algorithms.Geometry.Line" class="text-break">Struct Line
+  <h1 id="Advanced_Algorithms_Geometry_Line" data-uid="Advanced.Algorithms.Geometry.Line" class="text-break">Class Line
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">Line</span></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.equals#System_ValueType_Equals_System_Object_">ValueType.Equals(Object)</a>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.gethashcode#System_ValueType_GetHashCode">ValueType.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.tostring#System_ValueType_ToString">ValueType.ToString()</a>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
@@ -103,26 +105,171 @@
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.Geometry.html">Advanced.Algorithms.Geometry</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_Geometry_Line_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct Line</code></pre>
+    <pre><code class="lang-csharp hljs">public class Line</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_Geometry_Line__ctor_" data-uid="Advanced.Algorithms.Geometry.Line.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Line__ctor_Advanced_Algorithms_Geometry_Point_Advanced_Algorithms_Geometry_Point_System_Int32_" data-uid="Advanced.Algorithms.Geometry.Line.#ctor(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point,System.Int32)">Line(Point, Point, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Line(Point start, Point end, int precision = 5)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Point.html">Point</a></td>
+        <td><span class="parametername">start</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Point.html">Point</a></td>
+        <td><span class="parametername">end</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">precision</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   
   
-  <a id="Advanced_Algorithms_Geometry_Line_x1_" data-uid="Advanced.Algorithms.Geometry.Line.x1*"></a>
-  <h4 id="Advanced_Algorithms_Geometry_Line_x1" data-uid="Advanced.Algorithms.Geometry.Line.x1">x1</h4>
+  <a id="Advanced_Algorithms_Geometry_Line_IsHorizontal_" data-uid="Advanced.Algorithms.Geometry.Line.IsHorizontal*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Line_IsHorizontal" data-uid="Advanced.Algorithms.Geometry.Line.IsHorizontal">IsHorizontal</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double x1 { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsHorizontal { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_Geometry_Line_IsVertical_" data-uid="Advanced.Algorithms.Geometry.Line.IsVertical*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Line_IsVertical" data-uid="Advanced.Algorithms.Geometry.Line.IsVertical">IsVertical</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsVertical { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_Geometry_Line_Left_" data-uid="Advanced.Algorithms.Geometry.Line.Left*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Line_Left" data-uid="Advanced.Algorithms.Geometry.Line.Left">Left</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point Left { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_Geometry_Line_Right_" data-uid="Advanced.Algorithms.Geometry.Line.Right*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Line_Right" data-uid="Advanced.Algorithms.Geometry.Line.Right">Right</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point Right { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_Geometry_Line_Slope_" data-uid="Advanced.Algorithms.Geometry.Line.Slope*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Line_Slope" data-uid="Advanced.Algorithms.Geometry.Line.Slope">Slope</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Slope { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -139,17 +286,19 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
   
   
-  <a id="Advanced_Algorithms_Geometry_Line_x2_" data-uid="Advanced.Algorithms.Geometry.Line.x2*"></a>
-  <h4 id="Advanced_Algorithms_Geometry_Line_x2" data-uid="Advanced.Algorithms.Geometry.Line.x2">x2</h4>
+  <a id="Advanced_Algorithms_Geometry_Line_Clone_" data-uid="Advanced.Algorithms.Geometry.Line.Clone*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Line_Clone" data-uid="Advanced.Algorithms.Geometry.Line.Clone">Clone()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double x2 { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Line Clone()</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -159,61 +308,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a></td>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Line.html">Line</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Advanced_Algorithms_Geometry_Line_y1_" data-uid="Advanced.Algorithms.Geometry.Line.y1*"></a>
-  <h4 id="Advanced_Algorithms_Geometry_Line_y1" data-uid="Advanced.Algorithms.Geometry.Line.y1">y1</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double y1 { get; set; }</code></pre>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersects_Advanced_Algorithms_Geometry_Line_Advanced_Algorithms_Geometry_Line_System_Int32_">LineExtensions.Intersects(Line, Line, Int32)</a>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_Geometry_Line_y2_" data-uid="Advanced.Algorithms.Geometry.Line.y2*"></a>
-  <h4 id="Advanced_Algorithms_Geometry_Line_y2" data-uid="Advanced.Algorithms.Geometry.Line.y2">y2</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double y2 { get; set; }</code></pre>
+  <div>
+      <a class="xref" href="Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersection_Advanced_Algorithms_Geometry_Line_Advanced_Algorithms_Geometry_Line_System_Int32_">LineExtensions.Intersection(Line, Line, Int32)</a>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 </article>
           </div>
           

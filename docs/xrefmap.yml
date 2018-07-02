@@ -1925,6 +1925,12 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).Insert
   nameWithType: BST<T>.Insert
   nameWithType.vb: BST(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.BSTExtensions
+  name: BSTExtensions
+  href: api/Advanced.Algorithms.DataStructures.BSTExtensions.html
+  commentId: T:Advanced.Algorithms.DataStructures.BSTExtensions
+  fullName: Advanced.Algorithms.DataStructures.BSTExtensions
+  nameWithType: BSTExtensions
 - uid: Advanced.Algorithms.DataStructures.BTree`1
   name: BTree<T>
   href: api/Advanced.Algorithms.DataStructures.BTree-1.html
@@ -6669,6 +6675,103 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).Previous
   nameWithType: RedBlackTree<T>.Previous
   nameWithType.vb: RedBlackTree(Of T).Previous
+- uid: Advanced.Algorithms.DataStructures.RTree
+  name: RTree
+  href: api/Advanced.Algorithms.DataStructures.RTree.html
+  commentId: T:Advanced.Algorithms.DataStructures.RTree
+  fullName: Advanced.Algorithms.DataStructures.RTree
+  nameWithType: RTree
+- uid: Advanced.Algorithms.DataStructures.RTree.#ctor(System.Int32)
+  name: RTree(Int32)
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree__ctor_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.RTree.#ctor(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.RTree.RTree(System.Int32)
+  nameWithType: RTree.RTree(Int32)
+- uid: Advanced.Algorithms.DataStructures.RTree.#ctor*
+  name: RTree
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RTree.RTree
+  nameWithType: RTree.RTree
+- uid: Advanced.Algorithms.DataStructures.RTree.Clear
+  name: Clear()
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Clear
+  commentId: M:Advanced.Algorithms.DataStructures.RTree.Clear
+  fullName: Advanced.Algorithms.DataStructures.RTree.Clear()
+  nameWithType: RTree.Clear()
+- uid: Advanced.Algorithms.DataStructures.RTree.Clear*
+  name: Clear
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Clear_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.Clear
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RTree.Clear
+  nameWithType: RTree.Clear
+- uid: Advanced.Algorithms.DataStructures.RTree.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Count
+  commentId: P:Advanced.Algorithms.DataStructures.RTree.Count
+  fullName: Advanced.Algorithms.DataStructures.RTree.Count
+  nameWithType: RTree.Count
+- uid: Advanced.Algorithms.DataStructures.RTree.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RTree.Count
+  nameWithType: RTree.Count
+- uid: Advanced.Algorithms.DataStructures.RTree.Delete(Advanced.Algorithms.Geometry.Polygon)
+  name: Delete(Polygon)
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Delete_Advanced_Algorithms_Geometry_Polygon_
+  commentId: M:Advanced.Algorithms.DataStructures.RTree.Delete(Advanced.Algorithms.Geometry.Polygon)
+  fullName: Advanced.Algorithms.DataStructures.RTree.Delete(Advanced.Algorithms.Geometry.Polygon)
+  nameWithType: RTree.Delete(Polygon)
+- uid: Advanced.Algorithms.DataStructures.RTree.Delete*
+  name: Delete
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Delete_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.Delete
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RTree.Delete
+  nameWithType: RTree.Delete
+- uid: Advanced.Algorithms.DataStructures.RTree.Exists(Advanced.Algorithms.Geometry.Polygon)
+  name: Exists(Polygon)
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Exists_Advanced_Algorithms_Geometry_Polygon_
+  commentId: M:Advanced.Algorithms.DataStructures.RTree.Exists(Advanced.Algorithms.Geometry.Polygon)
+  fullName: Advanced.Algorithms.DataStructures.RTree.Exists(Advanced.Algorithms.Geometry.Polygon)
+  nameWithType: RTree.Exists(Polygon)
+- uid: Advanced.Algorithms.DataStructures.RTree.Exists*
+  name: Exists
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Exists_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.Exists
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RTree.Exists
+  nameWithType: RTree.Exists
+- uid: Advanced.Algorithms.DataStructures.RTree.Insert(Advanced.Algorithms.Geometry.Polygon)
+  name: Insert(Polygon)
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Insert_Advanced_Algorithms_Geometry_Polygon_
+  commentId: M:Advanced.Algorithms.DataStructures.RTree.Insert(Advanced.Algorithms.Geometry.Polygon)
+  fullName: Advanced.Algorithms.DataStructures.RTree.Insert(Advanced.Algorithms.Geometry.Polygon)
+  nameWithType: RTree.Insert(Polygon)
+- uid: Advanced.Algorithms.DataStructures.RTree.Insert*
+  name: Insert
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Insert_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.Insert
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RTree.Insert
+  nameWithType: RTree.Insert
+- uid: Advanced.Algorithms.DataStructures.RTree.RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
+  name: RangeSearch(Rectangle)
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_RangeSearch_Advanced_Algorithms_Geometry_Rectangle_
+  commentId: M:Advanced.Algorithms.DataStructures.RTree.RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
+  fullName: Advanced.Algorithms.DataStructures.RTree.RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
+  nameWithType: RTree.RangeSearch(Rectangle)
+- uid: Advanced.Algorithms.DataStructures.RTree.RangeSearch*
+  name: RangeSearch
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_RangeSearch_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.RangeSearch
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RTree.RangeSearch
+  nameWithType: RTree.RangeSearch
 - uid: Advanced.Algorithms.DataStructures.SegmentTree`1
   name: SegmentTree<T>
   href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html
@@ -8774,19 +8877,54 @@ references:
   commentId: N:Advanced.Algorithms.Geometry
   fullName: Advanced.Algorithms.Geometry
   nameWithType: Advanced.Algorithms.Geometry
+- uid: Advanced.Algorithms.Geometry.BentleyOttmann
+  name: BentleyOttmann
+  href: api/Advanced.Algorithms.Geometry.BentleyOttmann.html
+  commentId: T:Advanced.Algorithms.Geometry.BentleyOttmann
+  fullName: Advanced.Algorithms.Geometry.BentleyOttmann
+  nameWithType: BentleyOttmann
+- uid: Advanced.Algorithms.Geometry.BentleyOttmann.#ctor(System.Int32)
+  name: BentleyOttmann(Int32)
+  href: api/Advanced.Algorithms.Geometry.BentleyOttmann.html#Advanced_Algorithms_Geometry_BentleyOttmann__ctor_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.BentleyOttmann.#ctor(System.Int32)
+  fullName: Advanced.Algorithms.Geometry.BentleyOttmann.BentleyOttmann(System.Int32)
+  nameWithType: BentleyOttmann.BentleyOttmann(Int32)
+- uid: Advanced.Algorithms.Geometry.BentleyOttmann.#ctor*
+  name: BentleyOttmann
+  href: api/Advanced.Algorithms.Geometry.BentleyOttmann.html#Advanced_Algorithms_Geometry_BentleyOttmann__ctor_
+  commentId: Overload:Advanced.Algorithms.Geometry.BentleyOttmann.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.BentleyOttmann.BentleyOttmann
+  nameWithType: BentleyOttmann.BentleyOttmann
+- uid: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(System.Collections.Generic.IEnumerable{Advanced.Algorithms.Geometry.Line})
+  name: FindIntersections(IEnumerable<Line>)
+  href: api/Advanced.Algorithms.Geometry.BentleyOttmann.html#Advanced_Algorithms_Geometry_BentleyOttmann_FindIntersections_System_Collections_Generic_IEnumerable_Advanced_Algorithms_Geometry_Line__
+  commentId: M:Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(System.Collections.Generic.IEnumerable{Advanced.Algorithms.Geometry.Line})
+  name.vb: FindIntersections(IEnumerable(Of Line))
+  fullName: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(System.Collections.Generic.IEnumerable<Advanced.Algorithms.Geometry.Line>)
+  fullName.vb: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(System.Collections.Generic.IEnumerable(Of Advanced.Algorithms.Geometry.Line))
+  nameWithType: BentleyOttmann.FindIntersections(IEnumerable<Line>)
+  nameWithType.vb: BentleyOttmann.FindIntersections(IEnumerable(Of Line))
+- uid: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections*
+  name: FindIntersections
+  href: api/Advanced.Algorithms.Geometry.BentleyOttmann.html#Advanced_Algorithms_Geometry_BentleyOttmann_FindIntersections_
+  commentId: Overload:Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections
+  nameWithType: BentleyOttmann.FindIntersections
 - uid: Advanced.Algorithms.Geometry.ClosestPointPair
   name: ClosestPointPair
   href: api/Advanced.Algorithms.Geometry.ClosestPointPair.html
   commentId: T:Advanced.Algorithms.Geometry.ClosestPointPair
   fullName: Advanced.Algorithms.Geometry.ClosestPointPair
   nameWithType: ClosestPointPair
-- uid: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List{Point},System.Int32,System.Int32)
+- uid: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Point},System.Int32,System.Int32)
   name: Find(List<Point>, Int32, Int32)
-  href: api/Advanced.Algorithms.Geometry.ClosestPointPair.html#Advanced_Algorithms_Geometry_ClosestPointPair_Find_System_Collections_Generic_List_Point__System_Int32_System_Int32_
-  commentId: M:Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List{Point},System.Int32,System.Int32)
+  href: api/Advanced.Algorithms.Geometry.ClosestPointPair.html#Advanced_Algorithms_Geometry_ClosestPointPair_Find_System_Collections_Generic_List_Advanced_Algorithms_Geometry_Point__System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Point},System.Int32,System.Int32)
   name.vb: Find(List(Of Point), Int32, Int32)
-  fullName: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List<Point>, System.Int32, System.Int32)
-  fullName.vb: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List(Of Point), System.Int32, System.Int32)
+  fullName: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List<Advanced.Algorithms.Geometry.Point>, System.Int32, System.Int32)
+  fullName.vb: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List(Of Advanced.Algorithms.Geometry.Point), System.Int32, System.Int32)
   nameWithType: ClosestPointPair.Find(List<Point>, Int32, Int32)
   nameWithType.vb: ClosestPointPair.Find(List(Of Point), Int32, Int32)
 - uid: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List{System.Int32[]})
@@ -8827,17 +8965,114 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Geometry.ConvexHull.Find
   nameWithType: ConvexHull.Find
+- uid: Advanced.Algorithms.Geometry.Line
+  name: Line
+  href: api/Advanced.Algorithms.Geometry.Line.html
+  commentId: T:Advanced.Algorithms.Geometry.Line
+  fullName: Advanced.Algorithms.Geometry.Line
+  nameWithType: Line
+- uid: Advanced.Algorithms.Geometry.Line.#ctor(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point,System.Int32)
+  name: Line(Point, Point, Int32)
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line__ctor_Advanced_Algorithms_Geometry_Point_Advanced_Algorithms_Geometry_Point_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.Line.#ctor(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point,System.Int32)
+  fullName: Advanced.Algorithms.Geometry.Line.Line(Advanced.Algorithms.Geometry.Point, Advanced.Algorithms.Geometry.Point, System.Int32)
+  nameWithType: Line.Line(Point, Point, Int32)
+- uid: Advanced.Algorithms.Geometry.Line.#ctor*
+  name: Line
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line__ctor_
+  commentId: Overload:Advanced.Algorithms.Geometry.Line.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Line.Line
+  nameWithType: Line.Line
+- uid: Advanced.Algorithms.Geometry.Line.Clone
+  name: Clone()
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_Clone
+  commentId: M:Advanced.Algorithms.Geometry.Line.Clone
+  fullName: Advanced.Algorithms.Geometry.Line.Clone()
+  nameWithType: Line.Clone()
+- uid: Advanced.Algorithms.Geometry.Line.Clone*
+  name: Clone
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_Clone_
+  commentId: Overload:Advanced.Algorithms.Geometry.Line.Clone
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Line.Clone
+  nameWithType: Line.Clone
+- uid: Advanced.Algorithms.Geometry.Line.IsHorizontal
+  name: IsHorizontal
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_IsHorizontal
+  commentId: P:Advanced.Algorithms.Geometry.Line.IsHorizontal
+  fullName: Advanced.Algorithms.Geometry.Line.IsHorizontal
+  nameWithType: Line.IsHorizontal
+- uid: Advanced.Algorithms.Geometry.Line.IsHorizontal*
+  name: IsHorizontal
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_IsHorizontal_
+  commentId: Overload:Advanced.Algorithms.Geometry.Line.IsHorizontal
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Line.IsHorizontal
+  nameWithType: Line.IsHorizontal
+- uid: Advanced.Algorithms.Geometry.Line.IsVertical
+  name: IsVertical
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_IsVertical
+  commentId: P:Advanced.Algorithms.Geometry.Line.IsVertical
+  fullName: Advanced.Algorithms.Geometry.Line.IsVertical
+  nameWithType: Line.IsVertical
+- uid: Advanced.Algorithms.Geometry.Line.IsVertical*
+  name: IsVertical
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_IsVertical_
+  commentId: Overload:Advanced.Algorithms.Geometry.Line.IsVertical
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Line.IsVertical
+  nameWithType: Line.IsVertical
+- uid: Advanced.Algorithms.Geometry.Line.Left
+  name: Left
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_Left
+  commentId: P:Advanced.Algorithms.Geometry.Line.Left
+  fullName: Advanced.Algorithms.Geometry.Line.Left
+  nameWithType: Line.Left
+- uid: Advanced.Algorithms.Geometry.Line.Left*
+  name: Left
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_Left_
+  commentId: Overload:Advanced.Algorithms.Geometry.Line.Left
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Line.Left
+  nameWithType: Line.Left
+- uid: Advanced.Algorithms.Geometry.Line.Right
+  name: Right
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_Right
+  commentId: P:Advanced.Algorithms.Geometry.Line.Right
+  fullName: Advanced.Algorithms.Geometry.Line.Right
+  nameWithType: Line.Right
+- uid: Advanced.Algorithms.Geometry.Line.Right*
+  name: Right
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_Right_
+  commentId: Overload:Advanced.Algorithms.Geometry.Line.Right
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Line.Right
+  nameWithType: Line.Right
+- uid: Advanced.Algorithms.Geometry.Line.Slope
+  name: Slope
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_Slope
+  commentId: P:Advanced.Algorithms.Geometry.Line.Slope
+  fullName: Advanced.Algorithms.Geometry.Line.Slope
+  nameWithType: Line.Slope
+- uid: Advanced.Algorithms.Geometry.Line.Slope*
+  name: Slope
+  href: api/Advanced.Algorithms.Geometry.Line.html#Advanced_Algorithms_Geometry_Line_Slope_
+  commentId: Overload:Advanced.Algorithms.Geometry.Line.Slope
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Line.Slope
+  nameWithType: Line.Slope
 - uid: Advanced.Algorithms.Geometry.LineExtensions
   name: LineExtensions
   href: api/Advanced.Algorithms.Geometry.LineExtensions.html
   commentId: T:Advanced.Algorithms.Geometry.LineExtensions
   fullName: Advanced.Algorithms.Geometry.LineExtensions
   nameWithType: LineExtensions
-- uid: Advanced.Algorithms.Geometry.LineExtensions.Intersection(Line,Line,System.Int32)
+- uid: Advanced.Algorithms.Geometry.LineExtensions.Intersection(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line,System.Int32)
   name: Intersection(Line, Line, Int32)
-  href: api/Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersection_Line_Line_System_Int32_
-  commentId: M:Advanced.Algorithms.Geometry.LineExtensions.Intersection(Line,Line,System.Int32)
-  fullName: Advanced.Algorithms.Geometry.LineExtensions.Intersection(Line, Line, System.Int32)
+  href: api/Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersection_Advanced_Algorithms_Geometry_Line_Advanced_Algorithms_Geometry_Line_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.LineExtensions.Intersection(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line,System.Int32)
+  fullName: Advanced.Algorithms.Geometry.LineExtensions.Intersection(Advanced.Algorithms.Geometry.Line, Advanced.Algorithms.Geometry.Line, System.Int32)
   nameWithType: LineExtensions.Intersection(Line, Line, Int32)
 - uid: Advanced.Algorithms.Geometry.LineExtensions.Intersection*
   name: Intersection
@@ -8846,11 +9081,11 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Geometry.LineExtensions.Intersection
   nameWithType: LineExtensions.Intersection
-- uid: Advanced.Algorithms.Geometry.LineExtensions.Intersects(Line,Line,System.Int32)
+- uid: Advanced.Algorithms.Geometry.LineExtensions.Intersects(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line,System.Int32)
   name: Intersects(Line, Line, Int32)
-  href: api/Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersects_Line_Line_System_Int32_
-  commentId: M:Advanced.Algorithms.Geometry.LineExtensions.Intersects(Line,Line,System.Int32)
-  fullName: Advanced.Algorithms.Geometry.LineExtensions.Intersects(Line, Line, System.Int32)
+  href: api/Advanced.Algorithms.Geometry.LineExtensions.html#Advanced_Algorithms_Geometry_LineExtensions_Intersects_Advanced_Algorithms_Geometry_Line_Advanced_Algorithms_Geometry_Line_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.LineExtensions.Intersects(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line,System.Int32)
+  fullName: Advanced.Algorithms.Geometry.LineExtensions.Intersects(Advanced.Algorithms.Geometry.Line, Advanced.Algorithms.Geometry.Line, System.Int32)
   nameWithType: LineExtensions.Intersects(Line, Line, Int32)
 - uid: Advanced.Algorithms.Geometry.LineExtensions.Intersects*
   name: Intersects
@@ -8865,11 +9100,11 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.LineIntersection
   fullName: Advanced.Algorithms.Geometry.LineIntersection
   nameWithType: LineIntersection
-- uid: Advanced.Algorithms.Geometry.LineIntersection.Find(Line,Line,System.Int32)
+- uid: Advanced.Algorithms.Geometry.LineIntersection.Find(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line,System.Int32)
   name: Find(Line, Line, Int32)
-  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_Find_Line_Line_System_Int32_
-  commentId: M:Advanced.Algorithms.Geometry.LineIntersection.Find(Line,Line,System.Int32)
-  fullName: Advanced.Algorithms.Geometry.LineIntersection.Find(Line, Line, System.Int32)
+  href: api/Advanced.Algorithms.Geometry.LineIntersection.html#Advanced_Algorithms_Geometry_LineIntersection_Find_Advanced_Algorithms_Geometry_Line_Advanced_Algorithms_Geometry_Line_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.LineIntersection.Find(Advanced.Algorithms.Geometry.Line,Advanced.Algorithms.Geometry.Line,System.Int32)
+  fullName: Advanced.Algorithms.Geometry.LineIntersection.Find(Advanced.Algorithms.Geometry.Line, Advanced.Algorithms.Geometry.Line, System.Int32)
   nameWithType: LineIntersection.Find(Line, Line, Int32)
 - uid: Advanced.Algorithms.Geometry.LineIntersection.Find*
   name: Find
@@ -8878,17 +9113,120 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Geometry.LineIntersection.Find
   nameWithType: LineIntersection.Find
+- uid: Advanced.Algorithms.Geometry.Point
+  name: Point
+  href: api/Advanced.Algorithms.Geometry.Point.html
+  commentId: T:Advanced.Algorithms.Geometry.Point
+  fullName: Advanced.Algorithms.Geometry.Point
+  nameWithType: Point
+- uid: Advanced.Algorithms.Geometry.Point.#ctor(System.Double,System.Double)
+  name: Point(Double, Double)
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point__ctor_System_Double_System_Double_
+  commentId: M:Advanced.Algorithms.Geometry.Point.#ctor(System.Double,System.Double)
+  fullName: Advanced.Algorithms.Geometry.Point.Point(System.Double, System.Double)
+  nameWithType: Point.Point(Double, Double)
+- uid: Advanced.Algorithms.Geometry.Point.#ctor*
+  name: Point
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point__ctor_
+  commentId: Overload:Advanced.Algorithms.Geometry.Point.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Point.Point
+  nameWithType: Point.Point
+- uid: Advanced.Algorithms.Geometry.Point.Clone
+  name: Clone()
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point_Clone
+  commentId: M:Advanced.Algorithms.Geometry.Point.Clone
+  fullName: Advanced.Algorithms.Geometry.Point.Clone()
+  nameWithType: Point.Clone()
+- uid: Advanced.Algorithms.Geometry.Point.Clone*
+  name: Clone
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point_Clone_
+  commentId: Overload:Advanced.Algorithms.Geometry.Point.Clone
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Point.Clone
+  nameWithType: Point.Clone
+- uid: Advanced.Algorithms.Geometry.Point.ToString
+  name: ToString()
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point_ToString
+  commentId: M:Advanced.Algorithms.Geometry.Point.ToString
+  fullName: Advanced.Algorithms.Geometry.Point.ToString()
+  nameWithType: Point.ToString()
+- uid: Advanced.Algorithms.Geometry.Point.ToString*
+  name: ToString
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point_ToString_
+  commentId: Overload:Advanced.Algorithms.Geometry.Point.ToString
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Point.ToString
+  nameWithType: Point.ToString
+- uid: Advanced.Algorithms.Geometry.Point.X
+  name: X
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point_X
+  commentId: P:Advanced.Algorithms.Geometry.Point.X
+  fullName: Advanced.Algorithms.Geometry.Point.X
+  nameWithType: Point.X
+- uid: Advanced.Algorithms.Geometry.Point.X*
+  name: X
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point_X_
+  commentId: Overload:Advanced.Algorithms.Geometry.Point.X
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Point.X
+  nameWithType: Point.X
+- uid: Advanced.Algorithms.Geometry.Point.Y
+  name: Y
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point_Y
+  commentId: P:Advanced.Algorithms.Geometry.Point.Y
+  fullName: Advanced.Algorithms.Geometry.Point.Y
+  nameWithType: Point.Y
+- uid: Advanced.Algorithms.Geometry.Point.Y*
+  name: Y
+  href: api/Advanced.Algorithms.Geometry.Point.html#Advanced_Algorithms_Geometry_Point_Y_
+  commentId: Overload:Advanced.Algorithms.Geometry.Point.Y
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Point.Y
+  nameWithType: Point.Y
+- uid: Advanced.Algorithms.Geometry.PointComparer
+  name: PointComparer
+  href: api/Advanced.Algorithms.Geometry.PointComparer.html
+  commentId: T:Advanced.Algorithms.Geometry.PointComparer
+  fullName: Advanced.Algorithms.Geometry.PointComparer
+  nameWithType: PointComparer
+- uid: Advanced.Algorithms.Geometry.PointComparer.Equals(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point)
+  name: Equals(Point, Point)
+  href: api/Advanced.Algorithms.Geometry.PointComparer.html#Advanced_Algorithms_Geometry_PointComparer_Equals_Advanced_Algorithms_Geometry_Point_Advanced_Algorithms_Geometry_Point_
+  commentId: M:Advanced.Algorithms.Geometry.PointComparer.Equals(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point)
+  fullName: Advanced.Algorithms.Geometry.PointComparer.Equals(Advanced.Algorithms.Geometry.Point, Advanced.Algorithms.Geometry.Point)
+  nameWithType: PointComparer.Equals(Point, Point)
+- uid: Advanced.Algorithms.Geometry.PointComparer.Equals*
+  name: Equals
+  href: api/Advanced.Algorithms.Geometry.PointComparer.html#Advanced_Algorithms_Geometry_PointComparer_Equals_
+  commentId: Overload:Advanced.Algorithms.Geometry.PointComparer.Equals
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.PointComparer.Equals
+  nameWithType: PointComparer.Equals
+- uid: Advanced.Algorithms.Geometry.PointComparer.GetHashCode(Advanced.Algorithms.Geometry.Point)
+  name: GetHashCode(Point)
+  href: api/Advanced.Algorithms.Geometry.PointComparer.html#Advanced_Algorithms_Geometry_PointComparer_GetHashCode_Advanced_Algorithms_Geometry_Point_
+  commentId: M:Advanced.Algorithms.Geometry.PointComparer.GetHashCode(Advanced.Algorithms.Geometry.Point)
+  fullName: Advanced.Algorithms.Geometry.PointComparer.GetHashCode(Advanced.Algorithms.Geometry.Point)
+  nameWithType: PointComparer.GetHashCode(Point)
+- uid: Advanced.Algorithms.Geometry.PointComparer.GetHashCode*
+  name: GetHashCode
+  href: api/Advanced.Algorithms.Geometry.PointComparer.html#Advanced_Algorithms_Geometry_PointComparer_GetHashCode_
+  commentId: Overload:Advanced.Algorithms.Geometry.PointComparer.GetHashCode
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.PointComparer.GetHashCode
+  nameWithType: PointComparer.GetHashCode
 - uid: Advanced.Algorithms.Geometry.PointInsidePolygon
   name: PointInsidePolygon
   href: api/Advanced.Algorithms.Geometry.PointInsidePolygon.html
   commentId: T:Advanced.Algorithms.Geometry.PointInsidePolygon
   fullName: Advanced.Algorithms.Geometry.PointInsidePolygon
   nameWithType: PointInsidePolygon
-- uid: Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside(Polygon,Point)
+- uid: Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside(Advanced.Algorithms.Geometry.Polygon,Advanced.Algorithms.Geometry.Point)
   name: IsInside(Polygon, Point)
-  href: api/Advanced.Algorithms.Geometry.PointInsidePolygon.html#Advanced_Algorithms_Geometry_PointInsidePolygon_IsInside_Polygon_Point_
-  commentId: M:Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside(Polygon,Point)
-  fullName: Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside(Polygon, Point)
+  href: api/Advanced.Algorithms.Geometry.PointInsidePolygon.html#Advanced_Algorithms_Geometry_PointInsidePolygon_IsInside_Advanced_Algorithms_Geometry_Polygon_Advanced_Algorithms_Geometry_Point_
+  commentId: M:Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside(Advanced.Algorithms.Geometry.Polygon,Advanced.Algorithms.Geometry.Point)
+  fullName: Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside(Advanced.Algorithms.Geometry.Polygon, Advanced.Algorithms.Geometry.Point)
   nameWithType: PointInsidePolygon.IsInside(Polygon, Point)
 - uid: Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside*
   name: IsInside
@@ -8903,11 +9241,11 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.PointRotation
   fullName: Advanced.Algorithms.Geometry.PointRotation
   nameWithType: PointRotation
-- uid: Advanced.Algorithms.Geometry.PointRotation.Rotate(Point,Point,System.Int32)
+- uid: Advanced.Algorithms.Geometry.PointRotation.Rotate(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point,System.Int32)
   name: Rotate(Point, Point, Int32)
-  href: api/Advanced.Algorithms.Geometry.PointRotation.html#Advanced_Algorithms_Geometry_PointRotation_Rotate_Point_Point_System_Int32_
-  commentId: M:Advanced.Algorithms.Geometry.PointRotation.Rotate(Point,Point,System.Int32)
-  fullName: Advanced.Algorithms.Geometry.PointRotation.Rotate(Point, Point, System.Int32)
+  href: api/Advanced.Algorithms.Geometry.PointRotation.html#Advanced_Algorithms_Geometry_PointRotation_Rotate_Advanced_Algorithms_Geometry_Point_Advanced_Algorithms_Geometry_Point_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.PointRotation.Rotate(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point,System.Int32)
+  fullName: Advanced.Algorithms.Geometry.PointRotation.Rotate(Advanced.Algorithms.Geometry.Point, Advanced.Algorithms.Geometry.Point, System.Int32)
   nameWithType: PointRotation.Rotate(Point, Point, Int32)
 - uid: Advanced.Algorithms.Geometry.PointRotation.Rotate*
   name: Rotate
@@ -8916,17 +9254,157 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Geometry.PointRotation.Rotate
   nameWithType: PointRotation.Rotate
+- uid: Advanced.Algorithms.Geometry.Polygon
+  name: Polygon
+  href: api/Advanced.Algorithms.Geometry.Polygon.html
+  commentId: T:Advanced.Algorithms.Geometry.Polygon
+  fullName: Advanced.Algorithms.Geometry.Polygon
+  nameWithType: Polygon
+- uid: Advanced.Algorithms.Geometry.Polygon.#ctor(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Line})
+  name: Polygon(List<Line>)
+  href: api/Advanced.Algorithms.Geometry.Polygon.html#Advanced_Algorithms_Geometry_Polygon__ctor_System_Collections_Generic_List_Advanced_Algorithms_Geometry_Line__
+  commentId: M:Advanced.Algorithms.Geometry.Polygon.#ctor(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Line})
+  name.vb: Polygon(List(Of Line))
+  fullName: Advanced.Algorithms.Geometry.Polygon.Polygon(System.Collections.Generic.List<Advanced.Algorithms.Geometry.Line>)
+  fullName.vb: Advanced.Algorithms.Geometry.Polygon.Polygon(System.Collections.Generic.List(Of Advanced.Algorithms.Geometry.Line))
+  nameWithType: Polygon.Polygon(List<Line>)
+  nameWithType.vb: Polygon.Polygon(List(Of Line))
+- uid: Advanced.Algorithms.Geometry.Polygon.#ctor(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Point})
+  name: Polygon(List<Point>)
+  href: api/Advanced.Algorithms.Geometry.Polygon.html#Advanced_Algorithms_Geometry_Polygon__ctor_System_Collections_Generic_List_Advanced_Algorithms_Geometry_Point__
+  commentId: M:Advanced.Algorithms.Geometry.Polygon.#ctor(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Point})
+  name.vb: Polygon(List(Of Point))
+  fullName: Advanced.Algorithms.Geometry.Polygon.Polygon(System.Collections.Generic.List<Advanced.Algorithms.Geometry.Point>)
+  fullName.vb: Advanced.Algorithms.Geometry.Polygon.Polygon(System.Collections.Generic.List(Of Advanced.Algorithms.Geometry.Point))
+  nameWithType: Polygon.Polygon(List<Point>)
+  nameWithType.vb: Polygon.Polygon(List(Of Point))
+- uid: Advanced.Algorithms.Geometry.Polygon.#ctor*
+  name: Polygon
+  href: api/Advanced.Algorithms.Geometry.Polygon.html#Advanced_Algorithms_Geometry_Polygon__ctor_
+  commentId: Overload:Advanced.Algorithms.Geometry.Polygon.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Polygon.Polygon
+  nameWithType: Polygon.Polygon
+- uid: Advanced.Algorithms.Geometry.Polygon.Edges
+  name: Edges
+  href: api/Advanced.Algorithms.Geometry.Polygon.html#Advanced_Algorithms_Geometry_Polygon_Edges
+  commentId: P:Advanced.Algorithms.Geometry.Polygon.Edges
+  fullName: Advanced.Algorithms.Geometry.Polygon.Edges
+  nameWithType: Polygon.Edges
+- uid: Advanced.Algorithms.Geometry.Polygon.Edges*
+  name: Edges
+  href: api/Advanced.Algorithms.Geometry.Polygon.html#Advanced_Algorithms_Geometry_Polygon_Edges_
+  commentId: Overload:Advanced.Algorithms.Geometry.Polygon.Edges
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Polygon.Edges
+  nameWithType: Polygon.Edges
+- uid: Advanced.Algorithms.Geometry.Rectangle
+  name: Rectangle
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html
+  commentId: T:Advanced.Algorithms.Geometry.Rectangle
+  fullName: Advanced.Algorithms.Geometry.Rectangle
+  nameWithType: Rectangle
+- uid: Advanced.Algorithms.Geometry.Rectangle.#ctor
+  name: Rectangle()
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle__ctor
+  commentId: M:Advanced.Algorithms.Geometry.Rectangle.#ctor
+  fullName: Advanced.Algorithms.Geometry.Rectangle.Rectangle()
+  nameWithType: Rectangle.Rectangle()
+- uid: Advanced.Algorithms.Geometry.Rectangle.#ctor(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point)
+  name: Rectangle(Point, Point)
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle__ctor_Advanced_Algorithms_Geometry_Point_Advanced_Algorithms_Geometry_Point_
+  commentId: M:Advanced.Algorithms.Geometry.Rectangle.#ctor(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point)
+  fullName: Advanced.Algorithms.Geometry.Rectangle.Rectangle(Advanced.Algorithms.Geometry.Point, Advanced.Algorithms.Geometry.Point)
+  nameWithType: Rectangle.Rectangle(Point, Point)
+- uid: Advanced.Algorithms.Geometry.Rectangle.#ctor*
+  name: Rectangle
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle__ctor_
+  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Rectangle.Rectangle
+  nameWithType: Rectangle.Rectangle
+- uid: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+  name: LeftTopCorner
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_LeftTopCorner
+  commentId: P:Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+  fullName: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+  nameWithType: Rectangle.LeftTopCorner
+- uid: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner*
+  name: LeftTopCorner
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_LeftTopCorner_
+  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+  nameWithType: Rectangle.LeftTopCorner
+- uid: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  name: RightBottomCorner
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_RightBottomCorner
+  commentId: P:Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  fullName: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  nameWithType: Rectangle.RightBottomCorner
+- uid: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner*
+  name: RightBottomCorner
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_RightBottomCorner_
+  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  nameWithType: Rectangle.RightBottomCorner
+- uid: Advanced.Algorithms.Geometry.Rectangle.ToPolygon
+  name: ToPolygon()
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_ToPolygon
+  commentId: M:Advanced.Algorithms.Geometry.Rectangle.ToPolygon
+  fullName: Advanced.Algorithms.Geometry.Rectangle.ToPolygon()
+  nameWithType: Rectangle.ToPolygon()
+- uid: Advanced.Algorithms.Geometry.Rectangle.ToPolygon*
+  name: ToPolygon
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_ToPolygon_
+  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.ToPolygon
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.Rectangle.ToPolygon
+  nameWithType: Rectangle.ToPolygon
+- uid: Advanced.Algorithms.Geometry.RectangleComparer
+  name: RectangleComparer
+  href: api/Advanced.Algorithms.Geometry.RectangleComparer.html
+  commentId: T:Advanced.Algorithms.Geometry.RectangleComparer
+  fullName: Advanced.Algorithms.Geometry.RectangleComparer
+  nameWithType: RectangleComparer
+- uid: Advanced.Algorithms.Geometry.RectangleComparer.Equals(Advanced.Algorithms.Geometry.Rectangle,Advanced.Algorithms.Geometry.Rectangle)
+  name: Equals(Rectangle, Rectangle)
+  href: api/Advanced.Algorithms.Geometry.RectangleComparer.html#Advanced_Algorithms_Geometry_RectangleComparer_Equals_Advanced_Algorithms_Geometry_Rectangle_Advanced_Algorithms_Geometry_Rectangle_
+  commentId: M:Advanced.Algorithms.Geometry.RectangleComparer.Equals(Advanced.Algorithms.Geometry.Rectangle,Advanced.Algorithms.Geometry.Rectangle)
+  fullName: Advanced.Algorithms.Geometry.RectangleComparer.Equals(Advanced.Algorithms.Geometry.Rectangle, Advanced.Algorithms.Geometry.Rectangle)
+  nameWithType: RectangleComparer.Equals(Rectangle, Rectangle)
+- uid: Advanced.Algorithms.Geometry.RectangleComparer.Equals*
+  name: Equals
+  href: api/Advanced.Algorithms.Geometry.RectangleComparer.html#Advanced_Algorithms_Geometry_RectangleComparer_Equals_
+  commentId: Overload:Advanced.Algorithms.Geometry.RectangleComparer.Equals
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.RectangleComparer.Equals
+  nameWithType: RectangleComparer.Equals
+- uid: Advanced.Algorithms.Geometry.RectangleComparer.GetHashCode(Advanced.Algorithms.Geometry.Rectangle)
+  name: GetHashCode(Rectangle)
+  href: api/Advanced.Algorithms.Geometry.RectangleComparer.html#Advanced_Algorithms_Geometry_RectangleComparer_GetHashCode_Advanced_Algorithms_Geometry_Rectangle_
+  commentId: M:Advanced.Algorithms.Geometry.RectangleComparer.GetHashCode(Advanced.Algorithms.Geometry.Rectangle)
+  fullName: Advanced.Algorithms.Geometry.RectangleComparer.GetHashCode(Advanced.Algorithms.Geometry.Rectangle)
+  nameWithType: RectangleComparer.GetHashCode(Rectangle)
+- uid: Advanced.Algorithms.Geometry.RectangleComparer.GetHashCode*
+  name: GetHashCode
+  href: api/Advanced.Algorithms.Geometry.RectangleComparer.html#Advanced_Algorithms_Geometry_RectangleComparer_GetHashCode_
+  commentId: Overload:Advanced.Algorithms.Geometry.RectangleComparer.GetHashCode
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Geometry.RectangleComparer.GetHashCode
+  nameWithType: RectangleComparer.GetHashCode
 - uid: Advanced.Algorithms.Geometry.RectangleIntersection
   name: RectangleIntersection
   href: api/Advanced.Algorithms.Geometry.RectangleIntersection.html
   commentId: T:Advanced.Algorithms.Geometry.RectangleIntersection
   fullName: Advanced.Algorithms.Geometry.RectangleIntersection
   nameWithType: RectangleIntersection
-- uid: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect(Rectangle,Rectangle)
+- uid: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect(Advanced.Algorithms.Geometry.Rectangle,Advanced.Algorithms.Geometry.Rectangle)
   name: DoIntersect(Rectangle, Rectangle)
-  href: api/Advanced.Algorithms.Geometry.RectangleIntersection.html#Advanced_Algorithms_Geometry_RectangleIntersection_DoIntersect_Rectangle_Rectangle_
-  commentId: M:Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect(Rectangle,Rectangle)
-  fullName: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect(Rectangle, Rectangle)
+  href: api/Advanced.Algorithms.Geometry.RectangleIntersection.html#Advanced_Algorithms_Geometry_RectangleIntersection_DoIntersect_Advanced_Algorithms_Geometry_Rectangle_Advanced_Algorithms_Geometry_Rectangle_
+  commentId: M:Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect(Advanced.Algorithms.Geometry.Rectangle,Advanced.Algorithms.Geometry.Rectangle)
+  fullName: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect(Advanced.Algorithms.Geometry.Rectangle, Advanced.Algorithms.Geometry.Rectangle)
   nameWithType: RectangleIntersection.DoIntersect(Rectangle, Rectangle)
 - uid: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect*
   name: DoIntersect
@@ -8935,11 +9413,11 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Geometry.RectangleIntersection.DoIntersect
   nameWithType: RectangleIntersection.DoIntersect
-- uid: Advanced.Algorithms.Geometry.RectangleIntersection.FindIntersection(Rectangle,Rectangle)
+- uid: Advanced.Algorithms.Geometry.RectangleIntersection.FindIntersection(Advanced.Algorithms.Geometry.Rectangle,Advanced.Algorithms.Geometry.Rectangle)
   name: FindIntersection(Rectangle, Rectangle)
-  href: api/Advanced.Algorithms.Geometry.RectangleIntersection.html#Advanced_Algorithms_Geometry_RectangleIntersection_FindIntersection_Rectangle_Rectangle_
-  commentId: M:Advanced.Algorithms.Geometry.RectangleIntersection.FindIntersection(Rectangle,Rectangle)
-  fullName: Advanced.Algorithms.Geometry.RectangleIntersection.FindIntersection(Rectangle, Rectangle)
+  href: api/Advanced.Algorithms.Geometry.RectangleIntersection.html#Advanced_Algorithms_Geometry_RectangleIntersection_FindIntersection_Advanced_Algorithms_Geometry_Rectangle_Advanced_Algorithms_Geometry_Rectangle_
+  commentId: M:Advanced.Algorithms.Geometry.RectangleIntersection.FindIntersection(Advanced.Algorithms.Geometry.Rectangle,Advanced.Algorithms.Geometry.Rectangle)
+  fullName: Advanced.Algorithms.Geometry.RectangleIntersection.FindIntersection(Advanced.Algorithms.Geometry.Rectangle, Advanced.Algorithms.Geometry.Rectangle)
   nameWithType: RectangleIntersection.FindIntersection(Rectangle, Rectangle)
 - uid: Advanced.Algorithms.Geometry.RectangleIntersection.FindIntersection*
   name: FindIntersection
@@ -10638,6 +11116,60 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Search.BinarySearch.Search
   nameWithType: BinarySearch.Search
+- uid: Advanced.Algorithms.Search.BoyerMoore`1
+  name: BoyerMoore<T>
+  href: api/Advanced.Algorithms.Search.BoyerMoore-1.html
+  commentId: T:Advanced.Algorithms.Search.BoyerMoore`1
+  name.vb: BoyerMoore(Of T)
+  fullName: Advanced.Algorithms.Search.BoyerMoore<T>
+  fullName.vb: Advanced.Algorithms.Search.BoyerMoore(Of T)
+  nameWithType: BoyerMoore<T>
+  nameWithType.vb: BoyerMoore(Of T)
+- uid: Advanced.Algorithms.Search.BoyerMoore`1.FindMajority(System.Collections.Generic.IEnumerable{`0})
+  name: FindMajority(IEnumerable<T>)
+  href: api/Advanced.Algorithms.Search.BoyerMoore-1.html#Advanced_Algorithms_Search_BoyerMoore_1_FindMajority_System_Collections_Generic_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.Search.BoyerMoore`1.FindMajority(System.Collections.Generic.IEnumerable{`0})
+  name.vb: FindMajority(IEnumerable(Of T))
+  fullName: Advanced.Algorithms.Search.BoyerMoore<T>.FindMajority(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.Search.BoyerMoore(Of T).FindMajority(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: BoyerMoore<T>.FindMajority(IEnumerable<T>)
+  nameWithType.vb: BoyerMoore(Of T).FindMajority(IEnumerable(Of T))
+- uid: Advanced.Algorithms.Search.BoyerMoore`1.FindMajority*
+  name: FindMajority
+  href: api/Advanced.Algorithms.Search.BoyerMoore-1.html#Advanced_Algorithms_Search_BoyerMoore_1_FindMajority_
+  commentId: Overload:Advanced.Algorithms.Search.BoyerMoore`1.FindMajority
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Search.BoyerMoore<T>.FindMajority
+  fullName.vb: Advanced.Algorithms.Search.BoyerMoore(Of T).FindMajority
+  nameWithType: BoyerMoore<T>.FindMajority
+  nameWithType.vb: BoyerMoore(Of T).FindMajority
+- uid: Advanced.Algorithms.Search.QuickSelect`1
+  name: QuickSelect<T>
+  href: api/Advanced.Algorithms.Search.QuickSelect-1.html
+  commentId: T:Advanced.Algorithms.Search.QuickSelect`1
+  name.vb: QuickSelect(Of T)
+  fullName: Advanced.Algorithms.Search.QuickSelect<T>
+  fullName.vb: Advanced.Algorithms.Search.QuickSelect(Of T)
+  nameWithType: QuickSelect<T>
+  nameWithType.vb: QuickSelect(Of T)
+- uid: Advanced.Algorithms.Search.QuickSelect`1.FindSmallest(System.Collections.Generic.IEnumerable{`0},System.Int32)
+  name: FindSmallest(IEnumerable<T>, Int32)
+  href: api/Advanced.Algorithms.Search.QuickSelect-1.html#Advanced_Algorithms_Search_QuickSelect_1_FindSmallest_System_Collections_Generic_IEnumerable__0__System_Int32_
+  commentId: M:Advanced.Algorithms.Search.QuickSelect`1.FindSmallest(System.Collections.Generic.IEnumerable{`0},System.Int32)
+  name.vb: FindSmallest(IEnumerable(Of T), Int32)
+  fullName: Advanced.Algorithms.Search.QuickSelect<T>.FindSmallest(System.Collections.Generic.IEnumerable<T>, System.Int32)
+  fullName.vb: Advanced.Algorithms.Search.QuickSelect(Of T).FindSmallest(System.Collections.Generic.IEnumerable(Of T), System.Int32)
+  nameWithType: QuickSelect<T>.FindSmallest(IEnumerable<T>, Int32)
+  nameWithType.vb: QuickSelect(Of T).FindSmallest(IEnumerable(Of T), Int32)
+- uid: Advanced.Algorithms.Search.QuickSelect`1.FindSmallest*
+  name: FindSmallest
+  href: api/Advanced.Algorithms.Search.QuickSelect-1.html#Advanced_Algorithms_Search_QuickSelect_1_FindSmallest_
+  commentId: Overload:Advanced.Algorithms.Search.QuickSelect`1.FindSmallest
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Search.QuickSelect<T>.FindSmallest
+  fullName.vb: Advanced.Algorithms.Search.QuickSelect(Of T).FindSmallest
+  nameWithType: QuickSelect<T>.FindSmallest
+  nameWithType.vb: QuickSelect(Of T).FindSmallest
 - uid: Advanced.Algorithms.Sorting
   name: Advanced.Algorithms.Sorting
   href: api/Advanced.Algorithms.Sorting.html

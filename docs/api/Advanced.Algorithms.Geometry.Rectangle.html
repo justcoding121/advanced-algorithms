@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct Rectangle
+    <title>Class Rectangle
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct Rectangle
+    <meta name="title" content="Class Rectangle
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.36.1.0">
+    <meta name="generator" content="docfx 2.37.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -81,20 +81,22 @@
             <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Geometry.Rectangle">
   
   
-  <h1 id="Advanced_Algorithms_Geometry_Rectangle" data-uid="Advanced.Algorithms.Geometry.Rectangle" class="text-break">Struct Rectangle
+  <h1 id="Advanced_Algorithms_Geometry_Rectangle" data-uid="Advanced.Algorithms.Geometry.Rectangle" class="text-break">Class Rectangle
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">Rectangle</span></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.equals#System_ValueType_Equals_System_Object_">ValueType.Equals(Object)</a>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.gethashcode#System_ValueType_GetHashCode">ValueType.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.tostring#System_ValueType_ToString">ValueType.ToString()</a>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
@@ -103,15 +105,65 @@
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.Geometry.html">Advanced.Algorithms.Geometry</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_Geometry_Rectangle_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct Rectangle</code></pre>
+    <pre><code class="lang-csharp hljs">public class Rectangle</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_Geometry_Rectangle__ctor_" data-uid="Advanced.Algorithms.Geometry.Rectangle.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Rectangle__ctor" data-uid="Advanced.Algorithms.Geometry.Rectangle.#ctor">Rectangle()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rectangle()</code></pre>
+  </div>
+  
+  
+  <a id="Advanced_Algorithms_Geometry_Rectangle__ctor_" data-uid="Advanced.Algorithms.Geometry.Rectangle.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Rectangle__ctor_Advanced_Algorithms_Geometry_Point_Advanced_Algorithms_Geometry_Point_" data-uid="Advanced.Algorithms.Geometry.Rectangle.#ctor(Advanced.Algorithms.Geometry.Point,Advanced.Algorithms.Geometry.Point)">Rectangle(Point, Point)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rectangle(Point leftTopCorner, Point rightBottomCorner)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Point.html">Point</a></td>
+        <td><span class="parametername">leftTopCorner</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Point.html">Point</a></td>
+        <td><span class="parametername">rightBottomCorner</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   
@@ -160,6 +212,33 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Advanced.Algorithms.Geometry.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_Geometry_Rectangle_ToPolygon_" data-uid="Advanced.Algorithms.Geometry.Rectangle.ToPolygon*"></a>
+  <h4 id="Advanced_Algorithms_Geometry_Rectangle_ToPolygon" data-uid="Advanced.Algorithms.Geometry.Rectangle.ToPolygon">ToPolygon()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Polygon ToPolygon()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Polygon.html">Polygon</a></td>
         <td></td>
       </tr>
     </tbody>
