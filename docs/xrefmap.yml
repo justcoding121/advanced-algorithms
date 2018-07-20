@@ -606,6 +606,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).FindMin
   nameWithType: AVLTree<T>.FindMin
   nameWithType.vb: AVLTree(Of T).FindMin
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).GetEnumerator()
+  nameWithType: AVLTree<T>.GetEnumerator()
+  nameWithType.vb: AVLTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).GetEnumerator
+  nameWithType: AVLTree<T>.GetEnumerator
+  nameWithType.vb: AVLTree(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.GetHeight
   name: GetHeight()
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_GetHeight
@@ -691,6 +708,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Previous
   nameWithType: AVLTree<T>.Previous
   nameWithType.vb: AVLTree(Of T).Previous
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: AVLTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: AVLTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: AVLTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: AVLTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BinaryTree`1
   name: BinaryTree<T>
   href: api/Advanced.Algorithms.DataStructures.BinaryTree-1.html
@@ -1874,6 +1910,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).FindMin
   nameWithType: BST<T>.FindMin
   nameWithType.vb: BST(Of T).FindMin
+- uid: Advanced.Algorithms.DataStructures.BST`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.BST`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).GetEnumerator()
+  nameWithType: BST<T>.GetEnumerator()
+  nameWithType.vb: BST(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.BST`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BST`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).GetEnumerator
+  nameWithType: BST<T>.GetEnumerator
+  nameWithType.vb: BST(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BST`1.getHeight
   name: getHeight()
   href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_getHeight
@@ -1925,6 +1978,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).Insert
   nameWithType: BST<T>.Insert
   nameWithType.vb: BST(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.BST`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.BST`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: BST<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: BST(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.BST`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BST`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: BST<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: BST(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BSTExtensions
   name: BSTExtensions
   href: api/Advanced.Algorithms.DataStructures.BSTExtensions.html
@@ -6556,6 +6628,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).Delete
   nameWithType: RedBlackTree<T>.Delete
   nameWithType.vb: RedBlackTree(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).GetEnumerator()
+  nameWithType: RedBlackTree<T>.GetEnumerator()
+  nameWithType.vb: RedBlackTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).GetEnumerator
+  nameWithType: RedBlackTree<T>.GetEnumerator
+  nameWithType.vb: RedBlackTree(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.GetHeight
   name: GetHeight()
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_GetHeight
@@ -6675,6 +6764,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).Previous
   nameWithType: RedBlackTree<T>.Previous
   nameWithType.vb: RedBlackTree(Of T).Previous
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: RedBlackTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: RedBlackTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: RedBlackTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: RedBlackTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.RTree
   name: RTree
   href: api/Advanced.Algorithms.DataStructures.RTree.html
@@ -7484,6 +7592,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).FindMin
   nameWithType: SplayTree<T>.FindMin
   nameWithType.vb: SplayTree(Of T).FindMin
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SplayTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).GetEnumerator()
+  nameWithType: SplayTree<T>.GetEnumerator()
+  nameWithType.vb: SplayTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SplayTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).GetEnumerator
+  nameWithType: SplayTree<T>.GetEnumerator
+  nameWithType.vb: SplayTree(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SplayTree`1.GetHeight
   name: GetHeight()
   href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_GetHeight
@@ -7535,6 +7660,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).Insert
   nameWithType: SplayTree<T>.Insert
   nameWithType.vb: SplayTree(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SplayTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SplayTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SplayTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SplayTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SplayTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SplayTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Stack`1
   name: Stack<T>
   href: api/Advanced.Algorithms.DataStructures.Stack-1.html
@@ -7954,6 +8098,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).FindMin
   nameWithType: TreapTree<T>.FindMin
   nameWithType.vb: TreapTree(Of T).FindMin
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.TreapTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).GetEnumerator()
+  nameWithType: TreapTree<T>.GetEnumerator()
+  nameWithType.vb: TreapTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.TreapTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).GetEnumerator
+  nameWithType: TreapTree<T>.GetEnumerator
+  nameWithType.vb: TreapTree(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.TreapTree`1.GetHeight
   name: GetHeight()
   href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_GetHeight
@@ -8005,6 +8166,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).Insert
   nameWithType: TreapTree<T>.Insert
   nameWithType.vb: TreapTree(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.TreapTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: TreapTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.TreapTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: TreapTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Tree`1
   name: Tree<T>
   href: api/Advanced.Algorithms.DataStructures.Tree-1.html
