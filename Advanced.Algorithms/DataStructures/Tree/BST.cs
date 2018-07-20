@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -30,8 +32,8 @@ namespace Advanced.Algorithms.DataStructures
     }
 
     //TODO support initial bulk loading
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class BST<T> where T : IComparable
+    //TODO make sure duplicates are handled correctly if its not already
+    public class BST<T> : IEnumerable<T> where T : IComparable
     {
         internal BSTNode<T> Root { get; set; }
         public int Count { get; private set; }
@@ -360,5 +362,17 @@ namespace Advanced.Algorithms.DataStructures
                 parent = parent.Right;
             }
         }
+
+        //Implementation for the GetEnumerator method.
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new BSTEnumerator<T>(Root);
+        }
     }
+
 }

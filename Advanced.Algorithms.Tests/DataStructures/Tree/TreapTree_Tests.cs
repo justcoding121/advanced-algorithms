@@ -17,7 +17,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //insert test
             var tree = new TreapTree<int>();
 
-
             tree.Insert(11);
             tree.Insert(6);
             tree.Insert(8);
@@ -29,6 +28,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Insert(43);
             tree.Insert(49);
             tree.Insert(31);
+
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
 
             //delete
             tree.Delete(43);
@@ -72,6 +74,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                                    .OrderBy(x => rnd.Next())
                                    .ToList();
 
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
 
             for (int i = 0; i < nodeCount; i++)
             {

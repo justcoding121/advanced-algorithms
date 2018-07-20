@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -33,8 +35,8 @@ namespace Advanced.Algorithms.DataStructures
     }
 
     //TODO support initial  bulk loading if possible
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class TreapTree<T> where T : IComparable
+    //TODO make sure duplicates are handled correctly if its not already
+    public class TreapTree<T> : IEnumerable<T> where T : IComparable
     {
         private Random rndGenerator = new Random();
         internal TreapTreeNode<T> Root { get; set; }
@@ -438,6 +440,17 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             return newRoot;
+        }
+
+        //Implementation for the GetEnumerator method.
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new BSTEnumerator<T>(Root);
         }
     }
 }

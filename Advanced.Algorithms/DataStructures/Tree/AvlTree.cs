@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -33,12 +35,12 @@ namespace Advanced.Algorithms.DataStructures
     }
 
     //TODO support bulk initial loading
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class AVLTree<T> where T : IComparable
+    //TODO make sure duplicates are handled correctly if its not already
+    public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
         internal AVLTreeNode<T> Root { get; private set; }
         public int Count { get; private set; }
-        private readonly System.Collections.Generic.Dictionary<T, AVLTreeNode<T>> nodeLookUp;
+        private readonly System.Collections.Generic.Dictionary<T, BSTNodeBase<T>> nodeLookUp;
 
         /// <summary>
         /// Constructor
@@ -49,7 +51,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             if (enableNodeLookUp)
             {
-                nodeLookUp = new System.Collections.Generic.Dictionary<T, AVLTreeNode<T>>();
+                nodeLookUp = new System.Collections.Generic.Dictionary<T, BSTNodeBase<T>>();
             }
         }
 
@@ -354,7 +356,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             if (nodeLookUp != null)
             {
-                return nodeLookUp[value];
+                return nodeLookUp[value] as AVLTreeNode<T>;
             }
 
             return Root.Find<T>(value) as AVLTreeNode<T>;
@@ -599,6 +601,22 @@ namespace Advanced.Algorithms.DataStructures
                 nodeLookUp[node1.Value] = node1;
                 nodeLookUp[node2.Value] = node2;
             }
+        }
+
+        //Implementation for the GetEnumerator method.
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            if (nodeLookUp != null)
+            {
+                return new BSTNodeLookUpEnumerator<T>(nodeLookUp);
+            }
+
+            return new BSTEnumerator<T>(Root);
         }
     }
 }

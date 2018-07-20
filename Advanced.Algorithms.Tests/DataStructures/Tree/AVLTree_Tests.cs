@@ -51,6 +51,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Insert(11);
             Assert.AreEqual(3, tree.GetHeight());
 
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
+
             //delete
             tree.Delete(1);
             Assert.AreEqual(3, tree.GetHeight());
@@ -123,6 +126,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
+
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
@@ -165,6 +171,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                                    .OrderBy(x => rnd.Next())
                                    .ToList();
 
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
 
             for (int i = 0; i < nodeCount; i++)
             {
