@@ -52,8 +52,6 @@ namespace Advanced.Algorithms.DataStructures
 
     /// <summary>
     /// A B+ Tree implementation
-    /// TODO support initial  bulk loading
-    /// TODO: make sure duplicates are handled correctly if its not already
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class BpTree<T> : IEnumerable<T> where T : IComparable

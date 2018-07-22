@@ -35,7 +35,6 @@ namespace Advanced.Algorithms.DataStructures
     }
     /// <summary>
     /// A hash table implementation (key value HashSet) with separate chaining
-    /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="TV"></typeparam>

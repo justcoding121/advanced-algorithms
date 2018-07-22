@@ -10,8 +10,6 @@ namespace Advanced.Algorithms.DataStructures
         Red
     }
 
-    //TODO make sure duplicates are handled correctly if its not already
-    //TODO support initial bulk loading 
     /// <summary>
     /// Red black tree node
     /// </summary>

@@ -2,7 +2,6 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     internal class LinkedListStack<T> : IStack<T>
     {
         public int Count { get; private set; }

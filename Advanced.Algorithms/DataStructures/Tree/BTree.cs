@@ -32,7 +32,7 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
+
     internal class BTreeNode<T> : BNode<T> where T : IComparable
     {
 
@@ -71,8 +71,6 @@ namespace Advanced.Algorithms.DataStructures
 
     /// <summary>
     /// A BTree implementation
-    /// TODO support initial  bulk loading
-    /// TODO Implement IEnumerator & make sure duplicates are handled correctly if its not already
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class BTree<T> where T : IComparable

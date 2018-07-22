@@ -25,8 +25,7 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    //TODO support initial  bulk loading if possible
+
     /// <summary>
     /// range tree
     /// </summary>
@@ -192,7 +191,6 @@ namespace Advanced.Algorithms.DataStructures
 
     /// <summary>
     /// One dimensional range tree
-    /// TODO support multiple dimensions 
     /// by nesting node with r-b tree for next dimension
     /// </summary>
     /// <typeparam name="T"></typeparam>

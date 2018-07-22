@@ -24,7 +24,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
     }
 
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A weighted graph implementation
     /// </summary>

@@ -31,8 +31,6 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    //TODO support initial bulk loading
-    //TODO make sure duplicates are handled correctly if its not already
     public class BST<T> : IEnumerable<T> where T : IComparable
     {
         internal BSTNode<T> Root { get; set; }

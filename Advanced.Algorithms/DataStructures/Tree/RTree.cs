@@ -138,8 +138,6 @@ namespace Advanced.Algorithms.DataStructures
 
     /// <summary>
     /// A RTree implementation
-    /// TODO support initial  bulk loading
-    /// TODO: make sure duplicates are handled correctly if its not already
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class RTree

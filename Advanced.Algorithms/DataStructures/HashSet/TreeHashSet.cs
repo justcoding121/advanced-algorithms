@@ -2,7 +2,6 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A HashSet implementation using balanced binary search tree (log(n) operations in worst case)
     /// This may be better than regular HashSet implementation which can give o(K) in worst case (but O(1) when collisions K is avoided )

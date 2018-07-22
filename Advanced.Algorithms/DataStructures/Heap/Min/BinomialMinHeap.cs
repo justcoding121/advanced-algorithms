@@ -2,7 +2,6 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class BinomialMinHeap<T> where T : IComparable
     {
         public int Count { get; private set; }
@@ -45,7 +44,6 @@ namespace Advanced.Algorithms.DataStructures
             var cur = heapForest.Head;
             var next = heapForest.Head.Next;
 
-            //TODO
             while (next != null)
             {
                 //case 1

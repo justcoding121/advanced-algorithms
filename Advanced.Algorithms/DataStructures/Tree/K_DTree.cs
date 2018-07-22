@@ -55,8 +55,7 @@ namespace Advanced.Algorithms.DataStructures
         internal bool IsLeftChild => Parent.Left == this;
     }
 
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    //TODO support initial  bulk loading if possible
+
     /// <summary>
     /// A multiDimensional Kd tree implementation (Unbalanced)
     /// </summary>

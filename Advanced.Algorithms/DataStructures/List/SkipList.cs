@@ -10,7 +10,6 @@ namespace Advanced.Algorithms.DataStructures
         internal T value { get; set; }
     }
 
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class SkipList<T> where T : IComparable
     {
         private readonly Random coinFlipper = new Random();

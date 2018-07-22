@@ -4,10 +4,8 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-
     /// <summary>
     /// A hash table implementation (value value HashSet) with separate chaining
-    /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
     /// </summary>
     /// <typeparam name="TV"></typeparam>
     internal class SeparateChainingHashSet<TV> : IHashSet<TV>  

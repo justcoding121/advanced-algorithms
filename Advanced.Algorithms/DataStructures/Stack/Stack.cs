@@ -16,7 +16,7 @@ namespace Advanced.Algorithms.DataStructures
         Array = 0,
         LinkedList = 1
     }
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
+
     public class Stack<T>
     {
         private readonly IStack<T> stack;

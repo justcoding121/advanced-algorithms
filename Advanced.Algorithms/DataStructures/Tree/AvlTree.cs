@@ -34,8 +34,6 @@ namespace Advanced.Algorithms.DataStructures
         internal int Height { get; set; }
     }
 
-    //TODO support bulk initial loading
-    //TODO make sure duplicates are handled correctly if its not already
     public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
         internal AVLTreeNode<T> Root { get; private set; }

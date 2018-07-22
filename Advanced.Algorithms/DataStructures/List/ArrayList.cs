@@ -10,7 +10,6 @@ namespace Advanced.Algorithms.DataStructures
     /// <typeparam name="T"></typeparam>
     public class ArrayList<T> : IEnumerable<T>
     {
-
         private readonly int initialArraySize;
         private int arraySize;
 
@@ -252,7 +251,6 @@ namespace Advanced.Algorithms.DataStructures
         {
             get
             {
-
                 try
                 {
                     return array[position];

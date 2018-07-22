@@ -3,7 +3,6 @@ using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class SparseSet
     {
         private readonly int[] sparse;

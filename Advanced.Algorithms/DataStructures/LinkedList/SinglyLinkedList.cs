@@ -15,7 +15,6 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A singly linked list implementation
     /// </summary>

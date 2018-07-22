@@ -32,8 +32,6 @@ namespace Advanced.Algorithms.DataStructures
 
     }
 
-    //TODO support initial  bulk loading if possible
-    //TODO make sure duplicates are handled correctly if its not already
     public class SplayTree<T> : IEnumerable<T> where T : IComparable
     {
         internal SplayTreeNode<T> Root { get; set; }

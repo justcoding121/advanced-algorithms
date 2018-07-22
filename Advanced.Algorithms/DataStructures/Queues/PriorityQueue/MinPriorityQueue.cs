@@ -2,7 +2,6 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// priority queue implementation using min heap
     /// assuming lower values of P have higher priority
     public class MinPriorityQueue<T> where T : IComparable

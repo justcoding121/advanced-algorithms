@@ -1,6 +1,6 @@
 ﻿using System;
 
-//TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
+
 namespace Advanced.Algorithms.DataStructures
 {
     internal class DisJointSetNode<T>

@@ -17,8 +17,7 @@ namespace Advanced.Algorithms.DataStructures
             this.Value = value;
         }
     }
-    //TODO support initial  bulk loading if possible
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
+
     public class TernarySearchTree<T> where T : IComparable
     {
         internal TernarySearchTreeNode<T> Root;
