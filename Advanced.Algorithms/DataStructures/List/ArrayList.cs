@@ -86,7 +86,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Insert element at specified index
+        /// Insert given item at specified index.
         /// Time complexity: O(1) amortized.
         /// </summary>
         /// <param name="index">The index to insert at.<param>
@@ -110,7 +110,11 @@ namespace Advanced.Algorithms.DataStructures
             Array.Copy(array, index, array, index + 1, Length - index);
         }
 
-        internal void Clear()
+        /// <summary>
+        /// Clears the array.
+        /// Time complexity: O(1).
+        /// </summary>
+        public void Clear()
         {
             arraySize = initialArraySize;
             array = new T[arraySize];
