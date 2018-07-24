@@ -241,6 +241,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Add
   nameWithType: ArrayList<T>.Add
   nameWithType.vb: ArrayList(Of T).Add
+- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Clear
+  name: Clear()
+  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Clear
+  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.Clear
+  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Clear()
+  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Clear()
+  nameWithType: ArrayList<T>.Clear()
+  nameWithType.vb: ArrayList(Of T).Clear()
+- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Clear*
+  name: Clear
+  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Clear_
+  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.Clear
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Clear
+  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Clear
+  nameWithType: ArrayList<T>.Clear
+  nameWithType.vb: ArrayList(Of T).Clear
 - uid: Advanced.Algorithms.DataStructures.ArrayList`1.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_GetEnumerator
