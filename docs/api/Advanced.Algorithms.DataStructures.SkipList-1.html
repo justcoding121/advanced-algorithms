@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SkipList&lt;T&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.37.0.0">
+    <meta name="generator" content="docfx 2.37.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,12 +83,18 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_SkipList_1" data-uid="Advanced.Algorithms.DataStructures.SkipList`1" class="text-break">Class SkipList&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A skip list implementation with IEnumerable support.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">SkipList&lt;T&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -118,8 +124,7 @@
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_SkipList_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SkipList&lt;T&gt;
-    where T : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class SkipList&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable where T : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -132,7 +137,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>The data type of thi skip list.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -142,7 +148,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_SkipList_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.#ctor*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_SkipList_1__ctor_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.#ctor(System.Int32)">SkipList(Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -161,6 +168,34 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">maxHeight</span></td>
+        <td><p>The maximum height.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Advanced_Algorithms_DataStructures_SkipList_1_MaxHeight" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.MaxHeight">MaxHeight</h4>
+  <div class="markdown level1 summary"><p>The maximum height of this skip list with which it was initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int MaxHeight</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -169,13 +204,14 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_SkipList_1_MaxHeight_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.MaxHeight*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_SkipList_1_MaxHeight" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.MaxHeight">MaxHeight</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Advanced_Algorithms_DataStructures_SkipList_1_Count_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.Count*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SkipList_1_Count" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.Count">Count</h4>
+  <div class="markdown level1 summary"><p>The number of elements in this skip list.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int MaxHeight { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -198,7 +234,10 @@
   
   <a id="Advanced_Algorithms_DataStructures_SkipList_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.Delete*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_SkipList_1_Delete__0_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.Delete(`0)">Delete(T)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Deletes the given value from this skip list.
+Will throw exception if the value does&apos;nt exist in this skip list.
+Time complexity: O(log(n))</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -217,7 +256,8 @@
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The value to delete.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -225,7 +265,10 @@
   
   <a id="Advanced_Algorithms_DataStructures_SkipList_1_Find_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.Find*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_SkipList_1_Find__0_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.Find(`0)">Find(T)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Finds the given value in this skip list.
+If item is not found default value of T will be returned.
+Time complexity: O(log(n)).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -265,9 +308,37 @@
   </table>
   
   
+  <a id="Advanced_Algorithms_DataStructures_SkipList_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SkipList_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_SkipList_1_Insert_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.Insert*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_SkipList_1_Insert__0_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.Insert(`0)">Insert(T)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Inserts the given value to this skip list.
+Will throw exception if the value already exists.
+Time complexity: O(log(n))</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -286,10 +357,45 @@
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">value</span></td>
+        <td><p>The value to insert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_SkipList_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SkipList_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           

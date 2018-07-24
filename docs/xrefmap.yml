@@ -241,24 +241,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Add
   nameWithType: ArrayList<T>.Add
   nameWithType.vb: ArrayList(Of T).Add
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.AddRange(`0[])
-  name: AddRange(T[])
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_AddRange__0___
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.AddRange(`0[])
-  name.vb: AddRange(T())
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.AddRange(T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).AddRange(T())
-  nameWithType: ArrayList<T>.AddRange(T[])
-  nameWithType.vb: ArrayList(Of T).AddRange(T())
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.AddRange*
-  name: AddRange
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_AddRange_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.AddRange
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.AddRange
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).AddRange
-  nameWithType: ArrayList<T>.AddRange
-  nameWithType.vb: ArrayList(Of T).AddRange
 - uid: Advanced.Algorithms.DataStructures.ArrayList`1.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_GetEnumerator
@@ -328,23 +310,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Length
   nameWithType: ArrayList<T>.Length
   nameWithType.vb: ArrayList(Of T).Length
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.RemoveItem(System.Int32)
-  name: RemoveItem(Int32)
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_RemoveItem_System_Int32_
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.RemoveItem(System.Int32)
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.RemoveItem(System.Int32)
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).RemoveItem(System.Int32)
-  nameWithType: ArrayList<T>.RemoveItem(Int32)
-  nameWithType.vb: ArrayList(Of T).RemoveItem(Int32)
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.RemoveItem*
-  name: RemoveItem
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_RemoveItem_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.RemoveItem
+- uid: Advanced.Algorithms.DataStructures.ArrayList`1.RemoveAt(System.Int32)
+  name: RemoveAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_RemoveAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.RemoveAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.RemoveAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).RemoveAt(System.Int32)
+  nameWithType: ArrayList<T>.RemoveAt(Int32)
+  nameWithType.vb: ArrayList(Of T).RemoveAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.ArrayList`1.RemoveAt*
+  name: RemoveAt
+  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_RemoveAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.RemoveAt
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.RemoveItem
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).RemoveItem
-  nameWithType: ArrayList<T>.RemoveItem
-  nameWithType.vb: ArrayList(Of T).RemoveItem
+  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.RemoveAt
+  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).RemoveAt
+  nameWithType: ArrayList<T>.RemoveAt
+  nameWithType.vb: ArrayList(Of T).RemoveAt
 - uid: Advanced.Algorithms.DataStructures.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
   name: IEnumerable.GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_System_Collections_IEnumerable_GetEnumerator
@@ -364,137 +346,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: ArrayList<T>.IEnumerable.GetEnumerator
   nameWithType.vb: ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.ToArray
-  name: ToArray()
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_ToArray
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.ToArray
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.ToArray()
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).ToArray()
-  nameWithType: ArrayList<T>.ToArray()
-  nameWithType.vb: ArrayList(Of T).ToArray()
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.ToArray*
-  name: ToArray
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_ToArray_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.ToArray
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.ToArray
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).ToArray
-  nameWithType: ArrayList<T>.ToArray
-  nameWithType.vb: ArrayList(Of T).ToArray
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1
-  name: ArrayListEnumerator<T>
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1
-  name.vb: ArrayListEnumerator(Of T)
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T)
-  nameWithType: ArrayListEnumerator<T>
-  nameWithType.vb: ArrayListEnumerator(Of T)
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.#ctor(`0[],System.Int32)
-  name: ArrayListEnumerator(T[], Int32)
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1__ctor__0___System_Int32_
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.#ctor(`0[],System.Int32)
-  name.vb: ArrayListEnumerator(T(), Int32)
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.ArrayListEnumerator(T[], System.Int32)
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).ArrayListEnumerator(T(), System.Int32)
-  nameWithType: ArrayListEnumerator<T>.ArrayListEnumerator(T[], Int32)
-  nameWithType.vb: ArrayListEnumerator(Of T).ArrayListEnumerator(T(), Int32)
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.#ctor*
-  name: ArrayListEnumerator
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.#ctor
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.ArrayListEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).ArrayListEnumerator
-  nameWithType: ArrayListEnumerator<T>.ArrayListEnumerator
-  nameWithType.vb: ArrayListEnumerator(Of T).ArrayListEnumerator
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Current
-  name: Current
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_Current
-  commentId: P:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Current
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).Current
-  nameWithType: ArrayListEnumerator<T>.Current
-  nameWithType.vb: ArrayListEnumerator(Of T).Current
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Current*
-  name: Current
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_Current_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Current
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).Current
-  nameWithType: ArrayListEnumerator<T>.Current
-  nameWithType.vb: ArrayListEnumerator(Of T).Current
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Dispose
-  name: Dispose()
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_Dispose
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Dispose
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.Dispose()
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).Dispose()
-  nameWithType: ArrayListEnumerator<T>.Dispose()
-  nameWithType.vb: ArrayListEnumerator(Of T).Dispose()
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Dispose*
-  name: Dispose
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_Dispose_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Dispose
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.Dispose
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).Dispose
-  nameWithType: ArrayListEnumerator<T>.Dispose
-  nameWithType.vb: ArrayListEnumerator(Of T).Dispose
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.MoveNext
-  name: MoveNext()
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_MoveNext
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.MoveNext
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.MoveNext()
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).MoveNext()
-  nameWithType: ArrayListEnumerator<T>.MoveNext()
-  nameWithType.vb: ArrayListEnumerator(Of T).MoveNext()
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.MoveNext*
-  name: MoveNext
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_MoveNext_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.MoveNext
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.MoveNext
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).MoveNext
-  nameWithType: ArrayListEnumerator<T>.MoveNext
-  nameWithType.vb: ArrayListEnumerator(Of T).MoveNext
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Reset
-  name: Reset()
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_Reset
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Reset
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.Reset()
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).Reset()
-  nameWithType: ArrayListEnumerator<T>.Reset()
-  nameWithType.vb: ArrayListEnumerator(Of T).Reset()
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Reset*
-  name: Reset
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_Reset_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.Reset
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.Reset
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).Reset
-  nameWithType: ArrayListEnumerator<T>.Reset
-  nameWithType.vb: ArrayListEnumerator(Of T).Reset
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.System#Collections#IEnumerator#Current
-  name: IEnumerator.Current
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_System_Collections_IEnumerator_Current
-  commentId: P:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.System#Collections#IEnumerator#Current
-  name.vb: System.Collections.IEnumerator.Current
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.System.Collections.IEnumerator.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).System.Collections.IEnumerator.Current
-  nameWithType: ArrayListEnumerator<T>.IEnumerator.Current
-  nameWithType.vb: ArrayListEnumerator(Of T).System.Collections.IEnumerator.Current
-- uid: Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.System#Collections#IEnumerator#Current*
-  name: IEnumerator.Current
-  href: api/Advanced.Algorithms.DataStructures.ArrayListEnumerator-1.html#Advanced_Algorithms_DataStructures_ArrayListEnumerator_1_System_Collections_IEnumerator_Current_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayListEnumerator`1.System#Collections#IEnumerator#Current
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerator.Current
-  fullName: Advanced.Algorithms.DataStructures.ArrayListEnumerator<T>.System.Collections.IEnumerator.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayListEnumerator(Of T).System.Collections.IEnumerator.Current
-  nameWithType: ArrayListEnumerator<T>.IEnumerator.Current
-  nameWithType.vb: ArrayListEnumerator(Of T).System.Collections.IEnumerator.Current
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1
   name: AVLTree<T>
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html
@@ -7363,6 +7214,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).SkipList
   nameWithType: SkipList<T>.SkipList
   nameWithType.vb: SkipList(Of T).SkipList
+- uid: Advanced.Algorithms.DataStructures.SkipList`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.SkipList`1.Count
+  fullName: Advanced.Algorithms.DataStructures.SkipList<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).Count
+  nameWithType: SkipList<T>.Count
+  nameWithType.vb: SkipList(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.SkipList`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SkipList`1.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SkipList<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).Count
+  nameWithType: SkipList<T>.Count
+  nameWithType.vb: SkipList(Of T).Count
 - uid: Advanced.Algorithms.DataStructures.SkipList`1.Delete(`0)
   name: Delete(T)
   href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_Delete__0_
@@ -7397,6 +7265,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).Find
   nameWithType: SkipList<T>.Find
   nameWithType.vb: SkipList(Of T).Find
+- uid: Advanced.Algorithms.DataStructures.SkipList`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SkipList`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SkipList<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).GetEnumerator()
+  nameWithType: SkipList<T>.GetEnumerator()
+  nameWithType.vb: SkipList(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SkipList`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SkipList`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SkipList<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).GetEnumerator
+  nameWithType: SkipList<T>.GetEnumerator
+  nameWithType.vb: SkipList(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SkipList`1.Insert(`0)
   name: Insert(T)
   href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_Insert__0_
@@ -7417,20 +7302,30 @@ references:
 - uid: Advanced.Algorithms.DataStructures.SkipList`1.MaxHeight
   name: MaxHeight
   href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_MaxHeight
-  commentId: P:Advanced.Algorithms.DataStructures.SkipList`1.MaxHeight
+  commentId: F:Advanced.Algorithms.DataStructures.SkipList`1.MaxHeight
   fullName: Advanced.Algorithms.DataStructures.SkipList<T>.MaxHeight
   fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).MaxHeight
   nameWithType: SkipList<T>.MaxHeight
   nameWithType.vb: SkipList(Of T).MaxHeight
-- uid: Advanced.Algorithms.DataStructures.SkipList`1.MaxHeight*
-  name: MaxHeight
-  href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_MaxHeight_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SkipList`1.MaxHeight
+- uid: Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.SkipList<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SkipList<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SkipList(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SkipList<T>.MaxHeight
-  fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).MaxHeight
-  nameWithType: SkipList<T>.MaxHeight
-  nameWithType.vb: SkipList(Of T).MaxHeight
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SkipList<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SkipList<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SkipList(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SparseSet
   name: SparseSet
   href: api/Advanced.Algorithms.DataStructures.SparseSet.html
