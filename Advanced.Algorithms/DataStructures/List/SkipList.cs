@@ -85,6 +85,11 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="value">The value to insert.</param>
         public void Insert(T value)
         {
+            if(!Find(value).Equals(default(T)))
+            {
+                throw new Exception("Cannot insert duplicate values.");
+            }
+
             //find the random level up to which we link the new node
             var level = 0;
             for (int i = 0; i < MaxHeight
@@ -126,11 +131,6 @@ namespace Advanced.Algorithms.DataStructures
                 if (i > level)
                 {
                     continue;
-                }
-
-                if (current.value.CompareTo(newNode.value) == 0)
-                {
-                    throw new Exception("Cannot insert duplicate values.");
                 }
 
                 //insert and update pointers
