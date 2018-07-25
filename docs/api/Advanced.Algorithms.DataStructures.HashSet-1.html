@@ -83,7 +83,7 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_HashSet_1" data-uid="Advanced.Algorithms.DataStructures.HashSet`1" class="text-break">Class HashSet&lt;TV&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A hash table implementation (key value HashSet) with separate chaining</p>
+  <div class="markdown level0 summary"><p>A hash table implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -137,7 +137,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">TV</span></td>
-        <td></td>
+        <td><p>The value datatype.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -147,7 +148,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_HashSet_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.#ctor*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_HashSet_1__ctor_Advanced_Algorithms_DataStructures_HashSetType_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.#ctor(Advanced.Algorithms.DataStructures.HashSetType,System.Int32)">HashSet(HashSetType, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -166,12 +168,14 @@
       <tr>
         <td><a class="xref" href="Advanced.Algorithms.DataStructures.HashSetType.html">HashSetType</a></td>
         <td><span class="parametername">type</span></td>
-        <td></td>
+        <td><p>The hashSet implementation to use.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">initialBucketSize</span></td>
-        <td></td>
+        <td><p>The larger the bucket size lesser the collision, but memory matters!</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -181,7 +185,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_HashSet_1_Count_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Count*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Count" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Count">Count</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The number of items in this hashset.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -208,7 +213,9 @@
   
   <a id="Advanced_Algorithms_DataStructures_HashSet_1_Add_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Add*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Add__0_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Add(`0)">Add(TV)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Add a new value.
+Time complexity: O(1) amortized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -227,7 +234,8 @@
       <tr>
         <td><span class="xref">TV</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The value to add.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -235,7 +243,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_HashSet_1_Clear_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Clear*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Clear" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Clear">Clear()</h4>
-  <div class="markdown level1 summary"><p>clear hash table</p>
+  <div class="markdown level1 summary"><p>Clear the hashtable.
+Time complexity: O(1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -246,7 +255,9 @@
   
   <a id="Advanced_Algorithms_DataStructures_HashSet_1_Contains_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Contains*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Contains__0_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Contains(`0)">Contains(TV)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Does this hash table contains the given value.
+Time complexity: O(1) amortized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -265,7 +276,8 @@
       <tr>
         <td><span class="xref">TV</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The value to check.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -280,7 +292,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><p>True if this hashset contains the given value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -313,7 +326,9 @@
   
   <a id="Advanced_Algorithms_DataStructures_HashSet_1_Remove_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Remove*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_HashSet_1_Remove__0_" data-uid="Advanced.Algorithms.DataStructures.HashSet`1.Remove(`0)">Remove(TV)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Remove the given value.
+Time complexity: O(1) amortized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -332,7 +347,8 @@
       <tr>
         <td><span class="xref">TV</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The value to remove.</p>
+</td>
       </tr>
     </tbody>
   </table>
