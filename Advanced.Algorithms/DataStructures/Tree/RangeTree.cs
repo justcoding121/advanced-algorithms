@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
@@ -9,18 +10,20 @@ namespace Advanced.Algorithms.DataStructures
     /// <typeparam name="T"></typeparam>
     internal class RangeTreeNode<T> : IComparable where T : IComparable
     {
-        internal T Data { get; set; }
+        internal T Value => Values[0];
+
+        internal List<T> Values { get; set; }
 
         internal RangeTree<T> tree { get; set; }
 
         public int CompareTo(object obj)
         {
-            return Data.CompareTo(((RangeTreeNode<T>)obj).Data);
+            return Value.CompareTo(((RangeTreeNode<T>)obj).Value);
         }
 
         public RangeTreeNode(T value)
         {
-            Data = value;
+            Values = new List<T>(new T[] { value });
             tree = new RangeTree<T>();
         }
     }
@@ -142,10 +145,10 @@ namespace Advanced.Algorithms.DataStructures
             {
                 var result = new List<T[]>();
 
-                foreach (var node in nodes)
+                foreach (var value in nodes.SelectMany(x => x.Values))
                 {
                     var thisDimResult = new T[dimensions];
-                    thisDimResult[dimension] = node.Data;
+                    thisDimResult[dimension] = value;
                     result.Add(thisDimResult);
                 }
 
@@ -159,10 +162,13 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     var nextDimResult = getInRange(node.tree, start, end, dimension + 1);
 
-                    foreach (var nextResult in nextDimResult)
+                    foreach (var value in node.Values)
                     {
-                        nextResult[dimension] = node.Data;
-                        result.Add(nextResult);
+                        foreach (var nextResult in nextDimResult)
+                        {
+                            nextResult[dimension] = value;
+                            result.Add(nextResult);
+                        }
                     }
                 }
 
@@ -215,13 +221,31 @@ namespace Advanced.Algorithms.DataStructures
         internal RangeTreeNode<T> Insert(T value)
         {
             var newNode = new RangeTreeNode<T>(value);
+
+            var existing = tree.FindNode(newNode);
+            if (existing != null)
+            {
+                existing.Value.Values.Add(value);
+                return existing.Value;
+            }
+
             tree.Insert(newNode);
             return newNode;
         }
 
         internal void Delete(T value)
         {
-            tree.Delete(new RangeTreeNode<T>(value));
+            var existing = tree.FindNode(new RangeTreeNode<T>(value));
+
+            if (existing.Value.Values.Count == 1)
+            {
+                tree.Delete(new RangeTreeNode<T>(value));
+                return;
+            }
+
+            //remove last
+            existing.Value.Values.RemoveAt(existing.Value.Values.Count - 1);
+
         }
 
         internal List<RangeTreeNode<T>> GetInRange(T start, T end)
@@ -251,7 +275,7 @@ namespace Advanced.Algorithms.DataStructures
             //move left
             else
             {
-                if (start.CompareTo(currentNode.Value.Data) <= 0)
+                if (start.CompareTo(currentNode.Value.Value) <= 0)
                 {
                     if (currentNode.Left != null)
                     {
@@ -269,7 +293,7 @@ namespace Advanced.Algorithms.DataStructures
                 //if start is greater than current
                 //and end is greater than current
                 //move right
-                if (end.CompareTo(currentNode.Value.Data) < 0)
+                if (end.CompareTo(currentNode.Value.Value) < 0)
                 {
                     return result;
                 }
@@ -304,8 +328,8 @@ namespace Advanced.Algorithms.DataStructures
         private bool inRange(RedBlackTreeNode<RangeTreeNode<T>> currentNode, T start, T end)
         {
             //start is less than current & end is greater than current
-            return start.CompareTo(currentNode.Value.Data) <= 0
-                && end.CompareTo(currentNode.Value.Data) >= 0;
+            return start.CompareTo(currentNode.Value.Value) <= 0
+                && end.CompareTo(currentNode.Value.Value) >= 0;
         }
     }
 }

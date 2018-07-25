@@ -19,17 +19,21 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Insert(new int[] { 2 });
             tree.Insert(new int[] { 3 });
             tree.Insert(new int[] { 4 });
+            tree.Insert(new int[] { 4 });
             tree.Insert(new int[] { 5 });
             tree.Insert(new int[] { 6 });
             tree.Insert(new int[] { 7 });
 
             var rangeResult = tree.GetInRange(new int[] { 2 }, new int[] { 6 });
-            Assert.IsTrue(rangeResult.Count == 5);
+            Assert.IsTrue(rangeResult.Count == 6);
 
             tree.Delete(new int[] { 4 });
             rangeResult = tree.GetInRange(new int[] { 2 }, new int[] { 6 });
-            Assert.IsTrue(rangeResult.Count == 4);
+            Assert.IsTrue(rangeResult.Count == 5);
 
+            tree.Delete(new int[] { 4 });
+            rangeResult = tree.GetInRange(new int[] { -1 }, new int[] { 6 });
+            Assert.IsTrue(rangeResult.Count == 6);
 
             tree.Delete(new int[] { 0 });
             tree.Delete(new int[] { 1 });
@@ -51,6 +55,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Insert(new int[] { 2, 5 });
             tree.Insert(new int[] { 3, 6 });
             tree.Insert(new int[] { 4, 5 });
+            tree.Insert(new int[] { 4, 7 });
             tree.Insert(new int[] { 5, 8 });
             tree.Insert(new int[] { 6, 9 });
             tree.Insert(new int[] { 7, 10 });
@@ -69,9 +74,12 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Delete(new int[] { 0, 1 });
             tree.Delete(new int[] { 1, 1 });
             tree.Delete(new int[] { 4, 5 });
+            tree.Delete(new int[] { 4, 7 });
             tree.Delete(new int[] { 5, 8 });
             tree.Delete(new int[] { 6, 9 });
             tree.Delete(new int[] { 7, 10 });
+
+
         }
     }
 }
