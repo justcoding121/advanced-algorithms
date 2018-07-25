@@ -83,7 +83,7 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_Dictionary_2" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2" class="text-break">Class Dictionary&lt;TK, TV&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A hash table implementation (key value dictionary) with separate chaining</p>
+  <div class="markdown level0 summary"><p>A dictionary implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -93,7 +93,7 @@
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Advanced.Algorithms.DataStructures.DictionaryNode-2.html">DictionaryNode</a>&lt;TK, TV&gt;&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TK, TV&gt;&gt;</div>
     <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
   </div>
   <div class="inheritedMembers">
@@ -124,7 +124,7 @@
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_Dictionary_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Dictionary&lt;TK, TV&gt; : IEnumerable&lt;DictionaryNode&lt;TK, TV&gt;&gt;, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public class Dictionary&lt;TK, TV&gt; : IEnumerable&lt;KeyValuePair&lt;TK, TV&gt;&gt;, IEnumerable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,7 +141,8 @@
       </tr>
       <tr>
         <td><span class="parametername">TV</span></td>
-        <td></td>
+        <td><p>The value datatype.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -151,7 +152,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_Dictionary_2__ctor_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.#ctor*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Dictionary_2__ctor_Advanced_Algorithms_DataStructures_DictionaryType_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.#ctor(Advanced.Algorithms.DataStructures.DictionaryType,System.Int32)">Dictionary(DictionaryType, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -170,12 +172,14 @@
       <tr>
         <td><a class="xref" href="Advanced.Algorithms.DataStructures.DictionaryType.html">DictionaryType</a></td>
         <td><span class="parametername">type</span></td>
-        <td></td>
+        <td><p>The dictionary implementation to use.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">initialBucketSize</span></td>
-        <td></td>
+        <td><p>The larger the bucket size lesser the collision, but memory matters!</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -185,7 +189,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_Dictionary_2_Count_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Count*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Dictionary_2_Count" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Count">Count</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The number of items in this hashset.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -210,7 +215,9 @@
   
   <a id="Advanced_Algorithms_DataStructures_Dictionary_2_Item_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Item*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Dictionary_2_Item__0_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Item(`0)">Item[TK]</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get/set value for given key.
+Time complexity: O(1) amortized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -254,7 +261,9 @@
   
   <a id="Advanced_Algorithms_DataStructures_Dictionary_2_Add_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Add*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Dictionary_2_Add__0__1_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Add(`0,`1)">Add(TK, TV)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Add a new key for given value.
+Time complexity: O(1) amortized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -273,12 +282,14 @@
       <tr>
         <td><span class="xref">TK</span></td>
         <td><span class="parametername">key</span></td>
-        <td></td>
+        <td><p>The key to add.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">TV</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The value for the given key.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -286,7 +297,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_Dictionary_2_Clear_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Clear*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Dictionary_2_Clear" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Clear">Clear()</h4>
-  <div class="markdown level1 summary"><p>clear hash table</p>
+  <div class="markdown level1 summary"><p>Clear the dictionary.
+Time complexity: O(1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -297,7 +309,9 @@
   
   <a id="Advanced_Algorithms_DataStructures_Dictionary_2_ContainsKey_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.ContainsKey*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Dictionary_2_ContainsKey__0_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.ContainsKey(`0)">ContainsKey(TK)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Does this dictionary contains the given key.
+Time complexity: O(1) amortized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -331,7 +345,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><p>True if this dictionary contains the given key.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -343,7 +358,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerator&lt;DictionaryNode&lt;TK, TV&gt;&gt; GetEnumerator()</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;KeyValuePair&lt;TK, TV&gt;&gt; GetEnumerator()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -355,7 +370,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="Advanced.Algorithms.DataStructures.DictionaryNode-2.html">DictionaryNode</a>&lt;TK, TV&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TK, TV&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -364,7 +379,9 @@
   
   <a id="Advanced_Algorithms_DataStructures_Dictionary_2_Remove_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Remove*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Dictionary_2_Remove__0_" data-uid="Advanced.Algorithms.DataStructures.Dictionary`2.Remove(`0)">Remove(TK)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Remove the given key along with its value.
+Time complexity: O(1) amortized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -383,7 +400,8 @@
       <tr>
         <td><span class="xref">TK</span></td>
         <td><span class="parametername">key</span></td>
-        <td></td>
+        <td><p>The key to remove.</p>
+</td>
       </tr>
     </tbody>
   </table>
