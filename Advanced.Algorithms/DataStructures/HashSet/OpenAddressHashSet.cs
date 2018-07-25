@@ -4,28 +4,20 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    /// <summary>
-    /// A hash table implementation (value value HashSet) with Open Addressing
-    /// </summary>
-    /// <typeparam name="TV"></typeparam>
     internal class OpenAddressHashSet<TV> : IHashSet<TV> 
     {
-
         private HashSetNode<TV>[] hashArray;
         private int bucketSize => hashArray.Length;
         private readonly int initialBucketSize;
 
-
         public int Count { get; private set; }
-
-        //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public OpenAddressHashSet(int initialBucketSize = 2)
+      
+        internal OpenAddressHashSet(int initialBucketSize = 2)
         {
             this.initialBucketSize = initialBucketSize;
             hashArray = new HashSetNode<TV>[initialBucketSize];
         }
 
-        //O(1) time complexity; worst case O(n)
         public bool Contains(TV value)
         {
             var hashCode = getHash(value);
@@ -68,8 +60,6 @@ namespace Advanced.Algorithms.DataStructures
             return false;
         }
 
-        //O(1) time complexity; worst case O(n)
-        //add an item to this hash table
         public void Add(TV value)
         {
 
@@ -118,7 +108,6 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        //O(1) time complexity; worst case O(n)
         public void Remove(TV value)
         {
             var hashCode = getHash(value);
@@ -207,19 +196,12 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        /// <summary>
-        /// clear hash table
-        /// </summary>
         public void Clear()
         {
             hashArray = new HashSetNode<TV>[initialBucketSize];
             Count = 0;
         }
 
-
-        /// <summary>
-        /// Grow array if needed
-        /// </summary>
         private void grow()
         {
             if (!(bucketSize * 0.7 <= Count))
@@ -247,9 +229,7 @@ namespace Advanced.Algorithms.DataStructures
             currentArray = null;
         }
 
-        /// <summary>
-        /// Shrink if needed
-        /// </summary>
+
         private void shrink()
         {
             if (Count <= bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
@@ -276,16 +256,11 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        /// <summary>
-        /// get hash
-        /// </summary>
-        /// <returns></returns>
         private int getHash(TV value)
         {
             return Math.Abs(value.GetHashCode());
         }
 
-        //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -295,11 +270,9 @@ namespace Advanced.Algorithms.DataStructures
         {
             return new OpenAddressHashSetEnumerator<TV>(hashArray, hashArray.Length);
         }
-
     }
 
-    //  implement IEnumerator.
-    public class OpenAddressHashSetEnumerator<V> : IEnumerator<HashSetNode<V>> 
+    internal class OpenAddressHashSetEnumerator<V> : IEnumerator<HashSetNode<V>> 
     {
         internal HashSetNode<V>[] hashArray;
 
@@ -308,7 +281,7 @@ namespace Advanced.Algorithms.DataStructures
         int position = -1;
         int length;
 
-        public OpenAddressHashSetEnumerator(HashSetNode<V>[] hashArray, int length)
+        internal OpenAddressHashSetEnumerator(HashSetNode<V>[] hashArray, int length)
         {
             this.length = length;
             this.hashArray = hashArray;
@@ -335,7 +308,6 @@ namespace Advanced.Algorithms.DataStructures
         {
             get
             {
-
                 try
                 {
                     return hashArray[position];
@@ -352,6 +324,5 @@ namespace Advanced.Algorithms.DataStructures
             length = 0;
             hashArray = null;
         }
-
     }
 }

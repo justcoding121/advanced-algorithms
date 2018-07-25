@@ -4,24 +4,15 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-
-    /// <summary>
-    /// A hash table implementation (key value dictionary) with Open Addressing
-    /// </summary>
-    /// <typeparam name="TK"></typeparam>
-    /// <typeparam name="TV"></typeparam>
     internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV> 
     {
-
         private DictionaryNode<TK, TV>[] hashArray;
         private int bucketSize => hashArray.Length;
         private readonly int initialBucketSize;
 
-
         public int Count { get; private set; }
 
-        //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public OpenAddressDictionary(int initialBucketSize = 2)
+        internal OpenAddressDictionary(int initialBucketSize = 2)
         {
             this.initialBucketSize = initialBucketSize;
             hashArray = new DictionaryNode<TK, TV>[initialBucketSize];
@@ -32,7 +23,8 @@ namespace Advanced.Algorithms.DataStructures
             get => getValue(key);
             set => setValue(key, value);
         }
-        //O(1) time complexity; worst case O(n)
+
+
         public bool ContainsKey(TK key)
         {
             var hashCode = getHash(key);
@@ -73,12 +65,9 @@ namespace Advanced.Algorithms.DataStructures
             return false;
         }
 
-        //O(1) time complexity; worst case O(n)
-        //add an item to this hash table
         public void Add(TK key, TV value)
         {
-
-            Grow();
+            grow();
 
             var hashCode = getHash(key);
 
@@ -96,7 +85,6 @@ namespace Advanced.Algorithms.DataStructures
 
                 while (current != null)
                 {
-
                     if (current.Key.Equals(key))
                     {
                         throw new Exception("Duplicate key");
@@ -123,7 +111,6 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        //O(1) time complexity; worst case O(n)
         public void Remove(TK key)
         {
             var hashCode = getHash(key);
@@ -212,9 +199,7 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        /// <summary>
-        /// clear hash table
-        /// </summary>
+
         public void Clear()
         {
             hashArray = new DictionaryNode<TK, TV>[initialBucketSize];
@@ -301,10 +286,8 @@ namespace Advanced.Algorithms.DataStructures
 
             throw new Exception("Item not found");
         }
-        /// <summary>
-        /// Grow array if needed
-        /// </summary>
-        private void Grow()
+
+        private void grow()
         {
             if (bucketSize * 0.7 <= Count)
             {
@@ -329,9 +312,7 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        /// <summary>
-        /// Shrink if needed
-        /// </summary>
+
         private void shrink()
         {
             if (Count <= bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
@@ -358,31 +339,24 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        /// <summary>
-        /// get hash
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
         private int getHash(TK key)
         {
             return Math.Abs(key.GetHashCode());
         }
 
-        //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
-        public IEnumerator<DictionaryNode<TK, TV>> GetEnumerator()
+        public IEnumerator<KeyValuePair<TK, TV>> GetEnumerator()
         {
             return new OpenAddressDictionaryEnumerator<TK, TV>(hashArray, hashArray.Length);
         }
 
     }
 
-    //  implement IEnumerator.
-    public class OpenAddressDictionaryEnumerator<TK, TV> : IEnumerator<DictionaryNode<TK, TV>> 
+    internal class OpenAddressDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>> 
     {
         internal DictionaryNode<TK, TV>[] HashArray;
 
@@ -391,7 +365,7 @@ namespace Advanced.Algorithms.DataStructures
         int position = -1;
         private readonly int length;
 
-        public OpenAddressDictionaryEnumerator(DictionaryNode<TK, TV>[] hashArray, int length)
+        internal OpenAddressDictionaryEnumerator(DictionaryNode<TK, TV>[] hashArray, int length)
         {
             this.length = length;
             HashArray = hashArray;
@@ -414,14 +388,14 @@ namespace Advanced.Algorithms.DataStructures
 
         object IEnumerator.Current => Current;
 
-        public DictionaryNode<TK, TV> Current
+        public KeyValuePair<TK, TV> Current
         {
             get
             {
 
                 try
                 {
-                    return HashArray[position];
+                    return new KeyValuePair<TK, TV>(HashArray[position].Key, HashArray[position].Value);
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -432,8 +406,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public void Dispose()
         {
-
+            HashArray = null;
         }
-
     }
 }

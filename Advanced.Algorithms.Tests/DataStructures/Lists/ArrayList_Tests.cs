@@ -20,6 +20,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(true, arrayList.Contains(i));
             }
 
+            //IEnumerable test using linq
+            Assert.AreEqual(arrayList.Length, arrayList.Count());
+
             for (int i = 0; i <= nodeCount; i++)
             {
                 arrayList.RemoveAt(0);
@@ -55,6 +58,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
             }
 
             arrayList.InsertAt(5, 50000);
+
+            //IEnumerable test using linq
+            Assert.AreEqual(arrayList.Length, arrayList.Count());
+
             Assert.AreEqual(true, arrayList.Contains(50000));
             Assert.AreEqual(nodeCount + 2, arrayList.Length);
         }

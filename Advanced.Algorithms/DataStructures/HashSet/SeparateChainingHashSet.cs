@@ -4,10 +4,6 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    /// <summary>
-    /// A hash table implementation (value value HashSet) with separate chaining
-    /// </summary>
-    /// <typeparam name="TV"></typeparam>
     internal class SeparateChainingHashSet<TV> : IHashSet<TV>  
     {
         private const double tolerance = 0.1;
@@ -18,14 +14,12 @@ namespace Advanced.Algorithms.DataStructures
 
         public int Count { get; private set; }
 
-        //init with an expected size (the larger the size lesser the collission, but memory matters!)
-        public SeparateChainingHashSet(int initialBucketSize = 3)
+        internal SeparateChainingHashSet(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
             hashArray = new DoublyLinkedList<HashSetNode<TV>>[initialBucketSize];
         }
 
-        //O(1) time complexity; worst case O(n)
         public bool Contains(TV value)
         {
             var index = Math.Abs(value.GetHashCode()) % bucketSize;
@@ -52,8 +46,6 @@ namespace Advanced.Algorithms.DataStructures
             return false;
         }
 
-        //O(1) time complexity; worst case O(n)
-        //add an item to this hash table
         public void Add(TV value)
         {
             grow();
@@ -86,7 +78,6 @@ namespace Advanced.Algorithms.DataStructures
             Count++;
         }
 
-        //O(1) time complexity; worst case O(n)
         public void Remove(TV value)
         {
             var index = Math.Abs(value.GetHashCode()) % bucketSize;
@@ -99,7 +90,7 @@ namespace Advanced.Algorithms.DataStructures
             {
                 var current = hashArray[index].Head;
 
-                //VODO merge both search and remove to a single loop here!
+                //TODO merge both search and remove to a single loop here!
                 DoublyLinkedListNode<HashSetNode<TV>> item = null;
                 while (current != null)
                 {
@@ -137,16 +128,12 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        /// <summary>
-        /// clear hash table
-        /// </summary>
         public void Clear()
         {
             hashArray = new DoublyLinkedList<HashSetNode<TV>>[initialBucketSize];
             Count = 0;
             filledBuckets = 0;
         }
-
 
         private void setValue(TV value)
         {
@@ -176,9 +163,6 @@ namespace Advanced.Algorithms.DataStructures
             throw new Exception("Item not found");
         }
 
-        /// <summary>
-        /// Grow array if needed
-        /// </summary>
         private void grow()
         {
             if (filledBuckets >= bucketSize * 0.7)
@@ -228,9 +212,6 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        /// <summary>
-        /// Shrink if needed
-        /// </summary>
         private void shrink()
         {
             if (Math.Abs(filledBuckets - bucketSize * 0.3) < tolerance && bucketSize / 2 > initialBucketSize)
@@ -274,7 +255,6 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -287,8 +267,7 @@ namespace Advanced.Algorithms.DataStructures
 
     }
 
-    //  implement IEnumerator.
-    public class SeparateChainingHashSetEnumerator<TV> : IEnumerator<HashSetNode<TV>> 
+    internal class SeparateChainingHashSetEnumerator<TV> : IEnumerator<HashSetNode<TV>> 
     {
         internal DoublyLinkedList<HashSetNode<TV>>[] hashList;
 
@@ -345,7 +324,6 @@ namespace Advanced.Algorithms.DataStructures
             currentNode = null;
         }
 
-
         object IEnumerator.Current
         {
             get
@@ -368,11 +346,11 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
         }
+
         public void Dispose()
         {
             length = 0;
             hashList = null;
         }
-
     }
 }

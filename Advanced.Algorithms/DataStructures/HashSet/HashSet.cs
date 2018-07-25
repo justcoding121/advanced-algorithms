@@ -4,44 +4,19 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-
-    internal interface IHashSet<TV> : IEnumerable<HashSetNode<TV>>
-    {
-        bool Contains(TV value);
-        void Add(TV value);
-        void Remove(TV key);
-        void Clear();
-
-        int Count { get; }
-    }
     /// <summary>
-    /// key-value set
+    /// A hash table implementation.
     /// </summary>
-    public class HashSetNode<TV> 
-    {
-        public TV Value;
-
-        public HashSetNode(TV value)
-        {
-            this.Value = value;
-        }
-
-    }
-
-    public enum HashSetType
-    {
-        SeparateChaining,
-        OpenAddressing
-    }
-    /// <summary>
-    /// A hash table implementation (key value HashSet) with separate chaining
-    /// </summary>
-    /// <typeparam name="K"></typeparam>
-    /// <typeparam name="TV"></typeparam>
+    /// <typeparam name="TV">The value datatype.</typeparam>
     public class HashSet<TV> : IEnumerable<HashSetNode<TV>> 
     {
         private readonly IHashSet<TV> hashSet;
-        //init with an expected size (the larger the size lesser the collission, but memory matters!)
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="type">The hashSet implementation to use.</param>
+        /// <param name="initialBucketSize"> The larger the bucket size lesser the collision, but memory matters!</param>
         public HashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)
         {
             if (initialBucketSize < 2)
@@ -59,37 +34,52 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        /// <summary>
+        /// The number of items in this hashset.
+        /// </summary>
         public int Count => hashSet.Count;
 
 
-        //O(1) time complexity; worst case O(n)
+        /// <summary>
+        /// Does this hash table contains the given value.
+        /// Time complexity: O(1) amortized.
+        /// </summary>
+        /// <param name="value">The value to check.</param>
+        /// <returns>True if this hashset contains the given value.</returns>
         public bool Contains(TV value)
         {
             return hashSet.Contains(value);
         }
 
-        //O(1) time complexity; worst case O(n)
-        //add an item to this hash table
+        /// <summary>
+        /// Add a new value.
+        /// Time complexity: O(1) amortized.
+        /// </summary>
+        /// <param name="value">The value to add.</param>
         public void Add(TV value)
         {
             hashSet.Add(value);
         }
 
-        //O(1) time complexity; worst case O(n)
+        /// <summary>
+        /// Remove the given value.
+        /// Time complexity: O(1) amortized.
+        /// </summary>
+        /// <param name="value">The value to remove.</param>
         public void Remove(TV value)
         {
             hashSet.Remove(value);
         }
 
         /// <summary>
-        /// clear hash table
+        /// Clear the hashtable.
+        /// Time complexity: O(1).
         /// </summary>
         public void Clear()
         {
             hashSet.Clear();
         }
 
-        //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
             return hashSet.GetEnumerator();
@@ -99,7 +89,31 @@ namespace Advanced.Algorithms.DataStructures
         {
             return hashSet.GetEnumerator();
         }
-
     }
 
+    internal interface IHashSet<TV> : IEnumerable<HashSetNode<TV>>
+    {
+        bool Contains(TV value);
+        void Add(TV value);
+        void Remove(TV key);
+        void Clear();
+
+        int Count { get; }
+    }
+
+    public class HashSetNode<TV>
+    {
+        public TV Value;
+
+        public HashSetNode(TV value)
+        {
+            this.Value = value;
+        }
+    }
+
+    public enum HashSetType
+    {
+        SeparateChaining,
+        OpenAddressing
+    }
 }

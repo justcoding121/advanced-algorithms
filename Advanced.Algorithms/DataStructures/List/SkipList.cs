@@ -216,7 +216,6 @@ namespace Advanced.Algorithms.DataStructures
         internal T value { get; set; }
     }
 
-    //  IEnumerator implementation.
     internal class SkipListEnumerator<T> : IEnumerator<T> where T : IComparable
     {
         private SkipListNode<T> head;
