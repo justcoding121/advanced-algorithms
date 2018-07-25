@@ -6881,6 +6881,352 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: SkipList<T>.IEnumerable.GetEnumerator
   nameWithType.vb: SkipList(Of T).System.Collections.IEnumerable.GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2
+  name: SortedDictionary<TK, TV>
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html
+  commentId: T:Advanced.Algorithms.DataStructures.SortedDictionary`2
+  name.vb: SortedDictionary(Of TK, TV)
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV)
+  nameWithType: SortedDictionary<TK, TV>
+  nameWithType.vb: SortedDictionary(Of TK, TV)
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.#ctor
+  name: SortedDictionary()
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2__ctor
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.#ctor
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.SortedDictionary()
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).SortedDictionary()
+  nameWithType: SortedDictionary<TK, TV>.SortedDictionary()
+  nameWithType.vb: SortedDictionary(Of TK, TV).SortedDictionary()
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.#ctor*
+  name: SortedDictionary
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.SortedDictionary
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).SortedDictionary
+  nameWithType: SortedDictionary<TK, TV>.SortedDictionary
+  nameWithType.vb: SortedDictionary(Of TK, TV).SortedDictionary
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Add(`0,`1)
+  name: Add(TK, TV)
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Add__0__1_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.Add(`0,`1)
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Add(TK, TV)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Add(TK, TV)
+  nameWithType: SortedDictionary<TK, TV>.Add(TK, TV)
+  nameWithType.vb: SortedDictionary(Of TK, TV).Add(TK, TV)
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Add*
+  name: Add
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Add_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.Add
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Add
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Add
+  nameWithType: SortedDictionary<TK, TV>.Add
+  nameWithType.vb: SortedDictionary(Of TK, TV).Add
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.ContainsKey(`0)
+  name: ContainsKey(TK)
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_ContainsKey__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.ContainsKey(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.ContainsKey(TK)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).ContainsKey(TK)
+  nameWithType: SortedDictionary<TK, TV>.ContainsKey(TK)
+  nameWithType.vb: SortedDictionary(Of TK, TV).ContainsKey(TK)
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.ContainsKey*
+  name: ContainsKey
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_ContainsKey_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.ContainsKey
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.ContainsKey
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).ContainsKey
+  nameWithType: SortedDictionary<TK, TV>.ContainsKey
+  nameWithType.vb: SortedDictionary(Of TK, TV).ContainsKey
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Count
+  commentId: P:Advanced.Algorithms.DataStructures.SortedDictionary`2.Count
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Count
+  nameWithType: SortedDictionary<TK, TV>.Count
+  nameWithType.vb: SortedDictionary(Of TK, TV).Count
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Count
+  nameWithType: SortedDictionary<TK, TV>.Count
+  nameWithType.vb: SortedDictionary(Of TK, TV).Count
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).GetEnumerator()
+  nameWithType: SortedDictionary<TK, TV>.GetEnumerator()
+  nameWithType.vb: SortedDictionary(Of TK, TV).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).GetEnumerator
+  nameWithType: SortedDictionary<TK, TV>.GetEnumerator
+  nameWithType.vb: SortedDictionary(Of TK, TV).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Item(`0)
+  name: Item[TK]
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Item__0_
+  commentId: P:Advanced.Algorithms.DataStructures.SortedDictionary`2.Item(`0)
+  name.vb: Item(TK)
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Item[TK]
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Item(TK)
+  nameWithType: SortedDictionary<TK, TV>.Item[TK]
+  nameWithType.vb: SortedDictionary(Of TK, TV).Item(TK)
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Item*
+  name: Item
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Item_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.Item
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Item
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Item
+  nameWithType: SortedDictionary<TK, TV>.Item
+  nameWithType.vb: SortedDictionary(Of TK, TV).Item
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Next(`0)
+  name: Next(TK)
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Next__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.Next(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Next(TK)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Next(TK)
+  nameWithType: SortedDictionary<TK, TV>.Next(TK)
+  nameWithType.vb: SortedDictionary(Of TK, TV).Next(TK)
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Next*
+  name: Next
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Next_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.Next
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Next
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Next
+  nameWithType: SortedDictionary<TK, TV>.Next
+  nameWithType.vb: SortedDictionary(Of TK, TV).Next
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Previous(`0)
+  name: Previous(TK)
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Previous__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.Previous(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Previous(TK)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Previous(TK)
+  nameWithType: SortedDictionary<TK, TV>.Previous(TK)
+  nameWithType.vb: SortedDictionary(Of TK, TV).Previous(TK)
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Previous*
+  name: Previous
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Previous_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.Previous
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Previous
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Previous
+  nameWithType: SortedDictionary<TK, TV>.Previous
+  nameWithType.vb: SortedDictionary(Of TK, TV).Previous
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Remove(`0)
+  name: Remove(TK)
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Remove__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.Remove(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Remove(TK)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Remove(TK)
+  nameWithType: SortedDictionary<TK, TV>.Remove(TK)
+  nameWithType.vb: SortedDictionary(Of TK, TV).Remove(TK)
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Remove*
+  name: Remove
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Remove_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.Remove
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Remove
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Remove
+  nameWithType: SortedDictionary<TK, TV>.Remove
+  nameWithType.vb: SortedDictionary(Of TK, TV).Remove
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SortedDictionary<TK, TV>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SortedDictionary(Of TK, TV).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SortedDictionary<TK, TV>.IEnumerable.GetEnumerator
+  nameWithType.vb: SortedDictionary(Of TK, TV).System.Collections.IEnumerable.GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1
+  name: SortedHashSet<V>
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.SortedHashSet`1
+  name.vb: SortedHashSet(Of V)
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V)
+  nameWithType: SortedHashSet<V>
+  nameWithType.vb: SortedHashSet(Of V)
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.#ctor
+  name: SortedHashSet()
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1__ctor
+  commentId: M:Advanced.Algorithms.DataStructures.SortedHashSet`1.#ctor
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.SortedHashSet()
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).SortedHashSet()
+  nameWithType: SortedHashSet<V>.SortedHashSet()
+  nameWithType.vb: SortedHashSet(Of V).SortedHashSet()
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.#ctor*
+  name: SortedHashSet
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedHashSet`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.SortedHashSet
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).SortedHashSet
+  nameWithType: SortedHashSet<V>.SortedHashSet
+  nameWithType.vb: SortedHashSet(Of V).SortedHashSet
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Add(`0)
+  name: Add(V)
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Add__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedHashSet`1.Add(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Add(V)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Add(V)
+  nameWithType: SortedHashSet<V>.Add(V)
+  nameWithType.vb: SortedHashSet(Of V).Add(V)
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Add*
+  name: Add
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Add_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedHashSet`1.Add
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Add
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Add
+  nameWithType: SortedHashSet<V>.Add
+  nameWithType.vb: SortedHashSet(Of V).Add
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Contains(`0)
+  name: Contains(V)
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Contains__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedHashSet`1.Contains(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Contains(V)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Contains(V)
+  nameWithType: SortedHashSet<V>.Contains(V)
+  nameWithType.vb: SortedHashSet(Of V).Contains(V)
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Contains*
+  name: Contains
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Contains_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedHashSet`1.Contains
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Contains
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Contains
+  nameWithType: SortedHashSet<V>.Contains
+  nameWithType.vb: SortedHashSet(Of V).Contains
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.SortedHashSet`1.Count
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Count
+  nameWithType: SortedHashSet<V>.Count
+  nameWithType.vb: SortedHashSet(Of V).Count
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedHashSet`1.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Count
+  nameWithType: SortedHashSet<V>.Count
+  nameWithType.vb: SortedHashSet(Of V).Count
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SortedHashSet`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).GetEnumerator()
+  nameWithType: SortedHashSet<V>.GetEnumerator()
+  nameWithType.vb: SortedHashSet(Of V).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedHashSet`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).GetEnumerator
+  nameWithType: SortedHashSet<V>.GetEnumerator
+  nameWithType.vb: SortedHashSet(Of V).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Next(`0)
+  name: Next(V)
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Next__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedHashSet`1.Next(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Next(V)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Next(V)
+  nameWithType: SortedHashSet<V>.Next(V)
+  nameWithType.vb: SortedHashSet(Of V).Next(V)
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Next*
+  name: Next
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Next_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedHashSet`1.Next
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Next
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Next
+  nameWithType: SortedHashSet<V>.Next
+  nameWithType.vb: SortedHashSet(Of V).Next
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Previous(`0)
+  name: Previous(V)
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Previous__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedHashSet`1.Previous(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Previous(V)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Previous(V)
+  nameWithType: SortedHashSet<V>.Previous(V)
+  nameWithType.vb: SortedHashSet(Of V).Previous(V)
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Previous*
+  name: Previous
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Previous_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedHashSet`1.Previous
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Previous
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Previous
+  nameWithType: SortedHashSet<V>.Previous
+  nameWithType.vb: SortedHashSet(Of V).Previous
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Remove(`0)
+  name: Remove(V)
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Remove__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedHashSet`1.Remove(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Remove(V)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Remove(V)
+  nameWithType: SortedHashSet<V>.Remove(V)
+  nameWithType.vb: SortedHashSet(Of V).Remove(V)
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.Remove*
+  name: Remove
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_Remove_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedHashSet`1.Remove
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.Remove
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).Remove
+  nameWithType: SortedHashSet<V>.Remove
+  nameWithType.vb: SortedHashSet(Of V).Remove
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SortedHashSet`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SortedHashSet<V>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SortedHashSet(Of V).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SortedHashSet`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_SortedHashSet_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedHashSet`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SortedHashSet<V>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedHashSet(Of V).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SortedHashSet<V>.IEnumerable.GetEnumerator
+  nameWithType.vb: SortedHashSet(Of V).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SparseSet
   name: SparseSet
   href: api/Advanced.Algorithms.DataStructures.SparseSet.html
