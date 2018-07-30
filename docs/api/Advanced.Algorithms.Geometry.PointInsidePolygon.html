@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PointInsidePolygon
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.35.2.0">
+    <meta name="generator" content="docfx 2.37.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -125,12 +125,13 @@
   
   
   <a id="Advanced_Algorithms_Geometry_PointInsidePolygon_IsInside_" data-uid="Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside*"></a>
-  <h4 id="Advanced_Algorithms_Geometry_PointInsidePolygon_IsInside_System_Collections_Generic_List_System_Int32____System_Int32___" data-uid="Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside(System.Collections.Generic.List{System.Int32[]},System.Int32[])">IsInside(List&lt;Int32[]&gt;, Int32[])</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="Advanced_Algorithms_Geometry_PointInsidePolygon_IsInside_Advanced_Algorithms_Geometry_Polygon_Advanced_Algorithms_Geometry_Point_" data-uid="Advanced.Algorithms.Geometry.PointInsidePolygon.IsInside(Advanced.Algorithms.Geometry.Polygon,Advanced.Algorithms.Geometry.Point)">IsInside(Polygon, Point)</h4>
+  <div class="markdown level1 summary"><p>Checks whether the given point is inside given polygon.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool IsInside(List&lt;int[]&gt; polygonEdgePoints, int[] testPoint)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool IsInside(Polygon polygon, Point point)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -143,14 +144,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>[]&gt;</td>
-        <td><span class="parametername">polygonEdgePoints</span></td>
-        <td></td>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Polygon.html">Polygon</a></td>
+        <td><span class="parametername">polygon</span></td>
+        <td><p>The polygon.</p>
+</td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>[]</td>
-        <td><span class="parametername">testPoint</span></td>
-        <td></td>
+        <td><a class="xref" href="Advanced.Algorithms.Geometry.Point.html">Point</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
       </tr>
     </tbody>
   </table>

@@ -1,8 +1,7 @@
 ﻿using Advanced.Algorithms.DataStructures;
-using Advanced.Algorithms.DataStructures.Queues.PriorityQueue;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Queues.PriorityQueue
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class MinPriorityQueue_Tests

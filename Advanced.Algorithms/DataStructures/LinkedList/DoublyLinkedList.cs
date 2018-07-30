@@ -4,29 +4,18 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    //define the generic node
-    public class DoublyLinkedListNode<T> 
-    {
-        public DoublyLinkedListNode<T> Previous;
-        public DoublyLinkedListNode<T> Next;
-        public T Data;
-
-        public DoublyLinkedListNode(T data)
-        {
-            Data = data;
-        }
-    }
-
     /// <summary>
-    /// A singly linked list implementation
+    /// A doubly linked list implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class DoublyLinkedList<T> :IEnumerable<T> 
     {
         public DoublyLinkedListNode<T> Head;
         public DoublyLinkedListNode<T> Tail;
-        //marks this data as the new head
-        //cost O(1)
+
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        /// <returns>The new node.</returns>
         public DoublyLinkedListNode<T> InsertFirst(T data)
         {
             var newNode = new DoublyLinkedListNode<T>(data);
@@ -49,13 +38,6 @@ namespace Advanced.Algorithms.DataStructures
             return newNode;
         }
 
-        /// <summary>
-        /// Inserts the given node
-        /// O(1) time complexity
-        /// </summary>
-        /// <typeparam name="K"></typeparam>
-        /// <typeparam name="V"></typeparam>
-        /// <param name="newNode"></param>
         internal void InsertFirst(DoublyLinkedListNode<T> newNode) 
         {
             if (Head != null)
@@ -77,9 +59,9 @@ namespace Advanced.Algorithms.DataStructures
 
 
         /// <summary>
-        /// Insert right after this node
+        /// Insert right after this node.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="node"></param>
         public DoublyLinkedListNode<T> InsertAfter(DoublyLinkedListNode<T> node, DoublyLinkedListNode<T> data)
         {
             if (node == null)
@@ -120,9 +102,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Insert right before this node
+        /// Insert right before this node.
+        /// Time complexity:O(1).
         /// </summary>
-        /// <param name="node"></param>
         public DoublyLinkedListNode<T> InsertBefore(DoublyLinkedListNode<T> node, DoublyLinkedListNode<T> data)
         {
             if (node == null)
@@ -159,14 +141,14 @@ namespace Advanced.Algorithms.DataStructures
 
                 node.Previous.Next = data;
                 node.Previous = data;
-
             }
 
             return data;
         }
 
-        //insert at the end
-        //costs O(1)
+        /// <summary>
+        /// Time complexity:O(1).
+        /// </summary>
         public DoublyLinkedListNode<T> InsertLast(T data)
         {
             if (Tail == null)
@@ -186,8 +168,9 @@ namespace Advanced.Algorithms.DataStructures
             return newNode;
         }
 
-
-        //cost O(1)
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public T DeleteFirst()
         {
             if (Head == null)
@@ -211,7 +194,11 @@ namespace Advanced.Algorithms.DataStructures
             return headData;
         }
 
-        //cost O(1)
+        /// <summary>
+        /// Delete tail node.
+        /// Time complexity: O(1)
+        /// </summary>
+        /// <returns></returns>
         public T DeleteLast()
         {
             if (Tail == null)
@@ -236,10 +223,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// search for first T and delete
+        /// Time complexity: O(n).
         /// </summary>
-        /// <param name="data"></param>
-        //cost O(n) in worst case O(nlog(n) average?
         public void Delete(T data)
         {
             if (Head == null)
@@ -259,7 +244,6 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             //from here logic assumes atleast two elements in list
-
             var current = Head;
 
             while (current != null)
@@ -293,10 +277,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// deletes this given node
+        /// Delete the given node.
+        /// Time complexity: O(n).
         /// </summary>
-        /// <param name="node"></param>
-        /// <returns></returns>
         public void Delete(DoublyLinkedListNode<T> node)
         {
             if (Head == null)
@@ -336,9 +319,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// O(1) time complexity
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="newList"></param>
         internal void Union(DoublyLinkedList<T> newList)
         {
             if (Head == null)
@@ -358,26 +340,17 @@ namespace Advanced.Algorithms.DataStructures
             
 
         }
-        //O(n) always
-        public int Count()
-        {
-            var i = 0;
-            var current = Head;
-            while (current != null)
-            {
-                i++;
-                current = current.Next;
-            }
 
-            return i;
-        }
-
-
-        //O(1) always
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        /// <returns></returns>
         public bool IsEmpty() => Head == null;
 
-        //O(1) always
-        public void DeleteAll()
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        public void Clear()
         {
             if (Head == null)
             {
@@ -386,21 +359,6 @@ namespace Advanced.Algorithms.DataStructures
 
             Head = null;
             Tail = null;
-        }
-
-        //O(n) time complexity
-        public List<T> GetAllNodes()
-        {
-            var result = new List<T>();
-
-            var current = Head;
-            while (current != null)
-            {
-                result.Add(current.Data);
-                current = current.Next;
-            }
-
-            return result;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -414,8 +372,22 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    //  implement IEnumerator.
-    public class DoublyLinkedListEnumerator<T> : IEnumerator<T> 
+    /// <summary>
+    /// Doubly linked list node.
+    /// </summary>
+    public class DoublyLinkedListNode<T>
+    {
+        public DoublyLinkedListNode<T> Previous;
+        public DoublyLinkedListNode<T> Next;
+        public T Data;
+
+        public DoublyLinkedListNode(T data)
+        {
+            Data = data;
+        }
+    }
+
+    internal class DoublyLinkedListEnumerator<T> : IEnumerator<T> 
     {
         internal DoublyLinkedListNode<T> headNode;
         internal DoublyLinkedListNode<T> currentNode;
@@ -458,14 +430,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             get
             {
-                try
-                {
-                    return currentNode.Data;
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    throw new InvalidOperationException();
-                }
+                return currentNode.Data;
             }
         }
         public void Dispose()

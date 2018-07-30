@@ -30,8 +30,7 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    //TODO support initial bulk loading
+
     /// <summary>
     /// A complete binary tree implementation using pointers
     /// </summary>

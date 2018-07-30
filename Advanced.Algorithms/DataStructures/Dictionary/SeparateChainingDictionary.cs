@@ -4,13 +4,6 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-
-    /// <summary>
-    /// A hash table implementation (key value dictionary) with separate chaining
-    /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
-    /// </summary>
-    /// <typeparam name="K"></typeparam>
-    /// <typeparam name="V"></typeparam>
     internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>  
     {
         private const double tolerance = 0.1;
@@ -22,7 +15,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public int Count { get; private set; }
 
-        //init with an expected size (the larger the size lesser the collission, but memory matters!)
+       
         public SeparateChainingDictionary(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
@@ -34,7 +27,7 @@ namespace Advanced.Algorithms.DataStructures
             get => getValue(key);
             set => setValue(key, value);
         }
-        //O(1) time complexity; worst case O(n)
+
         public bool ContainsKey(K key)
         {
             var index = Math.Abs(key.GetHashCode()) % bucketSize;
@@ -61,8 +54,6 @@ namespace Advanced.Algorithms.DataStructures
             return false;
         }
 
-        //O(1) time complexity; worst case O(n)
-        //add an item to this hash table
         public void Add(K key, V value)
         {
             grow();
@@ -95,7 +86,6 @@ namespace Advanced.Algorithms.DataStructures
             Count++;
         }
 
-        //O(1) time complexity; worst case O(n)
         public void Remove(K key)
         {
             var index = Math.Abs(key.GetHashCode()) % bucketSize;
@@ -146,9 +136,6 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        /// <summary>
-        /// clear hash table
-        /// </summary>
         public void Clear()
         {
             hashArray = new DoublyLinkedList<DictionaryNode<K, V>>[initialBucketSize];
@@ -156,14 +143,13 @@ namespace Advanced.Algorithms.DataStructures
             filledBuckets = 0;
         }
 
-
         private void setValue(K key, V value)
         {
             var index = Math.Abs(key.GetHashCode()) % bucketSize;
 
             if (hashArray[index] == null)
             {
-                throw new Exception("Item not found");
+                Add(key, value);
             }
             else
             {
@@ -210,9 +196,7 @@ namespace Advanced.Algorithms.DataStructures
 
             throw new Exception("Item not found");
         }
-        /// <summary>
-        /// Grow array if needed
-        /// </summary>
+
         private void grow()
         {
             if (filledBuckets >= bucketSize * 0.7)
@@ -262,9 +246,6 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        /// <summary>
-        /// Shrink if needed
-        /// </summary>
         private void shrink()
         {
             if (Math.Abs(filledBuckets - bucketSize * 0.3) < tolerance && bucketSize / 2 > initialBucketSize)
@@ -308,21 +289,19 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
-        public IEnumerator<DictionaryNode<K, V>> GetEnumerator()
+        public IEnumerator<KeyValuePair<K, V>> GetEnumerator()
         {
             return new SeparateChainingDictionaryEnumerator<K, V>(hashArray, bucketSize);
         }
 
     }
 
-    //  implement IEnumerator.
-    public class SeparateChainingDictionaryEnumerator<TK, TV> : IEnumerator<DictionaryNode<TK, TV>> 
+    internal class SeparateChainingDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>> 
     {
         internal DoublyLinkedList<DictionaryNode<TK, TV>>[] HashList;
 
@@ -379,16 +358,15 @@ namespace Advanced.Algorithms.DataStructures
             currentNode = null;
         }
 
-
         object IEnumerator.Current => Current;
 
-        public DictionaryNode<TK, TV> Current
+        public KeyValuePair<TK, TV> Current
         {
             get
             {
                 try
                 {
-                    return currentNode.Data;
+                    return new KeyValuePair<TK, TV>(currentNode.Data.Key, currentNode.Data.Value);
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -396,9 +374,10 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
         }
+
         public void Dispose()
         {
+            HashList = null;
         }
-
     }
 }

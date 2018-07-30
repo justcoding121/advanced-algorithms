@@ -12,13 +12,13 @@ namespace Advanced.Algorithms.Geometry
             double cosTheta = Math.Cos(angleInRadians);
             double sinTheta = Math.Sin(angleInRadians);
 
-            var x = cosTheta * (point.x - center.x) -
-                    sinTheta * (point.y - center.y) + center.x;
+            var x = cosTheta * (point.X - center.X) -
+                    sinTheta * (point.Y - center.Y) + center.X;
 
-            var y = sinTheta * (point.x - center.x) +
-                    cosTheta * (point.y - center.y) + center.y;
+            var y = sinTheta * (point.X - center.X) +
+                    cosTheta * (point.Y - center.Y) + center.Y;
 
-            return new Point { x = x, y = y };
+            return new Point(x, y);
         }
     }
 }

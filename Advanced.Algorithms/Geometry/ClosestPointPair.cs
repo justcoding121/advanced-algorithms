@@ -10,8 +10,8 @@ namespace Advanced.Algorithms.Geometry
         public static double Find(List<int[]> points)
         {
             var xSorted = points
-                .Select(z => new Point() { x = z[0], y = z[1] })
-                .OrderBy(p => p.x).ToList();
+                .Select(z => new Point(z[0], z[1]))
+                .OrderBy(p => p.X).ToList();
 
             return Find(xSorted, 0, points.Count - 1);
         }
@@ -29,24 +29,24 @@ namespace Advanced.Algorithms.Geometry
             var rightMin = Find(points, mid + 1, right);
 
             var min = Math.Min(leftMin, rightMin);
-            var midX = points[mid].x;
+            var midX = points[mid].X;
 
             var strips = new List<Point>();
 
             for (var i = left; i <= right; i++)
             {
-                if (Math.Abs(points[i].x - midX) < min)
+                if (Math.Abs(points[i].X - midX) < min)
                 {
                     strips.Add(points[i]);
                 }
             }
 
             //vertical strips within the radius of min
-            strips = strips.OrderBy(p => p.y).ToList();
+            strips = strips.OrderBy(p => p.Y).ToList();
 
             for (var i = 0; i < strips.Count; i++)
             {
-                for (var j = i + 1; j < strips.Count && Math.Abs(strips[i].y - strips[j].y) < min; j++)
+                for (var j = i + 1; j < strips.Count && Math.Abs(strips[i].Y - strips[j].Y) < min; j++)
                 {
                     //check for radius 
                     min = Math.Min(min, getDistance(strips[i], strips[j]));
@@ -79,8 +79,8 @@ namespace Advanced.Algorithms.Geometry
         /// <returns></returns>
         private static double getDistance(Point point1, Point point2)
         {
-            return Math.Sqrt(Math.Pow(Math.Abs(point1.x - point2.x), 2)
-                     + Math.Pow(Math.Abs(point1.y - point2.y), 2));
+            return Math.Sqrt(Math.Pow(Math.Abs(point1.X - point2.X), 2)
+                     + Math.Pow(Math.Abs(point1.Y - point2.Y), 2));
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Tree
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class IntervalTree_Tests

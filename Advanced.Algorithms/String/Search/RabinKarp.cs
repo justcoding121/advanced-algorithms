@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Advanced.Algorithms.String.Search
+namespace Advanced.Algorithms.String
 {
     public class RabinKarp
     {

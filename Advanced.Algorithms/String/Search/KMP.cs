@@ -1,4 +1,4 @@
-﻿namespace Advanced.Algorithms.String.Search
+﻿namespace Advanced.Algorithms.String
 {
     /// <summary>
     /// Knuth–Morris–Pratt(KMP) search implementation

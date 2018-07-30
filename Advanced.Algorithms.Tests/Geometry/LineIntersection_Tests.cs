@@ -1,10 +1,5 @@
 ﻿using Advanced.Algorithms.Geometry;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Tests.Geometry
 {
@@ -14,54 +9,53 @@ namespace Advanced.Algorithms.Tests.Geometry
         [TestMethod]
         public void LineIntersection_Smoke_Test()
         {
-            var line1 = new Line { x1 = 1, y1 = 1, x2 = 10, y2 = 1 };
-            var line2 = new Line { x1 = 1, y1 = 2, x2 = 10, y2 = 2 };
+            var pointComparer = new PointComparer();
 
-            Assert.AreEqual(default(Point), LineIntersection.FindIntersection(line1, line2));
+            var line1 = new Line(new Point(1, 1), new Point(10, 1));
+            var line2 = new Line(new Point(1, 2), new Point(10, 2));
 
-            line1 = new Line { x1 = 10, y1 = 0, x2 = 0, y2 = 10 };
-            line2 = new Line { x1 = 0, y1 = 10, x2 = 10, y2 = 10 };
+            Assert.IsTrue(pointComparer.Equals(null, LineIntersection.Find(line1, line2)));
 
-            Assert.AreEqual(new Point() { x = 0, y = 10 }, LineIntersection.FindIntersection(line1, line2));
+            line1 = new Line(new Point(10, 0), new Point(0, 10));
+            line2 = new Line(new Point(0, 10), new Point(10, 10));
 
+            Assert.IsTrue(pointComparer.Equals(new Point(0, 10), LineIntersection.Find(line1, line2)));
 
-            line1 = new Line { x1 = 0, y1 = 0, x2 = 10, y2 = 10 };
-            line2 = new Line { x1 = 0, y1 = 10, x2 = 10, y2 = 10 };
+            line1 = new Line(new Point(0, 0), new Point(10, 10));
+            line2 = new Line(new Point(0, 10), new Point(10, 10));
 
-            Assert.AreEqual(new Point() { x = 10, y = 10 }, LineIntersection.FindIntersection(line1, line2));
-
-            line1 = new Line { x1 = 10, y1 = 0, x2 = 0, y2 = 10 };
-            line2 = new Line { x1 = 0, y1 = 0, x2 = 10, y2 = 10 };
-
-            Assert.AreEqual(new Point() { x = 5, y = 5 }, LineIntersection.FindIntersection(line1, line2));
-
-            line1 = new Line { x1 = -5, y1 = -5, x2 = 0, y2 = 0 };
-            line2 = new Line { x1 = 1, y1 = 1, x2 = 10, y2 = 10 };
-
-            Assert.AreEqual(default(Point), LineIntersection.FindIntersection(line1, line2));
-
-            line1 = new Line { x1 = 3, y1 = -5, x2 =3, y2 = 10 };
-            line2 = new Line { x1 = 0, y1 = 5, x2 = 10, y2 = 5 };
-
-            Assert.AreEqual(new Point() { x = 3, y = 5 }, LineIntersection.FindIntersection(line1, line2));
-
-            line1 = new Line { x1 = 0, y1 = 5, x2 = 10, y2 = 5 }; 
-            line2 = new Line { x1 = 3, y1 = -5, x2 = 3, y2 = 10 };
-
-            Assert.AreEqual(new Point() { x = 3, y = 5 }, LineIntersection.FindIntersection(line1, line2));
+            Assert.IsTrue(pointComparer.Equals(new Point(10, 10), LineIntersection.Find(line1, line2)));
 
 
-            line1 = new Line { x1 = 0, y1 = 5, x2 = 10, y2 = 5 };
-            line2 = new Line { x1 = 3, y1 = -5, x2 = 5, y2 = 15 };
+            line1 = new Line(new Point(10, 0), new Point(0, 10));
+            line2 = new Line(new Point(0, 0), new Point(10, 10));
 
-            Assert.AreEqual(new Point() { x = 4, y = 5 }, LineIntersection.FindIntersection(line1, line2));
+            Assert.IsTrue(pointComparer.Equals(new Point(5, 5), LineIntersection.Find(line1, line2)));
 
+            line1 = new Line(new Point(-5, -5), new Point(0, 0));
+            line2 = new Line(new Point(1, 1), new Point(10, 10));
 
+            Assert.IsTrue(pointComparer.Equals(default(Point), LineIntersection.Find(line1, line2)));
 
-            line1 = new Line { x1 = 0, y1 = -5, x2 = 0, y2 = 5 };
-            line2 = new Line { x1 = -3, y1 = 0, x2 = 3, y2 = 0 };
+            line1 = new Line(new Point(3, -5), new Point(3, 10));
+            line2 = new Line(new Point(0, 5), new Point(10, 5));
 
-            Assert.AreEqual(new Point() { x = 0, y = 0 }, LineIntersection.FindIntersection(line1, line2));
+            Assert.IsTrue(pointComparer.Equals(new Point(3, 5), LineIntersection.Find(line1, line2)));
+
+            line1 = new Line(new Point(0, 5), new Point(10, 5));
+            line2 = new Line(new Point(3, -5), new Point(3, 10));
+
+            Assert.IsTrue(pointComparer.Equals(new Point(3, 5), LineIntersection.Find(line1, line2)));
+
+            line1 = new Line(new Point(0, 5), new Point(10, 5));
+            line2 = new Line(new Point(3, -5), new Point(5, 15));
+
+            Assert.IsTrue(pointComparer.Equals(new Point(4, 5), LineIntersection.Find(line1, line2)));
+
+            line1 = new Line(new Point(0, -5), new Point(0, 5));
+            line2 = new Line(new Point(-3, 0), new Point(3, 0));
+
+            Assert.IsTrue(pointComparer.Equals(new Point(0, 0), LineIntersection.Find(line1, line2)));
         }
     }
 }

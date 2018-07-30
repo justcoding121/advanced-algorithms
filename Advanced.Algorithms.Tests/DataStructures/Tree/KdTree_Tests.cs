@@ -1,9 +1,9 @@
 ﻿using System;
-using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using Advanced.Algorithms.DataStructures;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Tree
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class KdTree_Tests

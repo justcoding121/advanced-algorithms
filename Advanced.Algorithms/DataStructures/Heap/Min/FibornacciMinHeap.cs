@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Heap.Min
+namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class FibornacciMinHeap<T> where T : IComparable
     {
         internal FibornacciHeapNode<T> heapForestHead;

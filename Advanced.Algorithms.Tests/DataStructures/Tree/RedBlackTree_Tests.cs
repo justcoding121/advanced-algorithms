@@ -1,5 +1,4 @@
 ﻿using Advanced.Algorithms.DataStructures;
-using Advanced.Algorithms.Tests.DataStructures.Tree.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
@@ -33,6 +32,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Insert(11);
 
             Assert.AreEqual(11, tree.Count);
+
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
+
             //delete
             tree.Delete(1);
             tree.Delete(2);
@@ -81,6 +84,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             randomNumbers = Enumerable.Range(1, nodeCount)
                                    .OrderBy(x => rnd.Next())
                                    .ToList();
+           
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
 
             for (int i = 0; i < nodeCount; i++)
             {
@@ -123,6 +129,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                                    .OrderBy(x => rnd.Next())
                                    .ToList();
 
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
 
             for (int i = 0; i < nodeCount; i++)
             {

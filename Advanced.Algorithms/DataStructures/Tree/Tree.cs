@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -30,8 +31,6 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    //TODO support initial  bulk loading if possible
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class Tree<T> where T : IComparable
     {
         private TreeNode<T> root { get; set; }
@@ -73,11 +72,9 @@ namespace Advanced.Algorithms.DataStructures
                 return -1;
             }
 
-            var children = node.Children.GetAllNodes();
-
             var currentHeight = -1;
 
-            foreach (var child in children)
+            foreach (var child in node.Children)
             {
                 var childHeight = getHeight(child);
 
@@ -196,15 +193,12 @@ namespace Advanced.Algorithms.DataStructures
         //find the node with the given identifier among descendants of parent
         private TreeNode<T> find(TreeNode<T> parent, T value)
         {
-
             if (parent.Value.CompareTo(value) == 0)
             {
                 return parent;
             }
 
-            var children = parent.Children.GetAllNodes();
-
-            foreach (var child in children)
+            foreach (var child in parent.Children)
             {
                 var result = find(child, value);
 

@@ -1,5 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -20,7 +21,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             list.Insert("c");
 
             Assert.AreEqual(list.Count(), 4);
-            Assert.AreEqual(list.GetAllNodes().Count, 4);
 
             list.Delete("a");
             Assert.AreEqual(list.Count(), 3);
@@ -46,7 +46,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             list.Insert("c");
 
             Assert.AreEqual(list.Count(), 4);
-            Assert.AreEqual(list.GetAllNodes().Count, 4);
 
             list.Delete("a");
             Assert.AreEqual(list.Count(), 3);

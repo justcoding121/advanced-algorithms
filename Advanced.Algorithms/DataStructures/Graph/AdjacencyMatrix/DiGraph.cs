@@ -5,8 +5,6 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 {
 
-
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A directed graph implementation using dynamically growinng/shrinking adjacency matrix array
     /// </summary>

@@ -1,18 +1,28 @@
-﻿using Advanced.Algorithms.DataStructures.Tree;
-using System;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class AVLTreeNode<T> : IBSTNode<T> where T : IComparable
+    internal class AVLTreeNode<T> : BSTNodeBase<T> where T : IComparable
     {
-        internal T Value { get; set; }
+        internal new AVLTreeNode<T> Parent
+        {
+            get { return (AVLTreeNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
 
-        internal AVLTreeNode<T> Parent { get; set; }
+        internal new AVLTreeNode<T> Left
+        {
+            get { return (AVLTreeNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
 
-        internal AVLTreeNode<T> Left { get; set; }
-        internal AVLTreeNode<T> Right { get; set; }
-
-        internal bool IsLeaf => Left == null && Right == null;
+        internal new AVLTreeNode<T> Right
+        {
+            get { return (AVLTreeNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
 
         internal AVLTreeNode(AVLTreeNode<T> parent, T value)
         {
@@ -22,19 +32,26 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         internal int Height { get; set; }
-
-        //exposed to do common tests for Binary Trees
-        IBSTNode<T> IBSTNode<T>.Left => Left;
-        IBSTNode<T> IBSTNode<T>.Right => Right;
-        T IBSTNode<T>.Value => Value;
     }
 
-    //TODO support bulk initial loading
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class AVLTree<T> where T : IComparable
+    public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
         internal AVLTreeNode<T> Root { get; private set; }
         public int Count { get; private set; }
+        private readonly System.Collections.Generic.Dictionary<T, BSTNodeBase<T>> nodeLookUp;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
+        /// by using a dictionary<T, AVLTreeNode<T> at the cost of additional space.</param>
+        public AVLTree(bool enableNodeLookUp = false)
+        {
+            if (enableNodeLookUp)
+            {
+                nodeLookUp = new System.Collections.Generic.Dictionary<T, BSTNodeBase<T>>();
+            }
+        }
 
         //O(log(n)) always
         public bool HasItem(T value)
@@ -62,6 +79,10 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new AVLTreeNode<T>(null, value);
+                if (nodeLookUp != null)
+                {
+                    nodeLookUp[value] = Root;
+                }
                 Count++;
                 return;
             }
@@ -82,6 +103,10 @@ namespace Advanced.Algorithms.DataStructures
                 if (node.Right == null)
                 {
                     node.Right = new AVLTreeNode<T>(node, value);
+                    if (nodeLookUp != null)
+                    {
+                        nodeLookUp[value] = node.Right;
+                    }
                 }
                 else
                 {
@@ -94,6 +119,10 @@ namespace Advanced.Algorithms.DataStructures
                 if (node.Left == null)
                 {
                     node.Left = new AVLTreeNode<T>(node, value);
+                    if (nodeLookUp != null)
+                    {
+                        nodeLookUp[value] = node.Left;
+                    }
                 }
                 else
                 {
@@ -122,6 +151,12 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             delete(Root, value);
+
+            if (nodeLookUp != null)
+            {
+                nodeLookUp.Remove(value);
+            }
+
             Count--;
         }
 
@@ -238,6 +273,11 @@ namespace Advanced.Algorithms.DataStructures
 
                         node.Value = maxLeftNode.Value;
 
+                        if (nodeLookUp != null)
+                        {
+                            nodeLookUp[node.Value] = node;
+                        }
+
                         //delete left max node
                         delete(node.Left, maxLeftNode.Value);
                     }
@@ -303,9 +343,22 @@ namespace Advanced.Algorithms.DataStructures
                 return false;
             }
 
-            return find(Root, value)!=null;
+            return find(Root, value) != null;
         }
 
+
+        //find the node with the given identifier among descendants of parent and parent
+        //uses pre-order traversal
+        //O(log(n)) worst O(n) for unbalanced tree
+        private AVLTreeNode<T> find(T value)
+        {
+            if (nodeLookUp != null)
+            {
+                return nodeLookUp[value] as AVLTreeNode<T>;
+            }
+
+            return Root.Find<T>(value) as AVLTreeNode<T>;
+        }
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
@@ -451,7 +504,6 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
 
-
             //move prev root as left child of current root
             newRoot.Left = prevRoot;
             prevRoot.Parent = newRoot;
@@ -492,6 +544,77 @@ namespace Advanced.Algorithms.DataStructures
 
             node.Height = Math.Max(node.Left?.Height + 1 ?? 0,
                                       node.Right?.Height + 1 ?? 0);
+        }
+
+        /// <summary>
+        ///     Get the value previous to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T NextLower(T value)
+        {
+            var node = find(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as BSTNodeBase<T>).NextLower();
+            return next != null ? next.Value : default(T);
+        }
+
+        /// <summary>
+        ///     Get the value next to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T NextHigher(T value)
+        {
+            var node = find(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as BSTNodeBase<T>).NextHigher();
+            return next != null ? next.Value : default(T);
+        }
+
+        internal void Swap(T value1, T value2)
+        {
+            var node1 = find(value1);
+            var node2 = find(value2);
+
+            if (node1 == null || node2 == null)
+            {
+                throw new Exception("Value1, Value2 or both was not found in this BST.");
+            }
+
+            var tmp = node1.Value;
+            node1.Value = node2.Value;
+            node2.Value = tmp;
+
+            if (nodeLookUp != null)
+            {
+                nodeLookUp[node1.Value] = node1;
+                nodeLookUp[node2.Value] = node2;
+            }
+        }
+
+        //Implementation for the GetEnumerator method.
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            if (nodeLookUp != null)
+            {
+                return new BSTNodeLookUpEnumerator<T>(nodeLookUp);
+            }
+
+            return new BSTEnumerator<T>(Root);
         }
     }
 }

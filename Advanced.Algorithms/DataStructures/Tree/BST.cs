@@ -1,38 +1,37 @@
-﻿using Advanced.Algorithms.DataStructures.Tree;
-using System;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class BSTNode<T> : IBSTNode<T> where T : IComparable
+    internal class BSTNode<T> : BSTNodeBase<T> where T : IComparable
     {
-        internal T Value { get; set; }
+        internal new BSTNode<T> Parent
+        {
+            get { return (BSTNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
 
-        internal BSTNode<T> Parent { get; set; }
+        internal new BSTNode<T> Left
+        {
+            get { return (BSTNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
 
-        internal BSTNode<T> Left { get; set; }
-        internal BSTNode<T> Right { get; set; }
-
-        internal bool IsLeaf => Left == null && Right == null;
-        internal bool IsLeftChild => this.Parent.Left == this;
-        internal bool IsRightChild => this.Parent.Right == this;
-
-        IBSTNode<T> IBSTNode<T>.Left => Left;
-
-        IBSTNode<T> IBSTNode<T>.Right => Right;
-
-        T IBSTNode<T>.Value => Value;
+        internal new BSTNode<T> Right
+        {
+            get { return (BSTNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
 
         internal BSTNode(BSTNode<T> parent, T value)
         {
             Parent = parent;
             Value = value;
         }
-
     }
 
-    //TODO support initial bulk loading
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class BST<T> where T : IComparable
+    public class BST<T> : IEnumerable<T> where T : IComparable
     {
         internal BSTNode<T> Root { get; set; }
         public int Count { get; private set; }
@@ -302,7 +301,6 @@ namespace Advanced.Algorithms.DataStructures
             return FindMax(Root).Value;
         }
 
-
         private BSTNode<T> FindMax(BSTNode<T> node)
         {
             while (true)
@@ -324,6 +322,14 @@ namespace Advanced.Algorithms.DataStructures
                 if (node.Left == null) return node;
                 node = node.Left;
             }
+        }
+
+        //find the node with the given identifier among descendants of parent and parent
+        //uses pre-order traversal
+        //worst O(n) for unbalanced tree
+        internal BSTNode<T> FindNode(T value)
+        {
+            return find(Root, value);
         }
 
         //find the node with the given identifier among descendants of parent and parent
@@ -352,6 +358,59 @@ namespace Advanced.Algorithms.DataStructures
 
                 parent = parent.Right;
             }
+        }
+
+        //find the node with the given identifier among descendants of parent and parent
+        //uses pre-order traversal
+        //O(log(n)) worst O(n) for unbalanced tree
+        private BSTNodeBase<T> find(T value)
+        {
+            return Root.Find<T>(value) as BSTNodeBase<T>;
+        }
+
+        /// <summary>
+        ///     Get the value previous to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T NextLower(T value)
+        {
+            var node = find(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as BSTNodeBase<T>).NextLower();
+            return next != null ? next.Value : default(T);
+        }
+
+        /// <summary>
+        ///     Get the value next to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T NextHigher(T value)
+        {
+            var node = find(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as BSTNodeBase<T>).NextHigher();
+            return next != null ? next.Value : default(T);
+        }
+
+        //Implementation for the GetEnumerator method.
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new BSTEnumerator<T>(Root);
         }
     }
 }

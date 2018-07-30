@@ -1,23 +1,39 @@
 ﻿using System;
-using Advanced.Algorithms.DataStructures.Heap.Min;
+using System.Collections;
+using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Queues.PriorityQueue
+namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    /// priority queue implementation using min heap
-    /// assuming lower values of P have higher priority
-    public class MinPriorityQueue<T> where T : IComparable
+    /// A priority queue implementation using min heap,
+    /// assuming that lower values have a higher priority.
+    public class MinPriorityQueue<T> : IEnumerable<T> where T : IComparable
     {
         private readonly BMinHeap<T> minHeap = new BMinHeap<T>();
 
-        public void Enqueue(T queueItem)
+        /// <summary>
+        /// Time complexity:O(log(n)).
+        /// </summary>
+        public void Enqueue(T item)
         {
-            minHeap.Insert(queueItem);
+            minHeap.Insert(item);
         }
 
+        /// <summary>
+        /// Time complexity:O(log(n)).
+        /// </summary>
         public T Dequeue()
         {
             return minHeap.ExtractMin();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return minHeap.GetEnumerator();
         }
     }
 }

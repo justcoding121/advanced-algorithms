@@ -1,20 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Queues
+namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     internal class ArrayQueue<T> : IQueue<T>
     {
         private readonly List<T> list = new List<T>();
 
         public int Count { get; private set; }
-        //O(1)
+
         public void Enqueue(T item)
         {
             list.Insert(0, item);
             Count++;
         }
-        //O(1)
+
         public T Dequeue()
         {
             if (list.Count == 0)
@@ -28,7 +28,15 @@ namespace Advanced.Algorithms.DataStructures.Queues
             return result;
         }
 
-     
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return list.GetEnumerator();
+        }
     }
 
 }

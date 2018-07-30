@@ -1,8 +1,7 @@
 ﻿using System;
 
-namespace Advanced.Algorithms.DataStructures.Heap.Max
+namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class BinomialMaxHeap<T> where T : IComparable
     {
         public int Count { get; private set; }
@@ -44,7 +43,6 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
             var cur = heapForest.Head;
             var next = heapForest.Head.Next;
 
-            //TODO
             while (next != null)
             {
                 //case 1

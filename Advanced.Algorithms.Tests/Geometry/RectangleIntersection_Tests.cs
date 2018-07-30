@@ -1,10 +1,5 @@
 ﻿using Advanced.Algorithms.Geometry;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Tests.Geometry
 {
@@ -15,35 +10,37 @@ namespace Advanced.Algorithms.Tests.Geometry
         [TestMethod]
         public void RectIntersection_Smoke_Test()
         {
+            var rectangleComparer = new RectangleComparer();
+
             var result = RectangleIntersection.FindIntersection(new Rectangle()
             {
-                LeftTopCorner = new Point() { x = 0, y = 10 },
-                RightBottomCorner = new Point() { x = 10, y = 0 }
+                LeftTopCorner = new Point(0, 10),
+                RightBottomCorner = new Point(10, 0)
             },
             new Rectangle()
             {
-                LeftTopCorner = new Point() { x = 5, y = 5 },
-                RightBottomCorner = new Point() { x = 15, y = 0 }
+                LeftTopCorner = new Point(5, 5),
+                RightBottomCorner = new Point(15, 0)
             });
 
-            Assert.AreEqual(result, new Rectangle()
+            Assert.IsTrue(rectangleComparer.Equals(result, new Rectangle()
             {
-                LeftTopCorner = new Point() { x = 5, y = 5 },
-                RightBottomCorner = new Point() { x = 10, y = 0 }
-            });
+                LeftTopCorner = new Point(5, 5),
+                RightBottomCorner = new Point(10, 0)
+            }));
 
             result = RectangleIntersection.FindIntersection(new Rectangle()
             {
-                LeftTopCorner = new Point() { x = 0, y = 10 },
-                RightBottomCorner = new Point() { x = 4, y = 0 }
+                LeftTopCorner = new Point(0, 10),
+                RightBottomCorner = new Point(4, 0)
             },
             new Rectangle()
             {
-               LeftTopCorner = new Point() { x = 5, y = 5 },
-               RightBottomCorner = new Point() { x = 15, y = 0 }
+                LeftTopCorner = new Point(5, 5),
+                RightBottomCorner = new Point(15, 0)
             });
 
-            Assert.AreEqual(result, default(Rectangle));
+            Assert.IsTrue(rectangleComparer.Equals(result, null));
         }
 
     }

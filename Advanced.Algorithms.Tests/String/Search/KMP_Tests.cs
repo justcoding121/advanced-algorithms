@@ -1,12 +1,7 @@
-﻿using Advanced.Algorithms.String.Search;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Advanced.Algorithms.String;
 
-namespace Advanced.Algorithms.Tests.String.Search
+namespace Advanced.Algorithms.Tests.String
 {
     [TestClass]
     public class KMP_Tests

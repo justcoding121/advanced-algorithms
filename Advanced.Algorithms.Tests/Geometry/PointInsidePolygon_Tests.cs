@@ -1,10 +1,6 @@
 ﻿using Advanced.Algorithms.Geometry;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.Tests.Geometry
 {
@@ -15,18 +11,17 @@ namespace Advanced.Algorithms.Tests.Geometry
         [TestMethod]
         public void PointInsidePolygon_Smoke_Test()
         {
-            var polygon = new List<int[]>() {
-                new int[] { 0, 0 },
-                new int[] { 10, 10 },
-                new int[] { 11, 11 },
-                new int[] { 0, 10 }
-            };
+            var polygon = new Polygon(new List<Line>() {
+                    new Line(new Point(0,0),new Point(10,10)),
+                    new Line(new Point(10,10),new Point(11,11)),
+                    new Line(new Point(11,11),new Point(0,10))
+                });
 
-            var testPoint = new int[] { 20, 20 };
+            var testPoint = new Point(20, 20);
 
             Assert.IsFalse(PointInsidePolygon.IsInside(polygon, testPoint));
 
-            testPoint = new int[] { 5, 5 };
+            testPoint = new Point(5, 5);
             Assert.IsTrue(PointInsidePolygon.IsInside(polygon, testPoint));
         }
     }

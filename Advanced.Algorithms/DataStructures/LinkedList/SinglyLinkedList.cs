@@ -1,31 +1,19 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    //define the generic node
-    public class SinglyLinkedListNode<T>
-    {
-        public SinglyLinkedListNode<T> Next;
-        public T Data;
-
-        public SinglyLinkedListNode(T data)
-        {
-            this.Data = data;
-        }
-    }
-
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
-    /// A singly linked list implementation
+    /// A singly linked list implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class SinglyLinkedList<T> 
+    public class SinglyLinkedList<T> : IEnumerable<T>
     {
         public SinglyLinkedListNode<T> Head;
 
-        //marks this data as the new head
-        //cost O(1)
+        /// <summary>
+        /// Insert first. Time complexity: O(1).
+        /// </summary>
         public void InsertFirst(T data)
         {
             var newNode = new SinglyLinkedListNode<T>(data);
@@ -35,8 +23,9 @@ namespace Advanced.Algorithms.DataStructures
             Head = newNode;
         }
 
-        //insert at the end
-        //costs O(n)
+        /// <summary>
+        /// Time complexity: O(n).
+        /// </summary>
         public void InsertLast(T data)
         {
             var newNode = new SinglyLinkedListNode<T>(data);
@@ -59,7 +48,10 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        //cost O(1)
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        /// <returns></returns>
         public T DeleteFirst()
         {
             if (Head == null)
@@ -74,7 +66,10 @@ namespace Advanced.Algorithms.DataStructures
             return firstData;
         }
 
-        //cost O(n)
+        /// <summary>
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <returns></returns>
         public T DeleteLast()
         {
             if (Head == null)
@@ -95,9 +90,11 @@ namespace Advanced.Algorithms.DataStructures
             return lastData;
         }
 
-        //search and delete
-        //cost O(n) in worst case O(nlog(n) average?
-        public void Delete(T data)
+        /// <summary>
+        /// Delete given element.
+        /// Time complexity: O(n)
+        /// </summary>
+        public void Delete(T element)
         {
             if (Head == null)
             {
@@ -109,7 +106,7 @@ namespace Advanced.Algorithms.DataStructures
 
             do
             {
-                if (current.Data.Equals(data))
+                if (current.Data.Equals(element))
                 {
                     //last element
                     if (current.Next == null)
@@ -148,26 +145,11 @@ namespace Advanced.Algorithms.DataStructures
             while (current != null);
         }
 
-
-        //O(n) always
-        public int Count()
-        {
-            var i = 0;
-            var current = Head;
-            while (current != null)
-            {
-                i++;
-                current = current.Next;
-            }
-
-            return i;
-        }
-
-        //O(1) always
+        // Time complexity: O(1).
         public bool IsEmpty() => Head == null;
 
-        //O(1) always
-        public void DeleteAll()
+        // Time complexity: O(1).
+        public void Clear()
         {
             if (Head == null)
             {
@@ -177,31 +159,95 @@ namespace Advanced.Algorithms.DataStructures
             Head = null;
         }
 
-        //O(n) time complexity
-        public List<T> GetAllNodes()
-        {
-            var result = new List<T>();
-
-            var current = Head;
-            while (current != null)
-            {
-                result.Add(current.Data);
-                current = current.Next;
-            }
-
-            return result;
-        }
-
         /// <summary>
-        /// Inserts this element to the begining
+        /// Inserts this element to the begining.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="current"></param>
         public void InsertFirst(SinglyLinkedListNode<T> current)
         {
             current.Next = Head;
             Head = current;
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new SinglyLinkedListEnumerator<T>(ref Head);
+        }
     }
+
+    /// <summary>
+    /// Singly linked list node.
+    /// </summary>
+    public class SinglyLinkedListNode<T>
+    {
+        public SinglyLinkedListNode<T> Next;
+        public T Data;
+
+        public SinglyLinkedListNode(T data)
+        {
+            this.Data = data;
+        }
+    }
+
+    internal class SinglyLinkedListEnumerator<T> : IEnumerator<T>
+    {
+        internal SinglyLinkedListNode<T> headNode;
+        internal SinglyLinkedListNode<T> currentNode;
+
+        internal SinglyLinkedListEnumerator(ref SinglyLinkedListNode<T> headNode)
+        {
+            this.headNode = headNode;
+        }
+
+        public bool MoveNext()
+        {
+            if (headNode == null)
+                return false;
+
+            if (currentNode == null)
+            {
+                currentNode = headNode;
+                return true;
+            }
+
+            if (currentNode.Next != null)
+            {
+                currentNode = currentNode.Next;
+                return true;
+            }
+
+            return false;
+
+        }
+
+        public void Reset()
+        {
+            currentNode = headNode;
+        }
+
+
+        object IEnumerator.Current => Current;
+
+        public T Current
+        {
+            get
+            {
+                return currentNode.Data;
+            }
+        }
+        public void Dispose()
+        {
+            headNode = null;
+            currentNode = null;
+        }
+
+    }
+
 
 
 }

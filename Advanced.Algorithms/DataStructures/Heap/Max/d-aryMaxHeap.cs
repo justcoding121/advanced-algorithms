@@ -2,9 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Heap.Max
+namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     public class D_aryMaxHeap<T> where T : IComparable
     {
         private T[] heapArray;

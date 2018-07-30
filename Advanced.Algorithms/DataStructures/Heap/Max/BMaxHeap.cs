@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.DataStructures.Heap.Max
+namespace Advanced.Algorithms.DataStructures
 {
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class BMaxHeap<T> where T : IComparable
+    public class BMaxHeap<T> : IEnumerable<T> where T : IComparable
     {
         private T[] heapArray;
 
@@ -245,6 +245,16 @@ namespace Advanced.Algorithms.DataStructures.Heap.Max
             }
 
             heapArray = biggerArray;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return new ArrayListEnumerator<T>(heapArray, Count);
         }
     }
 }

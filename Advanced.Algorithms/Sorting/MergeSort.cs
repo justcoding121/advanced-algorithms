@@ -8,11 +8,11 @@ namespace Advanced.Algorithms.Sorting
         //O(n) memory
         public static T[] Sort(T[] array)
         {
-            partitionMerge(array, 0, array.Length - 1);
+            PartitionMerge(array, 0, array.Length - 1);
             return array;
         }
 
-        private static void partitionMerge(T[] array, int leftIndex, int rightIndex)
+        internal static void PartitionMerge(T[] array, int leftIndex, int rightIndex)
         {
             if (leftIndex < 0 || rightIndex < 0 || (rightIndex - leftIndex + 1) < 2)
             {
@@ -21,8 +21,8 @@ namespace Advanced.Algorithms.Sorting
 
             var middle = (leftIndex + rightIndex) / 2;
 
-            partitionMerge(array, leftIndex, middle);
-            partitionMerge(array, middle + 1, rightIndex);
+            PartitionMerge(array, leftIndex, middle);
+            PartitionMerge(array, middle + 1, rightIndex);
 
             merge(array, leftIndex, middle, rightIndex);
         }

@@ -4,111 +4,134 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-
-    internal interface IDictionary<TK, TV> : IEnumerable<DictionaryNode<TK, TV>>
-    {
-        TV this[TK key] { get; set; }
-
-        bool ContainsKey(TK key);
-        void Add(TK key, TV value);
-        void Remove(TK key);
-        void Clear();
-
-        int Count { get; }
-    }
     /// <summary>
-    /// key-value set
+    /// A dictionary implementation.
     /// </summary>
-    public class DictionaryNode<TK, TV> 
+    /// <typeparam name="K">The key datatype.</typeparam>
+    /// <typeparam name="V">The value datatype.</typeparam>
+    public class Dictionary<K, V> : IEnumerable<KeyValuePair<K, V>> 
     {
-        public TK Key;
-        public TV Value;
+        private readonly IDictionary<K, V> dictionary;
 
-        public DictionaryNode(TK key, TV value)
-        {
-            this.Key = key;
-            this.Value = value;
-        }
-
-    }
-
-    public enum DictionaryType
-    {
-        SeparateChaining,
-        OpenAddressing
-    }
-    /// <summary>
-    /// A hash table implementation (key value dictionary) with separate chaining
-    /// TODO improve performance by using a Prime number greater than total elements as Bucket Size
-    /// </summary>
-    /// <typeparam name="TK"></typeparam>
-    /// <typeparam name="TV"></typeparam>
-    public class Dictionary<TK, TV> : IEnumerable<DictionaryNode<TK, TV>> 
-    {
-        private readonly IDictionary<TK, TV> dictionary;
-        //init with an expected size (the larger the size lesser the collission, but memory matters!)
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="type">The dictionary implementation to use.</param>
+        /// <param name="initialBucketSize">The larger the bucket size lesser the collision, but memory matters!</param>
         public Dictionary(DictionaryType type = DictionaryType.SeparateChaining, int initialBucketSize = 2)
         {
             if (initialBucketSize < 2)
             {
                 throw new Exception("Bucket Size must be greater than 2.");
-
             }
+
             if (type == DictionaryType.SeparateChaining)
             {
-                dictionary = new SeparateChainingDictionary<TK, TV>(initialBucketSize);
+                dictionary = new SeparateChainingDictionary<K, V>(initialBucketSize);
             }
             else
             {
-                dictionary = new OpenAddressDictionary<TK, TV>(initialBucketSize);
+                dictionary = new OpenAddressDictionary<K, V>(initialBucketSize);
             }
         }
 
+        /// <summary>
+        /// The number of items in this hashset.
+        /// </summary>
         public int Count => dictionary.Count;
 
-        public TV this[TK key]
+        /// <summary>
+        /// Get/set value for given key.
+        /// Time complexity: O(1) amortized.
+        /// </summary>
+        public V this[K key]
         {
             get => dictionary[key];
             set => dictionary[key] = value;
         }
 
-        //O(1) time complexity; worst case O(n)
-        public bool ContainsKey(TK key)
+        /// <summary>
+        /// Does this dictionary contains the given key.
+        /// Time complexity: O(1) amortized.
+        /// </summary>
+        /// <param name="value">The key to check.</param>
+        /// <returns>True if this dictionary contains the given key.</returns>
+        public bool ContainsKey(K key)
         {
             return dictionary.ContainsKey(key);
         }
 
-        //O(1) time complexity; worst case O(n)
-        //add an item to this hash table
-        public void Add(TK key, TV value)
+        /// <summary>
+        /// Add a new key for given value.
+        /// Time complexity: O(1) amortized.
+        /// </summary>
+        /// <param name="key">The key to add.</param>
+        /// <param name="value">The value for the given key.</param>
+        public void Add(K key, V value)
         {
             dictionary.Add(key, value);
         }
 
-        //O(1) time complexity; worst case O(n)
-        public void Remove(TK key)
+        /// <summary>
+        /// Remove the given key along with its value.
+        /// Time complexity: O(1) amortized.
+        /// </summary>
+        /// <param name="key">The key to remove.</param>
+        public void Remove(K key)
         {
             dictionary.Remove(key);
         }
 
         /// <summary>
-        /// clear hash table
+        /// Clear the dictionary.
+        /// Time complexity: O(1).
         /// </summary>
         public void Clear()
         {
             dictionary.Clear();
         }
 
-        //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return dictionary.GetEnumerator();
+            return GetEnumerator();
         }
 
-        public IEnumerator<DictionaryNode<TK, TV>> GetEnumerator()
+        public IEnumerator<KeyValuePair<K, V>> GetEnumerator()
         {
             return dictionary.GetEnumerator();
         }
     }
 
+    internal interface IDictionary<K, V> : IEnumerable<KeyValuePair<K, V>>
+    {
+        V this[K key] { get; set; }
+
+        bool ContainsKey(K key);
+        void Add(K key, V value);
+        void Remove(K key);
+        void Clear();
+
+        int Count { get; }
+    }
+
+    internal class DictionaryNode<K, V>
+    {
+        internal K Key;
+        internal V Value;
+
+        internal DictionaryNode(K key, V value)
+        {
+            this.Key = key;
+            this.Value = value;
+        }
+    }
+
+    /// <summary>
+    /// The dictionary implementation type.
+    /// </summary>
+    public enum DictionaryType
+    {
+        SeparateChaining,
+        OpenAddressing
+    }
 }

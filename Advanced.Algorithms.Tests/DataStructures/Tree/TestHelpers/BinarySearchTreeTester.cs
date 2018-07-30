@@ -1,16 +1,12 @@
-﻿using Advanced.Algorithms.DataStructures.Tree;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Advanced.Algorithms.DataStructures;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Tree.TestHelpers
+namespace Advanced.Algorithms.Tests.DataStructures
 {
-    public class BinarySearchTreeTester<T> where T:IComparable
+    internal class BinarySearchTreeTester<T> where T:IComparable
     {
         
-        public static bool VerifyIsBinarySearchTree(IBSTNode<T> node, T lowerBound, T upperBound)
+        public static bool VerifyIsBinarySearchTree(BSTNodeBase<T> node, T lowerBound, T upperBound)
         {
             if (node == null)
             {

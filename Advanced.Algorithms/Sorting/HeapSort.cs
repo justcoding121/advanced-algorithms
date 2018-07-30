@@ -1,5 +1,5 @@
 ﻿using System;
-using Advanced.Algorithms.DataStructures.Heap.Min;
+using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Sorting
 {

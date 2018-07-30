@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Tree
+namespace Advanced.Algorithms.DataStructures
 {
     internal class BpTreeNode<T> : BNode<T> where T : IComparable
     {
@@ -52,8 +52,6 @@ namespace Advanced.Algorithms.DataStructures.Tree
 
     /// <summary>
     /// A B+ Tree implementation
-    /// TODO support initial  bulk loading
-    /// TODO: make sure duplicates are handled correctly if its not already
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class BpTree<T> : IEnumerable<T> where T : IComparable
@@ -69,7 +67,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         internal BpTreeNode<T> BottomLeftNode;
 
         private readonly int maxKeysPerNode;
-        private int minKeysPerNode => maxKeysPerNode / 2;
+        private readonly int minKeysPerNode;
 
         public T Max
         {
@@ -101,6 +99,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             }
 
             this.maxKeysPerNode = maxKeysPerNode;
+            this.minKeysPerNode = maxKeysPerNode / 2;
         }
 
         public bool HasItem(T value)
@@ -1031,6 +1030,11 @@ namespace Advanced.Algorithms.DataStructures.Tree
 
         public bool MoveNext()
         {
+            if (current == null)
+            {
+                return false;
+            }
+
             if (i + 1 < current.KeyCount)
             {
                 i++;

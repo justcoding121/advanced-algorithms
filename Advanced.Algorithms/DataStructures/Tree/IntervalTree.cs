@@ -21,8 +21,6 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    //TODO explore initial bulk loading possibility
     /// <summary>
     /// A multi-dimensional interval tree implementation
     /// </summary>
@@ -324,7 +322,6 @@ namespace Advanced.Algorithms.DataStructures
 
     /// <summary>
     /// An overlapping interval tree implementation in 1-dimension using Augmentation Tree method
-    /// TODO support multiple dimensions
     /// </summary>
     /// <typeparam name="T"></typeparam>
     internal class IntervalTree<T> where T : IComparable
@@ -508,7 +505,6 @@ namespace Advanced.Algorithms.DataStructures
 
             return false;
         }
-
 
         internal class AsIntervalRedBlackTreeNode<T> where T : IComparable
         {

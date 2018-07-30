@@ -1,14 +1,13 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Lists
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class SkipList_Tests
     {
-        /// <summary>
-        /// A skip list test
-        /// </summary>
         [TestMethod]
         public void SkipList_Test()
         {
@@ -26,7 +25,6 @@ namespace Advanced.Algorithms.Tests.DataStructures.Lists
 
             Assert.AreEqual(0, skipList.Find(101));
 
-
             for (int i = 1; i < 100; i++)
             {
                 skipList.Delete(i);
@@ -37,6 +35,23 @@ namespace Advanced.Algorithms.Tests.DataStructures.Lists
             {
                 skipList.Insert(i);
             }
+
+            try
+            {
+                skipList.Insert(25);
+                Assert.Fail("Duplicate insertion allowed.");
+            }
+            catch (Exception) { }
+
+            try
+            {
+                skipList.Delete(52);
+                Assert.Fail("Deletion of item not in skip list did'nt throw exception.");
+            }
+            catch (Exception) { }
+
+            //IEnumerable test using linq
+            Assert.AreEqual(skipList.Count, skipList.Count());
 
             for (int i = 1; i < 50; i++)
             {

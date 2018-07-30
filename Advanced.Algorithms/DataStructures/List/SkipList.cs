@@ -1,24 +1,33 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class SkipListNode<T> where T : IComparable
-    {
-        internal SkipListNode<T> Prev { get; set; }
-        internal SkipListNode<T>[] Next { get; set; }
-
-        internal T value { get; set; }
-    }
-
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class SkipList<T> where T : IComparable
+    /// <summary>
+    /// A skip list implementation with IEnumerable support.
+    /// </summary>
+    /// <typeparam name="T">The data type of thi skip list.</typeparam>
+    public class SkipList<T> : IEnumerable<T> where T : IComparable
     {
         private readonly Random coinFlipper = new Random();
 
-        public int MaxHeight { get; private set; }
-
         internal SkipListNode<T> Head { get; set; }
 
+        /// <summary>
+        /// The number of elements in this skip list.
+        /// </summary>
+        public int Count { get; private set; }
+
+        /// <summary>
+        /// The maximum height of this skip list with which it was initialized.
+        /// </summary>
+        public readonly int MaxHeight;
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="maxHeight">The maximum height.</param>
         public SkipList(int maxHeight = 32)
         {
             MaxHeight = maxHeight;
@@ -28,11 +37,15 @@ namespace Advanced.Algorithms.DataStructures
                 Next = new SkipListNode<T>[maxHeight],
                 value = default(T)
             };
-
-
         }
 
-        //O(log(n)
+        /// <summary>
+        /// Finds the given value in this skip list.
+        /// If item is not found default value of T will be returned.
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public T Find(T value)
         {
             var current = Head;
@@ -64,9 +77,19 @@ namespace Advanced.Algorithms.DataStructures
             return default(T);
         }
 
-        //O(log(n)
+        /// <summary>
+        /// Inserts the given value to this skip list.
+        /// Will throw exception if the value already exists.
+        /// Time complexity: O(log(n))
+        /// </summary>
+        /// <param name="value">The value to insert.</param>
         public void Insert(T value)
         {
+            if(!Find(value).Equals(default(T)))
+            {
+                throw new Exception("Cannot insert duplicate values.");
+            }
+
             //find the random level up to which we link the new node
             var level = 0;
             for (int i = 0; i < MaxHeight
@@ -100,7 +123,6 @@ namespace Advanced.Algorithms.DataStructures
                     }
 
                     current = current.Next[i];
-
                 }
 
                 //if this level is greater than 
@@ -121,9 +143,16 @@ namespace Advanced.Algorithms.DataStructures
                     newNode.Prev = current;
                 }
             }
+
+            Count++;
         }
 
-        //O(log(n)
+        /// <summary>
+        /// Deletes the given value from this skip list.
+        /// Will throw exception if the value does'nt exist in this skip list.
+        /// Time complexity: O(log(n))
+        /// </summary>
+        /// <param name="value"> The value to delete.</param>
         public void Delete(T value)
         {
             //init current to head before insertion
@@ -139,18 +168,21 @@ namespace Advanced.Algorithms.DataStructures
                     if (current.Next[i] == null
                         || current.Next[i].value.CompareTo(value) >= 0)
                     {
-
                         break;
                     }
 
                     current = current.Next[i];
+                }
 
+                //item not found
+                if (i == 0 && current.Next[i].value.CompareTo(value) != 0)
+                {
+                    throw new Exception("Item to delete was not found in this skip list.");
                 }
 
                 if (current.Next[i] != null
                         && current.Next[i].value.CompareTo(value) == 0)
                 {
-
                     //for base level set previous node
                     if (i == 0 && current.Next[i].Next[i] != null)
                     {
@@ -159,13 +191,76 @@ namespace Advanced.Algorithms.DataStructures
 
                     //insert and update pointers
                     current.Next[i] = current.Next[i].Next[i];
-
-
                 }
-
             }
+
+            Count--;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new SkipListEnumerator<T>(Head);
         }
     }
 
+    internal class SkipListNode<T> where T : IComparable
+    {
+        internal SkipListNode<T> Prev { get; set; }
+        internal SkipListNode<T>[] Next { get; set; }
 
+        internal T value { get; set; }
+    }
+
+    internal class SkipListEnumerator<T> : IEnumerator<T> where T : IComparable
+    {
+        private SkipListNode<T> head;
+
+        // Enumerators are positioned before the first element
+        // until the first MoveNext() call.
+        private SkipListNode<T> current;
+
+        internal SkipListEnumerator(SkipListNode<T> head)
+        {
+            this.head = head;
+            this.current = head;
+        }
+
+        public bool MoveNext()
+        {
+            if (current.Next[0] != null)
+            {
+                current = current.Next[0];
+                return true;
+            }
+
+            return false;
+
+        }
+
+        public void Reset()
+        {
+            current = head;
+        }
+
+        object IEnumerator.Current => Current;
+
+        public T Current
+        {
+            get
+            {
+                return current.value;
+            }
+        }
+
+        public void Dispose()
+        {
+            head = null;
+            current = null;
+        }
+    }
 }

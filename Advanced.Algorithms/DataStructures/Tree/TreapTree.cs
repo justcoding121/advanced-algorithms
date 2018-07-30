@@ -1,26 +1,30 @@
-﻿using Advanced.Algorithms.DataStructures.Tree;
-using System;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class TreapTreeNode<T> : IBSTNode<T> where T : IComparable
+    internal class TreapTreeNode<T> : BSTNodeBase<T> where T : IComparable
     {
+        internal new TreapTreeNode<T> Parent
+        {
+            get { return (TreapTreeNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
+
+        internal new TreapTreeNode<T> Left
+        {
+            get { return (TreapTreeNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
+
+        internal new TreapTreeNode<T> Right
+        {
+            get { return (TreapTreeNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
+
         internal int Priority { get; set; }
-
-        internal T Value { get; set; }
-
-        internal TreapTreeNode<T> Parent { get; set; }
-
-        internal TreapTreeNode<T> Left { get; set; }
-        internal TreapTreeNode<T> Right { get; set; }
-
-        internal bool IsLeaf => Left == null && Right == null;
-        internal bool IsLeftChild => this.Parent.Left == this;
-        internal bool IsRightChild => this.Parent.Right == this;
-
-        IBSTNode<T> IBSTNode<T>.Left => Left;
-        IBSTNode<T> IBSTNode<T>.Right => Right;
-        T IBSTNode<T>.Value => Value;
 
         internal TreapTreeNode(TreapTreeNode<T> parent, T value, int priority)
         {
@@ -28,12 +32,9 @@ namespace Advanced.Algorithms.DataStructures
             Value = value;
             Priority = priority;
         }
-
     }
 
-    //TODO support initial  bulk loading if possible
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
-    public class TreapTree<T> where T : IComparable
+    public class TreapTree<T> : IEnumerable<T> where T : IComparable
     {
         private Random rndGenerator = new Random();
         internal TreapTreeNode<T> Root { get; set; }
@@ -437,6 +438,60 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             return newRoot;
+        }
+
+
+        //find the node with the given identifier among descendants of parent and parent
+        //uses pre-order traversal
+        //O(log(n)) worst O(n) for unbalanced tree
+        private BSTNodeBase<T> find(T value)
+        {
+            return Root.Find<T>(value) as BSTNodeBase<T>;
+        }
+
+        /// <summary>
+        ///     Get the value previous to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T NextLower(T value)
+        {
+            var node = find(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as BSTNodeBase<T>).NextLower();
+            return next != null ? next.Value : default(T);
+        }
+
+        /// <summary>
+        ///     Get the value next to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T NextHigher(T value)
+        {
+            var node = find(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as BSTNodeBase<T>).NextHigher();
+            return next != null ? next.Value : default(T);
+        }
+
+        //Implementation for the GetEnumerator method.
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new BSTEnumerator<T>(Root);
         }
     }
 }

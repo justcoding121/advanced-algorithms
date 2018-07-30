@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Linq;
 
-namespace Advanced.Algorithms.DataStructures.Tree
+namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// abstract node shared by both B & B+ tree nodes
@@ -34,7 +32,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         }
     }
 
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
+
     internal class BTreeNode<T> : BNode<T> where T : IComparable
     {
 
@@ -73,8 +71,6 @@ namespace Advanced.Algorithms.DataStructures.Tree
 
     /// <summary>
     /// A BTree implementation
-    /// TODO support initial  bulk loading
-    /// TODO Implement IEnumerator & make sure duplicates are handled correctly if its not already
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class BTree<T> where T : IComparable
@@ -84,7 +80,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
         internal BTreeNode<T> Root;
 
         private readonly int maxKeysPerNode;
-        private int minKeysPerNode => maxKeysPerNode / 2;
+        private int minKeysPerNode;
 
         public BTree(int maxKeysPerNode)
         {
@@ -94,6 +90,7 @@ namespace Advanced.Algorithms.DataStructures.Tree
             }
 
             this.maxKeysPerNode = maxKeysPerNode;
+            this.minKeysPerNode = maxKeysPerNode / 2;
         }
 
         public T Max

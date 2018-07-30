@@ -1,22 +1,8 @@
 ﻿using System;
+using System.Linq;
 
 namespace Advanced.Algorithms.Geometry
 {
-    public struct Line
-    {
-        public double x1 { get; set; }
-        public double y1 { get; set; }
-
-        public double x2 { get; set; }
-        public double y2 { get; set; }
-    }
-
-    public struct Point
-    {
-        public double x { get; set; }
-        public double y { get; set; }
-    }
-
     public class LineIntersection
     {
         /// <summary>
@@ -24,38 +10,86 @@ namespace Advanced.Algorithms.Geometry
         /// </summary>
         /// <param name="lineA"></param>
         /// <param name="lineB"></param>
-        /// <param name="tolerance">precision tolerance.</param>
+        /// <param name="precision">precision tolerance.</param>
         /// <returns>The point of intersection.</returns>
-        public static Point FindIntersection(Line lineA, Line lineB, double tolerance = 0.001)
+        public static Point Find(Line lineA, Line lineB, int precision = 5)
         {
-            double x1 = lineA.x1, y1 = lineA.y1;
-            double x2 = lineA.x2, y2 = lineA.y2;
+            var tolerance = Math.Round(Math.Pow(0.1, precision), precision);
+            return FindIntersection(lineA, lineB, tolerance);
+        }
 
-            double x3 = lineB.x1, y3 = lineB.y1;
-            double x4 = lineB.x2, y4 = lineB.y2;
+        internal static Point FindIntersection(Line lineA, Line lineB, double tolerance)
+        {
+            if (lineA == lineB)
+            {
+                throw new Exception("Both lines are the same.");
+            }
+
+            //make lineA as left
+            if (lineA.Left.X.CompareTo(lineB.Left.X) > 0)
+            {
+                var tmp = lineA;
+                lineA = lineB;
+                lineB = tmp;
+            }
+            else if (lineA.Left.X.CompareTo(lineB.Left.X) == 0)
+            {
+                if (lineA.Left.Y.CompareTo(lineB.Left.Y) > 0)
+                {
+                    var tmp = lineA;
+                    lineA = lineB;
+                    lineB = tmp;
+                }
+            }
+
+            double x1 = lineA.Left.X, y1 = lineA.Left.Y;
+            double x2 = lineA.Right.X, y2 = lineA.Right.Y;
+
+            double x3 = lineB.Left.X, y3 = lineB.Left.Y;
+            double x4 = lineB.Right.X, y4 = lineB.Right.Y;
+
+
+            //equations of the form x=c (two vertical overlapping lines)
+            if (x1 == x2 && x3 == x4 && x1 == x3)
+            {
+                //get the first intersection in vertical sorted order of lines
+                var firstIntersection = new Point(x3, y3);
+
+                //x,y can intersect outside the line segment since line is infinitely long
+                //so finally check if x, y is within both the line segments
+                if (IsInsideLine(lineA, firstIntersection, tolerance) &&
+                    IsInsideLine(lineB, firstIntersection, tolerance))
+                {
+                    return new Point(x3, y3);
+                }
+            }
+
+            //equations of the form y=c (two overlapping horizontal lines)
+            if (y1 == y2 && y3 == y4 && y1 == y3)
+            {
+                //get the first intersection in horizontal sorted order of lines
+                var firstIntersection = new Point(x3, y3);
+
+                //get the first intersection in sorted order
+                //x,y can intersect outside the line segment since line is infinitely long
+                //so finally check if x, y is within both the line segments
+                if (IsInsideLine(lineA, firstIntersection, tolerance) &&
+                    IsInsideLine(lineB, firstIntersection, tolerance))
+                {
+                    return new Point(x3, y3);
+                }
+            }
 
             //equations of the form x=c (two vertical lines)
-            if (Math.Abs(x1 - x2) < tolerance && Math.Abs(x3 - x4) < tolerance && Math.Abs(x1 - x3) < tolerance)
+            if (x1 == x2 && x3 == x4)
             {
-                throw new Exception("Both lines overlap vertically, ambiguous intersection points.");
+                return null;
             }
 
             //equations of the form y=c (two horizontal lines)
-            if (Math.Abs(y1 - y2) < tolerance && Math.Abs(y3 - y4) < tolerance && Math.Abs(y1 - y3) < tolerance)
+            if (y1 == y2 && y3 == y4)
             {
-                throw new Exception("Both lines overlap horizontally, ambiguous intersection points.");
-            }
-
-            //equations of the form x=c (two vertical lines)
-            if (Math.Abs(x1 - x2) < tolerance && Math.Abs(x3 - x4) < tolerance)
-            {
-                return default(Point);
-            }
-
-            //equations of the form y=c (two horizontal lines)
-            if (Math.Abs(y1 - y2) < tolerance && Math.Abs(y3 - y4) < tolerance)
-            {
-                return default(Point);
+                return null;
             }
 
             //general equation of line is y = mx + c where m is the slope
@@ -125,20 +159,22 @@ namespace Advanced.Algorithms.Geometry
                 if (!(Math.Abs(-m1 * x + y - c1) < tolerance
                     && Math.Abs(-m2 * x + y - c2) < tolerance))
                 {
-                    return default(Point);
+                    return null;
                 }
             }
 
+            var result = new Point(x, y);
+
             //x,y can intersect outside the line segment since line is infinitely long
             //so finally check if x, y is within both the line segments
-            if (IsInsideLine(lineA, x, y) &&
-                IsInsideLine(lineB, x, y))
+            if (IsInsideLine(lineA, result, tolerance) &&
+                IsInsideLine(lineB, result, tolerance))
             {
-                return new Point { x = x, y = y };
+                return result;
             }
 
             //return default null (no intersection)
-            return default(Point);
+            return null;
 
         }
 
@@ -149,12 +185,44 @@ namespace Advanced.Algorithms.Geometry
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        private static bool IsInsideLine(Line line, double x, double y)
+        private static bool IsInsideLine(Line line, Point p, double tolerance)
         {
-            return (x >= line.x1 && x <= line.x2
-                        || x >= line.x2 && x <= line.x1)
-                   && (y >= line.y1 && y <= line.y2
-                        || y >= line.y2 && y <= line.y1);
+            double x = p.X, y = p.Y;
+
+            var leftX = line.Left.X;
+            var leftY = line.Left.Y;
+
+            var rightX = line.Right.X;
+            var rightY = line.Right.Y;
+
+            return (x.IsGreaterThanOrEqual(leftX, tolerance) && x.IsLessThanOrEqual(rightX, tolerance)
+                        || x.IsGreaterThanOrEqual(rightX, tolerance) && x.IsLessThanOrEqual(leftX, tolerance))
+                   && (y.IsGreaterThanOrEqual(leftY, tolerance) && y.IsLessThanOrEqual(rightY, tolerance)
+                        || y.IsGreaterThanOrEqual(rightY, tolerance) && y.IsLessThanOrEqual(leftY, tolerance));
+        }
+
+    }
+
+    public static class LineExtensions
+    {
+        public static bool Intersects(this Line lineA, Line lineB, int precision = 5)
+        {
+            return LineIntersection.Find(lineA, lineB, precision) != null;
+        }
+
+        public static Point Intersection(this Line lineA, Line lineB, int precision = 5)
+        {
+            return LineIntersection.Find(lineA, lineB, precision);
+        }
+
+        internal static bool Intersects(this Line lineA, Line lineB, double tolerance)
+        {
+            return LineIntersection.FindIntersection(lineA, lineB, tolerance) != null;
+        }
+
+        internal static Point Intersection(this Line lineA, Line lineB, double tolerance)
+        {
+            return LineIntersection.FindIntersection(lineA, lineB, tolerance);
         }
     }
 }

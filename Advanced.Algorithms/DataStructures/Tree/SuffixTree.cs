@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    //TODO support initial  bulk loading if possible
-    //TODO implement IEnumerable & make sure duplicates are handled correctly if its not already
     /// <summary>
     /// A simple suffix tree implementation using a trie
     /// </summary>

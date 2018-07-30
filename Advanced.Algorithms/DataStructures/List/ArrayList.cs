@@ -5,21 +5,23 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// A self expanding array (dynamic array) aka array vector
+    /// A self expanding array implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The datatype of this ArrayList.</typeparam>
     public class ArrayList<T> : IEnumerable<T>
     {
-
         private readonly int initialArraySize;
         private int arraySize;
-
         private T[] array;
 
-        private int currentEndPosition;
-        public int Length => currentEndPosition;
+        public int Length { get; private set; }
 
-        //constructor init 
+        /// <summary>
+        /// Constructor.
+        /// TimeComplexity: O(1) if initial is empty otherwise O(n).
+        /// </summary>
+        /// <param name="initalArraySize">The initial array size.</param>
+        /// <param name="initial">Initial values if any.</param>
         public ArrayList(int initalArraySize = 2, IEnumerable<T> initial = null)
         {
             if (initalArraySize < 2)
@@ -43,16 +45,18 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Overloaded constructor
+        /// Constructor.
+        /// TimeComplexity: O(1) if initial is empty otherwise O(n).
         /// </summary>
-        /// <param name="initial"></param>
+        /// <param name="initial">Initial values if any.</param>
         public ArrayList(IEnumerable<T> initial) 
             : this (2, initial){ }
 
         /// <summary>
-        /// Expose indexer
+        /// Indexed access to array.
+        /// Time Complexity: O(1).
         /// </summary>
-        /// <param name="index"></param>
+        /// <param name="index">The index to write or read.</param>
         /// <returns></returns>
         public T this[int index]
         {
@@ -60,7 +64,6 @@ namespace Advanced.Algorithms.DataStructures
             set => setItem(index, value);
         }
 
-        //O(1)
         private T itemAt(int i)
         {
             if (i >= Length)
@@ -69,20 +72,25 @@ namespace Advanced.Algorithms.DataStructures
             return array[i];
         }
 
-        //O(1) amortized 
+        /// <summary>
+        /// Add a new item to this array list.
+        /// Time complexity: O(1) amortized.
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(T item)
         {
             grow();
 
-            array[currentEndPosition] = item;
-            currentEndPosition++;
+            array[Length] = item;
+            Length++;
         }
 
         /// <summary>
-        /// Insert element at specified index
+        /// Insert given item at specified index.
+        /// Time complexity: O(1) amortized.
         /// </summary>
-        /// <param name="index"></param>
-        /// <param name="item"></param>
+        /// <param name="index">The index to insert at.<param>
+        /// <param name="item">The item to insert.</param>
         public void InsertAt(int index, T item)
         {
             grow();
@@ -90,30 +98,29 @@ namespace Advanced.Algorithms.DataStructures
             shift(index);
 
             array[index] = item;
-            currentEndPosition++;
+            Length++;
         }
 
         /// <summary>
-        /// shift the position of elements right by one starting at this index
-        /// create a blank field at index
+        /// Shift the position of elements right by one starting at this index.
+        /// Creates a blank field at index.
         /// </summary>
-        /// <param name="index"></param>
         private void shift(int index)
         {
             Array.Copy(array, index, array, index + 1, Length - index);
         }
 
         /// <summary>
-        /// empty the list
+        /// Clears the array.
+        /// Time complexity: O(1).
         /// </summary>
-        internal void Clear()
+        public void Clear()
         {
             arraySize = initialArraySize;
             array = new T[arraySize];
-            currentEndPosition = 0;
+            Length = 0;
         }
 
-        //O(1)
         private void setItem(int i, T item)
         {
             if (i >= Length)
@@ -122,8 +129,12 @@ namespace Advanced.Algorithms.DataStructures
             array[i] = item;
         }
 
-        //O(n) 
-        public void RemoveItem(int i)
+        /// <summary>
+        /// Remove the item at given index.
+        /// Time complexity: O(1) amortized.
+        /// </summary>
+        /// <param name="i">The index to remove at.</param>
+        public void RemoveAt(int i)
         {
             if (i >= Length)
                 throw new System.Exception("Index exeeds array size");
@@ -134,18 +145,14 @@ namespace Advanced.Algorithms.DataStructures
                 array[j] = array[j + 1];
             }
 
-            currentEndPosition--;
+            Length--;
 
             shrink();
         }
 
-
-        /// <summary>
-        /// Grow array if needed
-        /// </summary>
         private void grow()
         {
-            if (currentEndPosition != arraySize)
+            if (Length != arraySize)
             {
                 return;
             }
@@ -154,16 +161,13 @@ namespace Advanced.Algorithms.DataStructures
             arraySize *= 2;
 
             var biggerArray = new T[arraySize];
-            Array.Copy(array, 0, biggerArray, 0, currentEndPosition);
+            Array.Copy(array, 0, biggerArray, 0, Length);
             array = biggerArray;
         }
 
-        /// <summary>
-        /// Shrink array if needed
-        /// </summary>
         private void shrink()
         {
-            if (currentEndPosition != arraySize / 2 || arraySize == initialArraySize)
+            if (Length != arraySize / 2 || arraySize == initialArraySize)
             {
                 return;
             }
@@ -172,42 +176,10 @@ namespace Advanced.Algorithms.DataStructures
             arraySize /= 2;
 
             var smallerArray = new T[arraySize];
-            Array.Copy(array, 0, smallerArray, 0, currentEndPosition);
+            Array.Copy(array, 0, smallerArray, 0, Length);
             array = smallerArray;
         }
 
-
-        /// <summary>
-        /// Returns as an array
-        /// </summary>
-        /// <returns></returns>
-        public T[] ToArray()
-        {
-            var result = new T[Length];
-
-            var i = 0;
-            foreach(var item in this)
-            {
-                result[i] = item;
-                i++;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Add's the given array to the end 
-        /// </summary>
-        /// <param name="array"></param>
-        public void AddRange(T[] array)
-        {
-            foreach(var item in array)
-            {
-                Add(item);
-            }
-        }
-
-        //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -219,8 +191,7 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    //  implement IEnumerator.
-    public class ArrayListEnumerator<T> : IEnumerator<T>
+    internal class ArrayListEnumerator<T> : IEnumerator<T>
     {
         private T[] array;
 
@@ -229,7 +200,7 @@ namespace Advanced.Algorithms.DataStructures
         private int position = -1;
         private int length;
 
-        public ArrayListEnumerator(T[] list, int length)
+        internal ArrayListEnumerator(T[] list, int length)
         {
             this.length = length;
             array = list;
@@ -252,7 +223,6 @@ namespace Advanced.Algorithms.DataStructures
         {
             get
             {
-
                 try
                 {
                     return array[position];
@@ -267,8 +237,6 @@ namespace Advanced.Algorithms.DataStructures
         public void Dispose()
         {
             array = null;
-            length = 0;
-            position = -1;
         }
     }
 

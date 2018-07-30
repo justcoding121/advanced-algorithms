@@ -1,11 +1,10 @@
 ﻿using Advanced.Algorithms.DataStructures;
-using Advanced.Algorithms.DataStructures.Heap.Max;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Heap.Max
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class AsD_aryMaxTree_Tests

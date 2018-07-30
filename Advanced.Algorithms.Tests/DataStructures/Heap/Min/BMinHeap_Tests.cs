@@ -1,11 +1,10 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using Advanced.Algorithms.DataStructures.Heap.Min;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Heap.Min
+
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class BMinHeap_Tests
