@@ -444,6 +444,50 @@ namespace Advanced.Algorithms.DataStructures
 
             return newRoot;
         }
+
+
+        //find the node with the given identifier among descendants of parent and parent
+        //uses pre-order traversal
+        //O(log(n)) worst O(n) for unbalanced tree
+        private BSTNodeBase<T> find(T value)
+        {
+            return Root.Find<T>(value) as BSTNodeBase<T>;
+        }
+
+        /// <summary>
+        ///     Get the value previous to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T NextLower(T value)
+        {
+            var node = find(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as BSTNodeBase<T>).NextLower();
+            return next != null ? next.Value : default(T);
+        }
+
+        /// <summary>
+        ///     Get the value next to given value in this BST.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public T NextHigher(T value)
+        {
+            var node = find(value);
+            if (node == null)
+            {
+                return default(T);
+            }
+
+            var next = (node as BSTNodeBase<T>).NextHigher();
+            return next != null ? next.Value : default(T);
+        }
+
         //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {

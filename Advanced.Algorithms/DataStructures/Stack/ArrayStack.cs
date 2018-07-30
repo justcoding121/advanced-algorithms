@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
@@ -9,7 +10,6 @@ namespace Advanced.Algorithms.DataStructures
 
         private readonly List<T> list = new List<T>();
 
-        //O(1)
         public T Pop()
         {
             if(Count == 0)
@@ -23,14 +23,12 @@ namespace Advanced.Algorithms.DataStructures
             return result;
         }
 
-        //O(1)
         public void Push(T item)
         {
             list.Add(item);
             Count++;
         }
 
-        //O(1)
         public T Peek()
         {
             if(Count == 0)
@@ -41,6 +39,14 @@ namespace Advanced.Algorithms.DataStructures
             return list[list.Count - 1];
         }
 
-      
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return list.GetEnumerator();
+        }
     }
 }

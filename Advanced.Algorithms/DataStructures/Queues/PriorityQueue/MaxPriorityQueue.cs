@@ -1,22 +1,40 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-
-    /// priority queue implementation using max heap
-    /// assuming lower values of P have higher priority
-    public class MaxPriorityQueue<T> where T : IComparable
+    /// A priority queue implementation using min heap,
+    /// assuming that higher values have a higher priority.
+    public class MaxPriorityQueue<T>: IEnumerable<T> where T : IComparable
     {
         private readonly BMaxHeap<T> maxHeap = new BMaxHeap<T>();
 
-        public void Enqueue(T queueItem)
+        /// <summary>
+        /// Time complexity:O(log(n)).
+        /// </summary>
+        public void Enqueue(T item)
         {
-            maxHeap.Insert(queueItem);
+            maxHeap.Insert(item);
         }
 
+        /// <summary>
+        /// Time complexity:O(log(n)).
+        /// </summary>
+        /// <returns></returns>
         public T Dequeue()
         {
             return maxHeap.ExtractMax();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return maxHeap.GetEnumerator();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Advanced.Algorithms.DataStructures
                 return true;
             }
 
-            var next = current.NextUpper();
+            var next = current.NextHigher();
             if (next != null)
             {
                 current = next;

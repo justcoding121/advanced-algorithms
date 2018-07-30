@@ -108,8 +108,8 @@ namespace Advanced.Algorithms.Geometry
 
                         currentlyTrackedLines.Insert(currentEvent);
 
-                        var lower = currentlyTrackedLines.Previous(currentEvent);
-                        var upper = currentlyTrackedLines.Next(currentEvent);
+                        var lower = currentlyTrackedLines.NextLower(currentEvent);
+                        var upper = currentlyTrackedLines.NextHigher(currentEvent);
 
                         var lowerIntersection = findIntersection(currentEvent, lower);
                         recordIntersection(currentEvent, lower, lowerIntersection);
@@ -133,8 +133,8 @@ namespace Advanced.Algorithms.Geometry
 
                         normalLines.Remove(currentEvent);
 
-                        lower = currentlyTrackedLines.Previous(currentEvent);
-                        upper = currentlyTrackedLines.Next(currentEvent);
+                        lower = currentlyTrackedLines.NextLower(currentEvent);
+                        upper = currentlyTrackedLines.NextHigher(currentEvent);
 
                         currentlyTrackedLines.Delete(currentEvent);
 
@@ -153,14 +153,14 @@ namespace Advanced.Algorithms.Geometry
                             currentlyTrackedLines.Swap(item.Item1, item.Item2);
 
                             var upperLine = item.Item1;
-                            var upperUpper = currentlyTrackedLines.Next(upperLine);
+                            var upperUpper = currentlyTrackedLines.NextHigher(upperLine);
 
                             var newUpperIntersection = findIntersection(upperLine, upperUpper);
                             recordIntersection(upperLine, upperUpper, newUpperIntersection);
                             enqueueIntersectionEvent(currentEvent, newUpperIntersection);
 
                             var lowerLine = item.Item2;
-                            var lowerLower = currentlyTrackedLines.Previous(lowerLine);
+                            var lowerLower = currentlyTrackedLines.NextLower(lowerLine);
 
                             var newLowerIntersection = findIntersection(lowerLine, lowerLower);
                             recordIntersection(lowerLine, lowerLower, newLowerIntersection);

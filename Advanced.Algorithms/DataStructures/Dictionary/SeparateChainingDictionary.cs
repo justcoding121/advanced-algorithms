@@ -149,7 +149,7 @@ namespace Advanced.Algorithms.DataStructures
 
             if (hashArray[index] == null)
             {
-                throw new Exception("Item not found");
+                Add(key, value);
             }
             else
             {

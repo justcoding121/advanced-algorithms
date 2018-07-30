@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class BMinHeap<T> where T : IComparable
+    public class BMinHeap<T> : IEnumerable<T> where T : IComparable
     {
         private T[] heapArray;
         private readonly IComparer<T> comparer;
@@ -305,6 +306,16 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             heapArray = biggerArray;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return new ArrayListEnumerator<T>(heapArray, Count);
         }
     }
 }

@@ -62,7 +62,6 @@ namespace Advanced.Algorithms.DataStructures
 
         public void Add(TV value)
         {
-
             grow();
 
             var hashCode = getHash(value);

@@ -4,30 +4,18 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    //define the generic node
-    public class CircularLinkedListNode<T>
-    {
-        public CircularLinkedListNode<T> Prev;
-        public CircularLinkedListNode<T> Next;
-
-        public T Data;
-
-        public CircularLinkedListNode(T data)
-        {
-            this.Data = data;
-        }
-    }
-
     /// <summary>
-    /// A singly linked list implementation
+    /// A circular linked list implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class CircularLinkedList<T> : IEnumerable<T>
     {
         public CircularLinkedListNode<T> ReferenceNode;
 
-        //marks this data as the new head (kinda insert first assuming current reference node as head)
-        //cost O(1)
+        /// <summary>
+        /// Marks this data as the new reference node after insertion.
+        /// Like insert first assuming that current reference node as head.
+        /// Time Complexity: O(1).
+        /// </summary>
         public CircularLinkedListNode<T> Insert(T data)
         {
             var newNode = new CircularLinkedListNode<T>(data);
@@ -56,9 +44,9 @@ namespace Advanced.Algorithms.DataStructures
             return newNode;
         }
 
-
-
-        //O(1) delete this item
+        /// <summary>
+        /// Time complexity: O(1)
+        /// </summary>
         public void Delete(CircularLinkedListNode<T> current)
         {
             if (ReferenceNode.Next == ReferenceNode)
@@ -82,8 +70,10 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //search and delete
-        //cost O(n) in worst case O(nlog(n) average?
+        /// <summary>
+        /// search and delete.
+        /// Time complexity:O(n).
+        /// </summary>
         public void Delete(T data)
         {
             if (ReferenceNode == null)
@@ -137,41 +127,18 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //O(n) always
-        public int Count()
-        {
-            //re-implement
-            //no need to iterate
-            var i = 0;
-
-            var current = ReferenceNode;
-
-            if (current == null)
-            {
-                return 0;
-            }
-            else
-            {
-                i++;
-            }
-
-            while (current.Next != ReferenceNode)
-            {
-                i++;
-                current = current.Next;
-            }
-
-            return i;
-        }
-
-        //O(1) always
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public bool IsEmpty()
         {
             return ReferenceNode == null;
         }
 
-        //O(1) always
-        public void DeleteAll()
+        /// <summary>
+        /// Time complexity:  O(1).
+        /// </summary>
+        public void Clear()
         {
             if (ReferenceNode == null)
             {
@@ -182,27 +149,16 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        //O(n) time complexity
-        public List<T> GetAllNodes()
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        public void Union(CircularLinkedList<T> newList)
         {
-            var result = new List<T>();
+            ReferenceNode.Prev.Next = newList.ReferenceNode;
+            ReferenceNode.Prev = newList.ReferenceNode.Prev;
 
-            var current = ReferenceNode;
-
-            if (current == null)
-            {
-                return result;
-            }
-
-            result.Add(current.Data);
-
-            while (current.Next != ReferenceNode)
-            {
-                result.Add(current.Data);
-                current = current.Next;
-            }
-
-            return result;
+            newList.ReferenceNode.Prev.Next = ReferenceNode;
+            newList.ReferenceNode.Prev = ReferenceNode.Prev;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -215,22 +171,22 @@ namespace Advanced.Algorithms.DataStructures
             return new CircularLinkedListEnumerator<T>(ref ReferenceNode);
         }
 
-        /// <summary>
-        /// O(1) time complexity
-        /// </summary>
-        /// <param name="newList"></param>
-        internal void Union(CircularLinkedList<T> newList)
-        {       
-            ReferenceNode.Prev.Next = newList.ReferenceNode;
-            ReferenceNode.Prev = newList.ReferenceNode.Prev;
+    }
 
-            newList.ReferenceNode.Prev.Next = ReferenceNode;
-            newList.ReferenceNode.Prev = ReferenceNode.Prev;
+    public class CircularLinkedListNode<T>
+    {
+        public CircularLinkedListNode<T> Prev;
+        public CircularLinkedListNode<T> Next;
+
+        public T Data;
+
+        public CircularLinkedListNode(T data)
+        {
+            this.Data = data;
         }
     }
 
-    //  implement IEnumerator.
-    public class CircularLinkedListEnumerator<T> : IEnumerator<T> 
+    internal class CircularLinkedListEnumerator<T> : IEnumerator<T>
     {
         internal CircularLinkedListNode<T> referenceNode;
         internal CircularLinkedListNode<T> currentNode;
@@ -273,14 +229,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             get
             {
-                try
-                {
-                    return currentNode.Data;
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    throw new InvalidOperationException();
-                }
+                return currentNode.Data;
             }
         }
         public void Dispose()

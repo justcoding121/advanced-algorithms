@@ -59,7 +59,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns>Null if the given value does'nt exist or next value does'nt exist.</returns>
         public V Next(V value)
         {
-            return binarySearchTree.Next(value);
+            return binarySearchTree.NextHigher(value);
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns>Null if the given value does'nt exist or previous value does'nt exist.</returns>
         public V Previous(V value)
         {
-            return binarySearchTree.Previous(value);
+            return binarySearchTree.NextLower(value);
         }
 
         /// <summary>

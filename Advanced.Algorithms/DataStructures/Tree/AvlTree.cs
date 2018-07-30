@@ -551,7 +551,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public T Previous(T value)
+        public T NextLower(T value)
         {
             var node = find(value);
             if (node == null)
@@ -568,7 +568,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public T Next(T value)
+        public T NextHigher(T value)
         {
             var node = find(value);
             if (node == null)
@@ -576,7 +576,7 @@ namespace Advanced.Algorithms.DataStructures
                 return default(T);
             }
 
-            var next = (node as BSTNodeBase<T>).NextUpper();
+            var next = (node as BSTNodeBase<T>).NextHigher();
             return next != null ? next.Value : default(T);
         }
 

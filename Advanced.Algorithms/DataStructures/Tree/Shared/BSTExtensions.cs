@@ -121,7 +121,7 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        internal static BSTNodeBase<T> NextUpper<T>(this BSTNodeBase<T> node) where T : IComparable
+        internal static BSTNodeBase<T> NextHigher<T>(this BSTNodeBase<T> node) where T : IComparable
         {
             //root or left child
             if (node.Parent == null || node.IsLeftChild)

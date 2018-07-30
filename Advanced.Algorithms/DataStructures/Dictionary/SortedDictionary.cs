@@ -60,13 +60,12 @@ namespace Advanced.Algorithms.DataStructures
             }
             set
             {
-                var node = binarySearchTree.FindNode(new SortedDictionaryNode<TK, TV>(key, default(TV)));
-                if (node == null)
+                if(ContainsKey(key))
                 {
-                    throw new Exception("Key not found.");
+                    Remove(key);
                 }
-
-                node.Value.Value = value;
+              
+                Add(key, value);
             }
         }
 
@@ -84,9 +83,9 @@ namespace Advanced.Algorithms.DataStructures
         /// Time complexity: O(log(n)).
         /// </summary>
         /// <returns>Null if the given key does'nt exist or next key does'nt exist.</returns>
-        public KeyValuePair<TK, TV> Next(TK key)
+        public KeyValuePair<TK, TV> NextHigher(TK key)
         {
-            var next = binarySearchTree.Next(new SortedDictionaryNode<TK, TV>(key, default(TV)));
+            var next = binarySearchTree.NextHigher(new SortedDictionaryNode<TK, TV>(key, default(TV)));
 
             if(next == null)
             {
@@ -101,9 +100,9 @@ namespace Advanced.Algorithms.DataStructures
         /// Time complexity: O(log(n)).
         /// </summary>
         /// <returns>Null if the given key does'nt exist or previous key does'nt exist.</returns>
-        public KeyValuePair<TK, TV> Previous(TK key)
+        public KeyValuePair<TK, TV> NextLower(TK key)
         {
-            var prev = binarySearchTree.Previous(new SortedDictionaryNode<TK, TV>(key, default(TV)));
+            var prev = binarySearchTree.NextLower(new SortedDictionaryNode<TK, TV>(key, default(TV)));
 
             if (prev == null)
             {

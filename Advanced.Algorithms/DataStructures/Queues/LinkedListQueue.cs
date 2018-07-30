@@ -1,19 +1,20 @@
-﻿namespace Advanced.Algorithms.DataStructures
-{
+﻿using System.Collections;
+using System.Collections.Generic;
 
+namespace Advanced.Algorithms.DataStructures
+{
     internal class LinkedListQueue<T> : IQueue<T>
     {
         private readonly DoublyLinkedList<T> list = new DoublyLinkedList<T>();
 
         public int Count { get; private set; }
-        //O(1)
+
         public void Enqueue(T item)
         {
             list.InsertFirst(item);
             Count++;
         }
 
-        //O(1)
         public T Dequeue()
         {
             if (list.Head == null)
@@ -26,7 +27,14 @@
             return result;
         }
 
-     
-    }
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return list.GetEnumerator();
+        }
+    }
 }
