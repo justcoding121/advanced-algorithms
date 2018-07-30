@@ -180,6 +180,9 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
+    /// <summary>
+    /// Singly linked list node.
+    /// </summary>
     public class SinglyLinkedListNode<T>
     {
         public SinglyLinkedListNode<T> Next;

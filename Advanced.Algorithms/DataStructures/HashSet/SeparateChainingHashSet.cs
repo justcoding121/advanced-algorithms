@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class SeparateChainingHashSet<TV> : IHashSet<TV>  
+    internal class SeparateChainingHashSet<T> : IHashSet<T>  
     {
         private const double tolerance = 0.1;
-        private DoublyLinkedList<HashSetNode<TV>>[] hashArray;
+        private DoublyLinkedList<HashSetNode<T>>[] hashArray;
         private int bucketSize => hashArray.Length;
         private readonly int initialBucketSize;
         private int filledBuckets;
@@ -17,10 +17,10 @@ namespace Advanced.Algorithms.DataStructures
         internal SeparateChainingHashSet(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new DoublyLinkedList<HashSetNode<TV>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<HashSetNode<T>>[initialBucketSize];
         }
 
-        public bool Contains(TV value)
+        public bool Contains(T value)
         {
             var index = Math.Abs(value.GetHashCode()) % bucketSize;
 
@@ -46,7 +46,7 @@ namespace Advanced.Algorithms.DataStructures
             return false;
         }
 
-        public void Add(TV value)
+        public void Add(T value)
         {
             grow();
 
@@ -54,8 +54,8 @@ namespace Advanced.Algorithms.DataStructures
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new DoublyLinkedList<HashSetNode<TV>>();
-                hashArray[index].InsertFirst(new HashSetNode<TV>(value));
+                hashArray[index] = new DoublyLinkedList<HashSetNode<T>>();
+                hashArray[index].InsertFirst(new HashSetNode<T>(value));
                 filledBuckets++;
             }
             else
@@ -72,13 +72,13 @@ namespace Advanced.Algorithms.DataStructures
                     current = current.Next;
                 }
 
-                hashArray[index].InsertFirst(new HashSetNode<TV>(value));
+                hashArray[index].InsertFirst(new HashSetNode<T>(value));
             }
 
             Count++;
         }
 
-        public void Remove(TV value)
+        public void Remove(T value)
         {
             var index = Math.Abs(value.GetHashCode()) % bucketSize;
 
@@ -91,7 +91,7 @@ namespace Advanced.Algorithms.DataStructures
                 var current = hashArray[index].Head;
 
                 //TODO merge both search and remove to a single loop here!
-                DoublyLinkedListNode<HashSetNode<TV>> item = null;
+                DoublyLinkedListNode<HashSetNode<T>> item = null;
                 while (current != null)
                 {
                     if (current.Data.Value.Equals(value))
@@ -130,12 +130,12 @@ namespace Advanced.Algorithms.DataStructures
 
         public void Clear()
         {
-            hashArray = new DoublyLinkedList<HashSetNode<TV>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<HashSetNode<T>>[initialBucketSize];
             Count = 0;
             filledBuckets = 0;
         }
 
-        private void setValue(TV value)
+        private void setValue(T value)
         {
             var index = Math.Abs(value.GetHashCode()) % bucketSize;
 
@@ -171,7 +171,7 @@ namespace Advanced.Algorithms.DataStructures
                 //increase array size exponentially on demand
                 var newBucketSize = bucketSize * 2;
 
-                var biggerArray = new DoublyLinkedList<HashSetNode<TV>>[newBucketSize];
+                var biggerArray = new DoublyLinkedList<HashSetNode<T>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -194,7 +194,7 @@ namespace Advanced.Algorithms.DataStructures
                                 if (biggerArray[newIndex] == null)
                                 {
                                     filledBuckets++;
-                                    biggerArray[newIndex] = new DoublyLinkedList<HashSetNode<TV>>();
+                                    biggerArray[newIndex] = new DoublyLinkedList<HashSetNode<T>>();
                                 }
 
                                 biggerArray[newIndex].InsertFirst(current);
@@ -220,7 +220,7 @@ namespace Advanced.Algorithms.DataStructures
                 //reduce array by half 
                 var newBucketSize = bucketSize / 2;
 
-                var smallerArray = new DoublyLinkedList<HashSetNode<TV>>[newBucketSize];
+                var smallerArray = new DoublyLinkedList<HashSetNode<T>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -241,7 +241,7 @@ namespace Advanced.Algorithms.DataStructures
                             if (smallerArray[newIndex] == null)
                             {
                                 filledBuckets++;
-                                smallerArray[newIndex] = new DoublyLinkedList<HashSetNode<TV>>();
+                                smallerArray[newIndex] = new DoublyLinkedList<HashSetNode<T>>();
                             }
 
                             smallerArray[newIndex].InsertFirst(current);
@@ -260,25 +260,25 @@ namespace Advanced.Algorithms.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<TV>> GetEnumerator()
+        public IEnumerator<HashSetNode<T>> GetEnumerator()
         {
-            return new SeparateChainingHashSetEnumerator<TV>(hashArray, bucketSize);
+            return new SeparateChainingHashSetEnumerator<T>(hashArray, bucketSize);
         }
 
     }
 
-    internal class SeparateChainingHashSetEnumerator<TV> : IEnumerator<HashSetNode<TV>> 
+    internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<HashSetNode<T>> 
     {
-        internal DoublyLinkedList<HashSetNode<TV>>[] hashList;
+        internal DoublyLinkedList<HashSetNode<T>>[] hashList;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
-        DoublyLinkedListNode<HashSetNode<TV>> currentNode = null;
+        DoublyLinkedListNode<HashSetNode<T>> currentNode = null;
 
         int length;
 
-        internal SeparateChainingHashSetEnumerator(DoublyLinkedList<HashSetNode<TV>>[] hashList, int length)
+        internal SeparateChainingHashSetEnumerator(DoublyLinkedList<HashSetNode<T>>[] hashList, int length)
         {
             this.length = length;
             this.hashList = hashList;
@@ -332,7 +332,7 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        public HashSetNode<TV> Current
+        public HashSetNode<T> Current
         {
             get
             {

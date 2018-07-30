@@ -25,16 +25,16 @@ namespace Advanced.Algorithms.DataStructures
             {
                 //attach the item after reference node
                 newNode.Next = newNode;
-                newNode.Prev = newNode;
+                newNode.Previous = newNode;
 
             }
             else
             {
                 //attach the item after reference node
-                newNode.Prev = ReferenceNode;
+                newNode.Previous = ReferenceNode;
                 newNode.Next = ReferenceNode.Next;
 
-                ReferenceNode.Next.Prev = newNode;
+                ReferenceNode.Next.Previous = newNode;
                 ReferenceNode.Next = newNode;
 
             }
@@ -60,8 +60,8 @@ namespace Advanced.Algorithms.DataStructures
                 return;
             }
 
-            current.Prev.Next = current.Next;
-            current.Next.Prev = current.Prev;
+            current.Previous.Next = current.Next;
+            current.Next.Previous = current.Previous;
 
             //match is a reference node
             if (current == ReferenceNode)
@@ -99,8 +99,8 @@ namespace Advanced.Algorithms.DataStructures
             {
                 if (current.Data.Equals(data))
                 {
-                    current.Prev.Next = current.Next;
-                    current.Next.Prev = current.Prev;
+                    current.Previous.Next = current.Next;
+                    current.Next.Previous = current.Previous;
 
                     //match is a reference node
                     if (current == ReferenceNode)
@@ -154,11 +154,11 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Union(CircularLinkedList<T> newList)
         {
-            ReferenceNode.Prev.Next = newList.ReferenceNode;
-            ReferenceNode.Prev = newList.ReferenceNode.Prev;
+            ReferenceNode.Previous.Next = newList.ReferenceNode;
+            ReferenceNode.Previous = newList.ReferenceNode.Previous;
 
-            newList.ReferenceNode.Prev.Next = ReferenceNode;
-            newList.ReferenceNode.Prev = ReferenceNode.Prev;
+            newList.ReferenceNode.Previous.Next = ReferenceNode;
+            newList.ReferenceNode.Previous = ReferenceNode.Previous;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -173,9 +173,12 @@ namespace Advanced.Algorithms.DataStructures
 
     }
 
+    /// <summary>
+    /// Circular linked list node.
+    /// </summary>
     public class CircularLinkedListNode<T>
     {
-        public CircularLinkedListNode<T> Prev;
+        public CircularLinkedListNode<T> Previous;
         public CircularLinkedListNode<T> Next;
 
         public T Data;

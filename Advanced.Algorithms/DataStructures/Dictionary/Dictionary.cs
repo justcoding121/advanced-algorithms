@@ -8,10 +8,10 @@ namespace Advanced.Algorithms.DataStructures
     /// A dictionary implementation.
     /// </summary>
     /// <typeparam name="K">The key datatype.</typeparam>
-    /// <typeparam name="TV">The value datatype.</typeparam>
-    public class Dictionary<TK, TV> : IEnumerable<KeyValuePair<TK, TV>> 
+    /// <typeparam name="V">The value datatype.</typeparam>
+    public class Dictionary<K, V> : IEnumerable<KeyValuePair<K, V>> 
     {
-        private readonly IDictionary<TK, TV> dictionary;
+        private readonly IDictionary<K, V> dictionary;
 
         /// <summary>
         /// Constructor.
@@ -27,11 +27,11 @@ namespace Advanced.Algorithms.DataStructures
 
             if (type == DictionaryType.SeparateChaining)
             {
-                dictionary = new SeparateChainingDictionary<TK, TV>(initialBucketSize);
+                dictionary = new SeparateChainingDictionary<K, V>(initialBucketSize);
             }
             else
             {
-                dictionary = new OpenAddressDictionary<TK, TV>(initialBucketSize);
+                dictionary = new OpenAddressDictionary<K, V>(initialBucketSize);
             }
         }
 
@@ -44,7 +44,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Get/set value for given key.
         /// Time complexity: O(1) amortized.
         /// </summary>
-        public TV this[TK key]
+        public V this[K key]
         {
             get => dictionary[key];
             set => dictionary[key] = value;
@@ -56,7 +56,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="value">The key to check.</param>
         /// <returns>True if this dictionary contains the given key.</returns>
-        public bool ContainsKey(TK key)
+        public bool ContainsKey(K key)
         {
             return dictionary.ContainsKey(key);
         }
@@ -67,7 +67,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="key">The key to add.</param>
         /// <param name="value">The value for the given key.</param>
-        public void Add(TK key, TV value)
+        public void Add(K key, V value)
         {
             dictionary.Add(key, value);
         }
@@ -77,7 +77,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Time complexity: O(1) amortized.
         /// </summary>
         /// <param name="key">The key to remove.</param>
-        public void Remove(TK key)
+        public void Remove(K key)
         {
             dictionary.Remove(key);
         }
@@ -96,36 +96,39 @@ namespace Advanced.Algorithms.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<KeyValuePair<TK, TV>> GetEnumerator()
+        public IEnumerator<KeyValuePair<K, V>> GetEnumerator()
         {
             return dictionary.GetEnumerator();
         }
     }
 
-    internal interface IDictionary<TK, TV> : IEnumerable<KeyValuePair<TK, TV>>
+    internal interface IDictionary<K, V> : IEnumerable<KeyValuePair<K, V>>
     {
-        TV this[TK key] { get; set; }
+        V this[K key] { get; set; }
 
-        bool ContainsKey(TK key);
-        void Add(TK key, TV value);
-        void Remove(TK key);
+        bool ContainsKey(K key);
+        void Add(K key, V value);
+        void Remove(K key);
         void Clear();
 
         int Count { get; }
     }
 
-    internal class DictionaryNode<TK, TV>
+    internal class DictionaryNode<K, V>
     {
-        internal TK Key;
-        internal TV Value;
+        internal K Key;
+        internal V Value;
 
-        internal DictionaryNode(TK key, TV value)
+        internal DictionaryNode(K key, V value)
         {
             this.Key = key;
             this.Value = value;
         }
     }
 
+    /// <summary>
+    /// The dictionary implementation type.
+    /// </summary>
     public enum DictionaryType
     {
         SeparateChaining,

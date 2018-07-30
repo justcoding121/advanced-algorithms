@@ -372,6 +372,9 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
+    /// <summary>
+    /// Doubly linked list node.
+    /// </summary>
     public class DoublyLinkedListNode<T>
     {
         public DoublyLinkedListNode<T> Previous;

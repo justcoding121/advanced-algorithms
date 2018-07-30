@@ -8,18 +8,18 @@ namespace Advanced.Algorithms.DataStructures
     /// A sorted Dictionary implementation using balanced binary search tree. IEnumerable will enumerate in sorted order.
     /// This may be better than regular Dictionary implementation which can give o(K) in worst case (but O(1) amortized when collisions K is avoided).
     /// </summary>
-    /// <typeparam name="TK">The key datatype.</typeparam>
-    /// <typeparam name="TV">The value datatype.</typeparam>
-    public class SortedDictionary<TK, TV> : IEnumerable<KeyValuePair<TK, TV>> where TK : IComparable
+    /// <typeparam name="K">The key datatype.</typeparam>
+    /// <typeparam name="V">The value datatype.</typeparam>
+    public class SortedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K : IComparable
     {
         //use red-black tree as our balanced BST since it gives good performance for both deletion/insertion
-        private readonly RedBlackTree<SortedDictionaryNode<TK, TV>> binarySearchTree;
+        private readonly RedBlackTree<SortedDictionaryNode<K, V>> binarySearchTree;
 
         public int Count => binarySearchTree.Count;
 
         public SortedDictionary()
         {
-            binarySearchTree = new RedBlackTree<SortedDictionaryNode<TK, TV>>();
+            binarySearchTree = new RedBlackTree<SortedDictionaryNode<K, V>>();
         }
 
         /// <summary>
@@ -28,29 +28,29 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="key">The key to check.</param>
         /// <returns>True if this dictionary contains the given key.</returns> 
-        public bool ContainsKey(TK key)
+        public bool ContainsKey(K key)
         {
-            return binarySearchTree.HasItem(new SortedDictionaryNode<TK, TV>(key, default(TV)));
+            return binarySearchTree.HasItem(new SortedDictionaryNode<K, V>(key, default(V)));
         }
 
         /// <summary>
         /// Add a new value for given key.
         /// Time complexity: O(log(n)).
         /// </summary>
-        public void Add(TK key, TV value)
+        public void Add(K key, V value)
         {
-            binarySearchTree.Insert(new SortedDictionaryNode<TK, TV>(key, value));
+            binarySearchTree.Insert(new SortedDictionaryNode<K, V>(key, value));
         }
 
         /// <summary>
         /// Get/set value for given key.
         /// Time complexity: O(log(n)).
         /// </summary>
-        public TV this[TK key]
+        public V this[K key]
         {
             get
             {
-                var node = binarySearchTree.FindNode(new SortedDictionaryNode<TK, TV>(key, default(TV)));
+                var node = binarySearchTree.FindNode(new SortedDictionaryNode<K, V>(key, default(V)));
                 if (node == null)
                 {
                     throw new Exception("Key not found.");
@@ -73,9 +73,9 @@ namespace Advanced.Algorithms.DataStructures
         /// Remove the given key.
         /// Time complexity: O(log(n)).
         /// </summary>
-        public void Remove(TK key)
+        public void Remove(K key)
         {
-            binarySearchTree.Delete(new SortedDictionaryNode<TK, TV>(key, default(TV)));
+            binarySearchTree.Delete(new SortedDictionaryNode<K, V>(key, default(V)));
         }
 
         /// <summary>
@@ -83,16 +83,16 @@ namespace Advanced.Algorithms.DataStructures
         /// Time complexity: O(log(n)).
         /// </summary>
         /// <returns>Null if the given key does'nt exist or next key does'nt exist.</returns>
-        public KeyValuePair<TK, TV> NextHigher(TK key)
+        public KeyValuePair<K, V> NextHigher(K key)
         {
-            var next = binarySearchTree.NextHigher(new SortedDictionaryNode<TK, TV>(key, default(TV)));
+            var next = binarySearchTree.NextHigher(new SortedDictionaryNode<K, V>(key, default(V)));
 
             if(next == null)
             {
-                return default(KeyValuePair<TK, TV>);
+                return default(KeyValuePair<K, V>);
             }
 
-            return new KeyValuePair<TK, TV>(next.Key, next.Value);
+            return new KeyValuePair<K, V>(next.Key, next.Value);
         }
 
         /// <summary>
@@ -100,16 +100,16 @@ namespace Advanced.Algorithms.DataStructures
         /// Time complexity: O(log(n)).
         /// </summary>
         /// <returns>Null if the given key does'nt exist or previous key does'nt exist.</returns>
-        public KeyValuePair<TK, TV> NextLower(TK key)
+        public KeyValuePair<K, V> NextLower(K key)
         {
-            var prev = binarySearchTree.NextLower(new SortedDictionaryNode<TK, TV>(key, default(TV)));
+            var prev = binarySearchTree.NextLower(new SortedDictionaryNode<K, V>(key, default(V)));
 
             if (prev == null)
             {
-                return default(KeyValuePair<TK, TV>);
+                return default(KeyValuePair<K, V>);
             }
 
-            return new KeyValuePair<TK, TV>(prev.Key, prev.Value);
+            return new KeyValuePair<K, V>(prev.Key, prev.Value);
         }
 
         /// <summary>
@@ -126,19 +126,19 @@ namespace Advanced.Algorithms.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<KeyValuePair<TK, TV>> GetEnumerator()
+        public IEnumerator<KeyValuePair<K, V>> GetEnumerator()
         {
-            return new SortedDictionaryEnumerator<TK, TV>(binarySearchTree);
+            return new SortedDictionaryEnumerator<K, V>(binarySearchTree);
         }
     }
 
-    internal class SortedDictionaryNode<TK, TV> : IComparable
-                                 where TK : IComparable
+    internal class SortedDictionaryNode<K, V> : IComparable
+                                 where K : IComparable
     {
-        internal TK Key { get; }
-        internal TV Value { get; set; }
+        internal K Key { get; }
+        internal V Value { get; set; }
 
-        internal SortedDictionaryNode(TK key, TV value)
+        internal SortedDictionaryNode(K key, V value)
         {
             this.Key = key;
             this.Value = value;
@@ -146,7 +146,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public int CompareTo(object obj)
         {
-            if (obj is SortedDictionaryNode<TK, TV> itemToComare)
+            if (obj is SortedDictionaryNode<K, V> itemToComare)
             {
                 return Key.CompareTo(itemToComare.Key);
             }
@@ -155,12 +155,12 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    internal class SortedDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>> where TK : IComparable
+    internal class SortedDictionaryEnumerator<K, V> : IEnumerator<KeyValuePair<K, V>> where K : IComparable
     {
-        private RedBlackTree<SortedDictionaryNode<TK, TV>> bst;
-        private IEnumerator<SortedDictionaryNode<TK, TV>> enumerator;
+        private RedBlackTree<SortedDictionaryNode<K, V>> bst;
+        private IEnumerator<SortedDictionaryNode<K, V>> enumerator;
 
-        internal SortedDictionaryEnumerator(RedBlackTree<SortedDictionaryNode<TK, TV>> bst)
+        internal SortedDictionaryEnumerator(RedBlackTree<SortedDictionaryNode<K, V>> bst)
         {
             this.bst = bst;
             this.enumerator = bst.GetEnumerator();
@@ -178,11 +178,11 @@ namespace Advanced.Algorithms.DataStructures
 
         object IEnumerator.Current => Current;
 
-        public KeyValuePair<TK, TV> Current
+        public KeyValuePair<K, V> Current
         {
             get
             {
-                return new KeyValuePair<TK, TV>(enumerator.Current.Key, enumerator.Current.Value);
+                return new KeyValuePair<K, V>(enumerator.Current.Key, enumerator.Current.Value);
             }
         }
 

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class OpenAddressHashSet<TV> : IHashSet<TV> 
+    internal class OpenAddressHashSet<T> : IHashSet<T> 
     {
-        private HashSetNode<TV>[] hashArray;
+        private HashSetNode<T>[] hashArray;
         private int bucketSize => hashArray.Length;
         private readonly int initialBucketSize;
 
@@ -15,10 +15,10 @@ namespace Advanced.Algorithms.DataStructures
         internal OpenAddressHashSet(int initialBucketSize = 2)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new HashSetNode<TV>[initialBucketSize];
+            hashArray = new HashSetNode<T>[initialBucketSize];
         }
 
-        public bool Contains(TV value)
+        public bool Contains(T value)
         {
             var hashCode = getHash(value);
             var index = hashCode % bucketSize;
@@ -60,7 +60,7 @@ namespace Advanced.Algorithms.DataStructures
             return false;
         }
 
-        public void Add(TV value)
+        public void Add(T value)
         {
             grow();
 
@@ -70,7 +70,7 @@ namespace Advanced.Algorithms.DataStructures
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new HashSetNode<TV>(value);
+                hashArray[index] = new HashSetNode<T>(value);
             }
             else
             {
@@ -100,14 +100,14 @@ namespace Advanced.Algorithms.DataStructures
                     }
                 }
 
-                hashArray[index] = new HashSetNode<TV>(value);
+                hashArray[index] = new HashSetNode<T>(value);
             }
 
             Count++;
 
         }
 
-        public void Remove(TV value)
+        public void Remove(T value)
         {
             var hashCode = getHash(value);
             var curIndex = hashCode % bucketSize;
@@ -123,7 +123,7 @@ namespace Advanced.Algorithms.DataStructures
                 //prevent circling around infinitely
                 var hitKey = current.Value;
 
-                HashSetNode<TV> target = null;
+                HashSetNode<T> target = null;
 
                 while (current != null)
                 {
@@ -197,7 +197,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public void Clear()
         {
-            hashArray = new HashSetNode<TV>[initialBucketSize];
+            hashArray = new HashSetNode<T>[initialBucketSize];
             Count = 0;
         }
 
@@ -212,7 +212,7 @@ namespace Advanced.Algorithms.DataStructures
             var currentArray = hashArray;
 
             //increase array size exponentially on demand
-            hashArray = new HashSetNode<TV>[bucketSize * 2];
+            hashArray = new HashSetNode<T>[bucketSize * 2];
 
             for (int i = 0; i < orgBucketSize; i++)
             {
@@ -238,7 +238,7 @@ namespace Advanced.Algorithms.DataStructures
                 var currentArray = hashArray;
 
                 //reduce array by half logarithamic
-                hashArray = new HashSetNode<TV>[bucketSize / 2];
+                hashArray = new HashSetNode<T>[bucketSize / 2];
 
                 for (int i = 0; i < orgBucketSize; i++)
                 {
@@ -255,7 +255,7 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        private int getHash(TV value)
+        private int getHash(T value)
         {
             return Math.Abs(value.GetHashCode());
         }
@@ -265,9 +265,9 @@ namespace Advanced.Algorithms.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<TV>> GetEnumerator()
+        public IEnumerator<HashSetNode<T>> GetEnumerator()
         {
-            return new OpenAddressHashSetEnumerator<TV>(hashArray, hashArray.Length);
+            return new OpenAddressHashSetEnumerator<T>(hashArray, hashArray.Length);
         }
     }
 

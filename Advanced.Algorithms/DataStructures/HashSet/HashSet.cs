@@ -7,10 +7,10 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A hash table implementation.
     /// </summary>
-    /// <typeparam name="TV">The value datatype.</typeparam>
-    public class HashSet<TV> : IEnumerable<HashSetNode<TV>> 
+    /// <typeparam name="T">The value datatype.</typeparam>
+    public class HashSet<T> : IEnumerable<HashSetNode<T>> 
     {
-        private readonly IHashSet<TV> hashSet;
+        private readonly IHashSet<T> hashSet;
 
         /// <summary>
         /// Constructor.
@@ -26,11 +26,11 @@ namespace Advanced.Algorithms.DataStructures
             }
             if (type == HashSetType.SeparateChaining)
             {
-                hashSet = new SeparateChainingHashSet<TV>(initialBucketSize);
+                hashSet = new SeparateChainingHashSet<T>(initialBucketSize);
             }
             else
             {
-                hashSet = new OpenAddressHashSet<TV>(initialBucketSize);
+                hashSet = new OpenAddressHashSet<T>(initialBucketSize);
             }
         }
 
@@ -46,7 +46,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="value">The value to check.</param>
         /// <returns>True if this hashset contains the given value.</returns>
-        public bool Contains(TV value)
+        public bool Contains(T value)
         {
             return hashSet.Contains(value);
         }
@@ -56,7 +56,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Time complexity: O(1) amortized.
         /// </summary>
         /// <param name="value">The value to add.</param>
-        public void Add(TV value)
+        public void Add(T value)
         {
             hashSet.Add(value);
         }
@@ -66,7 +66,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Time complexity: O(1) amortized.
         /// </summary>
         /// <param name="value">The value to remove.</param>
-        public void Remove(TV value)
+        public void Remove(T value)
         {
             hashSet.Remove(value);
         }
@@ -85,32 +85,35 @@ namespace Advanced.Algorithms.DataStructures
             return hashSet.GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<TV>> GetEnumerator()
+        public IEnumerator<HashSetNode<T>> GetEnumerator()
         {
             return hashSet.GetEnumerator();
         }
     }
 
-    internal interface IHashSet<TV> : IEnumerable<HashSetNode<TV>>
+    internal interface IHashSet<T> : IEnumerable<HashSetNode<T>>
     {
-        bool Contains(TV value);
-        void Add(TV value);
-        void Remove(TV key);
+        bool Contains(T value);
+        void Add(T value);
+        void Remove(T key);
         void Clear();
 
         int Count { get; }
     }
 
-    public class HashSetNode<TV>
+    public class HashSetNode<T>
     {
-        public TV Value;
+        public T Value;
 
-        public HashSetNode(TV value)
+        public HashSetNode(T value)
         {
             this.Value = value;
         }
     }
 
+    /// <summary>
+    /// The hash set implementation type.
+    /// </summary>
     public enum HashSetType
     {
         SeparateChaining,
