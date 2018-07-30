@@ -542,40 +542,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Insert
   nameWithType: AVLTree<T>.Insert
   nameWithType.vb: AVLTree(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.Next(`0)
-  name: Next(T)
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Next__0_
-  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.Next(`0)
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.Next(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Next(T)
-  nameWithType: AVLTree<T>.Next(T)
-  nameWithType.vb: AVLTree(Of T).Next(T)
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.Next*
-  name: Next
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Next_
-  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.Next
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.NextHigher(`0)
+  name: NextHigher(T)
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_NextHigher__0_
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.NextHigher(`0)
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.NextHigher(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).NextHigher(T)
+  nameWithType: AVLTree<T>.NextHigher(T)
+  nameWithType.vb: AVLTree(Of T).NextHigher(T)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.NextHigher*
+  name: NextHigher
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_NextHigher_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.NextHigher
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.Next
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Next
-  nameWithType: AVLTree<T>.Next
-  nameWithType.vb: AVLTree(Of T).Next
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.Previous(`0)
-  name: Previous(T)
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Previous__0_
-  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.Previous(`0)
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.Previous(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Previous(T)
-  nameWithType: AVLTree<T>.Previous(T)
-  nameWithType.vb: AVLTree(Of T).Previous(T)
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.Previous*
-  name: Previous
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Previous_
-  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.Previous
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.NextHigher
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).NextHigher
+  nameWithType: AVLTree<T>.NextHigher
+  nameWithType.vb: AVLTree(Of T).NextHigher
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.NextLower(`0)
+  name: NextLower(T)
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_NextLower__0_
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.NextLower(`0)
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.NextLower(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).NextLower(T)
+  nameWithType: AVLTree<T>.NextLower(T)
+  nameWithType.vb: AVLTree(Of T).NextLower(T)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.NextLower*
+  name: NextLower
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_NextLower_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.NextLower
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.Previous
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Previous
-  nameWithType: AVLTree<T>.Previous
-  nameWithType.vb: AVLTree(Of T).Previous
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.NextLower
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).NextLower
+  nameWithType: AVLTree<T>.NextLower
+  nameWithType.vb: AVLTree(Of T).NextLower
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.System#Collections#IEnumerable#GetEnumerator
   name: IEnumerable.GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_System_Collections_IEnumerable_GetEnumerator
@@ -1234,6 +1234,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).ExtractMax
   nameWithType: BMaxHeap<T>.ExtractMax
   nameWithType.vb: BMaxHeap(Of T).ExtractMax
+- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).GetEnumerator()
+  nameWithType: BMaxHeap<T>.GetEnumerator()
+  nameWithType.vb: BMaxHeap(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).GetEnumerator
+  nameWithType: BMaxHeap<T>.GetEnumerator
+  nameWithType.vb: BMaxHeap(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.Insert(`0)
   name: Insert(T)
   href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_Insert__0_
@@ -1268,6 +1285,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).PeekMax
   nameWithType: BMaxHeap<T>.PeekMax
   nameWithType.vb: BMaxHeap(Of T).PeekMax
+- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: BMaxHeap<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: BMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: BMaxHeap<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: BMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BMinHeap`1
   name: BMinHeap<T>
   href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html
@@ -1389,6 +1425,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).ExtractMin
   nameWithType: BMinHeap<T>.ExtractMin
   nameWithType.vb: BMinHeap(Of T).ExtractMin
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).GetEnumerator()
+  nameWithType: BMinHeap<T>.GetEnumerator()
+  nameWithType.vb: BMinHeap(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).GetEnumerator
+  nameWithType: BMinHeap<T>.GetEnumerator
+  nameWithType.vb: BMinHeap(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Insert(`0)
   name: Insert(T)
   href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Insert__0_
@@ -1423,6 +1476,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).PeekMin
   nameWithType: BMinHeap<T>.PeekMin
   nameWithType.vb: BMinHeap(Of T).PeekMin
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: BMinHeap<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: BMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: BMinHeap<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: BMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BpTree`1
   name: BpTree<T>
   href: api/Advanced.Algorithms.DataStructures.BpTree-1.html
@@ -1846,6 +1918,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).Insert
   nameWithType: BST<T>.Insert
   nameWithType.vb: BST(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.BST`1.NextHigher(`0)
+  name: NextHigher(T)
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_NextHigher__0_
+  commentId: M:Advanced.Algorithms.DataStructures.BST`1.NextHigher(`0)
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.NextHigher(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).NextHigher(T)
+  nameWithType: BST<T>.NextHigher(T)
+  nameWithType.vb: BST(Of T).NextHigher(T)
+- uid: Advanced.Algorithms.DataStructures.BST`1.NextHigher*
+  name: NextHigher
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_NextHigher_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BST`1.NextHigher
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.NextHigher
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).NextHigher
+  nameWithType: BST<T>.NextHigher
+  nameWithType.vb: BST(Of T).NextHigher
+- uid: Advanced.Algorithms.DataStructures.BST`1.NextLower(`0)
+  name: NextLower(T)
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_NextLower__0_
+  commentId: M:Advanced.Algorithms.DataStructures.BST`1.NextLower(`0)
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.NextLower(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).NextLower(T)
+  nameWithType: BST<T>.NextLower(T)
+  nameWithType.vb: BST(Of T).NextLower(T)
+- uid: Advanced.Algorithms.DataStructures.BST`1.NextLower*
+  name: NextLower
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_NextLower_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BST`1.NextLower
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.NextLower
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).NextLower
+  nameWithType: BST<T>.NextLower
+  nameWithType.vb: BST(Of T).NextLower
 - uid: Advanced.Algorithms.DataStructures.BST`1.System#Collections#IEnumerable#GetEnumerator
   name: IEnumerable.GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_System_Collections_IEnumerable_GetEnumerator
@@ -2008,23 +2114,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T)
   nameWithType: CircularLinkedList<T>
   nameWithType.vb: CircularLinkedList(Of T)
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.Count
-  name: Count()
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_Count
-  commentId: M:Advanced.Algorithms.DataStructures.CircularLinkedList`1.Count
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.Count()
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).Count()
-  nameWithType: CircularLinkedList<T>.Count()
-  nameWithType.vb: CircularLinkedList(Of T).Count()
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedList`1.Count
+- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.Clear
+  name: Clear()
+  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_Clear
+  commentId: M:Advanced.Algorithms.DataStructures.CircularLinkedList`1.Clear
+  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.Clear()
+  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).Clear()
+  nameWithType: CircularLinkedList<T>.Clear()
+  nameWithType.vb: CircularLinkedList(Of T).Clear()
+- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.Clear*
+  name: Clear
+  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_Clear_
+  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedList`1.Clear
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).Count
-  nameWithType: CircularLinkedList<T>.Count
-  nameWithType.vb: CircularLinkedList(Of T).Count
+  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.Clear
+  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).Clear
+  nameWithType: CircularLinkedList<T>.Clear
+  nameWithType.vb: CircularLinkedList(Of T).Clear
 - uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.Delete(`0)
   name: Delete(T)
   href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_Delete__0_
@@ -2051,40 +2157,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).Delete
   nameWithType: CircularLinkedList<T>.Delete
   nameWithType.vb: CircularLinkedList(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.DeleteAll
-  name: DeleteAll()
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_DeleteAll
-  commentId: M:Advanced.Algorithms.DataStructures.CircularLinkedList`1.DeleteAll
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.DeleteAll()
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).DeleteAll()
-  nameWithType: CircularLinkedList<T>.DeleteAll()
-  nameWithType.vb: CircularLinkedList(Of T).DeleteAll()
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.DeleteAll*
-  name: DeleteAll
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_DeleteAll_
-  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedList`1.DeleteAll
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.DeleteAll
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).DeleteAll
-  nameWithType: CircularLinkedList<T>.DeleteAll
-  nameWithType.vb: CircularLinkedList(Of T).DeleteAll
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.GetAllNodes
-  name: GetAllNodes()
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_GetAllNodes
-  commentId: M:Advanced.Algorithms.DataStructures.CircularLinkedList`1.GetAllNodes
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.GetAllNodes()
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).GetAllNodes()
-  nameWithType: CircularLinkedList<T>.GetAllNodes()
-  nameWithType.vb: CircularLinkedList(Of T).GetAllNodes()
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.GetAllNodes*
-  name: GetAllNodes
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_GetAllNodes_
-  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedList`1.GetAllNodes
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.GetAllNodes
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).GetAllNodes
-  nameWithType: CircularLinkedList<T>.GetAllNodes
-  nameWithType.vb: CircularLinkedList(Of T).GetAllNodes
 - uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_GetEnumerator
@@ -2163,102 +2235,24 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: CircularLinkedList<T>.IEnumerable.GetEnumerator
   nameWithType.vb: CircularLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1
-  name: CircularLinkedListEnumerator<T>
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1
-  name.vb: CircularLinkedListEnumerator(Of T)
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T)
-  nameWithType: CircularLinkedListEnumerator<T>
-  nameWithType.vb: CircularLinkedListEnumerator(Of T)
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Current
-  name: Current
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_Current
-  commentId: P:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Current
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).Current
-  nameWithType: CircularLinkedListEnumerator<T>.Current
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).Current
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Current*
-  name: Current
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_Current_
-  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Current
+- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.Union(Advanced.Algorithms.DataStructures.CircularLinkedList{`0})
+  name: Union(CircularLinkedList<T>)
+  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_Union_Advanced_Algorithms_DataStructures_CircularLinkedList__0__
+  commentId: M:Advanced.Algorithms.DataStructures.CircularLinkedList`1.Union(Advanced.Algorithms.DataStructures.CircularLinkedList{`0})
+  name.vb: Union(CircularLinkedList(Of T))
+  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.Union(Advanced.Algorithms.DataStructures.CircularLinkedList<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).Union(Advanced.Algorithms.DataStructures.CircularLinkedList(Of T))
+  nameWithType: CircularLinkedList<T>.Union(CircularLinkedList<T>)
+  nameWithType.vb: CircularLinkedList(Of T).Union(CircularLinkedList(Of T))
+- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.Union*
+  name: Union
+  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_Union_
+  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedList`1.Union
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).Current
-  nameWithType: CircularLinkedListEnumerator<T>.Current
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).Current
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Dispose
-  name: Dispose()
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_Dispose
-  commentId: M:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Dispose
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.Dispose()
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).Dispose()
-  nameWithType: CircularLinkedListEnumerator<T>.Dispose()
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).Dispose()
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Dispose*
-  name: Dispose
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_Dispose_
-  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Dispose
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.Dispose
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).Dispose
-  nameWithType: CircularLinkedListEnumerator<T>.Dispose
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).Dispose
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.MoveNext
-  name: MoveNext()
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_MoveNext
-  commentId: M:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.MoveNext
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.MoveNext()
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).MoveNext()
-  nameWithType: CircularLinkedListEnumerator<T>.MoveNext()
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).MoveNext()
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.MoveNext*
-  name: MoveNext
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_MoveNext_
-  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.MoveNext
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.MoveNext
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).MoveNext
-  nameWithType: CircularLinkedListEnumerator<T>.MoveNext
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).MoveNext
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Reset
-  name: Reset()
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_Reset
-  commentId: M:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Reset
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.Reset()
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).Reset()
-  nameWithType: CircularLinkedListEnumerator<T>.Reset()
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).Reset()
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Reset*
-  name: Reset
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_Reset_
-  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.Reset
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.Reset
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).Reset
-  nameWithType: CircularLinkedListEnumerator<T>.Reset
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).Reset
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.System#Collections#IEnumerator#Current
-  name: IEnumerator.Current
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_System_Collections_IEnumerator_Current
-  commentId: P:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.System#Collections#IEnumerator#Current
-  name.vb: System.Collections.IEnumerator.Current
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.System.Collections.IEnumerator.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).System.Collections.IEnumerator.Current
-  nameWithType: CircularLinkedListEnumerator<T>.IEnumerator.Current
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).System.Collections.IEnumerator.Current
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.System#Collections#IEnumerator#Current*
-  name: IEnumerator.Current
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_CircularLinkedListEnumerator_1_System_Collections_IEnumerator_Current_
-  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator`1.System#Collections#IEnumerator#Current
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerator.Current
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator<T>.System.Collections.IEnumerator.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListEnumerator(Of T).System.Collections.IEnumerator.Current
-  nameWithType: CircularLinkedListEnumerator<T>.IEnumerator.Current
-  nameWithType.vb: CircularLinkedListEnumerator(Of T).System.Collections.IEnumerator.Current
+  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.Union
+  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).Union
+  nameWithType: CircularLinkedList<T>.Union
+  nameWithType.vb: CircularLinkedList(Of T).Union
 - uid: Advanced.Algorithms.DataStructures.CircularLinkedListNode`1
   name: CircularLinkedListNode<T>
   href: api/Advanced.Algorithms.DataStructures.CircularLinkedListNode-1.html
@@ -2909,23 +2903,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T)
   nameWithType: DoublyLinkedList<T>
   nameWithType.vb: DoublyLinkedList(Of T)
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Count
-  name: Count()
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_Count
-  commentId: M:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Count
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.Count()
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).Count()
-  nameWithType: DoublyLinkedList<T>.Count()
-  nameWithType.vb: DoublyLinkedList(Of T).Count()
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Count
+- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Clear
+  name: Clear()
+  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_Clear
+  commentId: M:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Clear
+  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.Clear()
+  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).Clear()
+  nameWithType: DoublyLinkedList<T>.Clear()
+  nameWithType.vb: DoublyLinkedList(Of T).Clear()
+- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Clear*
+  name: Clear
+  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_Clear_
+  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Clear
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).Count
-  nameWithType: DoublyLinkedList<T>.Count
-  nameWithType.vb: DoublyLinkedList(Of T).Count
+  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.Clear
+  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).Clear
+  nameWithType: DoublyLinkedList<T>.Clear
+  nameWithType.vb: DoublyLinkedList(Of T).Clear
 - uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Delete(`0)
   name: Delete(T)
   href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_Delete__0_
@@ -2952,23 +2946,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).Delete
   nameWithType: DoublyLinkedList<T>.Delete
   nameWithType.vb: DoublyLinkedList(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.DeleteAll
-  name: DeleteAll()
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_DeleteAll
-  commentId: M:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.DeleteAll
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.DeleteAll()
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).DeleteAll()
-  nameWithType: DoublyLinkedList<T>.DeleteAll()
-  nameWithType.vb: DoublyLinkedList(Of T).DeleteAll()
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.DeleteAll*
-  name: DeleteAll
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_DeleteAll_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.DeleteAll
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.DeleteAll
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).DeleteAll
-  nameWithType: DoublyLinkedList<T>.DeleteAll
-  nameWithType.vb: DoublyLinkedList(Of T).DeleteAll
 - uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.DeleteFirst
   name: DeleteFirst()
   href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_DeleteFirst
@@ -3003,23 +2980,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).DeleteLast
   nameWithType: DoublyLinkedList<T>.DeleteLast
   nameWithType.vb: DoublyLinkedList(Of T).DeleteLast
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.GetAllNodes
-  name: GetAllNodes()
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_GetAllNodes
-  commentId: M:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.GetAllNodes
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.GetAllNodes()
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).GetAllNodes()
-  nameWithType: DoublyLinkedList<T>.GetAllNodes()
-  nameWithType.vb: DoublyLinkedList(Of T).GetAllNodes()
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.GetAllNodes*
-  name: GetAllNodes
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_GetAllNodes_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.GetAllNodes
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.GetAllNodes
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).GetAllNodes
-  nameWithType: DoublyLinkedList<T>.GetAllNodes
-  nameWithType.vb: DoublyLinkedList(Of T).GetAllNodes
 - uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_GetEnumerator
@@ -3159,102 +3119,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).Tail
   nameWithType: DoublyLinkedList<T>.Tail
   nameWithType.vb: DoublyLinkedList(Of T).Tail
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1
-  name: DoublyLinkedListEnumerator<T>
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1
-  name.vb: DoublyLinkedListEnumerator(Of T)
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T)
-  nameWithType: DoublyLinkedListEnumerator<T>
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T)
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Current
-  name: Current
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_Current
-  commentId: P:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Current
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).Current
-  nameWithType: DoublyLinkedListEnumerator<T>.Current
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).Current
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Current*
-  name: Current
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_Current_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Current
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).Current
-  nameWithType: DoublyLinkedListEnumerator<T>.Current
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).Current
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Dispose
-  name: Dispose()
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_Dispose
-  commentId: M:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Dispose
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.Dispose()
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).Dispose()
-  nameWithType: DoublyLinkedListEnumerator<T>.Dispose()
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).Dispose()
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Dispose*
-  name: Dispose
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_Dispose_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Dispose
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.Dispose
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).Dispose
-  nameWithType: DoublyLinkedListEnumerator<T>.Dispose
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).Dispose
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.MoveNext
-  name: MoveNext()
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_MoveNext
-  commentId: M:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.MoveNext
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.MoveNext()
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).MoveNext()
-  nameWithType: DoublyLinkedListEnumerator<T>.MoveNext()
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).MoveNext()
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.MoveNext*
-  name: MoveNext
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_MoveNext_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.MoveNext
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.MoveNext
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).MoveNext
-  nameWithType: DoublyLinkedListEnumerator<T>.MoveNext
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).MoveNext
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Reset
-  name: Reset()
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_Reset
-  commentId: M:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Reset
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.Reset()
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).Reset()
-  nameWithType: DoublyLinkedListEnumerator<T>.Reset()
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).Reset()
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Reset*
-  name: Reset
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_Reset_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.Reset
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.Reset
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).Reset
-  nameWithType: DoublyLinkedListEnumerator<T>.Reset
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).Reset
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.System#Collections#IEnumerator#Current
-  name: IEnumerator.Current
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_System_Collections_IEnumerator_Current
-  commentId: P:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.System#Collections#IEnumerator#Current
-  name.vb: System.Collections.IEnumerator.Current
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.System.Collections.IEnumerator.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).System.Collections.IEnumerator.Current
-  nameWithType: DoublyLinkedListEnumerator<T>.IEnumerator.Current
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).System.Collections.IEnumerator.Current
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.System#Collections#IEnumerator#Current*
-  name: IEnumerator.Current
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedListEnumerator_1_System_Collections_IEnumerator_Current_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator`1.System#Collections#IEnumerator#Current
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerator.Current
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator<T>.System.Collections.IEnumerator.Current
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListEnumerator(Of T).System.Collections.IEnumerator.Current
-  nameWithType: DoublyLinkedListEnumerator<T>.IEnumerator.Current
-  nameWithType.vb: DoublyLinkedListEnumerator(Of T).System.Collections.IEnumerator.Current
 - uid: Advanced.Algorithms.DataStructures.DoublyLinkedListNode`1
   name: DoublyLinkedListNode<T>
   href: api/Advanced.Algorithms.DataStructures.DoublyLinkedListNode-1.html
@@ -5758,6 +5622,42 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Enqueue
   nameWithType: MaxPriorityQueue<T>.Enqueue
   nameWithType.vb: MaxPriorityQueue(Of T).Enqueue
+- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).GetEnumerator()
+  nameWithType: MaxPriorityQueue<T>.GetEnumerator()
+  nameWithType.vb: MaxPriorityQueue(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).GetEnumerator
+  nameWithType: MaxPriorityQueue<T>.GetEnumerator
+  nameWithType.vb: MaxPriorityQueue(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: MaxPriorityQueue<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: MaxPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: MaxPriorityQueue<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: MaxPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1
   name: MinPriorityQueue<T>
   href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html
@@ -5801,6 +5701,42 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Enqueue
   nameWithType: MinPriorityQueue<T>.Enqueue
   nameWithType.vb: MinPriorityQueue(Of T).Enqueue
+- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).GetEnumerator()
+  nameWithType: MinPriorityQueue<T>.GetEnumerator()
+  nameWithType.vb: MinPriorityQueue(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).GetEnumerator
+  nameWithType: MinPriorityQueue<T>.GetEnumerator
+  nameWithType.vb: MinPriorityQueue(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: MinPriorityQueue<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: MinPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: MinPriorityQueue<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: MinPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.PairingHeapNode`1
   name: PairingHeapNode<T>
   href: api/Advanced.Algorithms.DataStructures.PairingHeapNode-1.html
@@ -6147,6 +6083,42 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Queue(Of T).Enqueue
   nameWithType: Queue<T>.Enqueue
   nameWithType.vb: Queue(Of T).Enqueue
+- uid: Advanced.Algorithms.DataStructures.Queue`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Queue-1.html#Advanced_Algorithms_DataStructures_Queue_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Queue`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Queue<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Queue(Of T).GetEnumerator()
+  nameWithType: Queue<T>.GetEnumerator()
+  nameWithType.vb: Queue(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Queue`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Queue-1.html#Advanced_Algorithms_DataStructures_Queue_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Queue`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Queue<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Queue(Of T).GetEnumerator
+  nameWithType: Queue<T>.GetEnumerator
+  nameWithType.vb: Queue(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.Queue`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Queue-1.html#Advanced_Algorithms_DataStructures_Queue_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Queue`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.Queue<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Queue(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: Queue<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: Queue(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Queue`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Queue-1.html#Advanced_Algorithms_DataStructures_Queue_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Queue`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Queue<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Queue(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: Queue<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: Queue(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.QueueType
   name: QueueType
   href: api/Advanced.Algorithms.DataStructures.QueueType.html
@@ -6328,40 +6300,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).Min
   nameWithType: RedBlackTree<T>.Min
   nameWithType.vb: RedBlackTree(Of T).Min
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.Next(`0)
-  name: Next(T)
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_Next__0_
-  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.Next(`0)
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.Next(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).Next(T)
-  nameWithType: RedBlackTree<T>.Next(T)
-  nameWithType.vb: RedBlackTree(Of T).Next(T)
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.Next*
-  name: Next
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_Next_
-  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.Next
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.NextHigher(`0)
+  name: NextHigher(T)
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_NextHigher__0_
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.NextHigher(`0)
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.NextHigher(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).NextHigher(T)
+  nameWithType: RedBlackTree<T>.NextHigher(T)
+  nameWithType.vb: RedBlackTree(Of T).NextHigher(T)
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.NextHigher*
+  name: NextHigher
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_NextHigher_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.NextHigher
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.Next
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).Next
-  nameWithType: RedBlackTree<T>.Next
-  nameWithType.vb: RedBlackTree(Of T).Next
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.Previous(`0)
-  name: Previous(T)
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_Previous__0_
-  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.Previous(`0)
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.Previous(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).Previous(T)
-  nameWithType: RedBlackTree<T>.Previous(T)
-  nameWithType.vb: RedBlackTree(Of T).Previous(T)
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.Previous*
-  name: Previous
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_Previous_
-  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.Previous
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.NextHigher
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).NextHigher
+  nameWithType: RedBlackTree<T>.NextHigher
+  nameWithType.vb: RedBlackTree(Of T).NextHigher
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.NextLower(`0)
+  name: NextLower(T)
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_NextLower__0_
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.NextLower(`0)
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.NextLower(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).NextLower(T)
+  nameWithType: RedBlackTree<T>.NextLower(T)
+  nameWithType.vb: RedBlackTree(Of T).NextLower(T)
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.NextLower*
+  name: NextLower
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_NextLower_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.NextLower
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.Previous
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).Previous
-  nameWithType: RedBlackTree<T>.Previous
-  nameWithType.vb: RedBlackTree(Of T).Previous
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.NextLower
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).NextLower
+  nameWithType: RedBlackTree<T>.NextLower
+  nameWithType.vb: RedBlackTree(Of T).NextLower
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.System#Collections#IEnumerable#GetEnumerator
   name: IEnumerable.GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_System_Collections_IEnumerable_GetEnumerator
@@ -6531,23 +6503,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T)
   nameWithType: SinglyLinkedList<T>
   nameWithType.vb: SinglyLinkedList(Of T)
-- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Count
-  name: Count()
-  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_Count
-  commentId: M:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Count
-  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.Count()
-  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).Count()
-  nameWithType: SinglyLinkedList<T>.Count()
-  nameWithType.vb: SinglyLinkedList(Of T).Count()
-- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Count
+- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Clear
+  name: Clear()
+  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_Clear
+  commentId: M:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Clear
+  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.Clear()
+  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).Clear()
+  nameWithType: SinglyLinkedList<T>.Clear()
+  nameWithType.vb: SinglyLinkedList(Of T).Clear()
+- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Clear*
+  name: Clear
+  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_Clear_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Clear
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).Count
-  nameWithType: SinglyLinkedList<T>.Count
-  nameWithType.vb: SinglyLinkedList(Of T).Count
+  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.Clear
+  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).Clear
+  nameWithType: SinglyLinkedList<T>.Clear
+  nameWithType.vb: SinglyLinkedList(Of T).Clear
 - uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Delete(`0)
   name: Delete(T)
   href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_Delete__0_
@@ -6565,23 +6537,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).Delete
   nameWithType: SinglyLinkedList<T>.Delete
   nameWithType.vb: SinglyLinkedList(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.DeleteAll
-  name: DeleteAll()
-  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_DeleteAll
-  commentId: M:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.DeleteAll
-  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.DeleteAll()
-  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).DeleteAll()
-  nameWithType: SinglyLinkedList<T>.DeleteAll()
-  nameWithType.vb: SinglyLinkedList(Of T).DeleteAll()
-- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.DeleteAll*
-  name: DeleteAll
-  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_DeleteAll_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.DeleteAll
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.DeleteAll
-  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).DeleteAll
-  nameWithType: SinglyLinkedList<T>.DeleteAll
-  nameWithType.vb: SinglyLinkedList(Of T).DeleteAll
 - uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.DeleteFirst
   name: DeleteFirst()
   href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_DeleteFirst
@@ -6616,23 +6571,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).DeleteLast
   nameWithType: SinglyLinkedList<T>.DeleteLast
   nameWithType.vb: SinglyLinkedList(Of T).DeleteLast
-- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.GetAllNodes
-  name: GetAllNodes()
-  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_GetAllNodes
-  commentId: M:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.GetAllNodes
-  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.GetAllNodes()
-  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).GetAllNodes()
-  nameWithType: SinglyLinkedList<T>.GetAllNodes()
-  nameWithType.vb: SinglyLinkedList(Of T).GetAllNodes()
-- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.GetAllNodes*
-  name: GetAllNodes
-  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_GetAllNodes_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.GetAllNodes
+- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).GetEnumerator()
+  nameWithType: SinglyLinkedList<T>.GetEnumerator()
+  nameWithType.vb: SinglyLinkedList(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.GetEnumerator
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.GetAllNodes
-  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).GetAllNodes
-  nameWithType: SinglyLinkedList<T>.GetAllNodes
-  nameWithType.vb: SinglyLinkedList(Of T).GetAllNodes
+  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).GetEnumerator
+  nameWithType: SinglyLinkedList<T>.GetEnumerator
+  nameWithType.vb: SinglyLinkedList(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.Head
   name: Head
   href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_Head
@@ -6701,6 +6656,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).IsEmpty
   nameWithType: SinglyLinkedList<T>.IsEmpty
   nameWithType.vb: SinglyLinkedList(Of T).IsEmpty
+- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SinglyLinkedList<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SinglyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SinglyLinkedList<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SinglyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SinglyLinkedListNode`1
   name: SinglyLinkedListNode<T>
   href: api/Advanced.Algorithms.DataStructures.SinglyLinkedListNode-1.html
@@ -6993,40 +6967,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Item
   nameWithType: SortedDictionary<TK, TV>.Item
   nameWithType.vb: SortedDictionary(Of TK, TV).Item
-- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Next(`0)
-  name: Next(TK)
-  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Next__0_
-  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.Next(`0)
-  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Next(TK)
-  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Next(TK)
-  nameWithType: SortedDictionary<TK, TV>.Next(TK)
-  nameWithType.vb: SortedDictionary(Of TK, TV).Next(TK)
-- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Next*
-  name: Next
-  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Next_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.Next
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.NextHigher(`0)
+  name: NextHigher(TK)
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_NextHigher__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.NextHigher(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.NextHigher(TK)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).NextHigher(TK)
+  nameWithType: SortedDictionary<TK, TV>.NextHigher(TK)
+  nameWithType.vb: SortedDictionary(Of TK, TV).NextHigher(TK)
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.NextHigher*
+  name: NextHigher
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_NextHigher_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.NextHigher
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Next
-  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Next
-  nameWithType: SortedDictionary<TK, TV>.Next
-  nameWithType.vb: SortedDictionary(Of TK, TV).Next
-- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Previous(`0)
-  name: Previous(TK)
-  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Previous__0_
-  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.Previous(`0)
-  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Previous(TK)
-  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Previous(TK)
-  nameWithType: SortedDictionary<TK, TV>.Previous(TK)
-  nameWithType.vb: SortedDictionary(Of TK, TV).Previous(TK)
-- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Previous*
-  name: Previous
-  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Previous_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.Previous
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.NextHigher
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).NextHigher
+  nameWithType: SortedDictionary<TK, TV>.NextHigher
+  nameWithType.vb: SortedDictionary(Of TK, TV).NextHigher
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.NextLower(`0)
+  name: NextLower(TK)
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_NextLower__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SortedDictionary`2.NextLower(`0)
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.NextLower(TK)
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).NextLower(TK)
+  nameWithType: SortedDictionary<TK, TV>.NextLower(TK)
+  nameWithType.vb: SortedDictionary(Of TK, TV).NextLower(TK)
+- uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.NextLower*
+  name: NextLower
+  href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_NextLower_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SortedDictionary`2.NextLower
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.Previous
-  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).Previous
-  nameWithType: SortedDictionary<TK, TV>.Previous
-  nameWithType.vb: SortedDictionary(Of TK, TV).Previous
+  fullName: Advanced.Algorithms.DataStructures.SortedDictionary<TK, TV>.NextLower
+  fullName.vb: Advanced.Algorithms.DataStructures.SortedDictionary(Of TK, TV).NextLower
+  nameWithType: SortedDictionary<TK, TV>.NextLower
+  nameWithType.vb: SortedDictionary(Of TK, TV).NextLower
 - uid: Advanced.Algorithms.DataStructures.SortedDictionary`2.Remove(`0)
   name: Remove(TK)
   href: api/Advanced.Algorithms.DataStructures.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_SortedDictionary_2_Remove__0_
@@ -7456,6 +7430,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).Insert
   nameWithType: SplayTree<T>.Insert
   nameWithType.vb: SplayTree(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.NextHigher(`0)
+  name: NextHigher(T)
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_NextHigher__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SplayTree`1.NextHigher(`0)
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.NextHigher(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).NextHigher(T)
+  nameWithType: SplayTree<T>.NextHigher(T)
+  nameWithType.vb: SplayTree(Of T).NextHigher(T)
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.NextHigher*
+  name: NextHigher
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_NextHigher_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SplayTree`1.NextHigher
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.NextHigher
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).NextHigher
+  nameWithType: SplayTree<T>.NextHigher
+  nameWithType.vb: SplayTree(Of T).NextHigher
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.NextLower(`0)
+  name: NextLower(T)
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_NextLower__0_
+  commentId: M:Advanced.Algorithms.DataStructures.SplayTree`1.NextLower(`0)
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.NextLower(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).NextLower(T)
+  nameWithType: SplayTree<T>.NextLower(T)
+  nameWithType.vb: SplayTree(Of T).NextLower(T)
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.NextLower*
+  name: NextLower
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_NextLower_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SplayTree`1.NextLower
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.NextLower
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).NextLower
+  nameWithType: SplayTree<T>.NextLower
+  nameWithType.vb: SplayTree(Of T).NextLower
 - uid: Advanced.Algorithms.DataStructures.SplayTree`1.System#Collections#IEnumerable#GetEnumerator
   name: IEnumerable.GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_System_Collections_IEnumerable_GetEnumerator
@@ -7518,6 +7526,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Stack(Of T).Count
   nameWithType: Stack<T>.Count
   nameWithType.vb: Stack(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.Stack`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Stack-1.html#Advanced_Algorithms_DataStructures_Stack_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Stack`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Stack<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Stack(Of T).GetEnumerator()
+  nameWithType: Stack<T>.GetEnumerator()
+  nameWithType.vb: Stack(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Stack`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Stack-1.html#Advanced_Algorithms_DataStructures_Stack_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Stack`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Stack<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Stack(Of T).GetEnumerator
+  nameWithType: Stack<T>.GetEnumerator
+  nameWithType.vb: Stack(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Stack`1.Peek
   name: Peek()
   href: api/Advanced.Algorithms.DataStructures.Stack-1.html#Advanced_Algorithms_DataStructures_Stack_1_Peek
@@ -7569,6 +7594,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Stack(Of T).Push
   nameWithType: Stack<T>.Push
   nameWithType.vb: Stack(Of T).Push
+- uid: Advanced.Algorithms.DataStructures.Stack`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Stack-1.html#Advanced_Algorithms_DataStructures_Stack_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Stack`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.Stack<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Stack(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: Stack<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: Stack(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Stack`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Stack-1.html#Advanced_Algorithms_DataStructures_Stack_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Stack`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Stack<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Stack(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: Stack<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: Stack(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.StackType
   name: StackType
   href: api/Advanced.Algorithms.DataStructures.StackType.html
@@ -7962,6 +8006,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).Insert
   nameWithType: TreapTree<T>.Insert
   nameWithType.vb: TreapTree(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.NextHigher(`0)
+  name: NextHigher(T)
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_NextHigher__0_
+  commentId: M:Advanced.Algorithms.DataStructures.TreapTree`1.NextHigher(`0)
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.NextHigher(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).NextHigher(T)
+  nameWithType: TreapTree<T>.NextHigher(T)
+  nameWithType.vb: TreapTree(Of T).NextHigher(T)
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.NextHigher*
+  name: NextHigher
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_NextHigher_
+  commentId: Overload:Advanced.Algorithms.DataStructures.TreapTree`1.NextHigher
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.NextHigher
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).NextHigher
+  nameWithType: TreapTree<T>.NextHigher
+  nameWithType.vb: TreapTree(Of T).NextHigher
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.NextLower(`0)
+  name: NextLower(T)
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_NextLower__0_
+  commentId: M:Advanced.Algorithms.DataStructures.TreapTree`1.NextLower(`0)
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.NextLower(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).NextLower(T)
+  nameWithType: TreapTree<T>.NextLower(T)
+  nameWithType.vb: TreapTree(Of T).NextLower(T)
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.NextLower*
+  name: NextLower
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_NextLower_
+  commentId: Overload:Advanced.Algorithms.DataStructures.TreapTree`1.NextLower
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.NextLower
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).NextLower
+  nameWithType: TreapTree<T>.NextLower
+  nameWithType.vb: TreapTree(Of T).NextLower
 - uid: Advanced.Algorithms.DataStructures.TreapTree`1.System#Collections#IEnumerable#GetEnumerator
   name: IEnumerable.GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_System_Collections_IEnumerable_GetEnumerator
