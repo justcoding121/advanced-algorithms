@@ -83,7 +83,7 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1" class="text-break">Class CircularLinkedList&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A singly linked list implementation</p>
+  <div class="markdown level0 summary"><p>A circular linked list implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -171,34 +171,22 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Count_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Count*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Count" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Count">Count()</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Clear_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Clear*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Clear" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Time complexity:  O(1).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Count()</code></pre>
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   
   
   <a id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Delete*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Delete__0_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Delete(`0)">Delete(T)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>search and delete.
+Time complexity:O(n).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -225,7 +213,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Delete*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Delete_Advanced_Algorithms_DataStructures_CircularLinkedListNode__0__" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Delete(Advanced.Algorithms.DataStructures.CircularLinkedListNode{`0})">Delete(CircularLinkedListNode&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Time complexity: O(1)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -244,41 +233,6 @@
       <tr>
         <td><a class="xref" href="Advanced.Algorithms.DataStructures.CircularLinkedListNode-1.html">CircularLinkedListNode</a>&lt;T&gt;</td>
         <td><span class="parametername">current</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_DeleteAll_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.DeleteAll*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_DeleteAll" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.DeleteAll">DeleteAll()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void DeleteAll()</code></pre>
-  </div>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_GetAllNodes_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.GetAllNodes*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_GetAllNodes" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.GetAllNodes">GetAllNodes()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;T&gt; GetAllNodes()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -312,7 +266,10 @@
   
   <a id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Insert_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Insert*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Insert__0_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Insert(`0)">Insert(T)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Marks this data as the new reference node after insertion.
+Like insert first assuming that current reference node as head.
+Time Complexity: O(1).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -354,7 +311,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_IsEmpty_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.IsEmpty*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_IsEmpty" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.IsEmpty">IsEmpty()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Time complexity: O(1).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -371,6 +329,34 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Union_" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Union*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_CircularLinkedList_1_Union_Advanced_Algorithms_DataStructures_CircularLinkedList__0__" data-uid="Advanced.Algorithms.DataStructures.CircularLinkedList`1.Union(Advanced.Algorithms.DataStructures.CircularLinkedList{`0})">Union(CircularLinkedList&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Union(CircularLinkedList&lt;T&gt; newList)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.DataStructures.CircularLinkedList-1.html">CircularLinkedList</a>&lt;T&gt;</td>
+        <td><span class="parametername">newList</span></td>
         <td></td>
       </tr>
     </tbody>
