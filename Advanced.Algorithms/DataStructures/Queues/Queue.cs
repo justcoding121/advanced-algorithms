@@ -68,7 +68,7 @@ namespace Advanced.Algorithms.DataStructures
     }
 
     /// <summary>
-    /// Queue implementation type.
+    /// The queue implementation types.
     /// </summary>
     public enum QueueType
     {

@@ -265,13 +265,13 @@ namespace Advanced.Algorithms.DataStructures.HashSets
             return GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<T>> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return new OpenAddressHashSetEnumerator<T>(hashArray, hashArray.Length);
         }
     }
 
-    internal class OpenAddressHashSetEnumerator<V> : IEnumerator<HashSetNode<V>> 
+    internal class OpenAddressHashSetEnumerator<V> : IEnumerator<V> 
     {
         internal HashSetNode<V>[] hashArray;
 
@@ -303,13 +303,13 @@ namespace Advanced.Algorithms.DataStructures.HashSets
 
         object IEnumerator.Current => Current;
 
-        public HashSetNode<V> Current
+        public V Current
         {
             get
             {
                 try
                 {
-                    return hashArray[position];
+                    return hashArray[position].Value;
                 }
                 catch (IndexOutOfRangeException)
                 {

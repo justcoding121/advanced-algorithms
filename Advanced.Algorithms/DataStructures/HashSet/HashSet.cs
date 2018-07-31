@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures.HashSets
     /// A hash table implementation.
     /// </summary>
     /// <typeparam name="T">The value datatype.</typeparam>
-    public class HashSet<T> : IEnumerable<HashSetNode<T>> 
+    public class HashSet<T> : IEnumerable<T> 
     {
         private readonly IHashSet<T> hashSet;
 
@@ -85,13 +85,13 @@ namespace Advanced.Algorithms.DataStructures.HashSets
             return hashSet.GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<T>> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return hashSet.GetEnumerator();
         }
     }
 
-    internal interface IHashSet<T> : IEnumerable<HashSetNode<T>>
+    internal interface IHashSet<T> : IEnumerable<T>
     {
         bool Contains(T value);
         void Add(T value);
@@ -101,11 +101,11 @@ namespace Advanced.Algorithms.DataStructures.HashSets
         int Count { get; }
     }
 
-    public class HashSetNode<T>
+    internal class HashSetNode<T>
     {
-        public T Value;
+        internal T Value;
 
-        public HashSetNode(T value)
+        internal HashSetNode(T value)
         {
             this.Value = value;
         }

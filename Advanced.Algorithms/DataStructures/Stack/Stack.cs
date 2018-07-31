@@ -81,7 +81,7 @@ namespace Advanced.Algorithms.DataStructures
     }
 
     /// <summary>
-    /// The stack implementation type.
+    /// The stack implementation types.
     /// </summary>
     public enum StackType
     {
