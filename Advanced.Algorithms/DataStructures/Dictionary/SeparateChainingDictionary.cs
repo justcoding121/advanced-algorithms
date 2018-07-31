@@ -98,7 +98,7 @@ namespace Advanced.Algorithms.DataStructures
             {
                 var current = hashArray[index].Head;
 
-                //VODO merge both search and remove to a single loop here!
+                //TODO merge both search and remove to a single loop here!
                 DoublyLinkedListNode<DictionaryNode<K, V>> item = null;
                 while (current != null)
                 {
