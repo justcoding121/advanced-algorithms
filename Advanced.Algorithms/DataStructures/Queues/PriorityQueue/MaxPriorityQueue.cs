@@ -27,6 +27,15 @@ namespace Advanced.Algorithms.DataStructures
             return maxHeap.ExtractMax();
         }
 
+        /// <summary>
+        /// Time complexity:O(1).
+        /// </summary>
+        /// <returns></returns>
+        public T Peek()
+        {
+            return maxHeap.PeekMax();
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             return GetEnumerator();
