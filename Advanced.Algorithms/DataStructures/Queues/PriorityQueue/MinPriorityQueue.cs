@@ -32,7 +32,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <returns></returns>
         public T Peek()
         {
-            return maxHeap.PeekMax();
+            return minHeap.PeekMin();
         }
 
         public IEnumerator<T> GetEnumerator()
