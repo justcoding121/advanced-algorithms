@@ -5480,40 +5480,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.HashSets.HashSet(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: HashSet<T>.IEnumerable.GetEnumerator
   nameWithType.vb: HashSet(Of T).System.Collections.IEnumerable.GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.HashSets.HashSetNode`1
-  name: HashSetNode<T>
-  href: api/Advanced.Algorithms.DataStructures.HashSets.HashSetNode-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.HashSets.HashSetNode`1
-  name.vb: HashSetNode(Of T)
-  fullName: Advanced.Algorithms.DataStructures.HashSets.HashSetNode<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.HashSets.HashSetNode(Of T)
-  nameWithType: HashSetNode<T>
-  nameWithType.vb: HashSetNode(Of T)
-- uid: Advanced.Algorithms.DataStructures.HashSets.HashSetNode`1.#ctor(`0)
-  name: HashSetNode(T)
-  href: api/Advanced.Algorithms.DataStructures.HashSets.HashSetNode-1.html#Advanced_Algorithms_DataStructures_HashSets_HashSetNode_1__ctor__0_
-  commentId: M:Advanced.Algorithms.DataStructures.HashSets.HashSetNode`1.#ctor(`0)
-  fullName: Advanced.Algorithms.DataStructures.HashSets.HashSetNode<T>.HashSetNode(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.HashSets.HashSetNode(Of T).HashSetNode(T)
-  nameWithType: HashSetNode<T>.HashSetNode(T)
-  nameWithType.vb: HashSetNode(Of T).HashSetNode(T)
-- uid: Advanced.Algorithms.DataStructures.HashSets.HashSetNode`1.#ctor*
-  name: HashSetNode
-  href: api/Advanced.Algorithms.DataStructures.HashSets.HashSetNode-1.html#Advanced_Algorithms_DataStructures_HashSets_HashSetNode_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.HashSets.HashSetNode`1.#ctor
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.HashSets.HashSetNode<T>.HashSetNode
-  fullName.vb: Advanced.Algorithms.DataStructures.HashSets.HashSetNode(Of T).HashSetNode
-  nameWithType: HashSetNode<T>.HashSetNode
-  nameWithType.vb: HashSetNode(Of T).HashSetNode
-- uid: Advanced.Algorithms.DataStructures.HashSets.HashSetNode`1.Value
-  name: Value
-  href: api/Advanced.Algorithms.DataStructures.HashSets.HashSetNode-1.html#Advanced_Algorithms_DataStructures_HashSets_HashSetNode_1_Value
-  commentId: F:Advanced.Algorithms.DataStructures.HashSets.HashSetNode`1.Value
-  fullName: Advanced.Algorithms.DataStructures.HashSets.HashSetNode<T>.Value
-  fullName.vb: Advanced.Algorithms.DataStructures.HashSets.HashSetNode(Of T).Value
-  nameWithType: HashSetNode<T>.Value
-  nameWithType.vb: HashSetNode(Of T).Value
 - uid: Advanced.Algorithms.DataStructures.HashSets.HashSetType
   name: HashSetType
   href: api/Advanced.Algorithms.DataStructures.HashSets.HashSetType.html
