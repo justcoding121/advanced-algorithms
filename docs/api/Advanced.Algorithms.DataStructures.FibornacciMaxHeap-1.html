@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class FibornacciMaxHeap&lt;T&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.37.1.0">
+    <meta name="generator" content="docfx 2.37.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -194,14 +194,14 @@
   
   
   <a id="Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_IncrementKey_" data-uid="Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.IncrementKey*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_IncrementKey_Advanced_Algorithms_DataStructures_FibornacciHeapNode__0__" data-uid="Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.IncrementKey(Advanced.Algorithms.DataStructures.FibornacciHeapNode{`0})">IncrementKey(FibornacciHeapNode&lt;T&gt;)</h4>
+  <h4 id="Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_IncrementKey__0__0_" data-uid="Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.IncrementKey(`0,`0)">IncrementKey(T, T)</h4>
   <div class="markdown level1 summary"><p>Update the Heap with new value for this node pointer
 O(1) complexity amortized</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void IncrementKey(FibornacciHeapNode&lt;T&gt; node)</code></pre>
+    <pre><code class="lang-csharp hljs">public void IncrementKey(T currentValue, T newValue)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -214,8 +214,13 @@ O(1) complexity amortized</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Advanced.Algorithms.DataStructures.FibornacciHeapNode-1.html">FibornacciHeapNode</a>&lt;T&gt;</td>
-        <td><span class="parametername">node</span></td>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">currentValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">newValue</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -229,7 +234,7 @@ O(1) complexity amortized</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FibornacciHeapNode&lt;T&gt; Insert(T newItem)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Insert(T newItem)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -244,21 +249,6 @@ O(1) complexity amortized</p>
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">newItem</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Advanced.Algorithms.DataStructures.FibornacciHeapNode-1.html">FibornacciHeapNode</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -298,7 +288,7 @@ O(k) complexity where K is the FibornacciHeap Forest Length </p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Union(FibornacciMaxHeap&lt;T&gt; fibornacciHeap)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Union(FibornacciMaxHeap&lt;T&gt; FibornacciHeap)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -312,7 +302,7 @@ O(k) complexity where K is the FibornacciHeap Forest Length </p>
     <tbody>
       <tr>
         <td><a class="xref" href="Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html">FibornacciMaxHeap</a>&lt;T&gt;</td>
-        <td><span class="parametername">fibornacciHeap</span></td>
+        <td><span class="parametername">FibornacciHeap</span></td>
         <td></td>
       </tr>
     </tbody>

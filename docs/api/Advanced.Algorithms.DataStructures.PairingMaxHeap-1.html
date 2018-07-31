@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PairingMaxHeap&lt;T&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.37.1.0">
+    <meta name="generator" content="docfx 2.37.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -194,13 +194,13 @@
   
   
   <a id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_IncrementKey_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.IncrementKey*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_IncrementKey_Advanced_Algorithms_DataStructures_PairingHeapNode__0__" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.IncrementKey(Advanced.Algorithms.DataStructures.PairingHeapNode{`0})">IncrementKey(PairingHeapNode&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Update heap after a node value was incremented</p>
+  <h4 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_IncrementKey__0__0_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.IncrementKey(`0,`0)">IncrementKey(T, T)</h4>
+  <div class="markdown level1 summary"><p>Update heap after a node value was decremented</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void IncrementKey(PairingHeapNode&lt;T&gt; node)</code></pre>
+    <pre><code class="lang-csharp hljs">public void IncrementKey(T currentValue, T newValue)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -213,8 +213,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Advanced.Algorithms.DataStructures.PairingHeapNode-1.html">PairingHeapNode</a>&lt;T&gt;</td>
-        <td><span class="parametername">node</span></td>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">currentValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">newValue</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -228,7 +233,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PairingHeapNode&lt;T&gt; Insert(T newItem)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Insert(T newItem)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -247,21 +252,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Advanced.Algorithms.DataStructures.PairingHeapNode-1.html">PairingHeapNode</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   
   
   <a id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Merge_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Merge*"></a>
@@ -271,7 +261,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Merge(PairingMaxHeap&lt;T&gt; pairingHeap)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Merge(PairingMaxHeap&lt;T&gt; PairingHeap)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -285,7 +275,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html">PairingMaxHeap</a>&lt;T&gt;</td>
-        <td><span class="parametername">pairingHeap</span></td>
+        <td><span class="parametername">PairingHeap</span></td>
         <td></td>
       </tr>
     </tbody>
