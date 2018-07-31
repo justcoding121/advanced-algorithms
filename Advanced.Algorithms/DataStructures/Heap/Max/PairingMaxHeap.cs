@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     public class PairingMaxHeap<T> where T : IComparable
     {
-        internal PairingHeapNode<T> Root;
+        private Dictionary<T, List<PairingHeapNode<T>>> heapMapping
+         = new Dictionary<T, List<PairingHeapNode<T>>>();
+
+        private PairingHeapNode<T> Root;
 
         public int Count { get; private set; }
 
@@ -14,14 +18,77 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="newItem"></param>
         /// <returns></returns>
-        public PairingHeapNode<T> Insert(T newItem)
+        public void Insert(T newItem)
         {
             var newNode = new PairingHeapNode<T>(newItem);
             Root = meld(Root, newNode);
+            addMapping(newItem, newNode);
             Count++;
+        }
 
-            return newNode;
+        /// <summary>
+        /// Returns the max
+        /// </summary>
+        /// <returns></returns>
+        public T ExtractMax()
+        {
+            var max = Root;
+            removeMapping(max.Value, max);
+            meld(Root.ChildrenHead);
+            Count--;
+            return max.Value;
+        }
 
+        /// <summary>
+        /// Update heap after a node value was decremented
+        /// </summary>
+        /// <param name="node"></param>
+        public void IncrementKey(T currentValue, T newValue)
+        {
+            var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
+
+            if (node == null)
+            {
+                throw new Exception("Current value is not present in this heap.");
+            }
+
+            if (newValue.CompareTo(node.Value) < 0)
+            {
+                throw new Exception("New value is not greater than old value.");
+            }
+
+            updateNodeValue(currentValue, newValue, node);
+
+            if (node == Root)
+            {
+                return;
+            }
+
+            deleteChild(node);
+
+            Root = meld(Root, node);
+        }
+
+        /// <summary>
+        /// Merge another heap with this heap
+        /// </summary>
+        /// <param name="PairingHeap"></param>
+        public void Merge(PairingMaxHeap<T> PairingHeap)
+        {
+            Root = meld(Root, PairingHeap.Root);
+            Count = Count + PairingHeap.Count;
+        }
+
+        /// <summary>
+        /// O(1) time complexity
+        /// </summary>
+        /// <returns></returns>
+        public T PeekMax()
+        {
+            if (Root == null)
+                throw new Exception("Empty heap");
+
+            return Root.Value;
         }
 
         /// <summary>
@@ -80,7 +147,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
 
-            for (int i = passOneResult.Count - 2; i >= 0; i--)
+            for (var i = passOneResult.Count - 2; i >= 0; i--)
             {
                 current = passOneResult[i];
                 passTwoResult = meld(passTwoResult, current);
@@ -97,8 +164,6 @@ namespace Advanced.Algorithms.DataStructures
         private PairingHeapNode<T> meld(PairingHeapNode<T> node1,
             PairingHeapNode<T> node2)
         {
-
-
             if (node2 != null)
             {
                 node2.Previous = null;
@@ -122,54 +187,6 @@ namespace Advanced.Algorithms.DataStructures
 
             addChild(ref node2, node1);
             return node2;
-        }
-
-        /// <summary>
-        /// Returns the max
-        /// </summary>
-        /// <returns></returns>
-        public T ExtractMax()
-        {
-            var max = Root;
-            meld(Root.ChildrenHead);
-            Count--;
-            return max.Value;
-        }
-
-        /// <summary>
-        /// Update heap after a node value was incremented
-        /// </summary>
-        /// <param name="node"></param>
-        public void IncrementKey(PairingHeapNode<T> node)
-        {
-            if (node == Root)
-                return;
-
-            deleteChild(node);
-
-            Root = meld(Root, node);
-        }
-
-        /// <summary>
-        /// Merge another heap with this heap
-        /// </summary>
-        /// <param name="pairingHeap"></param>
-        public void Merge(PairingMaxHeap<T> pairingHeap)
-        {
-            Root = meld(Root, pairingHeap.Root);
-            Count = Count + pairingHeap.Count;
-        }
-
-        /// <summary>
-        /// O(1) time complexity
-        /// </summary>
-        /// <returns></returns>
-        public T PeekMax()
-        {
-            if (Root == null)
-                throw new Exception("Empty heap");
-
-            return Root.Value;
         }
 
         /// <summary>
@@ -231,8 +248,33 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        private void addMapping(T newItem, PairingHeapNode<T> newNode)
+        {
+            if (heapMapping.ContainsKey(newItem))
+            {
+                heapMapping[newItem].Add(newNode);
+            }
+            else
+            {
+                heapMapping[newItem] = new List<PairingHeapNode<T>>(new[] { newNode });
+            }
+        }
 
+        private void updateNodeValue(T currentValue, T newValue, PairingHeapNode<T> node)
+        {
+            removeMapping(currentValue, node);
+            node.Value = newValue;
+            addMapping(newValue, node);
+        }
+
+        private void removeMapping(T currentValue, PairingHeapNode<T> node)
+        {
+            heapMapping[currentValue].Remove(node);
+            if (heapMapping[currentValue].Count == 0)
+            {
+                heapMapping.Remove(currentValue);
+            }
+        }
     }
-
 
 }

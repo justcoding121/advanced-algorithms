@@ -56,7 +56,7 @@ namespace Advanced.Algorithms.DataStructures
         internal RedBlackTreeNode<T> Root { get; private set; }
         public int Count { get; private set; }
 
-        private readonly System.Collections.Generic.Dictionary<T, BSTNodeBase<T>> nodeLookUp;
+        private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
 
         /// <summary>
         /// Constructor
@@ -67,7 +67,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             if (enableNodeLookUp)
             {
-                nodeLookUp = new System.Collections.Generic.Dictionary<T, BSTNodeBase<T>>(equalityComparer);
+                nodeLookUp = new Dictionary<T, BSTNodeBase<T>>(equalityComparer);
             }
         }
 

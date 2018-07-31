@@ -2,14 +2,14 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class PairingHeapNode<T> : IComparable where T : IComparable
+    internal class PairingHeapNode<T> : IComparable where T : IComparable
     {
         internal T Value { get; set; }
 
         internal PairingHeapNode<T> ChildrenHead { get; set; }
         internal bool IsHeadChild => Previous != null && Previous.ChildrenHead == this;
 
-        public PairingHeapNode(T value)
+        internal PairingHeapNode(T value)
         {
             this.Value = value;
         }

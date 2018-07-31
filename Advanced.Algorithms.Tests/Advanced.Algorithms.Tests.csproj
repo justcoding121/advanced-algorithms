@@ -80,10 +80,10 @@
     <Compile Include="DataStructures\Heap\Max\D-aryMaxHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\Max\FibornacciMaxHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\Max\PairingMaxHeap_Tests.cs" />
-    <Compile Include="DataStructures\Heap\Min\PairingMinHeap_Tests.cs" />
-    <Compile Include="DataStructures\Heap\Min\FibornacciMinHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\Min\BinomialMinHeap_Tests.cs" />
+    <Compile Include="DataStructures\Heap\Min\FibornacciMinHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\Min\D-aryMinHeap_Tests.cs" />
+    <Compile Include="DataStructures\Heap\Min\PairingMinHeap_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\CircularLinkedList_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\DoublyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\SinglyLinkedList_Tests.cs" />

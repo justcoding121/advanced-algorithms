@@ -29,14 +29,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     public class Graph<T>
     {
         public int VerticesCount => Vertices.Count;
-        internal System.Collections.Generic.Dictionary<T, GraphVertex<T>> Vertices { get; set; }
+        internal Dictionary<T, GraphVertex<T>> Vertices { get; set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public Graph()
         {
-            Vertices = new System.Collections.Generic.Dictionary<T, GraphVertex<T>>();
+            Vertices = new Dictionary<T, GraphVertex<T>>();
         }
 
 

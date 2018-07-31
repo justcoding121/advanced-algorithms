@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -20,8 +20,8 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// A Map for faster access for members
         /// </summary>
-        private System.Collections.Generic.Dictionary<T, DisJointSetNode<T>> set 
-            = new System.Collections.Generic.Dictionary<T, DisJointSetNode<T>>();
+        private Dictionary<T, DisJointSetNode<T>> set 
+            = new Dictionary<T, DisJointSetNode<T>>();
 
         /// <summary>
         /// Creates a new set with given member

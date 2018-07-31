@@ -75,15 +75,15 @@ namespace Advanced.Algorithms.Graph
             }
 
             //track progress for distance to each Vertex from source
-            var progress = new System.Collections.Generic.Dictionary<T, W>();
+            var progress = new Dictionary<T, W>();
 
             //trace our current path by mapping current vertex to its Parent
-            var parentMap = new System.Collections.Generic.Dictionary<T, T>();
+            var parentMap = new Dictionary<T, T>();
 
             //min heap to pick next closest vertex 
             var minHeap = new FibornacciMinHeap<MinHeapWrap<T, W>>();
             //keep references of heap Node for decrement key operation
-            var heapMapping = new System.Collections.Generic.Dictionary<T, FibornacciHeapNode<MinHeapWrap<T, W>>>();
+            var heapMapping = new Dictionary<T, MinHeapWrap<T, W>>();
 
             //add vertices to min heap and progress map
             foreach (var vertex in graph.Vertices)
@@ -106,8 +106,8 @@ namespace Advanced.Algorithms.Graph
                     Target = vertex.Key
                 };
 
-                var heapNode = minHeap.Insert(wrap);
-                heapMapping.Add(vertex.Key, heapNode);
+                minHeap.Insert(wrap);
+                heapMapping.Add(vertex.Key, wrap);
             }
 
             //start from source vertex as current 
@@ -140,10 +140,11 @@ namespace Advanced.Algorithms.Graph
                     if (newDistance.CompareTo(existingDistance) < 0)
                     {
                         progress[neighbour.Key.Value] = newDistance;
-                        heapMapping[neighbour.Key.Value].Value.Distance = newDistance;
 
                         //decrement distance to neighbour in heap
-                        minHeap.DecrementKey(heapMapping[neighbour.Key.Value]);
+                        var decremented = new MinHeapWrap<T, W>() { Distance = newDistance, Target = neighbour.Key.Value };
+                        minHeap.DecrementKey(heapMapping[neighbour.Key.Value], decremented);
+                        heapMapping[neighbour.Key.Value] = decremented;
 
                         //trace parent
                         parentMap[neighbour.Key.Value] = current.Target;
@@ -165,7 +166,7 @@ namespace Advanced.Algorithms.Graph
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph, System.Collections.Generic.Dictionary<T, T> parentMap, T source, T destination)
+        private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph, Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
             var pathStack = new System.Collections.Generic.Stack<T>();

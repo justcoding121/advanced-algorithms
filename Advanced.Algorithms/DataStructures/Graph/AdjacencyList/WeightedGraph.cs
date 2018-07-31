@@ -13,12 +13,12 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     {
         public T Value { get; private set; }
 
-        public System.Collections.Generic.Dictionary<WeightedGraphVertex<T, TW>, TW> Edges { get; set; }
+        public Dictionary<WeightedGraphVertex<T, TW>, TW> Edges { get; set; }
 
         public WeightedGraphVertex(T value)
         {
             Value = value;
-            Edges = new System.Collections.Generic.Dictionary<WeightedGraphVertex<T, TW>, TW>();
+            Edges = new Dictionary<WeightedGraphVertex<T, TW>, TW>();
 
         }
 
@@ -32,14 +32,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     public class WeightedGraph<T, TW> where TW : IComparable
     {
         public int VerticesCount => Vertices.Count;
-        internal System.Collections.Generic.Dictionary<T, WeightedGraphVertex<T, TW>> Vertices { get; set; }
+        internal Dictionary<T, WeightedGraphVertex<T, TW>> Vertices { get; set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public WeightedGraph()
         {
-            Vertices = new System.Collections.Generic.Dictionary<T, WeightedGraphVertex<T, TW>>();
+            Vertices = new Dictionary<T, WeightedGraphVertex<T, TW>>();
         }
 
 

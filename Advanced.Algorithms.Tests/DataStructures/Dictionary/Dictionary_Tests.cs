@@ -1,4 +1,5 @@
 ﻿using Advanced.Algorithms.DataStructures;
+using Advanced.Algorithms.DataStructures.Dictionaries;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;

@@ -12,15 +12,15 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     public class WeightedDiGraphVertex<T, TW> where TW : IComparable
     {
         public T Value { get; private set; }
-        public System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW> OutEdges { get; set; }
-        public System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW> InEdges { get; set; }
+        public Dictionary<WeightedDiGraphVertex<T, TW>, TW> OutEdges { get; set; }
+        public Dictionary<WeightedDiGraphVertex<T, TW>, TW> InEdges { get; set; }
 
         public WeightedDiGraphVertex(T value)
         {
             Value = value;
 
-            OutEdges = new System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
-            InEdges = new System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
+            OutEdges = new Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
+            InEdges = new Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
         }
 
     }
@@ -33,14 +33,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     public class WeightedDiGraph<T, TW> where TW : IComparable
     {
         public int VerticesCount => Vertices.Count;
-        internal System.Collections.Generic.Dictionary<T, WeightedDiGraphVertex<T, TW>> Vertices { get; set; }
+        internal Dictionary<T, WeightedDiGraphVertex<T, TW>> Vertices { get; set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         public WeightedDiGraph()
         {
-            Vertices = new System.Collections.Generic.Dictionary<T, WeightedDiGraphVertex<T, TW>>();
+            Vertices = new Dictionary<T, WeightedDiGraphVertex<T, TW>>();
         }
 
         /// <summary>

@@ -50,7 +50,7 @@ namespace Advanced.Algorithms.Graph
 
             //gather all unique edges
             dfs(graph.ReferenceVertex, new System.Collections.Generic.HashSet<T>(), 
-                new System.Collections.Generic.Dictionary<T, System.Collections.Generic.HashSet<T>>(),
+                new Dictionary<T, System.Collections.Generic.HashSet<T>>(),
                 edges);
 
             //quick sort preparation
@@ -106,7 +106,7 @@ namespace Advanced.Algorithms.Graph
         /// <param name="visitedVertices"></param>
         /// <param name="visitedEdges"></param>
         /// <param name="result"></param>
-        private void dfs(WeightedGraphVertex<T, TW> currentVertex, System.Collections.Generic.HashSet<T> visitedVertices, System.Collections.Generic.Dictionary<T, System.Collections.Generic.HashSet<T>> visitedEdges,
+        private void dfs(WeightedGraphVertex<T, TW> currentVertex, System.Collections.Generic.HashSet<T> visitedVertices, Dictionary<T, System.Collections.Generic.HashSet<T>> visitedEdges,
             List<MSTEdge<T,TW>> result)
         {
             if (!visitedVertices.Contains(currentVertex.Value))

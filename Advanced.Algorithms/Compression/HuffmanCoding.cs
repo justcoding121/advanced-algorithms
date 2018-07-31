@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Compression
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public System.Collections.Generic.Dictionary<T, byte[]> Compress(T[] input)
+        public Dictionary<T, byte[]> Compress(T[] input)
         {
             var frequencies = computeFrequency(input);
 
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.Compression
 
             var root = minHeap.ExtractMin();
 
-            var result = new System.Collections.Generic.Dictionary<T, byte[]>();
+            var result = new Dictionary<T, byte[]>();
 
             DFS(root, new List<byte>(), result);
 
@@ -56,7 +56,7 @@ namespace Advanced.Algorithms.Compression
         /// <param name="currentNode"></param>
         /// <param name="pathStack"></param>
         /// <param name="result"></param>
-        private void DFS(FrequencyWrap currentNode, List<byte> pathStack, System.Collections.Generic.Dictionary<T, byte[]> result)
+        private void DFS(FrequencyWrap currentNode, List<byte> pathStack, Dictionary<T, byte[]> result)
         {
             if(currentNode.IsLeaf)
             {
@@ -84,9 +84,9 @@ namespace Advanced.Algorithms.Compression
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        private System.Collections.Generic.Dictionary<T, int> computeFrequency(T[] input)
+        private Dictionary<T, int> computeFrequency(T[] input)
         {
-            var result = new System.Collections.Generic.Dictionary<T, int>();
+            var result = new Dictionary<T, int>();
 
             foreach (var item in input)
             {

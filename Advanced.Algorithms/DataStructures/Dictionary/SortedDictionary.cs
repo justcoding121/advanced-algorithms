@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.Dictionaries
 {
     /// <summary>
     /// A sorted Dictionary implementation using balanced binary search tree. IEnumerable will enumerate in sorted order.

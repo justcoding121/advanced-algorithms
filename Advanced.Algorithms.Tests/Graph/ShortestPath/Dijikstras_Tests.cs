@@ -33,9 +33,9 @@ namespace Advanced.Algorithms.Tests.Grap
             graph.AddEdge('D', 'B', 1);
             graph.AddEdge('D', 'T', 10);
 
-            var algo = new DijikstraShortestPath<char, int>(new DijikstraShortestPathOperators());
+            var algorithm = new DijikstraShortestPath<char, int>(new DijikstraShortestPathOperators());
 
-            var result = algo.GetShortestPath(graph, 'S', 'T');
+            var result = algorithm.GetShortestPath(graph, 'S', 'T');
 
             Assert.AreEqual(15, result.Length);
 

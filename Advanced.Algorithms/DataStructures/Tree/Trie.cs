@@ -7,11 +7,11 @@ namespace Advanced.Algorithms.DataStructures
     {
         internal bool IsEmpty => Children.Count == 0;
         internal bool IsEnd { get; set; }
-        internal System.Collections.Generic.Dictionary<T, TrieNode<T>> Children { get; set; }
+        internal Dictionary<T, TrieNode<T>> Children { get; set; }
 
         internal TrieNode()
         {
-            Children = new System.Collections.Generic.Dictionary<T, TrieNode<T>>();
+            Children = new Dictionary<T, TrieNode<T>>();
         }
 
     }

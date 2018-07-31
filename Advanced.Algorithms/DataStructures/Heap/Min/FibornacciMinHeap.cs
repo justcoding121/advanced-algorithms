@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     public class FibornacciMinHeap<T> where T : IComparable
     {
-        internal FibornacciHeapNode<T> heapForestHead;
+        private FibornacciHeapNode<T> minNode = null;
+
+        private Dictionary<T, List<FibornacciHeapNode<T>>> heapMapping
+            = new Dictionary<T, List<FibornacciHeapNode<T>>>();
 
         //holds the minimum node at any given time
-        private FibornacciHeapNode<T> minNode = null;
+        private FibornacciHeapNode<T> heapForestHead;
 
         public int Count { get; private set; }
 
@@ -16,7 +20,7 @@ namespace Advanced.Algorithms.DataStructures
         /// O(1) complexity amortized
         /// </summary>
         /// <param name="newItem"></param>
-        public FibornacciHeapNode<T> Insert(T newItem)
+        public void Insert(T newItem)
         {
             var newNode = new FibornacciHeapNode<T>(newItem);
 
@@ -35,9 +39,115 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
 
+            addMapping(newItem, newNode);
+          
             Count++;
+        }
 
-            return newNode;
+        /// <summary>
+        /// O(log(n)) complexity
+        /// </summary>
+        /// <returns></returns>
+        public T ExtractMin()
+        {
+            if (heapForestHead == null)
+                throw new Exception("Empty heap");
+
+            var minValue = minNode.Value;
+
+            removeMapping(minValue, minNode);
+
+            //remove tree root
+            deleteNode(ref heapForestHead, minNode);
+
+            mergeForests(minNode.ChildrenHead);
+            Meld();
+
+            Count--;
+
+            return minValue;
+        }
+
+
+        /// <summary>
+        /// Update the Heap with new value for this node pointer
+        /// O(1) complexity amortized
+        /// </summary>
+        public void DecrementKey(T currentValue, T newValue)
+        {
+            var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
+
+            if (node == null)
+            {
+                throw new Exception("Current value is not present in this heap.");
+            }
+
+            if (newValue.CompareTo(node.Value) > 0)
+            {
+                throw new Exception("New value is not less than old value.");
+            }
+
+            updateNodeValue(currentValue, newValue, node);
+
+            if (node.Parent == null
+                && minNode.Value.CompareTo(node.Value) > 0)
+            {
+                minNode = node;
+            }
+
+            var current = node;
+
+            if (current.Parent == null || current.Value.CompareTo(current.Parent.Value) >= 0)
+            {
+                return;
+            }
+
+            var parent = current.Parent;
+
+            //if parent already lost one child
+            //then cut current and parent
+            if (parent.LostChild)
+            {
+                parent.LostChild = false;
+
+                var grandParent = parent.Parent;
+
+                //mark grand parent
+                if (grandParent == null)
+                {
+                    return;
+                }
+
+                cut(parent);
+                cut(current);
+            }
+            else
+            {
+                cut(current);
+            }
+
+        }
+
+        /// <summary>
+        /// Unions this heap with another
+        /// O(k) complexity where K is the FibornacciHeap Forest Length 
+        /// </summary>
+        /// <param name="FibornacciHeap"></param>
+        public void Union(FibornacciMinHeap<T> FibornacciHeap)
+        {
+            mergeForests(FibornacciHeap.heapForestHead);
+            Count = Count + FibornacciHeap.Count;
+        }
+
+        /// <summary/>
+        ///  O(1) complexity 
+        /// <returns></returns>
+        public T PeekMin()
+        {
+            if (heapForestHead == null)
+                throw new Exception("Empty heap");
+
+            return minNode.Value;
         }
 
         /// <summary>
@@ -53,7 +163,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             //degree - node dictionary
-            var mergeDictionary = new System.Collections.Generic.Dictionary<int, FibornacciHeapNode<T>>();
+            var mergeDictionary = new Dictionary<int, FibornacciHeapNode<T>>();
 
             var current = heapForestHead;
             minNode = current;
@@ -64,7 +174,7 @@ namespace Advanced.Algorithms.DataStructures
                 //no same degree already in merge dictionary
                 //add to hash table
                 if (!mergeDictionary.ContainsKey(current.Degree))
-                {                 
+                {
                     mergeDictionary.Add(current.Degree, current);
 
                     if (minNode == current)
@@ -145,74 +255,6 @@ namespace Advanced.Algorithms.DataStructures
 
 
         /// <summary>
-        /// O(log(n)) complexity
-        /// </summary>
-        /// <returns></returns>
-        public T ExtractMin()
-        {
-            if (heapForestHead == null)
-                throw new Exception("Empty heap");
-
-            var minValue = minNode.Value;
-
-            //remove tree root
-            deleteNode(ref heapForestHead, minNode);
-
-            mergeForests(minNode.ChildrenHead);
-            Meld();
-
-            Count--;
-
-            return minValue;
-        }
-
-
-        /// <summary>
-        /// Update the Heap with new value for this node pointer
-        /// O(1) complexity amortized
-        /// </summary>
-        public void DecrementKey(FibornacciHeapNode<T> node)
-        {
-
-            if (node.Parent == null
-                && minNode.Value.CompareTo(node.Value) > 0)
-            {
-                minNode = node;
-            }
-
-            var current = node;
-
-            if (current.Parent == null || current.Value.CompareTo(current.Parent.Value) >= 0)
-            {
-                return;
-            }
-
-            var parent = current.Parent;
-
-            //if parent already lost one child
-            //then cut current and parent
-            if (parent.LostChild)
-            {
-                parent.LostChild = false;
-
-                var grandParent = parent.Parent;
-
-                //mark grand parent
-                if (grandParent == null)
-                {
-                    return;
-                }
-
-                cut(parent);
-                cut(current);
-            }
-            else
-            {
-                cut(current);
-            }
-
-        }
-        /// <summary>
         /// Delete this node from Heap Tree and adds it to forest as a new tree 
         /// </summary>
         /// <param name="node"></param>
@@ -242,17 +284,6 @@ namespace Advanced.Algorithms.DataStructures
                 minNode = node;
             }
 
-        }
-
-        /// <summary>
-        /// Unions this heap with another
-        /// O(k) complexity where K is the FibornacciHeap Forest Length 
-        /// </summary>
-        /// <param name="FibornacciHeap"></param>
-        public void Union(FibornacciMinHeap<T> FibornacciHeap)
-        {
-            mergeForests(FibornacciHeap.heapForestHead);
-            Count = Count + FibornacciHeap.Count;
         }
 
         /// <summary>
@@ -313,15 +344,32 @@ namespace Advanced.Algorithms.DataStructures
             deletionNode.Previous = null;
         }
 
-        /// <summary/>
-        ///  O(1) complexity 
-        /// <returns></returns>
-        public T PeekMin()
+        private void addMapping(T newItem, FibornacciHeapNode<T> newNode)
         {
-            if (heapForestHead == null)
-                throw new Exception("Empty heap");
+            if (heapMapping.ContainsKey(newItem))
+            {
+                heapMapping[newItem].Add(newNode);
+            }
+            else
+            {
+                heapMapping[newItem] = new List<FibornacciHeapNode<T>>(new[] { newNode });
+            }
+        }
 
-            return minNode.Value;
+        private void updateNodeValue(T currentValue, T newValue, FibornacciHeapNode<T> node)
+        {
+            removeMapping(currentValue, node);
+            node.Value = newValue;
+            addMapping(newValue, node);
+        }
+
+        private void removeMapping(T currentValue, FibornacciHeapNode<T> node)
+        {
+            heapMapping[currentValue].Remove(node);
+            if (heapMapping[currentValue].Count == 0)
+            {
+                heapMapping.Remove(currentValue);
+            }
         }
     }
 

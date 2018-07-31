@@ -1,5 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -9,8 +10,8 @@ namespace Advanced.Algorithms.Distributed
     {
         private readonly int capacity;
 
-        private System.Collections.Generic.Dictionary<K, DoublyLinkedListNode<Tuple<K, V>>> lookUp
-            = new System.Collections.Generic.Dictionary<K, DoublyLinkedListNode<Tuple<K, V>>>();
+        private Dictionary<K, DoublyLinkedListNode<Tuple<K, V>>> lookUp
+            = new Dictionary<K, DoublyLinkedListNode<Tuple<K, V>>>();
 
         private readonly DoublyLinkedList<Tuple<K, V>> dll = new DoublyLinkedList<Tuple<K, V>>();
 

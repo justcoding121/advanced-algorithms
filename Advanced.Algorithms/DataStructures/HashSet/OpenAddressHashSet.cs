@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.HashSets
 {
     internal class OpenAddressHashSet<T> : IHashSet<T> 
     {
