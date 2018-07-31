@@ -5639,6 +5639,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).GetEnumerator
   nameWithType: MaxPriorityQueue<T>.GetEnumerator
   nameWithType.vb: MaxPriorityQueue(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Peek
+  name: Peek()
+  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_Peek
+  commentId: M:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Peek
+  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.Peek()
+  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Peek()
+  nameWithType: MaxPriorityQueue<T>.Peek()
+  nameWithType.vb: MaxPriorityQueue(Of T).Peek()
+- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Peek*
+  name: Peek
+  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_Peek_
+  commentId: Overload:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Peek
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.Peek
+  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Peek
+  nameWithType: MaxPriorityQueue<T>.Peek
+  nameWithType.vb: MaxPriorityQueue(Of T).Peek
 - uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
   name: IEnumerable.GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator
@@ -5718,6 +5735,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).GetEnumerator
   nameWithType: MinPriorityQueue<T>.GetEnumerator
   nameWithType.vb: MinPriorityQueue(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Peek
+  name: Peek()
+  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_Peek
+  commentId: M:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Peek
+  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.Peek()
+  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Peek()
+  nameWithType: MinPriorityQueue<T>.Peek()
+  nameWithType.vb: MinPriorityQueue(Of T).Peek()
+- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Peek*
+  name: Peek
+  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_Peek_
+  commentId: Overload:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Peek
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.Peek
+  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Peek
+  nameWithType: MinPriorityQueue<T>.Peek
+  nameWithType.vb: MinPriorityQueue(Of T).Peek
 - uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
   name: IEnumerable.GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator
