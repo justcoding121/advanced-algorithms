@@ -83,12 +83,18 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1" class="text-break">Class PairingMaxHeap&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A pairing max heap implementation.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">PairingMaxHeap&lt;T&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -118,8 +124,7 @@
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PairingMaxHeap&lt;T&gt;
-    where T : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class PairingMaxHeap&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable where T : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -169,7 +174,7 @@
   
   <a id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_ExtractMax_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.ExtractMax*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_ExtractMax" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.ExtractMax">ExtractMax()</h4>
-  <div class="markdown level1 summary"><p>Returns the max</p>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -193,9 +198,34 @@
   </table>
   
   
+  <a id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_IncrementKey_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.IncrementKey*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_IncrementKey__0__0_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.IncrementKey(`0,`0)">IncrementKey(T, T)</h4>
-  <div class="markdown level1 summary"><p>Update heap after a node value was decremented</p>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -228,7 +258,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Insert_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Insert*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Insert__0_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Insert(`0)">Insert(T)</h4>
-  <div class="markdown level1 summary"><p>Insert a new Node</p>
+  <div class="markdown level1 summary"><p>Insert a new Node.
+Time complexity: O(1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -256,7 +287,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Merge_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Merge*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Merge_Advanced_Algorithms_DataStructures_PairingMaxHeap__0__" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Merge(Advanced.Algorithms.DataStructures.PairingMaxHeap{`0})">Merge(PairingMaxHeap&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Merge another heap with this heap</p>
+  <div class="markdown level1 summary"><p>Merge another heap with this heap.
+Time complexity: O(1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -284,7 +316,7 @@
   
   <a id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_PeekMax_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.PeekMax*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_PeekMax" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.PeekMax">PeekMax()</h4>
-  <div class="markdown level1 summary"><p>O(1) time complexity</p>
+  <div class="markdown level1 summary"><p>Time complexity: O(1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -306,6 +338,40 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_PairingMaxHeap_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.PairingMaxHeap`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           
