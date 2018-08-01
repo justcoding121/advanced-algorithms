@@ -2,7 +2,7 @@
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public static class BSTExtensions
+    internal static class BSTExtensions
     {
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
