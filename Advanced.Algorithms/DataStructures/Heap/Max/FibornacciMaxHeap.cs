@@ -1,25 +1,28 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class FibornacciMaxHeap<T> where T : IComparable
+    /// <summary>
+    /// A fibornacci max heap implementation.
+    /// </summary>
+    public class FibornacciMaxHeap<T> : IEnumerable<T> where T : IComparable
     {
         private FibornacciHeapNode<T> maxNode = null;
-
-        private Dictionary<T, List<FibornacciHeapNode<T>>> heapMapping
-            = new Dictionary<T, List<FibornacciHeapNode<T>>>();
 
         //holds the maximum node at any given time
         private FibornacciHeapNode<T> heapForestHead;
 
+        private Dictionary<T, List<FibornacciHeapNode<T>>> heapMapping
+            = new Dictionary<T, List<FibornacciHeapNode<T>>>();
+
         public int Count { get; private set; }
 
         /// <summary>
-        /// O(1) complexity amortized
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="newItem"></param>
         public void Insert(T newItem)
         {
             var newNode = new FibornacciHeapNode<T>(newItem);
@@ -45,9 +48,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// O(log(n)) complexity
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <returns></returns>
         public T ExtractMax()
         {
             if (heapForestHead == null)
@@ -72,8 +74,8 @@ namespace Advanced.Algorithms.DataStructures
 
 
         /// <summary>
-        /// Update the Heap with new value for this node pointer
-        /// O(1) complexity amortized
+        /// Update the Heap with new value for this node pointer.
+        /// Time complexity: O(1).
         /// </summary>
         public void IncrementKey(T currentValue, T newValue)
         {
@@ -131,19 +133,18 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Unions this heap with another
-        /// O(k) complexity where K is the FibornacciHeap Forest Length 
+        /// Unions this heap with another.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="FibornacciHeap"></param>
-        public void Union(FibornacciMaxHeap<T> FibornacciHeap)
+        public void Merge(FibornacciMaxHeap<T> FibornacciHeap)
         {
             mergeForests(FibornacciHeap.heapForestHead);
             Count = Count + FibornacciHeap.Count;
         }
 
-        /// <summary/>
-        ///  O(1) complexity 
-        /// <returns></returns>
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public T PeekMax()
         {
             if (heapForestHead == null)
@@ -153,7 +154,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Merge roots with same degrees in Forest 
+        /// Merge roots with same degrees in Forest.
         /// </summary>
         private void Meld()
         {
@@ -259,7 +260,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Delete this node from Heap Tree and adds it to forest as a new tree 
         /// </summary>
-        /// <param name="node"></param>
         private void cut(FibornacciHeapNode<T> node)
         {
             var parent = node.Parent;
@@ -373,6 +373,16 @@ namespace Advanced.Algorithms.DataStructures
             {
                 heapMapping.Remove(currentValue);
             }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return heapMapping.SelectMany(x => x.Value).Select(x => x.Value).GetEnumerator();
         }
     }
 

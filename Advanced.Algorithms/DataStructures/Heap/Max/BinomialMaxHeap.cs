@@ -1,23 +1,26 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class BinomialMaxHeap<T> where T : IComparable
+    /// <summary>
+    /// A binomial max heap implementation.
+    /// </summary>
+    public class BinomialMaxHeap<T> : IEnumerable<T> where T : IComparable
     {
-        private Dictionary<T, List<BinomialHeapNode<T>>> heapMapping
-           = new Dictionary<T, List<BinomialHeapNode<T>>>();
-
-        public int Count { get; private set; }
-
         private DoublyLinkedList<BinomialHeapNode<T>> heapForest
             = new DoublyLinkedList<BinomialHeapNode<T>>();
 
+        private Dictionary<T, List<BinomialHeapNode<T>>> heapMapping
+            = new Dictionary<T, List<BinomialHeapNode<T>>>();
+
+        public int Count { get; private set; }
+
         /// <summary>
-        /// O(log(n)) complexity
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="newItem"></param>
         public void Insert(T newItem)
         {
             var newNode = new BinomialHeapNode<T>(newItem);
@@ -36,9 +39,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// O(log(n)) complexity
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <returns></returns>
         public T ExtractMax()
         {
             if (heapForest.Head == null)
@@ -83,9 +85,10 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Update the Heap with new value for this node pointer
-        /// O(log(n)) complexity
+        /// Time complexity: O(log(n)).
         /// </summary>
+        /// <param name="currentValue">The value to increment.</param>
+        /// <param name="newValue">The incremented new value.</param>
         public void IncrementKey(T currentValue, T newValue)
         {
             var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
@@ -117,11 +120,10 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Unions this heap with another
-        /// O(log(n)) complexity
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="binomialHeap"></param>
-        public void Union(BinomialMaxHeap<T> binomialHeap)
+        /// <param name="binomialHeap">The heap to union with.</param>
+        public void Merge(BinomialMaxHeap<T> binomialHeap)
         {
             mergeSortedForests(binomialHeap.heapForest);
 
@@ -131,7 +133,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// O(log(n)) complexity
+        /// Time complexity: O(log(n)).
         /// </summary>
         /// <returns></returns>
         public T PeekMax()
@@ -159,7 +161,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Merge roots with same degrees in Forest 
+        /// Merge roots with same degrees in Forest. 
         /// </summary>
         private void meld()
         {
@@ -225,10 +227,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Merges the given sorted forest to current sorted Forest 
-        /// & returns the last inserted node (pointer required for decrement-key)
+        /// Merges the given sorted forest to current sorted Forest. 
+        /// Returns the last inserted node (pointer required for decrement-key).
         /// </summary>
-        /// <param name="newHeapForest"></param>
         private void mergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
         {
             var @new = newHeapForest.Head;
@@ -300,5 +301,14 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return heapMapping.SelectMany(x => x.Value).Select(x=>x.Value).GetEnumerator();
+        }
     }
 }

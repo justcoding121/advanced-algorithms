@@ -32,7 +32,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(min, i);
             }
 
-          
             var testSeries = Enumerable.Range(1, 49).OrderBy(x => rnd.Next()).ToList();
 
             foreach (var item in testSeries)

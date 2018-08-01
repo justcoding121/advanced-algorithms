@@ -1,23 +1,26 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class PairingMaxHeap<T> where T : IComparable
+    /// <summary>
+    /// A pairing max heap implementation.
+    /// </summary>
+    public class PairingMaxHeap<T> : IEnumerable<T> where T : IComparable
     {
+        private PairingHeapNode<T> Root;
+
         private Dictionary<T, List<PairingHeapNode<T>>> heapMapping
          = new Dictionary<T, List<PairingHeapNode<T>>>();
-
-        private PairingHeapNode<T> Root;
 
         public int Count { get; private set; }
 
         /// <summary>
-        /// Insert a new Node
+        /// Insert a new Node.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="newItem"></param>
-        /// <returns></returns>
         public void Insert(T newItem)
         {
             var newNode = new PairingHeapNode<T>(newItem);
@@ -27,9 +30,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Returns the max
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <returns></returns>
         public T ExtractMax()
         {
             var max = Root;
@@ -40,9 +42,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Update heap after a node value was decremented
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="node"></param>
         public void IncrementKey(T currentValue, T newValue)
         {
             var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
@@ -70,9 +71,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Merge another heap with this heap
+        /// Merge another heap with this heap.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="PairingHeap"></param>
         public void Merge(PairingMaxHeap<T> PairingHeap)
         {
             Root = meld(Root, PairingHeap.Root);
@@ -80,9 +81,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// O(1) time complexity
+        /// Time complexity: O(1).
         /// </summary>
-        /// <returns></returns>
         public T PeekMax()
         {
             if (Root == null)
@@ -92,10 +92,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///  O(n), Amortized O(log(n))
-        ///  Melds all the nodes to one single Root Node
+        /// Time complexity: O(log(n))
         /// </summary>
-        /// <param name="headNode"></param>
         private void meld(PairingHeapNode<T> headNode)
         {
             if (headNode == null)
@@ -159,8 +157,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// makes the smaller node parent of other and returns the Parent
         /// </summary>
-        /// <param name="node1"></param>
-        /// <param name="node2"></param>
         private PairingHeapNode<T> meld(PairingHeapNode<T> node1,
             PairingHeapNode<T> node2)
         {
@@ -192,8 +188,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Add new child to parent node
         /// </summary>
-        /// <param name="parent"></param>
-        /// <param name="child"></param>
         private void addChild(ref PairingHeapNode<T> parent, PairingHeapNode<T> child)
         {
             if (parent.ChildrenHead == null)
@@ -220,7 +214,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// delete node from parent
         /// </summary>
-        /// <param name="node"></param>
         private void deleteChild(PairingHeapNode<T> node)
         {
             //if this node is the child head pointer of parent
@@ -274,6 +267,16 @@ namespace Advanced.Algorithms.DataStructures
             {
                 heapMapping.Remove(currentValue);
             }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return heapMapping.SelectMany(x => x.Value).Select(x => x.Value).GetEnumerator();
         }
     }
 

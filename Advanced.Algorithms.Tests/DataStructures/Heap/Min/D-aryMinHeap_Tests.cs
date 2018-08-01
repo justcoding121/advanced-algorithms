@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var initial = Enumerable.Range(0, 51).OrderBy(x => rnd.Next()).ToList();
 
             //insert test
-            var tree = new D_aryMinHeap<int>(4, initial);
+            var tree = new DaryMinHeap<int>(4, initial);
 
             for (int i = 51; i <= 99; i++)
             {

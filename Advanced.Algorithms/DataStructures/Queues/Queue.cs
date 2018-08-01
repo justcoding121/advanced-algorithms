@@ -32,7 +32,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Time Complexity:O(1).
+        /// Time complexity:O(1).
         /// </summary>
         /// <param name="item"></param>
         public void Enqueue(T item)
@@ -41,7 +41,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Time Complexity:O(1).
+        /// Time complexity:O(1).
         /// </summary>
         /// <returns></returns>
         public T Dequeue()

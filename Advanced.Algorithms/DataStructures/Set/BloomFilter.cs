@@ -24,7 +24,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Run time complexity is O(1)
+        /// Run Time complexity is O(1)
         /// </summary>
         public void AddKey(T key)
         {
@@ -39,7 +39,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Run time complexity is O(1)
+        /// Run Time complexity is O(1)
         /// </summary>
         /// <returns></returns>
         public bool KeyExists(T key)

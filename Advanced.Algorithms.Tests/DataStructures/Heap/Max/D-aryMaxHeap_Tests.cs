@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var initial = new List<int>(Enumerable.Range(0, 51)
                 .OrderBy(x => rnd.Next()));
 
-            var tree = new D_aryMaxHeap<int>(4, initial);
+            var tree = new DaryMaxHeap<int>(4, initial);
             for (int i = 51; i <= 99; i++)
             {
                 tree.Insert(i);

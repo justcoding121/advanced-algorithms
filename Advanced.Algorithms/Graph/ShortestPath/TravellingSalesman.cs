@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.Graph
     /// Problem details below
     /// https://en.wikipedia.org/wiki/Travelling_salesman_problem
     /// Uses dynamic programming and have
-    /// psuedo-polynomial time runtime complexity for this NP hard problem
+    /// psuedo-polynomial time runTime complexity for this NP hard problem
     /// </summary>
     public class TravellingSalesman
     {

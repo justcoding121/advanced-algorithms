@@ -27,7 +27,7 @@ namespace Advanced.Algorithms.Distributed
 
         /// <summary>
         /// Note: When buffer overflows oldest data will be erased
-        /// O(1) time complexity
+        /// O(1) Time complexity
         /// </summary>
         /// <param name="data"></param>
         public T Enqueue(T data)
@@ -65,7 +65,7 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(bulk.Length) time complexity
+        /// O(bulk.Length) Time complexity
         /// </summary>
         /// <param name="bulk"></param>
         /// <returns>Deleted items.</returns>
@@ -76,7 +76,7 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(1) time complexity
+        /// O(1) Time complexity
         /// </summary>
         /// <returns></returns>
         public T Dequeue()
@@ -117,7 +117,7 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(bulkNumber) time complexity
+        /// O(bulkNumber) Time complexity
         /// </summary>
         /// <param name="bulkNumber"></param>
         public IEnumerable<T> Dequeue(int bulkNumber)

@@ -29,7 +29,7 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         /// Insert a new record to this trie
-        /// O(m) time complexity where m is the length of entry
+        /// O(m) Time complexity where m is the length of entry
         /// </summary>
         /// <param name="entry"></param>
         public void Insert(T[] entry)

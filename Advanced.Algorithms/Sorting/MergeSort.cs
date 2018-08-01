@@ -4,7 +4,7 @@ namespace Advanced.Algorithms.Sorting
 {
     public class MergeSort<T> where T : IComparable
     {
-        //O(nlog(n)) time complexity always
+        //O(nlog(n)) Time complexity always
         //O(n) memory
         public static T[] Sort(T[] array)
         {

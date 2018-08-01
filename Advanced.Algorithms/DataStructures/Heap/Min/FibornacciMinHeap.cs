@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
+    /// <summary>
+    /// A fibornacci min heap implementation.
+    /// </summary>
     public class FibornacciMinHeap<T> where T : IComparable
     {
         private FibornacciHeapNode<T> minNode = null;
@@ -17,9 +20,8 @@ namespace Advanced.Algorithms.DataStructures
         public int Count { get; private set; }
 
         /// <summary>
-        /// O(1) complexity amortized
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="newItem"></param>
         public void Insert(T newItem)
         {
             var newNode = new FibornacciHeapNode<T>(newItem);
@@ -45,9 +47,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// O(log(n)) complexity
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <returns></returns>
         public T ExtractMin()
         {
             if (heapForestHead == null)
@@ -70,8 +71,8 @@ namespace Advanced.Algorithms.DataStructures
 
 
         /// <summary>
-        /// Update the Heap with new value for this node pointer
-        /// O(1) complexity amortized
+        /// Update the Heap with new value for this node pointer.
+        /// Time complexity: O(1).
         /// </summary>
         public void DecrementKey(T currentValue, T newValue)
         {
@@ -129,19 +130,18 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Unions this heap with another
-        /// O(k) complexity where K is the FibornacciHeap Forest Length 
+        /// Unions this heap with another.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="FibornacciHeap"></param>
-        public void Union(FibornacciMinHeap<T> FibornacciHeap)
+        public void Merge(FibornacciMinHeap<T> FibornacciHeap)
         {
             mergeForests(FibornacciHeap.heapForestHead);
             Count = Count + FibornacciHeap.Count;
         }
 
-        /// <summary/>
-        ///  O(1) complexity 
-        /// <returns></returns>
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public T PeekMin()
         {
             if (heapForestHead == null)
@@ -151,7 +151,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Merge roots with same degrees in Forest 
+        /// Merge roots with same degrees in Forest.
         /// </summary>
         private void Meld()
         {
@@ -253,11 +253,9 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-
         /// <summary>
         /// Delete this node from Heap Tree and adds it to forest as a new tree 
         /// </summary>
-        /// <param name="node"></param>
         private void cut(FibornacciHeapNode<T> node)
         {
             var parent = node.Parent;

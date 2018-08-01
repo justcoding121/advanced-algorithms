@@ -2,7 +2,7 @@
 using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Advanced.Algorithms.Tests.Grap
+namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class Dijikstras_Tests

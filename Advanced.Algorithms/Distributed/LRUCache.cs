@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(1) time complexity
+        /// O(1) Time complexity
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
@@ -45,7 +45,7 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(1) time complexity
+        /// O(1) Time complexity
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
