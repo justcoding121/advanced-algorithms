@@ -28,6 +28,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 tree.IncrementKey(i, i + 1);
             }
+
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
+
             int max = 0;
             for (int i = nodeCount; i >= 0; i--)
             {
@@ -57,6 +61,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 max = tree.ExtractMax();
                 Assert.AreEqual(testSeries[i], max);
             }
+
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
 
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A pairing min heap implementation.
     /// </summary>
-    public class PairingMinHeap<T> where T : IComparable
+    public class PairingMinHeap<T> : IEnumerable<T> where T : IComparable
     {
         private PairingHeapNode<T> Root;
         private Dictionary<T, List<PairingHeapNode<T>>> heapMapping
@@ -265,6 +266,16 @@ namespace Advanced.Algorithms.DataStructures
             {
                 heapMapping.Remove(currentValue);
             }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return heapMapping.SelectMany(x => x.Value).Select(x => x.Value).GetEnumerator();
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A fibornacci min heap implementation.
     /// </summary>
-    public class FibornacciMinHeap<T> where T : IComparable
+    public class FibornacciMinHeap<T> : IEnumerable<T> where T : IComparable
     {
         private FibornacciHeapNode<T> minNode = null;
 
@@ -368,6 +369,16 @@ namespace Advanced.Algorithms.DataStructures
             {
                 heapMapping.Remove(currentValue);
             }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return heapMapping.SelectMany(x => x.Value).Select(x => x.Value).GetEnumerator();
         }
     }
 

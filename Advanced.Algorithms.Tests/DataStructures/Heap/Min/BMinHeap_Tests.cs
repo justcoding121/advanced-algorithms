@@ -32,6 +32,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(min, i);
             }
 
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
+
             var testSeries = Enumerable.Range(1, 49).OrderBy(x => rnd.Next()).ToList();
 
             foreach (var item in testSeries)
@@ -44,6 +47,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 var min = tree.ExtractMin();
                 Assert.AreEqual(min, i);
             }
+
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
 
         }
     }

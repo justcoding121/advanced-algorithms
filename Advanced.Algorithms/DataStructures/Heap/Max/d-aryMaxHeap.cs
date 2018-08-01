@@ -238,12 +238,12 @@ namespace Advanced.Algorithms.DataStructures
             heapArray = biggerArray;
         }
 
-        public IEnumerator<T> GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return heapArray.Take(Count).GetEnumerator();
         }

@@ -5,7 +5,7 @@ using System;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class AsFenwickTreeTests
+    public class FenwickTreeTests
     {
         /// <summary>
         /// Smoke test

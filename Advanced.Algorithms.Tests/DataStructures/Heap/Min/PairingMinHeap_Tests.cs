@@ -28,12 +28,16 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 tree.DecrementKey(i, i - 1);
             }
+
             int min = 0;
             for (int i = 0; i <= nodeCount; i++)
             {
                 min = tree.ExtractMin();
                 Assert.AreEqual(min, i - 1);
             }
+
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
 
             var rnd = new Random();
             var testSeries = Enumerable.Range(0, nodeCount - 1).OrderBy(x => rnd.Next()).ToList();
@@ -58,6 +62,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(testSeries[i], min);
             }
 
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
         }
     }
 }

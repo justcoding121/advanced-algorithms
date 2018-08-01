@@ -34,7 +34,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(Max, 99 - i);
             }
 
- 
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
+
             var testSeries = Enumerable.Range(1, 49)
                 .OrderBy(x => rnd.Next()).ToList();
 
@@ -48,6 +50,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 var max = tree.ExtractMax();
                 Assert.AreEqual(max, 49 - i + 1);
             }
+
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
 
         }
     }

@@ -301,12 +301,12 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return heapMapping.SelectMany(x => x.Value).Select(x => x.Value).GetEnumerator();
         }
