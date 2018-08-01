@@ -3314,6 +3314,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).ExtractMin
   nameWithType: FibornacciMinHeap<T>.ExtractMin
   nameWithType.vb: FibornacciMinHeap(Of T).ExtractMin
+- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).GetEnumerator()
+  nameWithType: FibornacciMinHeap<T>.GetEnumerator()
+  nameWithType.vb: FibornacciMinHeap(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).GetEnumerator
+  nameWithType: FibornacciMinHeap<T>.GetEnumerator
+  nameWithType.vb: FibornacciMinHeap(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Insert(`0)
   name: Insert(T)
   href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_Insert__0_
@@ -3366,6 +3383,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).PeekMin
   nameWithType: FibornacciMinHeap<T>.PeekMin
   nameWithType.vb: FibornacciMinHeap(Of T).PeekMin
+- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: FibornacciMinHeap<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: FibornacciMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: FibornacciMinHeap<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: FibornacciMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation
   name: Advanced.Algorithms.DataStructures.Foundation
   href: api/Advanced.Algorithms.DataStructures.Foundation.html
@@ -6546,6 +6582,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).ExtractMin
   nameWithType: PairingMinHeap<T>.ExtractMin
   nameWithType.vb: PairingMinHeap(Of T).ExtractMin
+- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.PairingMinHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).GetEnumerator()
+  nameWithType: PairingMinHeap<T>.GetEnumerator()
+  nameWithType.vb: PairingMinHeap(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).GetEnumerator
+  nameWithType: PairingMinHeap<T>.GetEnumerator
+  nameWithType.vb: PairingMinHeap(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.Insert(`0)
   name: Insert(T)
   href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_Insert__0_
@@ -6598,6 +6651,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).PeekMin
   nameWithType: PairingMinHeap<T>.PeekMin
   nameWithType.vb: PairingMinHeap(Of T).PeekMin
+- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.PairingMinHeap`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: PairingMinHeap<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: PairingMinHeap<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1
   name: RedBlackTree<T>
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html
