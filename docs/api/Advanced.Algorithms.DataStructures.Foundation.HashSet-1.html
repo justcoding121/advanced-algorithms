@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class BTree&lt;T&gt;
+    <title>Class HashSet&lt;T&gt;
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class BTree&lt;T&gt;
+    <meta name="title" content="Class HashSet&lt;T&gt;
    | Advanced Algorithms ">
     <meta name="generator" content="docfx 2.37.2.0">
     
@@ -78,18 +78,18 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.DataStructures.BTree`1">
+            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1">
   
   
-  <h1 id="Advanced_Algorithms_DataStructures_BTree_1" data-uid="Advanced.Algorithms.DataStructures.BTree`1" class="text-break">Class BTree&lt;T&gt;
+  <h1 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1" class="text-break">Class HashSet&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A B-tree implementation.</p>
+  <div class="markdown level0 summary"><p>A hash table implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">BTree&lt;T&gt;</span></div>
+    <div class="level1"><span class="xref">HashSet&lt;T&gt;</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -120,11 +120,11 @@
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.html">Advanced.Algorithms.DataStructures</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.Foundation.html">Advanced.Algorithms.DataStructures.Foundation</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
-  <h5 id="Advanced_Algorithms_DataStructures_BTree_1_syntax">Syntax</h5>
+  <h5 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BTree&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable where T : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class HashSet&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -137,7 +137,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>The value datatype.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -145,13 +146,14 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_BTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.#ctor*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BTree_1__ctor_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.#ctor(System.Int32)">BTree(Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1__ctor_Advanced_Algorithms_DataStructures_Foundation_HashSetType_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.#ctor(Advanced.Algorithms.DataStructures.Foundation.HashSetType,System.Int32)">HashSet(HashSetType, Int32)</h4>
+  <div class="markdown level1 summary"><p>Constructor.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BTree(int maxKeysPerNode)</code></pre>
+    <pre><code class="lang-csharp hljs">public HashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -164,9 +166,16 @@
     </thead>
     <tbody>
       <tr>
+        <td><a class="xref" href="Advanced.Algorithms.DataStructures.Foundation.HashSetType.html">HashSetType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The hashSet implementation to use.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">maxKeysPerNode</span></td>
-        <td></td>
+        <td><span class="parametername">initialBucketSize</span></td>
+        <td><p>The larger the bucket size lesser the collision, but memory matters!</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -174,9 +183,10 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_BTree_1_Count_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Count*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BTree_1_Count" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Count">Count</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Count_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Count*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Count" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Count">Count</h4>
+  <div class="markdown level1 summary"><p>The number of items in this hashset.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -197,70 +207,19 @@
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_BTree_1_Max_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Max*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BTree_1_Max" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Max">Max</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Max { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_BTree_1_Min_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Min*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BTree_1_Min" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Min">Min</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Min { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_BTree_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Delete*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BTree_1_Delete__0_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Delete(`0)">Delete(T)</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).</p>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Add_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Add*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Add__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Add(`0)">Add(T)</h4>
+  <div class="markdown level1 summary"><p>Add a new value.
+Time complexity: O(1) amortized.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Delete(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Add(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -275,14 +234,73 @@
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The value to add.</p>
+</td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_BTree_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.GetEnumerator*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BTree_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.BTree`1.GetEnumerator">GetEnumerator()</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Clear_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Clear*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Clear" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Clear the hashtable.
+Time complexity: O(1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Contains_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Contains*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Contains__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Contains(`0)">Contains(T)</h4>
+  <div class="markdown level1 summary"><p>Does this hash table contains the given value.
+Time complexity: O(1) amortized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>True if this hashset contains the given value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.GetEnumerator">GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -306,14 +324,15 @@
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_BTree_1_HasItem_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.HasItem*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BTree_1_HasItem__0_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.HasItem(`0)">HasItem(T)</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).</p>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Remove_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Remove*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_Remove__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.Remove(`0)">Remove(T)</h4>
+  <div class="markdown level1 summary"><p>Remove the given value.
+Time complexity: O(1) amortized.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasItem(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Remove(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -328,50 +347,8 @@
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_BTree_1_Insert_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Insert*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BTree_1_Insert__0_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.Insert(`0)">Insert(T)</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Insert(T newValue)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">newValue</span></td>
-        <td></td>
+        <td><p>The value to remove.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -379,8 +356,8 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_BTree_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.BTree`1.System#Collections#IEnumerable#GetEnumerator*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_BTree_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.BTree`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_HashSet_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Foundation.HashSet`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

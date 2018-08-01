@@ -83,12 +83,18 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_Tree_1" data-uid="Advanced.Algorithms.DataStructures.Tree`1" class="text-break">Class Tree&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A tree implementation.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">Tree&lt;T&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -118,8 +124,7 @@
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_Tree_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Tree&lt;T&gt;
-    where T : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class Tree&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable where T : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -167,9 +172,53 @@
   </h3>
   
   
+  <a id="Advanced_Algorithms_DataStructures_Tree_1_Children_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.Children*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Tree_1_Children__0_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.Children(`0)">Children(T)</h4>
+  <div class="markdown level1 summary"><p>Time complexity:  O(n)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; Children(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_Tree_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.Delete*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Tree_1_Delete__0_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.Delete(`0)">Delete(T)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Time complexity:  O(n)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -194,32 +243,25 @@
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Tree_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.Delete*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Tree_1_Delete__0__0_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.Delete(`0,`0)">Delete(T, T)</h4>
+  <a id="Advanced_Algorithms_DataStructures_Tree_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Tree_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Tree`1.GetEnumerator">GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Delete(T parentValue, T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">parentValue</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">value</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -228,7 +270,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_Tree_1_GetHeight_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.GetHeight*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Tree_1_GetHeight" data-uid="Advanced.Algorithms.DataStructures.Tree`1.GetHeight">GetHeight()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Time complexity:  O(n)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -253,7 +296,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_Tree_1_HasItem_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.HasItem*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Tree_1_HasItem__0_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.HasItem(`0)">HasItem(T)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Time complexity:  O(n)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -295,11 +339,12 @@
   
   <a id="Advanced_Algorithms_DataStructures_Tree_1_Insert_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.Insert*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Tree_1_Insert__0__0_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.Insert(`0,`0)">Insert(T, T)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Time complexity:  O(n)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Insert(T parentValue, T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Insert(T parent, T child)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -313,16 +358,50 @@
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><span class="parametername">parentValue</span></td>
+        <td><span class="parametername">parent</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><span class="parametername">value</span></td>
+        <td><span class="parametername">child</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Tree_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Tree`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Tree_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Tree`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           
