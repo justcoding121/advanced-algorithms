@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Dictionaries
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     /// <summary>
     /// A dictionary implementation.

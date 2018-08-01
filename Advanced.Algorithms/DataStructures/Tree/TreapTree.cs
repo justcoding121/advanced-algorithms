@@ -4,43 +4,18 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class TreapTreeNode<T> : BSTNodeBase<T> where T : IComparable
-    {
-        internal new TreapTreeNode<T> Parent
-        {
-            get { return (TreapTreeNode<T>)base.Parent; }
-            set { base.Parent = value; }
-        }
-
-        internal new TreapTreeNode<T> Left
-        {
-            get { return (TreapTreeNode<T>)base.Left; }
-            set { base.Left = value; }
-        }
-
-        internal new TreapTreeNode<T> Right
-        {
-            get { return (TreapTreeNode<T>)base.Right; }
-            set { base.Right = value; }
-        }
-
-        internal int Priority { get; set; }
-
-        internal TreapTreeNode(TreapTreeNode<T> parent, T value, int priority)
-        {
-            Parent = parent;
-            Value = value;
-            Priority = priority;
-        }
-    }
-
+    /// <summary>
+    /// A treap tree implementation.
+    /// </summary>
     public class TreapTree<T> : IEnumerable<T> where T : IComparable
     {
         private Random rndGenerator = new Random();
         internal TreapTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public bool HasItem(T value)
         {
             if (Root == null)
@@ -51,7 +26,9 @@ namespace Advanced.Algorithms.DataStructures
             return find(Root, value) != null;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public int GetHeight()
         {
             return getHeight(Root);
@@ -68,7 +45,9 @@ namespace Advanced.Algorithms.DataStructures
             return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public void Insert(T value)
         {
             if (Root == null)
@@ -123,8 +102,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //remove the node with the given identifier from the descendants 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public void Delete(T value)
         {
             if (Root == null)
@@ -267,11 +247,13 @@ namespace Advanced.Algorithms.DataStructures
             node.Left.Parent = node.Parent;
         }
 
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public T FindMax()
         {
             return findMax(Root).Value;
         }
-
 
         private TreapTreeNode<T> findMax(TreapTreeNode<T> node)
         {
@@ -282,6 +264,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public T FindMin()
         {
             return findMin(Root).Value;
@@ -440,7 +425,6 @@ namespace Advanced.Algorithms.DataStructures
             return newRoot;
         }
 
-
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(log(n)) worst O(n) for unbalanced tree
@@ -451,9 +435,8 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         ///     Get the value previous to given value in this BST.
+        ///     Time complexity: O(n).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextLower(T value)
         {
             var node = find(value);
@@ -467,10 +450,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value next to given value in this BST.
+        ///     Get the value previous to given value in this BST.
+        ///     Time complexity: O(n).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextHigher(T value)
         {
             var node = find(value);
@@ -494,4 +476,35 @@ namespace Advanced.Algorithms.DataStructures
             return new BSTEnumerator<T>(Root);
         }
     }
+
+    internal class TreapTreeNode<T> : BSTNodeBase<T> where T : IComparable
+    {
+        internal new TreapTreeNode<T> Parent
+        {
+            get { return (TreapTreeNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
+
+        internal new TreapTreeNode<T> Left
+        {
+            get { return (TreapTreeNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
+
+        internal new TreapTreeNode<T> Right
+        {
+            get { return (TreapTreeNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
+
+        internal int Priority { get; set; }
+
+        internal TreapTreeNode(TreapTreeNode<T> parent, T value, int priority)
+        {
+            Parent = parent;
+            Value = value;
+            Priority = priority;
+        }
+    }
+
 }

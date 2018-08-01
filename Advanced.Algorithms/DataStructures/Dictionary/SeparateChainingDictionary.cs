@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Dictionaries
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>  
     {

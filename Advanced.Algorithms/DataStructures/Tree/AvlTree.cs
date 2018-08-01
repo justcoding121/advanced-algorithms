@@ -4,47 +4,21 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class AVLTreeNode<T> : BSTNodeBase<T> where T : IComparable
-    {
-        internal new AVLTreeNode<T> Parent
-        {
-            get { return (AVLTreeNode<T>)base.Parent; }
-            set { base.Parent = value; }
-        }
-
-        internal new AVLTreeNode<T> Left
-        {
-            get { return (AVLTreeNode<T>)base.Left; }
-            set { base.Left = value; }
-        }
-
-        internal new AVLTreeNode<T> Right
-        {
-            get { return (AVLTreeNode<T>)base.Right; }
-            set { base.Right = value; }
-        }
-
-        internal AVLTreeNode(AVLTreeNode<T> parent, T value)
-        {
-            Parent = parent;
-            Value = value;
-            Height = 0;
-        }
-
-        internal int Height { get; set; }
-    }
-
+    /// <summary>
+    /// An AVL tree implementation.
+    /// </summary>
     public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
-        internal AVLTreeNode<T> Root { get; private set; }
-        public int Count { get; private set; }
         private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
 
+        internal AVLTreeNode<T> Root { get; set; }
+
+        public int Count { get; private set; }
         /// <summary>
-        /// Constructor
+        /// Constructor.
         /// </summary>
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
-        /// by using a dictionary<T, AVLTreeNode<T> at the cost of additional space.</param>
+        ///  at the cost of additional space.</param>
         public AVLTree(bool enableNodeLookUp = false)
         {
             if (enableNodeLookUp)
@@ -53,7 +27,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //O(log(n)) always
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public bool HasItem(T value)
         {
             if (Root == null)
@@ -64,7 +40,9 @@ namespace Advanced.Algorithms.DataStructures
             return find(Root, value) != null;
         }
 
-        //O(1)
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public int GetHeight()
         {
             if (Root == null)
@@ -73,7 +51,9 @@ namespace Advanced.Algorithms.DataStructures
             return Root.Height;
         }
 
-        //O(log(n)) always
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public void Insert(T value)
         {
             if (Root == null)
@@ -91,7 +71,9 @@ namespace Advanced.Algorithms.DataStructures
             Count++;
         }
 
-        //O(log(n)) always
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         private void insert(AVLTreeNode<T> node, T value)
         {
 
@@ -141,8 +123,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
 
-        //remove the node with the given identifier from the descendants 
-        //O(log(n)) always
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public void Delete(T value)
         {
             if (Root == null)
@@ -160,7 +143,7 @@ namespace Advanced.Algorithms.DataStructures
             Count--;
         }
 
-        //O(log(n)) always
+        
         private void delete(AVLTreeNode<T> node, T value)
         {
             var baseCase = false;
@@ -298,6 +281,9 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public T FindMax()
         {
             return findMax(Root).Value;
@@ -317,6 +303,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public T FindMin()
         {
             return findMin(Root).Value;
@@ -335,7 +324,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        /// Time complexity: O(log(n))
+        /// </summary>
         public bool Contains(T value)
         {
             if (Root == null)
@@ -548,9 +539,8 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         ///     Get the value previous to given value in this BST.
+        ///     Time complexity: O(log(n))
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextLower(T value)
         {
             var node = find(value);
@@ -565,9 +555,8 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         ///     Get the value next to given value in this BST.
+        ///     Time complexity: O(log(n))
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextHigher(T value)
         {
             var node = find(value);
@@ -617,4 +606,35 @@ namespace Advanced.Algorithms.DataStructures
             return new BSTEnumerator<T>(Root);
         }
     }
+
+    internal class AVLTreeNode<T> : BSTNodeBase<T> where T : IComparable
+    {
+        internal new AVLTreeNode<T> Parent
+        {
+            get { return (AVLTreeNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
+
+        internal new AVLTreeNode<T> Left
+        {
+            get { return (AVLTreeNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
+
+        internal new AVLTreeNode<T> Right
+        {
+            get { return (AVLTreeNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
+
+        internal AVLTreeNode(AVLTreeNode<T> parent, T value)
+        {
+            Parent = parent;
+            Value = value;
+            Height = 0;
+        }
+
+        internal int Height { get; set; }
+    }
+
 }

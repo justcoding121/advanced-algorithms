@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.HashSets
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     /// <summary>
     /// A hash table implementation.

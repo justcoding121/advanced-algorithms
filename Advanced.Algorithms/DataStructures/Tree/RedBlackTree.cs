@@ -4,65 +4,21 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal enum RedBlackTreeNodeColor
-    {
-        Black,
-        Red
-    }
-
     /// <summary>
-    /// Red black tree node
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    internal class RedBlackTreeNode<T> : BSTNodeBase<T> where T : IComparable
-    {
-        internal new RedBlackTreeNode<T> Parent
-        {
-            get { return (RedBlackTreeNode<T>)base.Parent; }
-            set { base.Parent = value; }
-        }
-
-        internal new RedBlackTreeNode<T> Left
-        {
-            get { return (RedBlackTreeNode<T>)base.Left; }
-            set { base.Left = value; }
-        }
-
-        internal new RedBlackTreeNode<T> Right
-        {
-            get { return (RedBlackTreeNode<T>)base.Right; }
-            set { base.Right = value; }
-        }
-
-        internal RedBlackTreeNodeColor NodeColor { get; set; }
-
-        internal RedBlackTreeNode<T> Sibling => Parent.Left == this ?
-                                                Parent.Right : Parent.Left;
-
-        internal RedBlackTreeNode(RedBlackTreeNode<T> parent, T value)
-        {
-            Parent = parent;
-            Value = value;
-            NodeColor = RedBlackTreeNodeColor.Red;
-        }
-    }
-
-    /// <summary>
-    /// Red black tree implementation
+    /// A red black tree implementation.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
-    {
-        internal RedBlackTreeNode<T> Root { get; private set; }
-        public int Count { get; private set; }
-
+    {     
         private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
+        internal RedBlackTreeNode<T> Root { get; set; }
+        public int Count { get; private set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
-        /// by using a dictionary<T, RedBlackTreeNode<T> at the cost of additional space.</param>
+        /// at the cost of additional space.</param>
         public RedBlackTree(bool enableNodeLookUp = false, IEqualityComparer<T> equalityComparer = null)
         {
             if (enableNodeLookUp)
@@ -71,13 +27,17 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
         public int GetHeight()
         {
             return Root.GetHeight();
         }
 
-        //O(log(n)) always
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
         public bool HasItem(T value)
         {
             if (Root == null)
@@ -93,12 +53,18 @@ namespace Advanced.Algorithms.DataStructures
             return find(value) != null;
         }
 
+        /// <summary>
+        ///  Time complexity: O(1)
+        /// </summary>
         internal void Clear()
         {
             Root = null;
             Count = 0;
         }
 
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
         public T Max()
         {
             return Root.FindMax().Value;
@@ -114,11 +80,13 @@ namespace Advanced.Algorithms.DataStructures
             return node.FindMin() as RedBlackTreeNode<T>;
         }
 
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
         public T Min()
         {
             return Root.FindMin().Value;
         }
-
 
         //O(log(n)) worst O(n) for unbalanced tree
         internal RedBlackTreeNode<T> FindNode(T value)
@@ -145,86 +113,9 @@ namespace Advanced.Algorithms.DataStructures
             return Root.Find<T>(value) as RedBlackTreeNode<T>;
         }
 
-        private void rightRotate(RedBlackTreeNode<T> node)
-        {
-            var prevRoot = node;
-            var leftRightChild = prevRoot.Left.Right;
-
-            var newRoot = node.Left;
-
-            //make left child as root
-            prevRoot.Left.Parent = prevRoot.Parent;
-
-            if (prevRoot.Parent != null)
-            {
-                if (prevRoot.Parent.Left == prevRoot)
-                {
-                    prevRoot.Parent.Left = prevRoot.Left;
-                }
-                else
-                {
-                    prevRoot.Parent.Right = prevRoot.Left;
-                }
-            }
-
-            //move prev root as right child of current root
-            newRoot.Right = prevRoot;
-            prevRoot.Parent = newRoot;
-
-            //move right child of left child of prev root to left child of right child of new root
-            newRoot.Right.Left = leftRightChild;
-            if (newRoot.Right.Left != null)
-            {
-                newRoot.Right.Left.Parent = newRoot.Right;
-            }
-
-            if (prevRoot == Root)
-            {
-                Root = newRoot;
-            }
-
-        }
-
-        private void leftRotate(RedBlackTreeNode<T> node)
-        {
-            var prevRoot = node;
-            var rightLeftChild = prevRoot.Right.Left;
-
-            var newRoot = node.Right;
-
-            //make right child as root
-            prevRoot.Right.Parent = prevRoot.Parent;
-
-            if (prevRoot.Parent != null)
-            {
-                if (prevRoot.Parent.Left == prevRoot)
-                {
-                    prevRoot.Parent.Left = prevRoot.Right;
-                }
-                else
-                {
-                    prevRoot.Parent.Right = prevRoot.Right;
-                }
-            }
-
-            //move prev root as left child of current root
-            newRoot.Left = prevRoot;
-            prevRoot.Parent = newRoot;
-
-            //move left child of right child of prev root to right child of left child of new root
-            newRoot.Left.Right = rightLeftChild;
-            if (newRoot.Left.Right != null)
-            {
-                newRoot.Left.Right.Parent = newRoot.Left;
-            }
-
-            if (prevRoot == Root)
-            {
-                Root = newRoot;
-            }
-        }
-
-        //O(log(n)) always
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
         public void Insert(T value)
         {
             //empty tree
@@ -404,7 +295,9 @@ namespace Advanced.Algorithms.DataStructures
             node1.NodeColor = tmpColor;
         }
 
-        //O(log(n)) always
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
         public void Delete(T value)
         {
             if (Root == null)
@@ -575,6 +468,85 @@ namespace Advanced.Algorithms.DataStructures
             //black deletion! But we can take its red child and recolor it to black
             //and we are done!
             node.Left.NodeColor = RedBlackTreeNodeColor.Black;
+        }
+
+        private void rightRotate(RedBlackTreeNode<T> node)
+        {
+            var prevRoot = node;
+            var leftRightChild = prevRoot.Left.Right;
+
+            var newRoot = node.Left;
+
+            //make left child as root
+            prevRoot.Left.Parent = prevRoot.Parent;
+
+            if (prevRoot.Parent != null)
+            {
+                if (prevRoot.Parent.Left == prevRoot)
+                {
+                    prevRoot.Parent.Left = prevRoot.Left;
+                }
+                else
+                {
+                    prevRoot.Parent.Right = prevRoot.Left;
+                }
+            }
+
+            //move prev root as right child of current root
+            newRoot.Right = prevRoot;
+            prevRoot.Parent = newRoot;
+
+            //move right child of left child of prev root to left child of right child of new root
+            newRoot.Right.Left = leftRightChild;
+            if (newRoot.Right.Left != null)
+            {
+                newRoot.Right.Left.Parent = newRoot.Right;
+            }
+
+            if (prevRoot == Root)
+            {
+                Root = newRoot;
+            }
+
+        }
+
+        private void leftRotate(RedBlackTreeNode<T> node)
+        {
+            var prevRoot = node;
+            var rightLeftChild = prevRoot.Right.Left;
+
+            var newRoot = node.Right;
+
+            //make right child as root
+            prevRoot.Right.Parent = prevRoot.Parent;
+
+            if (prevRoot.Parent != null)
+            {
+                if (prevRoot.Parent.Left == prevRoot)
+                {
+                    prevRoot.Parent.Left = prevRoot.Right;
+                }
+                else
+                {
+                    prevRoot.Parent.Right = prevRoot.Right;
+                }
+            }
+
+            //move prev root as left child of current root
+            newRoot.Left = prevRoot;
+            prevRoot.Parent = newRoot;
+
+            //move left child of right child of prev root to right child of left child of new root
+            newRoot.Left.Right = rightLeftChild;
+            if (newRoot.Left.Right != null)
+            {
+                newRoot.Left.Right.Parent = newRoot.Left;
+            }
+
+            if (prevRoot == Root)
+            {
+                Root = newRoot;
+            }
         }
 
         private RedBlackTreeNode<T> handleDoubleBlack(RedBlackTreeNode<T> node)
@@ -789,6 +761,49 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             return new BSTEnumerator<T>(Root);
+        }
+    }
+
+    internal enum RedBlackTreeNodeColor
+    {
+        Black,
+        Red
+    }
+
+    /// <summary>
+    /// Red black tree node
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    internal class RedBlackTreeNode<T> : BSTNodeBase<T> where T : IComparable
+    {
+        internal new RedBlackTreeNode<T> Parent
+        {
+            get { return (RedBlackTreeNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
+
+        internal new RedBlackTreeNode<T> Left
+        {
+            get { return (RedBlackTreeNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
+
+        internal new RedBlackTreeNode<T> Right
+        {
+            get { return (RedBlackTreeNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
+
+        internal RedBlackTreeNodeColor NodeColor { get; set; }
+
+        internal RedBlackTreeNode<T> Sibling => Parent.Left == this ?
+                                                Parent.Right : Parent.Left;
+
+        internal RedBlackTreeNode(RedBlackTreeNode<T> parent, T value)
+        {
+            Parent = parent;
+            Value = value;
+            NodeColor = RedBlackTreeNodeColor.Red;
         }
     }
 }

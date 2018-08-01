@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.HashSets;
+﻿using Advanced.Algorithms.DataStructures.Foundation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;

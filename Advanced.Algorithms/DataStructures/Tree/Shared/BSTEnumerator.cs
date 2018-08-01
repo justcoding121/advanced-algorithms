@@ -47,15 +47,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             get
             {
-
-                try
-                {
-                    return current.Value;
-                }
-                catch (NullReferenceException)
-                {
-                    throw new InvalidOperationException();
-                }
+                return current.Value;
             }
         }
 
@@ -105,15 +97,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             get
             {
-
-                try
-                {
-                    return current;
-                }
-                catch (NullReferenceException)
-                {
-                    throw new InvalidOperationException();
-                }
+                return current;
             }
         }
 

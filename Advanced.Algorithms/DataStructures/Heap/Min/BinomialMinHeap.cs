@@ -6,7 +6,7 @@ using System.Linq;
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// A binomial max heap implementation.
+    /// A binomial min heap implementation.
     /// </summary>
     public class BinomialMinHeap<T> : IEnumerable<T> where T : IComparable
     {

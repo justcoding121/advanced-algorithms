@@ -4,39 +4,20 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class BSTNode<T> : BSTNodeBase<T> where T : IComparable
-    {
-        internal new BSTNode<T> Parent
-        {
-            get { return (BSTNode<T>)base.Parent; }
-            set { base.Parent = value; }
-        }
 
-        internal new BSTNode<T> Left
-        {
-            get { return (BSTNode<T>)base.Left; }
-            set { base.Left = value; }
-        }
-
-        internal new BSTNode<T> Right
-        {
-            get { return (BSTNode<T>)base.Right; }
-            set { base.Right = value; }
-        }
-
-        internal BSTNode(BSTNode<T> parent, T value)
-        {
-            Parent = parent;
-            Value = value;
-        }
-    }
-
+    /// <summary>
+    /// A binary search tree implementation.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class BST<T> : IEnumerable<T> where T : IComparable
     {
         internal BSTNode<T> Root { get; set; }
+
         public int Count { get; private set; }
 
-        //worst O(n) for unbalanced tree
+        /// <summary>
+        /// Time complexity: O(n)
+        /// </summary>
         public bool HasItem(T value)
         {
             if (Root == null)
@@ -47,7 +28,9 @@ namespace Advanced.Algorithms.DataStructures
             return find(Root, value) != null;
         }
 
-        //worst O(n) for unbalanced tree
+        /// <summary>
+        /// Time complexity: O(n)
+        /// </summary>
         public int getHeight()
         {
             return getHeight(Root);
@@ -81,7 +64,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
 
-        //worst O(n) for unbalanced tree
+        /// <summary>
+        /// Time complexity: O(n)
+        /// </summary>
         public void Insert(T value)
         {
             if (Root == null)
@@ -136,8 +121,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //remove the node with the given identifier from the descendants 
-        //worst O(n) for unbalanced tree
+        /// <summary>
+        /// Time complexity: O(n)
+        /// </summary>
         public void Delete(T value)
         {
             if (Root == null)
@@ -296,6 +282,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        /// <summary>
+        /// Time complexity: O(n)
+        /// </summary>
         public T FindMax()
         {
             return FindMax(Root).Value;
@@ -310,6 +299,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        /// <summary>
+        /// Time complexity: O(n)
+        /// </summary>
         public T FindMin()
         {
             return findMin(Root).Value;
@@ -370,6 +362,7 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         ///     Get the value previous to given value in this BST.
+        ///     Time complexity: O(n)
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -387,6 +380,7 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         ///     Get the value next to given value in this BST.
+        ///     Time complexity: O(n)
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -411,6 +405,33 @@ namespace Advanced.Algorithms.DataStructures
         public IEnumerator<T> GetEnumerator()
         {
             return new BSTEnumerator<T>(Root);
+        }
+    }
+
+    internal class BSTNode<T> : BSTNodeBase<T> where T : IComparable
+    {
+        internal new BSTNode<T> Parent
+        {
+            get { return (BSTNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
+
+        internal new BSTNode<T> Left
+        {
+            get { return (BSTNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
+
+        internal new BSTNode<T> Right
+        {
+            get { return (BSTNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
+
+        internal BSTNode(BSTNode<T> parent, T value)
+        {
+            Parent = parent;
+            Value = value;
         }
     }
 }

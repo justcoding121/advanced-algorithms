@@ -1,6 +1,7 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -36,7 +37,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 Assert.IsTrue(e.Message.StartsWith("Cannot delete two child node"));
             }
-           
+
+            //IEnumerable test using linq count()
+            Assert.AreEqual(tree.Count, tree.Count());
+
             Assert.AreEqual(tree.GetHeight(), 2);
 
             tree.Delete(1);
@@ -62,6 +66,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             tree.Insert(1, 3);
             Assert.AreEqual(tree.GetHeight(), 2);
+
+            //IEnumerable test using linq count()
+            Assert.AreEqual(tree.Count, tree.Count());
         }
     }
 }

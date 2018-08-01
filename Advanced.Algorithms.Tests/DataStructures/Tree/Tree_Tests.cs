@@ -1,5 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -25,6 +26,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Insert(1, 2);
             Assert.AreEqual(tree.GetHeight(), 2);
 
+            //IEnumerable test using linq count()
+            Assert.AreEqual(tree.Count, tree.Count());
+
             tree.Delete(1);
             Assert.AreEqual(tree.GetHeight(), 1);
 
@@ -42,6 +46,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             tree.Insert(1, 2);
             Assert.AreEqual(tree.GetHeight(), 2);
+
+            //IEnumerable test using linq count()
+            Assert.AreEqual(tree.Count, tree.Count());
 
         }
     }

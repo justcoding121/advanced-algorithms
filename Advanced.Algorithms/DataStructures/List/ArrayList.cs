@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         /// Constructor.
-        /// TimeComplexity: O(1) if initial is empty otherwise O(n).
+        /// Time complexity: O(1) if initial is empty otherwise O(n).
         /// </summary>
         /// <param name="initalArraySize">The initial array size.</param>
         /// <param name="initial">Initial values if any.</param>
@@ -47,7 +47,7 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         /// Constructor.
-        /// TimeComplexity: O(1) if initial is empty otherwise O(n).
+        /// Time complexity: O(1) if initial is empty otherwise O(n).
         /// </summary>
         /// <param name="initial">Initial values if any.</param>
         public ArrayList(IEnumerable<T> initial) 

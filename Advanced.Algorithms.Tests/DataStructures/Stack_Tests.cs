@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures;
+﻿using Advanced.Algorithms.DataStructures.Foundation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures

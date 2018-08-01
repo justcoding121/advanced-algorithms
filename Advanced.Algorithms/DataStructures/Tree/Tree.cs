@@ -1,42 +1,22 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class TreeNode<T> : IComparable where T : IComparable
-    {
-        public T Value { get; set; }
-
-        public TreeNode<T> Parent { get; set; }
-        public SinglyLinkedList<TreeNode<T>> Children { get; set; }
-
-        public bool IsLeaf => Children.Count() == 0;
-
-        public TreeNode(TreeNode<T> parent, T value)
-        {
-            Parent = parent;
-            Value = value;
-
-            Children = new SinglyLinkedList<TreeNode<T>>();
-        }
-
-        public int CompareTo(object obj)
-        {
-            return CompareTo(obj as TreeNode<T>);
-        }
-
-        public int CompareTo(TreeNode<T> treeNode)
-        {
-            return Value.CompareTo(treeNode.Value);
-        }
-    }
-
-    public class Tree<T> where T : IComparable
+    /// <summary>
+    /// A tree implementation.
+    /// </summary>
+    public class Tree<T> : IEnumerable<T> where T : IComparable
     {
         private TreeNode<T> root { get; set; }
+
         public int Count { get; private set; }
 
-        //O(n)
+        /// <summary>
+        /// Time complexity:  O(n)
+        /// </summary>
         public bool HasItem(T value)
         {
             if (root == null)
@@ -47,7 +27,60 @@ namespace Advanced.Algorithms.DataStructures
             return find(root, value) != null;
         }
 
-        //O(n)
+        /// <summary>
+        /// Time complexity:  O(n)
+        /// </summary>
+        public int GetHeight()
+        {
+            return getHeight(root);
+        }
+
+        /// <summary>
+        /// Time complexity:  O(n)
+        /// </summary>
+        public void Insert(T parent, T child)
+        {
+            if (root == null)
+            {
+                root = new TreeNode<T>(null, child);
+                Count++;
+                return;
+            }
+
+            var parentNode = find(parent);
+
+            if (parentNode == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            var exists = find(root, child) != null;
+
+            if (exists)
+            {
+                throw new ArgumentException("value already exists");
+            }
+
+            parentNode.Children.InsertFirst(new TreeNode<T>(parentNode, child));
+            Count++;
+        }
+
+        /// <summary>
+        /// Time complexity:  O(n)
+        /// </summary>
+        public void Delete(T value)
+        {
+            delete(root.Value, value);
+        }
+
+        /// <summary>
+        /// Time complexity:  O(n)
+        /// </summary>
+        public IEnumerable<T> Children(T value)
+        {
+            return find(value)?.Children.Select(x => x.Value);
+        }
+
         private TreeNode<T> find(T value)
         {
             if (root == null)
@@ -58,13 +91,6 @@ namespace Advanced.Algorithms.DataStructures
             return find(root, value);
         }
 
-        //O(n)
-        public int GetHeight()
-        {
-            return getHeight(root);
-        }
-
-        //O(n)
         private int getHeight(TreeNode<T> node)
         {
             if (node == null)
@@ -89,43 +115,7 @@ namespace Advanced.Algorithms.DataStructures
             return currentHeight;
         }
 
-        //O(1)
-        //add the new child under this parent
-        public void Insert(T parentValue, T value)
-        {
-            if (root == null)
-            {
-                root = new TreeNode<T>(null, value);
-                Count++;
-                return;
-            }
-
-            var parent = find(parentValue);
-
-            if (parent == null)
-            {
-                throw new ArgumentNullException();
-            }
-
-            var exists = find(root, value) != null;
-
-            if (exists)
-            {
-                throw new ArgumentException("value already exists");
-            }
-
-            parent.Children.InsertFirst(new TreeNode<T>(parent, value));
-            Count++;
-        }
-
-        public void Delete(T value)
-        {
-            Delete(root.Value, value);
-        }
-
-        //O(n)
-        //remove the node with the given identifier from the descendants if it can be deleted unambiguosly
-        public void Delete(T parentValue, T value)
+        private void delete(T parentValue, T value)
         {
             var parent = find(parentValue);
 
@@ -184,13 +174,11 @@ namespace Advanced.Algorithms.DataStructures
                     }
                 }
             }
-            Count--;
 
+            Count--;
 
         }
 
-        //O(n)
-        //find the node with the given identifier among descendants of parent
         private TreeNode<T> find(TreeNode<T> parent, T value)
         {
             if (parent.Value.CompareTo(value) == 0)
@@ -211,6 +199,95 @@ namespace Advanced.Algorithms.DataStructures
             return null;
         }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new TreeEnumerator<T>(root);
+           
+        }
+
     }
 
+    internal class TreeNode<T> : IComparable where T : IComparable
+    {
+        internal T Value { get; set; }
+
+        internal TreeNode<T> Parent { get; set; }
+        internal SinglyLinkedList<TreeNode<T>> Children { get; set; }
+
+        internal bool IsLeaf => Children.Count() == 0;
+
+        internal TreeNode(TreeNode<T> parent, T value)
+        {
+            Parent = parent;
+            Value = value;
+
+            Children = new SinglyLinkedList<TreeNode<T>>();
+        }
+
+        public int CompareTo(object obj)
+        {
+            return Value.CompareTo(obj as TreeNode<T>);
+        }
+    }
+
+    internal class TreeEnumerator<T> : IEnumerator<T> where T : IComparable
+    {
+        private readonly TreeNode<T> root;
+        private Stack<TreeNode<T>> progress;
+
+        internal TreeEnumerator(TreeNode<T> root)
+        {
+            this.root = root;
+        }
+
+        public bool MoveNext()
+        {
+            if (root == null)
+            {
+                return false;
+            }
+
+            if (progress == null)
+            {
+                progress = new Stack<TreeNode<T>>(root.Children);
+                Current = root.Value;
+                return true;
+            }
+
+            if (progress.Count > 0)
+            {
+                var next = progress.Pop();
+                Current = next.Value;
+
+                foreach (var child in next.Children)
+                {
+                    progress.Push(child);
+                }
+              
+                return true;
+            }
+
+            return false;
+        }
+
+        public void Reset()
+        {
+            progress = null;
+            Current = default(T);
+        }
+
+        public T Current { get; private set; }
+
+        object IEnumerator.Current => Current;
+
+        public void Dispose()
+        {
+            progress = null;
+        }
+    }
 }

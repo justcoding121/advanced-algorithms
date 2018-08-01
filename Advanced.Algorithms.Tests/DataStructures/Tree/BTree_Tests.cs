@@ -29,6 +29,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Insert(4);
             tree.Insert(8);
 
+            //IEnumerable test using linq count()
+            Assert.AreEqual(tree.Count, tree.Count());
 
             ////delete
             tree.Delete(2);
@@ -46,7 +48,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Delete(12);
 
             Assert.AreEqual(tree.Count, 0);
-
+            Assert.AreEqual(tree.Count, tree.Count());
 
         }
 
@@ -81,12 +83,17 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(tree.Count == i + 1);
 
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
+                //IEnumerable test using linq count()
+                Assert.AreEqual(tree.Count, tree.Count());
             }
 
             for (int i = 0; i < nodeCount; i++)
             {
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
+
+            //IEnumerable test using linq count()
+            Assert.AreEqual(tree.Count, tree.Count());
 
             Assert.AreEqual(tree.Max, randomNumbers.Max());
             Assert.AreEqual(tree.Min, randomNumbers.Min());
@@ -111,10 +118,13 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
                 Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+                //IEnumerable test using linq count()
+                Assert.AreEqual(tree.Count, tree.Count());
             }
 
             Assert.IsTrue(tree.Count == 0);
-
+            //IEnumerable test using linq count()
+            Assert.AreEqual(tree.Count, tree.Count());
         }
 
 
@@ -122,35 +132,36 @@ namespace Advanced.Algorithms.Tests.DataStructures
         public void BTree_StressTest()
         {
 
-                var nodeCount = 1000 * 10;
+            var nodeCount = 1000 * 10;
 
-                var rnd = new Random();
-                var randomNumbers = Enumerable.Range(1, nodeCount)
-                                    .OrderBy(x => rnd.Next())
-                                    .ToList();
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .ToList();
 
-                var tree = new BTree<int>(12);
+            var tree = new BTree<int>(12);
 
-                for (int i = 0; i < nodeCount; i++)
-                {
-                    tree.Insert(randomNumbers[i]);
-                    Assert.IsTrue(tree.Count == i + 1);
-                }
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Insert(randomNumbers[i]);
+                Assert.IsTrue(tree.Count == i + 1);
 
-                //shuffle again before deletion tests
-                randomNumbers = Enumerable.Range(1, nodeCount)
-                                   .OrderBy(x => rnd.Next())
-                                   .ToList();
+            }
 
-
-                for (int i = 0; i < nodeCount; i++)
-                {
-                    tree.Delete(randomNumbers[i]);
-                    Assert.IsTrue(tree.Count == nodeCount - 1 - i);
-                }
+            //shuffle again before deletion tests
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                               .OrderBy(x => rnd.Next())
+                               .ToList();
 
 
-                Assert.IsTrue(tree.Count == 0);
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
+
+
+            Assert.IsTrue(tree.Count == 0);
 
         }
     }
