@@ -9052,32 +9052,32 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Geometry.Rectangle.Rectangle
   nameWithType: Rectangle.Rectangle
-- uid: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
-  name: LeftTopCorner
-  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_LeftTopCorner
-  commentId: P:Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
-  fullName: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
-  nameWithType: Rectangle.LeftTopCorner
-- uid: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner*
-  name: LeftTopCorner
-  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_LeftTopCorner_
-  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
+- uid: Advanced.Algorithms.Geometry.Rectangle.LeftTop
+  name: LeftTop
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_LeftTop
+  commentId: P:Advanced.Algorithms.Geometry.Rectangle.LeftTop
+  fullName: Advanced.Algorithms.Geometry.Rectangle.LeftTop
+  nameWithType: Rectangle.LeftTop
+- uid: Advanced.Algorithms.Geometry.Rectangle.LeftTop*
+  name: LeftTop
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_LeftTop_
+  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.LeftTop
   isSpec: "True"
-  fullName: Advanced.Algorithms.Geometry.Rectangle.LeftTopCorner
-  nameWithType: Rectangle.LeftTopCorner
-- uid: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
-  name: RightBottomCorner
-  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_RightBottomCorner
-  commentId: P:Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
-  fullName: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
-  nameWithType: Rectangle.RightBottomCorner
-- uid: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner*
-  name: RightBottomCorner
-  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_RightBottomCorner_
-  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
+  fullName: Advanced.Algorithms.Geometry.Rectangle.LeftTop
+  nameWithType: Rectangle.LeftTop
+- uid: Advanced.Algorithms.Geometry.Rectangle.RightBottom
+  name: RightBottom
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_RightBottom
+  commentId: P:Advanced.Algorithms.Geometry.Rectangle.RightBottom
+  fullName: Advanced.Algorithms.Geometry.Rectangle.RightBottom
+  nameWithType: Rectangle.RightBottom
+- uid: Advanced.Algorithms.Geometry.Rectangle.RightBottom*
+  name: RightBottom
+  href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_RightBottom_
+  commentId: Overload:Advanced.Algorithms.Geometry.Rectangle.RightBottom
   isSpec: "True"
-  fullName: Advanced.Algorithms.Geometry.Rectangle.RightBottomCorner
-  nameWithType: Rectangle.RightBottomCorner
+  fullName: Advanced.Algorithms.Geometry.Rectangle.RightBottom
+  nameWithType: Rectangle.RightBottom
 - uid: Advanced.Algorithms.Geometry.Rectangle.ToPolygon
   name: ToPolygon()
   href: api/Advanced.Algorithms.Geometry.Rectangle.html#Advanced_Algorithms_Geometry_Rectangle_ToPolygon
