@@ -1842,12 +1842,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: BST<T>.IEnumerable.GetEnumerator
   nameWithType.vb: BST(Of T).System.Collections.IEnumerable.GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.BSTExtensions
-  name: BSTExtensions
-  href: api/Advanced.Algorithms.DataStructures.BSTExtensions.html
-  commentId: T:Advanced.Algorithms.DataStructures.BSTExtensions
-  fullName: Advanced.Algorithms.DataStructures.BSTExtensions
-  nameWithType: BSTExtensions
 - uid: Advanced.Algorithms.DataStructures.BTree`1
   name: BTree<T>
   href: api/Advanced.Algorithms.DataStructures.BTree-1.html
