@@ -12,14 +12,14 @@ namespace Advanced.Algorithms.DataStructures
     {
         public MBRectangle(Point leftTopCorner, Point rightBottomCorner)
         {
-            LeftTopCorner = leftTopCorner;
-            RightBottomCorner = rightBottomCorner;
+            LeftTop = leftTopCorner;
+            RightBottom = rightBottomCorner;
         }
 
         public MBRectangle(Rectangle rectangle)
         {
-            LeftTopCorner = new Point(rectangle.LeftTopCorner.X, rectangle.LeftTopCorner.Y);
-            RightBottomCorner = new Point(rectangle.RightBottomCorner.X, rectangle.RightBottomCorner.Y);
+            LeftTop = new Point(rectangle.LeftTop.X, rectangle.LeftTop.Y);
+            RightBottom = new Point(rectangle.RightBottom.X, rectangle.RightBottom.Y);
         }
 
         /// <summary>
@@ -43,8 +43,8 @@ namespace Advanced.Algorithms.DataStructures
         {
             var merged = getMergedRectangle(rectangleToMerge);
 
-            LeftTopCorner = merged.LeftTopCorner;
-            RightBottomCorner = merged.RightBottomCorner;
+            LeftTop = merged.LeftTop;
+            RightBottom = merged.RightBottom;
         }
 
         /// <summary>
@@ -53,11 +53,11 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="rectangleToMerge">The new rectangle.</param>
         private Rectangle getMergedRectangle(MBRectangle rectangleToMerge)
         {
-            var leftTopCorner = new Point(LeftTopCorner.X > rectangleToMerge.LeftTopCorner.X ? rectangleToMerge.LeftTopCorner.X : LeftTopCorner.X,
-              LeftTopCorner.Y < rectangleToMerge.LeftTopCorner.Y ? rectangleToMerge.LeftTopCorner.Y : LeftTopCorner.Y);
+            var leftTopCorner = new Point(LeftTop.X > rectangleToMerge.LeftTop.X ? rectangleToMerge.LeftTop.X : LeftTop.X,
+              LeftTop.Y < rectangleToMerge.LeftTop.Y ? rectangleToMerge.LeftTop.Y : LeftTop.Y);
 
-            var rightBottomCorner = new Point(RightBottomCorner.X < rectangleToMerge.RightBottomCorner.X ? rectangleToMerge.RightBottomCorner.X : RightBottomCorner.X,
-                RightBottomCorner.Y > rectangleToMerge.RightBottomCorner.Y ? rectangleToMerge.RightBottomCorner.Y : RightBottomCorner.Y);
+            var rightBottomCorner = new Point(RightBottom.X < rectangleToMerge.RightBottom.X ? rectangleToMerge.RightBottom.X : RightBottom.X,
+                RightBottom.Y > rectangleToMerge.RightBottom.Y ? rectangleToMerge.RightBottom.Y : RightBottom.Y);
 
             return new MBRectangle(leftTopCorner, rightBottomCorner);
         }

@@ -6,15 +6,25 @@ namespace Advanced.Algorithms.Geometry
     //Only A & D is required to represent a Rectangle
     public class Rectangle
     {
-        public Point LeftTopCorner { get; set; }
-        public Point RightBottomCorner { get; set; }
+        public Point LeftTop { get; set; }
+        public Point RightBottom { get; set; }
 
         public Rectangle() { }
 
-        public Rectangle(Point leftTopCorner, Point rightBottomCorner)
+        public Rectangle(Point leftTop, Point rightBottom)
         {
-            LeftTopCorner = leftTopCorner;
-            RightBottomCorner = rightBottomCorner;
+            if (rightBottom.Y > leftTop.Y)
+            {
+                throw new Exception("Top corner should have higher Y value than bottom.");
+            }
+
+            if(leftTop.X > rightBottom.X)
+            {
+                throw new Exception("Right corner should have higher X value than left.");
+            }
+
+            LeftTop = leftTop;
+            RightBottom = rightBottom;
         }
 
         internal double Area()
@@ -22,8 +32,8 @@ namespace Advanced.Algorithms.Geometry
             return Length * Breadth;
         }
 
-        internal double Length => Math.Abs(RightBottomCorner.X - LeftTopCorner.X);
-        internal double Breadth => Math.Abs(LeftTopCorner.Y - RightBottomCorner.Y);
+        internal double Length => Math.Abs(RightBottom.X - LeftTop.X);
+        internal double Breadth => Math.Abs(LeftTop.Y - RightBottom.Y);
 
         public Polygon ToPolygon()
         {
@@ -31,10 +41,10 @@ namespace Advanced.Algorithms.Geometry
             var edges = new List<Line>();
 
             //add all four edge lines of this rectangle
-            edges.Add(new Line(LeftTopCorner, new Point(RightBottomCorner.X, LeftTopCorner.Y)));
-            edges.Add(new Line(new Point(RightBottomCorner.X, LeftTopCorner.Y), RightBottomCorner));
-            edges.Add(new Line(RightBottomCorner, new Point(LeftTopCorner.X, RightBottomCorner.Y)));
-            edges.Add(new Line(new Point(LeftTopCorner.X, RightBottomCorner.Y), LeftTopCorner));
+            edges.Add(new Line(LeftTop, new Point(RightBottom.X, LeftTop.Y)));
+            edges.Add(new Line(new Point(RightBottom.X, LeftTop.Y), RightBottom));
+            edges.Add(new Line(RightBottom, new Point(LeftTop.X, RightBottom.Y)));
+            edges.Add(new Line(new Point(LeftTop.X, RightBottom.Y), LeftTop));
 
             return new Polygon(edges);
         }
