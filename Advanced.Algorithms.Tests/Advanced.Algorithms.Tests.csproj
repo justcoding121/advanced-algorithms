@@ -99,6 +99,7 @@
     <Compile Include="DataStructures\Tree\RTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\SplayTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\TreapTree_Tests.cs" />
+    <Compile Include="Distributed\AsyncQueue_Tests.cs" />
     <Compile Include="Distributed\CircularQueue_Tests.cs" />
     <Compile Include="DataStructures\Queues\Queue_Tests.cs" />
     <Compile Include="DataStructures\Set\BloomFilter_Tests.cs" />

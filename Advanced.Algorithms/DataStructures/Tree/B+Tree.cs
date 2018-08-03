@@ -72,9 +72,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Find the given value node under given node
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
         private BpTreeNode<T> find(BpTreeNode<T> node, T value)
         {
             //if leaf then its time to insert
@@ -212,7 +209,6 @@ namespace Advanced.Algorithms.DataStructures
                         //left most bottom node
                         BottomLeftNode = left;
                     }
-
                 }
 
                 //median of current Node
@@ -343,7 +339,6 @@ namespace Advanced.Algorithms.DataStructures
             {
                 insertNonFullNode(ref node, newValue, newValueLeft, newValueRight);
             }
-
         }
 
         /// <summary>
@@ -502,7 +497,6 @@ namespace Advanced.Algorithms.DataStructures
             {
                 sandwich(leftSibling, node, deleteKey);
             }
-
         }
 
         /// <summary>
@@ -616,7 +610,6 @@ namespace Advanced.Algorithms.DataStructures
                         insertAt(rightSibling.Children[i].Keys, 0, newNode.Keys[newIndex - 1]);
                         rightSibling.Children[i].KeyCount++;
                     }
-
                 }
 
                 if (rightSibling.Children[i + 1] != null)
@@ -665,7 +658,6 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     Root = null;
                 }
-
                 return;
             }
 
