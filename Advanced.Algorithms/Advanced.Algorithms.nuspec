@@ -4,7 +4,7 @@
     <id>Advanced.Algorithms</id>
     <version>$version$</version>
     <title>Advanced Algorithms</title>
-    <authors>Advanced Algorithms GitHub Contributors</authors>
+    <authors>Advanced Algorithms GitHub contributors</authors>
     <owners>justcoding121</owners>
     <licenseUrl>https://github.com/justcoding121/Advanced-Algorithms/blob/develop/LICENSE</licenseUrl>
     <projectUrl>https://github.com/justcoding121/Advanced-Algorithms</projectUrl>
@@ -15,7 +15,7 @@
     <tags></tags>
   </metadata>
   <files>
-    <file src="bin\$configuration$\net40\Advanced.Algorithms.dll" target="lib\net40"  />
+    <file src="bin\$configuration$\net45\Advanced.Algorithms.dll" target="lib\net45"  />
     <file src="bin\$configuration$\netstandard1.0\Advanced.Algorithms.*" target="lib\netstandard1.0"  />
   </files>
 </package>

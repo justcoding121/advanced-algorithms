@@ -354,7 +354,6 @@ namespace Advanced.Algorithms.DataStructures
             setChild(node, node.KeyCount, newValueRight);
         }
 
-
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
@@ -546,7 +545,6 @@ namespace Advanced.Algorithms.DataStructures
                 balance(parent);
             }
         }
-
 
         /// <summary>
         /// do a right rotation 

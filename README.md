@@ -252,7 +252,7 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 - [X] Circular queue (ring buffer) ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/CircularQueue.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.tests/Distributed/CircularQueue_tests.cs))
 - [X] Consistant hash ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/ConsistentHash.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.tests/Distributed/ConsistentHash_tests.cs))
 - [X] LRU cache ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/LRUCache.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.tests/Distributed/LRUCache_tests.cs))
-- [ ] Asynchronous producer–consumer queue
+- [X] Asynchronous producer–consumer queue ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms/Distributed/AsyncQueue.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/Advanced.Algorithms.tests/Distributed/AsyncQueue_tests.cs))
 
 ## Numerical methods
 
