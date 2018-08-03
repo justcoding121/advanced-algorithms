@@ -8,14 +8,14 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A multi-dimensional interval tree implementation.
     /// </summary>
-    public class DIntervalTree<T> where T : IComparable
+    public class IntervalTree<T>  where T : IComparable
     {
         private readonly int dimensions;
-        private readonly IntervalTree<T> tree;
+        private readonly OneDimentionalIntervalTree<T> tree;
 
         public int Count { get; private set; }
 
-        public DIntervalTree(int dimension)
+        public IntervalTree(int dimension)
         {
             if (dimension <= 0)
             {
@@ -23,8 +23,198 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             this.dimensions = dimension;
-            tree = new IntervalTree<T>();
+            tree = new OneDimentionalIntervalTree<T>(defaultValue);
         }
+
+        /// <summary>
+        /// Add a new interval to this interval tree.
+        /// Time complexity : O(d(log(n) + m)) where d is dimensions and
+        /// m is the number of intervals that overlaps with this inserted interval.
+        /// </summary>
+        public void Insert(T[] start, T[] end)
+        {
+            validateDimensions(start, end);
+
+            var currentTrees = new List<OneDimentionalIntervalTree<T>> { tree };
+
+            for (var i = 0; i < dimensions; i++)
+            {
+                var allOverlaps = new List<OneDimentionalIntervalTree<T>>();
+
+                foreach (var tree in currentTrees)
+                {
+                    //insert in current dimension
+                    tree.Insert(new OneDimentionalInterval<T>(start[i], end[i], defaultValue));
+
+                    //get all overlaps
+                    //and insert next dimension value to each overlapping node
+                    var overlaps = tree.GetOverlaps(new OneDimentionalInterval<T>(start[i], end[i], defaultValue));
+                    foreach (var overlap in overlaps)
+                    {
+                        allOverlaps.Add(overlap.NextDimensionIntervals);
+                    }
+                }
+
+                currentTrees = allOverlaps;
+            }
+
+            Count++;
+        }
+
+        /// <summary>
+        /// Delete this interval from this interval tree.
+        /// Time complexity :  O(d(log(n) + m)) where d is dimensions and
+        /// m is the number of intervals that overlap with this deleted interval.
+        /// </summary>
+        public void Delete(T[] start, T[] end)
+        {
+            validateDimensions(start, end);
+
+            var allOverlaps = new List<OneDimentionalIntervalTree<T>>();
+            var overlaps = tree.GetOverlaps(new OneDimentionalInterval<T>(start[0], end[0], defaultValue));
+
+            foreach (var overlap in overlaps)
+            {
+                allOverlaps.Add(overlap.NextDimensionIntervals);
+            }
+
+            DeleteOverlaps(allOverlaps, start, end, 1);
+            tree.Delete(new OneDimentionalInterval<T>(start[0], end[0], defaultValue));
+
+            Count--;
+        }
+
+        /// <summary>
+        /// Recursively delete values from overlaps in next dimension.
+        /// </summary>
+        private void DeleteOverlaps(List<OneDimentionalIntervalTree<T>> currentTrees, T[] start, T[] end, int index)
+        {
+            //base case
+            if (index == start.Length)
+                return;
+
+            var allOverlaps = new List<OneDimentionalIntervalTree<T>>();
+
+            foreach (var tree in currentTrees)
+            {
+                var overlaps = tree.GetOverlaps(new OneDimentionalInterval<T>(start[index], end[index],defaultValue));
+
+                foreach (var overlap in overlaps)
+                {
+                    allOverlaps.Add(overlap.NextDimensionIntervals);
+                }
+            }
+
+            //dig in to next dimension to 
+            DeleteOverlaps(allOverlaps, start, end, ++index);
+
+            index--;
+
+            //now delete
+            foreach (var tree in allOverlaps)
+            {
+                if (tree.Count > 0)
+                {
+                    tree.Delete(new OneDimentionalInterval<T>(start[index], end[index], defaultValue));
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// Does this interval overlap with any interval in this interval tree?
+        /// </summary>
+        public bool DoOverlap(T[] start, T[] end)
+        {
+            validateDimensions(start, end);
+
+            var allOverlaps = getOverlaps(tree, start, end, 0);
+
+            return allOverlaps.Count > 0;
+        }
+
+        /// <summary>
+        /// returns a list of matching intervals.
+        /// Time complexity : O(d(log(n) + m)) where d is dimensions and
+        /// m is the number of overlaps.
+        /// </summary>
+        public List<Interval<T>> GetOverlaps(T[] start, T[] end)
+        {
+            return getOverlaps(tree, start, end, 0);
+        }
+
+        /// <summary>
+        /// Does this interval overlap with any interval in this interval tree?
+        /// </summary>
+        private List<Interval<T>> getOverlaps(OneDimentionalIntervalTree<T> currentTree,
+            T[] start, T[] end, int dimension)
+        {
+            var nodes = currentTree.GetOverlaps(new OneDimentionalInterval<T>(start[dimension], end[dimension], defaultValue));
+
+            if (dimension + 1 == dimensions)
+            {
+                var result = new List<Interval<T>>();
+
+                foreach (var node in nodes)
+                {
+                    var fStart = new T[dimensions];
+                    var fEnd = new T[dimensions];
+
+                    fStart[dimension] = node.Start;
+                    fEnd[dimension] = node.End[node.MatchingEndIndex];
+
+                    var thisDimResult = new Interval<T>(fStart, fEnd);
+
+                    result.Add(thisDimResult);
+                }
+
+                return result;
+            }
+            else
+            {
+                var result = new List<Interval<T>>();
+
+                foreach (var node in nodes)
+                {
+                    var nextDimResult = getOverlaps(node.NextDimensionIntervals, start, end, dimension + 1);
+
+                    foreach (var nextResult in nextDimResult)
+                    {
+                        nextResult.Start[dimension] = node.Start;
+                        nextResult.End[dimension] = node.End[node.MatchingEndIndex];
+
+                        result.Add(nextResult);
+                    }
+                }
+
+                return result;
+            }
+
+        }
+
+        /// <summary>
+        /// A cached function to override default(T)
+        /// so that for value types we can return min value as default.
+        /// </summary>
+        private readonly Lazy<T> defaultValue = new Lazy<T>(() =>
+        {
+            var s = typeof(T);
+
+            bool isValueType;
+
+#if NET40
+            isValueType = s.IsValueType;
+#else
+            isValueType = s.GetTypeInfo().IsValueType;
+#endif
+
+            if (isValueType)
+            {
+                return (T)Convert.ChangeType(int.MinValue, s);
+            }
+
+            return default(T);
+        });
 
         /// <summary>
         /// validate dimensions for point length.
@@ -53,253 +243,35 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+    }
+
+    /// <summary>
+    /// An interval tree implementation in one dimension using augmentation tree method.
+    /// </summary>
+    internal class OneDimentionalIntervalTree<T> where T : IComparable
+    {
+        //use a height balanced binary search tree
+        private readonly RedBlackTree<OneDimentionalInterval<T>> redBlackTree
+            = new RedBlackTree<OneDimentionalInterval<T>>();
+
+        internal int Count { get; private set; }
+
+
         /// <summary>
         /// A cached function to override default(T)
         /// so that for value types we can return min value as default.
         /// </summary>
-        private readonly Lazy<T> defaultValue = new Lazy<T>(() =>
+        private readonly Lazy<T> defaultValue;
+
+        internal OneDimentionalIntervalTree(Lazy<T> defaultValue)
         {
-            var s = typeof(T);
-
-            bool isValueType;
-
-#if NET40
-            isValueType = s.IsValueType;
-#else
-            isValueType = s.GetTypeInfo().IsValueType;
-#endif
-
-            if (isValueType)
-            {
-                return (T)Convert.ChangeType(int.MinValue, s);
-            }
-
-            return default(T);
-        });
-
-        /// <summary>
-        /// Add a new interval to this interval tree.
-        /// Time complexity: O(log(n)).
-        /// </summary>
-        public void Insert(T[] start, T[] end)
-        {
-            validateDimensions(start, end);
-
-            var currentTrees = new List<IntervalTree<T>> { tree };
-
-            //get all overlaps
-            //and insert next dimension value to each overlapping node
-            for (var i = 0; i < dimensions; i++)
-            {
-                var allOverlaps = new List<IntervalTree<T>>();
-
-                foreach (var tree in currentTrees)
-                {
-                    tree.Insert(new Interval<T>(start[i], end[i]));
-
-                    var overlaps = tree.GetOverlaps(new Interval<T>(start[i], end[i]));
-                    foreach (var overlap in overlaps)
-                    {
-                        allOverlaps.Add(overlap.NextDimensionIntervals);
-                    }
-                }
-
-                currentTrees = allOverlaps;
-            }
-
-            Count++;
+            this.defaultValue = defaultValue;
         }
-
-        /// <summary>
-        /// Delete this interval from this interval tree.
-        /// Time complexity: O(log(n)).
-        /// </summary>
-        public void Delete(T[] start, T[] end)
-        {
-            validateDimensions(start, end);
-
-            var allOverlaps = new List<IntervalTree<T>>();
-            var overlaps = tree.GetOverlaps(new Interval<T>(start[0], end[0]));
-
-            foreach (var overlap in overlaps)
-            {
-                allOverlaps.Add(overlap.NextDimensionIntervals);
-            }
-
-            DeleteOverlaps(allOverlaps, start, end, 1);
-            tree.Delete(new Interval<T>(start[0], end[0]));
-
-            Count--;
-        }
-
-        /// <summary>
-        /// Recursively delete values from overlaps in next dimension.
-        /// </summary>
-        private void DeleteOverlaps(List<IntervalTree<T>> currentTrees, T[] start, T[] end, int index)
-        {
-            //base case
-            if (index == start.Length)
-                return;
-
-            var allOverlaps = new List<IntervalTree<T>>();
-
-            foreach (var tree in currentTrees)
-            {
-                var overlaps = tree.GetOverlaps(new Interval<T>(start[index], end[index]));
-
-                foreach (var overlap in overlaps)
-                {
-                    allOverlaps.Add(overlap.NextDimensionIntervals);
-                }
-            }
-
-            //dig in to next dimension to 
-            DeleteOverlaps(allOverlaps, start, end, ++index);
-
-            index--;
-
-            //now delete
-            foreach (var tree in allOverlaps)
-            {
-                if (tree.Count > 0)
-                {
-                    tree.Delete(new Interval<T>(start[index], end[index]));
-                }
-
-            }
-        }
-
-        /// <summary>
-        /// Does this interval overlap with any interval in this interval tree?
-        /// </summary>
-        public bool DoOverlap(T[] start, T[] end)
-        {
-            validateDimensions(start, end);
-
-            var allOverlaps = getOverlaps(tree, start, end, 0);
-
-            return allOverlaps.Count > 0;
-        }
-
-        /// <summary>
-        /// returns a list of matching intervals.
-        /// Time complexity : O(log n + m) where m is the number of intervals in the result.
-        /// </summary>
-        public List<DInterval<T>> GetOverlaps(T[] start, T[] end)
-        {
-            return getOverlaps(tree, start, end, 0);
-        }
-
-        /// <summary>
-        /// Does this interval overlap with any interval in this interval tree?
-        /// </summary>
-        private List<DInterval<T>> getOverlaps(IntervalTree<T> currentTree,
-            T[] start, T[] end, int dimension)
-        {
-            var nodes = currentTree.GetOverlaps(new Interval<T>(start[dimension], end[dimension]));
-
-            if (dimension + 1 == dimensions)
-            {
-                var result = new List<DInterval<T>>();
-
-                foreach (var node in nodes)
-                {
-                    var fStart = new T[dimensions];
-                    var fEnd = new T[dimensions];
-
-                    fStart[dimension] = node.Start;
-                    fEnd[dimension] = node.End[node.MatchingEndIndex];
-
-                    var thisDimResult = new DInterval<T>(fStart, fEnd);
-
-                    result.Add(thisDimResult);
-                }
-
-                return result;
-            }
-            else
-            {
-                var result = new List<DInterval<T>>();
-
-                foreach (var node in nodes)
-                {
-                    var nextDimResult = getOverlaps(node.NextDimensionIntervals, start, end, dimension + 1);
-
-                    foreach (var nextResult in nextDimResult)
-                    {
-                        nextResult.Start[dimension] = node.Start;
-                        nextResult.End[dimension] = node.End[node.MatchingEndIndex];
-
-                        result.Add(nextResult);
-                    }
-                }
-
-                return result;
-            }
-
-        }
-
-    }
-
-    /// <summary>
-    /// Interval object.
-    /// </summary>
-    internal class Interval<T> : IComparable where T : IComparable
-    {
-        /// <summary>
-        /// Start of this interval range.
-        /// </summary>
-        public T Start { get; set; }
-
-        /// <summary>
-        /// End of this interval range.
-        /// </summary>
-        public List<T> End { get; set; }
-
-        /// <summary>
-        /// Max End interval under this interval.
-        /// </summary>
-        internal T MaxEnd { get; set; }
-
-        /// <summary>
-        /// Holds intervals for the next dimension.
-        /// </summary>
-        internal IntervalTree<T> NextDimensionIntervals { get; set; }
-
-        /// <summary>
-        /// Mark the matching end index during overlap search 
-        /// so that we can return the overlapping interval.
-        /// </summary>
-        internal int MatchingEndIndex { get; set; }
-
-        public int CompareTo(object obj)
-        {
-            return Start.CompareTo(((Interval<T>)obj).Start);
-        }
-
-        public Interval(T start, T end)
-        {
-            Start = start;
-            End = new List<T> { end };
-            NextDimensionIntervals = new IntervalTree<T>();
-        }
-    }
-
-    /// <summary>
-    /// An overlapping interval tree implementation in 1-dimension using augmentation tree method.
-    /// </summary>
-    internal class IntervalTree<T> where T : IComparable
-    {
-        //use a height balanced binary search tree
-        private readonly RedBlackTree<Interval<T>> redBlackTree
-            = new RedBlackTree<Interval<T>>();
-
-        public int Count { get; private set; }
 
         /// <summary>
         /// Insert a new Interval.
         /// </summary>
-        internal void Insert(Interval<T> newInterval)
+        internal void Insert(OneDimentionalInterval<T> newInterval)
         {
             sortInterval(newInterval);
             var existing = redBlackTree.FindNode(newInterval);
@@ -320,7 +292,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Delete this interval
         /// </summary>
-        internal void Delete(Interval<T> interval)
+        internal void Delete(OneDimentionalInterval<T> interval)
         {
             sortInterval(interval);
 
@@ -346,7 +318,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///  Returns an interval in this tree that overlaps with this search interval 
         /// </summary>
-        internal Interval<T> GetOverlap(Interval<T> searchInterval)
+        internal OneDimentionalInterval<T> GetOverlap(OneDimentionalInterval<T> searchInterval)
         {
             sortInterval(searchInterval);
             return getOverlap(redBlackTree.Root, searchInterval);
@@ -355,7 +327,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///  Returns an interval in this tree that overlaps with this search interval.
         /// </summary>
-        internal List<Interval<T>> GetOverlaps(Interval<T> searchInterval)
+        internal List<OneDimentionalInterval<T>> GetOverlaps(OneDimentionalInterval<T> searchInterval)
         {
             sortInterval(searchInterval);
             return getOverlaps(redBlackTree.Root, searchInterval);
@@ -364,7 +336,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///  Does any interval overlaps with this search interval.
         /// </summary>
-        internal bool DoOverlap(Interval<T> searchInterval)
+        internal bool DoOverlap(OneDimentionalInterval<T> searchInterval)
         {
             sortInterval(searchInterval);
             return getOverlap(redBlackTree.Root, searchInterval) != null;
@@ -373,7 +345,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Swap intervals so that start always appear before end.
         /// </summary>
-        private void sortInterval(Interval<T> value)
+        private void sortInterval(OneDimentionalInterval<T> value)
         {
             if (value.Start.CompareTo(value.End[0]) <= 0)
             {
@@ -388,7 +360,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Returns an interval that overlaps with this interval
         /// </summary>
-        private Interval<T> getOverlap(RedBlackTreeNode<Interval<T>> current, Interval<T> searchInterval)
+        private OneDimentionalInterval<T> getOverlap(RedBlackTreeNode<OneDimentionalInterval<T>> current, OneDimentionalInterval<T> searchInterval)
         {
             while (true)
             {
@@ -418,12 +390,12 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Returns all intervals that overlaps with this interval.
         /// </summary>
-        private List<Interval<T>> getOverlaps(RedBlackTreeNode<Interval<T>> current,
-            Interval<T> searchInterval, List<Interval<T>> result = null)
+        private List<OneDimentionalInterval<T>> getOverlaps(RedBlackTreeNode<OneDimentionalInterval<T>> current,
+            OneDimentionalInterval<T> searchInterval, List<OneDimentionalInterval<T>> result = null)
         {
             if (result == null)
             {
-                result = new List<Interval<T>>();
+                result = new List<OneDimentionalInterval<T>>();
             }
 
             if (current == null)
@@ -453,7 +425,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Does this interval a overlap with b.
         /// </summary>
-        private bool doOverlap(Interval<T> a, Interval<T> b)
+        private bool doOverlap(OneDimentionalInterval<T> a, OneDimentionalInterval<T> b)
         {
             //lazy reset
             a.MatchingEndIndex = -1;
@@ -484,7 +456,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// update max end value under each node in red-black tree recursively.
         /// </summary>
-        private void updateMax(RedBlackTreeNode<Interval<T>> node, T currentMax, bool recurseUp = true)
+        private void updateMax(RedBlackTreeNode<OneDimentionalInterval<T>> node, T currentMax, bool recurseUp = true)
         {
             while (true)
             {
@@ -549,7 +521,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Update Max recursively up each node in red-black tree.
         /// </summary>
-        private void updateMax(RedBlackTreeNode<Interval<T>> newRoot, bool recurseUp = true)
+        private void updateMax(RedBlackTreeNode<OneDimentionalInterval<T>> newRoot, bool recurseUp = true)
         {
             if (newRoot == null)
                 return;
@@ -572,40 +544,17 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        /// <summary>
-        /// A cached function to override default(T)
-        /// so that for value types we can return min value as default.
-        /// </summary>
-        private readonly Lazy<T> defaultValue = new Lazy<T>(() =>
-        {
-            var s = typeof(T);
-
-            bool isValueType;
-
-#if NET40
-            isValueType = s.IsValueType;
-#else
-                isValueType = s.GetTypeInfo().IsValueType;
-#endif
-            if (isValueType)
-            {
-                return (T)Convert.ChangeType(int.MinValue, s);
-            }
-
-            return default(T);
-        });
-
     }
 
     /// <summary>
-    /// An interval object to represent multi-dimensional intervals.
+    /// An interval to represent multi-dimensional intervals.
     /// </summary>
-    public class DInterval<T> where T : IComparable
+    public class Interval<T> where T : IComparable
     {
         public T[] Start { get; private set; }
         public T[] End { get; private set; }
 
-        internal DInterval(T[] start, T[] end)
+        internal Interval(T[] start, T[] end)
         {
             if (start.Length != end.Length || start.Length == 0)
             {
@@ -616,4 +565,50 @@ namespace Advanced.Algorithms.DataStructures
             End = end;
         }
     }
+
+    /// <summary>
+    /// One dimensional interval.
+    /// </summary>
+    internal class OneDimentionalInterval<T> : IComparable where T : IComparable
+    {
+        /// <summary>
+        /// Start of this interval range.
+        /// </summary>
+        public T Start { get; set; }
+
+        /// <summary>
+        /// End of this interval range.
+        /// </summary>
+        public List<T> End { get; set; }
+
+        /// <summary>
+        /// Max End interval under this interval.
+        /// </summary>
+        internal T MaxEnd { get; set; }
+
+        /// <summary>
+        /// Holds intervals for the next dimension.
+        /// </summary>
+        internal OneDimentionalIntervalTree<T> NextDimensionIntervals { get; set; }
+
+        /// <summary>
+        /// Mark the matching end index during overlap search 
+        /// so that we can return the overlapping interval.
+        /// </summary>
+        internal int MatchingEndIndex { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            return Start.CompareTo(((OneDimentionalInterval<T>)obj).Start);
+        }
+
+        public OneDimentionalInterval(T start, T end, Lazy<T> defaultValue)
+        {
+            Start = start;
+            End = new List<T> { end };
+            NextDimensionIntervals = new OneDimentionalIntervalTree<T>(defaultValue);
+        }
+    }
+
+
 }

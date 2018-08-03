@@ -1,14 +1,19 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// A Fenwick Tree (binary indexed tree) implementation for prefix sum.
     /// </summary>
-    public class FenwickTree<T>
+    public class FenwickTree<T> : IEnumerable<T>
     {
         private int length => tree.Length - 1;
         private T[] tree;
+
+        private readonly T[] input;
 
         /// <summary>
         /// Add operation on generic type.
@@ -25,6 +30,8 @@ namespace Advanced.Algorithms.DataStructures
             {
                 throw new ArgumentNullException();
             }
+
+            this.input = input.Clone() as T[];
 
             this.sumOperation = sumOperation;
             construct(input);
@@ -90,6 +97,16 @@ namespace Advanced.Algorithms.DataStructures
             //substract current index with
             //twos complimant of currentIndex AND with currentIndex
             return currentIndex - (currentIndex & (-currentIndex));
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return input.Select(x=>x).GetEnumerator();
         }
     }
 }

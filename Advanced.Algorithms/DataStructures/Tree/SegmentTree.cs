@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// A segment tree implementation.
     /// </summary>
-    public class SegmentTree<T> 
+    public class SegmentTree<T> : IEnumerable<T>
     {
         private readonly int length;
+        private readonly T[] input;
         private readonly T[] segmentTree;
 
         /// <summary>
@@ -39,6 +43,8 @@ namespace Advanced.Algorithms.DataStructures
             {
                 throw new ArgumentNullException();
             }
+
+            this.input = input.Clone() as T[];
 
             var maxHeight = Math.Ceiling(Math.Log(input.Length, 2));
             var maxTreeNodes = 2 * (int)(Math.Pow(2, maxHeight)) - 1;
@@ -106,6 +112,16 @@ namespace Advanced.Algorithms.DataStructures
         private int getMidIndex(int left, int right)
         {
             return left + ((right - left) / 2);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return input.Select(x => x).GetEnumerator();
         }
     }
 }
