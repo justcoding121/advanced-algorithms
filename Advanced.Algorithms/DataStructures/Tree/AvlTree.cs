@@ -14,9 +14,7 @@ namespace Advanced.Algorithms.DataStructures
         internal AVLTreeNode<T> Root { get; set; }
 
         public int Count { get; private set; }
-        /// <summary>
-        /// Constructor.
-        /// </summary>
+
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         ///  at the cost of additional space.</param>
         public AVLTree(bool enableNodeLookUp = false)

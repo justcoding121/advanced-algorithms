@@ -118,6 +118,14 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Insert(T value)
         {
+            InsertAndReturnNode(value);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        internal RedBlackTreeNode<T> InsertAndReturnNode(T value)
+        {
             //empty tree
             if (Root == null)
             {
@@ -127,7 +135,7 @@ namespace Advanced.Algorithms.DataStructures
                     nodeLookUp[value] = Root;
                 }
                 Count++;
-                return;
+                return Root;
             }
 
             var newNode = insert(Root, value);
@@ -138,6 +146,8 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             Count++;
+
+            return newNode;
         }
 
         //O(log(n)) always

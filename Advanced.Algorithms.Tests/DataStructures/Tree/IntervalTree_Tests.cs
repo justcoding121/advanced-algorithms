@@ -203,7 +203,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
                     Assert.IsTrue(intTree.DoOverlap(testStart,
                         testEnd));
                 }
-
             }
         }
 
@@ -236,18 +235,13 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 Assert.IsTrue(intTree.DoOverlap(intervals[i].Start,
                                                    intervals[i].End));
-
             }
-
 
             for (int i = 0; i < intervals.Count; i++)
             {
                 intTree.Delete(intervals[i].Start, intervals[i].End);
             }
         }
-
-
-
 
         private int[] cloneArray(int[] array)
         {

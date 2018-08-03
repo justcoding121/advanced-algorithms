@@ -16,9 +16,6 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// </summary>
         public int Count => stack.Count;
 
-        /// <summary>
-        /// Stack constructor.
-        /// </summary>
         /// <param name="type">The stack type to use.</param>
         public Stack(StackType type = StackType.Array)
         {

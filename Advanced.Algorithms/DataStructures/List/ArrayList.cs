@@ -18,7 +18,6 @@ namespace Advanced.Algorithms.DataStructures
         public int Length { get; private set; }
 
         /// <summary>
-        /// Constructor.
         /// Time complexity: O(1) if initial is empty otherwise O(n).
         /// </summary>
         /// <param name="initalArraySize">The initial array size.</param>
@@ -46,7 +45,6 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Constructor.
         /// Time complexity: O(1) if initial is empty otherwise O(n).
         /// </summary>
         /// <param name="initial">Initial values if any.</param>

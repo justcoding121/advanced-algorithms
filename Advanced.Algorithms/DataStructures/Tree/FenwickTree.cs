@@ -3,24 +3,22 @@
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// Fenwick Tree (Binary Indexed Tree) for prefix sum
+    /// A Fenwick Tree (binary indexed tree) implementation for prefix sum.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class FenwickTree<T>
     {
         private int length => tree.Length - 1;
         private T[] tree;
 
         /// <summary>
-        /// add operation on generic type
+        /// Add operation on generic type.
         /// </summary>
         private readonly Func<T, T, T> sumOperation;
 
         /// <summary>
-        /// constructs a Fenwick tree using the specified sum operation function
+        /// constructs a Fenwick tree using the specified sum operation function.
+        /// Time complexity: O(nLog(n)).
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="sumOperation"></param>
         public FenwickTree(T[] input, Func<T, T, T> sumOperation)
         {
             if (input == null || sumOperation == null)
@@ -33,9 +31,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// construct fenwick tree from input array
+        /// Construct Fenwick tree from input array.
         /// </summary>
-        /// <param name="input"></param>
         private void construct(T[] input)
         {
             tree = new T[input.Length + 1];
@@ -49,15 +46,13 @@ namespace Advanced.Algorithms.DataStructures
                     j = getNextIndex(j);
                 }
             }
-
         }
 
         /// <summary>
-        /// get prefix sum from 0 till end index
+        /// Gets the prefix sum from 0 till the given end index.
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="endIndex"></param>
-        /// <returns></returns>
-        public T GetPrefixSum(int endIndex)
+        public T PrefixSum(int endIndex)
         {
             if (endIndex < 0 || endIndex > length - 1)
             {
@@ -78,10 +73,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Get index of next sibling 
+        /// Get index of next sibling .
         /// </summary>
-        /// <param name="currentIndex"></param>
-        /// <returns></returns>
         private int getNextIndex(int currentIndex)
         {
             //add current index with
@@ -90,16 +83,13 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Get parent node index
+        /// Get parent node index.
         /// </summary>
-        /// <param name="currentIndex"></param>
-        /// <returns></returns>
         private int getParentIndex(int currentIndex)
         {
             //substract current index with
             //twos complimant of currentIndex AND with currentIndex
             return currentIndex - (currentIndex & (-currentIndex));
         }
-
     }
 }

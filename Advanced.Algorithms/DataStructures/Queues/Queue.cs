@@ -15,9 +15,6 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// </summary>
         public int Count => queue.Count;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         /// <param name="type">The queue implementation type.</param>
         public Queue(QueueType type = QueueType.Array)
         {

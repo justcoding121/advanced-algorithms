@@ -25,7 +25,6 @@ namespace Advanced.Algorithms.DataStructures
             : this(null, comparer) { }
 
         /// <summary>
-        /// Constructor.
         /// Time complexity: O(n) if initial is provided. Otherwise O(1).
         /// </summary>
         /// <param name="initial">The initial items in the heap.</param>

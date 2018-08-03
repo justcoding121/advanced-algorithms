@@ -13,9 +13,6 @@ namespace Advanced.Algorithms.DataStructures.Foundation
     {
         private readonly IDictionary<K, V> dictionary;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         /// <param name="type">The dictionary implementation to use.</param>
         /// <param name="initialBucketSize">The larger the bucket size lesser the collision, but memory matters!</param>
         public Dictionary(DictionaryType type = DictionaryType.SeparateChaining, int initialBucketSize = 2)

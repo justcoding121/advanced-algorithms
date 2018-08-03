@@ -12,9 +12,6 @@ namespace Advanced.Algorithms.DataStructures.Foundation
     {
         private readonly IHashSet<T> hashSet;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         /// <param name="type">The hashSet implementation to use.</param>
         /// <param name="initialBucketSize"> The larger the bucket size lesser the collision, but memory matters!</param>
         public HashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)

@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var tree = new FenwickTree<int>(testArray,
                 new Func<int, int, int>((x, y) => x + y));
 
-            var sum = tree.GetPrefixSum(3);
+            var sum = tree.PrefixSum(3);
 
             Assert.AreEqual(16, sum);
         }

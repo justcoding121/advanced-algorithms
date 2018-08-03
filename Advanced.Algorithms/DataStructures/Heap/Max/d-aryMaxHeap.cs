@@ -15,7 +15,6 @@ namespace Advanced.Algorithms.DataStructures
         public int Count = 0;
 
         /// <summary>
-        /// Constructor.
         /// Time complexity: O(n) when initial is provided otherwise O(1).
         /// </summary>
         /// <param name="k">The number of children per heap node.</param>
