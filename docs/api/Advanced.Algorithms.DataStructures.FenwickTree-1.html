@@ -83,7 +83,7 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_FenwickTree_1" data-uid="Advanced.Algorithms.DataStructures.FenwickTree`1" class="text-break">Class FenwickTree&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Fenwick Tree (Binary Indexed Tree) for prefix sum</p>
+  <div class="markdown level0 summary"><p>A Fenwick Tree (binary indexed tree) implementation for prefix sum.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -142,7 +142,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_FenwickTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.FenwickTree`1.#ctor*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_FenwickTree_1__ctor__0___System_Func__0__0__0__" data-uid="Advanced.Algorithms.DataStructures.FenwickTree`1.#ctor(`0[],System.Func{`0,`0,`0})">FenwickTree(T[], Func&lt;T, T, T&gt;)</h4>
-  <div class="markdown level1 summary"><p>constructs a Fenwick tree using the specified sum operation function</p>
+  <div class="markdown level1 summary"><p>constructs a Fenwick tree using the specified sum operation function.
+Time complexity: O(nLog(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -175,14 +176,15 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_FenwickTree_1_GetPrefixSum_" data-uid="Advanced.Algorithms.DataStructures.FenwickTree`1.GetPrefixSum*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_FenwickTree_1_GetPrefixSum_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.FenwickTree`1.GetPrefixSum(System.Int32)">GetPrefixSum(Int32)</h4>
-  <div class="markdown level1 summary"><p>get prefix sum from 0 till end index</p>
+  <a id="Advanced_Algorithms_DataStructures_FenwickTree_1_PrefixSum_" data-uid="Advanced.Algorithms.DataStructures.FenwickTree`1.PrefixSum*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_FenwickTree_1_PrefixSum_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.FenwickTree`1.PrefixSum(System.Int32)">PrefixSum(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the prefix sum from 0 till the given end index.
+Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetPrefixSum(int endIndex)</code></pre>
+    <pre><code class="lang-csharp hljs">public T PrefixSum(int endIndex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

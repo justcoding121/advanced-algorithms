@@ -2457,24 +2457,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DInterval(Of T)
   nameWithType: DInterval<T>
   nameWithType.vb: DInterval(Of T)
-- uid: Advanced.Algorithms.DataStructures.DInterval`1.#ctor(`0[],`0[])
-  name: DInterval(T[], T[])
-  href: api/Advanced.Algorithms.DataStructures.DInterval-1.html#Advanced_Algorithms_DataStructures_DInterval_1__ctor__0____0___
-  commentId: M:Advanced.Algorithms.DataStructures.DInterval`1.#ctor(`0[],`0[])
-  name.vb: DInterval(T(), T())
-  fullName: Advanced.Algorithms.DataStructures.DInterval<T>.DInterval(T[], T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.DInterval(Of T).DInterval(T(), T())
-  nameWithType: DInterval<T>.DInterval(T[], T[])
-  nameWithType.vb: DInterval(Of T).DInterval(T(), T())
-- uid: Advanced.Algorithms.DataStructures.DInterval`1.#ctor*
-  name: DInterval
-  href: api/Advanced.Algorithms.DataStructures.DInterval-1.html#Advanced_Algorithms_DataStructures_DInterval_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DInterval`1.#ctor
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DInterval<T>.DInterval
-  fullName.vb: Advanced.Algorithms.DataStructures.DInterval(Of T).DInterval
-  nameWithType: DInterval<T>.DInterval
-  nameWithType.vb: DInterval(Of T).DInterval
 - uid: Advanced.Algorithms.DataStructures.DInterval`1.End
   name: End
   href: api/Advanced.Algorithms.DataStructures.DInterval-1.html#Advanced_Algorithms_DataStructures_DInterval_1_End
@@ -3083,23 +3065,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).FenwickTree
   nameWithType: FenwickTree<T>.FenwickTree
   nameWithType.vb: FenwickTree(Of T).FenwickTree
-- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.GetPrefixSum(System.Int32)
-  name: GetPrefixSum(Int32)
-  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_GetPrefixSum_System_Int32_
-  commentId: M:Advanced.Algorithms.DataStructures.FenwickTree`1.GetPrefixSum(System.Int32)
-  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.GetPrefixSum(System.Int32)
-  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).GetPrefixSum(System.Int32)
-  nameWithType: FenwickTree<T>.GetPrefixSum(Int32)
-  nameWithType.vb: FenwickTree(Of T).GetPrefixSum(Int32)
-- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.GetPrefixSum*
-  name: GetPrefixSum
-  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_GetPrefixSum_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FenwickTree`1.GetPrefixSum
+- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.PrefixSum(System.Int32)
+  name: PrefixSum(Int32)
+  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_PrefixSum_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.FenwickTree`1.PrefixSum(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.PrefixSum(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).PrefixSum(System.Int32)
+  nameWithType: FenwickTree<T>.PrefixSum(Int32)
+  nameWithType.vb: FenwickTree(Of T).PrefixSum(Int32)
+- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.PrefixSum*
+  name: PrefixSum
+  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_PrefixSum_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FenwickTree`1.PrefixSum
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.GetPrefixSum
-  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).GetPrefixSum
-  nameWithType: FenwickTree<T>.GetPrefixSum
-  nameWithType.vb: FenwickTree(Of T).GetPrefixSum
+  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.PrefixSum
+  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).PrefixSum
+  nameWithType: FenwickTree<T>.PrefixSum
+  nameWithType.vb: FenwickTree(Of T).PrefixSum
 - uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1
   name: FibornacciMaxHeap<T>
   href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html
@@ -7004,23 +6986,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).SegmentTree
   nameWithType: SegmentTree<T>.SegmentTree
   nameWithType.vb: SegmentTree(Of T).SegmentTree
-- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.GetRangeResult(System.Int32,System.Int32)
-  name: GetRangeResult(Int32, Int32)
-  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_GetRangeResult_System_Int32_System_Int32_
-  commentId: M:Advanced.Algorithms.DataStructures.SegmentTree`1.GetRangeResult(System.Int32,System.Int32)
-  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.GetRangeResult(System.Int32, System.Int32)
-  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).GetRangeResult(System.Int32, System.Int32)
-  nameWithType: SegmentTree<T>.GetRangeResult(Int32, Int32)
-  nameWithType.vb: SegmentTree(Of T).GetRangeResult(Int32, Int32)
-- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.GetRangeResult*
-  name: GetRangeResult
-  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_GetRangeResult_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SegmentTree`1.GetRangeResult
+- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.RangeResult(System.Int32,System.Int32)
+  name: RangeResult(Int32, Int32)
+  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_RangeResult_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.SegmentTree`1.RangeResult(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.RangeResult(System.Int32, System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).RangeResult(System.Int32, System.Int32)
+  nameWithType: SegmentTree<T>.RangeResult(Int32, Int32)
+  nameWithType.vb: SegmentTree(Of T).RangeResult(Int32, Int32)
+- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.RangeResult*
+  name: RangeResult
+  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_RangeResult_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SegmentTree`1.RangeResult
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.GetRangeResult
-  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).GetRangeResult
-  nameWithType: SegmentTree<T>.GetRangeResult
-  nameWithType.vb: SegmentTree(Of T).GetRangeResult
+  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.RangeResult
+  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).RangeResult
+  nameWithType: SegmentTree<T>.RangeResult
+  nameWithType.vb: SegmentTree(Of T).RangeResult
 - uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1
   name: SinglyLinkedList<T>
   href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html

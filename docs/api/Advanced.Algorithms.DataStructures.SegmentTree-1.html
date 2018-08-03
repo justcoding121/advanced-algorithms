@@ -83,7 +83,8 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_SegmentTree_1" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1" class="text-break">Class SegmentTree&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A segment tree implementation.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -141,12 +142,13 @@
   
   <a id="Advanced_Algorithms_DataStructures_SegmentTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.#ctor*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_SegmentTree_1__ctor__0___System_Func__0__0__0__System_Func__0__" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.#ctor(`0[],System.Func{`0,`0,`0},System.Func{`0})">SegmentTree(T[], Func&lt;T, T, T&gt;, Func&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>constructs a segment tree using the specified operation function
-Operation function is the criteria for range queries
-For example operation function can return Max, Min or Sum of the two input elements
-Default value is a void value that will eliminate a node during operation comparisons
-For example if operation return min value default value will be largest value (int.Max for if T is int)
-or default value will be 0 if operation is sum</p>
+  <div class="markdown level1 summary"><p>Constructs a segment tree using the specified operation function.
+Operation function is the criteria for range queries.
+For example operation function can return Max, Min or Sum of the two input elements.
+Default value is the void value that will eliminate a node during operation comparisons.
+For example if operation return min value then the default value will be largest value (int.Max for if T is int).
+Or default value will be 0 if operation is sum.
+Time complexity: O(n).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -184,13 +186,15 @@ or default value will be 0 if operation is sum</p>
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_SegmentTree_1_GetRangeResult_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.GetRangeResult*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_SegmentTree_1_GetRangeResult_System_Int32_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.GetRangeResult(System.Int32,System.Int32)">GetRangeResult(Int32, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Advanced_Algorithms_DataStructures_SegmentTree_1_RangeResult_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.RangeResult*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SegmentTree_1_RangeResult_System_Int32_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.RangeResult(System.Int32,System.Int32)">RangeResult(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the operation aggregated result for given range of the input.
+Time complexity: O(log(n)).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetRangeResult(int startIndex, int endIndex)</code></pre>
+    <pre><code class="lang-csharp hljs">public T RangeResult(int startIndex, int endIndex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
