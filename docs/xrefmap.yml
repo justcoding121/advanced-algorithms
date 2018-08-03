@@ -2448,164 +2448,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: DaryMinHeap<T>.IEnumerable.GetEnumerator
   nameWithType.vb: DaryMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.DInterval`1
-  name: DInterval<T>
-  href: api/Advanced.Algorithms.DataStructures.DInterval-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.DInterval`1
-  name.vb: DInterval(Of T)
-  fullName: Advanced.Algorithms.DataStructures.DInterval<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.DInterval(Of T)
-  nameWithType: DInterval<T>
-  nameWithType.vb: DInterval(Of T)
-- uid: Advanced.Algorithms.DataStructures.DInterval`1.End
-  name: End
-  href: api/Advanced.Algorithms.DataStructures.DInterval-1.html#Advanced_Algorithms_DataStructures_DInterval_1_End
-  commentId: P:Advanced.Algorithms.DataStructures.DInterval`1.End
-  fullName: Advanced.Algorithms.DataStructures.DInterval<T>.End
-  fullName.vb: Advanced.Algorithms.DataStructures.DInterval(Of T).End
-  nameWithType: DInterval<T>.End
-  nameWithType.vb: DInterval(Of T).End
-- uid: Advanced.Algorithms.DataStructures.DInterval`1.End*
-  name: End
-  href: api/Advanced.Algorithms.DataStructures.DInterval-1.html#Advanced_Algorithms_DataStructures_DInterval_1_End_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DInterval`1.End
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DInterval<T>.End
-  fullName.vb: Advanced.Algorithms.DataStructures.DInterval(Of T).End
-  nameWithType: DInterval<T>.End
-  nameWithType.vb: DInterval(Of T).End
-- uid: Advanced.Algorithms.DataStructures.DInterval`1.Start
-  name: Start
-  href: api/Advanced.Algorithms.DataStructures.DInterval-1.html#Advanced_Algorithms_DataStructures_DInterval_1_Start
-  commentId: P:Advanced.Algorithms.DataStructures.DInterval`1.Start
-  fullName: Advanced.Algorithms.DataStructures.DInterval<T>.Start
-  fullName.vb: Advanced.Algorithms.DataStructures.DInterval(Of T).Start
-  nameWithType: DInterval<T>.Start
-  nameWithType.vb: DInterval(Of T).Start
-- uid: Advanced.Algorithms.DataStructures.DInterval`1.Start*
-  name: Start
-  href: api/Advanced.Algorithms.DataStructures.DInterval-1.html#Advanced_Algorithms_DataStructures_DInterval_1_Start_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DInterval`1.Start
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DInterval<T>.Start
-  fullName.vb: Advanced.Algorithms.DataStructures.DInterval(Of T).Start
-  nameWithType: DInterval<T>.Start
-  nameWithType.vb: DInterval(Of T).Start
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1
-  name: DIntervalTree<T>
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.DIntervalTree`1
-  name.vb: DIntervalTree(Of T)
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T)
-  nameWithType: DIntervalTree<T>
-  nameWithType.vb: DIntervalTree(Of T)
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.#ctor(System.Int32)
-  name: DIntervalTree(Int32)
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1__ctor_System_Int32_
-  commentId: M:Advanced.Algorithms.DataStructures.DIntervalTree`1.#ctor(System.Int32)
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.DIntervalTree(System.Int32)
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).DIntervalTree(System.Int32)
-  nameWithType: DIntervalTree<T>.DIntervalTree(Int32)
-  nameWithType.vb: DIntervalTree(Of T).DIntervalTree(Int32)
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.#ctor*
-  name: DIntervalTree
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DIntervalTree`1.#ctor
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.DIntervalTree
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).DIntervalTree
-  nameWithType: DIntervalTree<T>.DIntervalTree
-  nameWithType.vb: DIntervalTree(Of T).DIntervalTree
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.DIntervalTree`1.Count
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).Count
-  nameWithType: DIntervalTree<T>.Count
-  nameWithType.vb: DIntervalTree(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DIntervalTree`1.Count
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).Count
-  nameWithType: DIntervalTree<T>.Count
-  nameWithType.vb: DIntervalTree(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.Delete(`0[],`0[])
-  name: Delete(T[], T[])
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_Delete__0____0___
-  commentId: M:Advanced.Algorithms.DataStructures.DIntervalTree`1.Delete(`0[],`0[])
-  name.vb: Delete(T(), T())
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.Delete(T[], T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).Delete(T(), T())
-  nameWithType: DIntervalTree<T>.Delete(T[], T[])
-  nameWithType.vb: DIntervalTree(Of T).Delete(T(), T())
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.Delete*
-  name: Delete
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_Delete_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DIntervalTree`1.Delete
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.Delete
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).Delete
-  nameWithType: DIntervalTree<T>.Delete
-  nameWithType.vb: DIntervalTree(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.DoOverlap(`0[],`0[])
-  name: DoOverlap(T[], T[])
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_DoOverlap__0____0___
-  commentId: M:Advanced.Algorithms.DataStructures.DIntervalTree`1.DoOverlap(`0[],`0[])
-  name.vb: DoOverlap(T(), T())
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.DoOverlap(T[], T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).DoOverlap(T(), T())
-  nameWithType: DIntervalTree<T>.DoOverlap(T[], T[])
-  nameWithType.vb: DIntervalTree(Of T).DoOverlap(T(), T())
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.DoOverlap*
-  name: DoOverlap
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_DoOverlap_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DIntervalTree`1.DoOverlap
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.DoOverlap
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).DoOverlap
-  nameWithType: DIntervalTree<T>.DoOverlap
-  nameWithType.vb: DIntervalTree(Of T).DoOverlap
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.GetOverlaps(`0[],`0[])
-  name: GetOverlaps(T[], T[])
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_GetOverlaps__0____0___
-  commentId: M:Advanced.Algorithms.DataStructures.DIntervalTree`1.GetOverlaps(`0[],`0[])
-  name.vb: GetOverlaps(T(), T())
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.GetOverlaps(T[], T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).GetOverlaps(T(), T())
-  nameWithType: DIntervalTree<T>.GetOverlaps(T[], T[])
-  nameWithType.vb: DIntervalTree(Of T).GetOverlaps(T(), T())
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.GetOverlaps*
-  name: GetOverlaps
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_GetOverlaps_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DIntervalTree`1.GetOverlaps
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.GetOverlaps
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).GetOverlaps
-  nameWithType: DIntervalTree<T>.GetOverlaps
-  nameWithType.vb: DIntervalTree(Of T).GetOverlaps
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.Insert(`0[],`0[])
-  name: Insert(T[], T[])
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_Insert__0____0___
-  commentId: M:Advanced.Algorithms.DataStructures.DIntervalTree`1.Insert(`0[],`0[])
-  name.vb: Insert(T(), T())
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.Insert(T[], T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).Insert(T(), T())
-  nameWithType: DIntervalTree<T>.Insert(T[], T[])
-  nameWithType.vb: DIntervalTree(Of T).Insert(T(), T())
-- uid: Advanced.Algorithms.DataStructures.DIntervalTree`1.Insert*
-  name: Insert
-  href: api/Advanced.Algorithms.DataStructures.DIntervalTree-1.html#Advanced_Algorithms_DataStructures_DIntervalTree_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DIntervalTree`1.Insert
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DIntervalTree<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.DIntervalTree(Of T).Insert
-  nameWithType: DIntervalTree<T>.Insert
-  nameWithType.vb: DIntervalTree(Of T).Insert
 - uid: Advanced.Algorithms.DataStructures.DisJointSet`1
   name: DisJointSet<T>
   href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html
@@ -3065,6 +2907,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).FenwickTree
   nameWithType: FenwickTree<T>.FenwickTree
   nameWithType.vb: FenwickTree(Of T).FenwickTree
+- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.FenwickTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).GetEnumerator()
+  nameWithType: FenwickTree<T>.GetEnumerator()
+  nameWithType.vb: FenwickTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FenwickTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).GetEnumerator
+  nameWithType: FenwickTree<T>.GetEnumerator
+  nameWithType.vb: FenwickTree(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.FenwickTree`1.PrefixSum(System.Int32)
   name: PrefixSum(Int32)
   href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_PrefixSum_System_Int32_
@@ -3082,6 +2941,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).PrefixSum
   nameWithType: FenwickTree<T>.PrefixSum
   nameWithType.vb: FenwickTree(Of T).PrefixSum
+- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.FenwickTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: FenwickTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: FenwickTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FenwickTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: FenwickTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: FenwickTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1
   name: FibornacciMaxHeap<T>
   href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html
@@ -6043,6 +5921,164 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.IDistanceCalculator(Of T).Compare
   nameWithType: IDistanceCalculator<T>.Compare
   nameWithType.vb: IDistanceCalculator(Of T).Compare
+- uid: Advanced.Algorithms.DataStructures.Interval`1
+  name: Interval<T>
+  href: api/Advanced.Algorithms.DataStructures.Interval-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.Interval`1
+  name.vb: Interval(Of T)
+  fullName: Advanced.Algorithms.DataStructures.Interval<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.Interval(Of T)
+  nameWithType: Interval<T>
+  nameWithType.vb: Interval(Of T)
+- uid: Advanced.Algorithms.DataStructures.Interval`1.End
+  name: End
+  href: api/Advanced.Algorithms.DataStructures.Interval-1.html#Advanced_Algorithms_DataStructures_Interval_1_End
+  commentId: P:Advanced.Algorithms.DataStructures.Interval`1.End
+  fullName: Advanced.Algorithms.DataStructures.Interval<T>.End
+  fullName.vb: Advanced.Algorithms.DataStructures.Interval(Of T).End
+  nameWithType: Interval<T>.End
+  nameWithType.vb: Interval(Of T).End
+- uid: Advanced.Algorithms.DataStructures.Interval`1.End*
+  name: End
+  href: api/Advanced.Algorithms.DataStructures.Interval-1.html#Advanced_Algorithms_DataStructures_Interval_1_End_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Interval`1.End
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Interval<T>.End
+  fullName.vb: Advanced.Algorithms.DataStructures.Interval(Of T).End
+  nameWithType: Interval<T>.End
+  nameWithType.vb: Interval(Of T).End
+- uid: Advanced.Algorithms.DataStructures.Interval`1.Start
+  name: Start
+  href: api/Advanced.Algorithms.DataStructures.Interval-1.html#Advanced_Algorithms_DataStructures_Interval_1_Start
+  commentId: P:Advanced.Algorithms.DataStructures.Interval`1.Start
+  fullName: Advanced.Algorithms.DataStructures.Interval<T>.Start
+  fullName.vb: Advanced.Algorithms.DataStructures.Interval(Of T).Start
+  nameWithType: Interval<T>.Start
+  nameWithType.vb: Interval(Of T).Start
+- uid: Advanced.Algorithms.DataStructures.Interval`1.Start*
+  name: Start
+  href: api/Advanced.Algorithms.DataStructures.Interval-1.html#Advanced_Algorithms_DataStructures_Interval_1_Start_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Interval`1.Start
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Interval<T>.Start
+  fullName.vb: Advanced.Algorithms.DataStructures.Interval(Of T).Start
+  nameWithType: Interval<T>.Start
+  nameWithType.vb: Interval(Of T).Start
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1
+  name: IntervalTree<T>
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.IntervalTree`1
+  name.vb: IntervalTree(Of T)
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T)
+  nameWithType: IntervalTree<T>
+  nameWithType.vb: IntervalTree(Of T)
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.#ctor(System.Int32)
+  name: IntervalTree(Int32)
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1__ctor_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.IntervalTree`1.#ctor(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.IntervalTree(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).IntervalTree(System.Int32)
+  nameWithType: IntervalTree<T>.IntervalTree(Int32)
+  nameWithType.vb: IntervalTree(Of T).IntervalTree(Int32)
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.#ctor*
+  name: IntervalTree
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.IntervalTree`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.IntervalTree
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).IntervalTree
+  nameWithType: IntervalTree<T>.IntervalTree
+  nameWithType.vb: IntervalTree(Of T).IntervalTree
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.IntervalTree`1.Count
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).Count
+  nameWithType: IntervalTree<T>.Count
+  nameWithType.vb: IntervalTree(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.IntervalTree`1.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).Count
+  nameWithType: IntervalTree<T>.Count
+  nameWithType.vb: IntervalTree(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.Delete(`0[],`0[])
+  name: Delete(T[], T[])
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_Delete__0____0___
+  commentId: M:Advanced.Algorithms.DataStructures.IntervalTree`1.Delete(`0[],`0[])
+  name.vb: Delete(T(), T())
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.Delete(T[], T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).Delete(T(), T())
+  nameWithType: IntervalTree<T>.Delete(T[], T[])
+  nameWithType.vb: IntervalTree(Of T).Delete(T(), T())
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.Delete*
+  name: Delete
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_Delete_
+  commentId: Overload:Advanced.Algorithms.DataStructures.IntervalTree`1.Delete
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.Delete
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).Delete
+  nameWithType: IntervalTree<T>.Delete
+  nameWithType.vb: IntervalTree(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.DoOverlap(`0[],`0[])
+  name: DoOverlap(T[], T[])
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_DoOverlap__0____0___
+  commentId: M:Advanced.Algorithms.DataStructures.IntervalTree`1.DoOverlap(`0[],`0[])
+  name.vb: DoOverlap(T(), T())
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.DoOverlap(T[], T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).DoOverlap(T(), T())
+  nameWithType: IntervalTree<T>.DoOverlap(T[], T[])
+  nameWithType.vb: IntervalTree(Of T).DoOverlap(T(), T())
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.DoOverlap*
+  name: DoOverlap
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_DoOverlap_
+  commentId: Overload:Advanced.Algorithms.DataStructures.IntervalTree`1.DoOverlap
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.DoOverlap
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).DoOverlap
+  nameWithType: IntervalTree<T>.DoOverlap
+  nameWithType.vb: IntervalTree(Of T).DoOverlap
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.GetOverlaps(`0[],`0[])
+  name: GetOverlaps(T[], T[])
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_GetOverlaps__0____0___
+  commentId: M:Advanced.Algorithms.DataStructures.IntervalTree`1.GetOverlaps(`0[],`0[])
+  name.vb: GetOverlaps(T(), T())
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.GetOverlaps(T[], T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).GetOverlaps(T(), T())
+  nameWithType: IntervalTree<T>.GetOverlaps(T[], T[])
+  nameWithType.vb: IntervalTree(Of T).GetOverlaps(T(), T())
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.GetOverlaps*
+  name: GetOverlaps
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_GetOverlaps_
+  commentId: Overload:Advanced.Algorithms.DataStructures.IntervalTree`1.GetOverlaps
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.GetOverlaps
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).GetOverlaps
+  nameWithType: IntervalTree<T>.GetOverlaps
+  nameWithType.vb: IntervalTree(Of T).GetOverlaps
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.Insert(`0[],`0[])
+  name: Insert(T[], T[])
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_Insert__0____0___
+  commentId: M:Advanced.Algorithms.DataStructures.IntervalTree`1.Insert(`0[],`0[])
+  name.vb: Insert(T(), T())
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.Insert(T[], T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).Insert(T(), T())
+  nameWithType: IntervalTree<T>.Insert(T[], T[])
+  nameWithType.vb: IntervalTree(Of T).Insert(T(), T())
+- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.Insert*
+  name: Insert
+  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_Insert_
+  commentId: Overload:Advanced.Algorithms.DataStructures.IntervalTree`1.Insert
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.Insert
+  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).Insert
+  nameWithType: IntervalTree<T>.Insert
+  nameWithType.vb: IntervalTree(Of T).Insert
 - uid: Advanced.Algorithms.DataStructures.KDTree`1
   name: KDTree<T>
   href: api/Advanced.Algorithms.DataStructures.KDTree-1.html
@@ -6986,6 +7022,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).SegmentTree
   nameWithType: SegmentTree<T>.SegmentTree
   nameWithType.vb: SegmentTree(Of T).SegmentTree
+- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SegmentTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).GetEnumerator()
+  nameWithType: SegmentTree<T>.GetEnumerator()
+  nameWithType.vb: SegmentTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SegmentTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).GetEnumerator
+  nameWithType: SegmentTree<T>.GetEnumerator
+  nameWithType.vb: SegmentTree(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SegmentTree`1.RangeResult(System.Int32,System.Int32)
   name: RangeResult(Int32, Int32)
   href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_RangeResult_System_Int32_System_Int32_
@@ -7003,6 +7056,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).RangeResult
   nameWithType: SegmentTree<T>.RangeResult
   nameWithType.vb: SegmentTree(Of T).RangeResult
+- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SegmentTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SegmentTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SegmentTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SegmentTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1
   name: SinglyLinkedList<T>
   href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html
