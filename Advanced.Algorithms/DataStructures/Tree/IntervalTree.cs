@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -8,12 +9,14 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A multi-dimensional interval tree implementation.
     /// </summary>
-    public class IntervalTree<T>  where T : IComparable
+    public class IntervalTree<T> : IEnumerable<Tuple<T[], T[]>> where T : IComparable
     {
         private readonly int dimensions;
         private readonly OneDimentionalIntervalTree<T> tree;
+        private HashSet<Tuple<T[], T[]>> items = new HashSet<Tuple<T[], T[]>>(new IntervalComparer<T>());
 
         public int Count { get; private set; }
+
 
         public IntervalTree(int dimension)
         {
@@ -34,6 +37,11 @@ namespace Advanced.Algorithms.DataStructures
         public void Insert(T[] start, T[] end)
         {
             validateDimensions(start, end);
+
+            if(items.Contains(new Tuple<T[], T[]>(start, end)))
+            {
+                throw new Exception("Inteval exists.");
+            }
 
             var currentTrees = new List<OneDimentionalIntervalTree<T>> { tree };
 
@@ -58,7 +66,10 @@ namespace Advanced.Algorithms.DataStructures
                 currentTrees = allOverlaps;
             }
 
+            items.Add(new Tuple<T[], T[]> (start, end));
+           
             Count++;
+
         }
 
         /// <summary>
@@ -68,6 +79,11 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Delete(T[] start, T[] end)
         {
+            if (!items.Contains(new Tuple<T[], T[]>(start, end)))
+            {
+                throw new Exception("Inteval does'nt exist.");
+            }
+
             validateDimensions(start, end);
 
             var allOverlaps = new List<OneDimentionalIntervalTree<T>>();
@@ -81,6 +97,7 @@ namespace Advanced.Algorithms.DataStructures
             DeleteOverlaps(allOverlaps, start, end, 1);
             tree.Delete(new OneDimentionalInterval<T>(start[0], end[0], defaultValue));
 
+            items.Remove(new Tuple<T[], T[]>(start, end));
             Count--;
         }
 
@@ -97,7 +114,7 @@ namespace Advanced.Algorithms.DataStructures
 
             foreach (var tree in currentTrees)
             {
-                var overlaps = tree.GetOverlaps(new OneDimentionalInterval<T>(start[index], end[index],defaultValue));
+                var overlaps = tree.GetOverlaps(new OneDimentionalInterval<T>(start[index], end[index], defaultValue));
 
                 foreach (var overlap in overlaps)
                 {
@@ -138,7 +155,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Time complexity : O(d(log(n) + m)) where d is dimensions and
         /// m is the number of overlaps.
         /// </summary>
-        public List<Interval<T>> GetOverlaps(T[] start, T[] end)
+        public List<Tuple<T[], T[]>> GetOverlaps(T[] start, T[] end)
         {
             return getOverlaps(tree, start, end, 0);
         }
@@ -146,14 +163,14 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Does this interval overlap with any interval in this interval tree?
         /// </summary>
-        private List<Interval<T>> getOverlaps(OneDimentionalIntervalTree<T> currentTree,
+        private List<Tuple<T[], T[]>> getOverlaps(OneDimentionalIntervalTree<T> currentTree,
             T[] start, T[] end, int dimension)
         {
             var nodes = currentTree.GetOverlaps(new OneDimentionalInterval<T>(start[dimension], end[dimension], defaultValue));
 
             if (dimension + 1 == dimensions)
             {
-                var result = new List<Interval<T>>();
+                var result = new List<Tuple<T[], T[]>>();
 
                 foreach (var node in nodes)
                 {
@@ -163,7 +180,7 @@ namespace Advanced.Algorithms.DataStructures
                     fStart[dimension] = node.Start;
                     fEnd[dimension] = node.End[node.MatchingEndIndex];
 
-                    var thisDimResult = new Interval<T>(fStart, fEnd);
+                    var thisDimResult = new Tuple<T[], T[]>(fStart, fEnd);
 
                     result.Add(thisDimResult);
                 }
@@ -172,7 +189,7 @@ namespace Advanced.Algorithms.DataStructures
             }
             else
             {
-                var result = new List<Interval<T>>();
+                var result = new List<Tuple<T[], T[]>>();
 
                 foreach (var node in nodes)
                 {
@@ -180,8 +197,8 @@ namespace Advanced.Algorithms.DataStructures
 
                     foreach (var nextResult in nextDimResult)
                     {
-                        nextResult.Start[dimension] = node.Start;
-                        nextResult.End[dimension] = node.End[node.MatchingEndIndex];
+                        nextResult.Item1[dimension] = node.Start;
+                        nextResult.Item2[dimension] = node.End[node.MatchingEndIndex];
 
                         result.Add(nextResult);
                     }
@@ -241,6 +258,16 @@ namespace Advanced.Algorithms.DataStructures
             {
                 throw new Exception("Points cannot contain Minimum Value or Null values");
             }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<Tuple<T[], T[]>> GetEnumerator()
+        {
+            return items.GetEnumerator();
         }
 
     }
@@ -547,26 +574,6 @@ namespace Advanced.Algorithms.DataStructures
     }
 
     /// <summary>
-    /// An interval to represent multi-dimensional intervals.
-    /// </summary>
-    public class Interval<T> where T : IComparable
-    {
-        public T[] Start { get; private set; }
-        public T[] End { get; private set; }
-
-        internal Interval(T[] start, T[] end)
-        {
-            if (start.Length != end.Length || start.Length == 0)
-            {
-                throw new Exception("Invalid dimensions provided for start or end.");
-            }
-
-            Start = start;
-            End = end;
-        }
-    }
-
-    /// <summary>
     /// One dimensional interval.
     /// </summary>
     internal class OneDimentionalInterval<T> : IComparable where T : IComparable
@@ -610,5 +617,53 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
+    /// <summary>
+    /// Compares two intervals.
+    /// </summary>
+    internal class IntervalComparer<T> : IEqualityComparer<Tuple<T[], T[]>> where T : IComparable
+    {
+        public bool Equals(Tuple<T[], T[]> x, Tuple<T[], T[]> y)
+        {
+            if (x == y)
+            {
+                return true;
+            }
 
+            for (int i = 0; i < x.Item1.Length; i++)
+            {
+                if (!x.Item1[i].Equals(y.Item1[i]))
+                {
+                    return false;
+                }
+
+                if (!x.Item2[i].Equals(y.Item2[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public int GetHashCode(Tuple<T[], T[]> x)
+        {
+            unchecked
+            {
+                if (x == null)
+                {
+                    return 0;
+                }
+                int hash = 17;
+                foreach (var element in x.Item1)
+                {
+                    hash = hash * 31 + element.GetHashCode();
+                }
+                foreach (var element in x.Item2)
+                {
+                    hash = hash * 31 + element.GetHashCode();
+                }
+                return hash;
+            }
+        }
+    }
 }
