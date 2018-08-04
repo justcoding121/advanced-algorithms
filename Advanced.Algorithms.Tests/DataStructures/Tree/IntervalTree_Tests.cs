@@ -88,13 +88,28 @@ namespace Advanced.Algorithms.Tests.DataStructures
                         testEnd));
             }
 
-
             //IEnumerable test
             Assert.AreEqual(tree.Count, tree.Count());
+
+            var notDeleted = new HashSet<Tuple<int[], int[]>>(new IntervalComparer<int>());
+
+            foreach (var interval in intervals)
+            {
+                notDeleted.Add(interval);
+            }
 
             foreach (var interval in intervals)
             {
                 tree.Delete(interval.Item1, interval.Item2);
+                notDeleted.Remove(interval);
+
+                foreach (var existingInterval in notDeleted)
+                {
+                    var testStart = cloneArray(existingInterval.Item1);
+                    var testEnd = cloneArray(existingInterval.Item2);
+
+                    Assert.IsTrue(tree.DoOverlap(testStart, testEnd));
+                }
             }
 
             //IEnumerable test
@@ -108,7 +123,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var nodeCount = 100;
             const int dimension = 2;
 
-            var intTree = new IntervalTree<int>(dimension);
+            var tree = new IntervalTree<int>(dimension);
 
             var rnd = new Random();
             var intervals = new HashSet<Tuple<int[], int[]>>(new IntervalComparer<int>());
@@ -123,14 +138,14 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
                 if(intervals.Add(interval))
                 {
-                    intTree.Insert(interval.Item1, interval.Item2);
+                    tree.Insert(interval.Item1, interval.Item2);
                 }
                
             }
 
             foreach (var interval in intervals)
             {
-                Assert.IsTrue(intTree.DoOverlap(interval.Item1,
+                Assert.IsTrue(tree.DoOverlap(interval.Item1,
                                                    interval.Item2));
 
                 var testStart = cloneArray(interval.Item1);
@@ -142,15 +157,28 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 testEnd[0] = testEnd[0] + rnd.Next(1, 5);
                 testEnd[1] = testEnd[1] + rnd.Next(1, 5);
 
-                Assert.IsTrue(intTree.DoOverlap(testStart,
-                     testEnd));
+                Assert.IsTrue(tree.DoOverlap(testStart, testEnd));
             }
 
+            var notDeleted = new HashSet<Tuple<int[], int[]>>(new IntervalComparer<int>());
+
+            foreach(var interval in intervals)
+            {
+                notDeleted.Add(interval);
+            }
 
             foreach (var interval in intervals)
             {
-                intTree.Delete(interval.Item1, interval.Item2);
+                tree.Delete(interval.Item1, interval.Item2);
+                notDeleted.Remove(interval);
 
+                foreach (var existingInterval in notDeleted)
+                {
+                    var testStart = cloneArray(existingInterval.Item1);
+                    var testEnd = cloneArray(existingInterval.Item2);
+
+                    Assert.IsTrue(tree.DoOverlap(testStart, testEnd));
+                }
             }
         }
 
