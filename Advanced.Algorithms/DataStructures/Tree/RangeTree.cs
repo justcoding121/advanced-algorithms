@@ -11,10 +11,11 @@ namespace Advanced.Algorithms.DataStructures
     public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     {
         private readonly int dimensions;
-        public int Count { get; private set; }
 
         private OneDimentionalRangeTree<T> tree = new OneDimentionalRangeTree<T>();
         private HashSet<T[]> items = new HashSet<T[]>(new ArrayComparer<T>());
+
+        public int Count { get; private set; }
 
         public RangeTree(int dimensions)
         {

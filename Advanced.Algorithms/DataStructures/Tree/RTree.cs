@@ -19,6 +19,7 @@ namespace Advanced.Algorithms.DataStructures
         private Dictionary<Polygon, RTreeNode> leafMappings = new Dictionary<Polygon, RTreeNode>();
 
         internal RTreeNode Root;
+
         public int Count { get; private set; }
 
         public RTree(int maxKeysPerNode)

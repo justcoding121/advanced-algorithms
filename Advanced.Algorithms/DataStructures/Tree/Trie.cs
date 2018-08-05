@@ -10,13 +10,13 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class Trie<T> : IEnumerable<T[]>
     {
-        internal TrieNode<T> Root { get; set; }
+        private TrieNode<T> root { get; set; }
 
         public int Count { get; private set; }
 
         public Trie()
         {
-            Root = new TrieNode<T>(null, default(T));
+            root = new TrieNode<T>(null, default(T));
             Count = 0;
         }
 
@@ -26,7 +26,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Insert(T[] entry)
         {
-            insert(Root, entry, 0);
+            insert(root, entry, 0);
             Count++;
         }
 
@@ -64,7 +64,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Delete(T[] entry)
         {
-            delete(Root, entry, 0);
+            delete(root, entry, 0);
             Count--;
         }
 
@@ -98,46 +98,13 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-
-        /// <summary>
-        /// Returns true if any records match this prefix.
-        /// Time complexity: O(e) where e is the length of the given entry.
-        /// </summary>
-        public bool ContainsPrefix(T[] prefix)
-        {
-            return containsPrefix(Root, prefix, 0);
-        }
-
-        /// <summary>
-        /// Recursively visit until end of prefix. 
-        /// </summary>
-        private bool containsPrefix(TrieNode<T> currentNode, T[] searchPrefix, int currentIndex)
-        {
-            while (true)
-            {
-                if (currentIndex == searchPrefix.Length)
-                {
-                    return true;
-                }
-
-                if (currentNode.Children.ContainsKey(searchPrefix[currentIndex]) == false)
-                {
-                    return false;
-                }
-
-                currentNode = currentNode.Children[searchPrefix[currentIndex]];
-                currentIndex = currentIndex + 1;
-            }
-        }
-
-
         /// <summary>
         /// Returns a list of records matching this prefix.
         /// Time complexity: O(rm) where r is the number of results and m is the average length of each entry.
         /// </summary>
         public List<T[]> StartsWith(T[] prefix)
         {
-            return startsWith(Root, prefix, 0);
+            return startsWith(root, prefix, 0);
         }
 
         /// <summary>
@@ -203,19 +170,28 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public bool Contains(T[] entry)
         {
-            return contains(Root, entry, 0);
+            return contains(root, entry, 0, false);
+        }
+
+        /// <summary>
+        /// Returns true if any records match this prefix.
+        /// Time complexity: O(e) where e is the length of the given entry.
+        /// </summary>
+        public bool ContainsPrefix(T[] prefix)
+        {
+            return contains(root, prefix, 0, true);
         }
 
         /// <summary>
         /// Find if the record exist recursively.
         /// </summary>
-        private bool contains(TrieNode<T> currentNode, T[] entry, int currentIndex)
+        private bool contains(TrieNode<T> currentNode, T[] entry, int currentIndex, bool isPrefixSearch)
         {
             while (true)
             {
                 if (currentIndex == entry.Length)
                 {
-                    return currentNode.IsEnd;
+                    return isPrefixSearch || currentNode.IsEnd;
                 }
 
                 if (currentNode.Children.ContainsKey(entry[currentIndex]) == false)
@@ -235,7 +211,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public IEnumerator<T[]> GetEnumerator()
         {
-            return new TrieEnumerator<T>(Root);
+            return new TrieEnumerator<T>(root);
         }
 
     }

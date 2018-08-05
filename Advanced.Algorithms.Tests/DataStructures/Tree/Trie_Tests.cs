@@ -20,6 +20,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             trie.Insert("nana".ToCharArray());
             Assert.IsTrue(trie.Contains("nana".ToCharArray()));
+            Assert.IsFalse(trie.Contains("banan".ToCharArray()));
+            Assert.IsTrue(trie.ContainsPrefix("banan".ToCharArray()));
 
             trie.Insert("ana".ToCharArray());
             Assert.IsTrue(trie.Contains("ana".ToCharArray()));
