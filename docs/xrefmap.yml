@@ -2783,103 +2783,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedListNode(Of T).Previous
   nameWithType: DoublyLinkedListNode<T>.Previous
   nameWithType.vb: DoublyLinkedListNode(Of T).Previous
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1
-  name: DRangeTree<T>
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.DRangeTree`1
-  name.vb: DRangeTree(Of T)
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T)
-  nameWithType: DRangeTree<T>
-  nameWithType.vb: DRangeTree(Of T)
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.#ctor(System.Int32)
-  name: DRangeTree(Int32)
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1__ctor_System_Int32_
-  commentId: M:Advanced.Algorithms.DataStructures.DRangeTree`1.#ctor(System.Int32)
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.DRangeTree(System.Int32)
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).DRangeTree(System.Int32)
-  nameWithType: DRangeTree<T>.DRangeTree(Int32)
-  nameWithType.vb: DRangeTree(Of T).DRangeTree(Int32)
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.#ctor*
-  name: DRangeTree
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DRangeTree`1.#ctor
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.DRangeTree
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).DRangeTree
-  nameWithType: DRangeTree<T>.DRangeTree
-  nameWithType.vb: DRangeTree(Of T).DRangeTree
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.DRangeTree`1.Count
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).Count
-  nameWithType: DRangeTree<T>.Count
-  nameWithType.vb: DRangeTree(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DRangeTree`1.Count
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).Count
-  nameWithType: DRangeTree<T>.Count
-  nameWithType.vb: DRangeTree(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.Delete(`0[])
-  name: Delete(T[])
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1_Delete__0___
-  commentId: M:Advanced.Algorithms.DataStructures.DRangeTree`1.Delete(`0[])
-  name.vb: Delete(T())
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.Delete(T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).Delete(T())
-  nameWithType: DRangeTree<T>.Delete(T[])
-  nameWithType.vb: DRangeTree(Of T).Delete(T())
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.Delete*
-  name: Delete
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1_Delete_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DRangeTree`1.Delete
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.Delete
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).Delete
-  nameWithType: DRangeTree<T>.Delete
-  nameWithType.vb: DRangeTree(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.GetInRange(`0[],`0[])
-  name: GetInRange(T[], T[])
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1_GetInRange__0____0___
-  commentId: M:Advanced.Algorithms.DataStructures.DRangeTree`1.GetInRange(`0[],`0[])
-  name.vb: GetInRange(T(), T())
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.GetInRange(T[], T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).GetInRange(T(), T())
-  nameWithType: DRangeTree<T>.GetInRange(T[], T[])
-  nameWithType.vb: DRangeTree(Of T).GetInRange(T(), T())
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.GetInRange*
-  name: GetInRange
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1_GetInRange_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DRangeTree`1.GetInRange
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.GetInRange
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).GetInRange
-  nameWithType: DRangeTree<T>.GetInRange
-  nameWithType.vb: DRangeTree(Of T).GetInRange
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.Insert(`0[])
-  name: Insert(T[])
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1_Insert__0___
-  commentId: M:Advanced.Algorithms.DataStructures.DRangeTree`1.Insert(`0[])
-  name.vb: Insert(T())
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.Insert(T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).Insert(T())
-  nameWithType: DRangeTree<T>.Insert(T[])
-  nameWithType.vb: DRangeTree(Of T).Insert(T())
-- uid: Advanced.Algorithms.DataStructures.DRangeTree`1.Insert*
-  name: Insert
-  href: api/Advanced.Algorithms.DataStructures.DRangeTree-1.html#Advanced_Algorithms_DataStructures_DRangeTree_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DRangeTree`1.Insert
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DRangeTree<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.DRangeTree(Of T).Insert
-  nameWithType: DRangeTree<T>.Insert
-  nameWithType.vb: DRangeTree(Of T).Insert
 - uid: Advanced.Algorithms.DataStructures.FenwickTree`1
   name: FenwickTree<T>
   href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html
@@ -6133,42 +6036,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).Delete
   nameWithType: KDTree<T>.Delete
   nameWithType.vb: KDTree(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.KDTree`1.FindNearestNeighbour(Advanced.Algorithms.DataStructures.IDistanceCalculator{`0},`0[])
-  name: FindNearestNeighbour(IDistanceCalculator<T>, T[])
-  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_FindNearestNeighbour_Advanced_Algorithms_DataStructures_IDistanceCalculator__0___0___
-  commentId: M:Advanced.Algorithms.DataStructures.KDTree`1.FindNearestNeighbour(Advanced.Algorithms.DataStructures.IDistanceCalculator{`0},`0[])
-  name.vb: FindNearestNeighbour(IDistanceCalculator(Of T), T())
-  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.FindNearestNeighbour(Advanced.Algorithms.DataStructures.IDistanceCalculator<T>, T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).FindNearestNeighbour(Advanced.Algorithms.DataStructures.IDistanceCalculator(Of T), T())
-  nameWithType: KDTree<T>.FindNearestNeighbour(IDistanceCalculator<T>, T[])
-  nameWithType.vb: KDTree(Of T).FindNearestNeighbour(IDistanceCalculator(Of T), T())
-- uid: Advanced.Algorithms.DataStructures.KDTree`1.FindNearestNeighbour*
-  name: FindNearestNeighbour
-  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_FindNearestNeighbour_
-  commentId: Overload:Advanced.Algorithms.DataStructures.KDTree`1.FindNearestNeighbour
+- uid: Advanced.Algorithms.DataStructures.KDTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.KDTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).GetEnumerator()
+  nameWithType: KDTree<T>.GetEnumerator()
+  nameWithType.vb: KDTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.KDTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.KDTree`1.GetEnumerator
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.FindNearestNeighbour
-  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).FindNearestNeighbour
-  nameWithType: KDTree<T>.FindNearestNeighbour
-  nameWithType.vb: KDTree(Of T).FindNearestNeighbour
-- uid: Advanced.Algorithms.DataStructures.KDTree`1.GetInRange(`0[],`0[])
-  name: GetInRange(T[], T[])
-  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_GetInRange__0____0___
-  commentId: M:Advanced.Algorithms.DataStructures.KDTree`1.GetInRange(`0[],`0[])
-  name.vb: GetInRange(T(), T())
-  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.GetInRange(T[], T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).GetInRange(T(), T())
-  nameWithType: KDTree<T>.GetInRange(T[], T[])
-  nameWithType.vb: KDTree(Of T).GetInRange(T(), T())
-- uid: Advanced.Algorithms.DataStructures.KDTree`1.GetInRange*
-  name: GetInRange
-  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_GetInRange_
-  commentId: Overload:Advanced.Algorithms.DataStructures.KDTree`1.GetInRange
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.GetInRange
-  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).GetInRange
-  nameWithType: KDTree<T>.GetInRange
-  nameWithType.vb: KDTree(Of T).GetInRange
+  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).GetEnumerator
+  nameWithType: KDTree<T>.GetEnumerator
+  nameWithType.vb: KDTree(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.KDTree`1.Insert(`0[])
   name: Insert(T[])
   href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_Insert__0___
@@ -6187,6 +6071,61 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).Insert
   nameWithType: KDTree<T>.Insert
   nameWithType.vb: KDTree(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.KDTree`1.NearestNeighbour(Advanced.Algorithms.DataStructures.IDistanceCalculator{`0},`0[])
+  name: NearestNeighbour(IDistanceCalculator<T>, T[])
+  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_NearestNeighbour_Advanced_Algorithms_DataStructures_IDistanceCalculator__0___0___
+  commentId: M:Advanced.Algorithms.DataStructures.KDTree`1.NearestNeighbour(Advanced.Algorithms.DataStructures.IDistanceCalculator{`0},`0[])
+  name.vb: NearestNeighbour(IDistanceCalculator(Of T), T())
+  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.NearestNeighbour(Advanced.Algorithms.DataStructures.IDistanceCalculator<T>, T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).NearestNeighbour(Advanced.Algorithms.DataStructures.IDistanceCalculator(Of T), T())
+  nameWithType: KDTree<T>.NearestNeighbour(IDistanceCalculator<T>, T[])
+  nameWithType.vb: KDTree(Of T).NearestNeighbour(IDistanceCalculator(Of T), T())
+- uid: Advanced.Algorithms.DataStructures.KDTree`1.NearestNeighbour*
+  name: NearestNeighbour
+  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_NearestNeighbour_
+  commentId: Overload:Advanced.Algorithms.DataStructures.KDTree`1.NearestNeighbour
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.NearestNeighbour
+  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).NearestNeighbour
+  nameWithType: KDTree<T>.NearestNeighbour
+  nameWithType.vb: KDTree(Of T).NearestNeighbour
+- uid: Advanced.Algorithms.DataStructures.KDTree`1.RangeSearch(`0[],`0[])
+  name: RangeSearch(T[], T[])
+  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_RangeSearch__0____0___
+  commentId: M:Advanced.Algorithms.DataStructures.KDTree`1.RangeSearch(`0[],`0[])
+  name.vb: RangeSearch(T(), T())
+  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.RangeSearch(T[], T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).RangeSearch(T(), T())
+  nameWithType: KDTree<T>.RangeSearch(T[], T[])
+  nameWithType.vb: KDTree(Of T).RangeSearch(T(), T())
+- uid: Advanced.Algorithms.DataStructures.KDTree`1.RangeSearch*
+  name: RangeSearch
+  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_RangeSearch_
+  commentId: Overload:Advanced.Algorithms.DataStructures.KDTree`1.RangeSearch
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.RangeSearch
+  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).RangeSearch
+  nameWithType: KDTree<T>.RangeSearch
+  nameWithType.vb: KDTree(Of T).RangeSearch
+- uid: Advanced.Algorithms.DataStructures.KDTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.KDTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: KDTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: KDTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.KDTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.KDTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: KDTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: KDTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1
   name: MaxPriorityQueue<T>
   href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html
@@ -6675,6 +6614,139 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: PairingMinHeap<T>.IEnumerable.GetEnumerator
   nameWithType.vb: PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1
+  name: RangeTree<T>
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.RangeTree`1
+  name.vb: RangeTree(Of T)
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T)
+  nameWithType: RangeTree<T>
+  nameWithType.vb: RangeTree(Of T)
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.#ctor(System.Int32)
+  name: RangeTree(Int32)
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1__ctor_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.RangeTree`1.#ctor(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.RangeTree(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).RangeTree(System.Int32)
+  nameWithType: RangeTree<T>.RangeTree(Int32)
+  nameWithType.vb: RangeTree(Of T).RangeTree(Int32)
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.#ctor*
+  name: RangeTree
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RangeTree`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.RangeTree
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).RangeTree
+  nameWithType: RangeTree<T>.RangeTree
+  nameWithType.vb: RangeTree(Of T).RangeTree
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.RangeTree`1.Count
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).Count
+  nameWithType: RangeTree<T>.Count
+  nameWithType.vb: RangeTree(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RangeTree`1.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).Count
+  nameWithType: RangeTree<T>.Count
+  nameWithType.vb: RangeTree(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.Delete(`0[])
+  name: Delete(T[])
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_Delete__0___
+  commentId: M:Advanced.Algorithms.DataStructures.RangeTree`1.Delete(`0[])
+  name.vb: Delete(T())
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.Delete(T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).Delete(T())
+  nameWithType: RangeTree<T>.Delete(T[])
+  nameWithType.vb: RangeTree(Of T).Delete(T())
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.Delete*
+  name: Delete
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_Delete_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RangeTree`1.Delete
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.Delete
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).Delete
+  nameWithType: RangeTree<T>.Delete
+  nameWithType.vb: RangeTree(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.RangeTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).GetEnumerator()
+  nameWithType: RangeTree<T>.GetEnumerator()
+  nameWithType.vb: RangeTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RangeTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).GetEnumerator
+  nameWithType: RangeTree<T>.GetEnumerator
+  nameWithType.vb: RangeTree(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.Insert(`0[])
+  name: Insert(T[])
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_Insert__0___
+  commentId: M:Advanced.Algorithms.DataStructures.RangeTree`1.Insert(`0[])
+  name.vb: Insert(T())
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.Insert(T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).Insert(T())
+  nameWithType: RangeTree<T>.Insert(T[])
+  nameWithType.vb: RangeTree(Of T).Insert(T())
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.Insert*
+  name: Insert
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_Insert_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RangeTree`1.Insert
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.Insert
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).Insert
+  nameWithType: RangeTree<T>.Insert
+  nameWithType.vb: RangeTree(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.RangeSearch(`0[],`0[])
+  name: RangeSearch(T[], T[])
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_RangeSearch__0____0___
+  commentId: M:Advanced.Algorithms.DataStructures.RangeTree`1.RangeSearch(`0[],`0[])
+  name.vb: RangeSearch(T(), T())
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.RangeSearch(T[], T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).RangeSearch(T(), T())
+  nameWithType: RangeTree<T>.RangeSearch(T[], T[])
+  nameWithType.vb: RangeTree(Of T).RangeSearch(T(), T())
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.RangeSearch*
+  name: RangeSearch
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_RangeSearch_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RangeTree`1.RangeSearch
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.RangeSearch
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).RangeSearch
+  nameWithType: RangeTree<T>.RangeSearch
+  nameWithType.vb: RangeTree(Of T).RangeSearch
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.RangeTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: RangeTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: RangeTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.RangeTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RangeTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: RangeTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: RangeTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1
   name: RedBlackTree<T>
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html
@@ -6962,6 +7034,19 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.DataStructures.RTree.Exists
   nameWithType: RTree.Exists
+- uid: Advanced.Algorithms.DataStructures.RTree.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.RTree.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.RTree.GetEnumerator()
+  nameWithType: RTree.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.RTree.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RTree.GetEnumerator
+  nameWithType: RTree.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.RTree.Insert(Advanced.Algorithms.Geometry.Polygon)
   name: Insert(Polygon)
   href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_Insert_Advanced_Algorithms_Geometry_Polygon_
@@ -6988,6 +7073,23 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.DataStructures.RTree.RangeSearch
   nameWithType: RTree.RangeSearch
+- uid: Advanced.Algorithms.DataStructures.RTree.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.RTree.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.RTree.System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: RTree.IEnumerable.GetEnumerator()
+  nameWithType.vb: RTree.System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.RTree.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.RTree.System.Collections.IEnumerable.GetEnumerator
+  nameWithType: RTree.IEnumerable.GetEnumerator
+  nameWithType.vb: RTree.System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SegmentTree`1
   name: SegmentTree<T>
   href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html
