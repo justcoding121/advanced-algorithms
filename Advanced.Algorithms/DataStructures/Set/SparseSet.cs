@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
@@ -6,12 +8,12 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A sparse set implementation.
     /// </summary>
-    public class SparseSet
+    public class SparseSet : IEnumerable<int>
     {
         private readonly int[] sparse;
         private readonly int[] dense;
 
-        public int Length { get; private set; }
+        public int Count { get; private set; }
 
         public SparseSet(int maxVal, int capacity)
         {
@@ -19,6 +21,9 @@ namespace Advanced.Algorithms.DataStructures
             dense = Enumerable.Repeat(-1, capacity).ToArray();
         }
 
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public void Add(int value)
         {
             if (value < 0)
@@ -31,16 +36,19 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Item is greater than max value.");
             }
 
-            if (Length >= dense.Length)
+            if (Count >= dense.Length)
             {
                 throw new Exception("Set reached its capacity.");
             }
 
-            sparse[value] = Length;
-            dense[Length] = value;
-            Length++;
+            sparse[value] = Count;
+            dense[Count] = value;
+            Count++;
         }
 
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public void Remove(int value)
         {
             if (value < 0)
@@ -63,25 +71,41 @@ namespace Advanced.Algorithms.DataStructures
             sparse[value] = -1;
 
             //replace index with last value of dense
-            var lastVal = dense[Length - 1];
+            var lastVal = dense[Count - 1];
             dense[index] = lastVal;
-            dense[Length - 1] = -1;
+            dense[Count - 1] = -1;
 
             //update sparse for lastVal
             sparse[lastVal] = index;
 
-            Length--;
+            Count--;
         }
 
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public bool HasItem(int value)
         {
             var index = sparse[value];
             return index != -1 && dense[index] == value;
         }
 
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public void Clear()
         {
-            Length = 0;
+            Count = 0;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<int> GetEnumerator()
+        {
+            return dense.Take(Count).GetEnumerator();
         }
     }
 }
