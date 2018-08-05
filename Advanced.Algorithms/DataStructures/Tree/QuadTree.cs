@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.DataStructures.Tree
+namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// A quadtree implementation.

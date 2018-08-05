@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Tree;
+﻿using Advanced.Algorithms.DataStructures;
 using Advanced.Algorithms.Geometry;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
