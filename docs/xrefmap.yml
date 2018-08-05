@@ -188,181 +188,6 @@ references:
   commentId: N:Advanced.Algorithms.DataStructures
   fullName: Advanced.Algorithms.DataStructures
   nameWithType: Advanced.Algorithms.DataStructures
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1
-  name: ArrayList<T>
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.ArrayList`1
-  name.vb: ArrayList(Of T)
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T)
-  nameWithType: ArrayList<T>
-  nameWithType.vb: ArrayList(Of T)
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.#ctor(System.Collections.Generic.IEnumerable{`0})
-  name: ArrayList(IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1__ctor_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.#ctor(System.Collections.Generic.IEnumerable{`0})
-  name.vb: ArrayList(IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.ArrayList(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).ArrayList(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: ArrayList<T>.ArrayList(IEnumerable<T>)
-  nameWithType.vb: ArrayList(Of T).ArrayList(IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
-  name: ArrayList(Int32, IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1__ctor_System_Int32_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
-  name.vb: ArrayList(Int32, IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.ArrayList(System.Int32, System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).ArrayList(System.Int32, System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: ArrayList<T>.ArrayList(Int32, IEnumerable<T>)
-  nameWithType.vb: ArrayList(Of T).ArrayList(Int32, IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.#ctor*
-  name: ArrayList
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.#ctor
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.ArrayList
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).ArrayList
-  nameWithType: ArrayList<T>.ArrayList
-  nameWithType.vb: ArrayList(Of T).ArrayList
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Add(`0)
-  name: Add(T)
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Add__0_
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.Add(`0)
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Add(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Add(T)
-  nameWithType: ArrayList<T>.Add(T)
-  nameWithType.vb: ArrayList(Of T).Add(T)
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Add*
-  name: Add
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Add_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.Add
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Add
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Add
-  nameWithType: ArrayList<T>.Add
-  nameWithType.vb: ArrayList(Of T).Add
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Clear
-  name: Clear()
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Clear
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.Clear
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Clear()
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Clear()
-  nameWithType: ArrayList<T>.Clear()
-  nameWithType.vb: ArrayList(Of T).Clear()
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Clear*
-  name: Clear
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Clear_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.Clear
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Clear
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Clear
-  nameWithType: ArrayList<T>.Clear
-  nameWithType.vb: ArrayList(Of T).Clear
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).GetEnumerator()
-  nameWithType: ArrayList<T>.GetEnumerator()
-  nameWithType.vb: ArrayList(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.GetEnumerator
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).GetEnumerator
-  nameWithType: ArrayList<T>.GetEnumerator
-  nameWithType.vb: ArrayList(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.InsertAt(System.Int32,`0)
-  name: InsertAt(Int32, T)
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_InsertAt_System_Int32__0_
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.InsertAt(System.Int32,`0)
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.InsertAt(System.Int32, T)
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).InsertAt(System.Int32, T)
-  nameWithType: ArrayList<T>.InsertAt(Int32, T)
-  nameWithType.vb: ArrayList(Of T).InsertAt(Int32, T)
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.InsertAt*
-  name: InsertAt
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_InsertAt_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.InsertAt
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.InsertAt
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).InsertAt
-  nameWithType: ArrayList<T>.InsertAt
-  nameWithType.vb: ArrayList(Of T).InsertAt
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Item(System.Int32)
-  name: Item[Int32]
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Item_System_Int32_
-  commentId: P:Advanced.Algorithms.DataStructures.ArrayList`1.Item(System.Int32)
-  name.vb: Item(Int32)
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Item[System.Int32]
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Item(System.Int32)
-  nameWithType: ArrayList<T>.Item[Int32]
-  nameWithType.vb: ArrayList(Of T).Item(Int32)
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Item*
-  name: Item
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Item_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.Item
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Item
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Item
-  nameWithType: ArrayList<T>.Item
-  nameWithType.vb: ArrayList(Of T).Item
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Length
-  name: Length
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Length
-  commentId: P:Advanced.Algorithms.DataStructures.ArrayList`1.Length
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Length
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Length
-  nameWithType: ArrayList<T>.Length
-  nameWithType.vb: ArrayList(Of T).Length
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.Length*
-  name: Length
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_Length_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.Length
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.Length
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).Length
-  nameWithType: ArrayList<T>.Length
-  nameWithType.vb: ArrayList(Of T).Length
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.RemoveAt(System.Int32)
-  name: RemoveAt(Int32)
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_RemoveAt_System_Int32_
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.RemoveAt(System.Int32)
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.RemoveAt(System.Int32)
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).RemoveAt(System.Int32)
-  nameWithType: ArrayList<T>.RemoveAt(Int32)
-  nameWithType.vb: ArrayList(Of T).RemoveAt(Int32)
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.RemoveAt*
-  name: RemoveAt
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_RemoveAt_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.RemoveAt
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.RemoveAt
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).RemoveAt
-  nameWithType: ArrayList<T>.RemoveAt
-  nameWithType.vb: ArrayList(Of T).RemoveAt
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: ArrayList<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.ArrayList`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.ArrayList-1.html#Advanced_Algorithms_DataStructures_ArrayList_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.ArrayList<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: ArrayList<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1
   name: AVLTree<T>
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html
@@ -3165,6 +2990,181 @@ references:
   commentId: N:Advanced.Algorithms.DataStructures.Foundation
   fullName: Advanced.Algorithms.DataStructures.Foundation
   nameWithType: Advanced.Algorithms.DataStructures.Foundation
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1
+  name: ArrayList<T>
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1
+  name.vb: ArrayList(Of T)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T)
+  nameWithType: ArrayList<T>
+  nameWithType.vb: ArrayList(Of T)
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  name: ArrayList(IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1__ctor_System_Collections_Generic_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  name.vb: ArrayList(IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.ArrayList(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).ArrayList(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: ArrayList<T>.ArrayList(IEnumerable<T>)
+  nameWithType.vb: ArrayList(Of T).ArrayList(IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
+  name: ArrayList(Int32, IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1__ctor_System_Int32_System_Collections_Generic_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
+  name.vb: ArrayList(Int32, IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.ArrayList(System.Int32, System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).ArrayList(System.Int32, System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: ArrayList<T>.ArrayList(Int32, IEnumerable<T>)
+  nameWithType.vb: ArrayList(Of T).ArrayList(Int32, IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor*
+  name: ArrayList
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.ArrayList
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).ArrayList
+  nameWithType: ArrayList<T>.ArrayList
+  nameWithType.vb: ArrayList(Of T).ArrayList
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Add(`0)
+  name: Add(T)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_Add__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Add(`0)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.Add(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).Add(T)
+  nameWithType: ArrayList<T>.Add(T)
+  nameWithType.vb: ArrayList(Of T).Add(T)
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Add*
+  name: Add
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_Add_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Add
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.Add
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).Add
+  nameWithType: ArrayList<T>.Add
+  nameWithType.vb: ArrayList(Of T).Add
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Clear
+  name: Clear()
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_Clear
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Clear
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.Clear()
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).Clear()
+  nameWithType: ArrayList<T>.Clear()
+  nameWithType.vb: ArrayList(Of T).Clear()
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Clear*
+  name: Clear
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_Clear_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Clear
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.Clear
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).Clear
+  nameWithType: ArrayList<T>.Clear
+  nameWithType.vb: ArrayList(Of T).Clear
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).GetEnumerator()
+  nameWithType: ArrayList<T>.GetEnumerator()
+  nameWithType.vb: ArrayList(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).GetEnumerator
+  nameWithType: ArrayList<T>.GetEnumerator
+  nameWithType.vb: ArrayList(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.InsertAt(System.Int32,`0)
+  name: InsertAt(Int32, T)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_InsertAt_System_Int32__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.InsertAt(System.Int32,`0)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.InsertAt(System.Int32, T)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).InsertAt(System.Int32, T)
+  nameWithType: ArrayList<T>.InsertAt(Int32, T)
+  nameWithType.vb: ArrayList(Of T).InsertAt(Int32, T)
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.InsertAt*
+  name: InsertAt
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_InsertAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.InsertAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.InsertAt
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).InsertAt
+  nameWithType: ArrayList<T>.InsertAt
+  nameWithType.vb: ArrayList(Of T).InsertAt
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Item(System.Int32)
+  name: Item[Int32]
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_Item_System_Int32_
+  commentId: P:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Item(System.Int32)
+  name.vb: Item(Int32)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.Item[System.Int32]
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).Item(System.Int32)
+  nameWithType: ArrayList<T>.Item[Int32]
+  nameWithType.vb: ArrayList(Of T).Item(Int32)
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Item*
+  name: Item
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_Item_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Item
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.Item
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).Item
+  nameWithType: ArrayList<T>.Item
+  nameWithType.vb: ArrayList(Of T).Item
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Length
+  name: Length
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_Length
+  commentId: P:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Length
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.Length
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).Length
+  nameWithType: ArrayList<T>.Length
+  nameWithType.vb: ArrayList(Of T).Length
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Length*
+  name: Length
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_Length_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.Length
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.Length
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).Length
+  nameWithType: ArrayList<T>.Length
+  nameWithType.vb: ArrayList(Of T).Length
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.RemoveAt(System.Int32)
+  name: RemoveAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_RemoveAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.RemoveAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.RemoveAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).RemoveAt(System.Int32)
+  nameWithType: ArrayList<T>.RemoveAt(Int32)
+  nameWithType.vb: ArrayList(Of T).RemoveAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.RemoveAt*
+  name: RemoveAt
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_RemoveAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.RemoveAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.RemoveAt
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).RemoveAt
+  nameWithType: ArrayList<T>.RemoveAt
+  nameWithType.vb: ArrayList(Of T).RemoveAt
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: ArrayList<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: ArrayList<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation.Dictionary`2
   name: Dictionary<K, V>
   href: api/Advanced.Algorithms.DataStructures.Foundation.Dictionary-2.html
