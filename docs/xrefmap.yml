@@ -6614,6 +6614,119 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: PairingMinHeap<T>.IEnumerable.GetEnumerator
   nameWithType.vb: PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1
+  name: QuadTree<T>
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.QuadTree`1
+  name.vb: QuadTree(Of T)
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T)
+  nameWithType: QuadTree<T>
+  nameWithType.vb: QuadTree(Of T)
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.QuadTree`1.Count
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).Count
+  nameWithType: QuadTree<T>.Count
+  nameWithType.vb: QuadTree(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.QuadTree`1.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).Count
+  nameWithType: QuadTree<T>.Count
+  nameWithType.vb: QuadTree(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.Delete(Advanced.Algorithms.Geometry.Point)
+  name: Delete(Point)
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_Delete_Advanced_Algorithms_Geometry_Point_
+  commentId: M:Advanced.Algorithms.DataStructures.QuadTree`1.Delete(Advanced.Algorithms.Geometry.Point)
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.Delete(Advanced.Algorithms.Geometry.Point)
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).Delete(Advanced.Algorithms.Geometry.Point)
+  nameWithType: QuadTree<T>.Delete(Point)
+  nameWithType.vb: QuadTree(Of T).Delete(Point)
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.Delete*
+  name: Delete
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_Delete_
+  commentId: Overload:Advanced.Algorithms.DataStructures.QuadTree`1.Delete
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.Delete
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).Delete
+  nameWithType: QuadTree<T>.Delete
+  nameWithType.vb: QuadTree(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.QuadTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).GetEnumerator()
+  nameWithType: QuadTree<T>.GetEnumerator()
+  nameWithType.vb: QuadTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.QuadTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).GetEnumerator
+  nameWithType: QuadTree<T>.GetEnumerator
+  nameWithType.vb: QuadTree(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.Insert(Advanced.Algorithms.Geometry.Point,`0)
+  name: Insert(Point, T)
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_Insert_Advanced_Algorithms_Geometry_Point__0_
+  commentId: M:Advanced.Algorithms.DataStructures.QuadTree`1.Insert(Advanced.Algorithms.Geometry.Point,`0)
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.Insert(Advanced.Algorithms.Geometry.Point, T)
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).Insert(Advanced.Algorithms.Geometry.Point, T)
+  nameWithType: QuadTree<T>.Insert(Point, T)
+  nameWithType.vb: QuadTree(Of T).Insert(Point, T)
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.Insert*
+  name: Insert
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_Insert_
+  commentId: Overload:Advanced.Algorithms.DataStructures.QuadTree`1.Insert
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.Insert
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).Insert
+  nameWithType: QuadTree<T>.Insert
+  nameWithType.vb: QuadTree(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
+  name: RangeSearch(Rectangle)
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_RangeSearch_Advanced_Algorithms_Geometry_Rectangle_
+  commentId: M:Advanced.Algorithms.DataStructures.QuadTree`1.RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
+  nameWithType: QuadTree<T>.RangeSearch(Rectangle)
+  nameWithType.vb: QuadTree(Of T).RangeSearch(Rectangle)
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.RangeSearch*
+  name: RangeSearch
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_RangeSearch_
+  commentId: Overload:Advanced.Algorithms.DataStructures.QuadTree`1.RangeSearch
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.RangeSearch
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).RangeSearch
+  nameWithType: QuadTree<T>.RangeSearch
+  nameWithType.vb: QuadTree(Of T).RangeSearch
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.QuadTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: QuadTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.QuadTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.QuadTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: QuadTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.RangeTree`1
   name: RangeTree<T>
   href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html
@@ -8277,125 +8390,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator
   nameWithType: TreapTree<T>.IEnumerable.GetEnumerator
   nameWithType.vb: TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.Tree
-  name: Advanced.Algorithms.DataStructures.Tree
-  href: api/Advanced.Algorithms.DataStructures.Tree.html
-  commentId: N:Advanced.Algorithms.DataStructures.Tree
-  fullName: Advanced.Algorithms.DataStructures.Tree
-  nameWithType: Advanced.Algorithms.DataStructures.Tree
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1
-  name: QuadTree<T>
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.Tree.QuadTree`1
-  name.vb: QuadTree(Of T)
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T)
-  nameWithType: QuadTree<T>
-  nameWithType.vb: QuadTree(Of T)
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Count
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).Count
-  nameWithType: QuadTree<T>.Count
-  nameWithType.vb: QuadTree(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Count
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).Count
-  nameWithType: QuadTree<T>.Count
-  nameWithType.vb: QuadTree(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Delete(Advanced.Algorithms.Geometry.Point)
-  name: Delete(Point)
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_Delete_Advanced_Algorithms_Geometry_Point_
-  commentId: M:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Delete(Advanced.Algorithms.Geometry.Point)
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.Delete(Advanced.Algorithms.Geometry.Point)
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).Delete(Advanced.Algorithms.Geometry.Point)
-  nameWithType: QuadTree<T>.Delete(Point)
-  nameWithType.vb: QuadTree(Of T).Delete(Point)
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Delete*
-  name: Delete
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_Delete_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Delete
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.Delete
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).Delete
-  nameWithType: QuadTree<T>.Delete
-  nameWithType.vb: QuadTree(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).GetEnumerator()
-  nameWithType: QuadTree<T>.GetEnumerator()
-  nameWithType.vb: QuadTree(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.GetEnumerator
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).GetEnumerator
-  nameWithType: QuadTree<T>.GetEnumerator
-  nameWithType.vb: QuadTree(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Insert(Advanced.Algorithms.Geometry.Point,`0)
-  name: Insert(Point, T)
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_Insert_Advanced_Algorithms_Geometry_Point__0_
-  commentId: M:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Insert(Advanced.Algorithms.Geometry.Point,`0)
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.Insert(Advanced.Algorithms.Geometry.Point, T)
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).Insert(Advanced.Algorithms.Geometry.Point, T)
-  nameWithType: QuadTree<T>.Insert(Point, T)
-  nameWithType.vb: QuadTree(Of T).Insert(Point, T)
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Insert*
-  name: Insert
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.Insert
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).Insert
-  nameWithType: QuadTree<T>.Insert
-  nameWithType.vb: QuadTree(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
-  name: RangeSearch(Rectangle)
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_RangeSearch_Advanced_Algorithms_Geometry_Rectangle_
-  commentId: M:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).RangeSearch(Advanced.Algorithms.Geometry.Rectangle)
-  nameWithType: QuadTree<T>.RangeSearch(Rectangle)
-  nameWithType.vb: QuadTree(Of T).RangeSearch(Rectangle)
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.RangeSearch*
-  name: RangeSearch
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_RangeSearch_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.RangeSearch
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.RangeSearch
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).RangeSearch
-  nameWithType: QuadTree<T>.RangeSearch
-  nameWithType.vb: QuadTree(Of T).RangeSearch
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: QuadTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Tree.QuadTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Tree.QuadTree-1.html#Advanced_Algorithms_DataStructures_Tree_QuadTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree.QuadTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Tree.QuadTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree.QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: QuadTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Tree`1
   name: Tree<T>
   href: api/Advanced.Algorithms.DataStructures.Tree-1.html
