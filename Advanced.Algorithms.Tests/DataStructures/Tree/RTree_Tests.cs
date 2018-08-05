@@ -15,7 +15,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
         public void RTree_Insertion_Test()
         {
             var nodeCount = 1000;
-            var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
+            var randomPolygons = new HashSet<Polygon>();
             for (int i = 0; i < nodeCount; i++)
             {
                 randomPolygons.Add(getRandomPointOrPolygon());
@@ -28,6 +28,8 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
             {
                 tree.Insert(polygon);
 
+                //IEnumerable test
+                Assert.AreEqual(tree.Count, tree.Count());
                 //height should be similar to that of B+ tree.
                 //https://en.wikipedia.org/wiki/B-tree#Best_case_and_worst_case_heights
                 var theoreticalMaxHeight = Math.Ceiling(Math.Log((j + 2) / 2, (int)Math.Ceiling((double)order / 2))) + 1;
@@ -48,7 +50,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
         public void RTree_Range_Search_Test()
         {
             var nodeCount = 1000;
-            var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
+            var randomPolygons = new HashSet<Polygon>();
             for (int i = 0; i < nodeCount; i++)
             {
                 randomPolygons.Add(getRandomPointOrPolygon());
@@ -60,6 +62,9 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
             {
                 tree.Insert(polygon);
             }
+
+            //IEnumerable test
+            Assert.AreEqual(tree.Count, tree.Count());
 
             var searchRectangle = getRandomPointOrPolygon().GetContainingRectangle();
 
@@ -74,7 +79,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
         public void RTree_Deletion_Test()
         {
             var nodeCount = 1000;
-            var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
+            var randomPolygons = new HashSet<Polygon>();
             for (int i = 0; i < nodeCount; i++)
             {
                 randomPolygons.Add(getRandomPointOrPolygon());
@@ -86,6 +91,9 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
             {
                 tree.Insert(polygon);
             }
+
+            //IEnumerable test
+            Assert.AreEqual(tree.Count, tree.Count());
 
             int j = randomPolygons.Count;
             foreach (var polygon in randomPolygons)
@@ -109,7 +117,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
         public void RTree_Stress_Test()
         {
             var nodeCount = 10000;
-            var randomPolygons = new System.Collections.Generic.HashSet<Polygon>();
+            var randomPolygons = new HashSet<Polygon>();
             for (int i = 0; i < nodeCount; i++)
             {
                 randomPolygons.Add(getRandomPointOrPolygon());
@@ -123,15 +131,19 @@ namespace Advanced.Algorithms.Tests.DataStructures.Tree
                 tree.Insert(polygon);
             }
 
+            //IEnumerable test
+            Assert.AreEqual(tree.Count, tree.Count());
+
             foreach (var polygon in randomPolygons)
             {
                 tree.Delete(polygon);
             }
         }
+
         /// <summary>
         ///     Verifies that all children have same height.
         /// </summary>
-        /// <returns>Returns the height of given node</returns>
+        /// <returns>Returns the height of given node.</returns>
         private int verifyHeightUniformityAndReturnHeight(RTreeNode node, int order)
         {
             if (!node.IsLeaf)

@@ -269,7 +269,6 @@ namespace Advanced.Algorithms.DataStructures
         {
             return items.GetEnumerator();
         }
-
     }
 
     /// <summary>
