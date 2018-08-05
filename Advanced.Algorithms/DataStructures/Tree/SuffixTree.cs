@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// A simple suffix tree implementation using a trie
+    /// A suffix tree implementation using a trie.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class SuffixTree<T>
+    public class SuffixTree<T> : IEnumerable<T[]>
     {
         private Trie<T> trie;
         public int Count { private set; get; }
+        private HashSet<T[]> items = new HashSet<T[]>(new ArrayComparer<T>());
 
         public SuffixTree()
         {
@@ -19,15 +20,19 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// insert a new entry to suffix tree
-        /// O(m^2) complexity if m is the length of entry array
+        /// Insert a new entry to this suffix tree.
+        /// Time complexity: O(m^2) where m is the length of entry array.
         /// </summary>
-        /// <param name="entry"></param>
         public void Insert(T[] entry)
         {
             if (entry == null)
             {
                 throw new ArgumentException();
+            }
+
+            if (items.Contains(entry))
+            {
+                throw new Exception("Item exists.");
             }
 
             for (var i = 0; i < entry.Length; i++)
@@ -38,19 +43,25 @@ namespace Advanced.Algorithms.DataStructures
                 trie.Insert(suffix);
             }
 
+            items.Add(entry);
+
             Count++;
         }
 
         /// <summary>
-        /// deletes an entry from this suffix tree
-        /// O(m^2) complexity if m is the length of the entry to be deleted
+        /// Deletes an existing entry from this suffix tree.
+        /// Time complexity: O(m^2) where m is the length of entry array.
         /// </summary>
-        /// <param name="entry"></param>
         public void Delete(T[] entry)
         {
             if (entry == null)
             {
                 throw new ArgumentException();
+            }
+
+            if (!items.Contains(entry))
+            {
+                throw new Exception("Item does'nt exist.");
             }
 
             for (var i = 0; i < entry.Length; i++)
@@ -60,27 +71,38 @@ namespace Advanced.Algorithms.DataStructures
 
                 trie.Delete(suffix);
             }
+
+            items.Remove(entry);
+
             Count--;
         }
 
         /// <summary>
-        /// returns if the entry pattern is in this suffix tree
+        /// Returns true if the given entry pattern is in this suffix tree.
+        /// Time complexity: O(e) where e is the length of the given entry.
         /// </summary>
-        /// <param name="entry"></param>
-        /// <returns></returns>
-        public bool ContainsPattern(T[] entry)
+        public bool Contains(T[] pattern)
         {
-            return trie.StartsWith(entry).Count > 0;
+            return trie.ContainsPrefix(pattern);
         }
 
         /// <summary>
-        /// returns all sub entries that starts with this search pattern
+        /// Returns all sub-entries that starts with this search pattern.
+        /// Time complexity: O(rm) where r is the number of results and m is the average length of each entry.
         /// </summary>
-        /// <param name="entry"></param>
-        /// <returns></returns>
-        public List<T[]> StartsWithPattern(T[] entry)
+        public List<T[]> StartsWith(T[] pattern)
         {
-            return trie.StartsWith(entry);
+            return trie.StartsWith(pattern);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T[]> GetEnumerator()
+        {
+            return items.GetEnumerator();
         }
     }
 }

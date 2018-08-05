@@ -98,6 +98,39 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+
+        /// <summary>
+        /// Returns true if any records match this prefix.
+        /// Time complexity: O(e) where e is the length of the given entry.
+        /// </summary>
+        public bool ContainsPrefix(T[] prefix)
+        {
+            return containsPrefix(Root, prefix, 0);
+        }
+
+        /// <summary>
+        /// Recursively visit until end of prefix. 
+        /// </summary>
+        private bool containsPrefix(TrieNode<T> currentNode, T[] searchPrefix, int currentIndex)
+        {
+            while (true)
+            {
+                if (currentIndex == searchPrefix.Length)
+                {
+                    return true;
+                }
+
+                if (currentNode.Children.ContainsKey(searchPrefix[currentIndex]) == false)
+                {
+                    return false;
+                }
+
+                currentNode = currentNode.Children[searchPrefix[currentIndex]];
+                currentIndex = currentIndex + 1;
+            }
+        }
+
+
         /// <summary>
         /// Returns a list of records matching this prefix.
         /// Time complexity: O(rm) where r is the number of results and m is the average length of each entry.
@@ -165,7 +198,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Returns true if the entry exist
+        /// Returns true if the entry exist.
+        /// Time complexity: O(e) where e is the length of the given entry.
         /// </summary>
         public bool Contains(T[] entry)
         {

@@ -488,7 +488,7 @@ namespace Advanced.Algorithms.DataStructures
 
     /// <summary>
     /// A concrete implementation of this interface is required
-    /// when calling GetNearestNeigbour for k-d tree.
+    /// when calling NearestNeigbour() for k-d tree.
     /// </summary>
     public interface IDistanceCalculator<T> where T : IComparable
     {

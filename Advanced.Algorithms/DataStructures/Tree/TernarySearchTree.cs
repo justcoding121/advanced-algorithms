@@ -3,21 +3,6 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class TernarySearchTreeNode<T> where T : IComparable
-    {
-        internal bool IsEnd { get; set; }
-        internal T Value { get; set; }
-        internal bool HasChildren => !(Left == null && Middle == null && Right == null);
-        internal TernarySearchTreeNode<T> Left { get; set; }
-        internal TernarySearchTreeNode<T> Middle { get; set; }
-        internal TernarySearchTreeNode<T> Right { get; set; }
-
-        internal TernarySearchTreeNode(T value)
-        {
-            this.Value = value;
-        }
-    }
-
     public class TernarySearchTree<T> where T : IComparable
     {
         internal TernarySearchTreeNode<T> Root;
@@ -339,6 +324,21 @@ namespace Advanced.Algorithms.DataStructures
                 currentNode = currentNode.Middle;
                 currentIndex = currentIndex + 1;
             }
+        }
+    }
+
+    internal class TernarySearchTreeNode<T> where T : IComparable
+    {
+        internal bool IsEnd { get; set; }
+        internal T Value { get; set; }
+        internal bool HasChildren => !(Left == null && Middle == null && Right == null);
+        internal TernarySearchTreeNode<T> Left { get; set; }
+        internal TernarySearchTreeNode<T> Middle { get; set; }
+        internal TernarySearchTreeNode<T> Right { get; set; }
+
+        internal TernarySearchTreeNode(T value)
+        {
+            this.Value = value;
         }
     }
 }

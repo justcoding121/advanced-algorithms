@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
+    /// <summary>
+    /// A sparse set implementation.
+    /// </summary>
     public class SparseSet
     {
         private readonly int[] sparse;
