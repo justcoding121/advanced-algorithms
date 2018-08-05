@@ -2282,6 +2282,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T)
   nameWithType: DisJointSet<T>
   nameWithType.vb: DisJointSet(Of T)
+- uid: Advanced.Algorithms.DataStructures.DisJointSet`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.DisJointSet`1.Count
+  fullName: Advanced.Algorithms.DataStructures.DisJointSet<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).Count
+  nameWithType: DisJointSet<T>.Count
+  nameWithType.vb: DisJointSet(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.DisJointSet`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.DisJointSet`1.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.DisJointSet<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).Count
+  nameWithType: DisJointSet<T>.Count
+  nameWithType.vb: DisJointSet(Of T).Count
 - uid: Advanced.Algorithms.DataStructures.DisJointSet`1.FindSet(`0)
   name: FindSet(T)
   href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_FindSet__0_
@@ -2299,6 +2316,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).FindSet
   nameWithType: DisJointSet<T>.FindSet
   nameWithType.vb: DisJointSet(Of T).FindSet
+- uid: Advanced.Algorithms.DataStructures.DisJointSet`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.DisJointSet`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.DisJointSet<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).GetEnumerator()
+  nameWithType: DisJointSet<T>.GetEnumerator()
+  nameWithType.vb: DisJointSet(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.DisJointSet`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.DisJointSet`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.DisJointSet<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).GetEnumerator
+  nameWithType: DisJointSet<T>.GetEnumerator
+  nameWithType.vb: DisJointSet(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.DisJointSet`1.MakeSet(`0)
   name: MakeSet(T)
   href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_MakeSet__0_
@@ -2316,6 +2350,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).MakeSet
   nameWithType: DisJointSet<T>.MakeSet
   nameWithType.vb: DisJointSet(Of T).MakeSet
+- uid: Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.DisJointSet<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: DisJointSet<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: DisJointSet(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.DisJointSet<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: DisJointSet<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: DisJointSet(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.DisJointSet`1.Union(`0,`0)
   name: Union(T, T)
   href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_Union__0__0_
@@ -7689,6 +7742,32 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.DataStructures.SparseSet.Clear
   nameWithType: SparseSet.Clear
+- uid: Advanced.Algorithms.DataStructures.SparseSet.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_Count
+  commentId: P:Advanced.Algorithms.DataStructures.SparseSet.Count
+  fullName: Advanced.Algorithms.DataStructures.SparseSet.Count
+  nameWithType: SparseSet.Count
+- uid: Advanced.Algorithms.DataStructures.SparseSet.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SparseSet.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SparseSet.Count
+  nameWithType: SparseSet.Count
+- uid: Advanced.Algorithms.DataStructures.SparseSet.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SparseSet.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SparseSet.GetEnumerator()
+  nameWithType: SparseSet.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SparseSet.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SparseSet.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SparseSet.GetEnumerator
+  nameWithType: SparseSet.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SparseSet.HasItem(System.Int32)
   name: HasItem(Int32)
   href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_HasItem_System_Int32_
@@ -7702,19 +7781,6 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.DataStructures.SparseSet.HasItem
   nameWithType: SparseSet.HasItem
-- uid: Advanced.Algorithms.DataStructures.SparseSet.Length
-  name: Length
-  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_Length
-  commentId: P:Advanced.Algorithms.DataStructures.SparseSet.Length
-  fullName: Advanced.Algorithms.DataStructures.SparseSet.Length
-  nameWithType: SparseSet.Length
-- uid: Advanced.Algorithms.DataStructures.SparseSet.Length*
-  name: Length
-  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_Length_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SparseSet.Length
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SparseSet.Length
-  nameWithType: SparseSet.Length
 - uid: Advanced.Algorithms.DataStructures.SparseSet.Remove(System.Int32)
   name: Remove(Int32)
   href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_Remove_System_Int32_
@@ -7728,6 +7794,23 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.DataStructures.SparseSet.Remove
   nameWithType: SparseSet.Remove
+- uid: Advanced.Algorithms.DataStructures.SparseSet.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SparseSet.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.SparseSet.System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SparseSet.IEnumerable.GetEnumerator()
+  nameWithType.vb: SparseSet.System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SparseSet.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SparseSet.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SparseSet.System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SparseSet.IEnumerable.GetEnumerator
+  nameWithType.vb: SparseSet.System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SplayTree`1
   name: SplayTree<T>
   href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html
