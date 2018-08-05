@@ -7839,24 +7839,24 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).SuffixTree
   nameWithType: SuffixTree<T>.SuffixTree
   nameWithType.vb: SuffixTree(Of T).SuffixTree
-- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.ContainsPattern(`0[])
-  name: ContainsPattern(T[])
-  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_ContainsPattern__0___
-  commentId: M:Advanced.Algorithms.DataStructures.SuffixTree`1.ContainsPattern(`0[])
-  name.vb: ContainsPattern(T())
-  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.ContainsPattern(T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).ContainsPattern(T())
-  nameWithType: SuffixTree<T>.ContainsPattern(T[])
-  nameWithType.vb: SuffixTree(Of T).ContainsPattern(T())
-- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.ContainsPattern*
-  name: ContainsPattern
-  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_ContainsPattern_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SuffixTree`1.ContainsPattern
+- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.Contains(`0[])
+  name: Contains(T[])
+  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_Contains__0___
+  commentId: M:Advanced.Algorithms.DataStructures.SuffixTree`1.Contains(`0[])
+  name.vb: Contains(T())
+  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.Contains(T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).Contains(T())
+  nameWithType: SuffixTree<T>.Contains(T[])
+  nameWithType.vb: SuffixTree(Of T).Contains(T())
+- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.Contains*
+  name: Contains
+  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_Contains_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SuffixTree`1.Contains
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.ContainsPattern
-  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).ContainsPattern
-  nameWithType: SuffixTree<T>.ContainsPattern
-  nameWithType.vb: SuffixTree(Of T).ContainsPattern
+  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.Contains
+  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).Contains
+  nameWithType: SuffixTree<T>.Contains
+  nameWithType.vb: SuffixTree(Of T).Contains
 - uid: Advanced.Algorithms.DataStructures.SuffixTree`1.Count
   name: Count
   href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_Count
@@ -7892,6 +7892,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).Delete
   nameWithType: SuffixTree<T>.Delete
   nameWithType.vb: SuffixTree(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SuffixTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).GetEnumerator()
+  nameWithType: SuffixTree<T>.GetEnumerator()
+  nameWithType.vb: SuffixTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SuffixTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).GetEnumerator
+  nameWithType: SuffixTree<T>.GetEnumerator
+  nameWithType.vb: SuffixTree(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SuffixTree`1.Insert(`0[])
   name: Insert(T[])
   href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_Insert__0___
@@ -7910,24 +7927,43 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).Insert
   nameWithType: SuffixTree<T>.Insert
   nameWithType.vb: SuffixTree(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWithPattern(`0[])
-  name: StartsWithPattern(T[])
-  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_StartsWithPattern__0___
-  commentId: M:Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWithPattern(`0[])
-  name.vb: StartsWithPattern(T())
-  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.StartsWithPattern(T[])
-  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).StartsWithPattern(T())
-  nameWithType: SuffixTree<T>.StartsWithPattern(T[])
-  nameWithType.vb: SuffixTree(Of T).StartsWithPattern(T())
-- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWithPattern*
-  name: StartsWithPattern
-  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_StartsWithPattern_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWithPattern
+- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWith(`0[])
+  name: StartsWith(T[])
+  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_StartsWith__0___
+  commentId: M:Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWith(`0[])
+  name.vb: StartsWith(T())
+  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.StartsWith(T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).StartsWith(T())
+  nameWithType: SuffixTree<T>.StartsWith(T[])
+  nameWithType.vb: SuffixTree(Of T).StartsWith(T())
+- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWith*
+  name: StartsWith
+  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_StartsWith_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWith
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.StartsWithPattern
-  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).StartsWithPattern
-  nameWithType: SuffixTree<T>.StartsWithPattern
-  nameWithType.vb: SuffixTree(Of T).StartsWithPattern
+  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.StartsWith
+  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).StartsWith
+  nameWithType: SuffixTree<T>.StartsWith
+  nameWithType.vb: SuffixTree(Of T).StartsWith
+- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SuffixTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SuffixTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SuffixTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SuffixTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1
   name: TernarySearchTree<T>
   href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html
@@ -8551,6 +8587,24 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).Contains
   nameWithType: Trie<T>.Contains
   nameWithType.vb: Trie(Of T).Contains
+- uid: Advanced.Algorithms.DataStructures.Trie`1.ContainsPrefix(`0[])
+  name: ContainsPrefix(T[])
+  href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_ContainsPrefix__0___
+  commentId: M:Advanced.Algorithms.DataStructures.Trie`1.ContainsPrefix(`0[])
+  name.vb: ContainsPrefix(T())
+  fullName: Advanced.Algorithms.DataStructures.Trie<T>.ContainsPrefix(T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).ContainsPrefix(T())
+  nameWithType: Trie<T>.ContainsPrefix(T[])
+  nameWithType.vb: Trie(Of T).ContainsPrefix(T())
+- uid: Advanced.Algorithms.DataStructures.Trie`1.ContainsPrefix*
+  name: ContainsPrefix
+  href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_ContainsPrefix_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Trie`1.ContainsPrefix
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Trie<T>.ContainsPrefix
+  fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).ContainsPrefix
+  nameWithType: Trie<T>.ContainsPrefix
+  nameWithType.vb: Trie(Of T).ContainsPrefix
 - uid: Advanced.Algorithms.DataStructures.Trie`1.Count
   name: Count
   href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_Count
