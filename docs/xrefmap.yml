@@ -8586,6 +8586,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).Delete
   nameWithType: Trie<T>.Delete
   nameWithType.vb: Trie(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.Trie`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Trie`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Trie<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).GetEnumerator()
+  nameWithType: Trie<T>.GetEnumerator()
+  nameWithType.vb: Trie(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Trie`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Trie`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Trie<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).GetEnumerator
+  nameWithType: Trie<T>.GetEnumerator
+  nameWithType.vb: Trie(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Trie`1.Insert(`0[])
   name: Insert(T[])
   href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_Insert__0___
@@ -8622,6 +8639,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).StartsWith
   nameWithType: Trie<T>.StartsWith
   nameWithType.vb: Trie(Of T).StartsWith
+- uid: Advanced.Algorithms.DataStructures.Trie`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Trie`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.Trie<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: Trie<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: Trie(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Trie`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Trie`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Trie<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: Trie<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: Trie(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.Distributed
   name: Advanced.Algorithms.Distributed
   href: api/Advanced.Algorithms.Distributed.html
