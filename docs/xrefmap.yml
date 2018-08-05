@@ -8121,6 +8121,24 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).Contains
   nameWithType: TernarySearchTree<T>.Contains
   nameWithType.vb: TernarySearchTree(Of T).Contains
+- uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.ContainsPrefix(`0[])
+  name: ContainsPrefix(T[])
+  href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_ContainsPrefix__0___
+  commentId: M:Advanced.Algorithms.DataStructures.TernarySearchTree`1.ContainsPrefix(`0[])
+  name.vb: ContainsPrefix(T())
+  fullName: Advanced.Algorithms.DataStructures.TernarySearchTree<T>.ContainsPrefix(T[])
+  fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).ContainsPrefix(T())
+  nameWithType: TernarySearchTree<T>.ContainsPrefix(T[])
+  nameWithType.vb: TernarySearchTree(Of T).ContainsPrefix(T())
+- uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.ContainsPrefix*
+  name: ContainsPrefix
+  href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_ContainsPrefix_
+  commentId: Overload:Advanced.Algorithms.DataStructures.TernarySearchTree`1.ContainsPrefix
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.TernarySearchTree<T>.ContainsPrefix
+  fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).ContainsPrefix
+  nameWithType: TernarySearchTree<T>.ContainsPrefix
+  nameWithType.vb: TernarySearchTree(Of T).ContainsPrefix
 - uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.Count
   name: Count
   href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_Count
@@ -8156,6 +8174,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).Delete
   nameWithType: TernarySearchTree<T>.Delete
   nameWithType.vb: TernarySearchTree(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.TernarySearchTree`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.TernarySearchTree<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).GetEnumerator()
+  nameWithType: TernarySearchTree<T>.GetEnumerator()
+  nameWithType.vb: TernarySearchTree(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.TernarySearchTree`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.TernarySearchTree<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).GetEnumerator
+  nameWithType: TernarySearchTree<T>.GetEnumerator
+  nameWithType.vb: TernarySearchTree(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.Insert(`0[])
   name: Insert(T[])
   href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_Insert__0___
@@ -8192,6 +8227,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).StartsWith
   nameWithType: TernarySearchTree<T>.StartsWith
   nameWithType.vb: TernarySearchTree(Of T).StartsWith
+- uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.TernarySearchTree`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.TernarySearchTree<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: TernarySearchTree<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: TernarySearchTree(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.TernarySearchTree`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.TernarySearchTree<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: TernarySearchTree<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: TernarySearchTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.TreapTree`1
   name: TreapTree<T>
   href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html
