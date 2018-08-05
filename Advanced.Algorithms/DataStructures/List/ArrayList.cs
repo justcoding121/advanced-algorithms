@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     /// <summary>
     /// A self expanding array implementation.

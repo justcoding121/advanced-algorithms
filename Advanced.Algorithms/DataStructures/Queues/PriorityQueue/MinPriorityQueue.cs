@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
+    /// <summary>
     /// A priority queue implementation using min heap,
     /// assuming that lower values have a higher priority.
+    /// </summary>
     public class MinPriorityQueue<T> : IEnumerable<T> where T : IComparable
     {
         private readonly BMinHeap<T> minHeap = new BMinHeap<T>();

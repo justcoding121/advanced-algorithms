@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
+    /// <summary>
     /// A priority queue implementation using min heap,
     /// assuming that higher values have a higher priority.
+    /// </summary>
     public class MaxPriorityQueue<T>: IEnumerable<T> where T : IComparable
     {
         private readonly BMaxHeap<T> maxHeap = new BMaxHeap<T>();
