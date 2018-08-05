@@ -1,5 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -30,6 +31,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsTrue(trie.Contains("a".ToCharArray()));
             Assert.IsTrue(trie.Count == 6);
 
+            //IEnumerable test
+            Assert.AreEqual(trie.Count, trie.Count());
+
             Assert.IsTrue(trie.Contains("banana".ToCharArray()));
             trie.Delete("banana".ToCharArray());
             Assert.IsFalse(trie.Contains("banana".ToCharArray()));
@@ -54,7 +58,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
             trie.Delete("a".ToCharArray());
             Assert.IsFalse(trie.Contains("a".ToCharArray()));
             Assert.IsTrue(trie.Count == 0);
+
+            //IEnumerable test
+            Assert.AreEqual(trie.Count, trie.Count());
         }
+
         /// <summary>
         /// A tree test
         /// </summary>
@@ -75,6 +83,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             trie.Delete("cdab".ToCharArray());
             Assert.IsFalse(trie.Contains("cdab".ToCharArray()));
 
+            //IEnumerable test
+            Assert.AreEqual(trie.Count, trie.Count());
+
             var matches = trie.StartsWith("b".ToCharArray());
             Assert.IsTrue(matches.Count == 1);
 
@@ -86,6 +97,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
             trie.Delete("bcde".ToCharArray());
             trie.Delete("efghi".ToCharArray());
 
+            //IEnumerable test
+            Assert.AreEqual(trie.Count, trie.Count());
 
         }
     }
