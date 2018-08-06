@@ -16,27 +16,27 @@ namespace Advanced.Algorithms.Graph
         /// Find Minimum Spanning Tree of given weighted graph.
         /// </summary>
         /// <returns>List of MST edges</returns>
-        public List<MSTEdge<T,TW>>
+        public List<MSTEdge<T, TW>>
             FindMinimumSpanningTree(WeightedGraph<T, TW> graph)
         {
-            var edges = new List<MSTEdge<T,TW>>();
+            var edges = new List<MSTEdge<T, TW>>();
 
             //gather all unique edges
-            dfs(graph.ReferenceVertex, new System.Collections.Generic.HashSet<T>(), 
+            dfs(graph.ReferenceVertex, new System.Collections.Generic.HashSet<T>(),
                 new Dictionary<T, System.Collections.Generic.HashSet<T>>(),
                 edges);
 
             //quick sort preparation
-            var sortArray = new MSTEdge<T,TW>[edges.Count];
+            var sortArray = new MSTEdge<T, TW>[edges.Count];
             for (int i = 0; i < edges.Count; i++)
             {
                 sortArray[i] = edges[i];
             }
 
             //quick sort edges
-            var sortedEdges = MergeSort<MSTEdge<T,TW>>.Sort(sortArray);
+            var sortedEdges = MergeSort<MSTEdge<T, TW>>.Sort(sortArray);
 
-            var result = new List<MSTEdge<T,TW>>();
+            var result = new List<MSTEdge<T, TW>>();
             var disJointSet = new DisJointSet<T>();
 
             //create set
@@ -75,7 +75,7 @@ namespace Advanced.Algorithms.Graph
         /// Do DFS to find all unique edges.
         /// </summary>
         private void dfs(WeightedGraphVertex<T, TW> currentVertex, System.Collections.Generic.HashSet<T> visitedVertices, Dictionary<T, System.Collections.Generic.HashSet<T>> visitedEdges,
-            List<MSTEdge<T,TW>> result)
+            List<MSTEdge<T, TW>> result)
         {
             if (!visitedVertices.Contains(currentVertex.Value))
             {
@@ -89,7 +89,7 @@ namespace Advanced.Algorithms.Graph
                         result.Add(new MSTEdge<T, TW>(currentVertex.Value, edge.Key.Value, edge.Value));
 
                         //update visited edge
-                        if(!visitedEdges.ContainsKey(currentVertex.Value))
+                        if (!visitedEdges.ContainsKey(currentVertex.Value))
                         {
                             visitedEdges.Add(currentVertex.Value, new System.Collections.Generic.HashSet<T>());
                         }
@@ -109,7 +109,7 @@ namespace Advanced.Algorithms.Graph
                 }
 
             }
-        
+
         }
 
     }
