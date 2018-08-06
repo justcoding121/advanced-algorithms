@@ -87,6 +87,9 @@ namespace Advanced.Algorithms.Graph
         }
     }
 
+    /// <summary>
+    /// Minimum cut result object.
+    /// </summary>
     public class MinCutEdge<T>
     {
         public T Source { get; }

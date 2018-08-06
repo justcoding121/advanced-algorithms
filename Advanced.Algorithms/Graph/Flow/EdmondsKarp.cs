@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Graph
 {
 
     /// <summary>
-    /// A Edmond Karp max flox implementation on weighted directed graph using 
+    /// An Edmond Karp max flow implementation on weighted directed graph using 
     /// adjacency list representation of graph & residual graph.
     /// </summary>
     public class EdmondKarpMaxFlow<T, W> where W : IComparable

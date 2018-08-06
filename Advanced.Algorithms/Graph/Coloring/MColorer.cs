@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
 {
-
+    /// <summary>
+    /// An m-coloring algorithm implementation.
+    /// </summary>
     public class MColorer<T, C>
     {
         /// <summary>

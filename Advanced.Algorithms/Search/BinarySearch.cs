@@ -1,5 +1,8 @@
 ﻿namespace Advanced.Algorithms.Search
 {
+    /// <summary>
+    /// A binary search algorithm implementation.
+    /// </summary>
     public class BinarySearch
     {
         public static int Search(int[] input, int element)

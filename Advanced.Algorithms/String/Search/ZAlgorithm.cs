@@ -1,5 +1,8 @@
 ﻿namespace Advanced.Algorithms.String
 {
+    /// <summary>
+    /// A Z-algorithm implementation for string search.
+    /// </summary>
     public class ZAlgorithm
     {
         /// <summary>

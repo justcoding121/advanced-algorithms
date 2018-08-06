@@ -2,7 +2,6 @@
 
 namespace Advanced.Algorithms.Sorting
 {
-
     /// <summary>
     /// A shell sort implementation.
     /// </summary>

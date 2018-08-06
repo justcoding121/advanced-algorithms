@@ -1,5 +1,8 @@
 ﻿namespace Advanced.Algorithms.Numerical
 {
+    /// <summary>
+    /// A fast exponentiation algorithm implementation.
+    /// </summary>
     public class FastExponentiation
     {
         /// <summary>

@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.String
 {
+    /// <summary>
+    /// A Rabin-Karp string search implementation.
+    /// </summary>
     public class RabinKarp
     {
         /// <summary>

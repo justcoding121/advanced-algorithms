@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Numerical
 {
+    /// <summary>
+    /// A prime number generation algorithm using Sieve of Eratosthenes.
+    /// </summary>
     public class PrimeGenerator
     {
-        /// <summary>
-        /// Prime generation using Sieve of Eratosthenes.
-        /// </summary>
         public static List<int> GetAllPrimes(int max)
         {
             var primeTable = new bool[max + 1];

@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Sorting
 {
+    /// <summary>
+    /// A quick sort implementation.
+    /// </summary>
     public class QuickSort<T> where T : IComparable
     {
         /// <summary>
