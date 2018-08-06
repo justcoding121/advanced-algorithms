@@ -5,7 +5,9 @@ namespace Advanced.Algorithms.Sorting
 {
     public class TreeSort<T> where T : IComparable
     {
-        //O(nlog(n))
+        /// <summary>
+        /// Time complexity: O(nlog(n)).
+        /// </summary>
         public static T[] Sort(T[] array)
         {
             //create BST

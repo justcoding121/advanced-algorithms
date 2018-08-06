@@ -3,10 +3,8 @@
     public class FastExponentiation
     {
         /// <summary>
-        /// Computes exponentiation using squaring
+        /// Computes exponentiation using squaring.
         /// </summary>
-        /// <param name="base"></param>
-        /// <param name="power"></param>
         public static int BySquaring(int @base, int power)
         {
             while (true)

@@ -3,7 +3,7 @@
 namespace Advanced.Algorithms.Geometry
 {
     /// <summary>
-    /// Convex hull using jarvis's algorithm
+    /// Convex hull using jarvis's algorithm.
     /// </summary>
     public class ConvexHull
     {
@@ -54,10 +54,6 @@ namespace Advanced.Algorithms.Geometry
         /// <summary>
         /// Compute the orientation of the lines formed by points p, q and r
         /// </summary>
-        /// <param name="p"></param>
-        /// <param name="q"></param>
-        /// <param name="r"></param>
-        /// <returns></returns>
         private static Orientation getOrientation(int[] p, int[] q, int[] r)
         {
             int x1 = p[0], y1 = p[1];

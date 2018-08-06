@@ -1,5 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -12,23 +13,28 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void Suffix_Smoke_Test()
         {
-            var suffixTree = new SuffixTree<char>();
+            var tree = new SuffixTree<char>();
 
-            suffixTree.Insert("bananaa".ToCharArray());
-            Assert.IsTrue(suffixTree.Count == 1);
+            tree.Insert("bananaa".ToCharArray());
+            Assert.IsTrue(tree.Count == 1);
 
-            Assert.IsTrue(suffixTree.ContainsPattern("aa".ToCharArray()));
-            Assert.IsFalse(suffixTree.ContainsPattern("ab".ToCharArray()));
+            //IEnumerable test
+            Assert.AreEqual(tree.Count, tree.Count());
 
-            var matches = suffixTree.StartsWithPattern("na".ToCharArray());
+            Assert.IsTrue(tree.Contains("aa".ToCharArray()));
+            Assert.IsFalse(tree.Contains("ab".ToCharArray()));
+
+            var matches = tree.StartsWith("na".ToCharArray());
             Assert.IsTrue(matches.Count == 2);
 
-            matches = suffixTree.StartsWithPattern("an".ToCharArray());
+            matches = tree.StartsWith("an".ToCharArray());
             Assert.IsTrue(matches.Count == 2);
 
-            suffixTree.Delete("bananaa".ToCharArray());
-            Assert.IsTrue(suffixTree.Count == 0);
+            tree.Delete("bananaa".ToCharArray());
+            Assert.IsTrue(tree.Count == 0);
 
+            //IEnumerable test
+            Assert.AreEqual(tree.Count, tree.Count());
         }
     }
 }

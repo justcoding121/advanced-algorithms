@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Combinatorics
 {
+    /// <summary>
+    /// Subset computer.
+    /// </summary>
     public class Subset
     {
         public static List<List<T>> Find<T>(List<T> input)

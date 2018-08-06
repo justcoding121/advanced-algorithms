@@ -5,7 +5,7 @@ using System.Text;
 namespace Advanced.Algorithms.String
 {
     /// <summary>
-    /// A Manacher's longest palindrome implementation
+    /// A Manacher's longest palindrome implementation.
     /// </summary>
     public class ManachersPalindrome
     {
@@ -40,10 +40,8 @@ namespace Advanced.Algorithms.String
         }
 
         /// <summary>
-        /// Find the longest palindrome in linear time
+        /// Find the longest palindrome in linear time.
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
         private int findLongestPalindromeR(string input)
         {
             var palindromeLengths = new int[input.Length];
@@ -158,10 +156,8 @@ namespace Advanced.Algorithms.String
         }
 
         /// <summary>
-        /// returns the max index in given int[] array
+        /// Returns the max index in given int[] array.
         /// </summary>
-        /// <param name="palindromeLengths"></param>
-        /// <returns></returns>
         private int findMax(int[] palindromeLengths)
         {
             return palindromeLengths.Concat(new[] {int.MinValue}).Max();

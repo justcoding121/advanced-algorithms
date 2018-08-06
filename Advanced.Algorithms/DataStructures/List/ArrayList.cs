@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     /// <summary>
     /// A self expanding array implementation.
@@ -17,8 +18,7 @@ namespace Advanced.Algorithms.DataStructures
         public int Length { get; private set; }
 
         /// <summary>
-        /// Constructor.
-        /// TimeComplexity: O(1) if initial is empty otherwise O(n).
+        /// Time complexity: O(1) if initial is empty otherwise O(n).
         /// </summary>
         /// <param name="initalArraySize">The initial array size.</param>
         /// <param name="initial">Initial values if any.</param>
@@ -45,8 +45,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Constructor.
-        /// TimeComplexity: O(1) if initial is empty otherwise O(n).
+        /// Time complexity: O(1) if initial is empty otherwise O(n).
         /// </summary>
         /// <param name="initial">Initial values if any.</param>
         public ArrayList(IEnumerable<T> initial) 
@@ -54,7 +53,7 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         /// Indexed access to array.
-        /// Time Complexity: O(1).
+        /// Time complexity: O(1).
         /// </summary>
         /// <param name="index">The index to write or read.</param>
         /// <returns></returns>
@@ -187,57 +186,9 @@ namespace Advanced.Algorithms.DataStructures
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new ArrayListEnumerator<T>(array, Length);
+            return array.Take(Length).GetEnumerator();
         }
     }
 
-    internal class ArrayListEnumerator<T> : IEnumerator<T>
-    {
-        private T[] array;
-
-        // Enumerators are positioned before the first element
-        // until the first MoveNext() call.
-        private int position = -1;
-        private int length;
-
-        internal ArrayListEnumerator(T[] list, int length)
-        {
-            this.length = length;
-            array = list;
-        }
-
-        public bool MoveNext()
-        {
-            position++;
-            return (position < length);
-        }
-
-        public void Reset()
-        {
-            position = -1;
-        }
-
-        object IEnumerator.Current => Current;
-
-        public T Current
-        {
-            get
-            {
-                try
-                {
-                    return array[position];
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    throw new InvalidOperationException();
-                }
-            }
-        }
-
-        public void Dispose()
-        {
-            array = null;
-        }
-    }
 
 }

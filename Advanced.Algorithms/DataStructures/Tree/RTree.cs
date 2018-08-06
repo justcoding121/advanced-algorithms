@@ -1,146 +1,15 @@
 ﻿using Advanced.Algorithms.Geometry;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    ///     Minimum bounded rectangle (MBR).
+    /// An RTree implementation.
     /// </summary>
-    internal class MBRectangle : Rectangle
-    {
-        public MBRectangle(Point leftTopCorner, Point rightBottomCorner)
-        {
-            LeftTopCorner = leftTopCorner;
-            RightBottomCorner = rightBottomCorner;
-        }
-
-        public MBRectangle(Rectangle rectangle)
-        {
-            LeftTopCorner = new Point(rectangle.LeftTopCorner.X, rectangle.LeftTopCorner.Y);
-            RightBottomCorner = new Point(rectangle.RightBottomCorner.X, rectangle.RightBottomCorner.Y);
-        }
-
-        /// <summary>
-        ///     The actual polygon if this MBR is a leaf.
-        /// </summary>
-        internal Polygon Polygon { get; set; }
-
-        /// <summary>
-        ///     returns the required enlargement area to fit the given rectangle inside this minimum bounded rectangle.
-        /// </summary>
-        /// <param name="polygonToFit">The rectangle to fit inside current MBR.</param>
-        internal double GetEnlargementArea(MBRectangle rectangleToFit)
-        {
-            return Math.Abs(getMergedRectangle(rectangleToFit).Area() - Area());
-        }
-
-        /// <summary>
-        ///     set current rectangle with the merge of given rectangle.
-        /// </summary>
-        internal void Merge(MBRectangle rectangleToMerge)
-        {
-            var merged = getMergedRectangle(rectangleToMerge);
-
-            LeftTopCorner = merged.LeftTopCorner;
-            RightBottomCorner = merged.RightBottomCorner;
-        }
-
-        /// <summary>
-        ///     Merge the current rectangle with given rectangle. 
-        /// </summary>
-        /// <param name="rectangleToMerge">The new rectangle.</param>
-        private Rectangle getMergedRectangle(MBRectangle rectangleToMerge)
-        {
-            var leftTopCorner = new Point(LeftTopCorner.X > rectangleToMerge.LeftTopCorner.X ? rectangleToMerge.LeftTopCorner.X : LeftTopCorner.X,
-              LeftTopCorner.Y < rectangleToMerge.LeftTopCorner.Y ? rectangleToMerge.LeftTopCorner.Y : LeftTopCorner.Y);
-
-            var rightBottomCorner = new Point(RightBottomCorner.X < rectangleToMerge.RightBottomCorner.X ? rectangleToMerge.RightBottomCorner.X : RightBottomCorner.X,
-                RightBottomCorner.Y > rectangleToMerge.RightBottomCorner.Y ? rectangleToMerge.RightBottomCorner.Y : RightBottomCorner.Y);
-
-            return new MBRectangle(leftTopCorner, rightBottomCorner);
-        }
-
-    }
-
-    internal class RTreeNode
-    {
-        /// <summary>
-        /// Array Index of this node in parent's Children array
-        /// </summary>
-        internal int Index;
-        internal int Height;
-        internal MBRectangle MBRectangle { get; set; }
-        internal int KeyCount;
-
-        internal RTreeNode Parent { get; set; }
-        internal RTreeNode[] Children { get; set; }
-
-        //leafs will hold the actual polygon
-        //we assume here that bottom two node levels as leafs
-        internal bool IsLeaf => MBRectangle.Polygon != null 
-                                || Children[0].MBRectangle.Polygon != null;
-
-        internal RTreeNode(int maxKeysPerNode, RTreeNode parent)
-        {
-            Parent = parent;
-            Children = new RTreeNode[maxKeysPerNode];
-        }
-
-        internal void AddChild(RTreeNode child)
-        {
-            SetChild(KeyCount, child);
-            KeyCount++;
-        }
-
-        /// <summary>
-        ///     Set the child at specifid index.
-        /// </summary>
-        /// <param name="index"></param>
-        /// <param name="child"></param>
-        internal void SetChild(int index, RTreeNode child)
-        {
-            Children[index] = child;
-            Children[index].Parent = this;
-            Children[index].Index = index;
-
-            if (MBRectangle == null)
-            {
-                MBRectangle = new MBRectangle(child.MBRectangle);
-            }
-            else
-            {
-                MBRectangle.Merge(child.MBRectangle);
-            }
-
-            Height = child.Height + 1;
-        }
-
-        /// <summary>
-        /// Select the child node whose MBR will require the minimum area enlargement
-        /// to cover the given polygon.
-        /// </summary>
-        /// <param name="newPolygon"></param>
-        /// <returns></returns>
-        internal RTreeNode GetMinimumEnlargementAreaMBR(MBRectangle newPolygon)
-        {
-            //order by enlargement area
-            //then by minimum area
-            return Children[Children.Take(KeyCount)
-                              .Select((node, index) => new { node, index })
-                              .OrderBy(x => x.node.MBRectangle.GetEnlargementArea(newPolygon))
-                              .ThenBy(x => x.node.MBRectangle.Area())
-                              .First().index];
-        }
-
-    }
-
-    /// <summary>
-    /// A RTree implementation
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class RTree
+    public class RTree : IEnumerable<Polygon>
     {
         private readonly int maxKeysPerNode;
         private readonly int minKeysPerNode;
@@ -150,6 +19,7 @@ namespace Advanced.Algorithms.DataStructures
         private Dictionary<Polygon, RTreeNode> leafMappings = new Dictionary<Polygon, RTreeNode>();
 
         internal RTreeNode Root;
+
         public int Count { get; private set; }
 
         public RTree(int maxKeysPerNode)
@@ -164,9 +34,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Inserts  to R-Tree
+        /// Inserts given polygon.
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="newPolygon"></param>
         public void Insert(Polygon newPolygon)
         {
             var newNode = new RTreeNode(maxKeysPerNode, null)
@@ -195,7 +65,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///     Inserts the given internal node to the level where it belongs using its height.
         /// </summary>
-        /// <param name="internalNode"></param>
         private void insertInternalNode(RTreeNode internalNode)
         {
             insertInternalNode(Root, internalNode);
@@ -214,11 +83,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Find the leaf node to start initial insertion
+        ///     Find the leaf node to start initial insertion.
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="newPolygon"></param>
-        /// <returns></returns>
         private RTreeNode findInsertionLeaf(RTreeNode node, RTreeNode newNode)
         {
             //if leaf then its time to insert
@@ -231,10 +97,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Insert and split recursively up until no split is required
+        ///     Insert and split recursively up until no split is required.
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="newValue"></param>
         private void insertAndSplit(RTreeNode node, RTreeNode newValue)
         {
             //newValue have room to fit in this node
@@ -367,8 +231,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///     Get the pairs of rectangles farther apart by comparing enlargement areas.
         /// </summary>
-        /// <param name="allEntries"></param>
-        /// <returns></returns>
         private Tuple<RTreeNode, RTreeNode> getDistantPairs(List<RTreeNode> allEntries)
         {
             Tuple<RTreeNode, RTreeNode> result = null;
@@ -390,6 +252,10 @@ namespace Advanced.Algorithms.DataStructures
             return result;
         }
 
+        /// <summary>
+        /// Check if the given polygon exists in this Rtree.
+        /// Time complexity: O(1).
+        /// </summary>
         public bool Exists(Polygon searchPolygon)
         {
             return leafMappings.ContainsKey(searchPolygon);
@@ -398,8 +264,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///     Returns a list of polygons whose minimum bounded rectangle intersects with given search rectangle.
         /// </summary>
-        /// <param name="rectangle"></param>
-        /// <returns></returns>
         public List<Polygon> RangeSearch(Rectangle searchRectangle)
         {
             return rangeSearch(Root, searchRectangle, new List<Polygon>());
@@ -408,8 +272,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///     Returns a list of polygons that's contained within given search rectangle.
         /// </summary>
-        /// <param name="rectangle"></param>
-        /// <returns></returns>
         private List<Polygon> rangeSearch(RTreeNode current, Rectangle searchRectangle, List<Polygon> result)
         {
             if (current.IsLeaf)
@@ -435,6 +297,9 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
         public void Delete(Polygon polygon)
         {
             if (Root == null)
@@ -554,6 +419,16 @@ namespace Advanced.Algorithms.DataStructures
             leafMappings.Clear();
             Count = 0;
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<Polygon> GetEnumerator()
+        {
+            return leafMappings.Select(x => x.Key).GetEnumerator();
+        }
     }
 
     internal static class PolygonExtensions
@@ -561,8 +436,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///     Gets the imaginary rectangle that contains the polygon.
         /// </summary>
-        /// <param name="polygon"></param>
-        /// <returns></returns>
         internal static MBRectangle GetContainingRectangle(this Polygon polygon)
         {
             var x = polygon.Edges.SelectMany(z => new double[] { z.Left.X, z.Right.X })
@@ -595,4 +468,130 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
+    internal class RTreeNode
+    {
+        /// <summary>
+        /// Array Index of this node in parent's Children array
+        /// </summary>
+        internal int Index;
+
+        internal int Height;
+        internal MBRectangle MBRectangle { get; set; }
+        internal int KeyCount;
+
+        internal RTreeNode Parent { get; set; }
+        internal RTreeNode[] Children { get; set; }
+
+        //leafs will hold the actual polygon
+        //we assume here that bottom two node levels as leafs
+        internal bool IsLeaf => MBRectangle.Polygon != null
+                                || Children[0].MBRectangle.Polygon != null;
+
+        internal RTreeNode(int maxKeysPerNode, RTreeNode parent)
+        {
+            Parent = parent;
+            Children = new RTreeNode[maxKeysPerNode];
+        }
+
+        internal void AddChild(RTreeNode child)
+        {
+            SetChild(KeyCount, child);
+            KeyCount++;
+        }
+
+        /// <summary>
+        ///     Set the child at specifid index.
+        /// </summary>
+        internal void SetChild(int index, RTreeNode child)
+        {
+            Children[index] = child;
+            Children[index].Parent = this;
+            Children[index].Index = index;
+
+            if (MBRectangle == null)
+            {
+                MBRectangle = new MBRectangle(child.MBRectangle);
+            }
+            else
+            {
+                MBRectangle.Merge(child.MBRectangle);
+            }
+
+            Height = child.Height + 1;
+        }
+
+        /// <summary>
+        /// Select the child node whose MBR will require the minimum area enlargement
+        /// to cover the given polygon.
+        /// </summary>
+        internal RTreeNode GetMinimumEnlargementAreaMBR(MBRectangle newPolygon)
+        {
+            //order by enlargement area
+            //then by minimum area
+            return Children[Children.Take(KeyCount)
+                              .Select((node, index) => new { node, index })
+                              .OrderBy(x => x.node.MBRectangle.GetEnlargementArea(newPolygon))
+                              .ThenBy(x => x.node.MBRectangle.Area())
+                              .First().index];
+        }
+
+    }
+
+
+    /// <summary>
+    ///     Minimum bounded rectangle (MBR).
+    /// </summary>
+    internal class MBRectangle : Rectangle
+    {
+        internal MBRectangle(Point leftTopCorner, Point rightBottomCorner)
+        {
+            LeftTop = leftTopCorner;
+            RightBottom = rightBottomCorner;
+        }
+
+        internal MBRectangle(Rectangle rectangle)
+        {
+            LeftTop = new Point(rectangle.LeftTop.X, rectangle.LeftTop.Y);
+            RightBottom = new Point(rectangle.RightBottom.X, rectangle.RightBottom.Y);
+        }
+
+        /// <summary>
+        ///     The actual polygon if this MBR is a leaf.
+        /// </summary>
+        internal Polygon Polygon { get; set; }
+
+        /// <summary>
+        ///     Returns the required enlargement area to fit the given rectangle inside this minimum bounded rectangle.
+        /// </summary>
+        /// <param name="polygonToFit">The rectangle to fit inside current MBR.</param>
+        internal double GetEnlargementArea(MBRectangle rectangleToFit)
+        {
+            return Math.Abs(getMergedRectangle(rectangleToFit).Area() - Area());
+        }
+
+        /// <summary>
+        ///    Set current rectangle with the merge of given rectangle.
+        /// </summary>
+        internal void Merge(MBRectangle rectangleToMerge)
+        {
+            var merged = getMergedRectangle(rectangleToMerge);
+
+            LeftTop = merged.LeftTop;
+            RightBottom = merged.RightBottom;
+        }
+
+        /// <summary>
+        ///     Merge the current rectangle with given rectangle. 
+        /// </summary>
+        private Rectangle getMergedRectangle(MBRectangle rectangleToMerge)
+        {
+            var leftTopCorner = new Point(LeftTop.X > rectangleToMerge.LeftTop.X ? rectangleToMerge.LeftTop.X : LeftTop.X,
+              LeftTop.Y < rectangleToMerge.LeftTop.Y ? rectangleToMerge.LeftTop.Y : LeftTop.Y);
+
+            var rightBottomCorner = new Point(RightBottom.X < rectangleToMerge.RightBottom.X ? rectangleToMerge.RightBottom.X : RightBottom.X,
+                RightBottom.Y > rectangleToMerge.RightBottom.Y ? rectangleToMerge.RightBottom.Y : RightBottom.Y);
+
+            return new MBRectangle(leftTopCorner, rightBottomCorner);
+        }
+    }
 }

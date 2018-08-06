@@ -1,19 +1,27 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class BinomialMinHeap<T> where T : IComparable
+    /// <summary>
+    /// A binomial min heap implementation.
+    /// </summary>
+    public class BinomialMinHeap<T> : IEnumerable<T> where T : IComparable
     {
-        public int Count { get; private set; }
-
-        internal DoublyLinkedList<BinomialHeapNode<T>> heapForest
+        private DoublyLinkedList<BinomialHeapNode<T>> heapForest
             = new DoublyLinkedList<BinomialHeapNode<T>>();
 
+        private Dictionary<T, List<BinomialHeapNode<T>>> heapMapping
+            = new Dictionary<T, List<BinomialHeapNode<T>>>();
+
+        public int Count { get; private set; }
+
         /// <summary>
-        /// O(log(n)) complexity
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="newItem"></param>
-        public BinomialHeapNode<T> Insert(T newItem)
+        public void Insert(T newItem)
         {
             var newNode = new BinomialHeapNode<T>(newItem);
 
@@ -25,9 +33,131 @@ namespace Advanced.Algorithms.DataStructures
 
             meld();
 
-            Count++;
+            addMapping(newItem, newNode);
 
-            return newNode;
+            Count++;
+        }
+
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        public T ExtractMin()
+        {
+            if (heapForest.Head == null)
+            {
+                throw new Exception("Empty heap");
+            }
+
+            var minTree = heapForest.Head;
+            var current = heapForest.Head;
+
+            //find minimum tree
+            while (current.Next != null)
+            {
+                current = current.Next;
+
+                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
+                {
+                    minTree = current;
+                }
+            }
+
+            //remove tree root
+            heapForest.Delete(minTree);
+
+            var newHeapForest = new DoublyLinkedList<BinomialHeapNode<T>>();
+            //add removed roots children as new trees to forest
+            foreach (var child in minTree.Data.Children)
+            {
+                child.Parent = null;
+                newHeapForest.InsertLast(child);
+            }
+
+            mergeSortedForests(newHeapForest);
+
+            meld();
+
+            removeMapping(minTree.Data.Value, minTree.Data);
+
+            Count--;
+
+            return minTree.Data.Value;
+        }
+
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        /// <param name="currentValue">The value to increment.</param>
+        /// <param name="newValue">The incremented new value.</param>
+        public void DecrementKey(T currentValue, T newValue)
+        {
+            var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
+
+            if (node == null)
+            {
+                throw new Exception("Current value is not present in this heap.");
+            }
+
+            if (newValue.CompareTo(node.Value) > 0)
+            {
+                throw new Exception("New value is not less than old value.");
+            }
+
+            updateNodeValue(currentValue, newValue, node);
+
+            var current = node;
+
+            while (current.Parent != null
+                && current.Value.CompareTo(current.Parent.Value) < 0)
+            {
+                //swap parent with child
+                var tmp = current.Value;
+                updateNodeValue(tmp, current.Parent.Value, current);
+                updateNodeValue(current.Parent.Value, tmp, current.Parent);
+
+                current = current.Parent;
+            }
+        }
+
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        /// <param name="binomialHeap">The heap to union with.</param>
+        public void Merge(BinomialMinHeap<T> binomialHeap)
+        {
+            mergeSortedForests(binomialHeap.heapForest);
+
+            meld();
+
+            Count += binomialHeap.Count;
+        }
+
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        /// <returns></returns>
+        public T PeekMin()
+        {
+            if (heapForest.Head == null)
+            {
+                throw new Exception("Empty heap");
+            }
+
+            var minTree = heapForest.Head;
+            var current = heapForest.Head;
+
+            //find minimum tree
+            while (current.Next != null)
+            {
+                current = current.Next;
+
+                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
+                {
+                    minTree = current;
+                }
+            }
+
+            return minTree.Data.Value;
         }
 
         /// <summary>
@@ -97,85 +227,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// O(log(n)) complexity
-        /// </summary>
-        /// <returns></returns>
-        public T ExtractMin()
-        {
-            if (heapForest.Head == null)
-                throw new Exception("Empty heap");
-
-            var minTree = heapForest.Head;
-            var current = heapForest.Head;
-
-            //find minimum tree
-            while (current.Next != null)
-            {
-                current = current.Next;
-
-                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
-                {
-                    minTree = current;
-                }
-            }
-
-            //remove tree root
-            heapForest.Delete(minTree);
-
-            var newHeapForest = new DoublyLinkedList<BinomialHeapNode<T>>();
-            //add removed roots children as new trees to forest
-            foreach (var child in minTree.Data.Children)
-            {
-                child.Parent = null;
-                newHeapForest.InsertLast(child);
-            }
-
-            mergeSortedForests(newHeapForest);
-
-            meld();
-
-            Count--;
-
-            return minTree.Data.Value;
-        }
-
-        /// <summary>
-        /// Update the Heap with new value for this node pointer
-        /// O(log(n)) complexity
-        /// </summary>
-        public void DecrementKey(BinomialHeapNode<T> node)
-        {
-            var current = node;
-
-            while (current.Parent != null
-                && current.Value.CompareTo(current.Parent.Value) < 0)
-            {
-                var tmp = current.Value;
-                current.Value = current.Parent.Value;
-                current.Parent.Value = tmp;
-
-                current = current.Parent;
-            }
-        }
-
-        /// <summary>
-        /// Unions this heap with another
-        /// O(log(n)) complexity
-        /// </summary>
-        /// <param name="binomialHeap"></param>
-        public void Union(BinomialMinHeap<T> binomialHeap)
-        {
-            mergeSortedForests(binomialHeap.heapForest);
-
-            meld();
-
-            Count += binomialHeap.Count;
-        }
-        /// <summary>
         /// Merges the given sorted forest to current sorted Forest 
         /// & returns the last inserted node (pointer required for decrement-key)
         /// </summary>
-        /// <param name="newHeapForest"></param>
         private void mergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
         {
             var @new = newHeapForest.Head;
@@ -219,30 +273,42 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        /// <summary>
-        /// O(log(n)) complexity
-        /// </summary>
-        /// <returns></returns>
-        public T PeekMin()
+        private void addMapping(T newItem, BinomialHeapNode<T> newNode)
         {
-            if (heapForest.Head == null)
-                throw new Exception("Empty heap");
-
-            var minTree = heapForest.Head;
-            var current = heapForest.Head;
-
-            //find minimum tree
-            while (current.Next != null)
+            if (heapMapping.ContainsKey(newItem))
             {
-                current = current.Next;
-
-                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
-                {
-                    minTree = current;
-                }
+                heapMapping[newItem].Add(newNode);
             }
+            else
+            {
+                heapMapping[newItem] = new List<BinomialHeapNode<T>>(new[] { newNode });
+            }
+        }
 
-            return minTree.Data.Value;
+        private void updateNodeValue(T currentValue, T newValue, BinomialHeapNode<T> node)
+        {
+            removeMapping(currentValue, node);
+            node.Value = newValue;
+            addMapping(newValue, node);
+        }
+
+        private void removeMapping(T currentValue, BinomialHeapNode<T> node)
+        {
+            heapMapping[currentValue].Remove(node);
+            if (heapMapping[currentValue].Count == 0)
+            {
+                heapMapping.Remove(currentValue);
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return heapMapping.SelectMany(x => x.Value).Select(x => x.Value).GetEnumerator();
         }
     }
 }

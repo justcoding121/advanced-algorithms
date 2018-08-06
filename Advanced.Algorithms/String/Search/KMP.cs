@@ -1,18 +1,15 @@
 ﻿namespace Advanced.Algorithms.String
 {
     /// <summary>
-    /// Knuth–Morris–Pratt(KMP) search implementation
+    /// Knuth–Morris–Pratt(KMP) search implementation.
     /// </summary>
     public class KMP
     {
         /// <summary>
         /// Returns the start index of first appearance
-        /// of pattern in input string
-        /// returns -1 if no match
+        /// of pattern in input string.
+        /// Returns -1 if no match.
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="pattern"></param>
-        /// <returns></returns>
         public int Search(string input, string pattern)
         {
             var matchingInProgress = false;

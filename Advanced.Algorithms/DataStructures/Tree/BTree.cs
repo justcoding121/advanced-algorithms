@@ -1,86 +1,21 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// abstract node shared by both B & B+ tree nodes
-    /// so that we can use this for common tests across B & B+ tree
+    /// A B-tree implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    internal abstract class BNode<T> where T : IComparable
+    public class BTree<T> : IEnumerable<T> where T : IComparable
     {
-        /// <summary>
-        /// Array Index of this node in parent's Children array
-        /// </summary>
-        internal int Index;
-
-        internal T[] Keys { get; set; }
-        internal int KeyCount;
-
-        //for common unit testing across B & B+ tree
-        internal abstract BNode<T> GetParent();
-        internal abstract BNode<T>[] GetChildren();
-
-        internal BNode(int maxKeysPerNode)
-        {
-            Keys = new T[maxKeysPerNode];
-        }
-
-        internal int GetMedianIndex()
-        {
-            return (KeyCount / 2) + 1;
-        }
-    }
-
-
-    internal class BTreeNode<T> : BNode<T> where T : IComparable
-    {
-
-        internal BTreeNode<T> Parent { get; set; }
-        internal BTreeNode<T>[] Children { get; set; }
-
-        internal bool IsLeaf => Children[0] == null;
-
-        internal BTreeNode(int maxKeysPerNode, BTreeNode<T> parent)
-            :base(maxKeysPerNode)
-        {
-
-            Parent = parent;
-            Children = new BTreeNode<T>[maxKeysPerNode + 1];
-
-        }
-
-        /// <summary>
-        /// For shared test method accross B & B+ tree
-        /// </summary>
-        /// <returns></returns>
-        internal override BNode<T> GetParent()
-        {
-            return Parent;
-        }
-
-        /// <summary>
-        /// For shared test method accross B & B+ tree
-        /// </summary>
-        /// <returns></returns>
-        internal override BNode<T>[]  GetChildren()
-        {
-            return Children;
-        }
-    }
-
-    /// <summary>
-    /// A BTree implementation
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class BTree<T> where T : IComparable
-    {
-        public int Count { get; private set; }
+        private readonly int maxKeysPerNode;
+        private int minKeysPerNode;
 
         internal BTreeNode<T> Root;
 
-        private readonly int maxKeysPerNode;
-        private int minKeysPerNode;
+        public int Count { get; private set; }
 
         public BTree(int maxKeysPerNode)
         {
@@ -93,6 +28,9 @@ namespace Advanced.Algorithms.DataStructures
             this.minKeysPerNode = maxKeysPerNode / 2;
         }
 
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
         public T Max
         {
             get
@@ -104,6 +42,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
         public T Min
         {
             get
@@ -115,18 +56,17 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
         public bool HasItem(T value)
         {
             return find(Root, value) != null;
         }
 
         /// <summary>
-        /// Find the value node under given node
+        /// Find the value node under given node.
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
         private BTreeNode<T> find(BTreeNode<T> node, T value)
         {
 
@@ -171,15 +111,15 @@ namespace Advanced.Algorithms.DataStructures
 
             return null;
         }
+
         /// <summary>
-        /// Inserts and element to B-Tree
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="newValue"></param>
         public void Insert(T newValue)
         {
             if (Root == null)
             {
-                Root = new BTreeNode<T>(maxKeysPerNode, null) {Keys = {[0] = newValue}};
+                Root = new BTreeNode<T>(maxKeysPerNode, null) { Keys = { [0] = newValue } };
                 Root.KeyCount++;
                 Count++;
                 return;
@@ -194,9 +134,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Find the leaf node to start initial insertion
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="newValue"></param>
-        /// <returns></returns>
         private BTreeNode<T> findInsertionLeaf(BTreeNode<T> node, T newValue)
         {
             //if leaf then its time to insert
@@ -230,10 +167,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Insert and split recursively up until no split is required
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="newValue"></param>
-        /// <param name="newValueLeft"></param>
-        /// <param name="newValueRight"></param>
         private void insertAndSplit(ref BTreeNode<T> node, T newValue,
             BTreeNode<T> newValueLeft, BTreeNode<T> newValueRight)
         {
@@ -382,10 +315,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Insert to a node that is not full
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="newValue"></param>
-        /// <param name="newValueLeft"></param>
-        /// <param name="newValueRight"></param>
         private void insertNonFullNode(ref BTreeNode<T> node, T newValue,
             BTreeNode<T> newValueLeft, BTreeNode<T> newValueRight)
         {
@@ -425,12 +354,9 @@ namespace Advanced.Algorithms.DataStructures
             setChild(node, node.KeyCount, newValueRight);
         }
 
-
-
         /// <summary>
-        /// Delete the given value from this BTree
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="value"></param>
         public void Delete(T value)
         {
             var node = findDeletionNode(Root, value);
@@ -472,16 +398,13 @@ namespace Advanced.Algorithms.DataStructures
 
                 Count--;
                 return;
-
             }
-
 
         }
 
         /// <summary>
         /// return the node containing max value which will be a leaf at the right most
         /// </summary>
-        /// <returns></returns>
         private BTreeNode<T> findMinNode(BTreeNode<T> node)
         {
             //if leaf return node
@@ -491,7 +414,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// return the node containing max value which will be a leaf at the right most
         /// </summary>
-        /// <returns></returns>
         private BTreeNode<T> findMaxNode(BTreeNode<T> node)
         {
             //if leaf return node
@@ -501,7 +423,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Balance a node which is short of Keys by rotations or merge
         /// </summary>
-        /// <param name="node"></param>
         private void balance(BTreeNode<T> node)
         {
             if (node == Root || node.KeyCount >= minKeysPerNode)
@@ -540,8 +461,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///  merge two adjacent siblings to one node
         /// </summary>
-        /// <param name="leftSibling"></param>
-        /// <param name="rightSibling"></param>
         private void sandwich(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
         {
             var separatorIndex = getNextSeparatorIndex(leftSibling);
@@ -627,12 +546,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-
         /// <summary>
         /// do a right rotation 
         /// </summary>
-        /// <param name="rightSibling"></param>
-        /// <param name="leftSibling"></param>
         private void rightRotate(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
         {
             var parentIndex = getNextSeparatorIndex(leftSibling);
@@ -655,8 +571,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// do a left rotation
         /// </summary>
-        /// <param name="leftSibling"></param>
-        /// <param name="rightSibling"></param>
         private void leftRotate(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
         {
             var parentIndex = getNextSeparatorIndex(leftSibling);
@@ -678,9 +592,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Locate the node in which the item to delete exist
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
         private BTreeNode<T> findDeletionNode(BTreeNode<T> node, T value)
         {
             //if leaf then its time to insert
@@ -727,8 +638,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Get next key separator index after this child Node in parent 
         /// </summary>
-        /// <param name="node"></param>
-        /// <returns></returns>
         private int getNextSeparatorIndex(BTreeNode<T> node)
         {
             var parent = node.Parent;
@@ -750,8 +659,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// get the right sibling node
         /// </summary>
-        /// <param name="node"></param>
-        /// <returns></returns>
         private BTreeNode<T> getRightSibling(BTreeNode<T> node)
         {
             var parent = node.Parent;
@@ -762,8 +669,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// get left sibling node
         /// </summary>
-        /// <param name="node"></param>
-        /// <returns></returns>
         private BTreeNode<T> getLeftSibling(BTreeNode<T> node)
         {
             return node.Index == 0 ? null : node.Parent.Children[node.Index - 1];
@@ -822,10 +727,6 @@ namespace Advanced.Algorithms.DataStructures
         /// And then insert at index
         /// Assumes array have atleast one empty index at end
         /// </summary>
-        /// <typeparam name="TS"></typeparam>
-        /// <param name="array"></param>
-        /// <param name="index"></param>
-        /// <param name="newValue"></param>
         private void insertAt<TS>(TS[] array, int index, TS newValue)
         {
             //shift elements right by one indice from index
@@ -837,14 +738,157 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Shift array left at index    
         /// </summary>
-        /// <typeparam name="TS"></typeparam>
-        /// <param name="array"></param>
-        /// <param name="index"></param>
         private void removeAt<TS>(TS[] array, int index)
         {
             //shift elements right by one indice from index
             Array.Copy(array, index + 1, array, index, array.Length - index - 1);
         }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new BTreeEnumerator<T>(Root);
+        }
+
+    }
+
+    /// <summary>
+    /// abstract node shared by both B & B+ tree nodes
+    /// so that we can use this for common tests across B & B+ tree
+    /// </summary>
+    internal abstract class BNode<T> where T : IComparable
+    {
+        /// <summary>
+        /// Array Index of this node in parent's Children array
+        /// </summary>
+        internal int Index;
+
+        internal T[] Keys { get; set; }
+        internal int KeyCount;
+
+        //for common unit testing across B & B+ tree
+        internal abstract BNode<T> GetParent();
+        internal abstract BNode<T>[] GetChildren();
+
+        internal BNode(int maxKeysPerNode)
+        {
+            Keys = new T[maxKeysPerNode];
+        }
+
+        internal int GetMedianIndex()
+        {
+            return (KeyCount / 2) + 1;
+        }
+    }
+
+    internal class BTreeNode<T> : BNode<T> where T : IComparable
+    {
+
+        internal BTreeNode<T> Parent { get; set; }
+        internal BTreeNode<T>[] Children { get; set; }
+
+        internal bool IsLeaf => Children[0] == null;
+
+        internal BTreeNode(int maxKeysPerNode, BTreeNode<T> parent)
+            : base(maxKeysPerNode)
+        {
+
+            Parent = parent;
+            Children = new BTreeNode<T>[maxKeysPerNode + 1];
+
+        }
+
+        /// <summary>
+        /// For shared test method accross B & B+ tree
+        /// </summary>
+        internal override BNode<T> GetParent()
+        {
+            return Parent;
+        }
+
+        /// <summary>
+        /// For shared test method accross B & B+ tree
+        /// </summary>
+        internal override BNode<T>[] GetChildren()
+        {
+            return Children;
+        }
+    }
+
+    internal class BTreeEnumerator<T> : IEnumerator<T> where T : IComparable
+    {
+        private readonly BTreeNode<T> root;
+        private Stack<BTreeNode<T>> progress;
+
+        private BTreeNode<T> current;
+        private int index;
+
+        internal BTreeEnumerator(BTreeNode<T> root)
+        {
+            this.root = root;
+        }
+
+        public bool MoveNext()
+        {
+            if (root == null)
+            {
+                return false;
+            }
+
+            if (progress == null)
+            {
+                current = root;
+                progress = new Stack<BTreeNode<T>>(root.Children.Take(root.KeyCount + 1).Where(x => x != null));
+                return current.KeyCount > 0;
+            }
+
+            if (current != null && index + 1 < current.KeyCount)
+            {
+                index++;
+                return true;
+            }
+
+            if (progress.Count > 0)
+            {
+                index = 0;
+
+                current = progress.Pop();
+
+                foreach (var child in current.Children.Take(current.KeyCount + 1).Where(x => x != null))
+                {
+                    progress.Push(child);
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public void Reset()
+        {
+            progress = null;
+            current = null;
+            index = 0;
+        }
+
+        object IEnumerator.Current => Current;
+
+        public T Current
+        {
+            get
+            {
+                return current.Keys[index];
+            }
+        }
+
+        public void Dispose()
+        {
+            progress = null;
+        }
     }
 }

@@ -4,10 +4,7 @@ using System.Collections;
 namespace Advanced.Algorithms.DataStructures
 {    
     /// <summary>
-    /// A simple bloom filter implementation in C#
-    /// A probabilistic data structure as an alternative to HashSet
-    /// Keeps track of given keys and returns answer to key exists query with
-    /// very low probability of error
+    /// A simple bloom filter implementation.
     /// </summary>
     public class BloomFilter<T>
     {
@@ -15,16 +12,15 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         /// Higher the size lower the collision and 
-        /// failure probablity
+        /// failure probablity.
         /// </summary>
-        /// <param name="size"></param>
         public BloomFilter(int size)
         {
             filter = new BitArray(size);
         }
 
         /// <summary>
-        /// Run time complexity is O(1)
+        /// Time complexity: O(1).
         /// </summary>
         public void AddKey(T key)
         {
@@ -39,9 +35,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Run time complexity is O(1)
+        /// Time complexity: O(1).
         /// </summary>
-        /// <returns></returns>
         public bool KeyExists(T key)
         {
             var hashCode = key.GetHashCode();
@@ -60,7 +55,5 @@ namespace Advanced.Algorithms.DataStructures
 
             return true;
         }
-
-
     }
 }

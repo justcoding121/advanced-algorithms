@@ -47,15 +47,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             get
             {
-
-                try
-                {
-                    return current.Value;
-                }
-                catch (NullReferenceException)
-                {
-                    throw new InvalidOperationException();
-                }
+                return current.Value;
             }
         }
 
@@ -70,11 +62,11 @@ namespace Advanced.Algorithms.DataStructures
     //  implement IEnumerator.
     internal class BSTNodeLookUpEnumerator<T> : IEnumerator<T> where T : IComparable
     {
-        private readonly System.Collections.Generic.Dictionary<T, BSTNodeBase<T>> nodeLookUp;
-        private System.Collections.Generic.Dictionary<T, BSTNodeBase<T>>.Enumerator enumerator;
+        private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
+        private Dictionary<T, BSTNodeBase<T>>.Enumerator enumerator;
         private T current;
 
-        internal BSTNodeLookUpEnumerator(System.Collections.Generic.Dictionary<T, BSTNodeBase<T>> nodeLookUp)
+        internal BSTNodeLookUpEnumerator(Dictionary<T, BSTNodeBase<T>> nodeLookUp)
         {
             this.nodeLookUp = nodeLookUp;
             enumerator = nodeLookUp.GetEnumerator();
@@ -105,15 +97,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             get
             {
-
-                try
-                {
-                    return current;
-                }
-                catch (NullReferenceException)
-                {
-                    throw new InvalidOperationException();
-                }
+                return current;
             }
         }
 

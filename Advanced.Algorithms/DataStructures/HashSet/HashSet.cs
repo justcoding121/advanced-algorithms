@@ -2,19 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     /// <summary>
     /// A hash table implementation.
     /// </summary>
     /// <typeparam name="T">The value datatype.</typeparam>
-    public class HashSet<T> : IEnumerable<HashSetNode<T>> 
+    public class HashSet<T> : IEnumerable<T> 
     {
         private readonly IHashSet<T> hashSet;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         /// <param name="type">The hashSet implementation to use.</param>
         /// <param name="initialBucketSize"> The larger the bucket size lesser the collision, but memory matters!</param>
         public HashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)
@@ -85,13 +82,13 @@ namespace Advanced.Algorithms.DataStructures
             return hashSet.GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<T>> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return hashSet.GetEnumerator();
         }
     }
 
-    internal interface IHashSet<T> : IEnumerable<HashSetNode<T>>
+    internal interface IHashSet<T> : IEnumerable<T>
     {
         bool Contains(T value);
         void Add(T value);
@@ -101,11 +98,11 @@ namespace Advanced.Algorithms.DataStructures
         int Count { get; }
     }
 
-    public class HashSetNode<T>
+    internal class HashSetNode<T>
     {
-        public T Value;
+        internal T Value;
 
-        public HashSetNode(T value)
+        internal HashSetNode(T value)
         {
             this.Value = value;
         }

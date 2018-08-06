@@ -5,9 +5,8 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// A Bellman Ford algorithm implementation
+    /// A Bellman Ford algorithm implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class BellmanFordShortestPath<T, W> where W : IComparable
     {
         readonly IShortestPathOperators<W> operators;
@@ -17,12 +16,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Get shortest distance to target
+        /// Get shortest distance to target.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="source"></param>
-        /// <param name="destination"></param>
-        /// <returns></returns>
         public ShortestPathResult<T, W> GetShortestPath(WeightedDiGraph<T, W> graph, T source, T destination)
         {
             //regular argument checks
@@ -86,13 +81,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// trace back path from destination to source using parent map
+        /// Trace back path from destination to source using parent map.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="parentMap"></param>
-        /// <param name="source"></param>
-        /// <param name="destination"></param>
-        /// <returns></returns>
         private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph,
             Dictionary<T, T> parentMap, T source, T destination)
         {

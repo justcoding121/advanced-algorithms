@@ -1,5 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
 {
@@ -27,7 +28,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
             graph.AddEdge(4, 1);
             graph.AddEdge(3, 5);
 
-            Assert.AreEqual(3, graph.GetAllEdges(4).Count);
+            Assert.AreEqual(3, graph.Edges(4).Count());
 
             Assert.AreEqual(5, graph.VerticesCount);
 

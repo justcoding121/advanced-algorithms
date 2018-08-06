@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SuffixTree&lt;T&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.37.1.0">
+    <meta name="generator" content="docfx 2.37.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,13 +83,18 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_SuffixTree_1" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1" class="text-break">Class SuffixTree&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A simple suffix tree implementation using a trie</p>
+  <div class="markdown level0 summary"><p>A suffix tree implementation using a trie.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">SuffixTree&lt;T&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T[]&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -119,7 +124,7 @@
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_SuffixTree_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SuffixTree&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class SuffixTree&lt;T&gt; : IEnumerable&lt;T[]&gt;, IEnumerable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -179,14 +184,15 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_SuffixTree_1_ContainsPattern_" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.ContainsPattern*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_SuffixTree_1_ContainsPattern__0___" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.ContainsPattern(`0[])">ContainsPattern(T[])</h4>
-  <div class="markdown level1 summary"><p>returns if the entry pattern is in this suffix tree</p>
+  <a id="Advanced_Algorithms_DataStructures_SuffixTree_1_Contains_" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.Contains*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SuffixTree_1_Contains__0___" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.Contains(`0[])">Contains(T[])</h4>
+  <div class="markdown level1 summary"><p>Returns true if the given entry pattern is in this suffix tree.
+Time complexity: O(e) where e is the length of the given entry.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ContainsPattern(T[] entry)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Contains(T[] pattern)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -200,7 +206,7 @@
     <tbody>
       <tr>
         <td>T[]</td>
-        <td><span class="parametername">entry</span></td>
+        <td><span class="parametername">pattern</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -224,8 +230,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_SuffixTree_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.Delete*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_SuffixTree_1_Delete__0___" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.Delete(`0[])">Delete(T[])</h4>
-  <div class="markdown level1 summary"><p>deletes an entry from this suffix tree
-O(m^2) complexity if m is the length of the entry to be deleted</p>
+  <div class="markdown level1 summary"><p>Deletes an existing entry from this suffix tree.
+Time complexity: O(m^2) where m is the length of entry array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -251,10 +257,35 @@ O(m^2) complexity if m is the length of the entry to be deleted</p>
   </table>
   
   
+  <a id="Advanced_Algorithms_DataStructures_SuffixTree_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SuffixTree_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T[]&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T[]&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_SuffixTree_1_Insert_" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.Insert*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_SuffixTree_1_Insert__0___" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.Insert(`0[])">Insert(T[])</h4>
-  <div class="markdown level1 summary"><p>insert a new entry to suffix tree
-O(m^2) complexity if m is the length of entry array</p>
+  <div class="markdown level1 summary"><p>Insert a new entry to this suffix tree.
+Time complexity: O(m^2) where m is the length of entry array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -280,14 +311,15 @@ O(m^2) complexity if m is the length of entry array</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_SuffixTree_1_StartsWithPattern_" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWithPattern*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_SuffixTree_1_StartsWithPattern__0___" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWithPattern(`0[])">StartsWithPattern(T[])</h4>
-  <div class="markdown level1 summary"><p>returns all sub entries that starts with this search pattern</p>
+  <a id="Advanced_Algorithms_DataStructures_SuffixTree_1_StartsWith_" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWith*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SuffixTree_1_StartsWith__0___" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.StartsWith(`0[])">StartsWith(T[])</h4>
+  <div class="markdown level1 summary"><p>Returns all sub-entries that starts with this search pattern.
+Time complexity: O(rm) where r is the number of results and m is the average length of each entry.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;T[]&gt; StartsWithPattern(T[] entry)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;T[]&gt; StartsWith(T[] pattern)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -301,7 +333,7 @@ O(m^2) complexity if m is the length of entry array</p>
     <tbody>
       <tr>
         <td>T[]</td>
-        <td><span class="parametername">entry</span></td>
+        <td><span class="parametername">pattern</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -321,6 +353,40 @@ O(m^2) complexity if m is the length of entry array</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_SuffixTree_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SuffixTree_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           

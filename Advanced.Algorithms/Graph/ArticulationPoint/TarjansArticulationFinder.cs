@@ -5,16 +5,13 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// Articulation point finder using Tarjan's algorithm
+    /// Articulation point finder using Tarjan's algorithm.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class TarjansArticulationFinder<T>
     {
         /// <summary>
-        /// returns a list if articulation points in this graph
+        /// Returns a list if articulation points in this graph.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         public List<T> FindArticulationPoints(Graph<T> graph)
         {
             int visitTime = 0;
@@ -26,15 +23,8 @@ namespace Advanced.Algorithms.Graph
 
         /// <summary>
         /// Do a depth first search to find articulation points by keeping track of 
-        /// discovery nodes and checking for back edges using low/discovery time maps
+        /// discovery nodes and checking for back edges using low/discovery time maps.
         /// </summary>
-        /// <param name="currentVertex"></param>
-        /// <param name="result"></param>
-        /// <param name="discoveryTimeMap"></param>
-        /// <param name="lowTimeMap"></param>
-        /// <param name="parent"></param>
-        /// <param name="discoveryTime"></param>
-        /// <returns></returns>
         private List<T> dfs(GraphVertex<T> currentVertex,
              List<T> result,
              Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,

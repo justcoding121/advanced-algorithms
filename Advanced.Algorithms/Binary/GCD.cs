@@ -1,7 +1,8 @@
 ﻿namespace Advanced.Algorithms.Binary
 {
-    //GCD without division or mod operators 
-    //GCD by substraction
+    /// <summary>
+    /// GCD without division or mod operators but using substraction.
+    /// </summary>
     public class Gcd
     {
         public static int Find(int a, int b)

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     /// <summary>
     /// A stack implementation.
@@ -16,9 +16,6 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public int Count => stack.Count;
 
-        /// <summary>
-        /// Stack constructor.
-        /// </summary>
         /// <param name="type">The stack type to use.</param>
         public Stack(StackType type = StackType.Array)
         {
@@ -81,7 +78,7 @@ namespace Advanced.Algorithms.DataStructures
     }
 
     /// <summary>
-    /// The stack implementation type.
+    /// The stack implementation types.
     /// </summary>
     public enum StackType
     {

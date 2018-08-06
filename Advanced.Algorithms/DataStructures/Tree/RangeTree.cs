@@ -1,46 +1,23 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// range tree node
+    /// A multi-dimentional range tree implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    internal class RangeTreeNode<T> : IComparable where T : IComparable
-    {
-        internal T Value => Values[0];
-
-        internal List<T> Values { get; set; }
-
-        internal RangeTree<T> tree { get; set; }
-
-        public int CompareTo(object obj)
-        {
-            return Value.CompareTo(((RangeTreeNode<T>)obj).Value);
-        }
-
-        public RangeTreeNode(T value)
-        {
-            Values = new List<T>(new T[] { value });
-            tree = new RangeTree<T>();
-        }
-    }
-
-
-    /// <summary>
-    /// range tree
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class DRangeTree<T> where T : IComparable
+    public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     {
         private readonly int dimensions;
+
+        private OneDimentionalRangeTree<T> tree = new OneDimentionalRangeTree<T>();
+        private HashSet<T[]> items = new HashSet<T[]>(new ArrayComparer<T>());
+
         public int Count { get; private set; }
 
-        private RangeTree<T> tree = new RangeTree<T>();
-
-        public DRangeTree(int dimensions)
+        public RangeTree(int dimensions)
         {
             if (dimensions <= 0)
             {
@@ -50,10 +27,17 @@ namespace Advanced.Algorithms.DataStructures
             this.dimensions = dimensions;
         }
 
+        /// <summary>
+        /// Time complexity: O(n).
+        /// </summary>
         public void Insert(T[] value)
         {
             validateDimensions(value);
 
+            if (items.Contains(value))
+            {
+                throw new Exception("value exists.");
+            }
             var currentTree = tree;
             //get all overlaps
             //and insert next dimension value to each overlapping node
@@ -62,31 +46,34 @@ namespace Advanced.Algorithms.DataStructures
                 currentTree = currentTree.Insert(value[i]).tree;
             }
 
+            items.Add(value);
             Count++;
         }
 
+        /// <summary>
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="value"></param>
         public void Delete(T[] value)
         {
             validateDimensions(value);
-            var found = false;
-            DeleteRecursive(tree, value, 0, ref found);
-
-            if (found == false)
+          
+            if (!items.Contains(value))
             {
                 throw new Exception("Item not found.");
             }
 
+            var found = false;
+            deleteRecursive(tree, value, 0, ref found);
+            items.Remove(value);
             Count--;
         }
 
         /// <summary>
-        /// recursively move until last dimension and then delete if found
+        /// Recursively move until last dimension and then delete if found.
         /// </summary>
-        /// <param name="tree"></param>
-        /// <param name="value"></param>
-        /// <param name="currentDimension"></param>
-        /// <param name="found"></param>
-        private void DeleteRecursive(RangeTree<T> tree, T[] value, int currentDimension, ref bool found)
+        private void deleteRecursive(OneDimentionalRangeTree<T> tree, T[] value, 
+            int currentDimension, ref bool found)
         {
             var node = tree.Find(value[currentDimension]);
 
@@ -98,7 +85,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
                 else
                 {
-                    DeleteRecursive(node.tree, value, currentDimension + 1, ref found);
+                    deleteRecursive(node.tree, value, currentDimension + 1, ref found);
                 }
             }
 
@@ -113,33 +100,25 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Get all points within given range
+        /// Get all points within given range.
+        /// Time complexity: O(n).
         /// </summary>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
-        /// <returns></returns>
-        public List<T[]> GetInRange(T[] start, T[] end)
+        public List<T[]> RangeSearch(T[] start, T[] end)
         {
             validateDimensions(start);
             validateDimensions(end);
 
-            return getInRange(tree, start, end, 0);
-
+            return rangeSearch(tree, start, end, 0);
         }
 
         /// <summary>
-        /// recursively visit node and return points within given range
+        /// Recursively visit node and return points within given range.
         /// </summary>
-        /// <param name="currentTree"></param>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
-        /// <param name="dimension"></param>
-        /// <returns></returns>
-        private List<T[]> getInRange(
-            RangeTree<T> currentTree,
+        private List<T[]> rangeSearch(
+            OneDimentionalRangeTree<T> currentTree,
             T[] start, T[] end, int dimension)
         {
-            var nodes = currentTree.GetInRange(start[dimension], end[dimension]);
+            var nodes = currentTree.RangeSearch(start[dimension], end[dimension]);
 
             if (dimension + 1 == dimensions)
             {
@@ -160,7 +139,7 @@ namespace Advanced.Algorithms.DataStructures
 
                 foreach (var node in nodes)
                 {
-                    var nextDimResult = getInRange(node.tree, start, end, dimension + 1);
+                    var nextDimResult = rangeSearch(node.tree, start, end, dimension + 1);
 
                     foreach (var value in node.Values)
                     {
@@ -178,9 +157,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// validate dimensions for point length
+        /// Validate dimensions for point length.
         /// </summary>
-        /// <param name="start"></param>
         private void validateDimensions(T[] start)
         {
             if (start == null)
@@ -193,21 +171,30 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception($"Expecting {dimensions} points.");
             }
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T[]> GetEnumerator()
+        {
+            return items.GetEnumerator();
+        }
     }
 
     /// <summary>
     /// One dimensional range tree
-    /// by nesting node with r-b tree for next dimension
+    /// by nesting node with r-b tree for next dimension.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    internal class RangeTree<T> where T : IComparable
+    internal class OneDimentionalRangeTree<T> where T : IComparable
     {
         internal RedBlackTree<RangeTreeNode<T>> tree
             = new RedBlackTree<RangeTreeNode<T>>();
 
         internal int Count => tree.Count;
 
-        public RangeTreeNode<T> Find(T value)
+        internal RangeTreeNode<T> Find(T value)
         {
             var result = tree.FindNode(new RangeTreeNode<T>(value));
             if (result == null)
@@ -248,14 +235,14 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        internal List<RangeTreeNode<T>> GetInRange(T start, T end)
+        internal List<RangeTreeNode<T>> RangeSearch(T start, T end)
         {
             return getInRange(new List<RangeTreeNode<T>>(),
-                new System.Collections.Generic.Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool>(),
+                new Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool>(),
                 tree.Root, start, end);
         }
 
-        private List<RangeTreeNode<T>> getInRange(List<RangeTreeNode<T>> result, System.Collections.Generic.Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool> visited,
+        private List<RangeTreeNode<T>> getInRange(List<RangeTreeNode<T>> result, Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool> visited,
             RedBlackTreeNode<RangeTreeNode<T>> currentNode,
             T start, T end)
         {
@@ -319,17 +306,37 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// checks if current node is in search range
+        /// Checks if current node is in search range.
         /// </summary>
-        /// <param name="currentNode"></param>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
-        /// <returns></returns>
         private bool inRange(RedBlackTreeNode<RangeTreeNode<T>> currentNode, T start, T end)
         {
             //start is less than current & end is greater than current
             return start.CompareTo(currentNode.Value.Value) <= 0
                 && end.CompareTo(currentNode.Value.Value) >= 0;
         }
+    }
+
+    /// <summary>
+    /// Range tree node.
+    /// </summary>
+    internal class RangeTreeNode<T> : IComparable where T : IComparable
+    {
+        internal T Value => Values[0];
+
+        internal List<T> Values { get; set; }
+
+        internal OneDimentionalRangeTree<T> tree { get; set; }
+
+        internal RangeTreeNode(T value)
+        {
+            Values = new List<T>(new T[] { value });
+            tree = new OneDimentionalRangeTree<T>();
+        }
+
+        public int CompareTo(object obj)
+        {
+            return Value.CompareTo(((RangeTreeNode<T>)obj).Value);
+        }
+
     }
 }

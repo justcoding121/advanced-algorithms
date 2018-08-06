@@ -24,9 +24,6 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public readonly int MaxHeight;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         /// <param name="maxHeight">The maximum height.</param>
         public SkipList(int maxHeight = 32)
         {

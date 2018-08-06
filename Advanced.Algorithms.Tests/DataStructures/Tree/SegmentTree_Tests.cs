@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 new Func<int, int, int>((x, y) => x + y),
                 new Func<int>(() => 0));
 
-            var sum = tree.GetRangeResult(1, 3);
+            var sum = tree.RangeResult(1, 3);
 
             Assert.AreEqual(15, sum);
         }

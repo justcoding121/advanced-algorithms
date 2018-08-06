@@ -1,21 +1,29 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class FibornacciMaxHeap<T> where T : IComparable
+    /// <summary>
+    /// A fibornacci max heap implementation.
+    /// </summary>
+    public class FibornacciMaxHeap<T> : IEnumerable<T> where T : IComparable
     {
-        internal FibornacciHeapNode<T> HeapForestHead;
+        private FibornacciHeapNode<T> maxNode = null;
 
         //holds the maximum node at any given time
-        private FibornacciHeapNode<T> maxNode;
+        private FibornacciHeapNode<T> heapForestHead;
+
+        private Dictionary<T, List<FibornacciHeapNode<T>>> heapMapping
+            = new Dictionary<T, List<FibornacciHeapNode<T>>>();
 
         public int Count { get; private set; }
 
         /// <summary>
-        /// O(1) complexity amortized
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="newItem"></param>
-        public FibornacciHeapNode<T> Insert(T newItem)
+        public void Insert(T newItem)
         {
             var newNode = new FibornacciHeapNode<T>(newItem);
 
@@ -34,130 +42,27 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
 
+            addMapping(newItem, newNode);
+
             Count++;
-
-            return newNode;
         }
 
         /// <summary>
-        /// Merge roots with same degrees in Forest 
+        /// Time complexity: O(log(n)).
         /// </summary>
-        private void Meld()
-        {
-
-            if (HeapForestHead == null)
-            {
-                maxNode = null;
-                return;
-            }
-
-            //degree - node dictionary
-            var mergeDictionary = new System.Collections.Generic.Dictionary<int, FibornacciHeapNode<T>>();
-
-            var current = HeapForestHead;
-            maxNode = current;
-            while (current != null)
-            {
-                current.Parent = null;
-                var next = current.Next;
-                //no same degree already in merge dictionary
-                //add to hash table
-                if (!mergeDictionary.ContainsKey(current.Degree))
-                {
-                  
-
-                    mergeDictionary.Add(current.Degree, current);
-
-                    if (maxNode == current)
-                    {
-                        maxNode = null;
-                    }
-
-                    deleteNode(ref HeapForestHead, current);
-
-                    current = next;
-                }
-                //insert back to forest by merging current tree 
-                //with existing tree in merge dictionary
-                else
-                {
-                    var currentDegree = current.Degree;
-                    var existing = mergeDictionary[currentDegree];
-
-                    if (existing.Value.CompareTo(current.Value) > 0)
-                    {
-                        current.Parent = existing;
-
-                        deleteNode(ref HeapForestHead, current);
-
-                        var childHead = existing.ChildrenHead;
-                        insertNode(ref childHead, current);
-                        existing.ChildrenHead = childHead;
-
-                        existing.Degree++;
-
-                        insertNode(ref HeapForestHead, existing);
-                        current = existing;
-                        current.Next = next;
-
-                    }
-                    else
-                    {
-                        existing.Parent = current;
-
-                        var childHead = current.ChildrenHead;
-                        insertNode(ref childHead, existing);
-                        current.ChildrenHead = childHead;
-
-                        current.Degree++;
-                    }
-
-
-                    if (maxNode == null
-                        || maxNode.Value.CompareTo(current.Value) < 0)
-                    {
-                        maxNode = current;
-                    }
-
-                    mergeDictionary.Remove(currentDegree);
-
-                }
-
-            }
-
-            //insert back trees with unique degrees to forest
-            if (mergeDictionary.Count > 0)
-            {
-                foreach (var node in mergeDictionary)
-                {
-                    insertNode(ref HeapForestHead, node.Value);
-
-                    if (maxNode == null
-                        || maxNode.Value.CompareTo(node.Value.Value) < 0)
-                    {
-                        maxNode = node.Value;
-                    }
-                }
-
-                mergeDictionary.Clear();
-            }
-
-        }
-
-
-        /// <summary>
-        /// O(log(n)) complexity
-        /// </summary>
-        /// <returns></returns>
         public T ExtractMax()
         {
-            if (HeapForestHead == null)
+            if (heapForestHead == null)
+            {
                 throw new Exception("Empty heap");
+            }
 
             var maxValue = maxNode.Value;
 
+            removeMapping(maxValue, maxNode);
+
             //remove tree root
-            deleteNode(ref HeapForestHead, maxNode);
+            deleteNode(ref heapForestHead, maxNode);
 
             mergeForests(maxNode.ChildrenHead);
             Meld();
@@ -169,12 +74,24 @@ namespace Advanced.Algorithms.DataStructures
 
 
         /// <summary>
-        /// Update the Heap with new value for this node pointer
-        /// O(1) complexity amortized
+        /// Update the Heap with new value for this node pointer.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="node"></param>
-        public void IncrementKey(FibornacciHeapNode<T> node)
+        public void IncrementKey(T currentValue, T newValue)
         {
+            var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
+
+            if (node == null)
+            {
+                throw new Exception("Current value is not present in this heap.");
+            }
+
+            if (newValue.CompareTo(node.Value) < 0)
+            {
+                throw new Exception("New value is not greater than old value.");
+            }
+
+            updateNodeValue(currentValue, newValue, node);
 
             if (node.Parent == null
                 && maxNode.Value.CompareTo(node.Value) < 0)
@@ -214,10 +131,135 @@ namespace Advanced.Algorithms.DataStructures
             }
 
         }
+
+        /// <summary>
+        /// Unions this heap with another.
+        /// Time complexity: O(1).
+        /// </summary>
+        public void Merge(FibornacciMaxHeap<T> FibornacciHeap)
+        {
+            mergeForests(FibornacciHeap.heapForestHead);
+            Count = Count + FibornacciHeap.Count;
+        }
+
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        public T PeekMax()
+        {
+            if (heapForestHead == null)
+                throw new Exception("Empty heap");
+
+            return maxNode.Value;
+        }
+
+        /// <summary>
+        /// Merge roots with same degrees in Forest.
+        /// </summary>
+        private void Meld()
+        {
+
+            if (heapForestHead == null)
+            {
+                maxNode = null;
+                return;
+            }
+
+            //degree - node dictionary
+            var mergeDictionary = new Dictionary<int, FibornacciHeapNode<T>>();
+
+            var current = heapForestHead;
+            maxNode = current;
+            while (current != null)
+            {
+                current.Parent = null;
+                var next = current.Next;
+                //no same degree already in merge dictionary
+                //add to hash table
+                if (!mergeDictionary.ContainsKey(current.Degree))
+                {
+                    mergeDictionary.Add(current.Degree, current);
+
+                    if (maxNode == current)
+                    {
+                        maxNode = null;
+                    }
+
+                    deleteNode(ref heapForestHead, current);
+
+                    current = next;
+                }
+                //insert back to forest by merging current tree 
+                //with existing tree in merge dictionary
+                else
+                {
+                    var currentDegree = current.Degree;
+                    var existing = mergeDictionary[currentDegree];
+
+                    if (existing.Value.CompareTo(current.Value) > 0)
+                    {
+                        current.Parent = existing;
+
+                        deleteNode(ref heapForestHead, current);
+
+                        var childHead = existing.ChildrenHead;
+                        insertNode(ref childHead, current);
+                        existing.ChildrenHead = childHead;
+
+                        existing.Degree++;
+
+                        insertNode(ref heapForestHead, existing);
+                        current = existing;
+                        current.Next = next;
+
+                    }
+                    else
+                    {
+                        existing.Parent = current;
+
+                        var childHead = current.ChildrenHead;
+                        insertNode(ref childHead, existing);
+                        current.ChildrenHead = childHead;
+
+                        current.Degree++;
+                    }
+
+
+                    if (maxNode == null
+                        || maxNode.Value.CompareTo(current.Value) < 0)
+                    {
+                        maxNode = current;
+                    }
+
+                    mergeDictionary.Remove(currentDegree);
+
+                }
+
+            }
+
+            //insert back trees with unique degrees to forest
+            if (mergeDictionary.Count > 0)
+            {
+                foreach (var node in mergeDictionary)
+                {
+                    insertNode(ref heapForestHead, node.Value);
+
+                    if (maxNode == null
+                        || maxNode.Value.CompareTo(node.Value.Value) < 0)
+                    {
+                        maxNode = node.Value;
+                    }
+                }
+
+                mergeDictionary.Clear();
+            }
+
+        }
+
+
         /// <summary>
         /// Delete this node from Heap Tree and adds it to forest as a new tree 
         /// </summary>
-        /// <param name="node"></param>
         private void cut(FibornacciHeapNode<T> node)
         {
             var parent = node.Parent;
@@ -236,7 +278,7 @@ namespace Advanced.Algorithms.DataStructures
             node.LostChild = false;
             node.Parent = null;
 
-            insertNode(ref HeapForestHead, node);
+            insertNode(ref heapForestHead, node);
 
             //update max
             if (maxNode.Value.CompareTo(node.Value) < 0)
@@ -244,17 +286,6 @@ namespace Advanced.Algorithms.DataStructures
                 maxNode = node;
             }
 
-        }
-
-        /// <summary>
-        /// Unions this heap with another
-        /// O(k) complexity where K is the FibornacciHeap Forest Length 
-        /// </summary>
-        /// <param name="fibornacciHeap"></param>
-        public void Union(FibornacciMaxHeap<T> fibornacciHeap)
-        {
-            mergeForests(fibornacciHeap.HeapForestHead);
-            Count = Count + fibornacciHeap.Count;
         }
 
         /// <summary>
@@ -267,7 +298,7 @@ namespace Advanced.Algorithms.DataStructures
             while (current != null)
             {
                 var next = current.Next;
-                insertNode(ref HeapForestHead, current);
+                insertNode(ref heapForestHead, current);
                 current = next;
             }
 
@@ -315,15 +346,43 @@ namespace Advanced.Algorithms.DataStructures
             deletionNode.Previous = null;
         }
 
-        /// <summary/>
-        ///  O(1) complexity 
-        /// <returns></returns>
-        public T PeekMax()
+        private void addMapping(T newItem, FibornacciHeapNode<T> newNode)
         {
-            if (HeapForestHead == null)
-                throw new Exception("Empty heap");
+            if (heapMapping.ContainsKey(newItem))
+            {
+                heapMapping[newItem].Add(newNode);
+            }
+            else
+            {
+                heapMapping[newItem] = new List<FibornacciHeapNode<T>>(new[] { newNode });
+            }
+        }
 
-            return maxNode.Value;
+        private void updateNodeValue(T currentValue, T newValue, FibornacciHeapNode<T> node)
+        {
+            removeMapping(currentValue, node);
+            node.Value = newValue;
+            addMapping(newValue, node);
+        }
+
+
+        private void removeMapping(T currentValue, FibornacciHeapNode<T> node)
+        {
+            heapMapping[currentValue].Remove(node);
+            if (heapMapping[currentValue].Count == 0)
+            {
+                heapMapping.Remove(currentValue);
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return heapMapping.SelectMany(x => x.Value).Select(x => x.Value).GetEnumerator();
         }
     }
 

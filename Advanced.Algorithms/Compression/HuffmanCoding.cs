@@ -5,16 +5,14 @@ using Advanced.Algorithms.DataStructures;
 namespace Advanced.Algorithms.Compression
 {
     /// <summary>
-    /// A huffman coding implementation using Fibornacci Min Heap
+    /// A huffman coding implementation using Fibornacci Min Heap.
     /// </summary>
     public class HuffmanCoding<T>
     {
         /// <summary>
-        /// Returns a dictionary of chosen encoding bytes for each distinct T
+        /// Returns a dictionary of chosen encoding bytes for each distinct T.
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        public System.Collections.Generic.Dictionary<T, byte[]> Compress(T[] input)
+        public Dictionary<T, byte[]> Compress(T[] input)
         {
             var frequencies = computeFrequency(input);
 
@@ -42,21 +40,18 @@ namespace Advanced.Algorithms.Compression
 
             var root = minHeap.ExtractMin();
 
-            var result = new System.Collections.Generic.Dictionary<T, byte[]>();
+            var result = new Dictionary<T, byte[]>();
 
-            DFS(root, new List<byte>(), result);
+            dfs(root, new List<byte>(), result);
 
             return result;
 
         }
 
         /// <summary>
-        /// Now gather the codes
-        /// </summary>
-        /// <param name="currentNode"></param>
-        /// <param name="pathStack"></param>
-        /// <param name="result"></param>
-        private void DFS(FrequencyWrap currentNode, List<byte> pathStack, System.Collections.Generic.Dictionary<T, byte[]> result)
+        /// Now gather the codes.
+        /// </summary>  
+        private void dfs(FrequencyWrap currentNode, List<byte> pathStack, Dictionary<T, byte[]> result)
         {
             if(currentNode.IsLeaf)
             {
@@ -67,26 +62,24 @@ namespace Advanced.Algorithms.Compression
             if (currentNode.Left != null)
             {
                 pathStack.Add(0);
-                DFS(currentNode.Left, pathStack, result);
+                dfs(currentNode.Left, pathStack, result);
                 pathStack.RemoveAt(pathStack.Count - 1);
             }
 
             if (currentNode.Right != null)
             {
                 pathStack.Add(1);
-                DFS(currentNode.Right, pathStack, result);
+                dfs(currentNode.Right, pathStack, result);
                 pathStack.RemoveAt(pathStack.Count - 1);
             }
         }
 
         /// <summary>
-        /// Computes frequencies of each of T in given input
+        /// Computes frequencies of each of T in given input.
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private System.Collections.Generic.Dictionary<T, int> computeFrequency(T[] input)
+        private Dictionary<T, int> computeFrequency(T[] input)
         {
-            var result = new System.Collections.Generic.Dictionary<T, int>();
+            var result = new Dictionary<T, int>();
 
             foreach (var item in input)
             {

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     /// <summary>
     /// A dictionary implementation.
@@ -13,9 +13,6 @@ namespace Advanced.Algorithms.DataStructures
     {
         private readonly IDictionary<K, V> dictionary;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         /// <param name="type">The dictionary implementation to use.</param>
         /// <param name="initialBucketSize">The larger the bucket size lesser the collision, but memory matters!</param>
         public Dictionary(DictionaryType type = DictionaryType.SeparateChaining, int initialBucketSize = 2)

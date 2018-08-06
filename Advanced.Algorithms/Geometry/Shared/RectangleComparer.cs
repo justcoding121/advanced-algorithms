@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Compares two rectangles for geometrical equality implementing IEqualityComparer.
+    /// </summary>
     public class RectangleComparer : IEqualityComparer<Rectangle>
     {
         public bool Equals(Rectangle x, Rectangle y)
@@ -17,18 +20,18 @@ namespace Advanced.Algorithms.Geometry
                 return false;
             }
 
-            return x.LeftTopCorner.X == y.LeftTopCorner.X
-                && x.LeftTopCorner.Y == y.LeftTopCorner.Y
-                && x.RightBottomCorner.X == y.RightBottomCorner.X
-                && x.RightBottomCorner.Y == y.RightBottomCorner.Y;
+            return x.LeftTop.X == y.LeftTop.X
+                && x.LeftTop.Y == y.LeftTop.Y
+                && x.RightBottom.X == y.RightBottom.X
+                && x.RightBottom.Y == y.RightBottom.Y;
 
         }
 
         public int GetHashCode(Rectangle rectangle)
         {
             var hashCode = 35;
-            hashCode = hashCode * -26 + rectangle.LeftTopCorner.GetHashCode();
-            hashCode = hashCode * -26 + rectangle.RightBottomCorner.GetHashCode();
+            hashCode = hashCode * -26 + rectangle.LeftTop.GetHashCode();
+            hashCode = hashCode * -26 + rectangle.RightBottom.GetHashCode();
             return hashCode;
         }
     }

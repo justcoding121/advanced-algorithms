@@ -114,6 +114,7 @@
     <Compile Include="DataStructures\Tree\FenwickTree.cs" />
     <Compile Include="DataStructures\Tree\IntervalTree.cs" />
     <Compile Include="DataStructures\Tree\K_DTree.cs" />
+    <Compile Include="DataStructures\Tree\QuadTree.cs" />
     <Compile Include="DataStructures\Tree\RangeTree.cs" />
     <Compile Include="DataStructures\Tree\RedBlackTree.cs" />
     <Compile Include="DataStructures\Tree\RTree.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="DataStructures\Tree\TreapTree.cs" />
     <Compile Include="DataStructures\Tree\Tree.cs" />
     <Compile Include="DataStructures\Tree\Trie.cs" />
+    <Compile Include="Distributed\AsyncQueue.cs" />
     <Compile Include="Distributed\CircularQueue.cs" />
     <Compile Include="Distributed\ConsistentHash.cs" />
     <Compile Include="Distributed\LRUCache.cs" />

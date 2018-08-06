@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
+    /// <summary>
+    /// A binary min heap implementation.
+    /// </summary>
     public class BMinHeap<T> : IEnumerable<T> where T : IComparable
     {
         private T[] heapArray;
@@ -22,9 +25,9 @@ namespace Advanced.Algorithms.DataStructures
             : this(null, comparer) { }
 
         /// <summary>
-        /// Initialize with optional init value
+        /// Time complexity: O(n) if initial is provided. Otherwise O(1).
         /// </summary>
-        /// <param name="initial"></param>
+        /// <param name="initial">The initial items in the heap.</param>
         public BMinHeap(IEnumerable<T> initial, IComparer<T> comparer)
         {
             if (comparer != null)
@@ -57,11 +60,6 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        /// <summary>
-        /// Initialize with given input 
-        /// O(n) time complexity
-        /// </summary>
-        /// <param name="initial"></param>
         private void BulkInit(T[] initial)
         {
             var i = (initial.Length - 1) / 2;
@@ -75,11 +73,6 @@ namespace Advanced.Algorithms.DataStructures
             heapArray = initial;
         }
 
-        /// <summary>
-        /// load bulk 
-        /// </summary>
-        /// <param name="i"></param>
-        /// <param name="initial"></param>
         private void bulkInitRecursive(int i, T[] initial)
         {
             while (true)
@@ -109,7 +102,9 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //o(log(n))
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
         public void Insert(T newItem)
         {
             if (Count == heapArray.Length)
@@ -136,6 +131,9 @@ namespace Advanced.Algorithms.DataStructures
             Count++;
         }
 
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
         public T ExtractMin()
         {
             if (Count == 0)
@@ -148,6 +146,44 @@ namespace Advanced.Algorithms.DataStructures
             delete(0);
 
             return min;
+        }
+
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        public T PeekMin()
+        {
+            if (Count == 0)
+            {
+                throw new Exception("Empty heap");
+            }
+
+            return heapArray[0];
+        }
+
+        /// <summary>
+        /// Time complexity: O(n).
+        /// </summary>
+        public void Delete(T value)
+        {
+            var index = findIndex(value);
+
+            if (index != -1)
+            {
+                delete(index);
+                return;
+            }
+
+            throw new Exception("Item not found.");
+
+        }
+
+        /// <summary>
+        /// Time complexity: O(n).
+        /// </summary>
+        public bool Exists(T value)
+        {
+            return findIndex(value) != -1;
         }
 
         private void delete(int parentIndex)
@@ -241,37 +277,7 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //o(1)
-        public T PeekMin()
-        {
-            if (Count == 0)
-            {
-                throw new Exception("Empty heap");
-            }
 
-            return heapArray[0];
-        }
-
-        public void Delete(T value)
-        {
-            var index = findIndex(value);
-
-            if (index != -1)
-            {
-                delete(index);
-                return;
-            }
-
-            throw new Exception("Item not found.");
-
-        }
-
-        public bool Exists(T value)
-        {
-            return findIndex(value) != -1;
-        }
-
-        //TODO optimize search
         private int findIndex(T value)
         {
             for (int i = 0; i < Count; i++)
@@ -308,14 +314,15 @@ namespace Advanced.Algorithms.DataStructures
             heapArray = biggerArray;
         }
 
-        public IEnumerator<T> GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
-            return new ArrayListEnumerator<T>(heapArray, Count);
+            return heapArray.Take(Count).GetEnumerator();
         }
+
     }
 }

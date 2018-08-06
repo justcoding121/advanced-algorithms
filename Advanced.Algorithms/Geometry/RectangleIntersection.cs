@@ -2,16 +2,15 @@
 
 namespace Advanced.Algorithms.Geometry
 {
-
+    /// <summary>
+    /// Rectangle intersection finder.
+    /// </summary>
     public class RectangleIntersection
     {
         /// <summary>
-        /// Returns the rectangle formed by the intersection if do intersect
-        /// Otherwise default value of Rectangle struct
+        /// Returns the rectangle formed by the intersection if do intersect.
+        /// Otherwise default value of Rectangle struct.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         public static Rectangle FindIntersection(Rectangle a, Rectangle b)
         {
             //check for intersection
@@ -23,32 +22,32 @@ namespace Advanced.Algorithms.Geometry
 
             var leftTopCorner = new Point
             (
-                 Math.Max(a.LeftTopCorner.X, b.LeftTopCorner.X),
-                 Math.Min(a.LeftTopCorner.Y, b.LeftTopCorner.Y)
+                 Math.Max(a.LeftTop.X, b.LeftTop.X),
+                 Math.Min(a.LeftTop.Y, b.LeftTop.Y)
             );
 
 
             var rightBottomCorner = new Point
             (
-                Math.Min(a.RightBottomCorner.X, b.RightBottomCorner.X),
-                Math.Max(a.RightBottomCorner.Y, b.RightBottomCorner.Y)
+                Math.Min(a.RightBottom.X, b.RightBottom.X),
+                Math.Max(a.RightBottom.Y, b.RightBottom.Y)
             );
 
 
             return new Rectangle()
             {
-                LeftTopCorner = leftTopCorner,
-                RightBottomCorner = rightBottomCorner
+                LeftTop = leftTopCorner,
+                RightBottom = rightBottomCorner
             };
         }
 
         public static bool DoIntersect(Rectangle a, Rectangle b)
         {
             //check for intersection
-            if (a.LeftTopCorner.X > b.RightBottomCorner.X // A is right of B   
-             || a.RightBottomCorner.X < b.LeftTopCorner.X // A is left of B
-             || a.RightBottomCorner.Y > b.LeftTopCorner.Y //A is above B
-             || a.LeftTopCorner.Y < b.RightBottomCorner.Y)//A is below B
+            if (a.LeftTop.X > b.RightBottom.X // A is right of B   
+             || a.RightBottom.X < b.LeftTop.X // A is left of B
+             || a.RightBottom.Y > b.LeftTop.Y //A is above B
+             || a.LeftTop.Y < b.RightBottom.Y)//A is below B
             {
                 //no intersection
                 return false;

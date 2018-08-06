@@ -4,54 +4,35 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    internal class SplayTreeNode<T> : BSTNodeBase<T>  where T : IComparable
-    {
-        internal new SplayTreeNode<T> Parent
-        {
-            get { return (SplayTreeNode<T>)base.Parent; }
-            set { base.Parent = value; }
-        }
-
-        internal new SplayTreeNode<T> Left
-        {
-            get { return (SplayTreeNode<T>)base.Left; }
-            set { base.Left = value; }
-        }
-
-        internal new SplayTreeNode<T> Right
-        {
-            get { return (SplayTreeNode<T>)base.Right; }
-            set { base.Right = value; }
-        }
-
-        internal SplayTreeNode(SplayTreeNode<T> parent, T value)
-        {
-            Parent = parent;
-            Value = value;
-        }
-
-    }
-
+    /// <summary>
+    /// A splay tree implementation.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class SplayTree<T> : IEnumerable<T> where T : IComparable
     {
-        internal SplayTreeNode<T> Root { get; set; }
+        private SplayTreeNode<T> root { get; set; }
+
         public int Count { get; private set; }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
         public bool HasItem(T value)
         {
-            if (Root == null)
+            if (root == null)
             {
                 return false;
             }
 
-            return find(Root, value) != null;
+            return find(root, value) != null;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
         public int GetHeight()
         {
-            return GetHeight(Root);
+            return GetHeight(root);
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -65,17 +46,19 @@ namespace Advanced.Algorithms.DataStructures
             return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
         public void Insert(T value)
         {
-            if (Root == null)
+            if (root == null)
             {
-                Root = new SplayTreeNode<T>(null, value);
+                root = new SplayTreeNode<T>(null, value);
                 Count++;
                 return;
             }
 
-            var newNode = insert(Root, value);
+            var newNode = insert(root, value);
 
             splay(newNode);
             Count++;
@@ -120,16 +103,17 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //remove the node with the given identifier from the descendants 
-        //O(log(n)) worst O(n) for unbalanced tree
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
         public void Delete(T value)
         {
-            if (Root == null)
+            if (root == null)
             {
                 throw new Exception("Empty SplayTree");
             }
 
-            delete(Root, value);
+            delete(root, value);
             Count--;
         }
 
@@ -200,7 +184,7 @@ namespace Advanced.Algorithms.DataStructures
             //if node is root
             if (node.Parent == null)
             {
-                Root = null;
+                root = null;
             }
             //assign nodes parent.left/right to null
             else if (node.IsLeftChild)
@@ -218,8 +202,8 @@ namespace Advanced.Algorithms.DataStructures
             //root
             if (node.Parent == null)
             {
-                Root.Right.Parent = null;
-                Root = Root.Right;
+                root.Right.Parent = null;
+                root = root.Right;
                 return;
             }
 
@@ -242,8 +226,8 @@ namespace Advanced.Algorithms.DataStructures
             //root
             if (node.Parent == null)
             {
-                Root.Left.Parent = null;
-                Root = Root.Left;
+                root.Left.Parent = null;
+                root = root.Left;
                 return;
             }
 
@@ -261,11 +245,13 @@ namespace Advanced.Algorithms.DataStructures
             node.Left.Parent = node.Parent;
         }
 
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
         public T FindMax()
         {
-            return FindMax(Root).Value;
+            return FindMax(root).Value;
         }
-
 
         private SplayTreeNode<T> FindMax(SplayTreeNode<T> node)
         {
@@ -276,9 +262,12 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
         public T FindMin()
         {
-            return FindMin(Root).Value;
+            return FindMin(root).Value;
         }
 
         private SplayTreeNode<T> FindMin(SplayTreeNode<T> node)
@@ -354,8 +343,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Rotates current root right and returns the new root node
         /// </summary>
-        /// <param name="currentRoot"></param>
-        /// <returns></returns>
         private SplayTreeNode<T> rightRotate(SplayTreeNode<T> currentRoot)
         {
             var prevRoot = currentRoot;
@@ -389,9 +376,9 @@ namespace Advanced.Algorithms.DataStructures
                 newRoot.Right.Left.Parent = newRoot.Right;
             }
 
-            if (prevRoot == Root)
+            if (prevRoot == root)
             {
-                Root = newRoot;
+                root = newRoot;
             }
 
             return newRoot;
@@ -401,8 +388,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Rotates the current root left and returns new root
         /// </summary>
-        /// <param name="currentRoot"></param>
-        /// <returns></returns>
         private SplayTreeNode<T> leftRotate(SplayTreeNode<T> currentRoot)
         {
             var prevRoot = currentRoot;
@@ -425,7 +410,6 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
 
-
             //move prev root as left child of current root
             newRoot.Left = prevRoot;
             prevRoot.Parent = newRoot;
@@ -437,9 +421,9 @@ namespace Advanced.Algorithms.DataStructures
                 newRoot.Left.Right.Parent = newRoot.Left;
             }
 
-            if (prevRoot == Root)
+            if (prevRoot == root)
             {
-                Root = newRoot;
+                root = newRoot;
             }
 
             return newRoot;
@@ -451,14 +435,13 @@ namespace Advanced.Algorithms.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         private BSTNodeBase<T> find(T value)
         {
-            return Root.Find<T>(value) as BSTNodeBase<T>;
+            return root.Find<T>(value) as BSTNodeBase<T>;
         }
 
         /// <summary>
         ///     Get the value previous to given value in this BST.
+        ///     Time complexity: O(n).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextLower(T value)
         {
             var node = find(value);
@@ -473,9 +456,8 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         ///     Get the value next to given value in this BST.
+        ///     Time complexity: O(n).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextHigher(T value)
         {
             var node = find(value);
@@ -496,7 +478,36 @@ namespace Advanced.Algorithms.DataStructures
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new BSTEnumerator<T>(Root);
+            return new BSTEnumerator<T>(root);
         }
     }
+
+    internal class SplayTreeNode<T> : BSTNodeBase<T> where T : IComparable
+    {
+        internal new SplayTreeNode<T> Parent
+        {
+            get { return (SplayTreeNode<T>)base.Parent; }
+            set { base.Parent = value; }
+        }
+
+        internal new SplayTreeNode<T> Left
+        {
+            get { return (SplayTreeNode<T>)base.Left; }
+            set { base.Left = value; }
+        }
+
+        internal new SplayTreeNode<T> Right
+        {
+            get { return (SplayTreeNode<T>)base.Right; }
+            set { base.Right = value; }
+        }
+
+        internal SplayTreeNode(SplayTreeNode<T> parent, T value)
+        {
+            Parent = parent;
+            Value = value;
+        }
+
+    }
+
 }

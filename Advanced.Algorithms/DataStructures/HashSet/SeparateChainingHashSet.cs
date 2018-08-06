@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     internal class SeparateChainingHashSet<T> : IHashSet<T>  
     {
@@ -260,14 +260,14 @@ namespace Advanced.Algorithms.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<T>> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return new SeparateChainingHashSetEnumerator<T>(hashArray, bucketSize);
         }
 
     }
 
-    internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<HashSetNode<T>> 
+    internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<T> 
     {
         internal DoublyLinkedList<HashSetNode<T>>[] hashList;
 
@@ -332,13 +332,13 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        public HashSetNode<T> Current
+        public T Current
         {
             get
             {
                 try
                 {
-                    return currentNode.Data;
+                    return currentNode.Data.Value;
                 }
                 catch (IndexOutOfRangeException)
                 {

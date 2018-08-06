@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SegmentTree&lt;T&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.37.1.0">
+    <meta name="generator" content="docfx 2.37.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,12 +83,18 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_SegmentTree_1" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1" class="text-break">Class SegmentTree&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A segment tree implementation.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">SegmentTree&lt;T&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -118,7 +124,7 @@
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_SegmentTree_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SegmentTree&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class SegmentTree&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,12 +147,13 @@
   
   <a id="Advanced_Algorithms_DataStructures_SegmentTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.#ctor*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_SegmentTree_1__ctor__0___System_Func__0__0__0__System_Func__0__" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.#ctor(`0[],System.Func{`0,`0,`0},System.Func{`0})">SegmentTree(T[], Func&lt;T, T, T&gt;, Func&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>constructs a segment tree using the specified operation function
-Operation function is the criteria for range queries
-For example operation function can return Max, Min or Sum of the two input elements
-Default value is a void value that will eliminate a node during operation comparisons
-For example if operation return min value default value will be largest value (int.Max for if T is int)
-or default value will be 0 if operation is sum</p>
+  <div class="markdown level1 summary"><p>Constructs a segment tree using the specified operation function.
+Operation function is the criteria for range queries.
+For example operation function can return Max, Min or Sum of the two input elements.
+Default value is the void value that will eliminate a node during operation comparisons.
+For example if operation return min value then the default value will be largest value (int.Max for if T is int).
+Or default value will be 0 if operation is sum.
+Time complexity: O(n).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -184,13 +191,40 @@ or default value will be 0 if operation is sum</p>
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_SegmentTree_1_GetRangeResult_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.GetRangeResult*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_SegmentTree_1_GetRangeResult_System_Int32_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.GetRangeResult(System.Int32,System.Int32)">GetRangeResult(Int32, Int32)</h4>
+  <a id="Advanced_Algorithms_DataStructures_SegmentTree_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SegmentTree_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.GetEnumerator">GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetRangeResult(int startIndex, int endIndex)</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_SegmentTree_1_RangeResult_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.RangeResult*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SegmentTree_1_RangeResult_System_Int32_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.RangeResult(System.Int32,System.Int32)">RangeResult(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the operation aggregated result for given range of the input.
+Time complexity: O(log(n)).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T RangeResult(int startIndex, int endIndex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -229,6 +263,40 @@ or default value will be 0 if operation is sum</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_SegmentTree_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_SegmentTree_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           

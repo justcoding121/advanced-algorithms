@@ -7,7 +7,7 @@ using System.Linq;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class AsD_aryMaxTree_Tests
+    public class D_aryMaxTree_Tests
     {
         /// <summary>
         /// A tree test
@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var initial = new List<int>(Enumerable.Range(0, 51)
                 .OrderBy(x => rnd.Next()));
 
-            var tree = new D_aryMaxHeap<int>(4, initial);
+            var tree = new DaryMaxHeap<int>(4, initial);
             for (int i = 51; i <= 99; i++)
             {
                 tree.Insert(i);
@@ -31,6 +31,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 var max = tree.ExtractMax();
                 Assert.AreEqual(max, i);
             }
+
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
 
             var testSeries = Enumerable.Range(1, 49).OrderBy(x => rnd.Next()).ToList();
 
@@ -45,6 +48,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(i, max);
             }
 
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
         }
     }
 }

@@ -1,16 +1,19 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-
 
 namespace Advanced.Algorithms.Distributed
 {
+    /// <summary>
+    /// A least recently used cache implemetation.
+    /// </summary>
     public class LRUCache<K, V>
     {
         private readonly int capacity;
 
-        private System.Collections.Generic.Dictionary<K, DoublyLinkedListNode<Tuple<K, V>>> lookUp
-            = new System.Collections.Generic.Dictionary<K, DoublyLinkedListNode<Tuple<K, V>>>();
+        private Dictionary<K, DoublyLinkedListNode<Tuple<K, V>>> lookUp
+            = new Dictionary<K, DoublyLinkedListNode<Tuple<K, V>>>();
 
         private readonly DoublyLinkedList<Tuple<K, V>> dll = new DoublyLinkedList<Tuple<K, V>>();
 
@@ -24,10 +27,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(1) time complexity
+        /// Time complexity: O(1). 
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
         public V Get(K key)
         {
             if (!lookUp.ContainsKey(key))
@@ -44,10 +45,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(1) time complexity
+        /// Time complexity: O(1). 
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
         public void Put(K key, V value)
         {
             //evict last node of ddl if capacity overflows

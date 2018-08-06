@@ -17,10 +17,16 @@ namespace Advanced.Algorithms.Tests.DataStructures
             set.Add(15);
             set.Add(0);
 
+            //IEnumerable test
+            Assert.AreEqual(set.Count, set.Count());
+
             set.Remove(15);
 
             Assert.IsTrue(set.HasItem(6));
-            Assert.AreEqual(2, set.Length);
+            Assert.AreEqual(2, set.Count);
+
+            //IEnumerable test
+            Assert.AreEqual(set.Count, set.Count());
         }
 
         [TestMethod]
@@ -38,6 +44,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 set.Add(element);
             }
 
+            //IEnumerable test
+            Assert.AreEqual(set.Count, set.Count());
+
             foreach (var element in testCollection)
             {
                 Assert.IsTrue(set.HasItem(element));
@@ -49,6 +58,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 set.Remove(element);
                 Assert.IsFalse(set.HasItem(element));
             }
+
+            //IEnumerable test
+            Assert.AreEqual(set.Count, set.Count());
         }
     }
 }

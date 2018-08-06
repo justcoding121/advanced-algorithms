@@ -14,30 +14,30 @@ namespace Advanced.Algorithms.Tests.Geometry
 
             var result = RectangleIntersection.FindIntersection(new Rectangle()
             {
-                LeftTopCorner = new Point(0, 10),
-                RightBottomCorner = new Point(10, 0)
+                LeftTop = new Point(0, 10),
+                RightBottom = new Point(10, 0)
             },
             new Rectangle()
             {
-                LeftTopCorner = new Point(5, 5),
-                RightBottomCorner = new Point(15, 0)
+                LeftTop = new Point(5, 5),
+                RightBottom = new Point(15, 0)
             });
 
             Assert.IsTrue(rectangleComparer.Equals(result, new Rectangle()
             {
-                LeftTopCorner = new Point(5, 5),
-                RightBottomCorner = new Point(10, 0)
+                LeftTop = new Point(5, 5),
+                RightBottom = new Point(10, 0)
             }));
 
             result = RectangleIntersection.FindIntersection(new Rectangle()
             {
-                LeftTopCorner = new Point(0, 10),
-                RightBottomCorner = new Point(4, 0)
+                LeftTop = new Point(0, 10),
+                RightBottom = new Point(4, 0)
             },
             new Rectangle()
             {
-                LeftTopCorner = new Point(5, 5),
-                RightBottomCorner = new Point(15, 0)
+                LeftTop = new Point(5, 5),
+                RightBottom = new Point(15, 0)
             });
 
             Assert.IsTrue(rectangleComparer.Equals(result, null));

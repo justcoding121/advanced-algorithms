@@ -7,10 +7,8 @@ namespace Advanced.Algorithms.Graph
 
     /// <summary>
     /// A Edmond Karp max flox implementation on weighted directed graph using 
-    /// adjacency list representation of graph & residual graph
+    /// adjacency list representation of graph & residual graph.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
     public class EdmondKarpMaxFlow<T, W> where W : IComparable
     {
         readonly IFlowOperators<W> operators;
@@ -21,13 +19,9 @@ namespace Advanced.Algorithms.Graph
 
         /// <summary>
         /// Compute max flow by searching a path
-        /// And then augmenting the residual graph until
-        /// no more path exists in residual graph with possible flow
+        /// and then augmenting the residual graph until
+        /// no more path exists in residual graph with possible flow.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="source"></param>
-        /// <param name="sink"></param>
-        /// <returns></returns>
         public W ComputeMaxFlow(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
@@ -49,13 +43,9 @@ namespace Advanced.Algorithms.Graph
 
         /// <summary>
         /// Compute max flow by searching a path
-        /// And then augmenting the residual graph until
-        /// no more path exists in residual graph with possible flow
+        /// and then augmenting the residual graph until
+        /// no more path exists in residual graph with possible flow.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="source"></param>
-        /// <param name="sink"></param>
-        /// <returns>Residual Graph</returns>
         public WeightedDiGraph<T, W> computeMaxFlowAndReturnResidualGraph(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
@@ -75,12 +65,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Return all flow Paths
+        /// Return all flow Paths.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="source"></param>
-        /// <param name="sink"></param>
-        /// <returns></returns>
         internal List<List<T>> ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
@@ -102,12 +88,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Augment current Path to residual Graph
+        /// Augment current Path to residual Graph.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="residualGraph"></param>
-        /// <param name="path"></param>
-        /// <returns></returns>
         private W augmentResidualGraph(WeightedDiGraph<T, W> graph,
             WeightedDiGraph<T, W> residualGraph, List<T> path)
         {
@@ -145,12 +127,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// bredth first search to find a path to sink in residual graph from source
+        /// Bredth first search to find a path to sink in residual graph from source.
         /// </summary>
-        /// <param name="residualGraph"></param>
-        /// <param name="source"></param>
-        /// <param name="sink"></param>
-        /// <returns></returns>
         private List<T> bfs(WeightedDiGraph<T, W> residualGraph, T source, T sink)
         {
             //init parent lookup table to trace path
@@ -221,10 +199,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// clones this graph and creates a residual graph
+        /// Clones this graph and creates a residual graph.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         private WeightedDiGraph<T, W> createResidualGraph(WeightedDiGraph<T, W> graph)
         {
             var newGraph = new WeightedDiGraph<T, W>();

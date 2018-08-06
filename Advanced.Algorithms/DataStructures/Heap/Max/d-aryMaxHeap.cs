@@ -1,17 +1,32 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class D_aryMaxHeap<T> where T : IComparable
+    /// <summary>
+    /// A D-ary max heap implementation.
+    /// </summary>
+    public class DaryMaxHeap<T> : IEnumerable<T> where T : IComparable
     {
         private T[] heapArray;
         private int k;
         public int Count = 0;
 
-        public D_aryMaxHeap(int k, IEnumerable<T> initial = null)
+        /// <summary>
+        /// Time complexity: O(n) when initial is provided otherwise O(1).
+        /// </summary>
+        /// <param name="k">The number of children per heap node.</param>
+        /// <param name="initial">The initial items if any.</param>
+        public DaryMaxHeap(int k, IEnumerable<T> initial = null)
         {
+
+            if(k <= 2)
+            {
+                throw new Exception("Number of nodes k must be greater than 2.");
+            }
+
             this.k = k;
 
             if (initial != null)
@@ -37,10 +52,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Initialize with given input 
-        /// O(n) time complexity
+        /// Initialize with given input.
+        /// Time complexity: O(n).
         /// </summary>
-        /// <param name="initial"></param>
         private void BulkInit(T[] initial)
         {
             var i = (initial.Length - 1) / k;
@@ -55,10 +69,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Recursively load bulk init values
+        /// Recursively load bulk init values.
         /// </summary>
-        /// <param name="i"></param>
-        /// <param name="initial"></param>
         private void bulkInitRecursive(int i, T[] initial)
         {
             while (true)
@@ -81,7 +93,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
 
-        //O(log(n) base K)
+        /// <summary>
+        /// Time complexity: O(log(n) base K).
+        /// </summary>
         public void Insert(T newItem)
         {
             if (Count == heapArray.Length)
@@ -108,7 +122,10 @@ namespace Advanced.Algorithms.DataStructures
 
             Count++;
         }
-        //O(log(n) base K)
+
+        /// <summary>
+        /// Time complexity: O(log(n) base K).
+        /// </summary>
         public T ExtractMax()
         {
             if (Count == 0)
@@ -157,12 +174,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// returns the max Index of child if any 
-        /// otherwise returns -1
+        /// Returns the max Index of child if any. 
+        /// Otherwise returns -1.
         /// </summary>
-        /// <param name="currentParent"></param>
-        /// <param name="heap"></param>
-        /// <returns></returns>
         private int findMaxChildIndex(int currentParent, T[] heap)
         {
             var currentMax = currentParent * k + 1;
@@ -186,7 +200,9 @@ namespace Advanced.Algorithms.DataStructures
             return currentMax;
         }
 
-        //o(1)
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public T PeekMax()
         {
             if (Count == 0)
@@ -219,6 +235,16 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             heapArray = biggerArray;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return heapArray.Take(Count).GetEnumerator();
         }
     }
 }

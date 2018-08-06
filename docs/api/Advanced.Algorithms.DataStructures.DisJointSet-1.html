@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DisJointSet&lt;T&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.37.1.0">
+    <meta name="generator" content="docfx 2.37.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,13 +83,18 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_DisJointSet_1" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1" class="text-break">Class DisJointSet&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A disjoint set implementation</p>
+  <div class="markdown level0 summary"><p>A disjoint set implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">DisJointSet&lt;T&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -119,7 +124,7 @@
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_DisJointSet_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DisJointSet&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class DisJointSet&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,13 +141,41 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_DisJointSet_1_Count_" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.Count*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_DisJointSet_1_Count" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   
   
   <a id="Advanced_Algorithms_DataStructures_DisJointSet_1_FindSet_" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.FindSet*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_DisJointSet_1_FindSet__0_" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.FindSet(`0)">FindSet(T)</h4>
-  <div class="markdown level1 summary"><p>Returns the reference member of the set where this member is part of</p>
+  <div class="markdown level1 summary"><p>Returns the reference member of the set where this member is part of.
+Time complexity: log(n).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -183,9 +216,35 @@
   </table>
   
   
+  <a id="Advanced_Algorithms_DataStructures_DisJointSet_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_DisJointSet_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_DisJointSet_1_MakeSet_" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.MakeSet*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_DisJointSet_1_MakeSet__0_" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.MakeSet(`0)">MakeSet(T)</h4>
-  <div class="markdown level1 summary"><p>Creates a new set with given member</p>
+  <div class="markdown level1 summary"><p>Creates a new set with given member.
+Time complexity: log(n).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -213,8 +272,9 @@
   
   <a id="Advanced_Algorithms_DataStructures_DisJointSet_1_Union_" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.Union*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_DisJointSet_1_Union__0__0_" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.Union(`0,`0)">Union(T, T)</h4>
-  <div class="markdown level1 summary"><p>Union&apos;s their sets if given members are in differant sets
-Otherwise do nothing</p>
+  <div class="markdown level1 summary"><p>Union&apos;s given member&apos;s sets if given members are in differant sets.
+Otherwise does nothing.
+Time complexity: log(n).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -243,6 +303,40 @@ Otherwise do nothing</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_DisJointSet_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_DisJointSet_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           

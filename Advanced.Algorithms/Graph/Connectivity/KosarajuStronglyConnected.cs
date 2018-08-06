@@ -4,16 +4,13 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// A Kosaraju Strong Connected Component Algorithm Implementation
+    /// A Kosaraju Strong Connected Component Algorithm Implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class KosarajuStronglyConnected<T>
     {
         /// <summary>
-        /// Returns all Connected Components using Kosaraju's Algorithm
+        /// Returns all Connected Components using Kosaraju's Algorithm.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         public List<List<T>> 
             FindStronglyConnectedComponents(DiGraph<T> graph)
         {
@@ -52,11 +49,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Just do a DFS keeping track on finish Stack of Vertices
+        /// Just do a DFS keeping track on finish Stack of Vertices.
         /// </summary>
-        /// <param name="currentVertex"></param>
-        /// <param name="visited"></param>
-        /// <param name="finishStack"></param>
         private void kosarajuStep1(DiGraphVertex<T> currentVertex,
             HashSet<T> visited,
             Stack<T> finishStack)
@@ -76,13 +70,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// In step two we just add all reachable nodes to result (connected componant)
+        /// In step two we just add all reachable nodes to result (connected componant).
         /// </summary>
-        /// <param name="currentVertex"></param>
-        /// <param name="visited"></param>
-        /// <param name="finishStack"></param>
-        /// <param name="result"></param>
-        /// <returns></returns>
         private List<T> kosarajuStep2(DiGraphVertex<T> currentVertex,
             HashSet<T> visited, Stack<T> finishStack,
             List<T> result)
@@ -102,9 +91,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// create a clone graph with reverse edge directions
+        /// Create a clone graph with reverse edge directions.
         /// </summary>
-        /// <returns></returns>
         private DiGraph<T> reverseEdges(DiGraph<T> graph)
         {
             var newGraph = new DiGraph<T>();

@@ -1,5 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
 {
@@ -27,7 +28,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
 
             graph.AddEdge(2, 3);
 
-            Assert.AreEqual(2, graph.GetAllEdges(2).Count);
+            Assert.AreEqual(2, graph.Edges(2).Count());
 
             graph.AddEdge(3, 4);
             graph.AddEdge(4, 5);

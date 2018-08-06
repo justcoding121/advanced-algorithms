@@ -1,51 +1,27 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 {
     /// <summary>
-    /// A weighted graph vertex
+    /// A weighted graph implementation.
+    /// IEnumerable enumerates all vertices.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TW"></typeparam>
-    public class WeightedDiGraphVertex<T, TW> where TW : IComparable
-    {
-        public T Value { get; private set; }
-        public System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW> OutEdges { get; set; }
-        public System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW> InEdges { get; set; }
-
-        public WeightedDiGraphVertex(T value)
-        {
-            Value = value;
-
-            OutEdges = new System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
-            InEdges = new System.Collections.Generic.Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
-        }
-
-    }
-
-    /// <summary>
-    /// A weighted graph implementation
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TW"></typeparam>
-    public class WeightedDiGraph<T, TW> where TW : IComparable
+    public class WeightedDiGraph<T, TW> : IEnumerable<T> where TW : IComparable
     {
         public int VerticesCount => Vertices.Count;
-        internal System.Collections.Generic.Dictionary<T, WeightedDiGraphVertex<T, TW>> Vertices { get; set; }
+        internal Dictionary<T, WeightedDiGraphVertex<T, TW>> Vertices { get; set; }
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         public WeightedDiGraph()
         {
-            Vertices = new System.Collections.Generic.Dictionary<T, WeightedDiGraphVertex<T, TW>>();
+            Vertices = new Dictionary<T, WeightedDiGraphVertex<T, TW>>();
         }
 
         /// <summary>
-        /// return a reference vertex  to start traversing Vertices
-        /// O(1) complexity
+        /// Returns a reference vertex.
+        /// Time complexity: O(1).
         /// </summary>
         public WeightedDiGraphVertex<T, TW> ReferenceVertex
         {
@@ -64,11 +40,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// Add a new vertex to this graph
-        /// O(1) complexity
+        /// Add a new vertex to this graph.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public WeightedDiGraphVertex<T, TW> AddVertex(T value)
         {
             if (value == null)
@@ -84,10 +58,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// remove the given vertex
-        /// O(V) complexity
+        /// Remove the given vertex.
+        /// Time complexity: O(V) where V is the number of vertices.
         /// </summary>
-        /// <param name="value"></param>
         public void RemoveVertex(T value)
         {
             if (value == null)
@@ -114,12 +87,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// Add a new edge to this graph
-        /// O(1) complexity
+        /// Add a new edge to this graph.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
-        /// <param name="weight"></param>
         public void AddEdge(T source, T dest, TW weight)
         {
             if (source == null || dest == null)
@@ -144,11 +114,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// remove the given edge from this graph
-        /// O(1) complexity
+        /// Remove the given edge from this graph.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
         public void RemoveEdge(T source, T dest)
         {
 
@@ -173,12 +141,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// do we have an edge between given source and destination?
-        /// O(1) complexity
+        /// Do we have an edge between given source and destination?
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
-        /// <returns></returns>
         public bool HasEdge(T source, T dest)
         {
             if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
@@ -190,32 +155,30 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
              && Vertices[dest].InEdges.ContainsKey(Vertices[source]);
         }
 
-        public List<Tuple<T, TW>> GetAllOutEdges(T vertex)
+        public IEnumerable<Tuple<T, TW>> OutEdges(T vertex)
         {
             if (!Vertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].OutEdges.Select(x =>new Tuple<T,TW>(x.Key.Value, x.Value)).ToList();
+            return Vertices[vertex].OutEdges.Select(x =>new Tuple<T,TW>(x.Key.Value, x.Value));
         }
 
-        public List<Tuple<T, TW>> GetAllInEdges(T vertex)
+        public IEnumerable<Tuple<T, TW>> InEdges(T vertex)
         {
             if (!Vertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].InEdges.Select(x => new Tuple<T, TW>(x.Key.Value, x.Value)).ToList();
+            return Vertices[vertex].InEdges.Select(x => new Tuple<T, TW>(x.Key.Value, x.Value));
         }
 
         /// <summary>
-        /// returns the vertex with given value
-        /// O(1) complexity
+        /// Returns the vertex with given value.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public WeightedDiGraphVertex<T, TW> FindVertex(T value)
         {
             if(Vertices.ContainsKey(value))
@@ -227,9 +190,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
         
         /// <summary>
-        /// clone object
+        /// Clone this graph.
         /// </summary>
-        /// <returns></returns>
         internal WeightedDiGraph<T,TW> Clone()
         {
             var newGraph = new WeightedDiGraph<T, TW>();
@@ -248,6 +210,45 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             }
 
             return newGraph;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return Vertices.Select(x => x.Key).GetEnumerator();
+        }
+    }
+
+    /// <summary>
+    /// A weighted graph vertex.
+    /// IEnumerable enumerates all the outgoing edge destination vertices.
+    /// </summary>
+    public class WeightedDiGraphVertex<T, TW> : IEnumerable<T> where TW : IComparable
+    {
+        public T Value { get; private set; }
+        public Dictionary<WeightedDiGraphVertex<T, TW>, TW> OutEdges { get; set; }
+        public Dictionary<WeightedDiGraphVertex<T, TW>, TW> InEdges { get; set; }
+
+        public WeightedDiGraphVertex(T value)
+        {
+            Value = value;
+
+            OutEdges = new Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
+            InEdges = new Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return OutEdges.Select(x => x.Key.Value).GetEnumerator();
         }
     }
 }

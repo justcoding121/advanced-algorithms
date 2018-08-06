@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     /// <summary>
     /// A queue implementation.
@@ -15,9 +15,6 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public int Count => queue.Count;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         /// <param name="type">The queue implementation type.</param>
         public Queue(QueueType type = QueueType.Array)
         {
@@ -32,7 +29,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Time Complexity:O(1).
+        /// Time complexity:O(1).
         /// </summary>
         /// <param name="item"></param>
         public void Enqueue(T item)
@@ -41,7 +38,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Time Complexity:O(1).
+        /// Time complexity:O(1).
         /// </summary>
         /// <returns></returns>
         public T Dequeue()
@@ -68,7 +65,7 @@ namespace Advanced.Algorithms.DataStructures
     }
 
     /// <summary>
-    /// Queue implementation type.
+    /// The queue implementation types.
     /// </summary>
     public enum QueueType
     {

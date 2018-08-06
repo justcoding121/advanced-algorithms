@@ -3,15 +3,13 @@
 namespace Advanced.Algorithms.Numerical
 {
     /// <summary>
-    /// Tests for Prime in School method optimized
+    /// Tests for Prime in School method optimized.
     /// </summary>
     public class PrimeTester
     {
         /// <summary>
-        /// Check if given number is prime
+        /// Check if given number is prime.
         /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
         public static bool IsPrime(int number)
         {
             if (number <= 1)

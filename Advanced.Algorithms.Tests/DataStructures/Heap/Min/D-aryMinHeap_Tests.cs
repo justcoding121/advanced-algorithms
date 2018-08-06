@@ -6,7 +6,7 @@ using System.Linq;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class AsD_aryMinTree_Tests
+    public class D_aryMinTree_Tests
     {
         /// <summary>
         /// A tree test
@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var initial = Enumerable.Range(0, 51).OrderBy(x => rnd.Next()).ToList();
 
             //insert test
-            var tree = new D_aryMinHeap<int>(4, initial);
+            var tree = new DaryMinHeap<int>(4, initial);
 
             for (int i = 51; i <= 99; i++)
             {
@@ -30,6 +30,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 var min = tree.ExtractMin();
                 Assert.AreEqual(min, i);
             }
+
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
 
             var testSeries = Enumerable.Range(1, 49).OrderBy(x => rnd.Next()).ToList();
 
@@ -44,6 +47,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(min, i);
             }
 
+            //IEnumerable tests.
+            Assert.AreEqual(tree.Count, tree.Count());
         }
     }
 }

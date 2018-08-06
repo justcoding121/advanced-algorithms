@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures.Foundation
 {
     internal class OpenAddressHashSet<T> : IHashSet<T> 
     {
@@ -265,13 +265,13 @@ namespace Advanced.Algorithms.DataStructures
             return GetEnumerator();
         }
 
-        public IEnumerator<HashSetNode<T>> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return new OpenAddressHashSetEnumerator<T>(hashArray, hashArray.Length);
         }
     }
 
-    internal class OpenAddressHashSetEnumerator<V> : IEnumerator<HashSetNode<V>> 
+    internal class OpenAddressHashSetEnumerator<V> : IEnumerator<V> 
     {
         internal HashSetNode<V>[] hashArray;
 
@@ -303,13 +303,13 @@ namespace Advanced.Algorithms.DataStructures
 
         object IEnumerator.Current => Current;
 
-        public HashSetNode<V> Current
+        public V Current
         {
             get
             {
                 try
                 {
-                    return hashArray[position];
+                    return hashArray[position].Value;
                 }
                 catch (IndexOutOfRangeException)
                 {

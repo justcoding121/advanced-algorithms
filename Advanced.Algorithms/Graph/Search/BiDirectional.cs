@@ -5,28 +5,22 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// A BiDirectional Path Search on DiGraph
+    /// A BiDirectional Path Search on DiGraph.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class BiDirectional<T>
     {
         /// <summary>
-        /// Returns true if Path exists from source to destination
+        /// Returns true if Path exists from source to destination.
         /// </summary>
-        /// <returns></returns>
         public bool PathExists(DiGraph<T> graph, T source, T destination)
         {
             return bfs(graph, source, destination);
         }
 
         /// <summary>
-        /// Use breadth First Search from Source and Target until they meet
-        /// If they could'nt find the element before they meet return false
+        /// Use breadth First Search from Source and Target until they meet.
+        /// If they could'nt find the element before they meet return false.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="source"></param>
-        /// <param name="destination"></param>
-        /// <returns></returns>
         private bool bfs(DiGraph<T> graph, T source, T destination)
         {
             var visitedA = new HashSet<T>();

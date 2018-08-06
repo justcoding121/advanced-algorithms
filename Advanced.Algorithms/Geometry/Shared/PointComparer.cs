@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Compares two points for geometric equality implementing IEqualityComparer.
+    /// </summary>
     public class PointComparer : IEqualityComparer<Point>
     {
         public bool Equals(Point x, Point y)
@@ -24,7 +27,6 @@ namespace Advanced.Algorithms.Geometry
 
             return x.X == y.X && x.Y == y.Y;
         }
-
 
         public int GetHashCode(Point point)
         {

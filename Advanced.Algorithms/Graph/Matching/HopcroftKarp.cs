@@ -6,9 +6,8 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 { 
     /// <summary>
-    ///  Compute Max BiParitite Edges using Hopcroft Karp algorithm
+    ///  Compute Max BiParitite Edges using Hopcroft Karp algorithm.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class HopcroftKarpMatching<T>
     {
         IBiPartiteMatchOperators<T> operators;
@@ -18,10 +17,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Returns a list of Max BiPartite Match Edges
+        /// Returns a list of Max BiPartite Match Edges.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         public List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph)
         {
             //check if the graph is BiPartite by coloring 2 colors
@@ -38,11 +35,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Get Max Match from Given BiPartitioned Graph
+        /// Get Max Match from Given BiPartitioned Graph.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="partitions"></param>
-        /// <returns></returns>
         private List<MatchEdge<T>> getMaxBiPartiteMatching(Graph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
@@ -164,14 +158,10 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Returns true if there is an augmenting Path from left to right
+        /// Returns true if there is an augmenting Path from left to right.
         /// An augmenting path is a path which starts from a free vertex 
-        /// and ends at a free vertex via Matched/UnMatched edges alternatively
+        /// and ends at a free vertex via Matched/UnMatched edges alternatively.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="partitions"></param>
-        /// <param name="leftMatch"></param>
-        /// <param name="rightMatch"></param>
         private bool bfs(Graph<T> graph,
             Dictionary<int, List<T>> partitions,
             Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch)

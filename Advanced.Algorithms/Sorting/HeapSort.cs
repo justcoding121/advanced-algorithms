@@ -5,7 +5,9 @@ namespace Advanced.Algorithms.Sorting
 {
     public class HeapSort<T> where T : IComparable
     {
-        //O(nlog(n))
+        /// <summary>
+        /// Time complexity: O(nlog(n)).
+        /// </summary>
         public static T[] Sort(T[] array)
         {
             //heapify

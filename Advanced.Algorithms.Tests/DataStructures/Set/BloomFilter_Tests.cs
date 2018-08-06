@@ -17,8 +17,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             Assert.IsTrue(filter.KeyExists("cat"));
             Assert.IsFalse(filter.KeyExists("bat"));
-
-
         }
     }
 }

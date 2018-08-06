@@ -1,6 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -16,7 +16,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 disjointSet.MakeSet(i);
             }
-         
+
+            //IEnumerable test
+            Assert.AreEqual(disjointSet.Count, disjointSet.Count());
+
             disjointSet.Union(1, 2);
             Assert.AreEqual(1, disjointSet.FindSet(2));
 
@@ -35,6 +38,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(4, disjointSet.FindSet(4));
             disjointSet.Union(3, 4);
             Assert.AreEqual(1, disjointSet.FindSet(4));
+
+            //IEnumerable test
+            Assert.AreEqual(disjointSet.Count, disjointSet.Count());
 
         }
     }

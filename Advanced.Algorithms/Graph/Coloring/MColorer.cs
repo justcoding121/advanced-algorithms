@@ -3,28 +3,13 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
 {
-    public class MColorResult<T, C>
-    {
-        public bool CanColor { get; }
-        public Dictionary<C, List<T>> Partitions {get;}
-
-        public MColorResult(bool canColor, Dictionary<C, List<T>> partitions)
-        {
-            CanColor = canColor;
-            Partitions = partitions;
-        }
-
-    }
 
     public class MColorer<T, C>
     {
         /// <summary>
-        /// returns true if all vertices can be colored using the given colors 
-        /// in such a way so that no neighbours have same color
+        /// Returns true if all vertices can be colored using the given colors 
+        /// in such a way so that no neighbours have same color.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="colors"></param>
-        /// <returns></returns>
         public MColorResult<T, C> Color(Graph<T> graph, C[] colors)
         {
 
@@ -56,13 +41,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// assign color to each new node
+        /// Assign color to each new node.
         /// </summary>
-        /// <param name="vertex"></param>
-        /// <param name="colors"></param>
-        /// <param name="progress"></param>
-        /// <param name="visited"></param>
-        /// <returns></returns>
         private Dictionary<GraphVertex<T>, C> canColor(GraphVertex<T> vertex, C[] colors, 
              Dictionary<GraphVertex<T>, C> progress, HashSet<GraphVertex<T>> visited)
         {
@@ -98,10 +78,6 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Is it safe to assign this color to this vertex?
         /// </summary>
-        /// <param name="progress"></param>
-        /// <param name="vertex"></param>
-        /// <param name="color"></param>
-        /// <returns></returns>
         private bool isSafe(Dictionary<GraphVertex<T>, C> progress,
             GraphVertex<T> vertex, C color)
         {
@@ -116,5 +92,21 @@ namespace Advanced.Algorithms.Graph
 
             return true;
         }
+    }
+
+    /// <summary>
+    /// M-coloring result object.
+    /// </summary>
+    public class MColorResult<T, C>
+    {
+        public bool CanColor { get; }
+        public Dictionary<C, List<T>> Partitions { get; }
+
+        public MColorResult(bool canColor, Dictionary<C, List<T>> partitions)
+        {
+            CanColor = canColor;
+            Partitions = partitions;
+        }
+
     }
 }

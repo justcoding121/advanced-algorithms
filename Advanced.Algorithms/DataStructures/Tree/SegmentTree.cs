@@ -1,42 +1,50 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class SegmentTree<T>
+    /// <summary>
+    /// A segment tree implementation.
+    /// </summary>
+    public class SegmentTree<T> : IEnumerable<T>
     {
         private readonly int length;
+        private readonly T[] input;
         private readonly T[] segmentTree;
 
         /// <summary>
-        /// Example operations Sum, Min, Max
+        /// The operation function pointer.
+        /// Example operations are Sum, Min, Max etc.
         /// </summary>
         private readonly Func<T, T, T> operation;
 
         /// <summary>
-        /// default value to eliminate node during range search
-        /// default value for Sum operation is 0
-        /// default value for Min operation is Max Value (int.Max if T is int)
-        /// default value for Max operation is Min Value(int.Min if T is int) 
+        /// Default value to eliminate node during range search.
+        /// Default value for Sum operation is 0.
+        /// Default value for Min operation is Max Value (i.e int.Max if T is int).
+        /// default value for Max operation is Min Value(i.e int.Min if T is int).
         /// </summary>
         private readonly Func<T> defaultValue;
 
         /// <summary>
-        /// constructs a segment tree using the specified operation function
-        /// Operation function is the criteria for range queries
-        /// For example operation function can return Max, Min or Sum of the two input elements
-        /// Default value is a void value that will eliminate a node during operation comparisons
-        /// For example if operation return min value default value will be largest value (int.Max for if T is int)
-        /// or default value will be 0 if operation is sum
+        /// Constructs a segment tree using the specified operation function.
+        /// Operation function is the criteria for range queries.
+        /// For example operation function can return Max, Min or Sum of the two input elements.
+        /// Default value is the void value that will eliminate a node during operation comparisons.
+        /// For example if operation return min value then the default value will be largest value (int.Max for if T is int).
+        /// Or default value will be 0 if operation is sum.
+        /// Time complexity: O(n).
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="operation"></param>
-        /// <param name="defaultValue"></param>
         public SegmentTree(T[] input, Func<T, T, T> operation, Func<T> defaultValue)
         {
             if (input == null || operation == null)
             {
                 throw new ArgumentNullException();
             }
+
+            this.input = input.Clone() as T[];
 
             var maxHeight = Math.Ceiling(Math.Log(input.Length, 2));
             var maxTreeNodes = 2 * (int)(Math.Pow(2, maxHeight)) - 1;
@@ -65,7 +73,11 @@ namespace Advanced.Algorithms.DataStructures
             return segmentTree[currentIndex];
         }
 
-        public T GetRangeResult(int startIndex, int endIndex)
+        /// <summary>
+        /// Gets the operation aggregated result for given range of the input.
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        public T RangeResult(int startIndex, int endIndex)
         {
             if (startIndex < 0 || endIndex > length - 1
                  || endIndex < startIndex)
@@ -74,7 +86,6 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             return getRangeResult(startIndex, endIndex, 0, length - 1, 0);
-
         }
 
         private T getRangeResult(int start, int end, int left, int right, int currentIndex)
@@ -98,11 +109,19 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-
         private int getMidIndex(int left, int right)
         {
             return left + ((right - left) / 2);
         }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return input.Select(x => x).GetEnumerator();
+        }
     }
 }

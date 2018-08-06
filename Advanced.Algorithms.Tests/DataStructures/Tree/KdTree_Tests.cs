@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using Advanced.Algorithms.DataStructures;
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -27,11 +28,14 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 tree.Insert(pt);
             }
 
+            //IEnumerable tests using linq.
+            Assert.AreEqual(tree.Count, tree.Count());
+
             int j = testPts.Count - 1;
             while (testPts.Count > 0)
             {
                 var testPoint = new int[] { 10, 20 };
-                var nearestNeigbour = tree.FindNearestNeighbour(new DistanceCalculator2D(), testPoint);
+                var nearestNeigbour = tree.NearestNeighbour(new DistanceCalculator2D(), testPoint);
                 var actualNeigbour = GetActualNearestNeighbour(testPts, testPoint);
                 Assert.IsTrue(distanceCalculator.Compare(actualNeigbour, nearestNeigbour, testPoint) == 0);
 
@@ -41,6 +45,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
             }
 
 
+            //IEnumerable tests using linq.
+            Assert.AreEqual(tree.Count, tree.Count());
         }
 
         /// <summary>
@@ -71,13 +77,16 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 tree.Insert(pt);
             }
 
+            //IEnumerable tests using linq.
+            Assert.AreEqual(tree.Count, tree.Count());
+
             int j = testPts.Count - 1;
 
             while (testPts.Count > 0)
             {
                 var testPoint = new int[] { rnd.Next(), rnd.Next() };
 
-                var nearestNeigbour = tree.FindNearestNeighbour(distanceCalculator, testPoint);
+                var nearestNeigbour = tree.NearestNeighbour(distanceCalculator, testPoint);
                 var actualNeigbour = GetActualNearestNeighbour(testPts, testPoint);
 
                 Assert.IsTrue(distanceCalculator.Compare(actualNeigbour, nearestNeigbour, testPoint) == 0);
@@ -87,6 +96,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 j--;
             }
 
+
+            //IEnumerable tests using linq.
+            Assert.AreEqual(tree.Count, tree.Count());
         }
 
         /// <summary>
@@ -106,7 +118,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 tree.Insert(pt);
             }
 
-            var rangePoints = tree.GetInRange(new int[2] { 1, 1 }, new int[2] { 9, 9 });
+
+            //IEnumerable tests using linq.
+            Assert.AreEqual(tree.Count, tree.Count());
+
+            var rangePoints = tree.RangeSearch(new int[2] { 1, 1 }, new int[2] { 9, 9 });
         }
 
         /// <summary>
@@ -137,6 +153,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 tree.Insert(pt);
             }
 
+            //IEnumerable tests using linq.
+            Assert.AreEqual(tree.Count, tree.Count());
 
             int j = testPts.Count - 1;
 
@@ -154,7 +172,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                     }
                 }
 
-                var actualResult = tree.GetInRange(testStartRange, testEndRange);
+                var actualResult = tree.RangeSearch(testStartRange, testEndRange);
 
                 Assert.IsTrue(correctResult.Count == actualResult.Count);
 
@@ -168,9 +186,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
         /// <summary>
         /// gets the actual nearest neighbour by brute force search
         /// </summary>
-        /// <param name="points"></param>
-        /// <param name="testPoint"></param>
-        /// <returns></returns>
         private int[] GetActualNearestNeighbour(List<int[]> points, int[] testPoint)
         {
             int[] currentMinNode = null;
@@ -194,10 +209,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
         /// <summary>
         ///  point is within start & end points?
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
-        /// <returns></returns>
         private bool InRange(int[] point, int[] start, int[] end)
         {
             for (int i = 0; i < point.Length; i++)
@@ -222,10 +233,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             /// compares distance between a to point and b to point 
             /// returns IComparer result
             /// </summary>
-            /// <param name="a"></param>
-            /// <param name="b"></param>
-            /// <param name="point"></param>
-            /// <returns></returns>
             public int Compare(int[] a, int[] b, int[] point)
             {
                 var distance1 = GetEucledianDistance(a, point);
@@ -239,10 +246,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             /// compares distance between a to b and start to end
             /// returns IComparer result
             /// </summary>
-            /// <param name="a"></param>
-            /// <param name="b"></param>
-            /// <param name="point"></param>
-            /// <returns></returns>
             public int Compare(int a, int b, int[] start, int[] end)
             {
                 var distance1 = GetDistance(a, b);
@@ -255,9 +258,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             /// <summary>
             /// returns the eucledian distance between given points
             /// </summary>
-            /// <param name="a"></param>
-            /// <param name="b"></param>
-            /// <returns></returns>
             public double GetEucledianDistance(int[] a, int[] b)
             {
                 return Math.Sqrt(Math.Pow(Math.Abs(a[0] - b[0]), 2)
@@ -267,9 +267,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             /// <summary>
             /// returns the absolute distance between given points
             /// </summary>
-            /// <param name="a"></param>
-            /// <param name="b"></param>
-            /// <returns></returns>
             public int GetDistance(int a, int b)
             {
                 return Math.Abs(a - b);

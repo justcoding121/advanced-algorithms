@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Combinatorics
 {
+    /// <summary>
+    /// Permutation computer.
+    /// </summary>
     public class Permutation
     {
         public static List<List<T>> Find<T>(List<T> input, int r, bool withRepetition = false)

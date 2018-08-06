@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// Cycle detection using Depth First Search
+    /// Cycle detection using Depth First Search.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class CycleDetector<T>
@@ -12,8 +12,6 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns true if a cycle exists
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         public bool HasCycle(DiGraph<T> graph)
         {
             var visiting = new HashSet<T>();

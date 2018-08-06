@@ -80,10 +80,10 @@
     <Compile Include="DataStructures\Heap\Max\D-aryMaxHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\Max\FibornacciMaxHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\Max\PairingMaxHeap_Tests.cs" />
-    <Compile Include="DataStructures\Heap\Min\PairingMinHeap_Tests.cs" />
-    <Compile Include="DataStructures\Heap\Min\FibornacciMinHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\Min\BinomialMinHeap_Tests.cs" />
+    <Compile Include="DataStructures\Heap\Min\FibornacciMinHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\Min\D-aryMinHeap_Tests.cs" />
+    <Compile Include="DataStructures\Heap\Min\PairingMinHeap_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\CircularLinkedList_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\DoublyLinkedList_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\SinglyLinkedList_Tests.cs" />
@@ -94,10 +94,12 @@
     <Compile Include="DataStructures\Tree\AVLTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BST_Tests.cs" />
     <Compile Include="DataStructures\Tree\KdTree_Tests.cs" />
+    <Compile Include="DataStructures\Tree\QuadTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\RangeTreeTests.cs" />
     <Compile Include="DataStructures\Tree\RTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\SplayTree_Tests.cs" />
     <Compile Include="DataStructures\Tree\TreapTree_Tests.cs" />
+    <Compile Include="Distributed\AsyncQueue_Tests.cs" />
     <Compile Include="Distributed\CircularQueue_Tests.cs" />
     <Compile Include="DataStructures\Queues\Queue_Tests.cs" />
     <Compile Include="DataStructures\Set\BloomFilter_Tests.cs" />

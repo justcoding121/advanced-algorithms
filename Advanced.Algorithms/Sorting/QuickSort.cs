@@ -4,7 +4,9 @@ namespace Advanced.Algorithms.Sorting
 {
     public class QuickSort<T> where T : IComparable
     {
-        //O(nlog(n)), worst O(n^2)
+        /// <summary>
+        /// Time complexity: O(n^2)
+        /// </summary>
         public static T[] Sort(T[] array)
         {
             if (array.Length <= 1)

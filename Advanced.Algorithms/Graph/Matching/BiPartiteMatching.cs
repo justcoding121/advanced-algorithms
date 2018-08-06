@@ -4,32 +4,9 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
 {
-    public class MatchEdge<T>
-    {
-        public T Source { get; }
-        public T Target { get; }
-
-        public MatchEdge(T source, T target)
-        {
-            Source = source;
-            Target = target;
-        }
-    }
-
-    public interface IBiPartiteMatchOperators<T> : IFlowOperators<int>
-    {
-        /// <summary>
-        /// Get a random unique vertex not in graph 
-        /// required for dummy source/destination vertex for ford-fulkerson max flow
-        /// </summary>
-        /// <returns></returns>
-        T GetRandomUniqueVertex();
-    }
-
     /// <summary>
-    ///  Compute Max BiParitite Edges using Ford-Fukerson algorithm
+    ///  Compute Max BiParitite Edges using Ford-Fukerson algorithm.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class BiPartiteMatching<T>
     {
         readonly IBiPartiteMatchOperators<T> operators;
@@ -39,10 +16,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Returns a list of Max BiPartite Match Edges
+        /// Returns a list of Max BiPartite Match Edges.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         public List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph)
         {
             //check if the graph is BiPartite by coloring 2 colors
@@ -59,11 +34,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Get Max Match from Given BiPartitioned Graph
+        /// Get Max Match from Given BiPartitioned Graph.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="partitions"></param>
-        /// <returns></returns>
         private List<MatchEdge<T>> getMaxBiPartiteMatching(Graph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
@@ -101,13 +73,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// create a directed unit weighted graph with given dummySource to Patition 1 & Patition 2 to dummy sink
+        /// create a directed unit weighted graph with given dummySource to Patition 1 & Patition 2 to dummy sink.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="dummySource"></param>
-        /// <param name="dummySink"></param>
-        /// <param name="partitions"></param>
-        /// <returns></returns>
         private static WeightedDiGraph<T, int> createFlowGraph(Graph<T> graph,
             T dummySource, T dummySink,
             Dictionary<int, List<T>> partitions)
@@ -140,5 +107,29 @@ namespace Advanced.Algorithms.Graph
 
             return workGraph;
         }
+    }
+
+    public class MatchEdge<T>
+    {
+        public T Source { get; }
+        public T Target { get; }
+
+        public MatchEdge(T source, T target)
+        {
+            Source = source;
+            Target = target;
+        }
+    }
+
+    /// <summary>
+    /// Generic operator interface required by BiPartite matching algorithm.
+    /// </summary>
+    public interface IBiPartiteMatchOperators<T> : IFlowOperators<int>
+    {
+        /// <summary>
+        /// Get a random unique vertex not in graph 
+        /// required for dummy source/destination vertex for ford-fulkerson max flow.
+        /// </summary>
+        T GetRandomUniqueVertex();
     }
 }

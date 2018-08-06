@@ -5,16 +5,13 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// StronglyConnected using Tarjan's algorithm
+    /// Strongly connected using Tarjan's algorithm.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class TarjansStronglyConnected<T>
     {
         /// <summary>
-        /// returns a list if Strongly Connected components in this graph
+        /// Rreturns a list if Strongly Connected components in this graph.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         public List<List<T>> FindStronglyConnectedComponents(DiGraph<T> graph)
         {
             var result = new List<List<T>>();
@@ -41,16 +38,8 @@ namespace Advanced.Algorithms.Graph
 
         /// <summary>
         /// Do a depth first search to find Strongly Connected by keeping track of 
-        /// discovery nodes and checking for back edges using low/discovery time maps
+        /// discovery nodes and checking for back edges using low/discovery time maps.
         /// </summary>
-        /// <param name="currentVertex"></param>
-        /// <param name="result"></param>
-        /// <param name="discoveryTimeMap"></param>
-        /// <param name="lowTimeMap"></param>
-        /// <param name="pathStackMap"></param>
-        /// <param name="discoveryTime"></param>
-        /// <param name="pathStack"></param>
-        /// <returns></returns>
         private void DFS(DiGraphVertex<T> currentVertex,
              List<List<T>> result,
              Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,

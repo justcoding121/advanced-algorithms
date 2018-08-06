@@ -1,5 +1,8 @@
 ﻿namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Point object.
+    /// </summary>
     public class Point
     {
         public Point(double x, double y)

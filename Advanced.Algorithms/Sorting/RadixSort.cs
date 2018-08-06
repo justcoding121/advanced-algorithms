@@ -3,15 +3,10 @@
 namespace Advanced.Algorithms.Sorting
 {
     /// <summary>
-    /// A radix sort implementation
+    /// A radix sort implementation.
     /// </summary>
     public class RadixSort
     {
-        /// <summary>
-        /// Sort given integers
-        /// </summary>
-        /// <param name="array"></param>
-        /// <returns></returns>
         public static int[] Sort(int[] array)
         {
             int i;
@@ -67,10 +62,8 @@ namespace Advanced.Algorithms.Sorting
         }
 
         /// <summary>
-        /// Get Max of given array
+        /// Get Max of given array.
         /// </summary>
-        /// <param name="array"></param>
-        /// <returns></returns>
         private static int getMax(int[] array)
         {
             var max = int.MinValue;

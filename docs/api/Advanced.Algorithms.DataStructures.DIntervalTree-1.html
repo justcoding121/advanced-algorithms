@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DIntervalTree&lt;T&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.37.1.0">
+    <meta name="generator" content="docfx 2.37.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,7 +83,7 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_DIntervalTree_1" data-uid="Advanced.Algorithms.DataStructures.DIntervalTree`1" class="text-break">Class DIntervalTree&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A multi-dimensional interval tree implementation</p>
+  <div class="markdown level0 summary"><p>A multi-dimensional interval tree implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -147,7 +147,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DIntervalTree(int dimensions)</code></pre>
+    <pre><code class="lang-csharp hljs">public DIntervalTree(int dimension)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -161,7 +161,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">dimensions</span></td>
+        <td><span class="parametername">dimension</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -199,7 +199,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_DIntervalTree_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.DIntervalTree`1.Delete*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_DIntervalTree_1_Delete__0____0___" data-uid="Advanced.Algorithms.DataStructures.DIntervalTree`1.Delete(`0[],`0[])">Delete(T[], T[])</h4>
-  <div class="markdown level1 summary"><p>delete this interval</p>
+  <div class="markdown level1 summary"><p>Delete this interval from this interval tree.
+Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -232,7 +233,7 @@
   
   <a id="Advanced_Algorithms_DataStructures_DIntervalTree_1_DoOverlap_" data-uid="Advanced.Algorithms.DataStructures.DIntervalTree`1.DoOverlap*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_DIntervalTree_1_DoOverlap__0____0___" data-uid="Advanced.Algorithms.DataStructures.DIntervalTree`1.DoOverlap(`0[],`0[])">DoOverlap(T[], T[])</h4>
-  <div class="markdown level1 summary"><p>does this interval overlap with any interval in this interval tree?</p>
+  <div class="markdown level1 summary"><p>Does this interval overlap with any interval in this interval tree?</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -280,7 +281,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_DIntervalTree_1_GetOverlaps_" data-uid="Advanced.Algorithms.DataStructures.DIntervalTree`1.GetOverlaps*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_DIntervalTree_1_GetOverlaps__0____0___" data-uid="Advanced.Algorithms.DataStructures.DIntervalTree`1.GetOverlaps(`0[],`0[])">GetOverlaps(T[], T[])</h4>
-  <div class="markdown level1 summary"><p>returns a list of matching intervals</p>
+  <div class="markdown level1 summary"><p>returns a list of matching intervals.
+Time complexity : O(log n + m) where m is the number of intervals in the result.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -328,7 +330,8 @@
   
   <a id="Advanced_Algorithms_DataStructures_DIntervalTree_1_Insert_" data-uid="Advanced.Algorithms.DataStructures.DIntervalTree`1.Insert*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_DIntervalTree_1_Insert__0____0___" data-uid="Advanced.Algorithms.DataStructures.DIntervalTree`1.Insert(`0[],`0[])">Insert(T[], T[])</h4>
-  <div class="markdown level1 summary"><p>Add a new interval to this interval tree</p>
+  <div class="markdown level1 summary"><p>Add a new interval to this interval tree.
+Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

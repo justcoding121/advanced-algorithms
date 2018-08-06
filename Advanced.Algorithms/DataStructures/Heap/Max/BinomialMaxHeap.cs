@@ -1,19 +1,27 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class BinomialMaxHeap<T> where T : IComparable
+    /// <summary>
+    /// A binomial max heap implementation.
+    /// </summary>
+    public class BinomialMaxHeap<T> : IEnumerable<T> where T : IComparable
     {
-        public int Count { get; private set; }
-
-        internal DoublyLinkedList<BinomialHeapNode<T>> heapForest
+        private DoublyLinkedList<BinomialHeapNode<T>> heapForest
             = new DoublyLinkedList<BinomialHeapNode<T>>();
 
+        private Dictionary<T, List<BinomialHeapNode<T>>> heapMapping
+            = new Dictionary<T, List<BinomialHeapNode<T>>>();
+
+        public int Count { get; private set; }
+
         /// <summary>
-        /// O(log(n)) complexity
+        /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="newItem"></param>
-        public BinomialHeapNode<T> Insert(T newItem)
+        public void Insert(T newItem)
         {
             var newNode = new BinomialHeapNode<T>(newItem);
 
@@ -21,24 +29,147 @@ namespace Advanced.Algorithms.DataStructures
             newHeapForest.InsertFirst(newNode);
 
             //updated pointer
-            MergeSortedForests(newHeapForest);
+            mergeSortedForests(newHeapForest);
 
-            Meld();
+            meld();
+
+            addMapping(newItem, newNode);
 
             Count++;
-
-            return newNode;
         }
 
         /// <summary>
-        /// Merge roots with same degrees in Forest 
+        /// Time complexity: O(log(n)).
         /// </summary>
-        private void Meld()
+        public T ExtractMax()
+        {
+            if (heapForest.Head == null)
+            {
+                throw new Exception("Empty heap");
+            }
+
+            var maxTree = heapForest.Head;
+            var current = heapForest.Head;
+
+            //find maximum tree
+            while (current.Next != null)
+            {
+                current = current.Next;
+
+                if (maxTree.Data.Value.CompareTo(current.Data.Value) < 0)
+                {
+                    maxTree = current;
+                }
+            }
+
+            //remove tree root
+            heapForest.Delete(maxTree);
+
+            var newHeapForest = new DoublyLinkedList<BinomialHeapNode<T>>();
+            //add removed roots children as new trees to forest
+            foreach (var child in maxTree.Data.Children)
+            {
+                child.Parent = null;
+                newHeapForest.InsertLast(child);
+            }
+
+            mergeSortedForests(newHeapForest);
+
+            meld();
+
+            removeMapping(maxTree.Data.Value, maxTree.Data);
+
+            Count--;
+
+            return maxTree.Data.Value;
+        }
+
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        /// <param name="currentValue">The value to increment.</param>
+        /// <param name="newValue">The incremented new value.</param>
+        public void IncrementKey(T currentValue, T newValue)
+        {
+            var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
+
+            if (node == null)
+            {
+                throw new Exception("Current value is not present in this heap.");
+            }
+
+            if (newValue.CompareTo(node.Value) < 0)
+            {
+                throw new Exception("New value is not greater than old value.");
+            }
+
+            updateNodeValue(currentValue, newValue, node);
+
+            var current = node;
+
+            while (current.Parent != null
+                && current.Value.CompareTo(current.Parent.Value) > 0)
+            {
+                //swap parent with child
+                var tmp = current.Value;
+                updateNodeValue(tmp, current.Parent.Value, current);
+                updateNodeValue(current.Parent.Value, tmp, current.Parent);
+
+                current = current.Parent;
+            }
+        }
+
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        /// <param name="binomialHeap">The heap to union with.</param>
+        public void Merge(BinomialMaxHeap<T> binomialHeap)
+        {
+            mergeSortedForests(binomialHeap.heapForest);
+
+            meld();
+
+            Count += binomialHeap.Count;
+        }
+
+        /// <summary>
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        /// <returns></returns>
+        public T PeekMax()
+        {
+            if (heapForest.Head == null)
+            {
+                throw new Exception("Empty heap");
+            }
+
+            var maxTree = heapForest.Head;
+            var current = heapForest.Head;
+
+            //find maximum tree
+            while (current.Next != null)
+            {
+                current = current.Next;
+
+                if (maxTree.Data.Value.CompareTo(current.Data.Value) < 0)
+                {
+                    maxTree = current;
+                }
+            }
+
+            return maxTree.Data.Value;
+        }
+
+        /// <summary>
+        /// Merge roots with same degrees in Forest. 
+        /// </summary>
+        private void meld()
         {
             if (heapForest.Head == null)
             {
                 return;
             }
+
 
             var cur = heapForest.Head;
             var next = heapForest.Head.Next;
@@ -74,111 +205,32 @@ namespace Advanced.Algorithms.DataStructures
                         heapForest.Delete(next);
 
                         next = cur.Next;
-
                         continue;
                     }
 
                     //case 4 cur value is greater than next
-                    if (cur.Data.Value.CompareTo(next.Data.Value) >= 0)
+                    if (cur.Data.Value.CompareTo(next.Data.Value) < 0)
                     {
-                        continue;
+                        //add current as child of next
+                        next.Data.Children.Add(cur.Data);
+                        cur.Data.Parent = next.Data;
+
+                        heapForest.Delete(cur);
+
+                        cur = next;
+                        next = cur.Next;
                     }
 
-                    //add current as child of next
-                    next.Data.Children.Add(cur.Data);
-                    cur.Data.Parent = next.Data;
-
-                    heapForest.Delete(cur);
-
-                    cur = next;
-                    next = cur.Next;
-
                 }
 
             }
         }
 
         /// <summary>
-        /// O(log(n)) complexity
+        /// Merges the given sorted forest to current sorted Forest. 
+        /// Returns the last inserted node (pointer required for decrement-key).
         /// </summary>
-        /// <returns></returns>
-        public T ExtractMax()
-        {
-            if (heapForest.Head == null)
-                throw new Exception("Empty heap");
-
-            var maxTree = heapForest.Head;
-            var current = heapForest.Head;
-
-            //find maximum tree
-            while (current.Next != null)
-            {
-                current = current.Next;
-
-                if (maxTree.Data.Value.CompareTo(current.Data.Value) < 0)
-                {
-                    maxTree = current;
-                }
-            }
-
-            //remove tree root
-            heapForest.Delete(maxTree);
-
-            var newHeapForest = new DoublyLinkedList<BinomialHeapNode<T>>();
-            //add removed roots children as new trees to forest
-            foreach (var node in maxTree.Data.Children)
-            {
-                node.Parent = null;
-                newHeapForest.InsertLast(node);
-            }
-
-            MergeSortedForests(newHeapForest);
-
-            Meld();
-
-            Count--;
-
-            return maxTree.Data.Value;
-        }
-
-        /// <summary>
-        /// Update the Heap with new value for this node pointer
-        /// O(log(n)) complexity
-        /// </summary>
-        public void IncrementKey(BinomialHeapNode<T> node)
-        {
-            var current = node;
-
-            while (current.Parent != null
-                && current.Value.CompareTo(current.Parent.Value) > 0)
-            {
-                var tmp = current.Value;
-                current.Value = current.Parent.Value;
-                current.Parent.Value = tmp;
-
-                current = current.Parent;
-            }
-        }
-
-        /// <summary>
-        /// Unions this heap with another
-        /// O(log(n)) complexity
-        /// </summary>
-        /// <param name="binomialHeap"></param>
-        public void Union(BinomialMaxHeap<T> binomialHeap)
-        {
-            MergeSortedForests(binomialHeap.heapForest);
-
-            Meld();
-
-            Count += binomialHeap.Count;
-        }
-        /// <summary>
-        /// Merges the given sorted forest to current sorted Forest 
-        /// & returns the last inserted node (pointer required for decrement-key)
-        /// </summary>
-        /// <param name="newHeapForest"></param>
-        private void MergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
+        private void mergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
         {
             var @new = newHeapForest.Head;
 
@@ -221,30 +273,43 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        /// <summary>
-        /// O(log(n)) complexity
-        /// </summary>
-        /// <returns></returns>
-        public T PeekMax()
+        private void addMapping(T newItem, BinomialHeapNode<T> newNode)
         {
-            if (heapForest.Head == null)
-                throw new Exception("Empty heap");
-
-            var maxTree = heapForest.Head;
-            var current = heapForest.Head;
-
-            //find maximum tree
-            while (current.Next != null)
+            if (heapMapping.ContainsKey(newItem))
             {
-                current = current.Next;
-
-                if (maxTree.Data.Value.CompareTo(current.Data.Value) < 0)
-                {
-                    maxTree = current;
-                }
+                heapMapping[newItem].Add(newNode);
             }
-
-            return maxTree.Data.Value;
+            else
+            {
+                heapMapping[newItem] = new List<BinomialHeapNode<T>>(new[] { newNode });
+            }
         }
+
+        private void updateNodeValue(T currentValue, T newValue, BinomialHeapNode<T> node)
+        {
+            removeMapping(currentValue, node);
+            node.Value = newValue;
+            addMapping(newValue, node);
+        }
+
+        private void removeMapping(T currentValue, BinomialHeapNode<T> node)
+        {
+            heapMapping[currentValue].Remove(node);
+            if (heapMapping[currentValue].Count == 0)
+            {
+                heapMapping.Remove(currentValue);
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return heapMapping.SelectMany(x => x.Value).Select(x => x.Value).GetEnumerator();  
+        }
+      
     }
 }

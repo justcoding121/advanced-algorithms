@@ -6,14 +6,13 @@ namespace Advanced.Algorithms.Sorting
 {
 
     /// <summary>
-    /// A bucket sort implementation
+    /// A bucket sort implementation.
     /// </summary>
     public class BucketSort 
     {
         /// <summary>
-        /// Sort given integers using bucket sort with merge sort as sub sort
+        /// Sort given integers using bucket sort with merge sort as sub sort.
         /// </summary>
-        /// <returns></returns>
         public static int[] Sort(int[] array, int bucketSize)
         {
             if (bucketSize < 0 || bucketSize > array.Length)

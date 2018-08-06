@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Linq;
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Line intersection computer.
+    /// </summary>
     public class LineIntersection
     {
         /// <summary>
-        ///  Returns Point of intersection if do intersect otherwise default Point (null)
+        ///  Returns Point of intersection if do intersect otherwise default Point (null).
         /// </summary>
-        /// <param name="lineA"></param>
-        /// <param name="lineB"></param>
         /// <param name="precision">precision tolerance.</param>
         /// <returns>The point of intersection.</returns>
         public static Point Find(Line lineA, Line lineB, int precision = 5)
@@ -179,12 +179,8 @@ namespace Advanced.Algorithms.Geometry
         }
 
         /// <summary>
-        /// Returns true if given point(x,y) is inside the given line segment
+        /// Returns true if given point(x,y) is inside the given line segment.
         /// </summary>
-        /// <param name="line"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
         private static bool IsInsideLine(Line line, Point p, double tolerance)
         {
             double x = p.X, y = p.Y;
@@ -203,6 +199,9 @@ namespace Advanced.Algorithms.Geometry
 
     }
 
+    /// <summary>
+    /// Line extensions.
+    /// </summary>
     public static class LineExtensions
     {
         public static bool Intersects(this Line lineA, Line lineB, int precision = 5)

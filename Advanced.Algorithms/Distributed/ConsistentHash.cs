@@ -6,11 +6,9 @@ using System.Text;
 
 namespace Advanced.Algorithms.Distributed
 {
-
     /// <summary>
-    /// A consistant hash implementation with MurmurHash
+    /// A consistant hash implementation with murmur hash.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class ConsistentHash<T>
     {
         readonly SortedDictionary<int, T> circle = new SortedDictionary<int, T>();
@@ -30,9 +28,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// Add a new bucket
+        /// Add a new bucket.
         /// </summary>
-        /// <param name="node"></param>
         public void AddNode(T node)
         {
             for (var i = 0; i < replicas; i++)
@@ -45,10 +42,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// Get the bucket for the given Key
+        /// Get the bucket for the given Key.
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
         public T GetNode(string key)
         {
             var hash = getHashCode(key);
@@ -57,9 +52,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// Remove a bucket from lookUp
+        /// Remove a bucket from lookup.
         /// </summary>
-        /// <param name="node"></param>
         public void RemoveNode(T node)
         {
             for (var i = 0; i < replicas; i++)
@@ -78,8 +72,6 @@ namespace Advanced.Algorithms.Distributed
         /// <summary>
         /// Move clockwise until we find a bucket with Key >= hashCode
         /// </summary>
-        /// <param name="keys"></param>
-        /// <param name="hashCode"></param>
         /// <returns>Returns the index of bucket</returns>
         private int nextClockWise(int[] keys, int hashCode)
         {
@@ -107,7 +99,6 @@ namespace Advanced.Algorithms.Distributed
 
             return end;
         }
-
 
         private static int getHashCode(string key)
         {

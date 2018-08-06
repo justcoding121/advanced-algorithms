@@ -1,148 +1,81 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class BinaryTreeNode<T> : IComparable where T : IComparable
-    {
-        public T Value { get; set; }
-
-        public BinaryTreeNode<T> Parent { get; set; }
-
-        public BinaryTreeNode<T> Left { get; set; }
-        public BinaryTreeNode<T> Right { get; set; }
-
-        public bool IsLeaf => Left == null && Right == null;
-
-        public BinaryTreeNode(BinaryTreeNode<T> parent, T value)
-        {
-            Parent = parent;
-            Value = value;
-        }
-
-        public int CompareTo(object obj)
-        {
-            return CompareTo(obj as BinaryTreeNode<T>);
-        }
-
-        public int CompareTo(BinaryTreeNode<T> node)
-        {
-            return Value.CompareTo(node.Value);
-        }
-    }
-
 
     /// <summary>
-    /// A complete binary tree implementation using pointers
+    /// A binary tree implementation using pointers.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class BinaryTree<T> where T : IComparable
+    public class BinaryTree<T> : IEnumerable<T> where T : IComparable
     {
+        private BinaryTreeNode<T> root { get; set; }
 
-        public BinaryTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
-        //O(log(n))
+        /// <summary>
+        /// Time complexity: O(n)
+        /// </summary>
         public bool HasItem(T value)
         {
-            if (Root == null)
+            if (root == null)
             {
                 return false;
             }
 
-            return find(Root, value) != null;
-        }
-
-        //O(log(n)) worst O(n) for unbalanced tree
-        public int GetHeight()
-        {
-            return GetHeight(Root);
-        }
-
-        //O(log(n)) worst O(n) for unbalanced tree
-        private int GetHeight(BinaryTreeNode<T> node)
-        {
-            if (node == null)
-            {
-                return -1;
-            }
-
-            return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
-        }
-
-        //O(log(n)) worst O(n) for unbalanced tree
-        private BinaryTreeNode<T> find(T value)
-        {
-            return Root == null ? null : find(Root, value);
-        }
-
-
-        //find the node with the given identifier among descendants of parent and parent
-        //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
-        private BinaryTreeNode<T> find(BinaryTreeNode<T> parent, T value)
-        {
-            while (true)
-            {
-                if (parent == null)
-                {
-                    return null;
-                }
-
-                if (parent.Value.CompareTo(value) == 0)
-                {
-                    return parent;
-                }
-
-                var left = find(parent.Left, value);
-
-                if (left != null)
-                {
-                    return left;
-                }
-
-                parent = parent.Right;
-            }
+            return find(root, value) != null;
         }
 
         /// <summary>
-        /// only inserts to unambiguous nodes (a node with two children cannot be inserted with a new child unambiguously)
-        ///  O(log(n)) worst O(n) for unbalanced tree
+        /// Time complexity: O(n)
         /// </summary>
-        public void Insert(T parentValue, T newValue)
-        {          
-            if(Root == null)
+        public int GetHeight()
+        {
+            return GetHeight(root);
+        }
+
+        /// <summary>
+        /// Only inserts to unambiguous nodes (a node with two children cannot be inserted with a new child unambiguously).
+        /// Time complexity: O(n)
+        /// </summary>
+        /// <summary>
+        public void Insert(T parent, T child)
+        {
+            if (root == null)
             {
-                Root = new BinaryTreeNode<T>(null, newValue);
+                root = new BinaryTreeNode<T>(null, child);
                 Count++;
                 return;
             }
 
-            var parent = find(parentValue);
+            var parentNode = find(parent);
 
-            if (parent == null)
+            if (parentNode == null)
             {
                 throw new Exception("Cannot find parent node");
             }
 
-            var exists = find(Root, newValue) != null;
+            var exists = find(root, child) != null;
 
             if (exists)
             {
                 throw new ArgumentNullException("value already exists");
             }
 
-            switch (parent.Left)
+            switch (parentNode.Left)
             {
-                case null when parent.Right == null:
-                    parent.Left = new BinaryTreeNode<T>(parent, newValue);
+                case null when parentNode.Right == null:
+                    parentNode.Left = new BinaryTreeNode<T>(parentNode, child);
                     break;
                 case null:
-                    parent.Left = new BinaryTreeNode<T>(parent, newValue);
+                    parentNode.Left = new BinaryTreeNode<T>(parentNode, child);
                     break;
                 default:
-                    if (parent.Right == null)
+                    if (parentNode.Right == null)
                     {
-                        parent.Right = new BinaryTreeNode<T>(parent, newValue);
+                        parentNode.Right = new BinaryTreeNode<T>(parentNode, child);
                     }
                     else
                     {
@@ -156,10 +89,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// only deletes unambiguous nodes (a node with two children cannot be deleted unambiguously)
-        ///  O(log(n)) worst O(n) for unbalanced tree
+        /// Only deletes unambiguous nodes (a node with two children cannot be deleted unambiguously).
+        /// Time complexity: O(n)
         /// </summary>
-        /// <param name="value"></param>
         public void Delete(T value)
         {
             var node = find(value);
@@ -174,7 +106,7 @@ namespace Advanced.Algorithms.DataStructures
                 case null when node.Right == null:
                     if (node.Parent == null)
                     {
-                        Root = null;
+                        root = null;
                     }
                     else
                     {
@@ -226,6 +158,151 @@ namespace Advanced.Algorithms.DataStructures
 
             Count--;
 
+        }
+
+        /// <summary>
+        /// Time complexity: O(n)
+        /// </summary>
+        public IEnumerable<T> Children(T value)
+        {
+            var node = find(value);
+
+            if (node != null)
+            {
+                return new[] { node.Left, node.Right }.Where(x => x != null).Select(x => x.Value);
+            }
+
+            return null;
+        }
+
+        private int GetHeight(BinaryTreeNode<T> node)
+        {
+            if (node == null)
+            {
+                return -1;
+            }
+
+            return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
+        }
+
+        private BinaryTreeNode<T> find(T value)
+        {
+            return root == null ? null : find(root, value);
+        }
+
+        private BinaryTreeNode<T> find(BinaryTreeNode<T> parent, T value)
+        {
+            while (true)
+            {
+                if (parent == null)
+                {
+                    return null;
+                }
+
+                if (parent.Value.CompareTo(value) == 0)
+                {
+                    return parent;
+                }
+
+                var left = find(parent.Left, value);
+
+                if (left != null)
+                {
+                    return left;
+                }
+
+                parent = parent.Right;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new BinaryTreeEnumerator<T>(root);
+        }
+
+    }
+
+    internal class BinaryTreeNode<T> : IComparable where T : IComparable
+    {
+        internal T Value { get; set; }
+
+        internal BinaryTreeNode<T> Parent { get; set; }
+
+        internal BinaryTreeNode<T> Left { get; set; }
+        internal BinaryTreeNode<T> Right { get; set; }
+
+        internal bool IsLeaf => Left == null && Right == null;
+
+        internal BinaryTreeNode(BinaryTreeNode<T> parent, T value)
+        {
+            Parent = parent;
+            Value = value;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return Value.CompareTo(obj as BinaryTreeNode<T>);
+        }
+    }
+
+    internal class BinaryTreeEnumerator<T> : IEnumerator<T> where T : IComparable
+    {
+        private readonly BinaryTreeNode<T> root;
+        private Stack<BinaryTreeNode<T>> progress;
+
+        internal BinaryTreeEnumerator(BinaryTreeNode<T> root)
+        {
+            this.root = root;
+        }
+
+        public bool MoveNext()
+        {
+            if (root == null)
+            {
+                return false;
+            }
+
+            if (progress == null)
+            {
+                progress = new Stack<BinaryTreeNode<T>>(new[] { root.Left, root.Right }.Where(x => x != null));
+                Current = root.Value;
+                return true;
+            }
+
+            if (progress.Count > 0)
+            {
+                var next = progress.Pop();
+                Current = next.Value;
+
+                foreach (var node in new[] { next.Left, next.Right }.Where(x => x != null))
+                {
+                    progress.Push(node);
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public void Reset()
+        {
+            progress = null;
+            Current = default(T);
+        }
+
+        public T Current { get; private set; }
+
+        object IEnumerator.Current => Current;
+
+        public void Dispose()
+        {
+            progress = null;
         }
     }
 }

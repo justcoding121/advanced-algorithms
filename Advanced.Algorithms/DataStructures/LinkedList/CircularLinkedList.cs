@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Marks this data as the new reference node after insertion.
         /// Like insert first assuming that current reference node as head.
-        /// Time Complexity: O(1).
+        /// Time complexity: O(1).
         /// </summary>
         public CircularLinkedListNode<T> Insert(T data)
         {

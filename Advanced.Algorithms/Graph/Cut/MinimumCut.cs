@@ -4,24 +4,11 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
 {
-    public class MinCutEdge<T>
-    {
-        public T Source { get; }
-        public T Destination { get; }
-
-        public MinCutEdge(T source, T dest)
-        {
-            Source = source;
-            Destination = dest;
-        }
-    }
 
     /// <summary>
-    /// Commpute minimum cut edges of given graph 
-    /// using Edmond Karps improved Ford-Fulkerson Max Flow Algorithm
+    /// Compute minimum cut edges of given graph 
+    /// using Edmond Karps improved Ford-Fulkerson Max Flow Algorithm.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
     public class MinCut<T, W> where W : IComparable
     {
         readonly IFlowOperators<W> operators;
@@ -62,11 +49,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Gets a list of reachable vertices in residual graph from source
+        /// Gets a list of reachable vertices in residual graph from source.
         /// </summary>
-        /// <param name="residualGraph"></param>
-        /// <param name="source"></param>
-        /// <returns></returns>
         private HashSet<T> getReachable(WeightedDiGraph<T, W> residualGraph,
             T source)
         {
@@ -78,9 +62,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Recursive DFS
+        /// Recursive DFS.
         /// </summary>
-        /// <returns></returns>
         private void dfs(WeightedDiGraphVertex<T, W> currentResidualGraphVertex,
             HashSet<T> visited)
         {
@@ -101,6 +84,18 @@ namespace Advanced.Algorithms.Graph
 
             }
 
+        }
+    }
+
+    public class MinCutEdge<T>
+    {
+        public T Source { get; }
+        public T Destination { get; }
+
+        public MinCutEdge(T source, T dest)
+        {
+            Source = source;
+            Destination = dest;
         }
     }
 }

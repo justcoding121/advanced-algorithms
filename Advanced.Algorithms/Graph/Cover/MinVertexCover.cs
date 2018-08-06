@@ -12,13 +12,9 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// An approximation algorithm for NP complete vertex cover problem
-        /// Add a random edge vertices until done visiting all edges
+        /// An approximation algorithm for NP complete vertex cover problem.
+        /// Add a random edge vertices until done visiting all edges.
         /// </summary>
-        /// <param name="vertex"></param>
-        /// <param name="visited"></param>
-        /// <param name="cover"></param>
-        /// <returns></returns>
         private List<GraphVertex<T>> getMinVertexCover(GraphVertex<T> vertex,
             HashSet<GraphVertex<T>> visited, List<GraphVertex<T>> cover)
         {

@@ -1,18 +1,32 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class D_aryMinHeap<T> where T : IComparable
+    /// <summary>
+    /// A D-ary min heap implementation.
+    /// </summary>
+    public class DaryMinHeap<T> : IEnumerable<T> where T : IComparable
     {
         private T[] heapArray;
-        private int K;
+        private int k;
         public int Count = 0;
 
-        public D_aryMinHeap(int k, IEnumerable<T> initial = null)
+        /// <summary>
+        /// Time complexity: O(n) when initial is provided otherwise O(1).
+        /// </summary>
+        /// <param name="k">The number of children per heap node.</param>
+        /// <param name="initial">The initial items if any.</param>
+        public DaryMinHeap(int k, IEnumerable<T> initial = null)
         {
-            K = k;
+            if (k <= 2)
+            {
+                throw new Exception("Number of nodes k must be greater than 2.");
+            }
+
+            this.k = k;
 
             if (initial != null)
             {
@@ -37,13 +51,12 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Initialize with given input 
-        /// O(n) time complexity
+        /// Initialize with given input.
+        /// Time complexity: O(n).
         /// </summary>
-        /// <param name="initial"></param>
         private void BulkInit(T[] initial)
         {
-            var i = (initial.Length - 1) / K;
+            var i = (initial.Length - 1) / k;
 
             while (i >= 0)
             {
@@ -55,7 +68,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// load bulk init values
+        /// Recursively load bulk init values.
         /// </summary>
         private void BulkInitRecursive(int i, T[] initial)
         {
@@ -79,7 +92,9 @@ namespace Advanced.Algorithms.DataStructures
         }
 
 
-        //O(log(n) base K)
+        /// <summary>
+        /// Time complexity: O(log(n) base K).
+        /// </summary>
         public void Insert(T newItem)
         {
             if (Count == heapArray.Length)
@@ -90,12 +105,12 @@ namespace Advanced.Algorithms.DataStructures
             heapArray[Count] = newItem;
 
             //percolate up
-            for (int i = Count; i > 0; i = (i - 1) / K)
+            for (int i = Count; i > 0; i = (i - 1) / k)
             {
-                if (heapArray[i].CompareTo(heapArray[(i - 1) / K]) < 0)
+                if (heapArray[i].CompareTo(heapArray[(i - 1) / k]) < 0)
                 {
-                    var temp = heapArray[(i - 1) / K];
-                    heapArray[(i - 1) / K] = heapArray[i];
+                    var temp = heapArray[(i - 1) / k];
+                    heapArray[(i - 1) / k] = heapArray[i];
                     heapArray[i] = temp;
                 }
                 else
@@ -106,7 +121,10 @@ namespace Advanced.Algorithms.DataStructures
 
             Count++;
         }
-        //O(log(n) base K)
+
+        /// <summary>
+        /// Time complexity: O(log(n) base K).
+        /// </summary>
         public T ExtractMin()
         {
             if (Count == 0)
@@ -155,36 +173,35 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// returns the min Index of child if any 
-        /// otherwise returns -1
+        /// Returns the max Index of child if any. 
+        /// Otherwise returns -1.
         /// </summary>
-        /// <param name="currentParent"></param>
-        /// <param name="heap"></param>
-        /// <returns></returns>
         private int findMinChildIndex(int currentParent, T[] heap)
         {
-            var currentMin = currentParent * K + 1;
+            var currentMin = currentParent * k + 1;
 
             if (currentMin >= Count)
                 return -1;
 
-            for (int i = 2; i <= K; i++)
+            for (int i = 2; i <= k; i++)
             {
-                if (currentParent * K + i >= Count)
+                if (currentParent * k + i >= Count)
                     break;
 
-                var nextSibling = heap[currentParent * K + i];
+                var nextSibling = heap[currentParent * k + i];
 
                 if (heap[currentMin].CompareTo(nextSibling) > 0)
                 {
-                    currentMin = currentParent * K + i;
+                    currentMin = currentParent * k + i;
                 }
             }
 
             return currentMin;
         }
 
-        //o(1)
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
         public T PeekMin()
         {
             if (Count == 0)
@@ -217,6 +234,17 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             heapArray = biggerArray;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+            
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return heapArray.Take(Count).GetEnumerator();
         }
     }
 }
