@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// A Kruskal's alogorithm implementation
-    /// using merge sort & disjoint set.
+    /// using merge sort and disjoint set.
     /// </summary>
     public class Kruskals<T, TW> where TW : IComparable
     {

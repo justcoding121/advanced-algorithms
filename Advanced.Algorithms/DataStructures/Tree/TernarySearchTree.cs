@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
+    /// <summary>
+    /// A ternary search tree implementation.
+    /// </summary>
     public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     {
         private TernarySearchTreeNode<T> root;
