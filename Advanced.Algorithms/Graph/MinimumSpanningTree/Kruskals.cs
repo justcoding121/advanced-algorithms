@@ -22,8 +22,8 @@ namespace Advanced.Algorithms.Graph
             var edges = new List<MSTEdge<T, TW>>();
 
             //gather all unique edges
-            dfs(graph.ReferenceVertex, new System.Collections.Generic.HashSet<T>(),
-                new Dictionary<T, System.Collections.Generic.HashSet<T>>(),
+            dfs(graph.ReferenceVertex, new HashSet<T>(),
+                new Dictionary<T, HashSet<T>>(),
                 edges);
 
             //quick sort preparation
@@ -91,7 +91,7 @@ namespace Advanced.Algorithms.Graph
                         //update visited edge
                         if (!visitedEdges.ContainsKey(currentVertex.Value))
                         {
-                            visitedEdges.Add(currentVertex.Value, new System.Collections.Generic.HashSet<T>());
+                            visitedEdges.Add(currentVertex.Value, new HashSet<T>());
                         }
 
                         visitedEdges[currentVertex.Value].Add(edge.Key.Value);
@@ -99,7 +99,7 @@ namespace Advanced.Algorithms.Graph
                         //update visited back edge
                         if (!visitedEdges.ContainsKey(edge.Key.Value))
                         {
-                            visitedEdges.Add(edge.Key.Value, new System.Collections.Generic.HashSet<T>());
+                            visitedEdges.Add(edge.Key.Value, new HashSet<T>());
                         }
 
                         visitedEdges[edge.Key.Value].Add(currentVertex.Value);
