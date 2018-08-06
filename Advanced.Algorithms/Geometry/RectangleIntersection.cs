@@ -2,16 +2,12 @@
 
 namespace Advanced.Algorithms.Geometry
 {
-
     public class RectangleIntersection
     {
         /// <summary>
-        /// Returns the rectangle formed by the intersection if do intersect
-        /// Otherwise default value of Rectangle struct
+        /// Returns the rectangle formed by the intersection if do intersect.
+        /// Otherwise default value of Rectangle struct.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         public static Rectangle FindIntersection(Rectangle a, Rectangle b)
         {
             //check for intersection

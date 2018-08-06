@@ -1,51 +1,27 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 {
     /// <summary>
-    /// A weighted graph vertex
+    /// A weighted graph implementation.
+    /// IEnumerable enumerates all vertices.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TW"></typeparam>
-    public class WeightedGraphVertex<T, TW> where TW : IComparable
-    {
-        public T Value { get; private set; }
-
-        public Dictionary<WeightedGraphVertex<T, TW>, TW> Edges { get; set; }
-
-        public WeightedGraphVertex(T value)
-        {
-            Value = value;
-            Edges = new Dictionary<WeightedGraphVertex<T, TW>, TW>();
-
-        }
-
-    }
-
-    /// <summary>
-    /// A weighted graph implementation
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TW"></typeparam>
-    public class WeightedGraph<T, TW> where TW : IComparable
+    public class WeightedGraph<T, TW> : IEnumerable<T> where TW : IComparable
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, WeightedGraphVertex<T, TW>> Vertices { get; set; }
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         public WeightedGraph()
         {
             Vertices = new Dictionary<T, WeightedGraphVertex<T, TW>>();
         }
 
-
         /// <summary>
-        /// return a reference vertex  to start traversing Vertices
-        /// O(1) complexity
+        /// Returns a reference vertex.
+        /// Time complexity: O(1).
         /// </summary>
         public WeightedGraphVertex<T, TW> ReferenceVertex
         {
@@ -63,13 +39,11 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             }
         }
 
-      
+
         /// <summary>
-        /// Add a new vertex to this graph
-        /// O(1) complexity
+        /// Add a new vertex to this graph.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public WeightedGraphVertex<T, TW> AddVertex(T value)
         {
             if (value == null)
@@ -85,10 +59,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// remove given vertex from this graph
-        /// O(V) complexity
+        /// Remove given vertex from this graph.
+        /// Time complexity: O(V) where V is the number of vertices.
         /// </summary>
-        /// <param name="value"></param>
         public void RemoveVertex(T value)
         {
             if (value == null)
@@ -112,12 +85,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         /// <summary>
         /// Add a new edge to this graph with given weight 
-        /// and between given source and destination vertex
-        /// O(1) complexity
+        /// and between given source and destination vertex.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
-        /// <param name="weight"></param>
         public void AddEdge(T source, T dest, TW weight)
         {
             if (source == null || dest == null)
@@ -136,14 +106,11 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// Remove given edge
-        /// O(1) complexity
+        /// Remove given edge.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
         public void RemoveEdge(T source, T dest)
         {
-
             if (source == null || dest == null)
             {
                 throw new ArgumentException();
@@ -165,12 +132,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// Do we have an edge between given source and destination
-        /// O(1) complexity
+        /// Do we have an edge between given source and destination?
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
-        /// <returns></returns>
         public bool HasEdge(T source, T dest)
         {
             if(!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
@@ -183,7 +147,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         }
 
-
         public List<Tuple<T, TW>> GetAllEdges(T vertex)
         {
             if (!Vertices.ContainsKey(vertex))
@@ -195,11 +158,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// Find the Vertex with given value
-        ///  O(1) complexity
+        /// Find the Vertex with given value.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public WeightedGraphVertex<T, TW> FindVertex(T value)
         {
             if (Vertices.ContainsKey(value))
@@ -209,5 +170,43 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
             return null;
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return Vertices.Select(x => x.Key).GetEnumerator();
+        }
+    }
+  
+    /// <summary>
+    /// A weighted graph vertex.
+    /// IEnumerable enumerates all the outgoing edge destination vertices.
+    /// </summary>
+    public class WeightedGraphVertex<T, TW> : IEnumerable<T> where TW : IComparable
+    {
+        public T Value { get; private set; }
+
+        public Dictionary<WeightedGraphVertex<T, TW>, TW> Edges { get; set; }
+
+        public WeightedGraphVertex(T value)
+        {
+            Value = value;
+            Edges = new Dictionary<WeightedGraphVertex<T, TW>, TW>();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return Edges.Select(x => x.Key.Value).GetEnumerator();
+        }
+
     }
 }

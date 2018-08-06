@@ -4,16 +4,13 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// Find Toplogical order of a graph using Depth First Search
+    /// Find Toplogical order of a graph using Depth First Search.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class DepthFirstTopSort<T>
     {
         /// <summary>
-        /// Returns the vertices in Topologically Sorted Order
+        /// Returns the vertices in Topologically Sorted Order.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         public List<T> GetTopSort(DiGraph<T> graph)
         {
             var pathStack = new Stack<T>();
@@ -40,11 +37,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Do a depth first search
+        /// Do a depth first search.
         /// </summary>
-        /// <param name="vertex"></param>
-        /// <param name="visited"></param>
-        /// <param name="pathStack"></param>
         private void dfs(DiGraphVertex<T> vertex, 
             HashSet<T> visited, Stack<T> pathStack)
         {

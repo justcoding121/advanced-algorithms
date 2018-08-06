@@ -40,6 +40,5 @@ namespace Advanced.Algorithms.Combinatorics
             }
         }
 
-
     }
 }

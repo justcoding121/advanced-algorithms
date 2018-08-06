@@ -4,7 +4,6 @@ using System.Linq;
 
 namespace Advanced.Algorithms.Geometry
 {
-
     public class ClosestPointPair
     {
         public static double Find(List<int[]> points)
@@ -72,11 +71,8 @@ namespace Advanced.Algorithms.Geometry
         }
 
         /// <summary>
-        /// Eucledian distance
+        /// Eucledian distance.
         /// </summary>
-        /// <param name="point1"></param>
-        /// <param name="point2"></param>
-        /// <returns></returns>
         private static double getDistance(Point point1, Point point2)
         {
             return Math.Sqrt(Math.Pow(Math.Abs(point1.X - point2.X), 2)

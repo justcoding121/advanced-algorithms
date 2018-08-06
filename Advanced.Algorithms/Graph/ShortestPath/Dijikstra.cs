@@ -6,51 +6,8 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// generic operators
+    /// A dijikstra algorithm implementation using Fibornacci Heap.
     /// </summary>
-    /// <typeparam name="W"></typeparam>
-    public interface IShortestPathOperators<W> where W : IComparable
-    {
-        W DefaultValue { get; }
-        W MaxValue { get; }
-        W Sum(W a, W b);
-    }
-
-    /// <summary>
-    /// For fibornacci heap node
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    internal class MinHeapWrap<T, W> : IComparable where W : IComparable
-    {
-        internal T Target { get; set; }
-        internal W Distance { get; set; }
-
-        public int CompareTo(object obj)
-        {
-            return Distance.CompareTo((obj as MinHeapWrap<T, W>).Distance);
-        }
-    }
-
-    /// <summary>
-    /// For result
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    public class ShortestPathResult<T, W> where W : IComparable
-    {
-        public ShortestPathResult(List<T> path, W length)
-        {
-            Length = length;
-            Path = path;
-        }
-        public W Length { get; internal set; }
-        public List<T> Path { get; private set; }
-    }
-    /// <summary>
-    /// A dijikstra algorithm implementation using Fibornacci Heap
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class DijikstraShortestPath<T, W> where W : IComparable
     {
         readonly IShortestPathOperators<W> operators;
@@ -60,12 +17,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Get shortest distance to target
+        /// Get shortest distance to target.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="source"></param>
-        /// <param name="destination"></param>
-        /// <returns></returns>
         public ShortestPathResult<T, W> GetShortestPath(WeightedDiGraph<T, W> graph, T source, T destination)
         {
             //regular argument checks
@@ -158,14 +111,10 @@ namespace Advanced.Algorithms.Graph
             return tracePath(graph, parentMap, source, destination);
          
         }
+
         /// <summary>
-        /// trace back path from destination to source using parent map
+        /// Trace back path from destination to source using parent map.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="parentMap"></param>
-        /// <param name="source"></param>
-        /// <param name="destination"></param>
-        /// <returns></returns>
         private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph, Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
@@ -195,6 +144,41 @@ namespace Advanced.Algorithms.Graph
             }
 
             return new ShortestPathResult<T, W>(resultPath, resultLength);
+        }
+    }
+
+    /// <summary>
+    /// Generic operators.
+    /// </summary>
+    public interface IShortestPathOperators<W> where W : IComparable
+    {
+        W DefaultValue { get; }
+        W MaxValue { get; }
+        W Sum(W a, W b);
+    }
+
+    public class ShortestPathResult<T, W> where W : IComparable
+    {
+        public ShortestPathResult(List<T> path, W length)
+        {
+            Length = length;
+            Path = path;
+        }
+        public W Length { get; internal set; }
+        public List<T> Path { get; private set; }
+    }
+
+    /// <summary>
+    /// For fibornacci heap node.
+    /// </summary>
+    internal class MinHeapWrap<T, W> : IComparable where W : IComparable
+    {
+        internal T Target { get; set; }
+        internal W Distance { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            return Distance.CompareTo((obj as MinHeapWrap<T, W>).Distance);
         }
     }
 }

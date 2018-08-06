@@ -6,9 +6,6 @@
         /// <summary>
         ///     Checks whether the given point is inside given polygon.
         /// </summary>
-        /// <param name="polygon">The polygon.</param>
-        /// <param name="point">The point to test.</param>
-        /// <returns></returns>
         public static bool IsInside(Polygon polygon, Point point)
         {
             //a imaginary ray line from point to right infinity

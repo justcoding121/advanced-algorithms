@@ -6,10 +6,8 @@ namespace Advanced.Algorithms.Numerical
     public class PrimeGenerator
     {
         /// <summary>
-        /// Prime generation using Sieve of Eratosthenes
+        /// Prime generation using Sieve of Eratosthenes.
         /// </summary>
-        /// <param name="max"></param>
-        /// <returns></returns>
         public static List<int> GetAllPrimes(int max)
         {
             var primeTable = new bool[max + 1];

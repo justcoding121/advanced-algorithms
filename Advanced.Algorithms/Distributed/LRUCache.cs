@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace Advanced.Algorithms.Distributed
 {
     public class LRUCache<K, V>
@@ -25,10 +24,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(1) Time complexity
+        /// Time complexity: O(1). 
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
         public V Get(K key)
         {
             if (!lookUp.ContainsKey(key))
@@ -45,10 +42,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(1) Time complexity
+        /// Time complexity: O(1). 
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
         public void Put(K key, V value)
         {
             //evict last node of ddl if capacity overflows

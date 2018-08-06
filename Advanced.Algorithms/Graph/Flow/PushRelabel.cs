@@ -7,10 +7,8 @@ namespace Advanced.Algorithms.Graph
 {
 
     /// <summary>
-    /// A Push-Relabel algorithm implementation
+    /// A Push-Relabel algorithm implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
     public class PushRelabelMaxFlow<T, W> where W : IComparable
     {
         readonly IFlowOperators<W> operators;
@@ -20,12 +18,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Computes Max Flow using Push-Relabel algorithm
+        /// Computes Max Flow using Push-Relabel algorithm.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="source"></param>
-        /// <param name="sink"></param>
-        /// <returns></returns>
         public W ComputeMaxFlow(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
@@ -88,10 +82,9 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Increases the height of a vertex by one greater than min height of neighbours
+        /// Increases the height of a vertex by one greater than min height of neighbours.
         /// </summary>
-        /// <param name="vertex"></param>
-        /// <param name="vertexStatusMap"></param>
+
         private void relabel(WeightedDiGraphVertex<T, W> vertex, 
             Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
@@ -113,14 +106,11 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Tries to Push the overflow in current vertex to neighbours if possible
+        /// Tries to Push the overflow in current vertex to neighbours if possible.
         /// Push is possible if neighbour edge is not full
         /// and any of neighbour has height of current vertex
-        /// otherwise returns false
+        /// otherwise returns false.
         /// </summary>
-        /// <param name="overflowVertex"></param>
-        /// <param name="vertexStatusMap"></param>
-        /// <returns></returns>
         private bool push(WeightedDiGraphVertex<T, W> overflowVertex, 
             Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
@@ -158,12 +148,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Returns a vertex with an overflow
+        /// Returns a vertex with an overflow.
         /// </summary>
-        /// <param name="vertexStatusMap"></param>
-        /// <param name="source"></param>
-        /// <param name="sink"></param>
-        /// <returns></returns>
         private T findOverflowVertex(Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap,
             T source, T sink)
         {
@@ -181,10 +167,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// clones this graph and creates a residual graph
+        /// Clones this graph and creates a residual graph.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         private WeightedDiGraph<T, W> createResidualGraph(WeightedDiGraph<T, W> graph)
         {
             var newGraph = new WeightedDiGraph<T, W>();
@@ -213,17 +197,17 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// An object to keep track of Vertex Overflow & Height
+        /// An object to keep track of Vertex Overflow & Height.
         /// </summary>
         internal class ResidualGraphVertexStatus
         {
             /// <summary>
-            /// Current overflow in this vertex
+            /// Current overflow in this vertex.
             /// </summary>
             public W Overflow { get; set; }
 
             /// <summary>
-            /// Current height of the vertex
+            /// Current height of the vertex.
             /// </summary>
             public int Height { get; set; }
 

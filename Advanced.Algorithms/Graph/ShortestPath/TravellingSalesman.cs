@@ -6,10 +6,8 @@ using System.Linq;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// Problem details below
-    /// https://en.wikipedia.org/wiki/Travelling_salesman_problem
-    /// Uses dynamic programming and have
-    /// psuedo-polynomial time runTime complexity for this NP hard problem
+    /// Uses dynamic programming for a
+    /// psuedo-polynomial time runTime complexity for this NP hard problem.
     /// </summary>
     public class TravellingSalesman
     {

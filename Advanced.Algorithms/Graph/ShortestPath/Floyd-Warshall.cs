@@ -4,30 +4,6 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
 {
-    /// <summary>
-    /// Result object 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    public class AllPairShortestPathResult<T, W> where W : IComparable
-    {
-        public T Source { get; }
-        public T Destination { get; }
-
-        public W Distance { get; }
-
-        public List<T> Path { get; }
-
-        public AllPairShortestPathResult(T source, T destination,
-            W distance, List<T> path)
-        {
-            Source = source;
-            Destination = destination;
-            Distance = distance;
-            Path = path;
-        }
-
-    }
     public class FloydWarshallShortestPath<T, W> where W : IComparable
     {
         readonly IShortestPathOperators<W> operators;
@@ -127,15 +103,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// trace path from dest to source
+        ///Trace path from dest to source.
         /// </summary>
-        /// <param name="result"></param>
-        /// <param name="parent"></param>
-        /// <param name="i"></param>
-        /// <param name="j"></param>
-        /// <param name="vertexIndex"></param>
-        /// <param name="reverseVertexIndex"></param>
-        /// <returns></returns>
         private List<T> tracePath(W[,] result, T[,] parent, int i, int j,
             Dictionary<int, T> vertexIndex, Dictionary<T, int> reverseVertexIndex)
         {
@@ -160,6 +129,25 @@ namespace Advanced.Algorithms.Graph
             return path;
         }
 
+    }
+
+    public class AllPairShortestPathResult<T, W> where W : IComparable
+    {
+        public T Source { get; }
+        public T Destination { get; }
+
+        public W Distance { get; }
+
+        public List<T> Path { get; }
+
+        public AllPairShortestPathResult(T source, T destination,
+            W distance, List<T> path)
+        {
+            Source = source;
+            Destination = destination;
+            Distance = distance;
+            Path = path;
+        }
 
     }
 }

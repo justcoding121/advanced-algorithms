@@ -4,12 +4,9 @@
     {
         /// <summary>
         /// Returns the start index of first appearance
-        /// of pattern in input string
-        /// returns -1 if no match
+        /// of pattern in input string.
+        /// returns -1 if no match.
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="pattern"></param>
-        /// <returns></returns>
         public int Search(string input, string pattern)
         {
             var z = this.z(pattern + input, pattern.Length);
@@ -29,10 +26,7 @@
 
         /// <summary>
         /// The z function computes the length of matching prefix at each char 
-        /// in given input
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+        /// in given input.
         private int[] z(string input, int patternLength)
         {
             var result = new int[input.Length];

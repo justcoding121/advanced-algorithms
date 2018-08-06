@@ -5,16 +5,13 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// Find Toplogical order of a graph using Kahn's algorithm
+    /// Find Toplogical order of a graph using Kahn's algorithm.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class KahnsTopSort<T>
     {
         /// <summary>
-        /// Returns the vertices in Topologically Sorted Order
+        /// Returns the vertices in Topologically Sorted Order.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         public List<T> GetTopSort(DiGraph<T> graph)
         {
             var inEdgeMap = new Dictionary<T, int>();
@@ -71,7 +68,5 @@ namespace Advanced.Algorithms.Graph
 
             return result;
         }
-
-      
     }
 }

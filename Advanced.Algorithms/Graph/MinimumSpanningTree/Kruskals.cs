@@ -7,46 +7,19 @@ using Advanced.Algorithms.DataStructures;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// MST edge object
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
-    public class MSTEdge<T, W> : IComparable where W: IComparable
-    {
-        public T Source { get; }
-        public T Destination { get; }
-        public W Weight { get;  }
-
-        internal MSTEdge(T source, T dest, W weight)
-        {
-            Source = source;
-            Destination = dest;
-            Weight = weight;
-        }
-        public int CompareTo(object obj)
-        {
-            return Weight.CompareTo(((MSTEdge<T, W>) obj).Weight);
-        }
-    }
-
-    /// <summary>
     /// A Kruskal's alogorithm implementation
-    /// using merge sort & disjoint set
+    /// using merge sort & disjoint set.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TW"></typeparam>
     public class Kruskals<T, TW> where TW : IComparable
     {
         /// <summary>
-        /// Find Minimum Spanning Tree of given weighted graph
+        /// Find Minimum Spanning Tree of given weighted graph.
         /// </summary>
-        /// <param name="graph"></param>
         /// <returns>List of MST edges</returns>
         public List<MSTEdge<T,TW>>
             FindMinimumSpanningTree(WeightedGraph<T, TW> graph)
         {
             var edges = new List<MSTEdge<T,TW>>();
-
 
             //gather all unique edges
             dfs(graph.ReferenceVertex, new System.Collections.Generic.HashSet<T>(), 
@@ -71,7 +44,6 @@ namespace Advanced.Algorithms.Graph
             {
                 disJointSet.MakeSet(vertex.Key);
             }
-
 
             //pick each edge one by one
             //if both source & target belongs to same set 
@@ -100,12 +72,8 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Do DFS to find all unique edges
+        /// Do DFS to find all unique edges.
         /// </summary>
-        /// <param name="currentVertex"></param>
-        /// <param name="visitedVertices"></param>
-        /// <param name="visitedEdges"></param>
-        /// <param name="result"></param>
         private void dfs(WeightedGraphVertex<T, TW> currentVertex, System.Collections.Generic.HashSet<T> visitedVertices, Dictionary<T, System.Collections.Generic.HashSet<T>> visitedEdges,
             List<MSTEdge<T,TW>> result)
         {
@@ -144,5 +112,26 @@ namespace Advanced.Algorithms.Graph
         
         }
 
+    }
+
+    /// <summary>
+    /// MST edge object.
+    /// </summary>
+    public class MSTEdge<T, W> : IComparable where W : IComparable
+    {
+        public T Source { get; }
+        public T Destination { get; }
+        public W Weight { get; }
+
+        internal MSTEdge(T source, T dest, W weight)
+        {
+            Source = source;
+            Destination = dest;
+            Weight = weight;
+        }
+        public int CompareTo(object obj)
+        {
+            return Weight.CompareTo(((MSTEdge<T, W>)obj).Weight);
+        }
     }
 }

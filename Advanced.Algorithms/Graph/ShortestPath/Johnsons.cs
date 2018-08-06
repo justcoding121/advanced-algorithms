@@ -6,32 +6,10 @@ using System.Linq;
 
 namespace Advanced.Algorithms.Graph
 { 
-    /// <summary>
-    /// generic operators
-    /// </summary>
-    /// <typeparam name="W"></typeparam>
-    public interface IJohnsonsShortestPathOperators<T, W>
-        : IShortestPathOperators<W> where W : IComparable
-    {
-
-        /// <summary>
-        /// Substract a from b
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        W Substract(W a, W b);
-
-        /// <summary>
-        /// gives a random vertex not in the graph
-        /// </summary>
-        /// <returns></returns>
-        T RandomVertex();
-    }
-
     public class JohnsonsShortestPath<T, W> where W : IComparable
     {
         readonly IJohnsonsShortestPathOperators<T, W> operators;
+
         public JohnsonsShortestPath(IJohnsonsShortestPathOperators<T, W> operators)
         {
             this.operators = operators;
@@ -108,5 +86,19 @@ namespace Advanced.Algorithms.Graph
             return finalResult;
         }
 
+    }
+
+    public interface IJohnsonsShortestPathOperators<T, W>
+    : IShortestPathOperators<W> where W : IComparable
+    {
+        /// <summary>
+        /// Substract a from b.
+        /// </summary>
+        W Substract(W a, W b);
+
+        /// <summary>
+        /// Gives a random vertex value not in the graph.
+        /// </summary>
+        T RandomVertex();
     }
 }

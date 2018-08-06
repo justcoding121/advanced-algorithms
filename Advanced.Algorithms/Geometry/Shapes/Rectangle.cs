@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Geometry
 {
-    //Only A & D is required to represent a Rectangle
     public class Rectangle
     {
         public Point LeftTop { get; set; }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace Advanced.Algorithms.Geometry
 {
@@ -23,7 +22,6 @@ namespace Advanced.Algorithms.Geometry
         ///     If only one edge point is provided then this polygon will behave like a point,
         ///     a line is created with both ends having same edge point.
         /// </summary>
-        /// <param name="edgePoints"></param>
         public Polygon(List<Point> edgePoints)
         {
             Edges = new List<Line>();

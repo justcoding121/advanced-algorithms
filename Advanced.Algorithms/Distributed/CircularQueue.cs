@@ -5,7 +5,7 @@ using System.Linq;
 namespace Advanced.Algorithms.Distributed
 {
     /// <summary>
-    /// Cicular queue aka Ring Buffer using fixed size array
+    /// Cicular queue aka Ring Buffer using fixed size array.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class CircularQueue<T>
@@ -26,10 +26,9 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// Note: When buffer overflows oldest data will be erased
-        /// O(1) Time complexity
+        /// Note: When buffer overflows oldest data will be erased.
+        /// Time complexity: O(1) 
         /// </summary>
-        /// <param name="data"></param>
         public T Enqueue(T data)
         {
             var deleted = default(T);
@@ -65,9 +64,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(bulk.Length) Time complexity
+        /// Time complexity: O(n). 
         /// </summary>
-        /// <param name="bulk"></param>
         /// <returns>Deleted items.</returns>
         public IEnumerable<T> Enqueue(T[] bulk)
         {
@@ -76,9 +74,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(1) Time complexity
+        /// O(1) Time complexity.
         /// </summary>
-        /// <returns></returns>
         public T Dequeue()
         {
             if (Count == 0)
@@ -117,9 +114,8 @@ namespace Advanced.Algorithms.Distributed
         }
 
         /// <summary>
-        /// O(bulkNumber) Time complexity
+        /// Time complexity: O(n). 
         /// </summary>
-        /// <param name="bulkNumber"></param>
         public IEnumerable<T> Dequeue(int bulkNumber)
         {
             var deletedList = new List<T>();

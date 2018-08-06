@@ -4,16 +4,11 @@ namespace Advanced.Algorithms.Sorting
 {
 
     /// <summary>
-    /// A shell sort implementation
+    /// A shell sort implementation.
     /// </summary>
     public class ShellSort<T> where T : IComparable
     {
-        /// <summary>
-        /// Sort given integers
-        /// </summary>
-        /// <param name="array"></param>
-        /// <param name="mst"></param>
-        /// <returns></returns>
+        
         public static T[] Sort(T[] array)
         {
             var k = array.Length / 2;

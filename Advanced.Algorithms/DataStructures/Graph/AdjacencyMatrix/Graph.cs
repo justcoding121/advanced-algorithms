@@ -6,9 +6,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 {
 
     /// <summary>
-    /// A directed graph implementation using dynamically growinng/shrinking adjacency matrix array
+    /// A directed graph implementation using dynamically growinng/shrinking adjacency matrix array.
+    /// IEnumerable enumerates all vertices.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class Graph<T>
     {
         public int VerticesCount => usedSize;
@@ -36,11 +36,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// add a new vertex to this graph
-        /// O(1) complexity
+        /// Add a new vertex to this graph.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public void AddVertex(T value)
         {
             if (value == null)
@@ -73,10 +71,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
 
         /// <summary>
-        /// remove an existing vertex from graph
-        /// O(V) complexity
+        /// Remove an existing vertex from graph.
+        /// Time complexity: O(V) where V is the number of vertices.
         /// </summary>
-        /// <param name="value"></param>
         public void RemoveVertex(T value)
         {
             if (value == null)
@@ -111,11 +108,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// add an edge from source to destination vertex
-        /// O(1) complexity
+        /// Add an edge from source to destination vertex.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
         public void AddEdge(T source, T dest)
         {
             if (source == null || dest == null)
@@ -140,11 +135,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// remove an existing edge between source & destination
-        ///  O(1) complexity
+        /// Remove an existing edge between source & destination.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
         public void RemoveEdge(T source, T dest)
         {
             if (source == null || dest == null)
@@ -170,12 +163,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// do we have an edge between the given source and destination?
-        /// O(1) complexity
+        /// Do we have an edge between the given source and destination?
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
-        /// <returns></returns>
         public bool HasEdge(T source, T dest)
         {
             if (source == null || dest == null)
@@ -198,7 +188,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             return false;
         }
 
-        public List<T> GetAllEdges(T vertex)
+
+        public IEnumerable<T> Edges(T vertex)
         {
             if (!vertexIndices.ContainsKey(vertex))
             {

@@ -4,8 +4,9 @@ namespace Advanced.Algorithms.Sorting
 {
     public class MergeSort<T> where T : IComparable
     {
-        //O(nlog(n)) Time complexity always
-        //O(n) memory
+        /// <summary>
+        /// Time complexity: O(nlog(n)).
+        /// </summary>
         public static T[] Sort(T[] array)
         {
             PartitionMerge(array, 0, array.Length - 1);
@@ -28,7 +29,7 @@ namespace Advanced.Algorithms.Sorting
         }
 
         /// <summary>
-        /// merge two sorted arrays
+        /// Merge two sorted arrays.
         /// </summary>
         private static void merge(T[] array, int leftStart, int middle, int rightEnd)
         {
@@ -78,7 +79,6 @@ namespace Advanced.Algorithms.Sorting
                 array[g] = result[k];
                 k++;
             }
-
         }
     }
 }

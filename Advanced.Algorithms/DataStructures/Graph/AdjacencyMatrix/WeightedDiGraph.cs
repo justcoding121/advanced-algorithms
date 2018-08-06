@@ -3,12 +3,10 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 {
-
     /// <summary>
-    /// A weighted graph implementation using dynamically growinng/shrinking adjacency matrix array
+    /// A weighted graph implementation using dynamically growinng/shrinking adjacency matrix array.
+    /// IEnumerable enumerates all vertices.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TW"></typeparam>
     public class WeightedDiGraph<T, TW> where TW : IComparable
     {
         public int VerticesCount => usedSize;
@@ -22,9 +20,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         private int usedSize;
         private int nextAvailableIndex;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         public WeightedDiGraph()
         {
             maxSize = 1;
@@ -34,11 +29,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// Add a new vertex to this graph
-        /// O(1) complexity
+        /// Add a new vertex to this graph.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public void AddVertex(T value)
         {
             if (value == null)
@@ -69,10 +62,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// remove the given vertex
-        /// O(V) complexity
+        /// Remove the given vertex.
+        /// Time complexity: O(V) where V is the number of vertices.
         /// </summary>
-        /// <param name="value"></param>
         public void RemoveVertex(T value)
         {
             if (value == null)
@@ -107,12 +99,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// Add a new edge to this graph
-        /// O(1) complexity
+        /// Add a new edge to this graph.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
-        /// <param name="weight"></param>
         public void AddEdge(T source, T dest, TW weight)
         {
             if (weight.Equals(default(TW)))
@@ -141,11 +130,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// remove the given edge from this graph
-        /// O(1) complexity
+        /// Remove the given edge from this graph.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
         public void RemoveEdge(T source, T dest)
         {
             if (source == null || dest == null)
@@ -166,16 +153,12 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             }
 
             matrix[sourceIndex, destIndex] = default(TW);
-
         }
 
         /// <summary>
-        /// do we have an edge between given source and destination?
-        /// O(1) complexity
+        /// Do we have an edge between given source and destination?
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
-        /// <returns></returns>
         public bool HasEdge(T source, T dest)
         {
             if (source == null || dest == null)
@@ -199,7 +182,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             return false;
         }
 
-        public List<Tuple<T, TW>> GetAllOutEdges(T vertex)
+        public IEnumerable<Tuple<T, TW>> OutEdges(T vertex)
         {
             if (!vertexIndices.ContainsKey(vertex))
             {
@@ -221,7 +204,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             return result;
         }
 
-        public List<Tuple<T, TW>> GetAllInEdges(T vertex)
+        public IEnumerable<Tuple<T, TW>> InEdges(T vertex)
         {
             if (!vertexIndices.ContainsKey(vertex))
             {

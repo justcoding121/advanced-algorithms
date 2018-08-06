@@ -4,29 +4,14 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
 {
-    public class Bridge<T>
-    {
-        public T vertexA { get; }
-        public T vertexB { get; }
-
-        public Bridge(T vertexA, T vertexB)
-        {
-            this.vertexA = vertexA;
-            this.vertexB = vertexB;
-        }
-    }
-
     /// <summary>
-    /// Bridge finder using Tarjan's algorithm
+    /// Bridge finder using Tarjan's algorithm.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class TarjansBridgeFinder<T>
     {
         /// <summary>
-        /// returns a list if Bridge points in this graph
+        /// Returns a list if Bridge points in this graph.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <returns></returns>
         public List<Bridge<T>> FindBridges(Graph<T> graph)
         {
             int visitTime = 0;
@@ -38,15 +23,8 @@ namespace Advanced.Algorithms.Graph
 
         /// <summary>
         /// Do a depth first search to find Bridge edges by keeping track of 
-        /// discovery nodes and checking for back edges using low/discovery time maps
+        /// discovery nodes and checking for back edges using low/discovery time maps.
         /// </summary>
-        /// <param name="currentVertex"></param>
-        /// <param name="result"></param>
-        /// <param name="discoveryTimeMap"></param>
-        /// <param name="lowTimeMap"></param>
-        /// <param name="parent"></param>
-        /// <param name="discoveryTime"></param>
-        /// <returns></returns>
         private List<Bridge<T>> dfs(GraphVertex<T> currentVertex,
              List<Bridge<T>> result,
              Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
@@ -57,7 +35,6 @@ namespace Advanced.Algorithms.Graph
             lowTimeMap.Add(currentVertex.Value, discoveryTime);
 
             //discovery childs in this iteration
-
             foreach (var edge in currentVertex.Edges)
             {
                 if (!discoveryTimeMap.ContainsKey(edge.Value))
@@ -99,4 +76,17 @@ namespace Advanced.Algorithms.Graph
             return result;
         }
     }
+
+    public class Bridge<T>
+    {
+        public T vertexA { get; }
+        public T vertexB { get; }
+
+        public Bridge(T vertexA, T vertexB)
+        {
+            this.vertexA = vertexA;
+            this.vertexB = vertexB;
+        }
+    }
+
 }

@@ -4,29 +4,21 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// Bread First Search implementation
+    /// Bread First Search implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class BreadthFirst<T>
     {
         /// <summary>
-        /// Returns true if item exists
+        /// Returns true if item exists.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="vertex"></param>
-        /// <returns></returns>
         public bool Find(Graph<T> graph, T vertex)
         {
             return bfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
         }
 
         /// <summary>
-        /// BFS implementation
+        /// BFS implementation.
         /// </summary>
-        /// <param name="referenceVertex"></param>
-        /// <param name="HashSet"></param>
-        /// <param name="searchVertex"></param>
-        /// <returns></returns>
         private bool bfs(GraphVertex<T> referenceVertex,
             HashSet<T> visited, T searchVertex)
         {

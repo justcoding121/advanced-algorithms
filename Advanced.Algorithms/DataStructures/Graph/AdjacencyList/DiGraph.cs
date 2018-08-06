@@ -1,49 +1,27 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 {
     /// <summary>
-    /// Graph vertex
+    /// A directed graph implementation.
+    /// IEnumerable enumerates all vertices.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class DiGraphVertex<T>
-    {
-        public T Value { get; set; }
-
-        public System.Collections.Generic.HashSet<DiGraphVertex<T>> OutEdges { get; set; }
-        public System.Collections.Generic.HashSet<DiGraphVertex<T>> InEdges { get; set; }
-
-        public DiGraphVertex(T value)
-        {
-            Value = value;
-            OutEdges = new System.Collections.Generic.HashSet<DiGraphVertex<T>>();
-            InEdges = new System.Collections.Generic.HashSet<DiGraphVertex<T>>();
-        }
-
-    }
-
-    /// <summary>
-    /// A directed graph implementation
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class DiGraph<T>
+    public class DiGraph<T> : IEnumerable<T>
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, DiGraphVertex<T>> Vertices { get; set; }
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         public DiGraph()
         {
             Vertices = new Dictionary<T, DiGraphVertex<T>>();
         }
 
         /// <summary>
-        /// return a reference vertex  to start traversing Vertices
-        /// O(1) complexity
+        /// Return a reference vertex to start traversing Vertices
+        /// Time complexity: O(1).
         /// </summary>
         public DiGraphVertex<T> ReferenceVertex
         {
@@ -64,11 +42,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
 
         /// <summary>
-        /// add a new vertex to this graph
-        /// O(1) complexity
+        /// Add a new vertex to this graph.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public DiGraphVertex<T> AddVertex(T value)
         {
             if ( value == null)
@@ -84,10 +60,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// remove an existing vertex frm graph
-        /// O(V) complexity
+        /// Remove an existing vertex frm graph.
+        /// Time complexity: O(V) where V is the total number of vertices in this graph.
         /// </summary>
-        /// <param name="value"></param>
         public void RemoveVertex(T value)
         {
             if (value == null)
@@ -114,11 +89,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// add an edge from source to destination vertex
-        /// O(1) complexity
+        /// Add an edge from source to destination vertex.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
         public void AddEdge(T source, T dest)
         {
             if (source == null || dest == null)
@@ -141,14 +114,11 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// remove an existing edge between source & destination
-        ///  O(1) complexity
+        /// Remove an existing edge between source & destination.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
         public void RemoveEdge(T source, T dest)
         {
-
             if (source == null || dest == null)
             {
                 throw new ArgumentException();
@@ -170,12 +140,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// do we have an edge between the given source and destination?
-        /// O(1) complexity
+        /// Do we have an edge between the given source and destination?
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
-        /// <returns></returns>
         public bool HasEdge(T source, T dest)
         {
             if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
@@ -187,41 +154,38 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 && Vertices[dest].InEdges.Contains(Vertices[source]);
         }
 
-        public List<T> GetAllOutEdges(T vertex)
+        public IEnumerable<T> OutEdges(T vertex)
         {
             if (!Vertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].OutEdges.Select(x=>x.Value).ToList();
+            return Vertices[vertex].OutEdges.Select(x=>x.Value);
         }
 
-        public List<T> GetAllInEdges(T vertex)
+        public IEnumerable<T> InEdges(T vertex)
         {
             if (!Vertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].InEdges.Select(x => x.Value).ToList();
+            return Vertices[vertex].InEdges.Select(x => x.Value);
         }
 
         /// <summary>
-        /// returns the vertex object with given value
-        /// O(1) complexity
+        /// Returns the vertex object with given value.
+        /// Time complexity: O(1).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public DiGraphVertex<T> FindVertex(T value)
         {
             return Vertices.ContainsKey(value) ? Vertices[value] : null;
         }
 
         /// <summary>
-        /// clones object
+        /// Clones this graph.
         /// </summary>
-        /// <returns></returns>
         internal DiGraph<T> Clone()
         {
             var newGraph = new DiGraph<T>();
@@ -240,6 +204,45 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             }
 
             return newGraph;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return Vertices.Select(x => x.Key).GetEnumerator();
+        }
+    }
+
+    /// <summary>
+    /// DiGraph vertex. 
+    /// IEnumerable enumerates all the outgoing edge destination vertices.
+    /// </summary>
+    public class DiGraphVertex<T> : IEnumerable<T>
+    {
+        public T Value { get; set; }
+
+        public HashSet<DiGraphVertex<T>> OutEdges { get; set; }
+        public HashSet<DiGraphVertex<T>> InEdges { get; set; }
+
+        public DiGraphVertex(T value)
+        {
+            Value = value;
+            OutEdges = new HashSet<DiGraphVertex<T>>();
+            InEdges = new HashSet<DiGraphVertex<T>>();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return OutEdges.Select(x => x.Value).GetEnumerator();
         }
     }
 }

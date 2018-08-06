@@ -4,7 +4,9 @@ namespace Advanced.Algorithms.Sorting
 {
     public class BubbleSort<T> where T : IComparable
     {
-        //O(n^2)
+        /// <summary>
+        /// Time complexity: O(n^2).
+        /// </summary>
         public static T[] Sort(T[] array)
         {
             var swapped = true;

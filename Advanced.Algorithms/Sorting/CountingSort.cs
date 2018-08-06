@@ -1,15 +1,13 @@
 ﻿namespace Advanced.Algorithms.Sorting
 {
     /// <summary>
-    /// A counting sort implementation
+    /// A counting sort implementation.
     /// </summary>
     public class CountingSort
     {
         /// <summary>
-        /// Sort given integers
+        /// Sort given integers.
         /// </summary>
-        /// <param name="array"></param>
-        /// <returns></returns>
         public static int[] Sort(int[] array)
         {
             var max = getMax(array);
@@ -50,10 +48,8 @@
         }
 
         /// <summary>
-        /// Get Max of given array
+        /// Get Max of given array.
         /// </summary>
-        /// <param name="array"></param>
-        /// <returns></returns>
         private static int getMax(int[] array)
         {
             var max = int.MinValue;

@@ -6,16 +6,13 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.Graph
 { 
     /// <summary>
-    /// A Prims algorithm implementation
+    /// A Prims algorithm implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="W"></typeparam>
     public class Prims<T, W> where W : IComparable
     {
         /// <summary>
-        /// Find Minimum Spanning Tree of given weighted graph
+        /// Find Minimum Spanning Tree of given weighted graph.
         /// </summary>
-        /// <param name="graph"></param>
         /// <returns>List of MST edges</returns>
         public List<MSTEdge<T, W>>
             FindMinimumSpanningTree(WeightedGraph<T, W> graph)
@@ -33,11 +30,8 @@ namespace Advanced.Algorithms.Graph
 
         /// <summary>
         /// Do DFS to pick smallest weight neighbour edges 
-        /// of current spanning tree one by one
+        /// of current spanning tree one by one.
         /// </summary>
-        /// <param name="graph"></param>
-        /// <param name="currentVertex"></param>
-        /// <param name="spanTreeVertices"></param>
         /// <param name="spanTreeNeighbours"> Use Fibornacci Min Heap to pick smallest edge neighbour </param>
         /// <param name="spanTreeEdges">result MST edges</param>
         private void dfs(WeightedGraph<T, W> graph, WeightedGraphVertex<T, W> currentVertex, BMinHeap<MSTEdge<T, W>> spanTreeNeighbours, System.Collections.Generic.HashSet<T> spanTreeVertices, List<MSTEdge<T, W>> spanTreeEdges)

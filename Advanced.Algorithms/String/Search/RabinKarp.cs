@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.String
     {
         /// <summary>
         /// Hard coding this, ideally should be a large prime
-        /// To reduce collisions
+        /// To reduce collisions.
         /// </summary>
         private const int primeNumber = 101;
         private double tolerance = 0.00001;
@@ -47,21 +47,16 @@ namespace Advanced.Algorithms.String
 
 
         /// <summary>
-        /// Returns true if matched hash string is same as the pattern
+        /// Returns true if matched hash string is same as the pattern.
         /// </summary>
-        /// <param name="pattern"></param>
-        /// <param name="match"></param>
-        /// <returns></returns>
         private bool valid(string pattern, string match)
         {
             return pattern.Equals(match);
         }
 
         /// <summary>
-        /// Compute hash given a string
+        /// Compute hash given a string.
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
         private double computeHash(string input)
         {
             double result = 0;
@@ -74,13 +69,8 @@ namespace Advanced.Algorithms.String
         }
 
         /// <summary>
-        /// Compute hash given a newChar and last hash
+        /// Compute hash given a newChar and last hash.
         /// </summary>
-        /// <param name="lastHash"></param>
-        /// <param name="patternLength"></param>
-        /// <param name="removedChar"></param>
-        /// <param name="newChar"></param>
-        /// <returns></returns>
         private double computeHash(double lastHash, int patternLength,
             char removedChar, char newChar)
         {

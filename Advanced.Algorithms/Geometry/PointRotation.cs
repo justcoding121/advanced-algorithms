@@ -4,7 +4,6 @@ namespace Advanced.Algorithms.Geometry
 {
     public class PointRotation
     {
-
         public static Point Rotate(Point center, Point point, int angle)
         {
             double angleInRadians = angle * (Math.PI / 180);
