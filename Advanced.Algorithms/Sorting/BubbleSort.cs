@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Sorting
 {
+    /// <summary>
+    /// A bubble sort implementation.
+    /// </summary>
     public class BubbleSort<T> where T : IComparable
     {
         /// <summary>

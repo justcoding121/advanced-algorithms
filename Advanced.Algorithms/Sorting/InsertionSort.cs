@@ -2,6 +2,10 @@
 
 namespace Advanced.Algorithms.Sorting
 {
+    /// <summary>
+    /// An insertion sort implementation.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class InsertionSort<T> where T : IComparable
     {
         /// <summary>

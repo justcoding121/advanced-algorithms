@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
 {
+    /// <summary>
+    /// A floyd-warshall shortest path algorithm implementation.
+    /// </summary>
     public class FloydWarshallShortestPath<T, W> where W : IComparable
     {
         readonly IShortestPathOperators<W> operators;

@@ -1,7 +1,7 @@
 ﻿namespace Advanced.Algorithms.String
 {
     /// <summary>
-    /// Knuth–Morris–Pratt(KMP) search implementation.
+    /// Knuth–Morris–Pratt(KMP) string search implementation.
     /// </summary>
     public class KMP
     {

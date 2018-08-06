@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
 {
+    /// <summary>
+    /// A minimum vertex conver algorithm implementation.
+    /// </summary>
     public class MinVertexCover<T>
     {
         public List<GraphVertex<T>> GetMinVertexCover(Graph<T> graph)

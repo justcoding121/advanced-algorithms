@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace Advanced.Algorithms.Search
 {
+    /// <summary>
+    /// A boyer-moore majority finder algorithm implementation.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class BoyerMoore<T> where T : IComparable
     {
         public static T FindMajority(IEnumerable<T> input)

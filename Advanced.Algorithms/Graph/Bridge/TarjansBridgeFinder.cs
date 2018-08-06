@@ -77,6 +77,9 @@ namespace Advanced.Algorithms.Graph
         }
     }
 
+    /// <summary>
+    /// The bridge object.
+    /// </summary>
     public class Bridge<T>
     {
         public T vertexA { get; }

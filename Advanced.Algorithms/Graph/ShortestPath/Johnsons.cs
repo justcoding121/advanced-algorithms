@@ -6,6 +6,9 @@ using System.Linq;
 
 namespace Advanced.Algorithms.Graph
 { 
+    /// <summary>
+    /// A Johnson's shortest path algorithm implementation.
+    /// </summary>
     public class JohnsonsShortestPath<T, W> where W : IComparable
     {
         readonly IJohnsonsShortestPathOperators<T, W> operators;

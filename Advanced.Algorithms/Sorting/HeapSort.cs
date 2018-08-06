@@ -3,6 +3,9 @@ using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Sorting
 {
+    /// <summary>
+    /// A heap sort implementation.
+    /// </summary>
     public class HeapSort<T> where T : IComparable
     {
         /// <summary>

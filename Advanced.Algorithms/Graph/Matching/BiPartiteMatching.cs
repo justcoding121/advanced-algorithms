@@ -109,6 +109,9 @@ namespace Advanced.Algorithms.Graph
         }
     }
 
+    /// <summary>
+    /// The match result object.
+    /// </summary>
     public class MatchEdge<T>
     {
         public T Source { get; }

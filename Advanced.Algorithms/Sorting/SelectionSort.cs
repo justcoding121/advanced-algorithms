@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Sorting
 {
+    /// <summary>
+    /// A selection sort implementation.
+    /// </summary>
     public class SelectionSort<T> where T : IComparable
     {
         /// <summary>

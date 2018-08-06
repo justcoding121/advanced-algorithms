@@ -3,6 +3,9 @@ using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Sorting
 {
+    /// <summary>
+    /// A tree sort implementation.
+    /// </summary>
     public class TreeSort<T> where T : IComparable
     {
         /// <summary>
