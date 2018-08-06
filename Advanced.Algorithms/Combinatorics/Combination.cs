@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Combinatorics
 {
+    /// <summary>
+    /// Combinations computer.
+    /// </summary>
     public class Combination
     {
         public static List<List<T>> Find<T>(List<T> input, int r, bool withRepetition)

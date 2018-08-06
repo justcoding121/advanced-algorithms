@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Closest-point pair finder.
+    /// </summary>
     public class ClosestPointPair
     {
         public static double Find(List<int[]> points)

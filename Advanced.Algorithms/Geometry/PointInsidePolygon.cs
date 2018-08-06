@@ -1,11 +1,10 @@
 ﻿namespace Advanced.Algorithms.Geometry
 {
-
+    /// <summary>
+    ///  Implementesa  method tp Check whether a given point is inside given polygon.
+    /// </summary>
     public class PointInsidePolygon
     {
-        /// <summary>
-        ///     Checks whether the given point is inside given polygon.
-        /// </summary>
         public static bool IsInside(Polygon polygon, Point point)
         {
             //a imaginary ray line from point to right infinity

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Rectangle object.
+    /// </summary>
     public class Rectangle
     {
         public Point LeftTop { get; set; }

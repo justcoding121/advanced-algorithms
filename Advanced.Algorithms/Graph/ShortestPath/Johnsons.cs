@@ -88,6 +88,9 @@ namespace Advanced.Algorithms.Graph
 
     }
 
+    /// <summary>
+    /// A concrete implementation of this interface is required by Johnson's algorithm.
+    /// </summary>
     public interface IJohnsonsShortestPathOperators<T, W>
     : IShortestPathOperators<W> where W : IComparable
     {

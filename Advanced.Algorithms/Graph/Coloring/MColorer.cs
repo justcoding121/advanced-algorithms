@@ -94,6 +94,9 @@ namespace Advanced.Algorithms.Graph
         }
     }
 
+    /// <summary>
+    /// M-coloring result object.
+    /// </summary>
     public class MColorResult<T, C>
     {
         public bool CanColor { get; }

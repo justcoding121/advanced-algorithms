@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Line object.
+    /// </summary>
     public class Line
     {
         public Point Left { get; private set; }

@@ -121,6 +121,9 @@ namespace Advanced.Algorithms.Graph
         }
     }
 
+    /// <summary>
+    /// Generic operator interface required by BiPartite matching algorithm.
+    /// </summary>
     public interface IBiPartiteMatchOperators<T> : IFlowOperators<int>
     {
         /// <summary>

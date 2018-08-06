@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Compares two rectangles for geometrical equality implementing IEqualityComparer.
+    /// </summary>
     public class RectangleComparer : IEqualityComparer<Rectangle>
     {
         public bool Equals(Rectangle x, Rectangle y)

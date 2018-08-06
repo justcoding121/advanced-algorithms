@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Rectangle intersection finder.
+    /// </summary>
     public class RectangleIntersection
     {
         /// <summary>

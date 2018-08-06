@@ -1,5 +1,8 @@
 ﻿namespace Advanced.Algorithms.Binary
 {
+    /// <summary>
+    /// Logarithm calculator.
+    /// </summary>
     public class Logarithm
     {
         public static int CalcBase2LogFloor(int x)

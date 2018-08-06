@@ -148,7 +148,7 @@ namespace Advanced.Algorithms.Graph
     }
 
     /// <summary>
-    /// Generic operators.
+    /// Generic operators interface required by shorted path algorithms.
     /// </summary>
     public interface IShortestPathOperators<W> where W : IComparable
     {
@@ -157,6 +157,9 @@ namespace Advanced.Algorithms.Graph
         W Sum(W a, W b);
     }
 
+    /// <summary>
+    /// Shortest path result object.
+    /// </summary>
     public class ShortestPathResult<T, W> where W : IComparable
     {
         public ShortestPathResult(List<T> path, W length)

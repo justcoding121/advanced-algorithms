@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Linq;
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Line intersection computer.
+    /// </summary>
     public class LineIntersection
     {
         /// <summary>
@@ -197,6 +199,9 @@ namespace Advanced.Algorithms.Geometry
 
     }
 
+    /// <summary>
+    /// Line extensions.
+    /// </summary>
     public static class LineExtensions
     {
         public static bool Intersects(this Line lineA, Line lineB, int precision = 5)

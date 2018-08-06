@@ -115,7 +115,7 @@ namespace Advanced.Algorithms.Graph
     }
 
     /// <summary>
-    /// MST edge object.
+    /// Minimum spanning tree edge object.
     /// </summary>
     public class MSTEdge<T, W> : IComparable where W : IComparable
     {

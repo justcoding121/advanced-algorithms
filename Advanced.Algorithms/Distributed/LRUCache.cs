@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Advanced.Algorithms.Distributed
 {
+    /// <summary>
+    /// A least recently used cache implemetation.
+    /// </summary>
     public class LRUCache<K, V>
     {
         private readonly int capacity;

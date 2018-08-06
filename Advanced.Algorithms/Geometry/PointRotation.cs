@@ -2,6 +2,9 @@
 
 namespace Advanced.Algorithms.Geometry
 {
+    /// <summary>
+    /// Rotates given point by given angle about given center.
+    /// </summary>
     public class PointRotation
     {
         public static Point Rotate(Point center, Point point, int angle)

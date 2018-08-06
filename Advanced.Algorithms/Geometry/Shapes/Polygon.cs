@@ -3,8 +3,7 @@
 namespace Advanced.Algorithms.Geometry
 {
     /// <summary>
-    ///     A polygon when more than one edge points are provided.
-    ///     Or a point when only one edge point is provided.
+    /// Polygon object.
     /// </summary>
     public class Polygon
     {

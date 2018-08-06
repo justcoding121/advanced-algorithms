@@ -131,6 +131,9 @@ namespace Advanced.Algorithms.Graph
 
     }
 
+    /// <summary>
+    /// All pairs shortest path algorithm result object.
+    /// </summary>
     public class AllPairShortestPathResult<T, W> where W : IComparable
     {
         public T Source { get; }
