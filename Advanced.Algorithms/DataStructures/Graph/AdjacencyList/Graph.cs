@@ -188,7 +188,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     }
 
     /// <summary>
-    /// Graph vertex.
+    /// Graph vertex for adjacency list Graph implementation. 
     /// IEnumerable enumerates all the outgoing edge destination vertices.
     /// </summary>
     public class GraphVertex<T> : IEnumerable<T>

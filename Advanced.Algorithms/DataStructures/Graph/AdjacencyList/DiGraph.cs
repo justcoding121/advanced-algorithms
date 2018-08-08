@@ -218,7 +218,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     }
 
     /// <summary>
-    /// DiGraph vertex. 
+    /// DiGraph vertex for adjacency list Graph implementation. 
     /// IEnumerable enumerates all the outgoing edge destination vertices.
     /// </summary>
     public class DiGraphVertex<T> : IEnumerable<T>

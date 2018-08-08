@@ -31,7 +31,7 @@ namespace Advanced.Algorithms.Tests.Distributed
             //multi-threaded async producer
             tasks.AddRange(Enumerable.Range(1, testDataCount).Select(async x =>
             {
-                await Task.Delay(random.Next(0, 2));
+                await Task.Delay(random.Next(0, 1));
 
                 await producerLock.WaitAsync();
                 
@@ -46,7 +46,7 @@ namespace Advanced.Algorithms.Tests.Distributed
             //multi-threaded async consumer
             tasks.AddRange(Enumerable.Range(1, testDataCount).Select(async x =>
             {
-                await Task.Delay(random.Next(0, 2));
+                await Task.Delay(random.Next(0, 1));
 
                 await consumerLock.WaitAsync();
 
