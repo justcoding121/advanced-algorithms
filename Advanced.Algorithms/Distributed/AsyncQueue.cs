@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.Distributed
         //data queue.
         private readonly Queue<T> queue = new Queue<T>();
 
-        //consumer task queue & lock.
+        //consumer task queue and lock.
         private readonly Queue<TaskCompletionSource<T>> consumerQueue = new Queue<TaskCompletionSource<T>>();
         private SemaphoreSlim consumerQueueLock = new SemaphoreSlim(1);
 

@@ -62,7 +62,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// Remove an existing vertex from this graph.
         /// Time complexity: O(V) where V is the number of vertices.
         /// </summary>
-        /// <param name="vertex"></param>
         public void RemoveVertex(T vertex)
         {
             if (vertex == null)

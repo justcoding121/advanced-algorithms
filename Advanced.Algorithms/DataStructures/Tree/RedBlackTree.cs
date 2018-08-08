@@ -705,8 +705,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///     Get the value previous to given value in this BST.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextLower(T value)
         {
             var node = FindNode(value);
@@ -722,8 +720,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///     Get the value next to given value in this BST.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextHigher(T value)
         {
             var node = FindNode(value);

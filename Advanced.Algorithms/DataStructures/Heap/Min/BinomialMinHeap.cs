@@ -184,7 +184,7 @@ namespace Advanced.Algorithms.DataStructures
                     cur = next;
                     next = cur.Next;
                 }
-                //degress of cur & next are same
+                //degress of cur and next are same
                 else
                 {
                     //case 2 next degree equals next-next degree
@@ -228,7 +228,7 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         /// Merges the given sorted forest to current sorted Forest 
-        /// & returns the last inserted node (pointer required for decrement-key)
+        /// and returns the last inserted node (pointer required for decrement-key)
         /// </summary>
         private void mergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
         {

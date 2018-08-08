@@ -26,7 +26,7 @@
                 countArray[item]++;
             }
 
-            //now aggregate & assign the sum from left to right
+            //now aggregate and assign the sum from left to right
             var sum = countArray[0];
             for (var i = 1; i <= max; i++)
             {

@@ -381,8 +381,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Rotates the current root left and returns new root
         /// </summary>
-        /// <param name="currentRoot"></param>
-        /// <returns></returns>
         private TreapTreeNode<T> leftRotate(TreapTreeNode<T> currentRoot)
         {
             var prevRoot = currentRoot;

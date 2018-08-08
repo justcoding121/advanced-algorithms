@@ -46,7 +46,7 @@ namespace Advanced.Algorithms.Graph
             }
 
             //pick each edge one by one
-            //if both source & target belongs to same set 
+            //if both source and target belongs to same set 
             //then don't add the edge to result
             //otherwise add it to result and union sets
             for (int i = 0; i < edges.Count; i++)

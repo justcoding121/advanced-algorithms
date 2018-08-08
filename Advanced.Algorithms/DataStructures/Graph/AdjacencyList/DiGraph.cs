@@ -114,7 +114,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// Remove an existing edge between source & destination.
+        /// Remove an existing edge between source and destination.
         /// Time complexity: O(1).
         /// </summary>
         public void RemoveEdge(T source, T dest)

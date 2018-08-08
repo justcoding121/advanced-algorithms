@@ -364,8 +364,6 @@ namespace Advanced.Algorithms.DataStructures
         ///     Get the value previous to given value in this BST.
         ///     Time complexity: O(n)
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextLower(T value)
         {
             var node = find(value);

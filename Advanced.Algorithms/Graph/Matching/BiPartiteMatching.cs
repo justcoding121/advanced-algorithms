@@ -73,7 +73,7 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// create a directed unit weighted graph with given dummySource to Patition 1 & Patition 2 to dummy sink.
+        /// create a directed unit weighted graph with given dummySource to Patition 1 and Patition 2 to dummy sink.
         /// </summary>
         private static WeightedDiGraph<T, int> createFlowGraph(Graph<T> graph,
             T dummySource, T dummySink,

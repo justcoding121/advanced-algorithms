@@ -53,7 +53,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(n).
         /// </summary>
-        /// <param name="value"></param>
         public void Delete(T[] value)
         {
             validateDimensions(value);
@@ -310,7 +309,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         private bool inRange(RedBlackTreeNode<RangeTreeNode<T>> currentNode, T start, T end)
         {
-            //start is less than current & end is greater than current
+            //start is less than current and end is greater than current
             return start.CompareTo(currentNode.Value.Value) <= 0
                 && end.CompareTo(currentNode.Value.Value) >= 0;
         }

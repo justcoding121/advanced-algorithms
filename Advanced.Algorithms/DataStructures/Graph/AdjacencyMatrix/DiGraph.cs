@@ -74,7 +74,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         /// Remove an existing vertex from graph
         /// Time complexity: O(V) where V is the number of vertices.
         /// </summary>
-        /// <param name="value"></param>
         public void RemoveVertex(T value)
         {
             if (value == null)
@@ -112,8 +111,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         /// add an edge from source to destination vertex
         /// Time complexity: O(1).
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="dest"></param>
         public void AddEdge(T source, T dest)
         {
             if (source == null || dest == null)
@@ -137,7 +134,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// remove an existing edge between source & destination
+        /// remove an existing edge between source and destination
         /// Time complexity: O(1).
         /// </summary>
         public void RemoveEdge(T source, T dest)

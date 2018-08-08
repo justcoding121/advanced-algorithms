@@ -436,7 +436,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Is the point in node is within start & end points.
+        /// Is the point in node is within start and end points.
         /// </summary>
         private bool inRange(KDTreeNode<T> node, T[] start, T[] end)
         {
