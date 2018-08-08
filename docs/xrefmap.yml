@@ -9281,6 +9281,49 @@ references:
   commentId: N:Advanced.Algorithms.Distributed
   fullName: Advanced.Algorithms.Distributed
   nameWithType: Advanced.Algorithms.Distributed
+- uid: Advanced.Algorithms.Distributed.AsyncQueue`1
+  name: AsyncQueue<T>
+  href: api/Advanced.Algorithms.Distributed.AsyncQueue-1.html
+  commentId: T:Advanced.Algorithms.Distributed.AsyncQueue`1
+  name.vb: AsyncQueue(Of T)
+  fullName: Advanced.Algorithms.Distributed.AsyncQueue<T>
+  fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T)
+  nameWithType: AsyncQueue<T>
+  nameWithType.vb: AsyncQueue(Of T)
+- uid: Advanced.Algorithms.Distributed.AsyncQueue`1.DequeueAsync(System.Threading.CancellationToken)
+  name: DequeueAsync(CancellationToken)
+  href: api/Advanced.Algorithms.Distributed.AsyncQueue-1.html#Advanced_Algorithms_Distributed_AsyncQueue_1_DequeueAsync_System_Threading_CancellationToken_
+  commentId: M:Advanced.Algorithms.Distributed.AsyncQueue`1.DequeueAsync(System.Threading.CancellationToken)
+  fullName: Advanced.Algorithms.Distributed.AsyncQueue<T>.DequeueAsync(System.Threading.CancellationToken)
+  fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).DequeueAsync(System.Threading.CancellationToken)
+  nameWithType: AsyncQueue<T>.DequeueAsync(CancellationToken)
+  nameWithType.vb: AsyncQueue(Of T).DequeueAsync(CancellationToken)
+- uid: Advanced.Algorithms.Distributed.AsyncQueue`1.DequeueAsync*
+  name: DequeueAsync
+  href: api/Advanced.Algorithms.Distributed.AsyncQueue-1.html#Advanced_Algorithms_Distributed_AsyncQueue_1_DequeueAsync_
+  commentId: Overload:Advanced.Algorithms.Distributed.AsyncQueue`1.DequeueAsync
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.AsyncQueue<T>.DequeueAsync
+  fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).DequeueAsync
+  nameWithType: AsyncQueue<T>.DequeueAsync
+  nameWithType.vb: AsyncQueue(Of T).DequeueAsync
+- uid: Advanced.Algorithms.Distributed.AsyncQueue`1.EnqueueAsync(`0,System.Threading.CancellationToken)
+  name: EnqueueAsync(T, CancellationToken)
+  href: api/Advanced.Algorithms.Distributed.AsyncQueue-1.html#Advanced_Algorithms_Distributed_AsyncQueue_1_EnqueueAsync__0_System_Threading_CancellationToken_
+  commentId: M:Advanced.Algorithms.Distributed.AsyncQueue`1.EnqueueAsync(`0,System.Threading.CancellationToken)
+  fullName: Advanced.Algorithms.Distributed.AsyncQueue<T>.EnqueueAsync(T, System.Threading.CancellationToken)
+  fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).EnqueueAsync(T, System.Threading.CancellationToken)
+  nameWithType: AsyncQueue<T>.EnqueueAsync(T, CancellationToken)
+  nameWithType.vb: AsyncQueue(Of T).EnqueueAsync(T, CancellationToken)
+- uid: Advanced.Algorithms.Distributed.AsyncQueue`1.EnqueueAsync*
+  name: EnqueueAsync
+  href: api/Advanced.Algorithms.Distributed.AsyncQueue-1.html#Advanced_Algorithms_Distributed_AsyncQueue_1_EnqueueAsync_
+  commentId: Overload:Advanced.Algorithms.Distributed.AsyncQueue`1.EnqueueAsync
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Distributed.AsyncQueue<T>.EnqueueAsync
+  fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).EnqueueAsync
+  nameWithType: AsyncQueue<T>.EnqueueAsync
+  nameWithType.vb: AsyncQueue(Of T).EnqueueAsync
 - uid: Advanced.Algorithms.Distributed.CircularQueue`1
   name: CircularQueue<T>
   href: api/Advanced.Algorithms.Distributed.CircularQueue-1.html
