@@ -5790,6 +5790,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).Edges
   nameWithType: Graph<T>.Edges
   nameWithType.vb: Graph(Of T).Edges
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).GetEnumerator()
+  nameWithType: Graph<T>.GetEnumerator()
+  nameWithType.vb: Graph(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).GetEnumerator
+  nameWithType: Graph<T>.GetEnumerator
+  nameWithType.vb: Graph(Of T).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.HasEdge(`0,`0)
   name: HasEdge(T, T)
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_HasEdge__0__0_
@@ -5841,6 +5858,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).RemoveVertex
   nameWithType: Graph<T>.RemoveVertex
   nameWithType.vb: Graph(Of T).RemoveVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: Graph<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: Graph(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: Graph<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: Graph(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_VerticesCount
@@ -5918,6 +5954,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph(Of T, TW).AddVertex
   nameWithType: WeightedDiGraph<T, TW>.AddVertex
   nameWithType.vb: WeightedDiGraph(Of T, TW).AddVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedDiGraph_2_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<T, TW>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph(Of T, TW).GetEnumerator()
+  nameWithType: WeightedDiGraph<T, TW>.GetEnumerator()
+  nameWithType.vb: WeightedDiGraph(Of T, TW).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedDiGraph_2_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<T, TW>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph(Of T, TW).GetEnumerator
+  nameWithType: WeightedDiGraph<T, TW>.GetEnumerator
+  nameWithType.vb: WeightedDiGraph(Of T, TW).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.HasEdge(`0,`0)
   name: HasEdge(T, T)
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedDiGraph_2_HasEdge__0__0_
@@ -6003,6 +6056,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph(Of T, TW).RemoveVertex
   nameWithType: WeightedDiGraph<T, TW>.RemoveVertex
   nameWithType.vb: WeightedDiGraph(Of T, TW).RemoveVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedDiGraph_2_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: WeightedDiGraph<T, TW>.IEnumerable.GetEnumerator()
+  nameWithType.vb: WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedDiGraph_2_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: WeightedDiGraph<T, TW>.IEnumerable.GetEnumerator
+  nameWithType.vb: WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedDiGraph_2_VerticesCount
@@ -6097,6 +6169,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).Edges
   nameWithType: WeightedGraph<T, TW>.Edges
   nameWithType.vb: WeightedGraph(Of T, TW).Edges
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).GetEnumerator()
+  nameWithType: WeightedGraph<T, TW>.GetEnumerator()
+  nameWithType.vb: WeightedGraph(Of T, TW).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).GetEnumerator
+  nameWithType: WeightedGraph<T, TW>.GetEnumerator
+  nameWithType.vb: WeightedGraph(Of T, TW).GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.HasEdge(`0,`0)
   name: HasEdge(T, T)
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_HasEdge__0__0_
@@ -6148,6 +6237,25 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).RemoveVertex
   nameWithType: WeightedGraph<T, TW>.RemoveVertex
   nameWithType.vb: WeightedGraph(Of T, TW).RemoveVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: WeightedGraph<T, TW>.IEnumerable.GetEnumerator()
+  nameWithType.vb: WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: WeightedGraph<T, TW>.IEnumerable.GetEnumerator
+  nameWithType.vb: WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_VerticesCount
