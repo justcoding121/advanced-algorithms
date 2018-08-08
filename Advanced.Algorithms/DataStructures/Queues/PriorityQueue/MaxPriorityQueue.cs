@@ -23,7 +23,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity:O(log(n)).
         /// </summary>
-        /// <returns></returns>
         public T Dequeue()
         {
             return maxHeap.ExtractMax();
@@ -32,7 +31,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity:O(1).
         /// </summary>
-        /// <returns></returns>
         public T Peek()
         {
             return maxHeap.PeekMax();

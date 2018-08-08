@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Graph
 {
     /// <summary>
     /// A ford-fulkerson max flox implementation on weighted directed graph using 
-    /// adjacency list representation of graph & residual graph.
+    /// adjacency list representation of graph and residual graph.
     /// </summary>
     public class FordFulkersonMaxFlow<T, W> where W : IComparable
     {

@@ -181,9 +181,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             return Vertices.Select(x => x.Key).GetEnumerator();
         }
     }
-  
+
     /// <summary>
-    /// A weighted graph vertex.
+    /// A weighted graph vertex for adjacency list Graph implementation. 
     /// IEnumerable enumerates all the outgoing edge destination vertices.
     /// </summary>
     public class WeightedGraphVertex<T, TW> : IEnumerable<T> where TW : IComparable

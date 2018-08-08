@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 {
@@ -7,7 +9,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
     /// A weighted graph implementation using dynamically growinng/shrinking adjacency matrix array.
     /// IEnumerable enumerates all vertices.
     /// </summary>
-    public class WeightedDiGraph<T, TW> where TW : IComparable
+    public class WeightedDiGraph<T, TW> : IEnumerable<T> where TW : IComparable
     {
         public int VerticesCount => usedSize;
 
@@ -300,6 +302,16 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             vertexIndices = newVertexIndices;
             reverseVertexIndices = newReverseIndices;
             maxSize /= 2;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return vertexIndices.Select(x => x.Key).GetEnumerator();
         }
     }
 }

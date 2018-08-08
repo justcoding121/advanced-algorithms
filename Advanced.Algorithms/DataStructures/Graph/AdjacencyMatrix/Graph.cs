@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 {
@@ -9,7 +10,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
     /// A directed graph implementation using dynamically growinng/shrinking adjacency matrix array.
     /// IEnumerable enumerates all vertices.
     /// </summary>
-    public class Graph<T>
+    public class Graph<T> : IEnumerable<T>
     {
         public int VerticesCount => usedSize;
 
@@ -135,7 +136,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         }
 
         /// <summary>
-        /// Remove an existing edge between source & destination.
+        /// Remove an existing edge between source and destination.
         /// Time complexity: O(1).
         /// </summary>
         public void RemoveEdge(T source, T dest)
@@ -297,6 +298,16 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             vertexIndices = newVertexIndices;
             reverseVertexIndices = newReverseIndices;
             maxSize /= 2;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return vertexIndices.Select(x => x.Key).GetEnumerator();
         }
     }
 }

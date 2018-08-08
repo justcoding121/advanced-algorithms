@@ -7,7 +7,6 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A red black tree implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
     {     
         private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
@@ -73,11 +72,6 @@ namespace Advanced.Algorithms.DataStructures
         private RedBlackTreeNode<T> findMax(RedBlackTreeNode<T> node)
         {
             return node.FindMax() as RedBlackTreeNode<T>;
-        }
-
-        private RedBlackTreeNode<T> findMin(RedBlackTreeNode<T> node)
-        {
-            return node.FindMin() as RedBlackTreeNode<T>;
         }
 
         /// <summary>
@@ -703,10 +697,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value previous to given value in this BST.
+        ///     Get the next lower value to given value in this BST.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextLower(T value)
         {
             var node = FindNode(value);
@@ -720,10 +712,8 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value next to given value in this BST.
+        ///     Get the next higher to given value in this BST.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextHigher(T value)
         {
             var node = FindNode(value);
@@ -783,7 +773,6 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// Red black tree node
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     internal class RedBlackTreeNode<T> : BSTNodeBase<T> where T : IComparable
     {
         internal new RedBlackTreeNode<T> Parent

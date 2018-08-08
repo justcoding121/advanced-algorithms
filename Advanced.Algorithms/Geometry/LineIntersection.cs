@@ -97,7 +97,7 @@ namespace Advanced.Algorithms.Geometry
             //=> -m1x1 + y1 = c1 ----(1)
             //assume equation of line 2 as y2 = m2x2 + c2
             //=> -m2x2 + y2 = c2 -----(2)
-            //if line 1 and 2 intersect then x1=x2=x & y1=y2=y where (x,y) is the intersection point
+            //if line 1 and 2 intersect then x1=x2=x and y1=y2=y where (x,y) is the intersection point
             //so we will get below two equations 
             //-m1x + y = c1 --------(3)
             //-m2x + y = c2 --------(4)
@@ -136,7 +136,7 @@ namespace Advanced.Algorithms.Geometry
                 x = x3;
                 y = c1 + m1 * x3;
             }
-            //lineA & lineB are not vertical 
+            //lineA and lineB are not vertical 
             //(could be horizontal we can handle it with slope = 0)
             else
             {
@@ -148,13 +148,13 @@ namespace Advanced.Algorithms.Geometry
                 double m2 = (y4 - y3) / (x4 - x3);
                 double c2 = -m2 * x3 + y3;
 
-                //solving equations (3) & (4) => x = (c1-c2)/(m2-m1)
+                //solving equations (3) and (4) => x = (c1-c2)/(m2-m1)
                 //plugging x value in equation (4) => y = c2 + m2 * x
                 x = (c1 - c2) / (m2 - m1);
                 y = c2 + m2 * x;
 
                 //verify by plugging intersection point (x, y)
-                //in orginal equations (1) & (2) to see if they intersect
+                //in orginal equations (1) and (2) to see if they intersect
                 //otherwise x,y values will not be finite and will fail this check
                 if (!(Math.Abs(-m1 * x + y - c1) < tolerance
                     && Math.Abs(-m2 * x + y - c2) < tolerance))

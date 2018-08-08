@@ -122,7 +122,7 @@ namespace Advanced.Algorithms.DataStructures
 
 
         /// <summary>
-        /// Time complexity: O(log(n))
+        /// Time complexity: O(log(n)).
         /// </summary>
         public void Delete(T value)
         {
@@ -280,7 +280,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Time complexity: O(log(n))
+        /// Time complexity: O(log(n)).
         /// </summary>
         public T FindMax()
         {
@@ -302,7 +302,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Time complexity: O(log(n))
+        /// Time complexity: O(log(n)).
         /// </summary>
         public T FindMin()
         {
@@ -323,7 +323,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// Time complexity: O(log(n))
+        /// Time complexity: O(log(n)).
         /// </summary>
         public bool Contains(T value)
         {
@@ -536,7 +536,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value previous to given value in this BST.
+        ///     Get the next lower value to given value in this BST.
         ///     Time complexity: O(log(n))
         /// </summary>
         public T NextLower(T value)
@@ -552,7 +552,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value next to given value in this BST.
+        ///     Get the next higher value to given value in this BST.
         ///     Time complexity: O(log(n))
         /// </summary>
         public T NextHigher(T value)

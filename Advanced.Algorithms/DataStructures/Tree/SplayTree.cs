@@ -7,7 +7,6 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A splay tree implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class SplayTree<T> : IEnumerable<T> where T : IComparable
     {
         private SplayTreeNode<T> root { get; set; }
@@ -439,7 +438,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value previous to given value in this BST.
+        ///     Get the next lower value to given value in this BST.
         ///     Time complexity: O(n).
         /// </summary>
         public T NextLower(T value)
@@ -455,7 +454,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value next to given value in this BST.
+        ///     Get the next higher value to given value in this BST.
         ///     Time complexity: O(n).
         /// </summary>
         public T NextHigher(T value)

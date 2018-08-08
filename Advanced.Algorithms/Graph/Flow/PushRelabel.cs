@@ -26,7 +26,7 @@ namespace Advanced.Algorithms.Graph
             //clone to create a residual graph
             var residualGraph = createResidualGraph(graph);
 
-            //init vertex Height & Overflow object (ResidualGraphVertexStatus)
+            //init vertex Height and Overflow object (ResidualGraphVertexStatus)
             var vertexStatusMap = new Dictionary<T, ResidualGraphVertexStatus>();
             foreach(var vertex in residualGraph.Vertices)
             {
@@ -118,7 +118,7 @@ namespace Advanced.Algorithms.Graph
 
             foreach(var edge in overflowVertex.OutEdges)
             {
-                //if out edge has +ive weight & neighbour height is less then flow is possible
+                //if out edge has +ive weight and neighbour height is less then flow is possible
                 if(edge.Value.CompareTo(operators.defaultWeight) > 0
                     && vertexStatusMap[edge.Key.Value].Height 
                        < vertexStatusMap[overflowVertex.Value].Height)
@@ -197,7 +197,7 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// An object to keep track of Vertex Overflow & Height.
+        /// An object to keep track of Vertex Overflow and Height.
         /// </summary>
         internal class ResidualGraphVertexStatus
         {

@@ -1,7 +1,7 @@
 ﻿namespace Advanced.Algorithms.Geometry
 {
     /// <summary>
-    ///  Implementesa  method tp Check whether a given point is inside given polygon.
+    ///   Check whether a given point is inside given polygon.
     /// </summary>
     public class PointInsidePolygon
     {

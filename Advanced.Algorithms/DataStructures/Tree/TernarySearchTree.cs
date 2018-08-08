@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
+    /// <summary>
+    /// A ternary search tree implementation.
+    /// </summary>
     public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     {
         private TernarySearchTreeNode<T> root;
@@ -84,7 +87,6 @@ namespace Advanced.Algorithms.DataStructures
         /// Deletes a record from this ternary search tree.
         /// Time complexity: O(m) where m is the length of entry.
         /// </summary>
-        /// <param name="entry"></param>
         public void Delete(T[] entry)
         {
             delete(root, entry, 0);

@@ -288,7 +288,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Merges the given fibornacci node list to current Forest 
         /// </summary>
-        /// <param name="headPointer"></param>
         private void mergeForests(FibornacciHeapNode<T> headPointer)
         {
             var current = headPointer;

@@ -12,24 +12,17 @@ namespace Advanced.Algorithms.Distributed
         //data queue.
         private readonly Queue<T> queue = new Queue<T>();
 
-        //consumer task queue & lock.
+        //consumer task queue and lock.
         private readonly Queue<TaskCompletionSource<T>> consumerQueue = new Queue<TaskCompletionSource<T>>();
         private SemaphoreSlim consumerQueueLock = new SemaphoreSlim(1);
-
-        private CancellationToken taskCancellationToken;
-
-        internal AsyncQueue(CancellationToken taskCancellationToken = default(CancellationToken))
-        {
-            this.taskCancellationToken = taskCancellationToken;
-        }
 
         /// <summary>
         ///     Supports multi-threaded producers.
         ///     Time complexity: O(1).
         /// </summary>
-        internal async Task EnqueueAsync(T value)
+        internal async Task EnqueueAsync(T value, CancellationToken taskCancellationToken = default(CancellationToken))
         {
-            await consumerQueueLock.WaitAsync();
+            await consumerQueueLock.WaitAsync(taskCancellationToken);
 
             if(consumerQueue.Count > 0)
             {
@@ -48,9 +41,9 @@ namespace Advanced.Algorithms.Distributed
         ///      Supports multi-threaded consumers.
         ///      Time complexity: O(1).
         /// </summary>
-        internal async Task<T> DequeueAsync()
+        internal async Task<T> DequeueAsync(CancellationToken taskCancellationToken = default(CancellationToken))
         {
-            await consumerQueueLock.WaitAsync();
+            await consumerQueueLock.WaitAsync(taskCancellationToken);
 
             if (queue.Count > 0)
             {

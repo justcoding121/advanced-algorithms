@@ -8,7 +8,6 @@ namespace Advanced.Algorithms.Search
     /// <summary>
     /// A quick select for Kth smallest algorithm implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class QuickSelect<T> where T : IComparable
     {
         public static T FindSmallest(IEnumerable<T> input, int k)

@@ -135,7 +135,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
-        /// <returns></returns>
         public T PeekMax()
         {
             if (heapForest.Head == null)
@@ -184,7 +183,7 @@ namespace Advanced.Algorithms.DataStructures
                     cur = next;
                     next = cur.Next;
                 }
-                //degress of cur & next are same
+                //degress of cur and next are same
                 else
                 {
                     //case 2 next degree equals next-next degree

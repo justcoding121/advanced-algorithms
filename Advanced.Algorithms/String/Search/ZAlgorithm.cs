@@ -55,7 +55,7 @@
                 //in result
                 if (prefixIndex > 1)
                 {
-                    //z-box left & right
+                    //z-box left and right
                     var left = i;
                     var right = i + prefixIndex;
 

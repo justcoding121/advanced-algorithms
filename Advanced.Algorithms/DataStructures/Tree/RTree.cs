@@ -357,7 +357,7 @@ namespace Advanced.Algorithms.DataStructures
         private void condenseTree(RTreeNode updatedleaf)
         {
             var current = updatedleaf;
-            var toReinsert = new System.Collections.Generic.Stack<RTreeNode>();
+            var toReinsert = new Stack<RTreeNode>();
 
             while (current != Root)
             {

@@ -114,7 +114,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         /// <summary>
-        /// Remove an existing edge between source & destination.
+        /// Remove an existing edge between source and destination.
         /// Time complexity: O(1).
         /// </summary>
         public void RemoveEdge(T source, T dest)
@@ -218,7 +218,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     }
 
     /// <summary>
-    /// DiGraph vertex. 
+    /// DiGraph vertex for adjacency list Graph implementation. 
     /// IEnumerable enumerates all the outgoing edge destination vertices.
     /// </summary>
     public class DiGraphVertex<T> : IEnumerable<T>

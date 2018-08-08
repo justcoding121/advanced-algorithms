@@ -183,7 +183,7 @@ namespace Advanced.Algorithms.DataStructures
             //and insert new median to parent
             if (node.KeyCount == maxKeysPerNode)
             {
-                //divide the current node values + new Node as left & right sub nodes
+                //divide the current node values + new Node as left and right sub nodes
                 var left = new BpTreeNode<T>(maxKeysPerNode, null);
                 var right = new BpTreeNode<T>(maxKeysPerNode, null);
 
@@ -227,7 +227,7 @@ namespace Advanced.Algorithms.DataStructures
                 var insertionCount = 0;
 
                 //insert newValue and existing values in sorted order
-                //to left & right nodes
+                //to left and right nodes
                 //set new median during sorting
                 for (var i = 0; i < node.KeyCount; i++)
                 {
@@ -276,8 +276,8 @@ namespace Advanced.Algorithms.DataStructures
 
                     }
 
-                    //pick the smaller among newValue & node.Keys[i]
-                    //and insert in to currentNode (left & right nodes)
+                    //pick the smaller among newValue and node.Keys[i]
+                    //and insert in to currentNode (left and right nodes)
                     //if new Value was already inserted then just copy from node.Keys in sequence
                     //since node.Keys is already in sorted order it should be fine
                     if (newValueInserted || node.Keys[i].CompareTo(newValue) < 0)
@@ -543,7 +543,7 @@ namespace Advanced.Algorithms.DataStructures
 
             var newNode = new BpTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
 
-            //if leaves are merged then update the Next & Prev pointers
+            //if leaves are merged then update the Next and Prev pointers
             if (leftSibling.IsLeaf)
             {
                 if (leftSibling.Prev != null)
@@ -943,18 +943,16 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        /// For shared test method accross B & B+ tree
+        /// For shared test method accross B and B+ tree
         /// </summary>
-        /// <returns></returns>
         internal override BNode<T> GetParent()
         {
             return Parent;
         }
 
         /// <summary>
-        /// For shared test method accross B & B+ tree
+        /// For shared test method accross B and B+ tree
         /// </summary>
-        /// <returns></returns>
         internal override BNode<T>[] GetChildren()
         {
             return Children;

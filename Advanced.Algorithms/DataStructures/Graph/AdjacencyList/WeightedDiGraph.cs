@@ -224,7 +224,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     }
 
     /// <summary>
-    /// A weighted graph vertex.
+    /// A weighted graph vertex for adjacency list Graph implementation. 
     /// IEnumerable enumerates all the outgoing edge destination vertices.
     /// </summary>
     public class WeightedDiGraphVertex<T, TW> : IEnumerable<T> where TW : IComparable

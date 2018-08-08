@@ -118,7 +118,7 @@ namespace Advanced.Algorithms.Graph
         private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph, Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
-            var pathStack = new System.Collections.Generic.Stack<T>();
+            var pathStack = new Stack<T>();
 
             pathStack.Push(destination);
 

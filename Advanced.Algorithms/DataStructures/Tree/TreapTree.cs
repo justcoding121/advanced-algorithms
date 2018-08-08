@@ -334,8 +334,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Rotates current root right and returns the new root node
         /// </summary>
-        /// <param name="currentRoot"></param>
-        /// <returns></returns>
         private TreapTreeNode<T> rightRotate(TreapTreeNode<T> currentRoot)
         {
             var prevRoot = currentRoot;
@@ -381,8 +379,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Rotates the current root left and returns new root
         /// </summary>
-        /// <param name="currentRoot"></param>
-        /// <returns></returns>
         private TreapTreeNode<T> leftRotate(TreapTreeNode<T> currentRoot)
         {
             var prevRoot = currentRoot;
@@ -434,7 +430,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value previous to given value in this BST.
+        ///     Get the next lower value to given value in this BST.
         ///     Time complexity: O(n).
         /// </summary>
         public T NextLower(T value)
@@ -450,7 +446,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value previous to given value in this BST.
+        ///     Get the next higher value to given value in this BST.
         ///     Time complexity: O(n).
         /// </summary>
         public T NextHigher(T value)

@@ -56,7 +56,6 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// Time complexity: O(1).
         /// </summary>
         /// <param name="index">The index to write or read.</param>
-        /// <returns></returns>
         public T this[int index]
         {
             get => itemAt(index);
@@ -75,7 +74,6 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// Add a new item to this array list.
         /// Time complexity: O(1) amortized.
         /// </summary>
-        /// <param name="item"></param>
         public void Add(T item)
         {
             grow();
