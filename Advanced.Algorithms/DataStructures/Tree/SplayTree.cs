@@ -438,7 +438,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value previous to given value in this BST.
+        ///     Get the next lower value to given value in this BST.
         ///     Time complexity: O(n).
         /// </summary>
         public T NextLower(T value)
@@ -454,7 +454,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value next to given value in this BST.
+        ///     Get the next higher value to given value in this BST.
         ///     Time complexity: O(n).
         /// </summary>
         public T NextHigher(T value)

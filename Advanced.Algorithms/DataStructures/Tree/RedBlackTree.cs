@@ -74,11 +74,6 @@ namespace Advanced.Algorithms.DataStructures
             return node.FindMax() as RedBlackTreeNode<T>;
         }
 
-        private RedBlackTreeNode<T> findMin(RedBlackTreeNode<T> node)
-        {
-            return node.FindMin() as RedBlackTreeNode<T>;
-        }
-
         /// <summary>
         ///  Time complexity: O(log(n))
         /// </summary>
@@ -702,7 +697,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value previous to given value in this BST.
+        ///     Get the next lower value to given value in this BST.
         /// </summary>
         public T NextLower(T value)
         {
@@ -717,7 +712,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///     Get the value next to given value in this BST.
+        ///     Get the next higher to given value in this BST.
         /// </summary>
         public T NextHigher(T value)
         {
