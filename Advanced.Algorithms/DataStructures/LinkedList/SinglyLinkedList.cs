@@ -51,7 +51,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(1).
         /// </summary>
-        /// <returns></returns>
         public T DeleteFirst()
         {
             if (Head == null)
@@ -69,7 +68,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(n).
         /// </summary>
-        /// <returns></returns>
         public T DeleteLast()
         {
             if (Head == null)

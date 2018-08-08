@@ -8,7 +8,6 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A binary search tree implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class BST<T> : IEnumerable<T> where T : IComparable
     {
         internal BSTNode<T> Root { get; set; }
@@ -380,8 +379,6 @@ namespace Advanced.Algorithms.DataStructures
         ///     Get the value next to given value in this BST.
         ///     Time complexity: O(n)
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T NextHigher(T value)
         {
             var node = find(value);

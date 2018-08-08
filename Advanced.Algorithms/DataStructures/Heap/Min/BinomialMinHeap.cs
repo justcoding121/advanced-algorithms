@@ -135,7 +135,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
-        /// <returns></returns>
         public T PeekMin()
         {
             if (heapForest.Head == null)

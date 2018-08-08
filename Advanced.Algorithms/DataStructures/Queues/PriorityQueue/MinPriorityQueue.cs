@@ -31,7 +31,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity:O(1).
         /// </summary>
-        /// <returns></returns>
         public T Peek()
         {
             return minHeap.PeekMin();

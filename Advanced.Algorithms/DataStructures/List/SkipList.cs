@@ -41,8 +41,6 @@ namespace Advanced.Algorithms.DataStructures
         /// If item is not found default value of T will be returned.
         /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public T Find(T value)
         {
             var current = Head;

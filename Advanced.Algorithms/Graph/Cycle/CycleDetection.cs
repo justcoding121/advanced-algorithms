@@ -6,7 +6,6 @@ namespace Advanced.Algorithms.Graph
     /// <summary>
     /// Cycle detection using Depth First Search.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class CycleDetector<T>
     {
         /// <summary>

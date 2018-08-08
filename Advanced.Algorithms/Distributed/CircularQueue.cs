@@ -7,7 +7,6 @@ namespace Advanced.Algorithms.Distributed
     /// <summary>
     /// Cicular queue aka Ring Buffer using fixed size array.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class CircularQueue<T>
     {
         private T[] queue;

@@ -198,7 +198,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Delete tail node.
         /// Time complexity: O(1)
         /// </summary>
-        /// <returns></returns>
+        /// 
         public T DeleteLast()
         {
             if (Tail == null)
@@ -344,7 +344,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(1).
         /// </summary>
-        /// <returns></returns>
+        /// 
         public bool IsEmpty() => Head == null;
 
         /// <summary>

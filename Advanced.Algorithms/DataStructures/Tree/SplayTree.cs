@@ -7,7 +7,6 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A splay tree implementation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class SplayTree<T> : IEnumerable<T> where T : IComparable
     {
         private SplayTreeNode<T> root { get; set; }

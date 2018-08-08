@@ -945,7 +945,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// For shared test method accross B and B+ tree
         /// </summary>
-        /// <returns></returns>
         internal override BNode<T> GetParent()
         {
             return Parent;
@@ -954,7 +953,6 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// For shared test method accross B and B+ tree
         /// </summary>
-        /// <returns></returns>
         internal override BNode<T>[] GetChildren()
         {
             return Children;
