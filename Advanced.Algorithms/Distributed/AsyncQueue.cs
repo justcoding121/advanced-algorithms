@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.Distributed
     /// <summary>
     ///     A simple asynchronous multi-thread supporting producer/consumer FIFO queue with minimal locking.
     /// </summary>
-    internal class AsyncQueue<T>
+    public class AsyncQueue<T>
     {
         //data queue.
         private readonly Queue<T> queue = new Queue<T>();
@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.Distributed
         ///     Supports multi-threaded producers.
         ///     Time complexity: O(1).
         /// </summary>
-        internal async Task EnqueueAsync(T value, CancellationToken taskCancellationToken = default(CancellationToken))
+        public async Task EnqueueAsync(T value, CancellationToken taskCancellationToken = default(CancellationToken))
         {
             await consumerQueueLock.WaitAsync(taskCancellationToken);
 
@@ -41,7 +41,7 @@ namespace Advanced.Algorithms.Distributed
         ///      Supports multi-threaded consumers.
         ///      Time complexity: O(1).
         /// </summary>
-        internal async Task<T> DequeueAsync(CancellationToken taskCancellationToken = default(CancellationToken))
+        public async Task<T> DequeueAsync(CancellationToken taskCancellationToken = default(CancellationToken))
         {
             await consumerQueueLock.WaitAsync(taskCancellationToken);
 
