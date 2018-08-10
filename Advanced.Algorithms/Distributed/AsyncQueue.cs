@@ -16,18 +16,20 @@ namespace Advanced.Algorithms.Distributed
         private readonly Queue<TaskCompletionSource<T>> consumerQueue = new Queue<TaskCompletionSource<T>>();
         private SemaphoreSlim consumerQueueLock = new SemaphoreSlim(1);
 
+        public int Count => queue.Count;
+
         /// <summary>
         ///     Supports multi-threaded producers.
         ///     Time complexity: O(1).
         /// </summary>
-        public async Task EnqueueAsync(T value, CancellationToken taskCancellationToken = default(CancellationToken))
+        public async Task EnqueueAsync(T value, int millisecondsTimeout = int.MaxValue, CancellationToken taskCancellationToken = default(CancellationToken))
         {
-            await consumerQueueLock.WaitAsync(taskCancellationToken);
+            await consumerQueueLock.WaitAsync(millisecondsTimeout, taskCancellationToken);
 
             if(consumerQueue.Count > 0)
             {
                 var consumer = consumerQueue.Dequeue();
-                consumer.SetResult(value);
+                consumer.TrySetResult(value);
             }
             else
             {
@@ -41,22 +43,29 @@ namespace Advanced.Algorithms.Distributed
         ///      Supports multi-threaded consumers.
         ///      Time complexity: O(1).
         /// </summary>
-        public async Task<T> DequeueAsync(CancellationToken taskCancellationToken = default(CancellationToken))
+        public async Task<T> DequeueAsync(int millisecondsTimeout = int.MaxValue, CancellationToken taskCancellationToken = default(CancellationToken))
         {
-            await consumerQueueLock.WaitAsync(taskCancellationToken);
+            await consumerQueueLock.WaitAsync(millisecondsTimeout, taskCancellationToken);
 
-            if (queue.Count > 0)
+            TaskCompletionSource<T> consumer;
+
+            try
             {
-                var result = queue.Dequeue();
-                consumerQueueLock.Release();
-                return result;
+                if (queue.Count > 0)
+                {
+                    var result = queue.Dequeue();
+                    consumerQueueLock.Release();
+                    return result;
+                }
+
+                consumer = new TaskCompletionSource<T>();
+                taskCancellationToken.Register(() => consumer.TrySetCanceled());
+                consumerQueue.Enqueue(consumer);
             }
-          
-            var consumer = new TaskCompletionSource<T>();
-            taskCancellationToken.Register(() => consumer.TrySetCanceled());
-            consumerQueue.Enqueue(consumer);
-            
-            consumerQueueLock.Release();
+            finally
+            {
+                consumerQueueLock.Release();
+            }
 
             return await consumer.Task;
 
