@@ -179,13 +179,13 @@
     <Compile Include="String\Search\Z_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Advanced.Algorithms\Advanced.Algorithms.csproj">
-      <Project>{0bcbf659-72a2-4f4c-a481-b40d78490c2f}</Project>
-      <Name>Advanced.Algorithms</Name>
-    </ProjectReference>
+    <None Include="StrongNameKey.snk" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="StrongNameKey.snk" />
+    <ProjectReference Include="..\..\src\Advanced.Algorithms\Advanced.Algorithms.csproj">
+      <Project>{32e22d53-cecd-4e2d-adad-85dd79a8549f}</Project>
+      <Name>Advanced.Algorithms</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
