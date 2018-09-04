@@ -23,7 +23,7 @@ Supports
  * .Net Standard 1.0 or above
  * .Net Framework 4.0 or above
 
-### Development Environment
+### Development environment
 
 #### Windows
 * Visual Studio Code as IDE for .NET core
