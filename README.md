@@ -154,7 +154,7 @@ TODO: implement trie compression.
 - [X] Weighted DiGraph ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Graph/AdjacencyMatrix/WeightedDiGraph.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Graph/AdjacencyMatrix/WeightedDiGraph_Tests.cs))
 
 
-# Algorithms
+## Algorithms
 
 ## Graph algorithms
 
