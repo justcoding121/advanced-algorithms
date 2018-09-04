@@ -156,37 +156,37 @@ TODO: implement trie compression.
 
 ## Algorithms
 
-## Graph algorithms
+### Graph algorithms
 
-### Articulation points
+#### Articulation points
 
 - [X] Tarjan's articulation points finder ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ArticulationPoint/TarjansArticulationFinder.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ArticulationPoints/TarjansArticulation_Tests.cs))
 
-### Bridges
+#### Bridges
 
 - [X] Tarjan's bridge finder ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Bridge/TarjansBridgeFinder.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Bridge/TarjansBridge_Tests.cs))
 
-### Connectivity
+#### Connectivity
 
 - [X] Kosaraju's strongly connected component finder ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Connectivity/KosarajuStronglyConnected.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Connectivity/KosarajuStronglyConnected_Tests.cs))
 - [X] Tarjan's strongly connected component finder ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Connectivity/TarjansStronglyConnected.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Connectivity/TarjansStronglyConnected_Tests.cs))
 - [X] Tarjan's bi-connected graph tester ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Connectivity/TarjansBiConnected.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Connectivity/TarjansBiConnected_Tests.cs))
 
-### Coloring
+#### Coloring
 
 - [X] M-coloring ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Coloring/MColorer.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Coloring/MColoring_Tests.cs))
 
-### Cover
+#### Cover
 
 - [X] Min vertex cover ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Cover/MinVertexCover.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Cover/MinVertexCover.cs))
 
-### Maximum flow
+#### Maximum flow
 
 - [X] Ford-Fulkerson algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Flow/FordFulkerson.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Flow/FordFulkerson_Tests.cs))
 - [X] Edmonds Karp's improvement ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Flow/EdmondsKarp.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Flow/EdmondsKarp_Tests.cs)) on Ford-Fulkerson algorithm
 - [X] Push relabel algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Flow/PushRelabel.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Flow/PushRelabel_Tests.cs))
 
-### Shortest path
+#### Shortest path
 
 - [X] Bellman-Ford algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ShortestPath/Bellman-Ford.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ShortestPath/BellmanFord_Tests.cs))
 - [X] Dijikstra's algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ShortestPath/Dijikstra.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ShortestPath/Dijikstras_Tests.cs)) using Fibornacci heap.
@@ -194,52 +194,52 @@ TODO: implement trie compression.
 - [X] Johnson's algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ShortestPath/Johnsons.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ShortestPath/Johnson_Tests.cs))
 - [X] Travelling salesman problem ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ShortestPath/TravellingSalesman.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ShortestPath/TravellingSalesman_Tests.cs))
 
-### Matching
+#### Matching
 
 - [X] Max bipartite matching ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Matching/BiPartiteMatching.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Matching/BiPartiteMatching_Tests.cs)) using Edmonds Karp's improved Ford Fulkerson max flow algorithm 
 - [X] Max bipartite matching ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Matching/HopcroftKarp.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Matching/HopcroftKarp_Tests.cs)) using Hopcroft Karp algorithm
 
-### Cut
+#### Cut
 
 - [X] Minimum cut ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Cut/MinimumCut.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Cut/MinCut_Tests.cs)) using Edmonds Karp's improved Ford Fulkerson max flow algorithm
 
-### Search
+#### Search
 
 - [X] Depth first ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Search/DepthFirst.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Search/DepthFirst_Tests.cs))
 - [X] Breadth first ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Search/BreadthFirst.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Search/BreadthFirst_Tests.cs))
 - [X] Bi-directional ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Search/BiDirectional.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Search/BiDirectional_Tests.cs))
 
-### Topological sort
+#### Topological sort
 
 - [X] Depth first method ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Sort/DepthFirstTopSort.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Sort/DepthFirstTopSort_Tests.cs))
 - [X] Kahn's algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/Sort/KahnTopSort.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/Sort/KahnTopSort_Tests.cs))
 
-### Minimum spanning tree
+#### Minimum spanning tree
 
 - [X] Kruskal's algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/MinimumSpanningTree/Kruskals.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/MinimumSpanningTree/Kruskals_Test.cs)) using merge sort and disjoint set
 - [X] Prim's algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/MinimumSpanningTree/Prims.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/MinimumSpanningTree/Prims_Test.cs))
 
-## String
+### String
 
 - [X] Manacher's algorithm for linear time longest palindrome ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/String/ManachersPalindrome.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/String/Manachers_Tests.cs))
 
-### Pattern matching
+#### Pattern matching
 
 - [X] Rabin-Karp string search ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/String/Search/RabinKarp.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/String/Search/RabinKarp_Tests.cs))
 - [X] Knuth–Morris–Pratt (KMP) string search ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/String/Search/KMP.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/String/Search/KMP_Tests.cs))
 - [X] Z algorithm for string search ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/String/Search/ZAlgorithm.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/String/Search/Z_Tests.cs))
 
-## Compression
+### Compression
 
 - [X] Huffman coding ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Compression/HuffmanCoding.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Compression/HuffmanCoding_Tests.cs)) 
 
-## Sorting and searching
+### Sorting and searching
 
 - [X] Binary search ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Search/BinarySearch.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Search/BinarySearch_Tests.cs))
 - [X] Quick select for kth smallest/largest in unordered collection using median of medians ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Search/QuickSelect.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Search/QuickSelect_Tests.cs))
 - [X] Majority element using Boyer-Moore voting algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Search/BoyerMoore.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Search/BoyerMoore_Tests.cs))
 
-### Sorting algorithms
+#### Sorting algorithms
 
 - [X] Bubble sort ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Sorting/BubbleSort.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Sorting/BubbleSort_Tests.cs))
 - [X] Insertion sort ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Sorting/InsertionSort.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Sorting/InsertionSort_Tests.cs))
@@ -255,26 +255,26 @@ TODO: implement trie compression.
 
 Note: On a decent desktop, in given implementations here for +ive random input integers, the clear winner is counting sort (~0.1 seconds to sort 1 million integers) followed by Radix Sort (~0.4 seconds). Merge Sort, Heap Sort, Quick Sort & Bucket Sort are all winners for +ive & -ive random integer inputs. Tree sort has pointer juggling overhead on backing Red-Black Tree, so performs 8 times slower than Merge Sort in practice. Bubble Sort, Insertion Sort, Selection Sort & Shell Sort are among the worst for random input as observed from results.
 
-## Combinatorics
+### Combinatorics
 
 - [X] Permutations ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Combinatorics/Permutation.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Combinatorics/Permutation_Tests.cs))
 - [X] Combinations ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Combinatorics/Combination.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Combinatorics/Combination_Tests.cs))
 - [X] Subsets ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Combinatorics/Subset.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Combinatorics/Subset_Tests.cs))
 
-## Distributed Systems
+### Distributed Systems
 
 - [X] Circular queue (ring buffer) ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Distributed/CircularQueue.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Distributed/CircularQueue_Tests.cs))
 - [X] Consistant hash ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Distributed/ConsistentHash.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Distributed/ConsistentHash_Tests.cs))
 - [X] LRU cache ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Distributed/LRUCache.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Distributed/LRUCache_Tests.cs))
 - [X] Asynchronous producer–consumer queue ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Distributed/AsyncQueue.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Distributed/AsyncQueue_Tests.cs))
 
-## Numerical methods
+### Numerical methods
 
 - [X] Check primality ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Numerical/PrimeTester.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Numerical/Primality_Tests.cs))
 - [X] Generate primes using sieve of Eratosthenes ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Numerical/PrimeGenerator.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Numerical/PrimeGenerator_Tests.cs))
 - [X] Fast exponentiation ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Numerical/Exponentiation.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Numerical/Exponentiation_Tests.cs))
 
-## Geometry (in 2D)
+### Geometry (in 2D)
 
 - [X] Convex hull using gift wrapping algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Geometry/ConvexHull.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Geometry/ConvexHull_Tests.cs))
 - [X] Line intersection ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Geometry/LineIntersection.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Geometry/LineIntersection_Tests.cs))
@@ -284,7 +284,7 @@ Note: On a decent desktop, in given implementations here for +ive random input i
 - [X] Point rotation ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Geometry/PointRotation.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Geometry/PointRotation_Tests.cs))
 - [X] Line interesections with Bentley-Ottmann sweep line algorithm using red-black tree and binary minimum heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Geometry/BentleyOttmann.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Geometry/BentleyOttmann_Tests.cs))
 
-## Bit manipulation
+### Bit manipulation
 
 - [X] Base conversion ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Binary/BaseConversion.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Binary/BaseConversion_Tests.cs))
 - [X] Calculate logarithm (base 2 & 10) ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Binary/Logarithm.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Binary/Logarithm_Tests.cs))
