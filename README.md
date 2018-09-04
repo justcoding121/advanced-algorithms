@@ -22,7 +22,21 @@ Supports
 
  * .Net Standard 1.0 or above
  * .Net Framework 4.0 or above
- 
+
+### Development Environment
+
+#### Windows
+* Visual Studio Code as IDE for .NET core
+* Visual Studio 2017 as IDE for .NET framework/.NET core
+
+#### Mac OS
+* Visual Studio Code as IDE for .NET core
+* Visual Studio 2017 as IDE for Mono/.NET core
+
+#### Linux
+* Visual Studio Code as IDE for .NET core
+* Mono develop as IDE for Mono
+
 ## Data structures
 
 ### List
