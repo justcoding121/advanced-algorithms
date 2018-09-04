@@ -42,3 +42,9 @@ using System.Runtime.InteropServices;
                               "8e36122767529b7e2b3fb126f986e55458e01ddb5c2e93e913fce5c32d1ce98ac741a8dd2f1c76" +
                               "29bd6bfd11fe86f6ea25aacb1c16e085d61103b16f8f667068415b7b02633b61aff76406e10313" +
                               "0bcf3ee5")]
+[assembly: InternalsVisibleTo("Advanced.Algorithms.Tests, PublicKey=" +
+                              "00240000048000009400000006020000002400005253413100040000010001009d6e7fa635694c" +
+                              "4f15e68996fe058ea398fcc08bd885b68a9b1027d0a89d90b009565a4dae145119bdc6f8454241" +
+                              "8e36122767529b7e2b3fb126f986e55458e01ddb5c2e93e913fce5c32d1ce98ac741a8dd2f1c76" +
+                              "29bd6bfd11fe86f6ea25aacb1c16e085d61103b16f8f667068415b7b02633b61aff76406e10313" +
+                              "0bcf3ee5")]
