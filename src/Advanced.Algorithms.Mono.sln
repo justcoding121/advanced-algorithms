@@ -23,9 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{AC9AE37A
 		..\.build\setup.ps1 = ..\.build\setup.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advanced.Algorithms", "Advanced.Algorithms\Advanced.Algorithms.Mono.csproj", "{32E22D53-CECD-4E2D-ADAD-85DD79A8549F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advanced.Algorithms.Mono", "Advanced.Algorithms\Advanced.Algorithms.Mono.csproj", "{32E22D53-CECD-4E2D-ADAD-85DD79A8549F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advanced.Algorithms.Tests", "..\tests\Advanced.Algorithms.Tests\Advanced.Algorithms.Tests.Mono.csproj", "{556705BD-1E64-426D-A9CA-08390156FB85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advanced.Algorithms.Tests.Mono", "..\tests\Advanced.Algorithms.Tests\Advanced.Algorithms.Tests.Mono.csproj", "{556705BD-1E64-426D-A9CA-08390156FB85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

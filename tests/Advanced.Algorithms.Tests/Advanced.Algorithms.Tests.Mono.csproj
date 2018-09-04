@@ -2,12 +2,11 @@
 
   <PropertyGroup>
     <RootNamespace>Advanced.Algorithms.Tests</RootNamespace>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>net45</TargetFramework>
     <IsPackable>false</IsPackable>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>StrongNameKey.snk</AssemblyOriginatorKeyFile>
-    <DelaySign>False</DelaySign>
     <AssemblyName>Advanced.Algorithms.Tests</AssemblyName>
   </PropertyGroup>
 
@@ -18,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Advanced.Algorithms\Advanced.Algorithms.NetCore.csproj" />
+    <ProjectReference Include="..\..\src\Advanced.Algorithms\Advanced.Algorithms.Mono.csproj" />
   </ItemGroup>
-
 </Project>
