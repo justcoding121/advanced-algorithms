@@ -14,11 +14,7 @@ namespace Advanced.Algorithms.Sorting
         public static T[] Sort(T[] array)
         {
             //heapify
-            var heap = new BMinHeap<T>();
-            foreach (var item in array)
-            {
-                heap.Insert(item);
-            }
+            var heap = new BMinHeap<T>(array);
 
             //now extract min until empty and return them as sorted array
             var sortedArray = new T[array.Length];
