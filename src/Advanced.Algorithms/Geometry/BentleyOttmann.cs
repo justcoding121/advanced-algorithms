@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Geometry
 {
@@ -15,11 +16,11 @@ namespace Advanced.Algorithms.Geometry
         private HashSet<Event> verticalHorizontalLines;
         private HashSet<Event> normalLines;
 
-        private DataStructures.BMinHeap<Event> eventQueue;
+        private BMinHeap<Event> eventQueue;
         private HashSet<Event> eventQueueLookUp;
 
         private Dictionary<Event, Event> rightLeftEventLookUp;
-        private DataStructures.RedBlackTree<Event> currentlyTrackedLines;
+        private RedBlackTree<Event> currentlyTrackedLines;
 
         private Dictionary<Point, HashSet<Tuple<Event, Event>>> intersectionEvents;
 
@@ -39,7 +40,7 @@ namespace Advanced.Algorithms.Geometry
         {
             SweepLine = new Line(new Point(0, 0), new Point(0, int.MaxValue), Tolerance);
 
-            currentlyTrackedLines = new DataStructures.RedBlackTree<Event>(true, pointComparer);
+            currentlyTrackedLines = new RedBlackTree<Event>(true, pointComparer);
             intersectionEvents = new Dictionary<Point, HashSet<Tuple<Event, Event>>>(pointComparer);
 
             verticalHorizontalLines = new HashSet<Event>();
@@ -65,7 +66,7 @@ namespace Advanced.Algorithms.Geometry
                                     x.Value
                                 }), new PointComparer());
 
-            eventQueue = new DataStructures.BMinHeap<Event>(eventQueueLookUp, new EventQueueComparer());
+            eventQueue = new BMinHeap<Event>(eventQueueLookUp, new EventQueueComparer());
         }
 
         public Dictionary<Point, List<Line>> FindIntersections(IEnumerable<Line> lineSegments)
