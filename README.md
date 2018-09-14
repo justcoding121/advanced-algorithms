@@ -193,7 +193,7 @@ TODO: implement trie compression.
 - [X] Floyd-Warshall algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ShortestPath/Floyd-Warshall.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ShortestPath/FloydWarshall_Tests.cs))
 - [X] Johnson's algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ShortestPath/Johnsons.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ShortestPath/Johnson_Tests.cs))
 - [X] Travelling salesman problem ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ShortestPath/TravellingSalesman.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ShortestPath/TravellingSalesman_Tests.cs))
-- [X] A* algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ShortestPath/AStar.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ShortestPath/AStar_Tests.cs)) using Fibornacci heap.
+- [X] A* search algorithm ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/Graph/ShortestPath/AStar.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/Graph/ShortestPath/AStar_Tests.cs)) using Fibornacci heap.
 
 #### Matching
 
