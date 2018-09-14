@@ -1,0 +1,33 @@
+{
+    // The following will hide the js and map files in the editor
+    "files.exclude": {
+        "**/.build": true,
+        "**/.nuget": true,
+        "**/.vs": true,
+        "**/docs": true,
+        "**/packages": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/*.DotSettings": true,
+        "**/*.sln": true,
+        "**/*.Mono.csproj": true,
+        "**/*.Docs.csproj": true,
+        "**/*.Algorithms.csproj": true,
+        "**/*.Tests.csproj": true
+    },
+    "search.exclude": {
+        "**/.build": true,
+        "**/.nuget": true,
+        "**/.vs": true,
+        "**/docs": true,
+        "**/packages": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/*.DotSettings": true,
+        "**/*.sln": true,
+        "**/*.Mono.csproj": true,
+        "**/*.Docs.csproj": true,
+        "**/*.Algorithms.csproj": true,
+        "**/*.Tests.csproj": true
+    }
+}
