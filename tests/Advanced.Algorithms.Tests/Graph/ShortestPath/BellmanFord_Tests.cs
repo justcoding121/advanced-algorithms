@@ -34,9 +34,9 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('D', 'B', 6);
             graph.AddEdge('D', 'T', 10);
 
-            var algo = new BellmanFordShortestPath<char, int>(new BellmanFordShortestPathOperators());
+            var algorithm = new BellmanFordShortestPath<char, int>(new BellmanFordShortestPathOperators());
 
-            var result = algo.GetShortestPath(graph, 'S', 'T');
+            var result = algorithm.FindShortestPath(graph, 'S', 'T');
 
             Assert.AreEqual(4, result.Length);
 

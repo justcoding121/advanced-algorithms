@@ -35,11 +35,11 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('E', 'F');
             graph.AddEdge('E', 'I');
 
-            var algo = new DepthFirst<char>();
+            var algorithm = new DepthFirst<char>();
 
-            Assert.IsTrue(algo.Find(graph, 'D'));
+            Assert.IsTrue(algorithm.Find(graph, 'D'));
 
-            Assert.IsFalse(algo.Find(graph, 'M'));
+            Assert.IsFalse(algorithm.Find(graph, 'M'));
 
         }
 

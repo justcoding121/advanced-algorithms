@@ -39,9 +39,9 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge('F', 'H');
 
-            var algo = new TarjansStronglyConnected<char>();
+            var algorithm = new TarjansStronglyConnected<char>();
 
-            var result = algo.FindStronglyConnectedComponents(graph);
+            var result = algorithm.FindStronglyConnectedComponents(graph);
 
             Assert.AreEqual(4, result.Count);
 

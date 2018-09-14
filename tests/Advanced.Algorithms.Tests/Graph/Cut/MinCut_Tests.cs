@@ -36,9 +36,9 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('D', 'B', 6);
             graph.AddEdge('D', 'T', 10);
 
-            var algo = new MinCut<char, int>(new EdmondKarpOperators());
+            var algorithm = new MinCut<char, int>(new EdmondKarpOperators());
 
-            var result = algo.ComputeMinCut(graph, 'S', 'T');
+            var result = algorithm.ComputeMinCut(graph, 'S', 'T');
 
             Assert.AreEqual(result.Count, 2);
         }
@@ -83,9 +83,9 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('I', 'J', 1);
 
 
-            var algo = new MinCut<char, int>(new EdmondKarpOperators());
+            var algorithm = new MinCut<char, int>(new EdmondKarpOperators());
 
-            var result = algo.ComputeMinCut(graph, 'A', 'J');
+            var result = algorithm.ComputeMinCut(graph, 'A', 'J');
 
             Assert.AreEqual(result.Count, 1);
         }

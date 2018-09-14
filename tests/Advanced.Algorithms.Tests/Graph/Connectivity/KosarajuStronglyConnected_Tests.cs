@@ -39,9 +39,9 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge('F', 'H');
 
-            var algo = new KosarajuStronglyConnected<char>();
+            var algorithm = new KosarajuStronglyConnected<char>();
 
-            var result = algo.FindStronglyConnectedComponents(graph);
+            var result = algorithm.FindStronglyConnectedComponents(graph);
 
             Assert.AreEqual(4, result.Count);
 

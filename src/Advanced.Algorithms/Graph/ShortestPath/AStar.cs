@@ -7,18 +7,21 @@ using System.Linq;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// A dijikstra algorithm implementation using Fibornacci Heap.
+    /// A* algorithm implementation using Fibornacci Heap.
     /// </summary>
-    public class DijikstraShortestPath<T, W> where W : IComparable
+    public class AStarShortestPath<T, W> where W : IComparable
     {
         readonly IShortestPathOperators<W> operators;
-        public DijikstraShortestPath(IShortestPathOperators<W> operators)
+        readonly IAStarHeuristic<T, W> heuristic;
+
+        public AStarShortestPath(IShortestPathOperators<W> operators, IAStarHeuristic<T, W> heuristic)
         {
             this.operators = operators;
+            this.heuristic = heuristic;
         }
 
         /// <summary>
-        /// Get shortest distance to target.
+        /// Search path to target using the heuristic.
         /// </summary>
         public ShortestPathResult<T, W> FindShortestPath(WeightedDiGraph<T, W> graph, T source, T destination)
         {
@@ -35,9 +38,9 @@ namespace Advanced.Algorithms.Graph
             var parentMap = new Dictionary<T, T>();
 
             //min heap to pick next closest vertex 
-            var minHeap = new FibornacciMinHeap<MinHeapWrap<T, W>>();
+            var minHeap = new FibornacciMinHeap<AStarWrap<T, W>>();
             //keep references of heap Node for decrement key operation
-            var heapMapping = new Dictionary<T, MinHeapWrap<T, W>>();
+            var heapMapping = new Dictionary<T, AStarWrap<T, W>>();
 
             //add vertices to min heap and progress map
             foreach (var vertex in graph.Vertices)
@@ -55,14 +58,15 @@ namespace Advanced.Algorithms.Graph
             }
 
             //start from source vertex as current 
-            var current = new MinHeapWrap<T, W>()
+            var current = new AStarWrap<T, W>(heuristic, destination)
             {
                 Distance = operators.DefaultValue,
                 Vertex = source
             };
 
+            //insert neighbour in heap
             minHeap.Insert(current);
-            heapMapping.Add(current.Vertex, current);
+            heapMapping[source] = current;
 
             //until heap is empty
             while (minHeap.Count > 0)
@@ -92,29 +96,29 @@ namespace Advanced.Algorithms.Graph
                     {
                         progress[neighbour.Key.Value] = newDistance;
 
-                        if (!heapMapping.ContainsKey(neighbour.Key.Value))
+                        if (heapMapping.ContainsKey(neighbour.Key.Value))
                         {
-                            var wrap = new MinHeapWrap<T, W>() { Distance = newDistance, Vertex = neighbour.Key.Value };
-                            minHeap.Insert(wrap);
-                            heapMapping.Add(neighbour.Key.Value, wrap);
+                            //decrement distance to neighbour in heap
+                            var decremented = new AStarWrap<T, W>(heuristic, destination) { Distance = newDistance, Vertex = neighbour.Key.Value };
+                            minHeap.DecrementKey(heapMapping[neighbour.Key.Value], decremented);
+                            heapMapping[neighbour.Key.Value] = decremented;
+
                         }
                         else
                         {
-                            //decrement distance to neighbour in heap
-                            var decremented = new MinHeapWrap<T, W>() { Distance = newDistance, Vertex = neighbour.Key.Value };
-                            minHeap.DecrementKey(heapMapping[neighbour.Key.Value], decremented);
-                            heapMapping[neighbour.Key.Value] = decremented;
+                            //insert neighbour in heap
+                            var discovered = new AStarWrap<T, W>(heuristic, destination) { Distance = newDistance, Vertex = neighbour.Key.Value };
+                            minHeap.Insert(discovered);
+                            heapMapping[neighbour.Key.Value] = discovered;
                         }
 
                         //trace parent
                         parentMap[neighbour.Key.Value] = current.Vertex;
                     }
                 }
-
             }
 
             return tracePath(graph, parentMap, source, destination);
-
         }
 
         /// <summary>
@@ -153,40 +157,42 @@ namespace Advanced.Algorithms.Graph
     }
 
     /// <summary>
-    /// Generic operators interface required by shorted path algorithms.
+    /// Search heuristic used by A* search algorithm.
     /// </summary>
-    public interface IShortestPathOperators<W> where W : IComparable
+    public interface IAStarHeuristic<T, W> where W : IComparable
     {
-        W DefaultValue { get; }
-        W MaxValue { get; }
-        W Sum(W a, W b);
+        /// <summary>
+        /// Return the distance to target for given sourcevertex as computed by the hueristic used for A* search.
+        /// </summary>
+        W HueristicDistanceToTarget(T sourceVertex, T targetVertex);
     }
 
-    /// <summary>
-    /// Shortest path result object.
-    /// </summary>
-    public class ShortestPathResult<T, W> where W : IComparable
+    //Node for our Fibornacci heap
+    internal class AStarWrap<T, W> : IComparable where W : IComparable
     {
-        public ShortestPathResult(List<T> path, W length)
+        private IAStarHeuristic<T, W> heuristic;
+        private T destinationVertex;
+        internal AStarWrap(IAStarHeuristic<T, W> heuristic, T destinationVertex)
         {
-            Length = length;
-            Path = path;
+            this.heuristic = heuristic;
+            this.destinationVertex = destinationVertex;
         }
-        public W Length { get; internal set; }
-        public List<T> Path { get; private set; }
-    }
 
-    /// <summary>
-    /// For fibornacci heap node.
-    /// </summary>
-    internal class MinHeapWrap<T, W> : IComparable where W : IComparable
-    {
         internal T Vertex { get; set; }
         internal W Distance { get; set; }
 
+        //compare distance to target using the heuristic provided
         public int CompareTo(object obj)
         {
-            return Distance.CompareTo((obj as MinHeapWrap<T, W>).Distance);
+            if (this == obj)
+            {
+                return 0;
+            }
+
+            var result1 = heuristic.HueristicDistanceToTarget(Vertex, destinationVertex);
+            var result2 = heuristic.HueristicDistanceToTarget((obj as AStarWrap<T, W>).Vertex, destinationVertex);
+
+            return result1.CompareTo(result2);
         }
     }
 }

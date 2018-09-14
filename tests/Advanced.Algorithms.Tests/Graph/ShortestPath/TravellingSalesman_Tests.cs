@@ -37,7 +37,7 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge(3, 1, 4);
             graph.AddEdge(3, 2, 8);
 
-            Assert.AreEqual(21, TravellingSalesman.GetMinWeight(graph));
+            Assert.AreEqual(21, TravellingSalesman.FindMinWeight(graph));
         }
     }
 }

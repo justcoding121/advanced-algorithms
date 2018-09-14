@@ -34,14 +34,14 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('G', 'H');
             graph.AddEdge('H', 'I');
 
-            var algo = new BiDirectional<char>();
+            var algorithm = new BiDirectional<char>();
 
-            Assert.IsTrue(algo.PathExists(graph, 'A', 'I'));
+            Assert.IsTrue(algorithm.PathExists(graph, 'A', 'I'));
 
             graph.RemoveEdge('D', 'E');
             graph.AddEdge('E', 'D');
 
-            Assert.IsFalse(algo.PathExists(graph, 'A', 'I'));
+            Assert.IsFalse(algorithm.PathExists(graph, 'A', 'I'));
 
         }
 

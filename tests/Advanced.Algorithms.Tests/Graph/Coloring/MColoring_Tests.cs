@@ -24,9 +24,9 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge(1, 2);
             graph.AddEdge(2, 3);
 
-            var algo = new MColorer<int, string>();
+            var algorithm = new MColorer<int, string>();
 
-            var result = algo.Color(graph, new string[] { "red", "green", "blue" });
+            var result = algorithm.Color(graph, new string[] { "red", "green", "blue" });
 
             Assert.IsTrue(result.CanColor);
         }

@@ -35,14 +35,14 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge('F', 'H');
 
-            var algo = new CycleDetector<char>();
+            var algorithm = new CycleDetector<char>();
 
-            Assert.IsTrue(algo.HasCycle(graph));
+            Assert.IsTrue(algorithm.HasCycle(graph));
 
             graph.RemoveEdge('C', 'A');
             graph.RemoveEdge('G', 'E');
 
-            Assert.IsFalse(algo.HasCycle(graph));
+            Assert.IsFalse(algorithm.HasCycle(graph));
         }
     }
 }

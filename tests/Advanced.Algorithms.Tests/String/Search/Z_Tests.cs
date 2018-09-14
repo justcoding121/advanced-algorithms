@@ -9,29 +9,29 @@ namespace Advanced.Algorithms.Tests.String
         [TestMethod]
         public void String_Z_Test()
         {
-            var kmpAlgo = new ZAlgorithm();
+            var algorithm = new ZAlgorithm();
 
-            var index = kmpAlgo.Search("xabcabzabc", "abc");
+            var index = algorithm.Search("xabcabzabc", "abc");
 
             Assert.AreEqual(1, index);
 
-            index = kmpAlgo.Search("abdcdaabxaabxcaabxaabxay", "aabxaabxcaabxaabxay");
+            index = algorithm.Search("abdcdaabxaabxcaabxaabxay", "aabxaabxcaabxaabxay");
 
             Assert.AreEqual(5, index);
 
-            index = kmpAlgo.Search("aaaabaaaaaaa", "aaaa");
+            index = algorithm.Search("aaaabaaaaaaa", "aaaa");
 
             Assert.AreEqual(0, index);
 
-            index = kmpAlgo.Search("abcabababdefgabcd", "fga");
+            index = algorithm.Search("abcabababdefgabcd", "fga");
 
             Assert.AreEqual(11, index);
 
-            index = kmpAlgo.Search("abxabcabcaby", "abcaby");
+            index = algorithm.Search("abxabcabcaby", "abcaby");
 
             Assert.AreEqual(6, index);
 
-            index = kmpAlgo.Search("abxabcabcaby", "abx");
+            index = algorithm.Search("abxabcabcaby", "abx");
 
             Assert.AreEqual(0, index);
         }

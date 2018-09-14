@@ -34,9 +34,9 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('D', 'B', 1);
             graph.AddEdge('D', 'T', 10);
 
-            var algo = new FloydWarshallShortestPath<char, int>(new FloydWarshallShortestPathOperators());
+            var algorithm = new FloydWarshallShortestPath<char, int>(new FloydWarshallShortestPathOperators());
 
-            var result = algo.GetAllPairShortestPaths(graph);
+            var result = algorithm.FindAllPairShortestPaths(graph);
 
             var testCase = result.First(x => x.Source == 'S' && x.Destination == 'T');
             Assert.AreEqual(15, testCase.Distance);

@@ -36,9 +36,9 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('D', 'B', 6);
             graph.AddEdge('D', 'T', 10);
 
-            var algo = new EdmondKarpMaxFlow<char, int>(new EdmondKarpOperators());
+            var algorithm = new EdmondKarpMaxFlow<char, int>(new EdmondKarpOperators());
 
-            var result = algo.ComputeMaxFlow(graph, 'S', 'T');
+            var result = algorithm.ComputeMaxFlow(graph, 'S', 'T');
 
             Assert.AreEqual(result, 19);
         }

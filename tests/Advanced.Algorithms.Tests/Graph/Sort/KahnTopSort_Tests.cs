@@ -34,9 +34,9 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge('F', 'H');
 
-            var algo = new KahnsTopSort<char>();
+            var algorithm = new KahnsTopSort<char>();
 
-            var result = algo.GetTopSort(graph);
+            var result = algorithm.GetTopSort(graph);
 
             Assert.AreEqual(result.Count, 8);
         }

@@ -38,9 +38,9 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge('F', 'H');
 
-            var algo = new TarjansArticulationFinder<char>();
+            var algorithm = new TarjansArticulationFinder<char>();
 
-            var result = algo.FindArticulationPoints(graph);
+            var result = algorithm.FindArticulationPoints(graph);
 
             Assert.AreEqual(4, result.Count);
 

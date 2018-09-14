@@ -20,6 +20,7 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddVertex('T');
 
             graph.AddEdge('S', 'A', 8);
+            graph.AddEdge('A', 'S', 2);
             graph.AddEdge('S', 'C', 10);
 
             graph.AddEdge('A', 'B', 10);
@@ -35,16 +36,15 @@ namespace Advanced.Algorithms.Tests.Graph
 
             var algorithm = new DijikstraShortestPath<char, int>(new DijikstraShortestPathOperators());
 
-            var result = algorithm.GetShortestPath(graph, 'S', 'T');
+            var result = algorithm.FindShortestPath(graph, 'S', 'T');
 
             Assert.AreEqual(15, result.Length);
 
-            var expectedPath = new char[] { 'S', 'A', 'C', 'D', 'B', 'T'};
+            var expectedPath = new char[] { 'S', 'A', 'C', 'D', 'B', 'T' };
             for (int i = 0; i < expectedPath.Length; i++)
             {
                 Assert.AreEqual(expectedPath[i], result.Path[i]);
             }
-
         }
 
         /// <summary>

@@ -21,11 +21,10 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('A', 'B');
             graph.AddEdge('A', 'C');
             graph.AddEdge('B', 'C');
-
          
-            var algo = new TarjansBiConnected<char>();
+            var algorithm = new TarjansBiConnected<char>();
 
-            var result = algo.IsBiConnected(graph);
+            var result = algorithm.IsBiConnected(graph);
 
             Assert.IsTrue(result);
 
@@ -44,7 +43,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge('F', 'H');
 
-            result = algo.IsBiConnected(graph);
+            result = algorithm.IsBiConnected(graph);
 
             Assert.IsFalse(result);
 

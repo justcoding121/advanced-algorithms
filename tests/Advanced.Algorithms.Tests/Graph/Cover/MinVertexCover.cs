@@ -25,9 +25,9 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge(0, 3);
             graph.AddEdge(0, 4);
 
-            var algo = new MinVertexCover<int>();
+            var algorithm = new MinVertexCover<int>();
 
-            var result = algo.GetMinVertexCover(graph);
+            var result = algorithm.GetMinVertexCover(graph);
 
             Assert.IsTrue(result.Count() <= 2);
 
@@ -35,7 +35,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge(1, 4);
 
-            result = algo.GetMinVertexCover(graph);
+            result = algorithm.GetMinVertexCover(graph);
             Assert.IsTrue(result.Count() <= 4);
         }
     }

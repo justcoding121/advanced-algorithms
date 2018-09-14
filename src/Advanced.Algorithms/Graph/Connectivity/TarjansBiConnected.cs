@@ -13,8 +13,8 @@ namespace Advanced.Algorithms.Graph
         /// </summary>
         public bool IsBiConnected(Graph<T> graph)
         {
-            var articulationAlgo = new TarjansArticulationFinder<T>();
-            return articulationAlgo.FindArticulationPoints(graph).Count == 0;
+            var algorithm = new TarjansArticulationFinder<T>();
+            return algorithm.FindArticulationPoints(graph).Count == 0;
         }
     }
 }

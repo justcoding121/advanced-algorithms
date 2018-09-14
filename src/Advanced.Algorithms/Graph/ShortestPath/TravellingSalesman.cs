@@ -11,15 +11,15 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class TravellingSalesman
     {
-        public static int GetMinWeight(WeightedDiGraph<int, int> graph)
+        public static int FindMinWeight(WeightedDiGraph<int, int> graph)
         {
-            return getMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
+            return findMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
                                 graph.VerticesCount,
                                 new HashSet<WeightedDiGraphVertex<int, int>>(),
                                 new Dictionary<string, int>());
         }
 
-        private static int getMinWeight(WeightedDiGraphVertex<int, int> currentVertex,
+        private static int findMinWeight(WeightedDiGraphVertex<int, int> currentVertex,
             WeightedDiGraphVertex<int, int> tgtVertex,
             int remainingVertexCount,
             HashSet<WeightedDiGraphVertex<int, int>> visited,
@@ -48,7 +48,7 @@ namespace Advanced.Algorithms.Graph
 
                 if (!visited.Contains(vertex.Key))
                 {
-                    var result = getMinWeight(vertex.Key, tgtVertex, remainingVertexCount - 1, visited, cache);
+                    var result = findMinWeight(vertex.Key, tgtVertex, remainingVertexCount - 1, visited, cache);
 
                     if (result != int.MaxValue)
                     {

@@ -16,9 +16,9 @@ namespace Advanced.Algorithms.Graph
         }
 
         /// <summary>
-        /// Get shortest distance to target.
+        /// Find shortest distance to target.
         /// </summary>
-        public ShortestPathResult<T, W> GetShortestPath(WeightedDiGraph<T, W> graph, T source, T destination)
+        public ShortestPathResult<T, W> FindShortestPath(WeightedDiGraph<T, W> graph, T source, T destination)
         {
             //regular argument checks
             if (graph == null || graph.FindVertex(source) == null

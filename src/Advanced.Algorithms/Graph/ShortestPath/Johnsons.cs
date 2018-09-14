@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.Graph
         }
 
         public List<AllPairShortestPathResult<T, W>>
-            GetAllPairShortestPaths(WeightedDiGraph<T, W> graph)
+            FindAllPairShortestPaths(WeightedDiGraph<T, W> graph)
         {
 
             var workGraph = graph.Clone();
@@ -43,7 +43,7 @@ namespace Advanced.Algorithms.Graph
             var bellFordResult = new Dictionary<T, W>();
             foreach (var vertex in workGraph.Vertices)
             {
-                var result = bellmanFordSp.GetShortestPath(workGraph, randomVetex, vertex.Key);
+                var result = bellmanFordSp.FindShortestPath(workGraph, randomVetex, vertex.Key);
                 bellFordResult.Add(vertex.Key, result.Length);
             }
 
@@ -70,7 +70,7 @@ namespace Advanced.Algorithms.Graph
                 {
                     var source = vertexA.Key;
                     var dest = vertexB.Key;  
-                    var sp = dijikstras.GetShortestPath(workGraph, source, dest);
+                    var sp = dijikstras.FindShortestPath(workGraph, source, dest);
 
                     //no path exists
                     if(sp.Length.Equals(operators.MaxValue))

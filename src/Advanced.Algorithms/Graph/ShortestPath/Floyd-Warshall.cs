@@ -15,7 +15,7 @@ namespace Advanced.Algorithms.Graph
             this.operators = operators;
         }
 
-        public List<AllPairShortestPathResult<T, W>> GetAllPairShortestPaths(WeightedGraph<T, W> graph)
+        public List<AllPairShortestPathResult<T, W>> FindAllPairShortestPaths(WeightedGraph<T, W> graph)
         {
             //we need this vertex array index for generics
             //since array indices are int and T is unknown type

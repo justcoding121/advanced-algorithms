@@ -39,9 +39,9 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge('F', 'H');
 
-            var algo = new TarjansBridgeFinder<char>();
+            var algorithm = new TarjansBridgeFinder<char>();
 
-            var result = algo.FindBridges(graph);
+            var result = algorithm.FindBridges(graph);
 
             Assert.AreEqual(3, result.Count);
 

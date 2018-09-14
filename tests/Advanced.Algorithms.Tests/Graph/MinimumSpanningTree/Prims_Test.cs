@@ -34,8 +34,8 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('D', 'B', 1);
             graph.AddEdge('D', 'T', 10);
 
-            var algo = new Prims<char, int>();
-            var result = algo.FindMinimumSpanningTree(graph);
+            var algorithm = new Prims<char, int>();
+            var result = algorithm.FindMinimumSpanningTree(graph);
 
             Assert.AreEqual(graph.VerticesCount - 1, result.Count);
         }

@@ -37,9 +37,9 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('E', 'F');
             graph.AddEdge('E', 'I');
 
-            var algo = new BiPartiteMatching<char>(new BiPartiteMatchOperators());
+            var algorithm = new BiPartiteMatching<char>(new BiPartiteMatchOperators());
 
-            var result = algo.GetMaxBiPartiteMatching(graph);
+            var result = algorithm.GetMaxBiPartiteMatching(graph);
 
             Assert.AreEqual(result.Count, 4);
         }

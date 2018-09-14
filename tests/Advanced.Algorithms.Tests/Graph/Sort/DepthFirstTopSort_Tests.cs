@@ -33,9 +33,9 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge('F', 'H');
 
-            var algo = new DepthFirstTopSort<char>();
+            var algorithm = new DepthFirstTopSort<char>();
 
-            var result = algo.GetTopSort(graph);
+            var result = algorithm.GetTopSort(graph);
 
             Assert.AreEqual(result.Count, 8);
         }
