@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DepthFirst&lt;T&gt;
+    <title>Interface IAStarHeuristic&lt;T, W&gt;
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DepthFirst&lt;T&gt;
+    <meta name="title" content="Interface IAStarHeuristic&lt;T, W&gt;
    | Advanced Algorithms ">
     <meta name="generator" content="docfx 2.39.2.0">
     
@@ -78,24 +78,20 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Graph.DepthFirst`1">
+            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Graph.IAStarHeuristic`2">
   
   
-  <h1 id="Advanced_Algorithms_Graph_DepthFirst_1" data-uid="Advanced.Algorithms.Graph.DepthFirst`1" class="text-break">Class DepthFirst&lt;T&gt;
+  <h1 id="Advanced_Algorithms_Graph_IAStarHeuristic_2" data-uid="Advanced.Algorithms.Graph.IAStarHeuristic`2" class="text-break">Interface IAStarHeuristic&lt;T, W&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Depth First Search.</p>
+  <div class="markdown level0 summary"><p>Search heuristic used by A* search algorithm.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">DepthFirst&lt;T&gt;</span></div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.Graph.html">Advanced.Algorithms.Graph</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
-  <h5 id="Advanced_Algorithms_Graph_DepthFirst_1_syntax">Syntax</h5>
+  <h5 id="Advanced_Algorithms_Graph_IAStarHeuristic_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DepthFirst&lt;T&gt; : object</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IAStarHeuristic&lt;T, W&gt;
+    where W : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -110,20 +106,24 @@
         <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="parametername">W</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Advanced_Algorithms_Graph_DepthFirst_1_Find_" data-uid="Advanced.Algorithms.Graph.DepthFirst`1.Find*"></a>
-  <h4 id="Advanced_Algorithms_Graph_DepthFirst_1_Find_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph__0___0_" data-uid="Advanced.Algorithms.Graph.DepthFirst`1.Find(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph{`0},`0)">Find(Graph&lt;T&gt;, T)</h4>
-  <div class="markdown level1 summary"><p>Returns true if item exists.</p>
+  <a id="Advanced_Algorithms_Graph_IAStarHeuristic_2_HueristicDistanceToTarget_" data-uid="Advanced.Algorithms.Graph.IAStarHeuristic`2.HueristicDistanceToTarget*"></a>
+  <h4 id="Advanced_Algorithms_Graph_IAStarHeuristic_2_HueristicDistanceToTarget__0__0_" data-uid="Advanced.Algorithms.Graph.IAStarHeuristic`2.HueristicDistanceToTarget(`0,`0)">HueristicDistanceToTarget(T, T)</h4>
+  <div class="markdown level1 summary"><p>Return the distance to target for given sourcevertex as computed by the hueristic used for A* search.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Find(Graph&lt;T&gt; graph, T vertex)</code></pre>
+    <pre><code class="lang-csharp hljs">W HueristicDistanceToTarget(T sourceVertex, T targetVertex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,13 +136,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph-1.html">Graph</a>&lt;T&gt;</td>
-        <td><span class="parametername">graph</span></td>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">sourceVertex</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><span class="parametername">vertex</span></td>
+        <td><span class="parametername">targetVertex</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -157,7 +157,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">W</span></td>
         <td></td>
       </tr>
     </tbody>

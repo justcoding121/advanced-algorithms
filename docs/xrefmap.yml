@@ -96,13 +96,13 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Combinatorics.Combination.Find
   nameWithType: Combination.Find
-- uid: Advanced.Algorithms.Combinatorics.Combination.Find``1(System.Collections.Generic.List{``0},System.Int32,System.Boolean)
+- uid: Advanced.Algorithms.Combinatorics.Combination.Find``1(List{``0},System.Int32,System.Boolean)
   name: Find<T>(List<T>, Int32, Boolean)
-  href: api/Advanced.Algorithms.Combinatorics.Combination.html#Advanced_Algorithms_Combinatorics_Combination_Find__1_System_Collections_Generic_List___0__System_Int32_System_Boolean_
-  commentId: M:Advanced.Algorithms.Combinatorics.Combination.Find``1(System.Collections.Generic.List{``0},System.Int32,System.Boolean)
+  href: api/Advanced.Algorithms.Combinatorics.Combination.html#Advanced_Algorithms_Combinatorics_Combination_Find__1_List___0__System_Int32_System_Boolean_
+  commentId: M:Advanced.Algorithms.Combinatorics.Combination.Find``1(List{``0},System.Int32,System.Boolean)
   name.vb: Find(Of T)(List(Of T), Int32, Boolean)
-  fullName: Advanced.Algorithms.Combinatorics.Combination.Find<T>(System.Collections.Generic.List<T>, System.Int32, System.Boolean)
-  fullName.vb: Advanced.Algorithms.Combinatorics.Combination.Find(Of T)(System.Collections.Generic.List(Of T), System.Int32, System.Boolean)
+  fullName: Advanced.Algorithms.Combinatorics.Combination.Find<T>(List<T>, System.Int32, System.Boolean)
+  fullName.vb: Advanced.Algorithms.Combinatorics.Combination.Find(Of T)(List(Of T), System.Int32, System.Boolean)
   nameWithType: Combination.Find<T>(List<T>, Int32, Boolean)
   nameWithType.vb: Combination.Find(Of T)(List(Of T), Int32, Boolean)
 - uid: Advanced.Algorithms.Combinatorics.Permutation
@@ -118,13 +118,13 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Combinatorics.Permutation.Find
   nameWithType: Permutation.Find
-- uid: Advanced.Algorithms.Combinatorics.Permutation.Find``1(System.Collections.Generic.List{``0},System.Int32,System.Boolean)
+- uid: Advanced.Algorithms.Combinatorics.Permutation.Find``1(List{``0},System.Int32,System.Boolean)
   name: Find<T>(List<T>, Int32, Boolean)
-  href: api/Advanced.Algorithms.Combinatorics.Permutation.html#Advanced_Algorithms_Combinatorics_Permutation_Find__1_System_Collections_Generic_List___0__System_Int32_System_Boolean_
-  commentId: M:Advanced.Algorithms.Combinatorics.Permutation.Find``1(System.Collections.Generic.List{``0},System.Int32,System.Boolean)
+  href: api/Advanced.Algorithms.Combinatorics.Permutation.html#Advanced_Algorithms_Combinatorics_Permutation_Find__1_List___0__System_Int32_System_Boolean_
+  commentId: M:Advanced.Algorithms.Combinatorics.Permutation.Find``1(List{``0},System.Int32,System.Boolean)
   name.vb: Find(Of T)(List(Of T), Int32, Boolean)
-  fullName: Advanced.Algorithms.Combinatorics.Permutation.Find<T>(System.Collections.Generic.List<T>, System.Int32, System.Boolean)
-  fullName.vb: Advanced.Algorithms.Combinatorics.Permutation.Find(Of T)(System.Collections.Generic.List(Of T), System.Int32, System.Boolean)
+  fullName: Advanced.Algorithms.Combinatorics.Permutation.Find<T>(List<T>, System.Int32, System.Boolean)
+  fullName.vb: Advanced.Algorithms.Combinatorics.Permutation.Find(Of T)(List(Of T), System.Int32, System.Boolean)
   nameWithType: Permutation.Find<T>(List<T>, Int32, Boolean)
   nameWithType.vb: Permutation.Find(Of T)(List(Of T), Int32, Boolean)
 - uid: Advanced.Algorithms.Combinatorics.Subset
@@ -140,13 +140,13 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Combinatorics.Subset.Find
   nameWithType: Subset.Find
-- uid: Advanced.Algorithms.Combinatorics.Subset.Find``1(System.Collections.Generic.List{``0})
+- uid: Advanced.Algorithms.Combinatorics.Subset.Find``1(List{``0})
   name: Find<T>(List<T>)
-  href: api/Advanced.Algorithms.Combinatorics.Subset.html#Advanced_Algorithms_Combinatorics_Subset_Find__1_System_Collections_Generic_List___0__
-  commentId: M:Advanced.Algorithms.Combinatorics.Subset.Find``1(System.Collections.Generic.List{``0})
+  href: api/Advanced.Algorithms.Combinatorics.Subset.html#Advanced_Algorithms_Combinatorics_Subset_Find__1_List___0__
+  commentId: M:Advanced.Algorithms.Combinatorics.Subset.Find``1(List{``0})
   name.vb: Find(Of T)(List(Of T))
-  fullName: Advanced.Algorithms.Combinatorics.Subset.Find<T>(System.Collections.Generic.List<T>)
-  fullName.vb: Advanced.Algorithms.Combinatorics.Subset.Find(Of T)(System.Collections.Generic.List(Of T))
+  fullName: Advanced.Algorithms.Combinatorics.Subset.Find<T>(List<T>)
+  fullName.vb: Advanced.Algorithms.Combinatorics.Subset.Find(Of T)(List(Of T))
   nameWithType: Subset.Find<T>(List<T>)
   nameWithType.vb: Subset.Find(Of T)(List(Of T))
 - uid: Advanced.Algorithms.Compression
@@ -401,25 +401,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).NextLower
   nameWithType: AVLTree<T>.NextLower
   nameWithType.vb: AVLTree(Of T).NextLower
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: AVLTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: AVLTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: AVLTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: AVLTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BinaryTree`1
   name: BinaryTree<T>
   href: api/Advanced.Algorithms.DataStructures.BinaryTree-1.html
@@ -548,25 +529,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BinaryTree(Of T).Insert
   nameWithType: BinaryTree<T>.Insert
   nameWithType.vb: BinaryTree(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.BinaryTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BinaryTree-1.html#Advanced_Algorithms_DataStructures_BinaryTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BinaryTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.BinaryTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BinaryTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: BinaryTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: BinaryTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BinaryTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BinaryTree-1.html#Advanced_Algorithms_DataStructures_BinaryTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinaryTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BinaryTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BinaryTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: BinaryTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: BinaryTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1
   name: BinomialMaxHeap<T>
   href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html
@@ -696,25 +658,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).PeekMax
   nameWithType: BinomialMaxHeap<T>.PeekMax
   nameWithType.vb: BinomialMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: BinomialMaxHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: BinomialMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: BinomialMaxHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: BinomialMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1
   name: BinomialMinHeap<T>
   href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html
@@ -844,25 +787,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).PeekMin
   nameWithType: BinomialMinHeap<T>.PeekMin
   nameWithType.vb: BinomialMinHeap(Of T).PeekMin
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: BinomialMinHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: BinomialMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: BinomialMinHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: BinomialMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BloomFilter`1
   name: BloomFilter<T>
   href: api/Advanced.Algorithms.DataStructures.BloomFilter-1.html
@@ -940,31 +864,31 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap()
   nameWithType: BMaxHeap<T>.BMaxHeap()
   nameWithType.vb: BMaxHeap(Of T).BMaxHeap()
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(System.Collections.Generic.IComparer{`0})
+- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IComparer{`0})
   name: BMaxHeap(IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_System_Collections_Generic_IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(System.Collections.Generic.IComparer{`0})
+  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IComparer{`0})
   name.vb: BMaxHeap(IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap(System.Collections.Generic.IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap(System.Collections.Generic.IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap(IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap(IComparer(Of T))
   nameWithType: BMaxHeap<T>.BMaxHeap(IComparer<T>)
   nameWithType.vb: BMaxHeap(Of T).BMaxHeap(IComparer(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IEnumerable{`0})
   name: BMaxHeap(IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IEnumerable{`0})
   name.vb: BMaxHeap(IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap(System.Collections.Generic.IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap(IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap(IEnumerable(Of T))
   nameWithType: BMaxHeap<T>.BMaxHeap(IEnumerable<T>)
   nameWithType.vb: BMaxHeap(Of T).BMaxHeap(IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})
+- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IEnumerable{`0},IComparer{`0})
   name: BMaxHeap(IEnumerable<T>, IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})
+  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_IEnumerable__0__IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IEnumerable{`0},IComparer{`0})
   name.vb: BMaxHeap(IEnumerable(Of T), IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap(System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap(System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap(IEnumerable<T>, IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap(IEnumerable(Of T), IComparer(Of T))
   nameWithType: BMaxHeap<T>.BMaxHeap(IEnumerable<T>, IComparer<T>)
   nameWithType.vb: BMaxHeap(Of T).BMaxHeap(IEnumerable(Of T), IComparer(Of T))
 - uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor*
@@ -1095,25 +1019,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).PeekMax
   nameWithType: BMaxHeap<T>.PeekMax
   nameWithType.vb: BMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: BMaxHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: BMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: BMaxHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: BMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BMinHeap`1
   name: BMinHeap<T>
   href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html
@@ -1131,31 +1036,31 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap()
   nameWithType: BMinHeap<T>.BMinHeap()
   nameWithType.vb: BMinHeap(Of T).BMinHeap()
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IComparer{`0})
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IComparer{`0})
   name: BMinHeap(IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IComparer{`0})
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IComparer{`0})
   name.vb: BMinHeap(IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(System.Collections.Generic.IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(System.Collections.Generic.IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(IComparer(Of T))
   nameWithType: BMinHeap<T>.BMinHeap(IComparer<T>)
   nameWithType.vb: BMinHeap(Of T).BMinHeap(IComparer(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IEnumerable{`0})
   name: BMinHeap(IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IEnumerable{`0})
   name.vb: BMinHeap(IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(System.Collections.Generic.IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(IEnumerable(Of T))
   nameWithType: BMinHeap<T>.BMinHeap(IEnumerable<T>)
   nameWithType.vb: BMinHeap(Of T).BMinHeap(IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})
+- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IEnumerable{`0},IComparer{`0})
   name: BMinHeap(IEnumerable<T>, IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})
+  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_IEnumerable__0__IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IEnumerable{`0},IComparer{`0})
   name.vb: BMinHeap(IEnumerable(Of T), IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(IEnumerable<T>, IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(IEnumerable(Of T), IComparer(Of T))
   nameWithType: BMinHeap<T>.BMinHeap(IEnumerable<T>, IComparer<T>)
   nameWithType.vb: BMinHeap(Of T).BMinHeap(IEnumerable(Of T), IComparer(Of T))
 - uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor*
@@ -1286,25 +1191,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).PeekMin
   nameWithType: BMinHeap<T>.PeekMin
   nameWithType.vb: BMinHeap(Of T).PeekMin
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: BMinHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: BMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: BMinHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: BMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BpTree`1
   name: BpTree<T>
   href: api/Advanced.Algorithms.DataStructures.BpTree-1.html
@@ -1450,25 +1336,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BpTree(Of T).Min
   nameWithType: BpTree<T>.Min
   nameWithType.vb: BpTree(Of T).Min
-- uid: Advanced.Algorithms.DataStructures.BpTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BpTree-1.html#Advanced_Algorithms_DataStructures_BpTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BpTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.BpTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BpTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: BpTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: BpTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BpTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BpTree-1.html#Advanced_Algorithms_DataStructures_BpTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BpTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BpTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BpTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: BpTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: BpTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BST`1
   name: BST<T>
   href: api/Advanced.Algorithms.DataStructures.BST-1.html
@@ -1648,25 +1515,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).NextLower
   nameWithType: BST<T>.NextLower
   nameWithType.vb: BST(Of T).NextLower
-- uid: Advanced.Algorithms.DataStructures.BST`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BST`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.BST<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: BST<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: BST(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BST`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BST`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BST<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: BST<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: BST(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.BTree`1
   name: BTree<T>
   href: api/Advanced.Algorithms.DataStructures.BTree-1.html
@@ -1812,25 +1660,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BTree(Of T).Min
   nameWithType: BTree<T>.Min
   nameWithType.vb: BTree(Of T).Min
-- uid: Advanced.Algorithms.DataStructures.BTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BTree-1.html#Advanced_Algorithms_DataStructures_BTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.BTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: BTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: BTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BTree-1.html#Advanced_Algorithms_DataStructures_BTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: BTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: BTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1
   name: CircularLinkedList<T>
   href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html
@@ -1942,25 +1771,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).ReferenceNode
   nameWithType: CircularLinkedList<T>.ReferenceNode
   nameWithType.vb: CircularLinkedList(Of T).ReferenceNode
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.CircularLinkedList`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: CircularLinkedList<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: CircularLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.CircularLinkedList`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.CircularLinkedList<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: CircularLinkedList<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: CircularLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.CircularLinkedList`1.Union(Advanced.Algorithms.DataStructures.CircularLinkedList{`0})
   name: Union(CircularLinkedList<T>)
   href: api/Advanced.Algorithms.DataStructures.CircularLinkedList-1.html#Advanced_Algorithms_DataStructures_CircularLinkedList_1_Union_Advanced_Algorithms_DataStructures_CircularLinkedList__0__
@@ -2038,13 +1848,13 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T)
   nameWithType: DaryMaxHeap<T>
   nameWithType.vb: DaryMaxHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
+- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.#ctor(System.Int32,IEnumerable{`0})
   name: DaryMaxHeap(Int32, IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1__ctor_System_Int32_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
+  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1__ctor_System_Int32_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.#ctor(System.Int32,IEnumerable{`0})
   name.vb: DaryMaxHeap(Int32, IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.DaryMaxHeap(System.Int32, System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).DaryMaxHeap(System.Int32, System.Collections.Generic.IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.DaryMaxHeap(System.Int32, IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).DaryMaxHeap(System.Int32, IEnumerable(Of T))
   nameWithType: DaryMaxHeap<T>.DaryMaxHeap(Int32, IEnumerable<T>)
   nameWithType.vb: DaryMaxHeap(Of T).DaryMaxHeap(Int32, IEnumerable(Of T))
 - uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.#ctor*
@@ -2132,25 +1942,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).PeekMax
   nameWithType: DaryMaxHeap<T>.PeekMax
   nameWithType.vb: DaryMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: DaryMaxHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: DaryMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: DaryMaxHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: DaryMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1
   name: DaryMinHeap<T>
   href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html
@@ -2160,13 +1951,13 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T)
   nameWithType: DaryMinHeap<T>
   nameWithType.vb: DaryMinHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
+- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.#ctor(System.Int32,IEnumerable{`0})
   name: DaryMinHeap(Int32, IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1__ctor_System_Int32_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMinHeap`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
+  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1__ctor_System_Int32_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.DaryMinHeap`1.#ctor(System.Int32,IEnumerable{`0})
   name.vb: DaryMinHeap(Int32, IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.DaryMinHeap(System.Int32, System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).DaryMinHeap(System.Int32, System.Collections.Generic.IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.DaryMinHeap(System.Int32, IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).DaryMinHeap(System.Int32, IEnumerable(Of T))
   nameWithType: DaryMinHeap<T>.DaryMinHeap(Int32, IEnumerable<T>)
   nameWithType.vb: DaryMinHeap(Of T).DaryMinHeap(Int32, IEnumerable(Of T))
 - uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.#ctor*
@@ -2254,25 +2045,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).PeekMin
   nameWithType: DaryMinHeap<T>.PeekMin
   nameWithType.vb: DaryMinHeap(Of T).PeekMin
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: DaryMinHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: DaryMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: DaryMinHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: DaryMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.DisJointSet`1
   name: DisJointSet<T>
   href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html
@@ -2350,25 +2122,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).MakeSet
   nameWithType: DisJointSet<T>.MakeSet
   nameWithType.vb: DisJointSet(Of T).MakeSet
-- uid: Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.DisJointSet<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: DisJointSet<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: DisJointSet(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DisJointSet`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.DisJointSet<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.DisJointSet(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: DisJointSet<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: DisJointSet(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.DisJointSet`1.Union(`0,`0)
   name: Union(T, T)
   href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html#Advanced_Algorithms_DataStructures_DisJointSet_1_Union__0__0_
@@ -2584,25 +2337,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).IsEmpty
   nameWithType: DoublyLinkedList<T>.IsEmpty
   nameWithType.vb: DoublyLinkedList(Of T).IsEmpty
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: DoublyLinkedList<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: DoublyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DoublyLinkedList`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.DoublyLinkedList<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.DoublyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: DoublyLinkedList<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: DoublyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.DoublyLinkedList`1.Tail
   name: Tail
   href: api/Advanced.Algorithms.DataStructures.DoublyLinkedList-1.html#Advanced_Algorithms_DataStructures_DoublyLinkedList_1_Tail
@@ -2670,13 +2404,13 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T)
   nameWithType: FenwickTree<T>
   nameWithType.vb: FenwickTree(Of T)
-- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.#ctor(`0[],System.Func{`0,`0,`0})
+- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.#ctor(`0[],Func{`0,`0,`0})
   name: FenwickTree(T[], Func<T, T, T>)
-  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1__ctor__0___System_Func__0__0__0__
-  commentId: M:Advanced.Algorithms.DataStructures.FenwickTree`1.#ctor(`0[],System.Func{`0,`0,`0})
+  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1__ctor__0___Func__0__0__0__
+  commentId: M:Advanced.Algorithms.DataStructures.FenwickTree`1.#ctor(`0[],Func{`0,`0,`0})
   name.vb: FenwickTree(T(), Func(Of T, T, T))
-  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.FenwickTree(T[], System.Func<T, T, T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).FenwickTree(T(), System.Func(Of T, T, T))
+  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.FenwickTree(T[], Func<T, T, T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).FenwickTree(T(), Func(Of T, T, T))
   nameWithType: FenwickTree<T>.FenwickTree(T[], Func<T, T, T>)
   nameWithType.vb: FenwickTree(Of T).FenwickTree(T(), Func(Of T, T, T))
 - uid: Advanced.Algorithms.DataStructures.FenwickTree`1.#ctor*
@@ -2722,25 +2456,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).PrefixSum
   nameWithType: FenwickTree<T>.PrefixSum
   nameWithType.vb: FenwickTree(Of T).PrefixSum
-- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.FenwickTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: FenwickTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: FenwickTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.FenwickTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.FenwickTree-1.html#Advanced_Algorithms_DataStructures_FenwickTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FenwickTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.FenwickTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: FenwickTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: FenwickTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1
   name: FibornacciMaxHeap<T>
   href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html
@@ -2870,25 +2585,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).PeekMax
   nameWithType: FibornacciMaxHeap<T>.PeekMax
   nameWithType.vb: FibornacciMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: FibornacciMaxHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: FibornacciMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: FibornacciMaxHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: FibornacciMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1
   name: FibornacciMinHeap<T>
   href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html
@@ -3018,25 +2714,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).PeekMin
   nameWithType: FibornacciMinHeap<T>.PeekMin
   nameWithType.vb: FibornacciMinHeap(Of T).PeekMin
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: FibornacciMinHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: FibornacciMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: FibornacciMinHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: FibornacciMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation
   name: Advanced.Algorithms.DataStructures.Foundation
   href: api/Advanced.Algorithms.DataStructures.Foundation.html
@@ -3052,22 +2729,22 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T)
   nameWithType: ArrayList<T>
   nameWithType.vb: ArrayList(Of T)
-- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(IEnumerable{`0})
   name: ArrayList(IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1__ctor_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1__ctor_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(IEnumerable{`0})
   name.vb: ArrayList(IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.ArrayList(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).ArrayList(System.Collections.Generic.IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.ArrayList(IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).ArrayList(IEnumerable(Of T))
   nameWithType: ArrayList<T>.ArrayList(IEnumerable<T>)
   nameWithType.vb: ArrayList(Of T).ArrayList(IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
+- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Int32,IEnumerable{`0})
   name: ArrayList(Int32, IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1__ctor_System_Int32_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})
+  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1__ctor_System_Int32_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor(System.Int32,IEnumerable{`0})
   name.vb: ArrayList(Int32, IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.ArrayList(System.Int32, System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).ArrayList(System.Int32, System.Collections.Generic.IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.ArrayList(System.Int32, IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).ArrayList(System.Int32, IEnumerable(Of T))
   nameWithType: ArrayList<T>.ArrayList(Int32, IEnumerable<T>)
   nameWithType.vb: ArrayList(Of T).ArrayList(Int32, IEnumerable(Of T))
 - uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.#ctor*
@@ -3199,25 +2876,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).RemoveAt
   nameWithType: ArrayList<T>.RemoveAt
   nameWithType.vb: ArrayList(Of T).RemoveAt
-- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: ArrayList<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Foundation.ArrayList-1.html#Advanced_Algorithms_DataStructures_Foundation_ArrayList_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.ArrayList`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Foundation.ArrayList<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: ArrayList<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: ArrayList(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation.Dictionary`2
   name: Dictionary<K, V>
   href: api/Advanced.Algorithms.DataStructures.Foundation.Dictionary-2.html
@@ -3364,25 +3022,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.Dictionary(Of K, V).Remove
   nameWithType: Dictionary<K, V>.Remove
   nameWithType.vb: Dictionary(Of K, V).Remove
-- uid: Advanced.Algorithms.DataStructures.Foundation.Dictionary`2.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Foundation.Dictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_Dictionary_2_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Foundation.Dictionary`2.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Foundation.Dictionary<K, V>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.Dictionary(Of K, V).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: Dictionary<K, V>.IEnumerable.GetEnumerator()
-  nameWithType.vb: Dictionary(Of K, V).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Foundation.Dictionary`2.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Foundation.Dictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_Dictionary_2_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.Dictionary`2.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Foundation.Dictionary<K, V>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.Dictionary(Of K, V).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: Dictionary<K, V>.IEnumerable.GetEnumerator
-  nameWithType.vb: Dictionary(Of K, V).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation.DictionaryType
   name: DictionaryType
   href: api/Advanced.Algorithms.DataStructures.Foundation.DictionaryType.html
@@ -3529,25 +3168,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.HashSet(Of T).Remove
   nameWithType: HashSet<T>.Remove
   nameWithType.vb: HashSet(Of T).Remove
-- uid: Advanced.Algorithms.DataStructures.Foundation.HashSet`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Foundation.HashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_HashSet_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Foundation.HashSet`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Foundation.HashSet<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.HashSet(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: HashSet<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: HashSet(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Foundation.HashSet`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Foundation.HashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_HashSet_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.HashSet`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Foundation.HashSet<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.HashSet(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: HashSet<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: HashSet(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation.HashSetType
   name: HashSetType
   href: api/Advanced.Algorithms.DataStructures.Foundation.HashSetType.html
@@ -3660,25 +3280,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.Queue(Of T).GetEnumerator
   nameWithType: Queue<T>.GetEnumerator
   nameWithType.vb: Queue(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.Foundation.Queue`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Foundation.Queue-1.html#Advanced_Algorithms_DataStructures_Foundation_Queue_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Foundation.Queue`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Foundation.Queue<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.Queue(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: Queue<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: Queue(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Foundation.Queue`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Foundation.Queue-1.html#Advanced_Algorithms_DataStructures_Foundation_Queue_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.Queue`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Foundation.Queue<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.Queue(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: Queue<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: Queue(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation.QueueType
   name: QueueType
   href: api/Advanced.Algorithms.DataStructures.Foundation.QueueType.html
@@ -3860,25 +3461,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).Remove
   nameWithType: SortedDictionary<K, V>.Remove
   nameWithType.vb: SortedDictionary(Of K, V).Remove
-- uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary<K, V>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: SortedDictionary<K, V>.IEnumerable.GetEnumerator()
-  nameWithType.vb: SortedDictionary(Of K, V).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary<K, V>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: SortedDictionary<K, V>.IEnumerable.GetEnumerator
-  nameWithType.vb: SortedDictionary(Of K, V).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1
   name: SortedHashSet<T>
   href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html
@@ -4024,25 +3606,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).Remove
   nameWithType: SortedHashSet<T>.Remove
   nameWithType.vb: SortedHashSet(Of T).Remove
-- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: SortedHashSet<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: SortedHashSet(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: SortedHashSet<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: SortedHashSet(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation.Stack`1
   name: Stack<T>
   href: api/Advanced.Algorithms.DataStructures.Foundation.Stack-1.html
@@ -4154,25 +3717,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.Stack(Of T).Push
   nameWithType: Stack<T>.Push
   nameWithType.vb: Stack(Of T).Push
-- uid: Advanced.Algorithms.DataStructures.Foundation.Stack`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Foundation.Stack-1.html#Advanced_Algorithms_DataStructures_Foundation_Stack_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Foundation.Stack`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Foundation.Stack<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.Stack(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: Stack<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: Stack(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Foundation.Stack`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Foundation.Stack-1.html#Advanced_Algorithms_DataStructures_Foundation_Stack_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.Stack`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Foundation.Stack<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.Stack(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: Stack<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: Stack(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Foundation.StackType
   name: StackType
   href: api/Advanced.Algorithms.DataStructures.Foundation.StackType.html
@@ -4393,25 +3937,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T).RemoveVertex
   nameWithType: DiGraph<T>.RemoveVertex
   nameWithType.vb: DiGraph(Of T).RemoveVertex
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: DiGraph<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: DiGraph(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: DiGraph<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: DiGraph(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph_1_VerticesCount
@@ -4506,25 +4031,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex(Of T).OutEdges
   nameWithType: DiGraphVertex<T>.OutEdges
   nameWithType.vb: DiGraphVertex(Of T).OutEdges
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: DiGraphVertex<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: DiGraphVertex(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: DiGraphVertex<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: DiGraphVertex(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.Value
   name: Value
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_Value
@@ -4721,25 +4227,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T).RemoveVertex
   nameWithType: Graph<T>.RemoveVertex
   nameWithType.vb: Graph(Of T).RemoveVertex
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: Graph<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: Graph(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: Graph<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: Graph(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph_1_VerticesCount
@@ -4817,25 +4304,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex(Of T).GetEnumerator
   nameWithType: GraphVertex<T>.GetEnumerator
   nameWithType.vb: GraphVertex(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_GraphVertex_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: GraphVertex<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: GraphVertex(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_GraphVertex_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: GraphVertex<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: GraphVertex(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.Value
   name: Value
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_GraphVertex_1_Value
@@ -5049,25 +4517,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, TW).RemoveVertex
   nameWithType: WeightedDiGraph<T, TW>.RemoveVertex
   nameWithType.vb: WeightedDiGraph(Of T, TW).RemoveVertex
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: WeightedDiGraph<T, TW>.IEnumerable.GetEnumerator()
-  nameWithType.vb: WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: WeightedDiGraph<T, TW>.IEnumerable.GetEnumerator
-  nameWithType.vb: WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_VerticesCount
@@ -5162,25 +4611,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex(Of T, TW).OutEdges
   nameWithType: WeightedDiGraphVertex<T, TW>.OutEdges
   nameWithType.vb: WeightedDiGraphVertex(Of T, TW).OutEdges
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex<T, TW>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: WeightedDiGraphVertex<T, TW>.IEnumerable.GetEnumerator()
-  nameWithType.vb: WeightedDiGraphVertex(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex<T, TW>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex(Of T, TW).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: WeightedDiGraphVertex<T, TW>.IEnumerable.GetEnumerator
-  nameWithType.vb: WeightedDiGraphVertex(Of T, TW).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.Value
   name: Value
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_Value
@@ -5377,25 +4807,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, TW).RemoveVertex
   nameWithType: WeightedGraph<T, TW>.RemoveVertex
   nameWithType.vb: WeightedGraph(Of T, TW).RemoveVertex
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph_2_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: WeightedGraph<T, TW>.IEnumerable.GetEnumerator()
-  nameWithType.vb: WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph_2_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: WeightedGraph<T, TW>.IEnumerable.GetEnumerator
-  nameWithType.vb: WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph_2_VerticesCount
@@ -5473,25 +4884,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex(Of T, TW).GetEnumerator
   nameWithType: WeightedGraphVertex<T, TW>.GetEnumerator
   nameWithType.vb: WeightedGraphVertex(Of T, TW).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraphVertex_2_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex<T, TW>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: WeightedGraphVertex<T, TW>.IEnumerable.GetEnumerator()
-  nameWithType.vb: WeightedGraphVertex(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraphVertex_2_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex<T, TW>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex(Of T, TW).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: WeightedGraphVertex<T, TW>.IEnumerable.GetEnumerator
-  nameWithType.vb: WeightedGraphVertex(Of T, TW).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.Value
   name: Value
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraphVertex_2_Value
@@ -5677,25 +5069,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph(Of T).RemoveVertex
   nameWithType: DiGraph<T>.RemoveVertex
   nameWithType.vb: DiGraph(Of T).RemoveVertex
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: DiGraph<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: DiGraph(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: DiGraph<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: DiGraph(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_VerticesCount
@@ -5858,25 +5231,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).RemoveVertex
   nameWithType: Graph<T>.RemoveVertex
   nameWithType.vb: Graph(Of T).RemoveVertex
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: Graph<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: Graph(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: Graph<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: Graph(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_VerticesCount
@@ -6056,25 +5410,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph(Of T, TW).RemoveVertex
   nameWithType: WeightedDiGraph<T, TW>.RemoveVertex
   nameWithType.vb: WeightedDiGraph(Of T, TW).RemoveVertex
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedDiGraph_2_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: WeightedDiGraph<T, TW>.IEnumerable.GetEnumerator()
-  nameWithType.vb: WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedDiGraph_2_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: WeightedDiGraph<T, TW>.IEnumerable.GetEnumerator
-  nameWithType.vb: WeightedDiGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph`2.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedDiGraph_2_VerticesCount
@@ -6237,25 +5572,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).RemoveVertex
   nameWithType: WeightedGraph<T, TW>.RemoveVertex
   nameWithType.vb: WeightedGraph(Of T, TW).RemoveVertex
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: WeightedGraph<T, TW>.IEnumerable.GetEnumerator()
-  nameWithType.vb: WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: WeightedGraph<T, TW>.IEnumerable.GetEnumerator
-  nameWithType.vb: WeightedGraph(Of T, TW).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_VerticesCount
@@ -6441,25 +5757,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).Insert
   nameWithType: IntervalTree<T>.Insert
   nameWithType.vb: IntervalTree(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.IntervalTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: IntervalTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: IntervalTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.IntervalTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.IntervalTree-1.html#Advanced_Algorithms_DataStructures_IntervalTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.IntervalTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.IntervalTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.IntervalTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: IntervalTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: IntervalTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.KDTree`1
   name: KDTree<T>
   href: api/Advanced.Algorithms.DataStructures.KDTree-1.html
@@ -6592,25 +5889,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).RangeSearch
   nameWithType: KDTree<T>.RangeSearch
   nameWithType.vb: KDTree(Of T).RangeSearch
-- uid: Advanced.Algorithms.DataStructures.KDTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.KDTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: KDTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: KDTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.KDTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.KDTree-1.html#Advanced_Algorithms_DataStructures_KDTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.KDTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.KDTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: KDTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: KDTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1
   name: MaxPriorityQueue<T>
   href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html
@@ -6688,25 +5966,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Peek
   nameWithType: MaxPriorityQueue<T>.Peek
   nameWithType.vb: MaxPriorityQueue(Of T).Peek
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: MaxPriorityQueue<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: MaxPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: MaxPriorityQueue<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: MaxPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1
   name: MinPriorityQueue<T>
   href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html
@@ -6784,25 +6043,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Peek
   nameWithType: MinPriorityQueue<T>.Peek
   nameWithType.vb: MinPriorityQueue(Of T).Peek
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: MinPriorityQueue<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: MinPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: MinPriorityQueue<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: MinPriorityQueue(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1
   name: PairingMaxHeap<T>
   href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html
@@ -6932,25 +6172,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).PeekMax
   nameWithType: PairingMaxHeap<T>.PeekMax
   nameWithType.vb: PairingMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: PairingMaxHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: PairingMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: PairingMaxHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: PairingMaxHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1
   name: PairingMinHeap<T>
   href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html
@@ -7080,25 +6301,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).PeekMin
   nameWithType: PairingMinHeap<T>.PeekMin
   nameWithType.vb: PairingMinHeap(Of T).PeekMin
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: PairingMinHeap<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: PairingMinHeap<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: PairingMinHeap(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.QuadTree`1
   name: QuadTree<T>
   href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html
@@ -7193,25 +6395,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).RangeSearch
   nameWithType: QuadTree<T>.RangeSearch
   nameWithType.vb: QuadTree(Of T).RangeSearch
-- uid: Advanced.Algorithms.DataStructures.QuadTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.QuadTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: QuadTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.QuadTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html#Advanced_Algorithms_DataStructures_QuadTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.QuadTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.QuadTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: QuadTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: QuadTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.RangeTree`1
   name: RangeTree<T>
   href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html
@@ -7326,25 +6509,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).RangeSearch
   nameWithType: RangeTree<T>.RangeSearch
   nameWithType.vb: RangeTree(Of T).RangeSearch
-- uid: Advanced.Algorithms.DataStructures.RangeTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.RangeTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: RangeTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: RangeTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.RangeTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.RangeTree-1.html#Advanced_Algorithms_DataStructures_RangeTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.RangeTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.RangeTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.RangeTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: RangeTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: RangeTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1
   name: RedBlackTree<T>
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html
@@ -7354,13 +6518,13 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T)
   nameWithType: RedBlackTree<T>
   nameWithType.vb: RedBlackTree(Of T)
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,System.Collections.Generic.IEqualityComparer{`0})
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,IEqualityComparer{`0})
   name: RedBlackTree(Boolean, IEqualityComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_System_Boolean_System_Collections_Generic_IEqualityComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,System.Collections.Generic.IEqualityComparer{`0})
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_System_Boolean_IEqualityComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,IEqualityComparer{`0})
   name.vb: RedBlackTree(Boolean, IEqualityComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RedBlackTree(System.Boolean, System.Collections.Generic.IEqualityComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RedBlackTree(System.Boolean, System.Collections.Generic.IEqualityComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RedBlackTree(System.Boolean, IEqualityComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RedBlackTree(System.Boolean, IEqualityComparer(Of T))
   nameWithType: RedBlackTree<T>.RedBlackTree(Boolean, IEqualityComparer<T>)
   nameWithType.vb: RedBlackTree(Of T).RedBlackTree(Boolean, IEqualityComparer(Of T))
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor*
@@ -7542,25 +6706,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).NextLower
   nameWithType: RedBlackTree<T>.NextLower
   nameWithType.vb: RedBlackTree(Of T).NextLower
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: RedBlackTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: RedBlackTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: RedBlackTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: RedBlackTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.RTree
   name: RTree
   href: api/Advanced.Algorithms.DataStructures.RTree.html
@@ -7671,23 +6816,6 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.DataStructures.RTree.RangeSearch
   nameWithType: RTree.RangeSearch
-- uid: Advanced.Algorithms.DataStructures.RTree.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.RTree.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.RTree.System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: RTree.IEnumerable.GetEnumerator()
-  nameWithType.vb: RTree.System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.RTree.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.RTree.html#Advanced_Algorithms_DataStructures_RTree_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.RTree.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.RTree.System.Collections.IEnumerable.GetEnumerator
-  nameWithType: RTree.IEnumerable.GetEnumerator
-  nameWithType.vb: RTree.System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SegmentTree`1
   name: SegmentTree<T>
   href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html
@@ -7697,13 +6825,13 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T)
   nameWithType: SegmentTree<T>
   nameWithType.vb: SegmentTree(Of T)
-- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.#ctor(`0[],System.Func{`0,`0,`0},System.Func{`0})
+- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.#ctor(`0[],Func{`0,`0,`0},Func{`0})
   name: SegmentTree(T[], Func<T, T, T>, Func<T>)
-  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1__ctor__0___System_Func__0__0__0__System_Func__0__
-  commentId: M:Advanced.Algorithms.DataStructures.SegmentTree`1.#ctor(`0[],System.Func{`0,`0,`0},System.Func{`0})
+  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1__ctor__0___Func__0__0__0__Func__0__
+  commentId: M:Advanced.Algorithms.DataStructures.SegmentTree`1.#ctor(`0[],Func{`0,`0,`0},Func{`0})
   name.vb: SegmentTree(T(), Func(Of T, T, T), Func(Of T))
-  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.SegmentTree(T[], System.Func<T, T, T>, System.Func<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).SegmentTree(T(), System.Func(Of T, T, T), System.Func(Of T))
+  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.SegmentTree(T[], Func<T, T, T>, Func<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).SegmentTree(T(), Func(Of T, T, T), Func(Of T))
   nameWithType: SegmentTree<T>.SegmentTree(T[], Func<T, T, T>, Func<T>)
   nameWithType.vb: SegmentTree(Of T).SegmentTree(T(), Func(Of T, T, T), Func(Of T))
 - uid: Advanced.Algorithms.DataStructures.SegmentTree`1.#ctor*
@@ -7749,25 +6877,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).RangeResult
   nameWithType: SegmentTree<T>.RangeResult
   nameWithType.vb: SegmentTree(Of T).RangeResult
-- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: SegmentTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: SegmentTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.SegmentTree-1.html#Advanced_Algorithms_DataStructures_SegmentTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SegmentTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.SegmentTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.SegmentTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: SegmentTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: SegmentTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1
   name: SinglyLinkedList<T>
   href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html
@@ -7930,25 +7039,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).IsEmpty
   nameWithType: SinglyLinkedList<T>.IsEmpty
   nameWithType.vb: SinglyLinkedList(Of T).IsEmpty
-- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: SinglyLinkedList<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: SinglyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.SinglyLinkedList`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.SinglyLinkedList-1.html#Advanced_Algorithms_DataStructures_SinglyLinkedList_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SinglyLinkedList`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.SinglyLinkedList<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.SinglyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: SinglyLinkedList<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: SinglyLinkedList(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SinglyLinkedListNode`1
   name: SinglyLinkedListNode<T>
   href: api/Advanced.Algorithms.DataStructures.SinglyLinkedListNode-1.html
@@ -8110,25 +7200,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).MaxHeight
   nameWithType: SkipList<T>.MaxHeight
   nameWithType.vb: SkipList(Of T).MaxHeight
-- uid: Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.SkipList<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: SkipList<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: SkipList(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.SkipList-1.html#Advanced_Algorithms_DataStructures_SkipList_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SkipList`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.SkipList<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.SkipList(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: SkipList<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: SkipList(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SparseSet
   name: SparseSet
   href: api/Advanced.Algorithms.DataStructures.SparseSet.html
@@ -8226,23 +7297,6 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.DataStructures.SparseSet.Remove
   nameWithType: SparseSet.Remove
-- uid: Advanced.Algorithms.DataStructures.SparseSet.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.SparseSet.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.SparseSet.System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: SparseSet.IEnumerable.GetEnumerator()
-  nameWithType.vb: SparseSet.System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.SparseSet.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.SparseSet.html#Advanced_Algorithms_DataStructures_SparseSet_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SparseSet.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.SparseSet.System.Collections.IEnumerable.GetEnumerator
-  nameWithType: SparseSet.IEnumerable.GetEnumerator
-  nameWithType.vb: SparseSet.System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SplayTree`1
   name: SplayTree<T>
   href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html
@@ -8422,25 +7476,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).NextLower
   nameWithType: SplayTree<T>.NextLower
   nameWithType.vb: SplayTree(Of T).NextLower
-- uid: Advanced.Algorithms.DataStructures.SplayTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.SplayTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: SplayTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: SplayTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.SplayTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SplayTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: SplayTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: SplayTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.SuffixTree`1
   name: SuffixTree<T>
   href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html
@@ -8573,25 +7608,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).StartsWith
   nameWithType: SuffixTree<T>.StartsWith
   nameWithType.vb: SuffixTree(Of T).StartsWith
-- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: SuffixTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: SuffixTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.SuffixTree-1.html#Advanced_Algorithms_DataStructures_SuffixTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SuffixTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.SuffixTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.SuffixTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: SuffixTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: SuffixTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1
   name: TernarySearchTree<T>
   href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html
@@ -8742,25 +7758,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).StartsWith
   nameWithType: TernarySearchTree<T>.StartsWith
   nameWithType.vb: TernarySearchTree(Of T).StartsWith
-- uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.TernarySearchTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.TernarySearchTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: TernarySearchTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: TernarySearchTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.TernarySearchTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.TernarySearchTree-1.html#Advanced_Algorithms_DataStructures_TernarySearchTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.TernarySearchTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.TernarySearchTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.TernarySearchTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: TernarySearchTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: TernarySearchTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.TreapTree`1
   name: TreapTree<T>
   href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html
@@ -8940,25 +7937,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).NextLower
   nameWithType: TreapTree<T>.NextLower
   nameWithType.vb: TreapTree(Of T).NextLower
-- uid: Advanced.Algorithms.DataStructures.TreapTree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.TreapTree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: TreapTree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.TreapTree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.TreapTree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: TreapTree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: TreapTree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Tree`1
   name: Tree<T>
   href: api/Advanced.Algorithms.DataStructures.Tree-1.html
@@ -9087,25 +8065,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Tree(Of T).Insert
   nameWithType: Tree<T>.Insert
   nameWithType.vb: Tree(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.Tree`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Tree-1.html#Advanced_Algorithms_DataStructures_Tree_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Tree`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Tree<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: Tree<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: Tree(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Tree`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Tree-1.html#Advanced_Algorithms_DataStructures_Tree_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Tree`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Tree<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Tree(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: Tree<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: Tree(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.DataStructures.Trie`1
   name: Trie<T>
   href: api/Advanced.Algorithms.DataStructures.Trie-1.html
@@ -9256,25 +8215,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).StartsWith
   nameWithType: Trie<T>.StartsWith
   nameWithType.vb: Trie(Of T).StartsWith
-- uid: Advanced.Algorithms.DataStructures.Trie`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.Trie`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Advanced.Algorithms.DataStructures.Trie<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: Trie<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: Trie(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.Trie`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.Trie-1.html#Advanced_Algorithms_DataStructures_Trie_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.Trie`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.Trie<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.Trie(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: Trie<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: Trie(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Advanced.Algorithms.Distributed
   name: Advanced.Algorithms.Distributed
   href: api/Advanced.Algorithms.Distributed.html
@@ -9307,12 +8247,12 @@ references:
   fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).Count
   nameWithType: AsyncQueue<T>.Count
   nameWithType.vb: AsyncQueue(Of T).Count
-- uid: Advanced.Algorithms.Distributed.AsyncQueue`1.DequeueAsync(System.Int32,System.Threading.CancellationToken)
+- uid: Advanced.Algorithms.Distributed.AsyncQueue`1.DequeueAsync(System.Int32,CancellationToken)
   name: DequeueAsync(Int32, CancellationToken)
-  href: api/Advanced.Algorithms.Distributed.AsyncQueue-1.html#Advanced_Algorithms_Distributed_AsyncQueue_1_DequeueAsync_System_Int32_System_Threading_CancellationToken_
-  commentId: M:Advanced.Algorithms.Distributed.AsyncQueue`1.DequeueAsync(System.Int32,System.Threading.CancellationToken)
-  fullName: Advanced.Algorithms.Distributed.AsyncQueue<T>.DequeueAsync(System.Int32, System.Threading.CancellationToken)
-  fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).DequeueAsync(System.Int32, System.Threading.CancellationToken)
+  href: api/Advanced.Algorithms.Distributed.AsyncQueue-1.html#Advanced_Algorithms_Distributed_AsyncQueue_1_DequeueAsync_System_Int32_CancellationToken_
+  commentId: M:Advanced.Algorithms.Distributed.AsyncQueue`1.DequeueAsync(System.Int32,CancellationToken)
+  fullName: Advanced.Algorithms.Distributed.AsyncQueue<T>.DequeueAsync(System.Int32, CancellationToken)
+  fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).DequeueAsync(System.Int32, CancellationToken)
   nameWithType: AsyncQueue<T>.DequeueAsync(Int32, CancellationToken)
   nameWithType.vb: AsyncQueue(Of T).DequeueAsync(Int32, CancellationToken)
 - uid: Advanced.Algorithms.Distributed.AsyncQueue`1.DequeueAsync*
@@ -9324,12 +8264,12 @@ references:
   fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).DequeueAsync
   nameWithType: AsyncQueue<T>.DequeueAsync
   nameWithType.vb: AsyncQueue(Of T).DequeueAsync
-- uid: Advanced.Algorithms.Distributed.AsyncQueue`1.EnqueueAsync(`0,System.Int32,System.Threading.CancellationToken)
+- uid: Advanced.Algorithms.Distributed.AsyncQueue`1.EnqueueAsync(`0,System.Int32,CancellationToken)
   name: EnqueueAsync(T, Int32, CancellationToken)
-  href: api/Advanced.Algorithms.Distributed.AsyncQueue-1.html#Advanced_Algorithms_Distributed_AsyncQueue_1_EnqueueAsync__0_System_Int32_System_Threading_CancellationToken_
-  commentId: M:Advanced.Algorithms.Distributed.AsyncQueue`1.EnqueueAsync(`0,System.Int32,System.Threading.CancellationToken)
-  fullName: Advanced.Algorithms.Distributed.AsyncQueue<T>.EnqueueAsync(T, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).EnqueueAsync(T, System.Int32, System.Threading.CancellationToken)
+  href: api/Advanced.Algorithms.Distributed.AsyncQueue-1.html#Advanced_Algorithms_Distributed_AsyncQueue_1_EnqueueAsync__0_System_Int32_CancellationToken_
+  commentId: M:Advanced.Algorithms.Distributed.AsyncQueue`1.EnqueueAsync(`0,System.Int32,CancellationToken)
+  fullName: Advanced.Algorithms.Distributed.AsyncQueue<T>.EnqueueAsync(T, System.Int32, CancellationToken)
+  fullName.vb: Advanced.Algorithms.Distributed.AsyncQueue(Of T).EnqueueAsync(T, System.Int32, CancellationToken)
   nameWithType: AsyncQueue<T>.EnqueueAsync(T, Int32, CancellationToken)
   nameWithType.vb: AsyncQueue(Of T).EnqueueAsync(T, Int32, CancellationToken)
 - uid: Advanced.Algorithms.Distributed.AsyncQueue`1.EnqueueAsync*
@@ -9452,13 +8392,13 @@ references:
   fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).ConsistentHash()
   nameWithType: ConsistentHash<T>.ConsistentHash()
   nameWithType.vb: ConsistentHash(Of T).ConsistentHash()
-- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)
+- uid: Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor(IEnumerable{`0},System.Int32)
   name: ConsistentHash(IEnumerable<T>, Int32)
-  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1__ctor_System_Collections_Generic_IEnumerable__0__System_Int32_
-  commentId: M:Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)
+  href: api/Advanced.Algorithms.Distributed.ConsistentHash-1.html#Advanced_Algorithms_Distributed_ConsistentHash_1__ctor_IEnumerable__0__System_Int32_
+  commentId: M:Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor(IEnumerable{`0},System.Int32)
   name.vb: ConsistentHash(IEnumerable(Of T), Int32)
-  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.ConsistentHash(System.Collections.Generic.IEnumerable<T>, System.Int32)
-  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).ConsistentHash(System.Collections.Generic.IEnumerable(Of T), System.Int32)
+  fullName: Advanced.Algorithms.Distributed.ConsistentHash<T>.ConsistentHash(IEnumerable<T>, System.Int32)
+  fullName.vb: Advanced.Algorithms.Distributed.ConsistentHash(Of T).ConsistentHash(IEnumerable(Of T), System.Int32)
   nameWithType: ConsistentHash<T>.ConsistentHash(IEnumerable<T>, Int32)
   nameWithType.vb: ConsistentHash(Of T).ConsistentHash(IEnumerable(Of T), Int32)
 - uid: Advanced.Algorithms.Distributed.ConsistentHash`1.#ctor*
@@ -9606,13 +8546,13 @@ references:
   isSpec: "True"
   fullName: Advanced.Algorithms.Geometry.BentleyOttmann.BentleyOttmann
   nameWithType: BentleyOttmann.BentleyOttmann
-- uid: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(System.Collections.Generic.IEnumerable{Advanced.Algorithms.Geometry.Line})
+- uid: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(IEnumerable{Advanced.Algorithms.Geometry.Line})
   name: FindIntersections(IEnumerable<Line>)
-  href: api/Advanced.Algorithms.Geometry.BentleyOttmann.html#Advanced_Algorithms_Geometry_BentleyOttmann_FindIntersections_System_Collections_Generic_IEnumerable_Advanced_Algorithms_Geometry_Line__
-  commentId: M:Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(System.Collections.Generic.IEnumerable{Advanced.Algorithms.Geometry.Line})
+  href: api/Advanced.Algorithms.Geometry.BentleyOttmann.html#Advanced_Algorithms_Geometry_BentleyOttmann_FindIntersections_IEnumerable_Advanced_Algorithms_Geometry_Line__
+  commentId: M:Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(IEnumerable{Advanced.Algorithms.Geometry.Line})
   name.vb: FindIntersections(IEnumerable(Of Line))
-  fullName: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(System.Collections.Generic.IEnumerable<Advanced.Algorithms.Geometry.Line>)
-  fullName.vb: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(System.Collections.Generic.IEnumerable(Of Advanced.Algorithms.Geometry.Line))
+  fullName: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(IEnumerable<Advanced.Algorithms.Geometry.Line>)
+  fullName.vb: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections(IEnumerable(Of Advanced.Algorithms.Geometry.Line))
   nameWithType: BentleyOttmann.FindIntersections(IEnumerable<Line>)
   nameWithType.vb: BentleyOttmann.FindIntersections(IEnumerable(Of Line))
 - uid: Advanced.Algorithms.Geometry.BentleyOttmann.FindIntersections*
@@ -9628,22 +8568,22 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.ClosestPointPair
   fullName: Advanced.Algorithms.Geometry.ClosestPointPair
   nameWithType: ClosestPointPair
-- uid: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Point},System.Int32,System.Int32)
+- uid: Advanced.Algorithms.Geometry.ClosestPointPair.Find(List{Advanced.Algorithms.Geometry.Point},System.Int32,System.Int32)
   name: Find(List<Point>, Int32, Int32)
-  href: api/Advanced.Algorithms.Geometry.ClosestPointPair.html#Advanced_Algorithms_Geometry_ClosestPointPair_Find_System_Collections_Generic_List_Advanced_Algorithms_Geometry_Point__System_Int32_System_Int32_
-  commentId: M:Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Point},System.Int32,System.Int32)
+  href: api/Advanced.Algorithms.Geometry.ClosestPointPair.html#Advanced_Algorithms_Geometry_ClosestPointPair_Find_List_Advanced_Algorithms_Geometry_Point__System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.Geometry.ClosestPointPair.Find(List{Advanced.Algorithms.Geometry.Point},System.Int32,System.Int32)
   name.vb: Find(List(Of Point), Int32, Int32)
-  fullName: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List<Advanced.Algorithms.Geometry.Point>, System.Int32, System.Int32)
-  fullName.vb: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List(Of Advanced.Algorithms.Geometry.Point), System.Int32, System.Int32)
+  fullName: Advanced.Algorithms.Geometry.ClosestPointPair.Find(List<Advanced.Algorithms.Geometry.Point>, System.Int32, System.Int32)
+  fullName.vb: Advanced.Algorithms.Geometry.ClosestPointPair.Find(List(Of Advanced.Algorithms.Geometry.Point), System.Int32, System.Int32)
   nameWithType: ClosestPointPair.Find(List<Point>, Int32, Int32)
   nameWithType.vb: ClosestPointPair.Find(List(Of Point), Int32, Int32)
-- uid: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List{System.Int32[]})
+- uid: Advanced.Algorithms.Geometry.ClosestPointPair.Find(List{System.Int32[]})
   name: Find(List<Int32[]>)
-  href: api/Advanced.Algorithms.Geometry.ClosestPointPair.html#Advanced_Algorithms_Geometry_ClosestPointPair_Find_System_Collections_Generic_List_System_Int32____
-  commentId: M:Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List{System.Int32[]})
+  href: api/Advanced.Algorithms.Geometry.ClosestPointPair.html#Advanced_Algorithms_Geometry_ClosestPointPair_Find_List_System_Int32____
+  commentId: M:Advanced.Algorithms.Geometry.ClosestPointPair.Find(List{System.Int32[]})
   name.vb: Find(List(Of Int32()))
-  fullName: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List<System.Int32[]>)
-  fullName.vb: Advanced.Algorithms.Geometry.ClosestPointPair.Find(System.Collections.Generic.List(Of System.Int32()))
+  fullName: Advanced.Algorithms.Geometry.ClosestPointPair.Find(List<System.Int32[]>)
+  fullName.vb: Advanced.Algorithms.Geometry.ClosestPointPair.Find(List(Of System.Int32()))
   nameWithType: ClosestPointPair.Find(List<Int32[]>)
   nameWithType.vb: ClosestPointPair.Find(List(Of Int32()))
 - uid: Advanced.Algorithms.Geometry.ClosestPointPair.Find*
@@ -9659,13 +8599,13 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.ConvexHull
   fullName: Advanced.Algorithms.Geometry.ConvexHull
   nameWithType: ConvexHull
-- uid: Advanced.Algorithms.Geometry.ConvexHull.Find(System.Collections.Generic.List{System.Int32[]})
+- uid: Advanced.Algorithms.Geometry.ConvexHull.Find(List{System.Int32[]})
   name: Find(List<Int32[]>)
-  href: api/Advanced.Algorithms.Geometry.ConvexHull.html#Advanced_Algorithms_Geometry_ConvexHull_Find_System_Collections_Generic_List_System_Int32____
-  commentId: M:Advanced.Algorithms.Geometry.ConvexHull.Find(System.Collections.Generic.List{System.Int32[]})
+  href: api/Advanced.Algorithms.Geometry.ConvexHull.html#Advanced_Algorithms_Geometry_ConvexHull_Find_List_System_Int32____
+  commentId: M:Advanced.Algorithms.Geometry.ConvexHull.Find(List{System.Int32[]})
   name.vb: Find(List(Of Int32()))
-  fullName: Advanced.Algorithms.Geometry.ConvexHull.Find(System.Collections.Generic.List<System.Int32[]>)
-  fullName.vb: Advanced.Algorithms.Geometry.ConvexHull.Find(System.Collections.Generic.List(Of System.Int32()))
+  fullName: Advanced.Algorithms.Geometry.ConvexHull.Find(List<System.Int32[]>)
+  fullName.vb: Advanced.Algorithms.Geometry.ConvexHull.Find(List(Of System.Int32()))
   nameWithType: ConvexHull.Find(List<Int32[]>)
   nameWithType.vb: ConvexHull.Find(List(Of Int32()))
 - uid: Advanced.Algorithms.Geometry.ConvexHull.Find*
@@ -9970,22 +8910,22 @@ references:
   commentId: T:Advanced.Algorithms.Geometry.Polygon
   fullName: Advanced.Algorithms.Geometry.Polygon
   nameWithType: Polygon
-- uid: Advanced.Algorithms.Geometry.Polygon.#ctor(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Line})
+- uid: Advanced.Algorithms.Geometry.Polygon.#ctor(List{Advanced.Algorithms.Geometry.Line})
   name: Polygon(List<Line>)
-  href: api/Advanced.Algorithms.Geometry.Polygon.html#Advanced_Algorithms_Geometry_Polygon__ctor_System_Collections_Generic_List_Advanced_Algorithms_Geometry_Line__
-  commentId: M:Advanced.Algorithms.Geometry.Polygon.#ctor(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Line})
+  href: api/Advanced.Algorithms.Geometry.Polygon.html#Advanced_Algorithms_Geometry_Polygon__ctor_List_Advanced_Algorithms_Geometry_Line__
+  commentId: M:Advanced.Algorithms.Geometry.Polygon.#ctor(List{Advanced.Algorithms.Geometry.Line})
   name.vb: Polygon(List(Of Line))
-  fullName: Advanced.Algorithms.Geometry.Polygon.Polygon(System.Collections.Generic.List<Advanced.Algorithms.Geometry.Line>)
-  fullName.vb: Advanced.Algorithms.Geometry.Polygon.Polygon(System.Collections.Generic.List(Of Advanced.Algorithms.Geometry.Line))
+  fullName: Advanced.Algorithms.Geometry.Polygon.Polygon(List<Advanced.Algorithms.Geometry.Line>)
+  fullName.vb: Advanced.Algorithms.Geometry.Polygon.Polygon(List(Of Advanced.Algorithms.Geometry.Line))
   nameWithType: Polygon.Polygon(List<Line>)
   nameWithType.vb: Polygon.Polygon(List(Of Line))
-- uid: Advanced.Algorithms.Geometry.Polygon.#ctor(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Point})
+- uid: Advanced.Algorithms.Geometry.Polygon.#ctor(List{Advanced.Algorithms.Geometry.Point})
   name: Polygon(List<Point>)
-  href: api/Advanced.Algorithms.Geometry.Polygon.html#Advanced_Algorithms_Geometry_Polygon__ctor_System_Collections_Generic_List_Advanced_Algorithms_Geometry_Point__
-  commentId: M:Advanced.Algorithms.Geometry.Polygon.#ctor(System.Collections.Generic.List{Advanced.Algorithms.Geometry.Point})
+  href: api/Advanced.Algorithms.Geometry.Polygon.html#Advanced_Algorithms_Geometry_Polygon__ctor_List_Advanced_Algorithms_Geometry_Point__
+  commentId: M:Advanced.Algorithms.Geometry.Polygon.#ctor(List{Advanced.Algorithms.Geometry.Point})
   name.vb: Polygon(List(Of Point))
-  fullName: Advanced.Algorithms.Geometry.Polygon.Polygon(System.Collections.Generic.List<Advanced.Algorithms.Geometry.Point>)
-  fullName.vb: Advanced.Algorithms.Geometry.Polygon.Polygon(System.Collections.Generic.List(Of Advanced.Algorithms.Geometry.Point))
+  fullName: Advanced.Algorithms.Geometry.Polygon.Polygon(List<Advanced.Algorithms.Geometry.Point>)
+  fullName.vb: Advanced.Algorithms.Geometry.Polygon.Polygon(List(Of Advanced.Algorithms.Geometry.Point))
   nameWithType: Polygon.Polygon(List<Point>)
   nameWithType.vb: Polygon.Polygon(List(Of Point))
 - uid: Advanced.Algorithms.Geometry.Polygon.#ctor*
@@ -10151,13 +9091,13 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W)
   nameWithType: AllPairShortestPathResult<T, W>
   nameWithType.vb: AllPairShortestPathResult(Of T, W)
-- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor(`0,`0,`1,System.Collections.Generic.List{`0})
+- uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor(`0,`0,`1,List{`0})
   name: AllPairShortestPathResult(T, T, W, List<T>)
-  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2__ctor__0__0__1_System_Collections_Generic_List__0__
-  commentId: M:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor(`0,`0,`1,System.Collections.Generic.List{`0})
+  href: api/Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html#Advanced_Algorithms_Graph_AllPairShortestPathResult_2__ctor__0__0__1_List__0__
+  commentId: M:Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor(`0,`0,`1,List{`0})
   name.vb: AllPairShortestPathResult(T, T, W, List(Of T))
-  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.AllPairShortestPathResult(T, T, W, System.Collections.Generic.List<T>)
-  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).AllPairShortestPathResult(T, T, W, System.Collections.Generic.List(Of T))
+  fullName: Advanced.Algorithms.Graph.AllPairShortestPathResult<T, W>.AllPairShortestPathResult(T, T, W, List<T>)
+  fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).AllPairShortestPathResult(T, T, W, List(Of T))
   nameWithType: AllPairShortestPathResult<T, W>.AllPairShortestPathResult(T, T, W, List<T>)
   nameWithType.vb: AllPairShortestPathResult(Of T, W).AllPairShortestPathResult(T, T, W, List(Of T))
 - uid: Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor*
@@ -10237,6 +9177,51 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.AllPairShortestPathResult(Of T, W).Source
   nameWithType: AllPairShortestPathResult<T, W>.Source
   nameWithType.vb: AllPairShortestPathResult(Of T, W).Source
+- uid: Advanced.Algorithms.Graph.AStarShortestPath`2
+  name: AStarShortestPath<T, W>
+  href: api/Advanced.Algorithms.Graph.AStarShortestPath-2.html
+  commentId: T:Advanced.Algorithms.Graph.AStarShortestPath`2
+  name.vb: AStarShortestPath(Of T, W)
+  fullName: Advanced.Algorithms.Graph.AStarShortestPath<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.AStarShortestPath(Of T, W)
+  nameWithType: AStarShortestPath<T, W>
+  nameWithType.vb: AStarShortestPath(Of T, W)
+- uid: Advanced.Algorithms.Graph.AStarShortestPath`2.#ctor(Advanced.Algorithms.Graph.IShortestPathOperators{`1},Advanced.Algorithms.Graph.IAStarHeuristic{`0,`1})
+  name: AStarShortestPath(IShortestPathOperators<W>, IAStarHeuristic<T, W>)
+  href: api/Advanced.Algorithms.Graph.AStarShortestPath-2.html#Advanced_Algorithms_Graph_AStarShortestPath_2__ctor_Advanced_Algorithms_Graph_IShortestPathOperators__1__Advanced_Algorithms_Graph_IAStarHeuristic__0__1__
+  commentId: M:Advanced.Algorithms.Graph.AStarShortestPath`2.#ctor(Advanced.Algorithms.Graph.IShortestPathOperators{`1},Advanced.Algorithms.Graph.IAStarHeuristic{`0,`1})
+  name.vb: AStarShortestPath(IShortestPathOperators(Of W), IAStarHeuristic(Of T, W))
+  fullName: Advanced.Algorithms.Graph.AStarShortestPath<T, W>.AStarShortestPath(Advanced.Algorithms.Graph.IShortestPathOperators<W>, Advanced.Algorithms.Graph.IAStarHeuristic<T, W>)
+  fullName.vb: Advanced.Algorithms.Graph.AStarShortestPath(Of T, W).AStarShortestPath(Advanced.Algorithms.Graph.IShortestPathOperators(Of W), Advanced.Algorithms.Graph.IAStarHeuristic(Of T, W))
+  nameWithType: AStarShortestPath<T, W>.AStarShortestPath(IShortestPathOperators<W>, IAStarHeuristic<T, W>)
+  nameWithType.vb: AStarShortestPath(Of T, W).AStarShortestPath(IShortestPathOperators(Of W), IAStarHeuristic(Of T, W))
+- uid: Advanced.Algorithms.Graph.AStarShortestPath`2.#ctor*
+  name: AStarShortestPath
+  href: api/Advanced.Algorithms.Graph.AStarShortestPath-2.html#Advanced_Algorithms_Graph_AStarShortestPath_2__ctor_
+  commentId: Overload:Advanced.Algorithms.Graph.AStarShortestPath`2.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.AStarShortestPath<T, W>.AStarShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.AStarShortestPath(Of T, W).AStarShortestPath
+  nameWithType: AStarShortestPath<T, W>.AStarShortestPath
+  nameWithType.vb: AStarShortestPath(Of T, W).AStarShortestPath
+- uid: Advanced.Algorithms.Graph.AStarShortestPath`2.FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: FindShortestPath(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.AStarShortestPath-2.html#Advanced_Algorithms_Graph_AStarShortestPath_2_FindShortestPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.AStarShortestPath`2.FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: FindShortestPath(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.AStarShortestPath<T, W>.FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.AStarShortestPath(Of T, W).FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: AStarShortestPath<T, W>.FindShortestPath(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: AStarShortestPath(Of T, W).FindShortestPath(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.AStarShortestPath`2.FindShortestPath*
+  name: FindShortestPath
+  href: api/Advanced.Algorithms.Graph.AStarShortestPath-2.html#Advanced_Algorithms_Graph_AStarShortestPath_2_FindShortestPath_
+  commentId: Overload:Advanced.Algorithms.Graph.AStarShortestPath`2.FindShortestPath
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.AStarShortestPath<T, W>.FindShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.AStarShortestPath(Of T, W).FindShortestPath
+  nameWithType: AStarShortestPath<T, W>.FindShortestPath
+  nameWithType.vb: AStarShortestPath(Of T, W).FindShortestPath
 - uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2
   name: BellmanFordShortestPath<T, W>
   href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html
@@ -10264,24 +9249,24 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W).BellmanFordShortestPath
   nameWithType: BellmanFordShortestPath<T, W>.BellmanFordShortestPath
   nameWithType.vb: BellmanFordShortestPath(Of T, W).BellmanFordShortestPath
-- uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name: GetShortestPath(WeightedDiGraph<T, W>, T, T)
-  href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html#Advanced_Algorithms_Graph_BellmanFordShortestPath_2_GetShortestPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
-  commentId: M:Advanced.Algorithms.Graph.BellmanFordShortestPath`2.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name.vb: GetShortestPath(WeightedDiGraph(Of T, W), T, T)
-  fullName: Advanced.Algorithms.Graph.BellmanFordShortestPath<T, W>.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
-  fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W).GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
-  nameWithType: BellmanFordShortestPath<T, W>.GetShortestPath(WeightedDiGraph<T, W>, T, T)
-  nameWithType.vb: BellmanFordShortestPath(Of T, W).GetShortestPath(WeightedDiGraph(Of T, W), T, T)
-- uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2.GetShortestPath*
-  name: GetShortestPath
-  href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html#Advanced_Algorithms_Graph_BellmanFordShortestPath_2_GetShortestPath_
-  commentId: Overload:Advanced.Algorithms.Graph.BellmanFordShortestPath`2.GetShortestPath
+- uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2.FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: FindShortestPath(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html#Advanced_Algorithms_Graph_BellmanFordShortestPath_2_FindShortestPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.BellmanFordShortestPath`2.FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: FindShortestPath(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.BellmanFordShortestPath<T, W>.FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W).FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: BellmanFordShortestPath<T, W>.FindShortestPath(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: BellmanFordShortestPath(Of T, W).FindShortestPath(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.BellmanFordShortestPath`2.FindShortestPath*
+  name: FindShortestPath
+  href: api/Advanced.Algorithms.Graph.BellmanFordShortestPath-2.html#Advanced_Algorithms_Graph_BellmanFordShortestPath_2_FindShortestPath_
+  commentId: Overload:Advanced.Algorithms.Graph.BellmanFordShortestPath`2.FindShortestPath
   isSpec: "True"
-  fullName: Advanced.Algorithms.Graph.BellmanFordShortestPath<T, W>.GetShortestPath
-  fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W).GetShortestPath
-  nameWithType: BellmanFordShortestPath<T, W>.GetShortestPath
-  nameWithType.vb: BellmanFordShortestPath(Of T, W).GetShortestPath
+  fullName: Advanced.Algorithms.Graph.BellmanFordShortestPath<T, W>.FindShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.BellmanFordShortestPath(Of T, W).FindShortestPath
+  nameWithType: BellmanFordShortestPath<T, W>.FindShortestPath
+  nameWithType.vb: BellmanFordShortestPath(Of T, W).FindShortestPath
 - uid: Advanced.Algorithms.Graph.BiDirectional`1
   name: BiDirectional<T>
   href: api/Advanced.Algorithms.Graph.BiDirectional-1.html
@@ -10549,24 +9534,24 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).DijikstraShortestPath
   nameWithType: DijikstraShortestPath<T, W>.DijikstraShortestPath
   nameWithType.vb: DijikstraShortestPath(Of T, W).DijikstraShortestPath
-- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name: GetShortestPath(WeightedDiGraph<T, W>, T, T)
-  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2_GetShortestPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
-  commentId: M:Advanced.Algorithms.Graph.DijikstraShortestPath`2.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name.vb: GetShortestPath(WeightedDiGraph(Of T, W), T, T)
-  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
-  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).GetShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
-  nameWithType: DijikstraShortestPath<T, W>.GetShortestPath(WeightedDiGraph<T, W>, T, T)
-  nameWithType.vb: DijikstraShortestPath(Of T, W).GetShortestPath(WeightedDiGraph(Of T, W), T, T)
-- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.GetShortestPath*
-  name: GetShortestPath
-  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2_GetShortestPath_
-  commentId: Overload:Advanced.Algorithms.Graph.DijikstraShortestPath`2.GetShortestPath
+- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name: FindShortestPath(WeightedDiGraph<T, W>, T, T)
+  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2_FindShortestPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
+  commentId: M:Advanced.Algorithms.Graph.DijikstraShortestPath`2.FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
+  name.vb: FindShortestPath(WeightedDiGraph(Of T, W), T, T)
+  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).FindShortestPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
+  nameWithType: DijikstraShortestPath<T, W>.FindShortestPath(WeightedDiGraph<T, W>, T, T)
+  nameWithType.vb: DijikstraShortestPath(Of T, W).FindShortestPath(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.FindShortestPath*
+  name: FindShortestPath
+  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2_FindShortestPath_
+  commentId: Overload:Advanced.Algorithms.Graph.DijikstraShortestPath`2.FindShortestPath
   isSpec: "True"
-  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.GetShortestPath
-  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).GetShortestPath
-  nameWithType: DijikstraShortestPath<T, W>.GetShortestPath
-  nameWithType.vb: DijikstraShortestPath(Of T, W).GetShortestPath
+  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.FindShortestPath
+  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).FindShortestPath
+  nameWithType: DijikstraShortestPath<T, W>.FindShortestPath
+  nameWithType.vb: DijikstraShortestPath(Of T, W).FindShortestPath
 - uid: Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2
   name: EdmondKarpMaxFlow<T, W>
   href: api/Advanced.Algorithms.Graph.EdmondKarpMaxFlow-2.html
@@ -10657,24 +9642,24 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W).FloydWarshallShortestPath
   nameWithType: FloydWarshallShortestPath<T, W>.FloydWarshallShortestPath
   nameWithType.vb: FloydWarshallShortestPath(Of T, W).FloydWarshallShortestPath
-- uid: Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
-  name: GetAllPairShortestPaths(WeightedGraph<T, W>)
-  href: api/Advanced.Algorithms.Graph.FloydWarshallShortestPath-2.html#Advanced_Algorithms_Graph_FloydWarshallShortestPath_2_GetAllPairShortestPaths_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph__0__1__
-  commentId: M:Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
-  name.vb: GetAllPairShortestPaths(WeightedGraph(Of T, W))
-  fullName: Advanced.Algorithms.Graph.FloydWarshallShortestPath<T, W>.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, W>)
-  fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W).GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, W))
-  nameWithType: FloydWarshallShortestPath<T, W>.GetAllPairShortestPaths(WeightedGraph<T, W>)
-  nameWithType.vb: FloydWarshallShortestPath(Of T, W).GetAllPairShortestPaths(WeightedGraph(Of T, W))
-- uid: Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.GetAllPairShortestPaths*
-  name: GetAllPairShortestPaths
-  href: api/Advanced.Algorithms.Graph.FloydWarshallShortestPath-2.html#Advanced_Algorithms_Graph_FloydWarshallShortestPath_2_GetAllPairShortestPaths_
-  commentId: Overload:Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.GetAllPairShortestPaths
+- uid: Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.FindAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
+  name: FindAllPairShortestPaths(WeightedGraph<T, W>)
+  href: api/Advanced.Algorithms.Graph.FloydWarshallShortestPath-2.html#Advanced_Algorithms_Graph_FloydWarshallShortestPath_2_FindAllPairShortestPaths_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph__0__1__
+  commentId: M:Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.FindAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph{`0,`1})
+  name.vb: FindAllPairShortestPaths(WeightedGraph(Of T, W))
+  fullName: Advanced.Algorithms.Graph.FloydWarshallShortestPath<T, W>.FindAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, W>)
+  fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W).FindAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, W))
+  nameWithType: FloydWarshallShortestPath<T, W>.FindAllPairShortestPaths(WeightedGraph<T, W>)
+  nameWithType.vb: FloydWarshallShortestPath(Of T, W).FindAllPairShortestPaths(WeightedGraph(Of T, W))
+- uid: Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.FindAllPairShortestPaths*
+  name: FindAllPairShortestPaths
+  href: api/Advanced.Algorithms.Graph.FloydWarshallShortestPath-2.html#Advanced_Algorithms_Graph_FloydWarshallShortestPath_2_FindAllPairShortestPaths_
+  commentId: Overload:Advanced.Algorithms.Graph.FloydWarshallShortestPath`2.FindAllPairShortestPaths
   isSpec: "True"
-  fullName: Advanced.Algorithms.Graph.FloydWarshallShortestPath<T, W>.GetAllPairShortestPaths
-  fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W).GetAllPairShortestPaths
-  nameWithType: FloydWarshallShortestPath<T, W>.GetAllPairShortestPaths
-  nameWithType.vb: FloydWarshallShortestPath(Of T, W).GetAllPairShortestPaths
+  fullName: Advanced.Algorithms.Graph.FloydWarshallShortestPath<T, W>.FindAllPairShortestPaths
+  fullName.vb: Advanced.Algorithms.Graph.FloydWarshallShortestPath(Of T, W).FindAllPairShortestPaths
+  nameWithType: FloydWarshallShortestPath<T, W>.FindAllPairShortestPaths
+  nameWithType.vb: FloydWarshallShortestPath(Of T, W).FindAllPairShortestPaths
 - uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2
   name: FordFulkersonMaxFlow<T, W>
   href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html
@@ -10783,6 +9768,32 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching
   nameWithType: HopcroftKarpMatching<T>.GetMaxBiPartiteMatching
   nameWithType.vb: HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching
+- uid: Advanced.Algorithms.Graph.IAStarHeuristic`2
+  name: IAStarHeuristic<T, W>
+  href: api/Advanced.Algorithms.Graph.IAStarHeuristic-2.html
+  commentId: T:Advanced.Algorithms.Graph.IAStarHeuristic`2
+  name.vb: IAStarHeuristic(Of T, W)
+  fullName: Advanced.Algorithms.Graph.IAStarHeuristic<T, W>
+  fullName.vb: Advanced.Algorithms.Graph.IAStarHeuristic(Of T, W)
+  nameWithType: IAStarHeuristic<T, W>
+  nameWithType.vb: IAStarHeuristic(Of T, W)
+- uid: Advanced.Algorithms.Graph.IAStarHeuristic`2.HueristicDistanceToTarget(`0,`0)
+  name: HueristicDistanceToTarget(T, T)
+  href: api/Advanced.Algorithms.Graph.IAStarHeuristic-2.html#Advanced_Algorithms_Graph_IAStarHeuristic_2_HueristicDistanceToTarget__0__0_
+  commentId: M:Advanced.Algorithms.Graph.IAStarHeuristic`2.HueristicDistanceToTarget(`0,`0)
+  fullName: Advanced.Algorithms.Graph.IAStarHeuristic<T, W>.HueristicDistanceToTarget(T, T)
+  fullName.vb: Advanced.Algorithms.Graph.IAStarHeuristic(Of T, W).HueristicDistanceToTarget(T, T)
+  nameWithType: IAStarHeuristic<T, W>.HueristicDistanceToTarget(T, T)
+  nameWithType.vb: IAStarHeuristic(Of T, W).HueristicDistanceToTarget(T, T)
+- uid: Advanced.Algorithms.Graph.IAStarHeuristic`2.HueristicDistanceToTarget*
+  name: HueristicDistanceToTarget
+  href: api/Advanced.Algorithms.Graph.IAStarHeuristic-2.html#Advanced_Algorithms_Graph_IAStarHeuristic_2_HueristicDistanceToTarget_
+  commentId: Overload:Advanced.Algorithms.Graph.IAStarHeuristic`2.HueristicDistanceToTarget
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.IAStarHeuristic<T, W>.HueristicDistanceToTarget
+  fullName.vb: Advanced.Algorithms.Graph.IAStarHeuristic(Of T, W).HueristicDistanceToTarget
+  nameWithType: IAStarHeuristic<T, W>.HueristicDistanceToTarget
+  nameWithType.vb: IAStarHeuristic(Of T, W).HueristicDistanceToTarget
 - uid: Advanced.Algorithms.Graph.IBiPartiteMatchOperators`1
   name: IBiPartiteMatchOperators<T>
   href: api/Advanced.Algorithms.Graph.IBiPartiteMatchOperators-1.html
@@ -11016,24 +10027,24 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W).JohnsonsShortestPath
   nameWithType: JohnsonsShortestPath<T, W>.JohnsonsShortestPath
   nameWithType.vb: JohnsonsShortestPath(Of T, W).JohnsonsShortestPath
-- uid: Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1})
-  name: GetAllPairShortestPaths(WeightedDiGraph<T, W>)
-  href: api/Advanced.Algorithms.Graph.JohnsonsShortestPath-2.html#Advanced_Algorithms_Graph_JohnsonsShortestPath_2_GetAllPairShortestPaths_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1__
-  commentId: M:Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1})
-  name.vb: GetAllPairShortestPaths(WeightedDiGraph(Of T, W))
-  fullName: Advanced.Algorithms.Graph.JohnsonsShortestPath<T, W>.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>)
-  fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W).GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W))
-  nameWithType: JohnsonsShortestPath<T, W>.GetAllPairShortestPaths(WeightedDiGraph<T, W>)
-  nameWithType.vb: JohnsonsShortestPath(Of T, W).GetAllPairShortestPaths(WeightedDiGraph(Of T, W))
-- uid: Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths*
-  name: GetAllPairShortestPaths
-  href: api/Advanced.Algorithms.Graph.JohnsonsShortestPath-2.html#Advanced_Algorithms_Graph_JohnsonsShortestPath_2_GetAllPairShortestPaths_
-  commentId: Overload:Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths
+- uid: Advanced.Algorithms.Graph.JohnsonsShortestPath`2.FindAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1})
+  name: FindAllPairShortestPaths(WeightedDiGraph<T, W>)
+  href: api/Advanced.Algorithms.Graph.JohnsonsShortestPath-2.html#Advanced_Algorithms_Graph_JohnsonsShortestPath_2_FindAllPairShortestPaths_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1__
+  commentId: M:Advanced.Algorithms.Graph.JohnsonsShortestPath`2.FindAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1})
+  name.vb: FindAllPairShortestPaths(WeightedDiGraph(Of T, W))
+  fullName: Advanced.Algorithms.Graph.JohnsonsShortestPath<T, W>.FindAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>)
+  fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W).FindAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W))
+  nameWithType: JohnsonsShortestPath<T, W>.FindAllPairShortestPaths(WeightedDiGraph<T, W>)
+  nameWithType.vb: JohnsonsShortestPath(Of T, W).FindAllPairShortestPaths(WeightedDiGraph(Of T, W))
+- uid: Advanced.Algorithms.Graph.JohnsonsShortestPath`2.FindAllPairShortestPaths*
+  name: FindAllPairShortestPaths
+  href: api/Advanced.Algorithms.Graph.JohnsonsShortestPath-2.html#Advanced_Algorithms_Graph_JohnsonsShortestPath_2_FindAllPairShortestPaths_
+  commentId: Overload:Advanced.Algorithms.Graph.JohnsonsShortestPath`2.FindAllPairShortestPaths
   isSpec: "True"
-  fullName: Advanced.Algorithms.Graph.JohnsonsShortestPath<T, W>.GetAllPairShortestPaths
-  fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W).GetAllPairShortestPaths
-  nameWithType: JohnsonsShortestPath<T, W>.GetAllPairShortestPaths
-  nameWithType.vb: JohnsonsShortestPath(Of T, W).GetAllPairShortestPaths
+  fullName: Advanced.Algorithms.Graph.JohnsonsShortestPath<T, W>.FindAllPairShortestPaths
+  fullName.vb: Advanced.Algorithms.Graph.JohnsonsShortestPath(Of T, W).FindAllPairShortestPaths
+  nameWithType: JohnsonsShortestPath<T, W>.FindAllPairShortestPaths
+  nameWithType.vb: JohnsonsShortestPath(Of T, W).FindAllPairShortestPaths
 - uid: Advanced.Algorithms.Graph.KahnsTopSort`1
   name: KahnsTopSort<T>
   href: api/Advanced.Algorithms.Graph.KahnsTopSort-1.html
@@ -11211,13 +10222,13 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C)
   nameWithType: MColorResult<T, C>
   nameWithType.vb: MColorResult(Of T, C)
-- uid: Advanced.Algorithms.Graph.MColorResult`2.#ctor(System.Boolean,System.Collections.Generic.Dictionary{`1,System.Collections.Generic.List{`0}})
+- uid: Advanced.Algorithms.Graph.MColorResult`2.#ctor(System.Boolean,Dictionary{`1,List{`0}})
   name: MColorResult(Boolean, Dictionary<C, List<T>>)
-  href: api/Advanced.Algorithms.Graph.MColorResult-2.html#Advanced_Algorithms_Graph_MColorResult_2__ctor_System_Boolean_System_Collections_Generic_Dictionary__1_System_Collections_Generic_List__0___
-  commentId: M:Advanced.Algorithms.Graph.MColorResult`2.#ctor(System.Boolean,System.Collections.Generic.Dictionary{`1,System.Collections.Generic.List{`0}})
+  href: api/Advanced.Algorithms.Graph.MColorResult-2.html#Advanced_Algorithms_Graph_MColorResult_2__ctor_System_Boolean_Dictionary__1_List__0___
+  commentId: M:Advanced.Algorithms.Graph.MColorResult`2.#ctor(System.Boolean,Dictionary{`1,List{`0}})
   name.vb: MColorResult(Boolean, Dictionary(Of C, List(Of T)))
-  fullName: Advanced.Algorithms.Graph.MColorResult<T, C>.MColorResult(System.Boolean, System.Collections.Generic.Dictionary<C, System.Collections.Generic.List<T>>)
-  fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C).MColorResult(System.Boolean, System.Collections.Generic.Dictionary(Of C, System.Collections.Generic.List(Of T)))
+  fullName: Advanced.Algorithms.Graph.MColorResult<T, C>.MColorResult(System.Boolean, Dictionary<C, List<T>>)
+  fullName.vb: Advanced.Algorithms.Graph.MColorResult(Of T, C).MColorResult(System.Boolean, Dictionary(Of C, List(Of T)))
   nameWithType: MColorResult<T, C>.MColorResult(Boolean, Dictionary<C, List<T>>)
   nameWithType.vb: MColorResult(Of T, C).MColorResult(Boolean, Dictionary(Of C, List(Of T)))
 - uid: Advanced.Algorithms.Graph.MColorResult`2.#ctor*
@@ -11553,13 +10564,13 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W)
   nameWithType: ShortestPathResult<T, W>
   nameWithType.vb: ShortestPathResult(Of T, W)
-- uid: Advanced.Algorithms.Graph.ShortestPathResult`2.#ctor(System.Collections.Generic.List{`0},`1)
+- uid: Advanced.Algorithms.Graph.ShortestPathResult`2.#ctor(List{`0},`1)
   name: ShortestPathResult(List<T>, W)
-  href: api/Advanced.Algorithms.Graph.ShortestPathResult-2.html#Advanced_Algorithms_Graph_ShortestPathResult_2__ctor_System_Collections_Generic_List__0___1_
-  commentId: M:Advanced.Algorithms.Graph.ShortestPathResult`2.#ctor(System.Collections.Generic.List{`0},`1)
+  href: api/Advanced.Algorithms.Graph.ShortestPathResult-2.html#Advanced_Algorithms_Graph_ShortestPathResult_2__ctor_List__0___1_
+  commentId: M:Advanced.Algorithms.Graph.ShortestPathResult`2.#ctor(List{`0},`1)
   name.vb: ShortestPathResult(List(Of T), W)
-  fullName: Advanced.Algorithms.Graph.ShortestPathResult<T, W>.ShortestPathResult(System.Collections.Generic.List<T>, W)
-  fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W).ShortestPathResult(System.Collections.Generic.List(Of T), W)
+  fullName: Advanced.Algorithms.Graph.ShortestPathResult<T, W>.ShortestPathResult(List<T>, W)
+  fullName.vb: Advanced.Algorithms.Graph.ShortestPathResult(Of T, W).ShortestPathResult(List(Of T), W)
   nameWithType: ShortestPathResult<T, W>.ShortestPathResult(List<T>, W)
   nameWithType.vb: ShortestPathResult(Of T, W).ShortestPathResult(List(Of T), W)
 - uid: Advanced.Algorithms.Graph.ShortestPathResult`2.#ctor*
@@ -11719,22 +10730,22 @@ references:
   commentId: T:Advanced.Algorithms.Graph.TravellingSalesman
   fullName: Advanced.Algorithms.Graph.TravellingSalesman
   nameWithType: TravellingSalesman
-- uid: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{System.Int32,System.Int32})
-  name: GetMinWeight(WeightedDiGraph<Int32, Int32>)
-  href: api/Advanced.Algorithms.Graph.TravellingSalesman.html#Advanced_Algorithms_Graph_TravellingSalesman_GetMinWeight_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_System_Int32_System_Int32__
-  commentId: M:Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{System.Int32,System.Int32})
-  name.vb: GetMinWeight(WeightedDiGraph(Of Int32, Int32))
-  fullName: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<System.Int32, System.Int32>)
-  fullName.vb: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of System.Int32, System.Int32))
-  nameWithType: TravellingSalesman.GetMinWeight(WeightedDiGraph<Int32, Int32>)
-  nameWithType.vb: TravellingSalesman.GetMinWeight(WeightedDiGraph(Of Int32, Int32))
-- uid: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight*
-  name: GetMinWeight
-  href: api/Advanced.Algorithms.Graph.TravellingSalesman.html#Advanced_Algorithms_Graph_TravellingSalesman_GetMinWeight_
-  commentId: Overload:Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight
+- uid: Advanced.Algorithms.Graph.TravellingSalesman.FindMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{System.Int32,System.Int32})
+  name: FindMinWeight(WeightedDiGraph<Int32, Int32>)
+  href: api/Advanced.Algorithms.Graph.TravellingSalesman.html#Advanced_Algorithms_Graph_TravellingSalesman_FindMinWeight_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_System_Int32_System_Int32__
+  commentId: M:Advanced.Algorithms.Graph.TravellingSalesman.FindMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{System.Int32,System.Int32})
+  name.vb: FindMinWeight(WeightedDiGraph(Of Int32, Int32))
+  fullName: Advanced.Algorithms.Graph.TravellingSalesman.FindMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<System.Int32, System.Int32>)
+  fullName.vb: Advanced.Algorithms.Graph.TravellingSalesman.FindMinWeight(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of System.Int32, System.Int32))
+  nameWithType: TravellingSalesman.FindMinWeight(WeightedDiGraph<Int32, Int32>)
+  nameWithType.vb: TravellingSalesman.FindMinWeight(WeightedDiGraph(Of Int32, Int32))
+- uid: Advanced.Algorithms.Graph.TravellingSalesman.FindMinWeight*
+  name: FindMinWeight
+  href: api/Advanced.Algorithms.Graph.TravellingSalesman.html#Advanced_Algorithms_Graph_TravellingSalesman_FindMinWeight_
+  commentId: Overload:Advanced.Algorithms.Graph.TravellingSalesman.FindMinWeight
   isSpec: "True"
-  fullName: Advanced.Algorithms.Graph.TravellingSalesman.GetMinWeight
-  nameWithType: TravellingSalesman.GetMinWeight
+  fullName: Advanced.Algorithms.Graph.TravellingSalesman.FindMinWeight
+  nameWithType: TravellingSalesman.FindMinWeight
 - uid: Advanced.Algorithms.Numerical
   name: Advanced.Algorithms.Numerical
   href: api/Advanced.Algorithms.Numerical.html
@@ -11835,13 +10846,13 @@ references:
   fullName.vb: Advanced.Algorithms.Search.BoyerMoore(Of T)
   nameWithType: BoyerMoore<T>
   nameWithType.vb: BoyerMoore(Of T)
-- uid: Advanced.Algorithms.Search.BoyerMoore`1.FindMajority(System.Collections.Generic.IEnumerable{`0})
+- uid: Advanced.Algorithms.Search.BoyerMoore`1.FindMajority(IEnumerable{`0})
   name: FindMajority(IEnumerable<T>)
-  href: api/Advanced.Algorithms.Search.BoyerMoore-1.html#Advanced_Algorithms_Search_BoyerMoore_1_FindMajority_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.Search.BoyerMoore`1.FindMajority(System.Collections.Generic.IEnumerable{`0})
+  href: api/Advanced.Algorithms.Search.BoyerMoore-1.html#Advanced_Algorithms_Search_BoyerMoore_1_FindMajority_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.Search.BoyerMoore`1.FindMajority(IEnumerable{`0})
   name.vb: FindMajority(IEnumerable(Of T))
-  fullName: Advanced.Algorithms.Search.BoyerMoore<T>.FindMajority(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.Search.BoyerMoore(Of T).FindMajority(System.Collections.Generic.IEnumerable(Of T))
+  fullName: Advanced.Algorithms.Search.BoyerMoore<T>.FindMajority(IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.Search.BoyerMoore(Of T).FindMajority(IEnumerable(Of T))
   nameWithType: BoyerMoore<T>.FindMajority(IEnumerable<T>)
   nameWithType.vb: BoyerMoore(Of T).FindMajority(IEnumerable(Of T))
 - uid: Advanced.Algorithms.Search.BoyerMoore`1.FindMajority*
@@ -11862,13 +10873,13 @@ references:
   fullName.vb: Advanced.Algorithms.Search.QuickSelect(Of T)
   nameWithType: QuickSelect<T>
   nameWithType.vb: QuickSelect(Of T)
-- uid: Advanced.Algorithms.Search.QuickSelect`1.FindSmallest(System.Collections.Generic.IEnumerable{`0},System.Int32)
+- uid: Advanced.Algorithms.Search.QuickSelect`1.FindSmallest(IEnumerable{`0},System.Int32)
   name: FindSmallest(IEnumerable<T>, Int32)
-  href: api/Advanced.Algorithms.Search.QuickSelect-1.html#Advanced_Algorithms_Search_QuickSelect_1_FindSmallest_System_Collections_Generic_IEnumerable__0__System_Int32_
-  commentId: M:Advanced.Algorithms.Search.QuickSelect`1.FindSmallest(System.Collections.Generic.IEnumerable{`0},System.Int32)
+  href: api/Advanced.Algorithms.Search.QuickSelect-1.html#Advanced_Algorithms_Search_QuickSelect_1_FindSmallest_IEnumerable__0__System_Int32_
+  commentId: M:Advanced.Algorithms.Search.QuickSelect`1.FindSmallest(IEnumerable{`0},System.Int32)
   name.vb: FindSmallest(IEnumerable(Of T), Int32)
-  fullName: Advanced.Algorithms.Search.QuickSelect<T>.FindSmallest(System.Collections.Generic.IEnumerable<T>, System.Int32)
-  fullName.vb: Advanced.Algorithms.Search.QuickSelect(Of T).FindSmallest(System.Collections.Generic.IEnumerable(Of T), System.Int32)
+  fullName: Advanced.Algorithms.Search.QuickSelect<T>.FindSmallest(IEnumerable<T>, System.Int32)
+  fullName.vb: Advanced.Algorithms.Search.QuickSelect(Of T).FindSmallest(IEnumerable(Of T), System.Int32)
   nameWithType: QuickSelect<T>.FindSmallest(IEnumerable<T>, Int32)
   nameWithType.vb: QuickSelect(Of T).FindSmallest(IEnumerable(Of T), Int32)
 - uid: Advanced.Algorithms.Search.QuickSelect`1.FindSmallest*
