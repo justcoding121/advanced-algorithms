@@ -4,7 +4,7 @@
       "src": [
         {
 	 "files": [ "Advanced.Algorithms.Docs.sln"],
-         "src": "../"
+         "src": "../src/"
         }
       ],
       "dest": "obj/api"
