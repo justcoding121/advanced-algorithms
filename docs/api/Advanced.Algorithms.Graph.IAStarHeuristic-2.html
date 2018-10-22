@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class MatchEdge&lt;T&gt;
+    <title>Interface IAStarHeuristic&lt;T, W&gt;
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class MatchEdge&lt;T&gt;
+    <meta name="title" content="Interface IAStarHeuristic&lt;T, W&gt;
    | Advanced Algorithms ">
     <meta name="generator" content="docfx 2.40.0.0">
     
@@ -78,24 +78,20 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Graph.MatchEdge`1">
+            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Graph.IAStarHeuristic`2">
   
   
-  <h1 id="Advanced_Algorithms_Graph_MatchEdge_1" data-uid="Advanced.Algorithms.Graph.MatchEdge`1" class="text-break">Class MatchEdge&lt;T&gt;
+  <h1 id="Advanced_Algorithms_Graph_IAStarHeuristic_2" data-uid="Advanced.Algorithms.Graph.IAStarHeuristic`2" class="text-break">Interface IAStarHeuristic&lt;T, W&gt;
   </h1>
-  <div class="markdown level0 summary"><p>The match result object.</p>
+  <div class="markdown level0 summary"><p>Search heuristic used by A* search algorithm.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">MatchEdge&lt;T&gt;</span></div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.Graph.html">Advanced.Algorithms.Graph</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
-  <h5 id="Advanced_Algorithms_Graph_MatchEdge_1_syntax">Syntax</h5>
+  <h5 id="Advanced_Algorithms_Graph_IAStarHeuristic_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MatchEdge&lt;T&gt; : object</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IAStarHeuristic&lt;T, W&gt;
+    where W : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -110,19 +106,24 @@
         <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="parametername">W</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
-  <h3 id="constructors">Constructors
+  <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Advanced_Algorithms_Graph_MatchEdge_1__ctor_" data-uid="Advanced.Algorithms.Graph.MatchEdge`1.#ctor*"></a>
-  <h4 id="Advanced_Algorithms_Graph_MatchEdge_1__ctor__0__0_" data-uid="Advanced.Algorithms.Graph.MatchEdge`1.#ctor(`0,`0)">MatchEdge(T, T)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Advanced_Algorithms_Graph_IAStarHeuristic_2_HueristicDistanceToTarget_" data-uid="Advanced.Algorithms.Graph.IAStarHeuristic`2.HueristicDistanceToTarget*"></a>
+  <h4 id="Advanced_Algorithms_Graph_IAStarHeuristic_2_HueristicDistanceToTarget__0__0_" data-uid="Advanced.Algorithms.Graph.IAStarHeuristic`2.HueristicDistanceToTarget(`0,`0)">HueristicDistanceToTarget(T, T)</h4>
+  <div class="markdown level1 summary"><p>Return the distance to target for given sourcevertex as computed by the hueristic used for A* search.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MatchEdge(T source, T target)</code></pre>
+    <pre><code class="lang-csharp hljs">W HueristicDistanceToTarget(T sourceVertex, T targetVertex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,29 +137,17 @@
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><span class="parametername">source</span></td>
+        <td><span class="parametername">sourceVertex</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><span class="parametername">target</span></td>
+        <td><span class="parametername">targetVertex</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="properties">Properties
-  </h3>
-  
-  
-  <a id="Advanced_Algorithms_Graph_MatchEdge_1_Source_" data-uid="Advanced.Algorithms.Graph.MatchEdge`1.Source*"></a>
-  <h4 id="Advanced_Algorithms_Graph_MatchEdge_1_Source" data-uid="Advanced.Algorithms.Graph.MatchEdge`1.Source">Source</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Source { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -168,32 +157,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_Graph_MatchEdge_1_Target_" data-uid="Advanced.Algorithms.Graph.MatchEdge`1.Target*"></a>
-  <h4 id="Advanced_Algorithms_Graph_MatchEdge_1_Target" data-uid="Advanced.Algorithms.Graph.MatchEdge`1.Target">Target</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Target { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
+        <td><span class="xref">W</span></td>
         <td></td>
       </tr>
     </tbody>

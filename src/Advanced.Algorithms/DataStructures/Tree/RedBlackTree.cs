@@ -755,11 +755,6 @@ namespace Advanced.Algorithms.DataStructures
 
         public IEnumerator<T> GetEnumerator()
         {
-            if (nodeLookUp != null)
-            {
-                return new BSTNodeLookUpEnumerator<T>(nodeLookUp);
-            }
-
             return new BSTEnumerator<T>(Root);
         }
     }

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class JohnsonsShortestPath&lt;T, W&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.37.2.0">
+    <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -91,36 +91,11 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">JohnsonsShortestPath&lt;T, W&gt;</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.Graph.html">Advanced.Algorithms.Graph</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_Graph_JohnsonsShortestPath_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class JohnsonsShortestPath&lt;T, W&gt;
-    where W : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class JohnsonsShortestPath&lt;T, W&gt; : object where W : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -174,13 +149,13 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_Graph_JohnsonsShortestPath_2_GetAllPairShortestPaths_" data-uid="Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths*"></a>
-  <h4 id="Advanced_Algorithms_Graph_JohnsonsShortestPath_2_GetAllPairShortestPaths_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1__" data-uid="Advanced.Algorithms.Graph.JohnsonsShortestPath`2.GetAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1})">GetAllPairShortestPaths(WeightedDiGraph&lt;T, W&gt;)</h4>
+  <a id="Advanced_Algorithms_Graph_JohnsonsShortestPath_2_FindAllPairShortestPaths_" data-uid="Advanced.Algorithms.Graph.JohnsonsShortestPath`2.FindAllPairShortestPaths*"></a>
+  <h4 id="Advanced_Algorithms_Graph_JohnsonsShortestPath_2_FindAllPairShortestPaths_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1__" data-uid="Advanced.Algorithms.Graph.JohnsonsShortestPath`2.FindAllPairShortestPaths(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1})">FindAllPairShortestPaths(WeightedDiGraph&lt;T, W&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;AllPairShortestPathResult&lt;T, W&gt;&gt; GetAllPairShortestPaths(WeightedDiGraph&lt;T, W&gt; graph)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;AllPairShortestPathResult&lt;T, W&gt;&gt; FindAllPairShortestPaths(WeightedDiGraph&lt;T, W&gt; graph)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -209,7 +184,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html">AllPairShortestPathResult</a>&lt;T, W&gt;&gt;</td>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="Advanced.Algorithms.Graph.AllPairShortestPathResult-2.html">AllPairShortestPathResult</a>&lt;T, W&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
