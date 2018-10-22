@@ -91,11 +91,15 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">TreapTree&lt;T&gt;</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IEnumerable</span>&lt;T&gt;</div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.html">Advanced.Algorithms.DataStructures</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_TreapTree_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TreapTree&lt;T&gt; : IEnumerable&lt;T&gt; where T : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class TreapTree&lt;T&gt; : BSTBase&lt;T&gt;, IEnumerable&lt;T&gt; where T : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -108,6 +112,45 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_TreapTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.TreapTree`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_TreapTree_1__ctor" data-uid="Advanced.Algorithms.DataStructures.TreapTree`1.#ctor">TreapTree()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TreapTree()</code></pre>
+  </div>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_TreapTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.TreapTree`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_TreapTree_1__ctor_IEnumerable__0__" data-uid="Advanced.Algorithms.DataStructures.TreapTree`1.#ctor(IEnumerable{`0})">TreapTree(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TreapTree(IEnumerable&lt;T&gt; collection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">collection</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -431,6 +474,10 @@ Time complexity: O(n).</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IEnumerable&lt;&gt;</span>
+  </div>
 </article>
           </div>
           

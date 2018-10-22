@@ -197,6 +197,15 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T)
   nameWithType: AVLTree<T>
   nameWithType.vb: AVLTree(Of T)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.#ctor(IEnumerable{`0},System.Boolean)
+  name: AVLTree(IEnumerable<T>, Boolean)
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1__ctor_IEnumerable__0__System_Boolean_
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.#ctor(IEnumerable{`0},System.Boolean)
+  name.vb: AVLTree(IEnumerable(Of T), Boolean)
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.AVLTree(IEnumerable<T>, System.Boolean)
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).AVLTree(IEnumerable(Of T), System.Boolean)
+  nameWithType: AVLTree<T>.AVLTree(IEnumerable<T>, Boolean)
+  nameWithType.vb: AVLTree(Of T).AVLTree(IEnumerable(Of T), Boolean)
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.#ctor(System.Boolean)
   name: AVLTree(Boolean)
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1__ctor_System_Boolean_
@@ -1345,6 +1354,32 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T)
   nameWithType: BST<T>
   nameWithType.vb: BST(Of T)
+- uid: Advanced.Algorithms.DataStructures.BST`1.#ctor
+  name: BST()
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1__ctor
+  commentId: M:Advanced.Algorithms.DataStructures.BST`1.#ctor
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.BST()
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).BST()
+  nameWithType: BST<T>.BST()
+  nameWithType.vb: BST(Of T).BST()
+- uid: Advanced.Algorithms.DataStructures.BST`1.#ctor(IEnumerable{`0})
+  name: BST(IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1__ctor_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BST`1.#ctor(IEnumerable{`0})
+  name.vb: BST(IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.BST(IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).BST(IEnumerable(Of T))
+  nameWithType: BST<T>.BST(IEnumerable<T>)
+  nameWithType.vb: BST(Of T).BST(IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.BST`1.#ctor*
+  name: BST
+  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BST`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BST<T>.BST
+  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).BST
+  nameWithType: BST<T>.BST
+  nameWithType.vb: BST(Of T).BST
 - uid: Advanced.Algorithms.DataStructures.BST`1.Count
   name: Count
   href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_Count
@@ -6518,6 +6553,15 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T)
   nameWithType: RedBlackTree<T>
   nameWithType.vb: RedBlackTree(Of T)
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(IEnumerable{`0},System.Boolean,IEqualityComparer{`0})
+  name: RedBlackTree(IEnumerable<T>, Boolean, IEqualityComparer<T>)
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_IEnumerable__0__System_Boolean_IEqualityComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(IEnumerable{`0},System.Boolean,IEqualityComparer{`0})
+  name.vb: RedBlackTree(IEnumerable(Of T), Boolean, IEqualityComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RedBlackTree(IEnumerable<T>, System.Boolean, IEqualityComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RedBlackTree(IEnumerable(Of T), System.Boolean, IEqualityComparer(Of T))
+  nameWithType: RedBlackTree<T>.RedBlackTree(IEnumerable<T>, Boolean, IEqualityComparer<T>)
+  nameWithType.vb: RedBlackTree(Of T).RedBlackTree(IEnumerable(Of T), Boolean, IEqualityComparer(Of T))
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,IEqualityComparer{`0})
   name: RedBlackTree(Boolean, IEqualityComparer<T>)
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_System_Boolean_IEqualityComparer__0__
@@ -7306,6 +7350,32 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T)
   nameWithType: SplayTree<T>
   nameWithType.vb: SplayTree(Of T)
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.#ctor
+  name: SplayTree()
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1__ctor
+  commentId: M:Advanced.Algorithms.DataStructures.SplayTree`1.#ctor
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.SplayTree()
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).SplayTree()
+  nameWithType: SplayTree<T>.SplayTree()
+  nameWithType.vb: SplayTree(Of T).SplayTree()
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.#ctor(IEnumerable{`0})
+  name: SplayTree(IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1__ctor_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.SplayTree`1.#ctor(IEnumerable{`0})
+  name.vb: SplayTree(IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.SplayTree(IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).SplayTree(IEnumerable(Of T))
+  nameWithType: SplayTree<T>.SplayTree(IEnumerable<T>)
+  nameWithType.vb: SplayTree(Of T).SplayTree(IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.SplayTree`1.#ctor*
+  name: SplayTree
+  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.SplayTree`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.SplayTree
+  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).SplayTree
+  nameWithType: SplayTree<T>.SplayTree
+  nameWithType.vb: SplayTree(Of T).SplayTree
 - uid: Advanced.Algorithms.DataStructures.SplayTree`1.Count
   name: Count
   href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_Count
@@ -7767,6 +7837,32 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T)
   nameWithType: TreapTree<T>
   nameWithType.vb: TreapTree(Of T)
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.#ctor
+  name: TreapTree()
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1__ctor
+  commentId: M:Advanced.Algorithms.DataStructures.TreapTree`1.#ctor
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.TreapTree()
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).TreapTree()
+  nameWithType: TreapTree<T>.TreapTree()
+  nameWithType.vb: TreapTree(Of T).TreapTree()
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.#ctor(IEnumerable{`0})
+  name: TreapTree(IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1__ctor_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.TreapTree`1.#ctor(IEnumerable{`0})
+  name.vb: TreapTree(IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.TreapTree(IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).TreapTree(IEnumerable(Of T))
+  nameWithType: TreapTree<T>.TreapTree(IEnumerable<T>)
+  nameWithType.vb: TreapTree(Of T).TreapTree(IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.TreapTree`1.#ctor*
+  name: TreapTree
+  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.TreapTree`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.TreapTree
+  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).TreapTree
+  nameWithType: TreapTree<T>.TreapTree
+  nameWithType.vb: TreapTree(Of T).TreapTree
 - uid: Advanced.Algorithms.DataStructures.TreapTree`1.Count
   name: Count
   href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_Count
