@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// An AVL tree implementation.
     /// </summary>
-    public class AVLTree<T> : IEnumerable<T> where T : IComparable
+    public class AVLTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
     {
         private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
 
@@ -25,6 +26,16 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        public AVLTree(IEnumerable<T> collection, bool enableNodeLookUp = false) : this(enableNodeLookUp)
+        {
+            ValidateCollection(collection);
+            var nodes = collection.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
+            Root = (AVLTreeNode<T>)ToBST(nodes);
+            //TODO set height
+            Count = nodes.Length;
+        }
+
+     
         /// <summary>
         /// Time complexity: O(log(n))
         /// </summary>

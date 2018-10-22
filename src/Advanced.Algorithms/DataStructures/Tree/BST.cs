@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-
     /// <summary>
     /// A binary search tree implementation.
     /// </summary>
-    public class BST<T> : IEnumerable<T> where T : IComparable
+    public class BST<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
     {
         internal BSTNode<T> Root { get; set; }
 
         public int Count { get; private set; }
+
+        public BST() { }
+
+        public BST(IEnumerable<T> collection) : this()
+        {
+            ValidateCollection(collection);
+            var nodes = collection.Select(x => new BSTNode<T>(null, x)).ToArray();
+            Root = (BSTNode<T>)ToBST(nodes);
+            Count = nodes.Length;
+        }
 
         /// <summary>
         /// Time complexity: O(n)

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// A red black tree implementation.
     /// </summary>
-    public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
+    public class RedBlackTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
     {     
         private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
         internal RedBlackTreeNode<T> Root { get; set; }
@@ -24,6 +25,16 @@ namespace Advanced.Algorithms.DataStructures
             {
                 nodeLookUp = new Dictionary<T, BSTNodeBase<T>>(equalityComparer);
             }
+        }
+
+        public RedBlackTree(IEnumerable<T> collection, bool enableNodeLookUp = false, IEqualityComparer<T> equalityComparer = null)
+            : this(enableNodeLookUp, equalityComparer)
+        {
+            ValidateCollection(collection);
+            var nodes = collection.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
+            Root = (RedBlackTreeNode<T>)ToBST(nodes);
+            //TODO set colors
+            Count = nodes.Length;
         }
 
         /// <summary>

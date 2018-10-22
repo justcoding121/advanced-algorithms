@@ -1,17 +1,28 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// A splay tree implementation.
     /// </summary>
-    public class SplayTree<T> : IEnumerable<T> where T : IComparable
+    public class SplayTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
     {
         private SplayTreeNode<T> root { get; set; }
 
         public int Count { get; private set; }
+
+        public SplayTree() { }
+
+        public SplayTree(IEnumerable<T> collection) : this()
+        {
+            ValidateCollection(collection);
+            var nodes = collection.Select(x => new SplayTreeNode<T>(null, x)).ToArray();
+            root = (SplayTreeNode<T>)ToBST(nodes);
+            Count = nodes.Length;
+        }
 
         /// <summary>
         ///  Time complexity: O(n)

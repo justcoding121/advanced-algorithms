@@ -1,18 +1,29 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// A treap tree implementation.
     /// </summary>
-    public class TreapTree<T> : IEnumerable<T> where T : IComparable
+    public class TreapTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
     {
         private Random rndGenerator = new Random();
         internal TreapTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
+        public TreapTree() { }
+
+        public TreapTree(IEnumerable<T> collection) : this()
+        {
+            ValidateCollection(collection);
+            var nodes = collection.Select(x => new TreapTreeNode<T>(null, x, rndGenerator.Next())).ToArray();
+            Root = (TreapTreeNode<T>)ToBST(nodes);
+            Count = nodes.Length;
+            heapify(Root);
+        }
         /// <summary>
         /// Time complexity: O(log(n))
         /// </summary>
