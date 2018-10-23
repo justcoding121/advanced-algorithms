@@ -123,6 +123,7 @@
     <Compile Include="DataStructures\Tree\RTree.cs" />
     <Compile Include="DataStructures\Tree\SegmentTree.cs" />
     <Compile Include="DataStructures\Tree\Shared\ArrayComparer.cs" />
+    <Compile Include="DataStructures\Tree\Shared\BSTBase.cs" />
     <Compile Include="DataStructures\Tree\Shared\BSTEnumerator.cs" />
     <Compile Include="DataStructures\Tree\Shared\BSTExtensions.cs" />
     <Compile Include="DataStructures\Tree\Shared\BSTNodeBase.cs" />
