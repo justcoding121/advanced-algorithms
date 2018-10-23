@@ -121,7 +121,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
-
+                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
                 var actualHeight = tree.GetHeight();
 
                 //http://doctrina.org/maximum-height-of-red-black-tree.html

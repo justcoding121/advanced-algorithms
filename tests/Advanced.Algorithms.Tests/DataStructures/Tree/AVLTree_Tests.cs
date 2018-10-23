@@ -163,6 +163,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 tree.Delete(randomNumbers[i]);
 
+                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+
                 var actualHeight = tree.GetHeight();
 
                 //http://stackoverflow.com/questions/30769383/finding-the-minimum-and-maximum-height-in-a-avl-tree-given-a-number-of-nodes

@@ -66,6 +66,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             for (int i = 0; i < nodeCount; i++)
             {
+                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
                 tree.Delete(randomNumbers[i]);
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
             }
