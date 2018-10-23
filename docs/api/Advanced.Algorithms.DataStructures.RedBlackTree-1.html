@@ -122,11 +122,13 @@
   
   <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_IEnumerable__0__System_Boolean_IEqualityComparer__0__" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(IEnumerable{`0},System.Boolean,IEqualityComparer{`0})">RedBlackTree(IEnumerable&lt;T&gt;, Boolean, IEqualityComparer&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initialize the BST with given sorted keys.
+Time complexity: O(n).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RedBlackTree(IEnumerable&lt;T&gt; collection, bool enableNodeLookUp = false, IEqualityComparer&lt;T&gt; equalityComparer = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public RedBlackTree(IEnumerable&lt;T&gt; sortedKeys, bool enableNodeLookUp = false, IEqualityComparer&lt;T&gt; equalityComparer = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -140,18 +142,21 @@
     <tbody>
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
-        <td><span class="parametername">collection</span></td>
+        <td><span class="parametername">sortedKeys</span></td>
         <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">enableNodeLookUp</span></td>
-        <td></td>
+        <td><p>Enabling lookup will fasten deletion/insertion/exists operations
+at the cost of additional space.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">IEqualityComparer</span>&lt;T&gt;</td>
         <td><span class="parametername">equalityComparer</span></td>
-        <td></td>
+        <td><p>Provide custom IEquality comparer for node lookup dictionary when enabled.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -159,8 +164,7 @@
   
   <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_System_Boolean_IEqualityComparer__0__" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,IEqualityComparer{`0})">RedBlackTree(Boolean, IEqualityComparer&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Constructor</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -186,7 +190,8 @@ at the cost of additional space.</p>
       <tr>
         <td><span class="xref">IEqualityComparer</span>&lt;T&gt;</td>
         <td><span class="parametername">equalityComparer</span></td>
-        <td></td>
+        <td><p>Provide custom IEquality comparer for node lookup dictionary when enabled.</p>
+</td>
       </tr>
     </tbody>
   </table>
