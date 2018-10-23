@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class SplayTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
     {
-        private SplayTreeNode<T> root { get; set; }
+        internal SplayTreeNode<T> Root { get; set; }
 
         public int Count { get; private set; }
 
@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             ValidateCollection(collection);
             var nodes = collection.Select(x => new SplayTreeNode<T>(null, x)).ToArray();
-            root = (SplayTreeNode<T>)ToBST(nodes);
+            Root = (SplayTreeNode<T>)ToBST(nodes);
             Count = nodes.Length;
         }
 
@@ -29,12 +29,12 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public bool HasItem(T value)
         {
-            if (root == null)
+            if (Root == null)
             {
                 return false;
             }
 
-            return find(root, value) != null;
+            return find(Root, value) != null;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public int GetHeight()
         {
-            return GetHeight(root);
+            return GetHeight(Root);
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -61,14 +61,14 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Insert(T value)
         {
-            if (root == null)
+            if (Root == null)
             {
-                root = new SplayTreeNode<T>(null, value);
+                Root = new SplayTreeNode<T>(null, value);
                 Count++;
                 return;
             }
 
-            var newNode = insert(root, value);
+            var newNode = insert(Root, value);
 
             splay(newNode);
             Count++;
@@ -118,12 +118,12 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Delete(T value)
         {
-            if (root == null)
+            if (Root == null)
             {
                 throw new Exception("Empty SplayTree");
             }
 
-            delete(root, value);
+            delete(Root, value);
             Count--;
         }
 
@@ -194,7 +194,7 @@ namespace Advanced.Algorithms.DataStructures
             //if node is root
             if (node.Parent == null)
             {
-                root = null;
+                Root = null;
             }
             //assign nodes parent.left/right to null
             else if (node.IsLeftChild)
@@ -212,8 +212,8 @@ namespace Advanced.Algorithms.DataStructures
             //root
             if (node.Parent == null)
             {
-                root.Right.Parent = null;
-                root = root.Right;
+                Root.Right.Parent = null;
+                Root = Root.Right;
                 return;
             }
 
@@ -236,8 +236,8 @@ namespace Advanced.Algorithms.DataStructures
             //root
             if (node.Parent == null)
             {
-                root.Left.Parent = null;
-                root = root.Left;
+                Root.Left.Parent = null;
+                Root = Root.Left;
                 return;
             }
 
@@ -260,7 +260,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public T FindMax()
         {
-            return FindMax(root).Value;
+            return FindMax(Root).Value;
         }
 
         private SplayTreeNode<T> FindMax(SplayTreeNode<T> node)
@@ -277,7 +277,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public T FindMin()
         {
-            return FindMin(root).Value;
+            return FindMin(Root).Value;
         }
 
         private SplayTreeNode<T> FindMin(SplayTreeNode<T> node)
@@ -386,9 +386,9 @@ namespace Advanced.Algorithms.DataStructures
                 newRoot.Right.Left.Parent = newRoot.Right;
             }
 
-            if (prevRoot == root)
+            if (prevRoot == Root)
             {
-                root = newRoot;
+                Root = newRoot;
             }
 
             return newRoot;
@@ -431,9 +431,9 @@ namespace Advanced.Algorithms.DataStructures
                 newRoot.Left.Right.Parent = newRoot.Left;
             }
 
-            if (prevRoot == root)
+            if (prevRoot == Root)
             {
-                root = newRoot;
+                Root = newRoot;
             }
 
             return newRoot;
@@ -445,7 +445,7 @@ namespace Advanced.Algorithms.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         private BSTNodeBase<T> find(T value)
         {
-            return root.Find<T>(value) as BSTNodeBase<T>;
+            return Root.Find<T>(value) as BSTNodeBase<T>;
         }
 
         /// <summary>
@@ -488,7 +488,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new BSTEnumerator<T>(root);
+            return new BSTEnumerator<T>(Root);
         }
     }
 

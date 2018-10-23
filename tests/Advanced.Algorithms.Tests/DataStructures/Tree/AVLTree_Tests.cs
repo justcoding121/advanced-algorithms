@@ -146,6 +146,35 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsTrue(tree.Count == 0);
         }
 
+        [TestMethod]
+        public void AVLTree_BulkInit_Test()
+        {
+            var nodeCount = 1000;
+
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount).ToList();
+
+            var tree = new AVLTree<int>(randomNumbers);
+
+            Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+            Assert.AreEqual(tree.Count, tree.Count());
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
+
+                var actualHeight = tree.GetHeight();
+
+                //http://stackoverflow.com/questions/30769383/finding-the-minimum-and-maximum-height-in-a-avl-tree-given-a-number-of-nodes
+                var maxHeight = 1.44 * Math.Log(nodeCount + 2, 2) - 0.328;
+
+                Assert.IsTrue(actualHeight < maxHeight);
+
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
+
+            Assert.IsTrue(tree.Count == 0);
+        }
 
         [TestMethod]
         public void AVLTree_StressTest()

@@ -51,6 +51,28 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
         [TestMethod]
+        public void TreapTree_BulkInit_Test()
+        {
+            var nodeCount = 1000;
+
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount).ToList();
+
+            var tree = new TreapTree<int>(randomNumbers);
+
+            Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+            Assert.AreEqual(tree.Count, tree.Count());
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
+
+            Assert.IsTrue(tree.Count == 0);
+        }
+
+        [TestMethod]
         public void TreapTree_StressTest()
         {
             var nodeCount = 1000 * 10;

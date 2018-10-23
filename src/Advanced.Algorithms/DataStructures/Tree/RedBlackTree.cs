@@ -33,7 +33,7 @@ namespace Advanced.Algorithms.DataStructures
             ValidateCollection(collection);
             var nodes = collection.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
             Root = (RedBlackTreeNode<T>)ToBST(nodes);
-            //TODO set colors
+            resetColors(Root);
             Count = nodes.Length;
         }
 
@@ -705,6 +705,26 @@ namespace Advanced.Algorithms.DataStructures
                 return null;
             }
             return null;
+        }
+
+        private void resetColors(RedBlackTreeNode<T> current)
+        {
+            if (current == null)
+            {
+                return;
+            }
+
+            resetColors(current.Left);
+            resetColors(current.Right);
+
+            if (current.IsLeaf)
+            {
+                current.NodeColor = RedBlackTreeNodeColor.Red;
+            }
+            else
+            {
+                current.NodeColor = RedBlackTreeNodeColor.Black;
+            }
         }
 
         /// <summary>

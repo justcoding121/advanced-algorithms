@@ -15,7 +15,7 @@ namespace Advanced.Algorithms.DataStructures
 
         internal BSTNodeBase<T> ToBST(BSTNodeBase<T>[] sortedNodes)
         {
-            return toBST(sortedNodes, 0, sortedNodes.Length);
+            return toBST(sortedNodes, 0, sortedNodes.Length - 1);
         }
 
         private BSTNodeBase<T> toBST(BSTNodeBase<T>[] sortedNodes, int start, int end)
@@ -27,7 +27,16 @@ namespace Advanced.Algorithms.DataStructures
             var root = sortedNodes[mid];
 
             root.Left = toBST(sortedNodes, start, mid - 1);
+            if (root.Left != null)
+            {
+                root.Left.Parent = root;
+            }
+
             root.Right = toBST(sortedNodes, mid + 1, end);
+            if (root.Right != null)
+            {
+                root.Right.Parent = root;
+            }
 
             return root;
         }

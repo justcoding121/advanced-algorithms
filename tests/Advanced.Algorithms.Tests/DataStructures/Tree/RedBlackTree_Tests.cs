@@ -106,6 +106,35 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
         [TestMethod]
+        public void RedBlackTree_BulkInit_Test()
+        {
+            var nodeCount = 1000;
+
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount).ToList();
+
+            var tree = new RedBlackTree<int>(randomNumbers);
+
+            Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+            Assert.AreEqual(tree.Count, tree.Count());
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
+
+                var actualHeight = tree.GetHeight();
+
+                //http://doctrina.org/maximum-height-of-red-black-tree.html
+                var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
+
+                Assert.IsTrue(actualHeight < maxHeight);
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
+
+            Assert.IsTrue(tree.Count == 0);
+        }
+
+        [TestMethod]
         public void RedBlackTree_StressTest()
         {
             var nodeCount = 1000 * 10;

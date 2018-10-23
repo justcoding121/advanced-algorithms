@@ -31,7 +31,7 @@ namespace Advanced.Algorithms.DataStructures
             ValidateCollection(collection);
             var nodes = collection.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
             Root = (AVLTreeNode<T>)ToBST(nodes);
-            //TODO set height
+            recomputeHeight(Root);
             Count = nodes.Length;
         }
 
@@ -126,7 +126,7 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Item exists");
             }
 
-            UpdateHeight(node);
+            updateHeight(node);
             balance(node);
 
         }
@@ -278,12 +278,12 @@ namespace Advanced.Algorithms.DataStructures
 
             if (baseCase)
             {
-                UpdateHeight(node.Parent);
+                updateHeight(node.Parent);
                 balance(node.Parent);
             }
             else
             {
-                UpdateHeight(node);
+                updateHeight(node);
                 balance(node);
             }
 
@@ -473,7 +473,7 @@ namespace Advanced.Algorithms.DataStructures
                 newRoot.Right.Left.Parent = newRoot.Right;
             }
 
-            UpdateHeight(newRoot);
+            updateHeight(newRoot);
 
             if (prevRoot == Root)
             {
@@ -515,7 +515,7 @@ namespace Advanced.Algorithms.DataStructures
                 newRoot.Left.Right.Parent = newRoot.Left;
             }
 
-            UpdateHeight(newRoot);
+            updateHeight(newRoot);
 
             if (prevRoot == Root)
             {
@@ -523,7 +523,7 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        private void UpdateHeight(AVLTreeNode<T> node)
+        private void updateHeight(AVLTreeNode<T> node)
         {
             if (node == null)
             {
@@ -544,6 +544,19 @@ namespace Advanced.Algorithms.DataStructures
 
             node.Height = Math.Max(node.Left?.Height + 1 ?? 0,
                                       node.Right?.Height + 1 ?? 0);
+        }
+
+        private void recomputeHeight(AVLTreeNode<T> node)
+        {
+            if(node == null)
+            {
+                return;
+            }
+
+            recomputeHeight(node.Left);
+            recomputeHeight(node.Right);
+
+            updateHeight(node);
         }
 
         /// <summary>
