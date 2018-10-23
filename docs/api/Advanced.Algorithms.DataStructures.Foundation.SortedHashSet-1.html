@@ -126,6 +126,35 @@ This may be better than regular HashSet implementation which can give o(K) in wo
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public SortedHashSet()</code></pre>
   </div>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1__ctor_IEnumerable__0__" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.#ctor(IEnumerable{`0})">SortedHashSet(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialize the sorted hashset with given sorted key collection.
+Time complexity: log(n).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SortedHashSet(IEnumerable&lt;T&gt; sortedKeys)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">sortedKeys</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   
@@ -258,15 +287,15 @@ Time complexity: O(log(n)).</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Next_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Next*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Next__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Next(`0)">Next(T)</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_NextHigher_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.NextHigher*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_NextHigher__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.NextHigher(`0)">NextHigher(T)</h4>
   <div class="markdown level1 summary"><p>Return the next higher value after given value in this hashset.
 Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Next(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public T NextHigher(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -303,15 +332,15 @@ Time complexity: O(log(n)).</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Previous_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Previous*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Previous__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Previous(`0)">Previous(T)</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_NextLower_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.NextLower*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_NextLower__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.NextLower(`0)">NextLower(T)</h4>
   <div class="markdown level1 summary"><p>Return the next lower value before given value in this HashSet.
 Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Previous(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public T NextLower(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
