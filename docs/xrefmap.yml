@@ -1550,6 +1550,15 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).NextLower
   nameWithType: BST<T>.NextLower
   nameWithType.vb: BST(Of T).NextLower
+- uid: Advanced.Algorithms.DataStructures.BSTBase`1
+  name: BSTBase<T>
+  href: api/Advanced.Algorithms.DataStructures.BSTBase-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.BSTBase`1
+  name.vb: BSTBase(Of T)
+  fullName: Advanced.Algorithms.DataStructures.BSTBase<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.BSTBase(Of T)
+  nameWithType: BSTBase<T>
+  nameWithType.vb: BSTBase(Of T)
 - uid: Advanced.Algorithms.DataStructures.BTree`1
   name: BTree<T>
   href: api/Advanced.Algorithms.DataStructures.BTree-1.html
