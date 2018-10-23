@@ -178,173 +178,171 @@ namespace Advanced.Algorithms.DataStructures
                 Root = node;
             }
 
-            //if node is full
-            //then split node
-            //and insert new median to parent
-            if (node.KeyCount == maxKeysPerNode)
+            //newValue have room to fit in this node
+            //so just insert in right spot in asc order of keys
+            if (node.KeyCount != maxKeysPerNode)
             {
-                //divide the current node values + new Node as left and right sub nodes
-                var left = new BpTreeNode<T>(maxKeysPerNode, null);
-                var right = new BpTreeNode<T>(maxKeysPerNode, null);
+                insertToNotFullNode(ref node, newValue, newValueLeft, newValueRight);
+                return;
+            }
 
-                //connect leaves via linked list for faster enumeration
-                if (node.IsLeaf)
+            //if node is full then split node
+            //and then insert new median to parent.
+
+            //divide the current node values + new Node as left and right sub nodes
+            var left = new BpTreeNode<T>(maxKeysPerNode, null);
+            var right = new BpTreeNode<T>(maxKeysPerNode, null);
+
+            //connect leaves via linked list for faster enumeration
+            if (node.IsLeaf)
+            {
+                left.Next = right;
+                right.Prev = left;
+
+                if (node.Next != null)
                 {
-                    left.Next = right;
-                    right.Prev = left;
-
-                    if (node.Next != null)
-                    {
-                        right.Next = node.Next;
-                        node.Next.Prev = right;
-                    }
-
-                    if (node.Prev != null)
-                    {
-                        left.Prev = node.Prev;
-                        node.Prev.Next = left;
-                    }
-                    else
-                    {
-                        //left most bottom node
-                        BottomLeftNode = left;
-                    }
+                    right.Next = node.Next;
+                    node.Next.Prev = right;
                 }
 
-                //median of current Node
-                var currentMedianIndex = node.GetMedianIndex();
-
-                //init currentNode under consideration to left
-                var currentNode = left;
-                var currentNodeIndex = 0;
-
-                //new Median also takes new Value in to Account
-                var newMedian = default(T);
-                var newMedianSet = false;
-                var newValueInserted = false;
-
-                //keep track of each insertion
-                var insertionCount = 0;
-
-                //insert newValue and existing values in sorted order
-                //to left and right nodes
-                //set new median during sorting
-                for (var i = 0; i < node.KeyCount; i++)
+                if (node.Prev != null)
                 {
+                    left.Prev = node.Prev;
+                    node.Prev.Next = left;
+                }
+                else
+                {
+                    //left most bottom node
+                    BottomLeftNode = left;
+                }
+            }
 
-                    //if insertion count reached new median
-                    //set the new median by picking the next smallest value
-                    if (!newMedianSet && insertionCount == currentMedianIndex)
+            //median of current Node
+            var currentMedianIndex = node.GetMedianIndex();
+
+            //init currentNode under consideration to left
+            var currentNode = left;
+            var currentNodeIndex = 0;
+
+            //new Median also takes new Value in to Account
+            var newMedian = default(T);
+            var newMedianSet = false;
+            var newValueInserted = false;
+
+            //keep track of each insertion
+            var insertionCount = 0;
+
+            //insert newValue and existing values in sorted order
+            //to left and right nodes
+            //set new median during sorting
+            for (var i = 0; i < node.KeyCount; i++)
+            {
+
+                //if insertion count reached new median
+                //set the new median by picking the next smallest value
+                if (!newMedianSet && insertionCount == currentMedianIndex)
+                {
+                    newMedianSet = true;
+
+                    //median can be the new value or node.keys[i] (next node key)
+                    //whichever is smaller
+                    if (!newValueInserted && newValue.CompareTo(node.Keys[i]) < 0)
                     {
-                        newMedianSet = true;
+                        //median is new value
+                        newMedian = newValue;
+                        newValueInserted = true;
 
-                        //median can be the new value or node.keys[i] (next node key)
-                        //whichever is smaller
-                        if (!newValueInserted && newValue.CompareTo(node.Keys[i]) < 0)
+                        if (newValueLeft != null)
                         {
-                            //median is new value
-                            newMedian = newValue;
-                            newValueInserted = true;
-
-                            if (newValueLeft != null)
-                            {
-                                setChild(currentNode, currentNode.KeyCount, newValueLeft);
-                            }
-
-                            //now fill right node
-                            currentNode = right;
-                            currentNodeIndex = 0;
-
-                            if (newValueRight != null)
-                            {
-                                setChild(currentNode, 0, newValueRight);
-                            }
-
-                            i--;
-                            insertionCount++;
-                            continue;
+                            setChild(currentNode, currentNode.KeyCount, newValueLeft);
                         }
-
-                        //median is next node
-                        newMedian = node.Keys[i];
 
                         //now fill right node
                         currentNode = right;
                         currentNodeIndex = 0;
 
-                        continue;
-
-                    }
-
-                    //pick the smaller among newValue and node.Keys[i]
-                    //and insert in to currentNode (left and right nodes)
-                    //if new Value was already inserted then just copy from node.Keys in sequence
-                    //since node.Keys is already in sorted order it should be fine
-                    if (newValueInserted || node.Keys[i].CompareTo(newValue) < 0)
-                    {
-                        currentNode.Keys[currentNodeIndex] = node.Keys[i];
-                        currentNode.KeyCount++;
-
-                        //if child is set don't set again
-                        //the child was already set by last newValueRight or last node
-                        if (currentNode.Children[currentNodeIndex] == null)
+                        if (newValueRight != null)
                         {
-                            setChild(currentNode, currentNodeIndex, node.Children[i]);
+                            setChild(currentNode, 0, newValueRight);
                         }
 
-                        setChild(currentNode, currentNodeIndex + 1, node.Children[i + 1]);
-
-                    }
-                    else
-                    {
-                        currentNode.Keys[currentNodeIndex] = newValue;
-                        currentNode.KeyCount++;
-
-                        setChild(currentNode, currentNodeIndex, newValueLeft);
-                        setChild(currentNode, currentNodeIndex + 1, newValueRight);
-
                         i--;
-                        newValueInserted = true;
+                        insertionCount++;
+                        continue;
                     }
 
-                    currentNodeIndex++;
-                    insertionCount++;
+                    //median is next node
+                    newMedian = node.Keys[i];
+
+                    //now fill right node
+                    currentNode = right;
+                    currentNodeIndex = 0;
+
+                    continue;
+
                 }
 
-                //could be that thew newKey is the greatest 
-                //so insert at end
-                if (!newValueInserted)
+                //pick the smaller among newValue and node.Keys[i]
+                //and insert in to currentNode (left and right nodes)
+                //if new Value was already inserted then just copy from node.Keys in sequence
+                //since node.Keys is already in sorted order it should be fine
+                if (newValueInserted || node.Keys[i].CompareTo(newValue) < 0)
+                {
+                    currentNode.Keys[currentNodeIndex] = node.Keys[i];
+                    currentNode.KeyCount++;
+
+                    //if child is set don't set again
+                    //the child was already set by last newValueRight or last node
+                    if (currentNode.Children[currentNodeIndex] == null)
+                    {
+                        setChild(currentNode, currentNodeIndex, node.Children[i]);
+                    }
+
+                    setChild(currentNode, currentNodeIndex + 1, node.Children[i + 1]);
+
+                }
+                else
                 {
                     currentNode.Keys[currentNodeIndex] = newValue;
                     currentNode.KeyCount++;
 
                     setChild(currentNode, currentNodeIndex, newValueLeft);
                     setChild(currentNode, currentNodeIndex + 1, newValueRight);
+
+                    i--;
+                    newValueInserted = true;
                 }
 
-                if (node.IsLeaf)
-                {
-                    insertAt(right.Keys, 0, newMedian);
-                    right.KeyCount++;
-                }
-
-                //insert overflow element (newMedian) to parent
-                var parent = node.Parent;
-                insertAndSplit(ref parent, newMedian, left, right);
-
+                currentNodeIndex++;
+                insertionCount++;
             }
-            //newValue have room to fit in this node
-            //so just insert in right spot in asc order of keys
-            else
+
+            //could be that thew newKey is the greatest 
+            //so insert at end
+            if (!newValueInserted)
             {
-                insertNonFullNode(ref node, newValue, newValueLeft, newValueRight);
+                currentNode.Keys[currentNodeIndex] = newValue;
+                currentNode.KeyCount++;
+
+                setChild(currentNode, currentNodeIndex, newValueLeft);
+                setChild(currentNode, currentNodeIndex + 1, newValueRight);
             }
+
+            if (node.IsLeaf)
+            {
+                insertAt(right.Keys, 0, newMedian);
+                right.KeyCount++;
+            }
+
+            //insert overflow element (newMedian) to parent
+            var parent = node.Parent;
+            insertAndSplit(ref parent, newMedian, left, right);
         }
 
         /// <summary>
-        /// Insert to a node that is not full
+        /// Insert to a node that is not full.
         /// </summary>
-        private void insertNonFullNode(ref BpTreeNode<T> node, T newValue,
+        private void insertToNotFullNode(ref BpTreeNode<T> node, T newValue,
             BpTreeNode<T> newValueLeft, BpTreeNode<T> newValueRight)
         {
             var inserted = false;
