@@ -22,6 +22,15 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
+        /// Initialize the sorted hashset with given sorted key collection.
+        /// Time complexity: log(n).
+        /// </summary>
+        public SortedHashSet(IEnumerable<T> sortedKeys)
+        {
+            binarySearchTree = new RedBlackTree<T>(sortedKeys);
+        }
+
+        /// <summary>
         /// Does this hash table contains the given value.
         /// Time complexity: O(log(n)).
         /// </summary>
@@ -57,7 +66,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// Time complexity: O(log(n)).
         /// </summary>
         /// <returns>Null if the given value does'nt exist or next value does'nt exist.</returns>
-        public T Next(T value)
+        public T NextHigher(T value)
         {
             return binarySearchTree.NextHigher(value);
         }
@@ -67,7 +76,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// Time complexity: O(log(n)).
         /// </summary>
         /// <returns>Null if the given value does'nt exist or previous value does'nt exist.</returns>
-        public T Previous(T value)
+        public T NextLower(T value)
         {
             return binarySearchTree.NextLower(value);
         }

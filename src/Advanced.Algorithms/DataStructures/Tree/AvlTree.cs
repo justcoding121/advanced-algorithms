@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.DataStructures
         public int Count { get; private set; }
 
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
-        ///  at the cost of additional space.</param>
+        /// at the cost of additional space.</param>
         public AVLTree(bool enableNodeLookUp = false)
         {
             if (enableNodeLookUp)
@@ -26,10 +26,18 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        public AVLTree(IEnumerable<T> collection, bool enableNodeLookUp = false) : this(enableNodeLookUp)
+        /// <summary>
+        /// Initialize the BST with given sorted keys.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="sortedKeys">The sorted keys.</param>
+        /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
+        ///  at the cost of additional space.</param>
+        public AVLTree(IEnumerable<T> sortedKeys, bool enableNodeLookUp = false) 
+            : this(enableNodeLookUp)
         {
-            ValidateCollection(collection);
-            var nodes = collection.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
+            ValidateCollection(sortedKeys);
+            var nodes = sortedKeys.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
             Root = (AVLTreeNode<T>)ToBST(nodes);
             recomputeHeight(Root);
             Count = nodes.Length;

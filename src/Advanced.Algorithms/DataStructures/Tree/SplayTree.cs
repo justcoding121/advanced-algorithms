@@ -16,6 +16,11 @@ namespace Advanced.Algorithms.DataStructures
 
         public SplayTree() { }
 
+        /// <summary>
+        /// Initialize the BST with given sorted keys.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="sortedKeys">The sorted keys.</param>
         public SplayTree(IEnumerable<T> collection) : this()
         {
             ValidateCollection(collection);

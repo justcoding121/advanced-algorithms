@@ -14,11 +14,9 @@ namespace Advanced.Algorithms.DataStructures
         internal RedBlackTreeNode<T> Root { get; set; }
         public int Count { get; private set; }
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         /// at the cost of additional space.</param>
+        /// <param name="equalityComparer">Provide custom IEquality comparer for node lookup dictionary when enabled.</param>
         public RedBlackTree(bool enableNodeLookUp = false, IEqualityComparer<T> equalityComparer = null)
         {
             if (enableNodeLookUp)
@@ -27,11 +25,19 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        public RedBlackTree(IEnumerable<T> collection, bool enableNodeLookUp = false, IEqualityComparer<T> equalityComparer = null)
+        /// <summary>
+        /// Initialize the BST with given sorted keys.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="collection">The sorted keys.</param>
+        /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
+        /// at the cost of additional space.</param>
+        /// <param name="equalityComparer">Provide custom IEquality comparer for node lookup dictionary when enabled.</param>
+        public RedBlackTree(IEnumerable<T> sortedKeys, bool enableNodeLookUp = false, IEqualityComparer<T> equalityComparer = null)
             : this(enableNodeLookUp, equalityComparer)
         {
-            ValidateCollection(collection);
-            var nodes = collection.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
+            ValidateCollection(sortedKeys);
+            var nodes = sortedKeys.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
             Root = (RedBlackTreeNode<T>)ToBST(nodes);
             resetColors(Root);
             Count = nodes.Length;

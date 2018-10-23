@@ -16,6 +16,11 @@ namespace Advanced.Algorithms.DataStructures
 
         public TreapTree() { }
 
+        /// <summary>
+        /// Initialize the BST with given sorted keys.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="sortedKeys">The sorted keys.</param>
         public TreapTree(IEnumerable<T> collection) : this()
         {
             ValidateCollection(collection);

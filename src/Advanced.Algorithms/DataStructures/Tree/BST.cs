@@ -16,10 +16,14 @@ namespace Advanced.Algorithms.DataStructures
 
         public BST() { }
 
-        public BST(IEnumerable<T> collection) : this()
+        /// <summary>
+        /// Initialize the BST with given sorted keys.
+        /// Time complexity: O(n).
+        /// </summary>
+        public BST(IEnumerable<T> sortedKeys) : this()
         {
-            ValidateCollection(collection);
-            var nodes = collection.Select(x => new BSTNode<T>(null, x)).ToArray();
+            ValidateCollection(sortedKeys);
+            var nodes = sortedKeys.Select(x => new BSTNode<T>(null, x)).ToArray();
             Root = (BSTNode<T>)ToBST(nodes);
             Count = nodes.Length;
         }
