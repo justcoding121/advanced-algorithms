@@ -6658,23 +6658,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).GetEnumerator
   nameWithType: RedBlackTree<T>.GetEnumerator
   nameWithType.vb: RedBlackTree(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.GetHeight
-  name: GetHeight()
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_GetHeight
-  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.GetHeight
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.GetHeight()
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).GetHeight()
-  nameWithType: RedBlackTree<T>.GetHeight()
-  nameWithType.vb: RedBlackTree(Of T).GetHeight()
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.GetHeight*
-  name: GetHeight
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_GetHeight_
-  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.GetHeight
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.GetHeight
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).GetHeight
-  nameWithType: RedBlackTree<T>.GetHeight
-  nameWithType.vb: RedBlackTree(Of T).GetHeight
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.HasItem(`0)
   name: HasItem(T)
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_HasItem__0_
