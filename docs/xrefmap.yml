@@ -3428,6 +3428,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).Count
   nameWithType: SortedDictionary<K, V>.Count
   nameWithType.vb: SortedDictionary(Of K, V).Count
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.ElementAt(System.Int32)
+  name: ElementAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_ElementAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.ElementAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary<K, V>.ElementAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).ElementAt(System.Int32)
+  nameWithType: SortedDictionary<K, V>.ElementAt(Int32)
+  nameWithType.vb: SortedDictionary(Of K, V).ElementAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.ElementAt*
+  name: ElementAt
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_ElementAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.ElementAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary<K, V>.ElementAt
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).ElementAt
+  nameWithType: SortedDictionary<K, V>.ElementAt
+  nameWithType.vb: SortedDictionary(Of K, V).ElementAt
 - uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_GetEnumerator
@@ -3445,6 +3462,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).GetEnumerator
   nameWithType: SortedDictionary<K, V>.GetEnumerator
   nameWithType.vb: SortedDictionary(Of K, V).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.IndexOf(`0)
+  name: IndexOf(K)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_IndexOf__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.IndexOf(`0)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary<K, V>.IndexOf(K)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).IndexOf(K)
+  nameWithType: SortedDictionary<K, V>.IndexOf(K)
+  nameWithType.vb: SortedDictionary(Of K, V).IndexOf(K)
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.IndexOf*
+  name: IndexOf
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_IndexOf_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.IndexOf
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary<K, V>.IndexOf
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).IndexOf
+  nameWithType: SortedDictionary<K, V>.IndexOf
+  nameWithType.vb: SortedDictionary(Of K, V).IndexOf
 - uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.Item(`0)
   name: Item[K]
   href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_Item__0_
@@ -3600,6 +3634,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).Count
   nameWithType: SortedHashSet<T>.Count
   nameWithType.vb: SortedHashSet(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.ElementAt(System.Int32)
+  name: ElementAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_ElementAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.ElementAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.ElementAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).ElementAt(System.Int32)
+  nameWithType: SortedHashSet<T>.ElementAt(Int32)
+  nameWithType.vb: SortedHashSet(Of T).ElementAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.ElementAt*
+  name: ElementAt
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_ElementAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.ElementAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.ElementAt
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).ElementAt
+  nameWithType: SortedHashSet<T>.ElementAt
+  nameWithType.vb: SortedHashSet(Of T).ElementAt
 - uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_GetEnumerator
@@ -3617,6 +3668,41 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).GetEnumerator
   nameWithType: SortedHashSet<T>.GetEnumerator
   nameWithType.vb: SortedHashSet(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.IndexOf(`0)
+  name: IndexOf(T)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_IndexOf__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.IndexOf(`0)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.IndexOf(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).IndexOf(T)
+  nameWithType: SortedHashSet<T>.IndexOf(T)
+  nameWithType.vb: SortedHashSet(Of T).IndexOf(T)
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.IndexOf*
+  name: IndexOf
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_IndexOf_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.IndexOf
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.IndexOf
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).IndexOf
+  nameWithType: SortedHashSet<T>.IndexOf
+  nameWithType.vb: SortedHashSet(Of T).IndexOf
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Item(System.Int32)
+  name: Item[Int32]
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Item_System_Int32_
+  commentId: P:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Item(System.Int32)
+  name.vb: Item(Int32)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.Item[System.Int32]
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).Item(System.Int32)
+  nameWithType: SortedHashSet<T>.Item[Int32]
+  nameWithType.vb: SortedHashSet(Of T).Item(Int32)
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Item*
+  name: Item
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Item_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Item
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.Item
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).Item
+  nameWithType: SortedHashSet<T>.Item
+  nameWithType.vb: SortedHashSet(Of T).Item
 - uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.NextHigher(`0)
   name: NextHigher(T)
   href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_NextHigher__0_
@@ -6641,6 +6727,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).Delete
   nameWithType: RedBlackTree<T>.Delete
   nameWithType.vb: RedBlackTree(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.ElementAt(System.Int32)
+  name: ElementAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_ElementAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.ElementAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.ElementAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).ElementAt(System.Int32)
+  nameWithType: RedBlackTree<T>.ElementAt(Int32)
+  nameWithType.vb: RedBlackTree(Of T).ElementAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.ElementAt*
+  name: ElementAt
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_ElementAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.ElementAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.ElementAt
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).ElementAt
+  nameWithType: RedBlackTree<T>.ElementAt
+  nameWithType.vb: RedBlackTree(Of T).ElementAt
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_GetEnumerator
@@ -6675,6 +6778,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).HasItem
   nameWithType: RedBlackTree<T>.HasItem
   nameWithType.vb: RedBlackTree(Of T).HasItem
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.IndexOf(`0)
+  name: IndexOf(T)
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_IndexOf__0_
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.IndexOf(`0)
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.IndexOf(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).IndexOf(T)
+  nameWithType: RedBlackTree<T>.IndexOf(T)
+  nameWithType.vb: RedBlackTree(Of T).IndexOf(T)
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.IndexOf*
+  name: IndexOf
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_IndexOf_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.IndexOf
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.IndexOf
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).IndexOf
+  nameWithType: RedBlackTree<T>.IndexOf
+  nameWithType.vb: RedBlackTree(Of T).IndexOf
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.Insert(`0)
   name: Insert(T)
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_Insert__0_
