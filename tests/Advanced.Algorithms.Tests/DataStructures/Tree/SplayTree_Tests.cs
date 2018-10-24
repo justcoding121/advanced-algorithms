@@ -57,17 +57,17 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var nodeCount = 1000;
 
             var rnd = new Random();
-            var randomNumbers = Enumerable.Range(1, nodeCount).ToList();
+            var sortedNumbers = Enumerable.Range(1, nodeCount).ToList();
 
-            var tree = new SplayTree<int>(randomNumbers);
+            var tree = new SplayTree<int>(sortedNumbers);
 
-            Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+            Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
             Assert.AreEqual(tree.Count, tree.Count());
 
             for (int i = 0; i < nodeCount; i++)
             {
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
-                tree.Delete(randomNumbers[i]);
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+                tree.Delete(sortedNumbers[i]);
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
             }
 

@@ -99,7 +99,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var nodeCount = 1000;
 
             var rnd = new Random();
-            var randomNumbers = Enumerable.Range(1, nodeCount)
+            var sortedNumbers = Enumerable.Range(1, nodeCount)
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
@@ -107,11 +107,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Insert(randomNumbers[i]);
+                tree.Insert(sortedNumbers[i]);
 
-                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
+                Assert.IsTrue(tree.HasItem(sortedNumbers[i]));
 
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
 
                 var actualHeight = tree.GetHeight();
 
@@ -122,7 +122,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(tree.Count == i + 1);
             }
 
-            randomNumbers = Enumerable.Range(1, nodeCount)
+            sortedNumbers = Enumerable.Range(1, nodeCount)
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
@@ -131,9 +131,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Delete(randomNumbers[i]);
+                tree.Delete(sortedNumbers[i]);
 
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
 
                 var actualHeight = tree.GetHeight();
 
@@ -156,14 +156,14 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var tree = new AVLTree<int>(randomNumbers);
 
-            Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+            Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
             Assert.AreEqual(tree.Count, tree.Count());
 
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
 
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
 
                 var actualHeight = tree.GetHeight();
 

@@ -117,7 +117,7 @@
     <Compile Include="DataStructures\Tree\TestHelpers\BTreeTester.cs" />
     <Compile Include="DataStructures\Queues\PriorityQueue\MinPriorityQueue_Tests.cs" />
     <Compile Include="DataStructures\Tree\RedBlackTree_Tests.cs" />
-    <Compile Include="DataStructures\Tree\TestHelpers\BinarySearchTreeTester.cs" />
+    <Compile Include="DataStructures\Tree\TestHelpers\BSTTester.cs" />
     <Compile Include="DataStructures\Tree\Tree_Tests.cs" />
     <Compile Include="DataStructures\Tree\BinaryTree_Tests.cs" />
     <Compile Include="Distributed\ConsistentHash_Tests.cs" />

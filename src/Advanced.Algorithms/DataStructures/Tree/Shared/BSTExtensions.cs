@@ -34,17 +34,6 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
-        internal static int GetHeight<T>(this BSTNodeBase<T> node) where T : IComparable
-        {
-            if (node == null)
-            {
-                return -1;
-            }
-
-            return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
-        }
-
         internal static BSTNodeBase<T> FindMax<T>(this BSTNodeBase<T> node) where T : IComparable
         {
             if (node == null)
@@ -166,6 +155,25 @@ namespace Advanced.Algorithms.DataStructures
                     return node?.Parent;
                 }
             }
+        }
+
+        internal static void UpdateCounts<T>(this BSTNodeBase<T> node, bool spiralUp = false) where T : IComparable
+        {
+            while (node != null)
+            {
+                int leftCount = node.Left?.Count ?? 0;
+                var rightCount = node.Right?.Count ?? 0;
+
+                node.Count = leftCount + rightCount + 1;
+
+                node = node.Parent;
+
+                if (!spiralUp)
+                {
+                    break;
+                }
+            }
+
         }
     }
 }

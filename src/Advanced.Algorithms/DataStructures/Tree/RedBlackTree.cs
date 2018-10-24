@@ -9,10 +9,10 @@ namespace Advanced.Algorithms.DataStructures
     /// A red black tree implementation.
     /// </summary>
     public class RedBlackTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
-    {     
+    {
         private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
         internal RedBlackTreeNode<T> Root { get; set; }
-        public int Count { get; private set; }
+        public int Count => Root == null ? 0 : Root.Count;
 
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         /// at the cost of additional space.</param>
@@ -39,17 +39,10 @@ namespace Advanced.Algorithms.DataStructures
             ValidateCollection(sortedKeys);
             var nodes = sortedKeys.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
             Root = (RedBlackTreeNode<T>)ToBST(nodes);
-            resetColors(Root);
-            Count = nodes.Length;
+            assignColors(Root);
+            assignCount(Root);
         }
 
-        /// <summary>
-        ///  Time complexity: O(log(n))
-        /// </summary>
-        public int GetHeight()
-        {
-            return Root.GetHeight();
-        }
 
         /// <summary>
         ///  Time complexity: O(log(n))
@@ -75,7 +68,6 @@ namespace Advanced.Algorithms.DataStructures
         internal void Clear()
         {
             Root = null;
-            Count = 0;
         }
 
         /// <summary>
@@ -145,7 +137,7 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     nodeLookUp[value] = Root;
                 }
-                Count++;
+
                 return Root;
             }
 
@@ -155,8 +147,6 @@ namespace Advanced.Algorithms.DataStructures
             {
                 nodeLookUp[value] = newNode;
             }
-
-            Count++;
 
             return newNode;
         }
@@ -205,12 +195,13 @@ namespace Advanced.Algorithms.DataStructures
 
         private void balanceInsertion(RedBlackTreeNode<T> nodeToBalance)
         {
+
             while (true)
             {
                 if (nodeToBalance == Root)
                 {
                     nodeToBalance.NodeColor = RedBlackTreeNodeColor.Black;
-                    return;
+                    break;
                 }
 
                 //if node to balance is red
@@ -232,6 +223,8 @@ namespace Advanced.Algorithms.DataStructures
                                 nodeToBalance.Parent.Parent.NodeColor = RedBlackTreeNodeColor.Red;
                             }
 
+                            nodeToBalance.UpdateCounts();
+                            nodeToBalance.Parent.UpdateCounts();
                             nodeToBalance = nodeToBalance.Parent.Parent;
                         }
                         //absent sibling or black sibling
@@ -248,6 +241,7 @@ namespace Advanced.Algorithms.DataStructures
                                     Root.NodeColor = RedBlackTreeNodeColor.Black;
                                 }
 
+                                nodeToBalance.UpdateCounts();
                                 nodeToBalance = newRoot;
                             }
                             else if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsRightChild)
@@ -264,6 +258,7 @@ namespace Advanced.Algorithms.DataStructures
                                     Root.NodeColor = RedBlackTreeNodeColor.Black;
                                 }
 
+                                nodeToBalance.UpdateCounts();
                                 nodeToBalance = newRoot;
                             }
                             else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsRightChild)
@@ -277,6 +272,7 @@ namespace Advanced.Algorithms.DataStructures
                                     Root.NodeColor = RedBlackTreeNodeColor.Black;
                                 }
 
+                                nodeToBalance.UpdateCounts();
                                 nodeToBalance = newRoot;
                             }
                             else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsLeftChild)
@@ -293,6 +289,7 @@ namespace Advanced.Algorithms.DataStructures
                                     Root.NodeColor = RedBlackTreeNodeColor.Black;
                                 }
 
+                                nodeToBalance.UpdateCounts();
                                 nodeToBalance = newRoot;
                             }
                         }
@@ -301,12 +298,16 @@ namespace Advanced.Algorithms.DataStructures
 
                 if (nodeToBalance.Parent != null)
                 {
+                    nodeToBalance.UpdateCounts();
                     nodeToBalance = nodeToBalance.Parent;
                     continue;
                 }
 
                 break;
             }
+
+            nodeToBalance.UpdateCounts(true);
+
         }
 
         private void swapColors(RedBlackTreeNode<T> node1, RedBlackTreeNode<T> node2)
@@ -339,15 +340,11 @@ namespace Advanced.Algorithms.DataStructures
             {
                 nodeLookUp.Remove(value);
             }
-
-            Count--;
         }
 
         //O(log(n)) always
         private void delete(RedBlackTreeNode<T> node)
         {
-            RedBlackTreeNode<T> nodeToBalance = null;
-
             //node is a leaf node
             if (node.IsLeaf)
             {
@@ -355,26 +352,26 @@ namespace Advanced.Algorithms.DataStructures
                 if (node.NodeColor == RedBlackTreeNodeColor.Red)
                 {
                     deleteLeaf(node);
+                    node.Parent?.UpdateCounts(true);
                     return;
                 }
 
-                nodeToBalance = handleDoubleBlack(node);
                 deleteLeaf(node);
+                balanceNode(node.Parent);     
             }
             else
             {
                 //case one - right tree is null (move sub tree up)
                 if (node.Left != null && node.Right == null)
                 {
-                    nodeToBalance = handleDoubleBlack(node);
                     deleteLeftNode(node);
+                    balanceNode(node.Left);
                 }
                 //case two - left tree is null  (move sub tree up)
                 else if (node.Right != null && node.Left == null)
                 {
-                    nodeToBalance = handleDoubleBlack(node);
                     deleteRightNode(node);
-
+                    balanceNode(node.Right);
                 }
                 //case three - two child trees 
                 //replace the node value with maximum element of left subtree (left max node)
@@ -395,13 +392,16 @@ namespace Advanced.Algorithms.DataStructures
                     return;
                 }
             }
+        }
 
+        private void balanceNode(RedBlackTreeNode<T> nodeToBalance)
+        {
             //handle six cases
             while (nodeToBalance != null)
             {
+                nodeToBalance.UpdateCounts();
                 nodeToBalance = handleDoubleBlack(nodeToBalance);
             }
-
         }
 
         private void deleteLeaf(RedBlackTreeNode<T> node)
@@ -529,6 +529,9 @@ namespace Advanced.Algorithms.DataStructures
                 Root = newRoot;
             }
 
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
         }
 
         private void leftRotate(RedBlackTreeNode<T> node)
@@ -568,6 +571,10 @@ namespace Advanced.Algorithms.DataStructures
             {
                 Root = newRoot;
             }
+
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
         }
 
         private RedBlackTreeNode<T> handleDoubleBlack(RedBlackTreeNode<T> node)
@@ -616,6 +623,7 @@ namespace Advanced.Algorithms.DataStructures
                 //pushed up the double black problem up to parent
                 //so now it needs to be fixed
                 node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
+
                 return node.Parent;
             }
 
@@ -634,7 +642,7 @@ namespace Advanced.Algorithms.DataStructures
                 //which will compensate the loss of black count 
                 node.Parent.NodeColor = RedBlackTreeNodeColor.Black;
                 node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
-
+                node.UpdateCounts(true);
                 return null;
             }
 
@@ -689,7 +697,7 @@ namespace Advanced.Algorithms.DataStructures
                 //to compensate the loss of Black on right side of parent
                 node.Sibling.Right.NodeColor = RedBlackTreeNodeColor.Black;
                 leftRotate(node.Parent);
-
+                node.UpdateCounts(true);
                 return null;
             }
 
@@ -707,21 +715,24 @@ namespace Advanced.Algorithms.DataStructures
                 //to compensate the loss of Black on right side of parent
                 node.Sibling.Left.NodeColor = RedBlackTreeNodeColor.Black;
                 rightRotate(node.Parent);
-
+                node.UpdateCounts(true);
                 return null;
             }
+
+            node.UpdateCounts(true);
             return null;
         }
 
-        private void resetColors(RedBlackTreeNode<T> current)
+        //assign valid colors assuming the given tree node and its children are in balanced state.
+        private void assignColors(RedBlackTreeNode<T> current)
         {
             if (current == null)
             {
                 return;
             }
 
-            resetColors(current.Left);
-            resetColors(current.Right);
+            assignColors(current.Left);
+            assignColors(current.Right);
 
             if (current.IsLeaf)
             {

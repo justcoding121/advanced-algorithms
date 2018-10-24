@@ -18,6 +18,17 @@ namespace Advanced.Algorithms.DataStructures
             return toBST(sortedNodes, 0, sortedNodes.Length - 1);
         }
 
+        internal int assignCount(BSTNodeBase<T> node) 
+        {
+            if (node == null)
+            {
+                return 0;
+            }
+
+            node.Count = assignCount(node.Left) + assignCount(node.Right) + 1;
+
+            return node.Count;
+        }
         private BSTNodeBase<T> toBST(BSTNodeBase<T>[] sortedNodes, int start, int end)
         {
             if (start > end)
