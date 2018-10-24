@@ -29,6 +29,7 @@ namespace Advanced.Algorithms.DataStructures
 
             return node.Count;
         }
+
         private BSTNodeBase<T> toBST(BSTNodeBase<T>[] sortedNodes, int start, int end)
         {
             if (start > end)

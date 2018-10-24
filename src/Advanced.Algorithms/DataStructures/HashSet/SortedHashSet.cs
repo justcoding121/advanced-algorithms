@@ -31,6 +31,15 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T this[int index]
+        {
+            get => ElementAt(index);
+
+        }
+
+        /// <summary>
         /// Does this hash table contains the given value.
         /// Time complexity: O(log(n)).
         /// </summary>
@@ -52,13 +61,29 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T ElementAt(int index)
+        {
+            return binarySearchTree.ElementAt(index);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public int IndexOf(T key)
+        {
+            return binarySearchTree.IndexOf(key);
+        }
+
+        /// <summary>
         /// Remove the given value.
         /// Time complexity: O(log(n)).
         /// </summary>
         /// <param name="value">The value to remove.</param>
-        public void Remove(T value)
+        public bool Remove(T value)
         {
-            binarySearchTree.Delete(value);
+           return binarySearchTree.Delete(value);
         }
 
         /// <summary>

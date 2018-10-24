@@ -98,16 +98,6 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         int Count { get; }
     }
 
-    internal class HashSetNode<T>
-    {
-        internal T Value;
-
-        internal HashSetNode(T value)
-        {
-            this.Value = value;
-        }
-    }
-
     /// <summary>
     /// The hash set implementation type.
     /// </summary>

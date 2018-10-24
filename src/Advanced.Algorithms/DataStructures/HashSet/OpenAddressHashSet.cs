@@ -271,6 +271,16 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
     }
 
+    internal class HashSetNode<T>
+    {
+        internal T Value;
+
+        internal HashSetNode(T value)
+        {
+            this.Value = value;
+        }
+    }
+
     internal class OpenAddressHashSetEnumerator<V> : IEnumerator<V> 
     {
         internal HashSetNode<V>[] hashArray;

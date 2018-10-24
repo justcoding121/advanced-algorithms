@@ -91,6 +91,27 @@ namespace Advanced.Algorithms.DataStructures
             return Root.FindMin().Value;
         }
 
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public int IndexOf(T item)
+        {
+            return Root.Position(item);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T ElementAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentNullException("index");
+            }
+
+            return Root.KthSmallest(index);
+        }
+
         //O(log(n)) worst O(n) for unbalanced tree
         internal RedBlackTreeNode<T> FindNode(T value)
         {
@@ -320,18 +341,18 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///  Time complexity: O(log(n))
         /// </summary>
-        public void Delete(T value)
+        public bool Delete(T value)
         {
             if (Root == null)
             {
-                throw new Exception("Empty Tree");
+                return false;
             }
 
             var node = find(value);
 
             if (node == null)
             {
-                throw new Exception("The given value was not found in this bst.");
+                return false;
             }
 
             delete(node);
@@ -340,6 +361,8 @@ namespace Advanced.Algorithms.DataStructures
             {
                 nodeLookUp.Remove(value);
             }
+
+            return true;
         }
 
         //O(log(n)) always
@@ -357,7 +380,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
 
                 deleteLeaf(node);
-                balanceNode(node.Parent);     
+                balanceNode(node.Parent);
             }
             else
             {

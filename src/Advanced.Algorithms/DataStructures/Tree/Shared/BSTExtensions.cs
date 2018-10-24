@@ -173,7 +173,49 @@ namespace Advanced.Algorithms.DataStructures
                     break;
                 }
             }
+        }
 
+        //get the kth smallest element under given node
+        internal static T KthSmallest<T>(this BSTNodeBase<T> node, int k) where T : IComparable
+        {
+            var leftCount = node.Left != null ? node.Left.Count : 0;
+
+            if (k == leftCount)
+            {
+                return node.Value;
+            }
+
+            if (k < leftCount)
+            {
+                return KthSmallest(node.Left, k);
+            }
+
+            return KthSmallest(node.Right, k - leftCount - 1);
+        }
+
+        //get the sorted order position of given item under given node
+        internal static int Position<T>(this BSTNodeBase<T> node, T item) where T : IComparable
+        {
+            if (node == null)
+            {
+                return -1;
+            }
+
+            var leftCount = node.Left != null ? node.Left.Count : 0;
+
+            if (node.Value.CompareTo(item) == 0)
+            {
+                return leftCount;
+            }
+
+            if (item.CompareTo(node.Value) < 0)
+            {
+                return Position(node.Left, item);
+            }
+
+            var position = Position(node.Right, item);
+
+            return position < 0 ? position : position + leftCount + 1;
         }
     }
 }
