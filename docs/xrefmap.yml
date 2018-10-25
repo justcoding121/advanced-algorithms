@@ -3548,6 +3548,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).Remove
   nameWithType: SortedDictionary<K, V>.Remove
   nameWithType.vb: SortedDictionary(Of K, V).Remove
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.RemoveAt(System.Int32)
+  name: RemoveAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_RemoveAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.RemoveAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary<K, V>.RemoveAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).RemoveAt(System.Int32)
+  nameWithType: SortedDictionary<K, V>.RemoveAt(Int32)
+  nameWithType.vb: SortedDictionary(Of K, V).RemoveAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.RemoveAt*
+  name: RemoveAt
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedDictionary-2.html#Advanced_Algorithms_DataStructures_Foundation_SortedDictionary_2_RemoveAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.SortedDictionary`2.RemoveAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary<K, V>.RemoveAt
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedDictionary(Of K, V).RemoveAt
+  nameWithType: SortedDictionary<K, V>.RemoveAt
+  nameWithType.vb: SortedDictionary(Of K, V).RemoveAt
 - uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1
   name: SortedHashSet<T>
   href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html
@@ -3754,6 +3771,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).Remove
   nameWithType: SortedHashSet<T>.Remove
   nameWithType.vb: SortedHashSet(Of T).Remove
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.RemoveAt(System.Int32)
+  name: RemoveAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_RemoveAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.RemoveAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.RemoveAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).RemoveAt(System.Int32)
+  nameWithType: SortedHashSet<T>.RemoveAt(Int32)
+  nameWithType.vb: SortedHashSet(Of T).RemoveAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.RemoveAt*
+  name: RemoveAt
+  href: api/Advanced.Algorithms.DataStructures.Foundation.SortedHashSet-1.html#Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_RemoveAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.RemoveAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet<T>.RemoveAt
+  fullName.vb: Advanced.Algorithms.DataStructures.Foundation.SortedHashSet(Of T).RemoveAt
+  nameWithType: SortedHashSet<T>.RemoveAt
+  nameWithType.vb: SortedHashSet(Of T).RemoveAt
 - uid: Advanced.Algorithms.DataStructures.Foundation.Stack`1
   name: Stack<T>
   href: api/Advanced.Algorithms.DataStructures.Foundation.Stack-1.html
@@ -6880,6 +6914,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).NextLower
   nameWithType: RedBlackTree<T>.NextLower
   nameWithType.vb: RedBlackTree(Of T).NextLower
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.RemoveAt(System.Int32)
+  name: RemoveAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_RemoveAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.RemoveAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RemoveAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RemoveAt(System.Int32)
+  nameWithType: RedBlackTree<T>.RemoveAt(Int32)
+  nameWithType.vb: RedBlackTree(Of T).RemoveAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.RemoveAt*
+  name: RemoveAt
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1_RemoveAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.RedBlackTree`1.RemoveAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RemoveAt
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RemoveAt
+  nameWithType: RedBlackTree<T>.RemoveAt
+  nameWithType.vb: RedBlackTree(Of T).RemoveAt
 - uid: Advanced.Algorithms.DataStructures.RTree
   name: RTree
   href: api/Advanced.Algorithms.DataStructures.RTree.html
