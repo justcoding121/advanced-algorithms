@@ -93,7 +93,6 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         private void insert(AVLTreeNode<T> node, T value)
         {
-
             var compareResult = node.Value.CompareTo(value);
 
             //node is less than the value so move right for insertion

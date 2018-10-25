@@ -109,7 +109,7 @@ namespace Advanced.Algorithms.DataStructures
                 throw new ArgumentNullException("index");
             }
 
-            return Root.KthSmallest(index);
+            return Root.KthSmallest(index).Value;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -363,6 +363,29 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             return true;
+        }
+
+
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T RemoveAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentNullException("index");
+            }
+
+            var node = Root.KthSmallest(index) as RedBlackTreeNode<T>;
+
+            delete(node);
+
+            if (nodeLookUp != null)
+            {
+                nodeLookUp.Remove(node.Value);
+            }
+
+            return node.Value;
         }
 
         //O(log(n)) always

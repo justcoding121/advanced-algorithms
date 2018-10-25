@@ -105,6 +105,15 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
+        /// Remove the element at given index.
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        public KeyValuePair<K,V> RemoveAt(int index)
+        {
+           return binarySearchTree.RemoveAt(index).ToKeyValuePair();
+        }
+
+        /// <summary>
         /// Return the next higher key-value pair after given key in this dictionary.
         /// Time complexity: O(log(n)).
         /// </summary>

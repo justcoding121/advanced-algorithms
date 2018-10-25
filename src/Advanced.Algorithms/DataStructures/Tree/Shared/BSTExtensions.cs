@@ -176,13 +176,13 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         //get the kth smallest element under given node
-        internal static T KthSmallest<T>(this BSTNodeBase<T> node, int k) where T : IComparable
+        internal static BSTNodeBase<T> KthSmallest<T>(this BSTNodeBase<T> node, int k) where T : IComparable
         {
             var leftCount = node.Left != null ? node.Left.Count : 0;
 
             if (k == leftCount)
             {
-                return node.Value;
+                return node;
             }
 
             if (k < leftCount)

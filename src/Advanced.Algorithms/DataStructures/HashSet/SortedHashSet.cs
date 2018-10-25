@@ -87,6 +87,15 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
+        /// Remove the element at given index.
+        /// Time complexity: O(log(n)).
+        /// </summary>
+        public T RemoveAt(int index)
+        {
+           return binarySearchTree.RemoveAt(index);
+        }
+
+        /// <summary>
         /// Return the next higher value after given value in this hashset.
         /// Time complexity: O(log(n)).
         /// </summary>

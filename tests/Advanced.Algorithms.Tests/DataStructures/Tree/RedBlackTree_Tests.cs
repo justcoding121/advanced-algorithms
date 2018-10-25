@@ -91,13 +91,21 @@ namespace Advanced.Algorithms.Tests.DataStructures
             randomNumbers = Enumerable.Range(1, nodeCount)
                                    .OrderBy(x => rnd.Next())
                                    .ToList();
-
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Delete(randomNumbers[i]);
+                if(rnd.NextDouble() >= 0.5)
+                {
+                    tree.Delete(randomNumbers[i]);
+                }
+                else
+                {
+                    var index = tree.IndexOf(randomNumbers[i]);
+                    tree.RemoveAt(index);
+                }
+                
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
                 tree.Root.VerifyCount();
                 var actualHeight = tree.Root.GetHeight();
