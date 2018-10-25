@@ -160,7 +160,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
-        /// Time complexity: O(1).
+        /// Time complexity: O(log(n)).
         /// </summary>
         public KeyValuePair<K, V> Min()
         {
@@ -172,7 +172,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         /// <summary>
         /// Clear the dictionary.
-        /// Time complexity: O(1).
+        /// Time complexity: O(log(n)).
         /// </summary>
         internal void Clear()
         {

@@ -116,7 +116,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
-        /// Time complexity: O(1).
+        /// Time complexity: O(log(n)).
         /// </summary>
         public T Max()
         {
@@ -124,7 +124,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
-        /// Time complexity: O(1).
+        /// Time complexity: O(log(n)).
         /// </summary>
         public T Min()
         {
