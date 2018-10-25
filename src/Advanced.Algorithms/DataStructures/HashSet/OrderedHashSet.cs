@@ -55,9 +55,9 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// Time complexity: O(log(n)).
         /// Returns the position (index) of the key in sorted order of this OrderedHashSet.
         /// </summary>
-        public void Add(T key)
+        public int Add(T key)
         {
-            binarySearchTree.Insert(key);
+            return binarySearchTree.Insert(key);
         }
 
         /// <summary>
