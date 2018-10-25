@@ -35,6 +35,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
+            Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
 
             //delete
             tree.Delete(1);
@@ -91,8 +92,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
             randomNumbers = Enumerable.Range(1, nodeCount)
                                    .OrderBy(x => rnd.Next())
                                    .ToList();
+
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
+            Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
 
             for (int i = 0; i < nodeCount; i++)
             {
@@ -131,7 +134,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var tree = new RedBlackTree<int>(sortedNumbers);
 
             Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+
+            //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
+            Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
+
 
             for (int i = 0; i < nodeCount; i++)
             {
@@ -175,6 +182,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
+            Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
 
             for (int i = 0; i < nodeCount; i++)
             {

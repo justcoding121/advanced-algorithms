@@ -6,15 +6,15 @@ using System.Linq;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class SortedHashSet_Tests
+    public class OrderedHashSet_Tests
     {
         /// <summary>
         /// key value HashSet tests 
         /// </summary>
         [TestMethod]
-        public void SortedHashSet_Test()
+        public void OrderedHashSet_Test()
         {
-            var hashSet = new SortedHashSet<int>();
+            var hashSet = new OrderedHashSet<int>();
 
             int nodeCount = 1000;
 
@@ -27,6 +27,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(hashSet.Count, hashSet.Count());
+            Assert.AreEqual(hashSet.Count, hashSet.AsEnumerableDesc().Count());
 
             for (int i = 0; i <= nodeCount; i++)
             {
@@ -36,6 +37,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(hashSet.Count, hashSet.Count());
+            Assert.AreEqual(hashSet.Count, hashSet.AsEnumerableDesc().Count());
 
             var rnd = new Random();
             var testSeries = Enumerable.Range(1, nodeCount).OrderBy(x => rnd.Next()).ToList();
@@ -48,6 +50,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(hashSet.Count, hashSet.Count());
+            Assert.AreEqual(hashSet.Count, hashSet.AsEnumerableDesc().Count());
 
             for (int i = 1; i <= nodeCount; i++)
             {
@@ -57,7 +60,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(hashSet.Count, hashSet.Count());
-
+            Assert.AreEqual(hashSet.Count, hashSet.AsEnumerableDesc().Count());
         }
     }
 }

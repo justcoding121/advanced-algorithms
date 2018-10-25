@@ -66,8 +66,8 @@
     <Compile Include="Compression\HuffmanCoding.cs" />
     <Compile Include="DataStructures\Dictionary\Dictionary.cs" />
     <Compile Include="DataStructures\Dictionary\OpenAddressDictionary.cs" />
+    <Compile Include="DataStructures\Dictionary\OrderedDictionary.cs" />
     <Compile Include="DataStructures\Dictionary\SeparateChainingDictionary.cs" />
-    <Compile Include="DataStructures\Dictionary\SortedDictionary.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\DiGraph.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\Graph.cs" />
     <Compile Include="DataStructures\Graph\AdjacencyList\WeightedDiGraph.cs" />
@@ -78,8 +78,8 @@
     <Compile Include="DataStructures\Graph\AdjacencyMatrix\WeightedGraph.cs" />
     <Compile Include="DataStructures\HashSet\HashSet.cs" />
     <Compile Include="DataStructures\HashSet\OpenAddressHashSet.cs" />
+    <Compile Include="DataStructures\HashSet\OrderedHashSet.cs" />
     <Compile Include="DataStructures\HashSet\SeparateChainingHashSet.cs" />
-    <Compile Include="DataStructures\HashSet\SortedHashSet.cs" />
     <Compile Include="DataStructures\Heap\BinomialHeapNode.cs" />
     <Compile Include="DataStructures\Heap\FibornacciHeapNode.cs" />
     <Compile Include="DataStructures\Heap\Max\BinomialMaxHeap.cs" />
@@ -106,6 +106,7 @@
     <Compile Include="DataStructures\Set\BloomFilter.cs" />
     <Compile Include="DataStructures\Set\DisJointSet.cs" />
     <Compile Include="DataStructures\Set\SparseSet.cs" />
+    <Compile Include="DataStructures\Shared\IEnumerableExtensions.cs" />
     <Compile Include="DataStructures\Stack\ArrayStack.cs" />
     <Compile Include="DataStructures\Stack\LinkedListStack.cs" />
     <Compile Include="DataStructures\Stack\Stack.cs" />

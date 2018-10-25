@@ -11,25 +11,25 @@ namespace Advanced.Algorithms.DataStructures.Foundation
     /// </summary>
     /// <typeparam name="K">The key datatype.</typeparam>
     /// <typeparam name="V">The value datatype.</typeparam>
-    public class SortedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K : IComparable
+    public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K : IComparable
     {
         //use red-black tree as our balanced BST since it gives good performance for both deletion/insertion
-        private readonly RedBlackTree<SortedKeyValuePair<K, V>> binarySearchTree;
+        private readonly RedBlackTree<OrderedKeyValuePair<K, V>> binarySearchTree;
 
         public int Count => binarySearchTree.Count;
 
-        public SortedDictionary()
+        public OrderedDictionary()
         {
-            binarySearchTree = new RedBlackTree<SortedKeyValuePair<K, V>>();
+            binarySearchTree = new RedBlackTree<OrderedKeyValuePair<K, V>>();
         }
 
         /// <summary>
         /// Initialize the dictionary with given key value pairs sorted by key.
         /// Time complexity: log(n).
         /// </summary>
-        public SortedDictionary(IEnumerable<KeyValuePair<K, V>> sortedKeyValuePairs)
+        public OrderedDictionary(IEnumerable<KeyValuePair<K, V>> sortedKeyValuePairs)
         {
-            binarySearchTree = new RedBlackTree<SortedKeyValuePair<K, V>>(sortedKeyValuePairs.Select(x => new SortedKeyValuePair<K, V>(x.Key, x.Value)));
+            binarySearchTree = new RedBlackTree<OrderedKeyValuePair<K, V>>(sortedKeyValuePairs.Select(x => new OrderedKeyValuePair<K, V>(x.Key, x.Value)));
         }
 
         /// <summary>
@@ -40,16 +40,17 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// <returns>True if this dictionary contains the given key.</returns> 
         public bool ContainsKey(K key)
         {
-            return binarySearchTree.HasItem(new SortedKeyValuePair<K, V>(key, default(V)));
+            return binarySearchTree.HasItem(new OrderedKeyValuePair<K, V>(key, default(V)));
         }
 
         /// <summary>
         /// Add a new value for given key.
         /// Time complexity: O(log(n)).
+        /// Returns the position (index) of the key in sorted order of this OrderedDictionary.
         /// </summary>
-        public void Add(K key, V value)
+        public int Add(K key, V value)
         {
-            binarySearchTree.Insert(new SortedKeyValuePair<K, V>(key, value));
+            return binarySearchTree.Insert(new OrderedKeyValuePair<K, V>(key, value));
         }
 
         /// <summary>
@@ -60,7 +61,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         {
             get
             {
-                var node = binarySearchTree.FindNode(new SortedKeyValuePair<K, V>(key, default(V)));
+                var node = binarySearchTree.FindNode(new OrderedKeyValuePair<K, V>(key, default(V)));
                 if (node == null)
                 {
                     throw new Exception("Key not found.");
@@ -92,25 +93,26 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// </summary>
         public int IndexOf(K key)
         {
-            return binarySearchTree.IndexOf(new SortedKeyValuePair<K, V>(key, default(V)));
+            return binarySearchTree.IndexOf(new OrderedKeyValuePair<K, V>(key, default(V)));
         }
 
         /// <summary>
-        /// Remove the given key.
+        /// Remove the given key if it exists.
         /// Time complexity: O(log(n)).
+        /// Returns the position (index) of the removed key if removed. Otherwise returns -1.
         /// </summary>
-        public bool Remove(K key)
+        public int Remove(K key)
         {
-           return binarySearchTree.Delete(new SortedKeyValuePair<K, V>(key, default(V)));
+            return binarySearchTree.Delete(new OrderedKeyValuePair<K, V>(key, default(V)));
         }
 
         /// <summary>
         /// Remove the element at given index.
         /// Time complexity: O(log(n)).
         /// </summary>
-        public KeyValuePair<K,V> RemoveAt(int index)
+        public KeyValuePair<K, V> RemoveAt(int index)
         {
-           return binarySearchTree.RemoveAt(index).ToKeyValuePair();
+            return binarySearchTree.RemoveAt(index).ToKeyValuePair();
         }
 
         /// <summary>
@@ -120,9 +122,9 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// <returns>Null if the given key does'nt exist or next key does'nt exist.</returns>
         public KeyValuePair<K, V> NextHigher(K key)
         {
-            var next = binarySearchTree.NextHigher(new SortedKeyValuePair<K, V>(key, default(V)));
+            var next = binarySearchTree.NextHigher(new OrderedKeyValuePair<K, V>(key, default(V)));
 
-            if (next.Equals(default(SortedKeyValuePair<K, V>)))
+            if (next.Equals(default(OrderedKeyValuePair<K, V>)))
             {
                 return default(KeyValuePair<K, V>);
             }
@@ -137,9 +139,9 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// <returns>Null if the given key does'nt exist or previous key does'nt exist.</returns>
         public KeyValuePair<K, V> NextLower(K key)
         {
-            var prev = binarySearchTree.NextLower(new SortedKeyValuePair<K, V>(key, default(V)));
+            var prev = binarySearchTree.NextLower(new OrderedKeyValuePair<K, V>(key, default(V)));
 
-            if (prev.Equals(default(SortedKeyValuePair<K, V>)))
+            if (prev.Equals(default(OrderedKeyValuePair<K, V>)))
             {
                 return default(KeyValuePair<K, V>);
             }
@@ -148,12 +150,41 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        public KeyValuePair<K, V> Max()
+        {
+            var max = binarySearchTree.Min();
+            return max.Equals(default(OrderedKeyValuePair<K, V>)) ? default(KeyValuePair<K, V>)
+                : max.ToKeyValuePair();
+        }
+
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        public KeyValuePair<K, V> Min()
+        {
+            var min = binarySearchTree.Min();
+            return min.Equals(default(OrderedKeyValuePair<K, V>)) ? default(KeyValuePair<K, V>)
+                : min.ToKeyValuePair();
+        }
+
+
+        /// <summary>
         /// Clear the dictionary.
         /// Time complexity: O(1).
         /// </summary>
         internal void Clear()
         {
             binarySearchTree.Clear();
+        }
+
+        /// <summary>
+        /// Descending enumerable.
+        /// </summary>
+        public IEnumerable<KeyValuePair<K, V>> AsEnumerableDesc()
+        {
+            return GetEnumeratorDesc().AsEnumerable();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -165,15 +196,20 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         {
             return new SortedDictionaryEnumerator<K, V>(binarySearchTree);
         }
+
+        public IEnumerator<KeyValuePair<K, V>> GetEnumeratorDesc()
+        {
+            return new SortedDictionaryEnumerator<K, V>(binarySearchTree, false);
+        }
     }
 
-    internal struct SortedKeyValuePair<K, V> : IComparable
+    internal struct OrderedKeyValuePair<K, V> : IComparable
                                  where K : IComparable
     {
         internal K Key { get; }
         internal V Value { get; set; }
 
-        internal SortedKeyValuePair(K key, V value)
+        internal OrderedKeyValuePair(K key, V value)
         {
             this.Key = key;
             this.Value = value;
@@ -181,7 +217,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public int CompareTo(object obj)
         {
-            if (obj is SortedKeyValuePair<K, V> itemToComare)
+            if (obj is OrderedKeyValuePair<K, V> itemToComare)
             {
                 return Key.CompareTo(itemToComare.Key);
             }
@@ -197,13 +233,16 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
     internal class SortedDictionaryEnumerator<K, V> : IEnumerator<KeyValuePair<K, V>> where K : IComparable
     {
-        private RedBlackTree<SortedKeyValuePair<K, V>> bst;
-        private IEnumerator<SortedKeyValuePair<K, V>> enumerator;
+        private bool asc;
 
-        internal SortedDictionaryEnumerator(RedBlackTree<SortedKeyValuePair<K, V>> bst)
+        private RedBlackTree<OrderedKeyValuePair<K, V>> bst;
+        private IEnumerator<OrderedKeyValuePair<K, V>> enumerator;
+
+        internal SortedDictionaryEnumerator(RedBlackTree<OrderedKeyValuePair<K, V>> bst, bool asc = true)
         {
+
             this.bst = bst;
-            this.enumerator = bst.GetEnumerator();
+            this.enumerator = asc ? bst.GetEnumerator() : bst.GetEnumeratorDesc();
         }
 
         public bool MoveNext()

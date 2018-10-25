@@ -9,14 +9,14 @@ namespace Advanced.Algorithms.DataStructures.Foundation
     /// This may be better than regular HashSet implementation which can give o(K) in worst case (but O(1) amortized when collisions K is avoided).
     /// </summary>
     /// <typeparam name="T">The value datatype.</typeparam>
-    public class SortedHashSet<T> : IEnumerable<T> where T : IComparable
+    public class OrderedHashSet<T> : IEnumerable<T> where T : IComparable
     {
         //use red-black tree as our balanced BST since it gives good performance for both deletion/insertion
         private readonly RedBlackTree<T> binarySearchTree;
 
         public int Count => binarySearchTree.Count;
 
-        public SortedHashSet()
+        public OrderedHashSet()
         {
             binarySearchTree = new RedBlackTree<T>();
         }
@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// Initialize the sorted hashset with given sorted key collection.
         /// Time complexity: log(n).
         /// </summary>
-        public SortedHashSet(IEnumerable<T> sortedKeys)
+        public OrderedHashSet(IEnumerable<T> sortedKeys)
         {
             binarySearchTree = new RedBlackTree<T>(sortedKeys);
         }
@@ -51,13 +51,13 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
-        /// Add a new value.
+        /// Add a new key.
         /// Time complexity: O(log(n)).
+        /// Returns the position (index) of the key in sorted order of this OrderedHashSet.
         /// </summary>
-        /// <param name="value">The value to add.</param>
-        public void Add(T value)
+        public void Add(T key)
         {
-            binarySearchTree.Insert(value);
+            binarySearchTree.Insert(key);
         }
 
         /// <summary>
@@ -77,13 +77,13 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
-        /// Remove the given value.
+        /// Remove the given key if present.
         /// Time complexity: O(log(n)).
+        /// Returns the position (index) of the removed key if removed. Otherwise returns -1.
         /// </summary>
-        /// <param name="value">The value to remove.</param>
-        public bool Remove(T value)
+        public int Remove(T key)
         {
-           return binarySearchTree.Delete(value);
+           return binarySearchTree.Delete(key);
         }
 
         /// <summary>
@@ -116,12 +116,36 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
 
         /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        public T Max()
+        {
+            return binarySearchTree.Min();
+        }
+
+        /// <summary>
+        /// Time complexity: O(1).
+        /// </summary>
+        public T Min()
+        {
+            return binarySearchTree.Max();
+        }
+
+        /// <summary>
         /// Clear the hashtable.
         /// Time complexity: O(1).
         /// </summary>
         internal void Clear()
         {
             binarySearchTree.Clear();
+        }
+
+        /// <summary>
+        /// Descending enumerable.
+        /// </summary>
+        public IEnumerable<T> AsEnumerableDesc()
+        {
+            return GetEnumeratorDesc().AsEnumerable();
         }
 
         //Implementation for the GetEnumerator method.
@@ -133,6 +157,11 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         public IEnumerator<T> GetEnumerator()
         {
             return binarySearchTree.GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumeratorDesc()
+        {
+            return binarySearchTree.GetEnumeratorDesc();
         }
     }
 }

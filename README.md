@@ -47,12 +47,12 @@ Supports
 ### HashSets
 
 - [X] HashSet (using [separate chaining](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/HashSet/SeparateChainingHashSet.cs) optionally with [open address linear probing](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/HashSet/OpenAddressHashSet.cs)) ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/HashSet/HashSet.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/HashSet/HashSet_Tests.cs))
-- [X] Sorted HashSet ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/HashSet/SortedHashSet.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/HashSet/SortedHashSet_Tests.cs))
+- [X] Ordered HashSet ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/HashSet/OrderedHashSet.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/HashSet/OrderedHashSet_Tests.cs))
 
 ### Dictionaries
 
 - [X] Dictionary (using [separate chaining](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Dictionary/SeparateChainingDictionary.cs) optionally with [open address linear probing](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Dictionary/OpenAddressDictionary.cs)) ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Dictionary/Dictionary.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Dictionary/Dictionary_Tests.cs))
-- [X] Sorted Dictionary ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Dictionary/SortedDictionary.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Dictionary/SortedDictionary_Tests.cs))
+- [X] Ordered Dictionary ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Dictionary/OrderedDictionary.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Dictionary/OrderedDictionary_Tests.cs))
 
 ### Stack
 

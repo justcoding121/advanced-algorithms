@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -217,5 +218,6 @@ namespace Advanced.Algorithms.DataStructures
 
             return position < 0 ? position : position + leftCount + 1;
         }
+
     }
 }

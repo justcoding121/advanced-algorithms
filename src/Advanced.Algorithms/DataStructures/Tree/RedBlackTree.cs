@@ -75,7 +75,8 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public T Max()
         {
-            return Root.FindMax().Value;
+            var max = Root.FindMax();
+            return max == null ? default(T) : max.Value;
         }
 
         private RedBlackTreeNode<T> findMax(RedBlackTreeNode<T> node)
@@ -88,7 +89,8 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public T Min()
         {
-            return Root.FindMin().Value;
+            var min = Root.FindMin();
+            return min == null ? default(T) : min.Value;
         }
 
         /// <summary>
@@ -138,11 +140,13 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
-        ///  Time complexity: O(log(n))
+        ///  Time complexity: O(log(n)).
+        ///  Returns the position (index) of the value in sorted order of this BST.
         /// </summary>
-        public void Insert(T value)
+        public int Insert(T value)
         {
-            InsertAndReturnNode(value);
+            var node = InsertAndReturnNode(value);
+            return node.Position;
         }
 
         /// <summary>
@@ -339,21 +343,25 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
+        ///  Delete if value exists. 
         ///  Time complexity: O(log(n))
+        ///  Returns the position (index) of the item if deleted; otherwise returns -1
         /// </summary>
-        public bool Delete(T value)
+        public int Delete(T value)
         {
             if (Root == null)
             {
-                return false;
+                return -1;
             }
 
             var node = find(value);
 
             if (node == null)
             {
-                return false;
+                return -1;
             }
+
+            var position = node.Position;
 
             delete(node);
 
@@ -362,7 +370,7 @@ namespace Advanced.Algorithms.DataStructures
                 nodeLookUp.Remove(value);
             }
 
-            return true;
+            return position;
         }
 
 
@@ -841,7 +849,14 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        //Implementation for the GetEnumerator method.
+        /// <summary>
+        /// Descending enumerable.
+        /// </summary>
+        public IEnumerable<T> AsEnumerableDesc()
+        {
+            return GetEnumeratorDesc().AsEnumerable();
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -850,6 +865,11 @@ namespace Advanced.Algorithms.DataStructures
         public IEnumerator<T> GetEnumerator()
         {
             return new BSTEnumerator<T>(Root);
+        }
+
+        public IEnumerator<T> GetEnumeratorDesc()
+        {
+            return new BSTEnumerator<T>(Root, false);
         }
     }
 

@@ -6,9 +6,12 @@ namespace Advanced.Algorithms.DataStructures
 {
     internal abstract class BSTNodeBase<T> where T : IComparable
     {
-        //Count of nodes under this node including this node
-        //Used to fasten kth smallest computation
+        //Count of nodes under this node including this node.
+        //Used to fasten kth smallest computation.
         internal int Count { get; set; } = 1;
+
+        //position of this node in sorted order of containing BST
+        internal int Position => Left == null ? 0 : Left.Count;
 
         internal virtual BSTNodeBase<T> Parent { get; set; }
 

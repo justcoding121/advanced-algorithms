@@ -6,15 +6,15 @@ using System.Linq;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class SortedDictionary_Tests
+    public class OrderedDictionary_Tests
     {
         /// <summary>
         /// key value dictionary tests 
         /// </summary>
         [TestMethod]
-        public void SortedDictionary_Test()
+        public void OrderedDictionary_Test()
         {
-            var dictionary = new SortedDictionary<int, int>();
+            var dictionary = new OrderedDictionary<int, int>();
 
             int nodeCount = 1000;
 
@@ -27,6 +27,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(dictionary.Count, dictionary.Count());
+            Assert.AreEqual(dictionary.Count, dictionary.AsEnumerableDesc().Count());
 
             for (int i = 0; i <= nodeCount; i++)
             {
@@ -36,6 +37,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(dictionary.Count, dictionary.Count());
+            Assert.AreEqual(dictionary.Count, dictionary.AsEnumerableDesc().Count());
 
             var rnd = new Random();
             var testSeries = Enumerable.Range(1, nodeCount).OrderBy(x => rnd.Next()).ToList();
@@ -48,6 +50,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(dictionary.Count, dictionary.Count());
+            Assert.AreEqual(dictionary.Count, dictionary.AsEnumerableDesc().Count());
 
             for (int i = 1; i <= nodeCount; i++)
             {
@@ -57,6 +60,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(dictionary.Count, dictionary.Count());
+            Assert.AreEqual(dictionary.Count, dictionary.AsEnumerableDesc().Count());
         }
     }
 }

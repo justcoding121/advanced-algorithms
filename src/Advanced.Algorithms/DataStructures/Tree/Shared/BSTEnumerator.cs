@@ -7,12 +7,15 @@ namespace Advanced.Algorithms.DataStructures
     //  implement IEnumerator.
     internal class BSTEnumerator<T> : IEnumerator<T> where T : IComparable
     {
+        private readonly bool asc;
+
         private readonly BSTNodeBase<T> root;
         private BSTNodeBase<T> current;
 
-        internal BSTEnumerator(BSTNodeBase<T> root)
+        internal BSTEnumerator(BSTNodeBase<T> root, bool asc = true)
         {
             this.root = root;
+            this.asc = asc;
         }
 
         public bool MoveNext()
@@ -24,11 +27,11 @@ namespace Advanced.Algorithms.DataStructures
 
             if (current == null)
             {
-                current = root.FindMin();
+                current = asc ? root.FindMin() : root.FindMax();
                 return true;
             }
 
-            var next = current.NextHigher();
+            var next = asc ? current.NextHigher() : current.NextLower();
             if (next != null)
             {
                 current = next;
