@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class RedBlackTree&lt;T&gt;
+    <title>Class OrderedHashSet&lt;T&gt;
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class RedBlackTree&lt;T&gt;
+    <meta name="title" content="Class OrderedHashSet&lt;T&gt;
    | Advanced Algorithms ">
     <meta name="generator" content="docfx 2.40.0.0">
     
@@ -78,29 +78,25 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1">
+            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1">
   
   
-  <h1 id="Advanced_Algorithms_DataStructures_RedBlackTree_1" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1" class="text-break">Class RedBlackTree&lt;T&gt;
+  <h1 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1" class="text-break">Class OrderedHashSet&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A red black tree implementation.</p>
+  <div class="markdown level0 summary"><p>A sorted HashSet implementation using balanced binary search tree. IEnumerable will enumerate in sorted order.
+This may be better than regular HashSet implementation which can give o(K) in worst case (but O(1) amortized when collisions K is avoided).</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><a class="xref" href="Advanced.Algorithms.DataStructures.BSTBase-1.html">BSTBase</a>&lt;T&gt;</div>
-    <div class="level2"><span class="xref">RedBlackTree&lt;T&gt;</span></div>
+    <div class="level1"><span class="xref">OrderedHashSet&lt;T&gt;</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">IEnumerable</span>&lt;T&gt;</div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.html">Advanced.Algorithms.DataStructures</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.Foundation.html">Advanced.Algorithms.DataStructures.Foundation</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
-  <h5 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_syntax">Syntax</h5>
+  <h5 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RedBlackTree&lt;T&gt; : BSTBase&lt;T&gt;, IEnumerable&lt;T&gt; where T : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class OrderedHashSet&lt;T&gt; : IEnumerable&lt;T&gt; where T : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -113,7 +109,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>The value datatype.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -121,15 +118,25 @@
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_IEnumerable__0__System_Boolean_IEqualityComparer__0__" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(IEnumerable{`0},System.Boolean,IEqualityComparer{`0})">RedBlackTree(IEnumerable&lt;T&gt;, Boolean, IEqualityComparer&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Initialize the BST with given sorted keys.
-Time complexity: O(n).</p>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1__ctor" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.#ctor">OrderedHashSet()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrderedHashSet()</code></pre>
+  </div>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1__ctor_IEnumerable__0__" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.#ctor(IEnumerable{`0})">OrderedHashSet(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialize the sorted hashset with given sorted key collection.
+Time complexity: log(n).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RedBlackTree(IEnumerable&lt;T&gt; sortedKeys, bool enableNodeLookUp = false, IEqualityComparer&lt;T&gt; equalityComparer = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public OrderedHashSet(IEnumerable&lt;T&gt; sortedKeys)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -146,62 +153,14 @@ Time complexity: O(n).</p>
         <td><span class="parametername">sortedKeys</span></td>
         <td></td>
       </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">enableNodeLookUp</span></td>
-        <td><p>Enabling lookup will fasten deletion/insertion/exists operations
-at the cost of additional space.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">IEqualityComparer</span>&lt;T&gt;</td>
-        <td><span class="parametername">equalityComparer</span></td>
-        <td><p>Provide custom IEquality comparer for node lookup dictionary when enabled.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_System_Boolean_IEqualityComparer__0__" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,IEqualityComparer{`0})">RedBlackTree(Boolean, IEqualityComparer&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RedBlackTree(bool enableNodeLookUp = false, IEqualityComparer&lt;T&gt; equalityComparer = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">enableNodeLookUp</span></td>
-        <td><p>Enabling lookup will fasten deletion/insertion/exists operations
-at the cost of additional space.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">IEqualityComparer</span>&lt;T&gt;</td>
-        <td><span class="parametername">equalityComparer</span></td>
-        <td><p>Provide custom IEquality comparer for node lookup dictionary when enabled.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Count_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Count*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Count" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Count">Count</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Count_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Count*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Count" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Count">Count</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -223,12 +182,85 @@ at the cost of additional space.</p>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Item_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Item*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Item_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_AsEnumerableDesc_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.AsEnumerableDesc*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_AsEnumerableDesc" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.AsEnumerableDesc">AsEnumerableDesc()</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Add_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Add*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Add__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Add(`0)">Add(T)</h4>
+  <div class="markdown level1 summary"><p>Add a new key.
+Time complexity: O(log(n)).
+Returns the position (index) of the key in sorted order of this OrderedHashSet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(T key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_AsEnumerableDesc_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.AsEnumerableDesc*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_AsEnumerableDesc" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.AsEnumerableDesc">AsEnumerableDesc()</h4>
   <div class="markdown level1 summary"><p>Descending enumerable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -253,16 +285,15 @@ at the cost of additional space.</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Delete_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Delete*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Delete__0_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Delete(`0)">Delete(T)</h4>
-  <div class="markdown level1 summary"><p>Delete if value exists. 
-Time complexity: O(log(n))
-Returns the position (index) of the item if deleted; otherwise returns -1</p>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Contains_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Contains*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Contains__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Contains(`0)">Contains(T)</h4>
+  <div class="markdown level1 summary"><p>Does this hash table contains the given value.
+Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Delete(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Contains(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -277,7 +308,8 @@ Returns the position (index) of the item if deleted; otherwise returns -1</p>
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The value to check.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -291,15 +323,16 @@ Returns the position (index) of the item if deleted; otherwise returns -1</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>True if this hashset contains the given value.</p>
+</td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_ElementAt_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.ElementAt*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_ElementAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.ElementAt(System.Int32)">ElementAt(Int32)</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_ElementAt_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.ElementAt*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_ElementAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.ElementAt(System.Int32)">ElementAt(Int32)</h4>
   <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -341,8 +374,8 @@ Returns the position (index) of the item if deleted; otherwise returns -1</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.GetEnumerator*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.GetEnumerator">GetEnumerator()</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.GetEnumerator">GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -366,8 +399,8 @@ Returns the position (index) of the item if deleted; otherwise returns -1</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_GetEnumeratorDesc_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.GetEnumeratorDesc*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_GetEnumeratorDesc" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.GetEnumeratorDesc">GetEnumeratorDesc()</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_GetEnumeratorDesc_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.GetEnumeratorDesc*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_GetEnumeratorDesc" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.GetEnumeratorDesc">GetEnumeratorDesc()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -391,14 +424,14 @@ Returns the position (index) of the item if deleted; otherwise returns -1</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_HasItem_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.HasItem*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_HasItem__0_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.HasItem(`0)">HasItem(T)</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_IndexOf_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.IndexOf*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_IndexOf__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.IndexOf(`0)">IndexOf(T)</h4>
   <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasItem(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public int IndexOf(T key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -412,50 +445,7 @@ Returns the position (index) of the item if deleted; otherwise returns -1</p>
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_IndexOf_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.IndexOf*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_IndexOf__0_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.IndexOf(`0)">IndexOf(T)</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int IndexOf(T item)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">item</span></td>
+        <td><span class="parametername">key</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -477,53 +467,9 @@ Returns the position (index) of the item if deleted; otherwise returns -1</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Insert_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Insert*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Insert__0_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Insert(`0)">Insert(T)</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).
-Returns the position (index) of the value in sorted order of this BST.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Insert(T value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Max_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Max*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Max" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Max">Max()</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Max_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Max*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Max" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Max">Max()</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -547,9 +493,9 @@ Returns the position (index) of the value in sorted order of this BST.</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Min_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Min*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_Min" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.Min">Min()</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Min_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Min*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Min" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Min">Min()</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -573,9 +519,10 @@ Returns the position (index) of the value in sorted order of this BST.</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_NextHigher_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.NextHigher*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_NextHigher__0_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.NextHigher(`0)">NextHigher(T)</h4>
-  <div class="markdown level1 summary"><p>Get the next higher to given value in this BST.</p>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_NextHigher_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.NextHigher*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_NextHigher__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.NextHigher(`0)">NextHigher(T)</h4>
+  <div class="markdown level1 summary"><p>Return the next higher value after given value in this hashset.
+Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -610,15 +557,17 @@ Returns the position (index) of the value in sorted order of this BST.</p>
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td></td>
+        <td><p>Null if the given value does&apos;nt exist or next value does&apos;nt exist.</p>
+</td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_NextLower_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.NextLower*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_NextLower__0_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.NextLower(`0)">NextLower(T)</h4>
-  <div class="markdown level1 summary"><p>Get the next lower value to given value in this BST.</p>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_NextLower_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.NextLower*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_NextLower__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.NextLower(`0)">NextLower(T)</h4>
+  <div class="markdown level1 summary"><p>Return the next lower value before given value in this HashSet.
+Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -653,15 +602,62 @@ Returns the position (index) of the value in sorted order of this BST.</p>
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
+        <td><p>Null if the given value does&apos;nt exist or previous value does&apos;nt exist.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Remove_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Remove*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Remove__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Remove(`0)">Remove(T)</h4>
+  <div class="markdown level1 summary"><p>Remove the given key if present.
+Time complexity: O(log(n)).
+Returns the position (index) of the removed key if removed. Otherwise returns -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Remove(T key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_RedBlackTree_1_RemoveAt_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.RemoveAt*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_RedBlackTree_1_RemoveAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.RedBlackTree`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_RemoveAt_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.RemoveAt*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_RemoveAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Remove the element at given index.
+Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -700,10 +696,6 @@ Returns the position (index) of the value in sorted order of this BST.</p>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">IEnumerable&lt;&gt;</span>
-  </div>
 </article>
           </div>
           
