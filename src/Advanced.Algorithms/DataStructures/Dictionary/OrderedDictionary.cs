@@ -154,7 +154,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// </summary>
         public KeyValuePair<K, V> Max()
         {
-            var max = binarySearchTree.Min();
+            var max = binarySearchTree.Max();
             return max.Equals(default(OrderedKeyValuePair<K, V>)) ? default(KeyValuePair<K, V>)
                 : max.ToKeyValuePair();
         }

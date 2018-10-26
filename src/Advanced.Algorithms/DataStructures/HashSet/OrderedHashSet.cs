@@ -120,7 +120,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// </summary>
         public T Max()
         {
-            return binarySearchTree.Min();
+            return binarySearchTree.Max();
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// </summary>
         public T Min()
         {
-            return binarySearchTree.Max();
+            return binarySearchTree.Min();
         }
 
         /// <summary>
