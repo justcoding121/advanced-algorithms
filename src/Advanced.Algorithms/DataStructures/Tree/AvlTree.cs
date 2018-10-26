@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.DataStructures
 
         internal AVLTreeNode<T> Root { get; set; }
 
-        public int Count { get; private set; }
+        public int Count => Root == null ? 0 : Root.Count;
 
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         /// at the cost of additional space.</param>
@@ -41,7 +41,6 @@ namespace Advanced.Algorithms.DataStructures
             Root = (AVLTreeNode<T>)ToBST(nodes);
             recomputeHeight(Root);
             assignCount(Root);
-            Count = nodes.Length;
         }
 
      
@@ -81,12 +80,12 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     nodeLookUp[value] = Root;
                 }
-                Count++;
+
                 return;
             }
 
             insert(Root, value);
-            Count++;
+
         }
 
         /// <summary>
@@ -158,7 +157,6 @@ namespace Advanced.Algorithms.DataStructures
                 nodeLookUp.Remove(value);
             }
 
-            Count--;
         }
 
         

@@ -11,9 +11,7 @@ namespace Advanced.Algorithms.DataStructures
     public class SplayTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
     {
         internal SplayTreeNode<T> Root { get; set; }
-
-        public int Count { get; private set; }
-
+        public int Count => Root == null ? 0 : Root.Count;
         public SplayTree() { }
 
         /// <summary>
@@ -27,7 +25,6 @@ namespace Advanced.Algorithms.DataStructures
             var nodes = collection.Select(x => new SplayTreeNode<T>(null, x)).ToArray();
             Root = (SplayTreeNode<T>)ToBST(nodes);
             assignCount(Root);
-            Count = nodes.Length;
         }
 
         /// <summary>
@@ -70,13 +67,11 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new SplayTreeNode<T>(null, value);
-                Count++;
                 return;
             }
 
             var newNode = insert(Root, value);
             splay(newNode);
-            Count++;
         }
 
         //O(log(n)) always
@@ -129,7 +124,6 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             delete(Root, value);
-            Count--;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree

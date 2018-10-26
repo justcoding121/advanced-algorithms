@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.DataStructures
     {
         private Random rndGenerator = new Random();
         internal TreapTreeNode<T> Root { get; set; }
-        public int Count { get; private set; }
+        public int Count => Root == null ? 0 : Root.Count;
 
         public TreapTree() { }
 
@@ -26,7 +26,6 @@ namespace Advanced.Algorithms.DataStructures
             ValidateCollection(collection);
             var nodes = collection.Select(x => new TreapTreeNode<T>(null, x, rndGenerator.Next())).ToArray();
             Root = (TreapTreeNode<T>)ToBST(nodes);
-            Count = nodes.Length;
             assignCount(Root);
             heapify(Root);
         }
@@ -70,14 +69,12 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new TreapTreeNode<T>(null, value, rndGenerator.Next());
-                Count++;
                 return;
             }
 
             var newNode = insert(Root, value);
 
             heapify(newNode);
-            Count++;
         }
 
         //O(log(n)) always
@@ -130,7 +127,6 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             delete(Root, value);
-            Count--;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree

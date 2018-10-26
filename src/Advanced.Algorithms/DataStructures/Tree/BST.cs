@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.DataStructures
     {
         internal BSTNode<T> Root { get; set; }
 
-        public int Count { get; private set; }
+        public int Count => Root == null ? 0 : Root.Count;
 
         public BST() { }
 
@@ -26,7 +26,6 @@ namespace Advanced.Algorithms.DataStructures
             var nodes = sortedKeys.Select(x => new BSTNode<T>(null, x)).ToArray();
             Root = (BSTNode<T>)ToBST(nodes);
             assignCount(Root);
-            Count = nodes.Length;
         }
 
         /// <summary>
@@ -67,13 +66,10 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new BSTNode<T>(null, value);
-                Count++;
                 return Root;
             }
 
             var newNode = insert(Root, value);
-            Count++;
-
             return newNode;
         }
 
@@ -86,13 +82,11 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new BSTNode<T>(null, value);
-                Count++;
                 return;
             }
 
             var newNode = insert(Root, value);
             newNode.UpdateCounts(true);
-            Count++;
         }
 
         //worst O(n) for unbalanced tree
@@ -148,7 +142,6 @@ namespace Advanced.Algorithms.DataStructures
 
             var deleted = delete(Root, value);
             deleted.UpdateCounts(true);
-            Count--;
         }
 
         //worst O(n) for unbalanced tree
