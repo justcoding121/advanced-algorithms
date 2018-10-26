@@ -40,6 +40,7 @@ namespace Advanced.Algorithms.DataStructures
             var nodes = sortedKeys.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
             Root = (AVLTreeNode<T>)ToBST(nodes);
             recomputeHeight(Root);
+            assignCount(Root);
             Count = nodes.Length;
         }
 
@@ -136,6 +137,7 @@ namespace Advanced.Algorithms.DataStructures
             updateHeight(node);
             balance(node);
 
+            node.UpdateCounts();
         }
 
 
@@ -173,6 +175,7 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     throw new Exception("Item do not exist");
                 }
+
                 delete(node.Right, value);
             }
             //node is less than the search value so move left to find the deletion node
@@ -204,8 +207,8 @@ namespace Advanced.Algorithms.DataStructures
                     {
                         node.Parent.Right = null;
                     }
-                    baseCase = true;
 
+                    baseCase = true;
                 }
                 else
                 {
@@ -233,8 +236,8 @@ namespace Advanced.Algorithms.DataStructures
 
                             node.Left.Parent = node.Parent;
                         }
-                        baseCase = true;
 
+                        baseCase = true;
                     }
                     //case two - left tree is null  (move sub tree up)
                     else if (node.Right != null && node.Left == null)
@@ -257,11 +260,11 @@ namespace Advanced.Algorithms.DataStructures
                             {
                                 node.Parent.Right = node.Right;
                             }
+
                             node.Right.Parent = node.Parent;
-
                         }
-                        baseCase = true;
 
+                        baseCase = true;
                     }
                     //case three - two child trees 
                     //replace the node value with maximum element of left subtree (left max node)
@@ -285,15 +288,16 @@ namespace Advanced.Algorithms.DataStructures
 
             if (baseCase)
             {
+                node.Parent.UpdateCounts();
                 updateHeight(node.Parent);
                 balance(node.Parent);
             }
             else
             {
+                node.UpdateCounts();
                 updateHeight(node);
                 balance(node);
             }
-
 
         }
 
@@ -482,6 +486,10 @@ namespace Advanced.Algorithms.DataStructures
 
             updateHeight(newRoot);
 
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
+
             if (prevRoot == Root)
             {
                 Root = newRoot;
@@ -523,6 +531,10 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             updateHeight(newRoot);
+
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
 
             if (prevRoot == Root)
             {

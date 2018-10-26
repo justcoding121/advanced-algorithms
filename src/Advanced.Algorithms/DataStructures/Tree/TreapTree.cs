@@ -27,6 +27,7 @@ namespace Advanced.Algorithms.DataStructures
             var nodes = collection.Select(x => new TreapTreeNode<T>(null, x, rndGenerator.Next())).ToArray();
             Root = (TreapTreeNode<T>)ToBST(nodes);
             Count = nodes.Length;
+            assignCount(Root);
             heapify(Root);
         }
         /// <summary>
@@ -195,6 +196,8 @@ namespace Advanced.Algorithms.DataStructures
 
                 break;
             }
+
+            node.UpdateCounts(true);
         }
 
         private void deleteLeaf(TreapTreeNode<T> node)
@@ -335,6 +338,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             while (node.Parent != null)
             {
+                node.UpdateCounts();
                 if (node.Priority < node.Parent.Priority)
                 {
                     node = node.IsLeftChild ? rightRotate(node.Parent) : leftRotate(node.Parent);
@@ -345,6 +349,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
 
+            node.UpdateCounts(true);
         }
 
         /// <summary>
@@ -382,6 +387,10 @@ namespace Advanced.Algorithms.DataStructures
             {
                 newRoot.Right.Left.Parent = newRoot.Right;
             }
+
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
 
             if (prevRoot == Root)
             {
@@ -428,6 +437,10 @@ namespace Advanced.Algorithms.DataStructures
             {
                 newRoot.Left.Right.Parent = newRoot.Left;
             }
+
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
 
             if (prevRoot == Root)
             {

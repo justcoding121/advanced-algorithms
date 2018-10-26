@@ -54,7 +54,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
         [TestMethod]
-        public void RedBlackTree_AccuracyTest()
+        public void RedBlackTree_Accuracy_Test()
         {
             var nodeCount = 1000;
 
@@ -139,11 +139,15 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(tree.Count, tree.Count());
             Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
 
+            tree.Root.VerifyCount();
 
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Delete(sortedNumbers[i]);
+
+                tree.Root.VerifyCount();
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+
                 var actualHeight = tree.Root.GetHeight();
 
                 //http://doctrina.org/maximum-height-of-red-black-tree.html

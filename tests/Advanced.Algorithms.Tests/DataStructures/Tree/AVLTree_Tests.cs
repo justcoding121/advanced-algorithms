@@ -94,7 +94,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
         [TestMethod]
-        public void AVLTree_AccuracyTest()
+        public void AVLTree_Accuracy_Test()
         {
             var nodeCount = 1000;
 
@@ -110,8 +110,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 tree.Insert(sortedNumbers[i]);
 
                 Assert.IsTrue(tree.HasItem(sortedNumbers[i]));
-
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+                tree.Root.VerifyCount();
 
                 var actualHeight = tree.GetHeight();
 
@@ -133,6 +133,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 tree.Delete(sortedNumbers[i]);
 
+                tree.Root.VerifyCount();
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
 
                 var actualHeight = tree.GetHeight();
@@ -159,10 +160,13 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
             Assert.AreEqual(tree.Count, tree.Count());
 
+            tree.Root.VerifyCount();
+
             for (int i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
 
+                tree.Root.VerifyCount();
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
 
                 var actualHeight = tree.GetHeight();
@@ -179,7 +183,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
         [TestMethod]
-        public void AVLTree_StressTest()
+        public void AVLTree_Stress_Test()
         {
             var nodeCount = 1000 * 10;
 

@@ -63,6 +63,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
             Assert.AreEqual(tree.Count, tree.Count());
 
+            tree.Root.VerifyCount();
+
             for (int i = 0; i < nodeCount; i++)
             {
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
@@ -74,7 +76,45 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
         [TestMethod]
-        public void TreapTree_StressTest()
+        public void TreapTree_Accuracy_Test()
+        {
+            var nodeCount = 1000;
+
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .ToList();
+
+            var tree = new TreapTree<int>();
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Insert(randomNumbers[i]);
+                tree.Root.VerifyCount();
+                Assert.IsTrue(tree.Count == i + 1);
+            }
+
+
+            //shuffle again before deletion tests
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                                   .OrderBy(x => rnd.Next())
+                                   .ToList();
+
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
+                tree.Root.VerifyCount();
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
+
+            Assert.IsTrue(tree.Count == 0);
+        }
+
+        [TestMethod]
+        public void TreapTree_Stress_Test()
         {
             var nodeCount = 1000 * 10;
 

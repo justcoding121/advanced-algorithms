@@ -25,6 +25,7 @@ namespace Advanced.Algorithms.DataStructures
             ValidateCollection(sortedKeys);
             var nodes = sortedKeys.Select(x => new BSTNode<T>(null, x)).ToArray();
             Root = (BSTNode<T>)ToBST(nodes);
+            assignCount(Root);
             Count = nodes.Length;
         }
 
@@ -89,7 +90,8 @@ namespace Advanced.Algorithms.DataStructures
                 return;
             }
 
-            insert(Root, value);
+            var newNode = insert(Root, value);
+            newNode.UpdateCounts(true);
             Count++;
         }
 
@@ -144,22 +146,9 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Empty BST");
             }
 
-            delete(Root, value);
+            var deleted = delete(Root, value);
+            deleted.UpdateCounts(true);
             Count--;
-        }
-
-        internal BSTNode<T> DeleteAndReturnParent(T value)
-        {
-            if (Root == null)
-            {
-                throw new Exception("Empty BST");
-            }
-
-            var parentNode = delete(Root, value);
-
-            Count--;
-
-            return parentNode;
         }
 
         //worst O(n) for unbalanced tree
@@ -177,8 +166,8 @@ namespace Advanced.Algorithms.DataStructures
                         node = node.Right ?? throw new Exception("Item do not exist");
                         continue;
                     }
-                    //node is less than the search value so move left to find the deletion node
 
+                    //node is less than the search value so move left to find the deletion node
                     if (compareResult > 0)
                     {
                         node = node.Left ?? throw new Exception("Item do not exist");
@@ -186,35 +175,36 @@ namespace Advanced.Algorithms.DataStructures
                     }
                 }
 
+                if (node == null)
+                {
+                    return null;
+                }
+
+
                 //node is a leaf node
-                if (node != null && node.IsLeaf)
+                if (node.IsLeaf)
                 {
                     deleteLeaf(node);
-                    return node.Parent;
+                    return node;
                 }
 
                 //case one - right tree is null (move sub tree up)
-                if (node?.Left != null && node.Right == null)
+                if (node.Left != null && node.Right == null)
                 {
                     deleteLeftNode(node);
-                    return node.Parent;
+                    return node;
                 }
-                //case two - left tree is null  (move sub tree up)
 
-                if (node?.Right != null && node.Left == null)
+                //case two - left tree is null  (move sub tree up)
+                if (node.Right != null && node.Left == null)
                 {
                     deleteRightNode(node);
-                    return node.Parent;
+                    return node;
                 }
+              
                 //case three - two child trees 
                 //replace the node value with maximum element of left subtree (left max node)
                 //and then delete the left max node
-
-                if (node == null)
-                {
-                    continue;
-                }
-
                 var maxLeftNode = FindMax(node.Left);
 
                 node.Value = maxLeftNode.Value;

@@ -26,6 +26,7 @@ namespace Advanced.Algorithms.DataStructures
             ValidateCollection(collection);
             var nodes = collection.Select(x => new SplayTreeNode<T>(null, x)).ToArray();
             Root = (SplayTreeNode<T>)ToBST(nodes);
+            assignCount(Root);
             Count = nodes.Length;
         }
 
@@ -74,7 +75,6 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             var newNode = insert(Root, value);
-
             splay(newNode);
             Count++;
         }
@@ -320,6 +320,8 @@ namespace Advanced.Algorithms.DataStructures
 
         private void splay(SplayTreeNode<T> x)
         {
+            x.UpdateCounts();
+
             while (x.Parent != null)
             {
                 if (x.Parent.Parent == null)
@@ -352,6 +354,8 @@ namespace Advanced.Algorithms.DataStructures
                     leftRotate(x.Parent);
                     x = rightRotate(x.Parent);
                 }
+
+                x.UpdateCounts();
             }
         }
 
@@ -390,6 +394,10 @@ namespace Advanced.Algorithms.DataStructures
             {
                 newRoot.Right.Left.Parent = newRoot.Right;
             }
+
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
 
             if (prevRoot == Root)
             {
@@ -435,6 +443,10 @@ namespace Advanced.Algorithms.DataStructures
             {
                 newRoot.Left.Right.Parent = newRoot.Left;
             }
+
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
 
             if (prevRoot == Root)
             {
