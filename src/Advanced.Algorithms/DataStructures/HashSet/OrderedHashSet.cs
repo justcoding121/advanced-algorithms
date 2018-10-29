@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public OrderedHashSet()
         {
-            binarySearchTree = new RedBlackTree<T>();
+            binarySearchTree = new RedBlackTree<T>(true);
         }
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public OrderedDictionary()
         {
-            binarySearchTree = new RedBlackTree<OrderedKeyValuePair<K, V>>();
+            binarySearchTree = new RedBlackTree<OrderedKeyValuePair<K, V>>(true);
         }
 
         /// <summary>
@@ -215,6 +215,11 @@ namespace Advanced.Algorithms.DataStructures.Foundation
             this.Value = value;
         }
 
+        public KeyValuePair<K, V> ToKeyValuePair()
+        {
+            return new KeyValuePair<K, V>(Key, Value);
+        }
+
         public int CompareTo(object obj)
         {
             if (obj is OrderedKeyValuePair<K, V> itemToComare)
@@ -225,10 +230,16 @@ namespace Advanced.Algorithms.DataStructures.Foundation
             throw new ArgumentException("Compare object is nu");
         }
 
-        public KeyValuePair<K, V> ToKeyValuePair()
+        public override bool Equals(object obj)
         {
-            return new KeyValuePair<K, V>(Key, Value);
+            return Key.Equals(((OrderedKeyValuePair<K, V>)obj).Key);
         }
+
+        public override int GetHashCode()
+        {
+            return Key.GetHashCode();
+        }
+
     }
 
     internal class SortedDictionaryEnumerator<K, V> : IEnumerator<KeyValuePair<K, V>> where K : IComparable
