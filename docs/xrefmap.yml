@@ -410,6 +410,178 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).NextLower
   nameWithType: AVLTree<T>.NextLower
   nameWithType.vb: AVLTree(Of T).NextLower
+- uid: Advanced.Algorithms.DataStructures.BHeap`1
+  name: BHeap<T>
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.BHeap`1
+  name.vb: BHeap(Of T)
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T)
+  nameWithType: BHeap<T>
+  nameWithType.vb: BHeap(Of T)
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(System.Boolean)
+  name: BHeap(Boolean)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_System_Boolean_
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(System.Boolean)
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(System.Boolean)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(System.Boolean)
+  nameWithType: BHeap<T>.BHeap(Boolean)
+  nameWithType.vb: BHeap(Of T).BHeap(Boolean)
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(System.Boolean,IComparer{`0})
+  name: BHeap(Boolean, IComparer<T>)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_System_Boolean_IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(System.Boolean,IComparer{`0})
+  name.vb: BHeap(Boolean, IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(System.Boolean, IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(System.Boolean, IComparer(Of T))
+  nameWithType: BHeap<T>.BHeap(Boolean, IComparer<T>)
+  nameWithType.vb: BHeap(Of T).BHeap(Boolean, IComparer(Of T))
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(System.Boolean,IEnumerable{`0})
+  name: BHeap(Boolean, IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_System_Boolean_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(System.Boolean,IEnumerable{`0})
+  name.vb: BHeap(Boolean, IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(System.Boolean, IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(System.Boolean, IEnumerable(Of T))
+  nameWithType: BHeap<T>.BHeap(Boolean, IEnumerable<T>)
+  nameWithType.vb: BHeap(Of T).BHeap(Boolean, IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(System.Boolean,IEnumerable{`0},IComparer{`0})
+  name: BHeap(Boolean, IEnumerable<T>, IComparer<T>)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_System_Boolean_IEnumerable__0__IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(System.Boolean,IEnumerable{`0},IComparer{`0})
+  name.vb: BHeap(Boolean, IEnumerable(Of T), IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(System.Boolean, IEnumerable<T>, IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(System.Boolean, IEnumerable(Of T), IComparer(Of T))
+  nameWithType: BHeap<T>.BHeap(Boolean, IEnumerable<T>, IComparer<T>)
+  nameWithType.vb: BHeap(Of T).BHeap(Boolean, IEnumerable(Of T), IComparer(Of T))
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor*
+  name: BHeap
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BHeap`1.#ctor
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap
+  nameWithType: BHeap<T>.BHeap
+  nameWithType.vb: BHeap(Of T).BHeap
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.BHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Count
+  nameWithType: BHeap<T>.Count
+  nameWithType.vb: BHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BHeap`1.Count
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Count
+  nameWithType: BHeap<T>.Count
+  nameWithType.vb: BHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Delete(`0)
+  name: Delete(T)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Delete__0_
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.Delete(`0)
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Delete(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Delete(T)
+  nameWithType: BHeap<T>.Delete(T)
+  nameWithType.vb: BHeap(Of T).Delete(T)
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Delete*
+  name: Delete
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Delete_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BHeap`1.Delete
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Delete
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Delete
+  nameWithType: BHeap<T>.Delete
+  nameWithType.vb: BHeap(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Exists(`0)
+  name: Exists(T)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Exists__0_
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.Exists(`0)
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Exists(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Exists(T)
+  nameWithType: BHeap<T>.Exists(T)
+  nameWithType.vb: BHeap(Of T).Exists(T)
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Exists*
+  name: Exists
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Exists_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BHeap`1.Exists
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Exists
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Exists
+  nameWithType: BHeap<T>.Exists
+  nameWithType.vb: BHeap(Of T).Exists
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Extract
+  name: Extract()
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Extract
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.Extract
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Extract()
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Extract()
+  nameWithType: BHeap<T>.Extract()
+  nameWithType.vb: BHeap(Of T).Extract()
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Extract*
+  name: Extract
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Extract_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BHeap`1.Extract
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Extract
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Extract
+  nameWithType: BHeap<T>.Extract
+  nameWithType.vb: BHeap(Of T).Extract
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).GetEnumerator()
+  nameWithType: BHeap<T>.GetEnumerator()
+  nameWithType.vb: BHeap(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BHeap`1.GetEnumerator
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).GetEnumerator
+  nameWithType: BHeap<T>.GetEnumerator
+  nameWithType.vb: BHeap(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Insert(`0)
+  name: Insert(T)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Insert__0_
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.Insert(`0)
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Insert(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Insert(T)
+  nameWithType: BHeap<T>.Insert(T)
+  nameWithType.vb: BHeap(Of T).Insert(T)
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Insert*
+  name: Insert
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Insert_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BHeap`1.Insert
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Insert
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Insert
+  nameWithType: BHeap<T>.Insert
+  nameWithType.vb: BHeap(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Peek
+  name: Peek()
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Peek
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.Peek
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Peek()
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Peek()
+  nameWithType: BHeap<T>.Peek()
+  nameWithType.vb: BHeap(Of T).Peek()
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.Peek*
+  name: Peek
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1_Peek_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BHeap`1.Peek
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.Peek
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).Peek
+  nameWithType: BHeap<T>.Peek
+  nameWithType.vb: BHeap(Of T).Peek
 - uid: Advanced.Algorithms.DataStructures.BinaryTree`1
   name: BinaryTree<T>
   href: api/Advanced.Algorithms.DataStructures.BinaryTree-1.html
@@ -538,264 +710,152 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BinaryTree(Of T).Insert
   nameWithType: BinaryTree<T>.Insert
   nameWithType.vb: BinaryTree(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1
-  name: BinomialMaxHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1
-  name.vb: BinomialMaxHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T)
-  nameWithType: BinomialMaxHeap<T>
-  nameWithType.vb: BinomialMaxHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).Count
-  nameWithType: BinomialMaxHeap<T>.Count
-  nameWithType.vb: BinomialMaxHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Count
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1
+  name: BinomialHeap<T>
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.BinomialHeap`1
+  name.vb: BinomialHeap(Of T)
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T)
+  nameWithType: BinomialHeap<T>
+  nameWithType.vb: BinomialHeap(Of T)
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.#ctor(System.Boolean)
+  name: BinomialHeap(Boolean)
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1__ctor_System_Boolean_
+  commentId: M:Advanced.Algorithms.DataStructures.BinomialHeap`1.#ctor(System.Boolean)
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.BinomialHeap(System.Boolean)
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).BinomialHeap(System.Boolean)
+  nameWithType: BinomialHeap<T>.BinomialHeap(Boolean)
+  nameWithType.vb: BinomialHeap(Of T).BinomialHeap(Boolean)
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.#ctor*
+  name: BinomialHeap
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialHeap`1.#ctor
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).Count
-  nameWithType: BinomialMaxHeap<T>.Count
-  nameWithType.vb: BinomialMaxHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.ExtractMax
-  name: ExtractMax()
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_ExtractMax
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.ExtractMax
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.ExtractMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).ExtractMax()
-  nameWithType: BinomialMaxHeap<T>.ExtractMax()
-  nameWithType.vb: BinomialMaxHeap(Of T).ExtractMax()
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.ExtractMax*
-  name: ExtractMax
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_ExtractMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.ExtractMax
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.BinomialHeap
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).BinomialHeap
+  nameWithType: BinomialHeap<T>.BinomialHeap
+  nameWithType.vb: BinomialHeap(Of T).BinomialHeap
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.BinomialHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Count
+  nameWithType: BinomialHeap<T>.Count
+  nameWithType.vb: BinomialHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialHeap`1.Count
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.ExtractMax
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).ExtractMax
-  nameWithType: BinomialMaxHeap<T>.ExtractMax
-  nameWithType.vb: BinomialMaxHeap(Of T).ExtractMax
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Count
+  nameWithType: BinomialHeap<T>.Count
+  nameWithType.vb: BinomialHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Extract
+  name: Extract()
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Extract
+  commentId: M:Advanced.Algorithms.DataStructures.BinomialHeap`1.Extract
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Extract()
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Extract()
+  nameWithType: BinomialHeap<T>.Extract()
+  nameWithType.vb: BinomialHeap(Of T).Extract()
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Extract*
+  name: Extract
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Extract_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialHeap`1.Extract
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Extract
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Extract
+  nameWithType: BinomialHeap<T>.Extract
+  nameWithType.vb: BinomialHeap(Of T).Extract
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.GetEnumerator
   name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).GetEnumerator()
-  nameWithType: BinomialMaxHeap<T>.GetEnumerator()
-  nameWithType.vb: BinomialMaxHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.GetEnumerator*
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.BinomialHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).GetEnumerator()
+  nameWithType: BinomialHeap<T>.GetEnumerator()
+  nameWithType.vb: BinomialHeap(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.GetEnumerator*
   name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialHeap`1.GetEnumerator
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).GetEnumerator
-  nameWithType: BinomialMaxHeap<T>.GetEnumerator
-  nameWithType.vb: BinomialMaxHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.IncrementKey(`0,`0)
-  name: IncrementKey(T, T)
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_IncrementKey__0__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.IncrementKey(`0,`0)
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.IncrementKey(T, T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).IncrementKey(T, T)
-  nameWithType: BinomialMaxHeap<T>.IncrementKey(T, T)
-  nameWithType.vb: BinomialMaxHeap(Of T).IncrementKey(T, T)
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.IncrementKey*
-  name: IncrementKey
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_IncrementKey_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.IncrementKey
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.IncrementKey
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).IncrementKey
-  nameWithType: BinomialMaxHeap<T>.IncrementKey
-  nameWithType.vb: BinomialMaxHeap(Of T).IncrementKey
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Insert(`0)
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).GetEnumerator
+  nameWithType: BinomialHeap<T>.GetEnumerator
+  nameWithType.vb: BinomialHeap(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Insert(`0)
   name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).Insert(T)
-  nameWithType: BinomialMaxHeap<T>.Insert(T)
-  nameWithType.vb: BinomialMaxHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Insert*
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Insert__0_
+  commentId: M:Advanced.Algorithms.DataStructures.BinomialHeap`1.Insert(`0)
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Insert(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Insert(T)
+  nameWithType: BinomialHeap<T>.Insert(T)
+  nameWithType.vb: BinomialHeap(Of T).Insert(T)
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Insert*
   name: Insert
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Insert
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Insert_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialHeap`1.Insert
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).Insert
-  nameWithType: BinomialMaxHeap<T>.Insert
-  nameWithType.vb: BinomialMaxHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Merge(Advanced.Algorithms.DataStructures.BinomialMaxHeap{`0})
-  name: Merge(BinomialMaxHeap<T>)
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_Merge_Advanced_Algorithms_DataStructures_BinomialMaxHeap__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Merge(Advanced.Algorithms.DataStructures.BinomialMaxHeap{`0})
-  name.vb: Merge(BinomialMaxHeap(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.Merge(Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).Merge(Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T))
-  nameWithType: BinomialMaxHeap<T>.Merge(BinomialMaxHeap<T>)
-  nameWithType.vb: BinomialMaxHeap(Of T).Merge(BinomialMaxHeap(Of T))
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Merge*
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Insert
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Insert
+  nameWithType: BinomialHeap<T>.Insert
+  nameWithType.vb: BinomialHeap(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Merge(Advanced.Algorithms.DataStructures.BinomialHeap{`0})
+  name: Merge(BinomialHeap<T>)
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Merge_Advanced_Algorithms_DataStructures_BinomialHeap__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BinomialHeap`1.Merge(Advanced.Algorithms.DataStructures.BinomialHeap{`0})
+  name.vb: Merge(BinomialHeap(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Merge(Advanced.Algorithms.DataStructures.BinomialHeap<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Merge(Advanced.Algorithms.DataStructures.BinomialHeap(Of T))
+  nameWithType: BinomialHeap<T>.Merge(BinomialHeap<T>)
+  nameWithType.vb: BinomialHeap(Of T).Merge(BinomialHeap(Of T))
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Merge*
   name: Merge
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_Merge_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.Merge
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Merge_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialHeap`1.Merge
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.Merge
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).Merge
-  nameWithType: BinomialMaxHeap<T>.Merge
-  nameWithType.vb: BinomialMaxHeap(Of T).Merge
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.PeekMax
-  name: PeekMax()
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_PeekMax
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.PeekMax
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.PeekMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).PeekMax()
-  nameWithType: BinomialMaxHeap<T>.PeekMax()
-  nameWithType.vb: BinomialMaxHeap(Of T).PeekMax()
-- uid: Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.PeekMax*
-  name: PeekMax
-  href: api/Advanced.Algorithms.DataStructures.BinomialMaxHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMaxHeap_1_PeekMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMaxHeap`1.PeekMax
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Merge
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Merge
+  nameWithType: BinomialHeap<T>.Merge
+  nameWithType.vb: BinomialHeap(Of T).Merge
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Peek
+  name: Peek()
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Peek
+  commentId: M:Advanced.Algorithms.DataStructures.BinomialHeap`1.Peek
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Peek()
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Peek()
+  nameWithType: BinomialHeap<T>.Peek()
+  nameWithType.vb: BinomialHeap(Of T).Peek()
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.Peek*
+  name: Peek
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_Peek_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialHeap`1.Peek
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMaxHeap<T>.PeekMax
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMaxHeap(Of T).PeekMax
-  nameWithType: BinomialMaxHeap<T>.PeekMax
-  nameWithType.vb: BinomialMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1
-  name: BinomialMinHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.BinomialMinHeap`1
-  name.vb: BinomialMinHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T)
-  nameWithType: BinomialMinHeap<T>
-  nameWithType.vb: BinomialMinHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).Count
-  nameWithType: BinomialMinHeap<T>.Count
-  nameWithType.vb: BinomialMinHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.Peek
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).Peek
+  nameWithType: BinomialHeap<T>.Peek
+  nameWithType.vb: BinomialHeap(Of T).Peek
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.UpdateKey(`0,`0)
+  name: UpdateKey(T, T)
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_UpdateKey__0__0_
+  commentId: M:Advanced.Algorithms.DataStructures.BinomialHeap`1.UpdateKey(`0,`0)
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.UpdateKey(T, T)
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).UpdateKey(T, T)
+  nameWithType: BinomialHeap<T>.UpdateKey(T, T)
+  nameWithType.vb: BinomialHeap(Of T).UpdateKey(T, T)
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.UpdateKey*
+  name: UpdateKey
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1_UpdateKey_
+  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialHeap`1.UpdateKey
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).Count
-  nameWithType: BinomialMinHeap<T>.Count
-  nameWithType.vb: BinomialMinHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.DecrementKey(`0,`0)
-  name: DecrementKey(T, T)
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_DecrementKey__0__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.DecrementKey(`0,`0)
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.DecrementKey(T, T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).DecrementKey(T, T)
-  nameWithType: BinomialMinHeap<T>.DecrementKey(T, T)
-  nameWithType.vb: BinomialMinHeap(Of T).DecrementKey(T, T)
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.DecrementKey*
-  name: DecrementKey
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_DecrementKey_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.DecrementKey
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.DecrementKey
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).DecrementKey
-  nameWithType: BinomialMinHeap<T>.DecrementKey
-  nameWithType.vb: BinomialMinHeap(Of T).DecrementKey
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.ExtractMin
-  name: ExtractMin()
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_ExtractMin
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.ExtractMin
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.ExtractMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).ExtractMin()
-  nameWithType: BinomialMinHeap<T>.ExtractMin()
-  nameWithType.vb: BinomialMinHeap(Of T).ExtractMin()
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.ExtractMin*
-  name: ExtractMin
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_ExtractMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.ExtractMin
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.ExtractMin
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).ExtractMin
-  nameWithType: BinomialMinHeap<T>.ExtractMin
-  nameWithType.vb: BinomialMinHeap(Of T).ExtractMin
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).GetEnumerator()
-  nameWithType: BinomialMinHeap<T>.GetEnumerator()
-  nameWithType.vb: BinomialMinHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.GetEnumerator
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).GetEnumerator
-  nameWithType: BinomialMinHeap<T>.GetEnumerator
-  nameWithType.vb: BinomialMinHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Insert(`0)
-  name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).Insert(T)
-  nameWithType: BinomialMinHeap<T>.Insert(T)
-  nameWithType.vb: BinomialMinHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Insert*
-  name: Insert
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Insert
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).Insert
-  nameWithType: BinomialMinHeap<T>.Insert
-  nameWithType.vb: BinomialMinHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Merge(Advanced.Algorithms.DataStructures.BinomialMinHeap{`0})
-  name: Merge(BinomialMinHeap<T>)
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_Merge_Advanced_Algorithms_DataStructures_BinomialMinHeap__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Merge(Advanced.Algorithms.DataStructures.BinomialMinHeap{`0})
-  name.vb: Merge(BinomialMinHeap(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.Merge(Advanced.Algorithms.DataStructures.BinomialMinHeap<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).Merge(Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T))
-  nameWithType: BinomialMinHeap<T>.Merge(BinomialMinHeap<T>)
-  nameWithType.vb: BinomialMinHeap(Of T).Merge(BinomialMinHeap(Of T))
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Merge*
-  name: Merge
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_Merge_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.Merge
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.Merge
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).Merge
-  nameWithType: BinomialMinHeap<T>.Merge
-  nameWithType.vb: BinomialMinHeap(Of T).Merge
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.PeekMin
-  name: PeekMin()
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_PeekMin
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.PeekMin
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.PeekMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).PeekMin()
-  nameWithType: BinomialMinHeap<T>.PeekMin()
-  nameWithType.vb: BinomialMinHeap(Of T).PeekMin()
-- uid: Advanced.Algorithms.DataStructures.BinomialMinHeap`1.PeekMin*
-  name: PeekMin
-  href: api/Advanced.Algorithms.DataStructures.BinomialMinHeap-1.html#Advanced_Algorithms_DataStructures_BinomialMinHeap_1_PeekMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BinomialMinHeap`1.PeekMin
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BinomialMinHeap<T>.PeekMin
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialMinHeap(Of T).PeekMin
-  nameWithType: BinomialMinHeap<T>.PeekMin
-  nameWithType.vb: BinomialMinHeap(Of T).PeekMin
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.UpdateKey
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).UpdateKey
+  nameWithType: BinomialHeap<T>.UpdateKey
+  nameWithType.vb: BinomialHeap(Of T).UpdateKey
 - uid: Advanced.Algorithms.DataStructures.BloomFilter`1
   name: BloomFilter<T>
   href: api/Advanced.Algorithms.DataStructures.BloomFilter-1.html
@@ -856,350 +916,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BloomFilter(Of T).KeyExists
   nameWithType: BloomFilter<T>.KeyExists
   nameWithType.vb: BloomFilter(Of T).KeyExists
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1
-  name: BMaxHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.BMaxHeap`1
-  name.vb: BMaxHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T)
-  nameWithType: BMaxHeap<T>
-  nameWithType.vb: BMaxHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor
-  name: BMaxHeap()
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap()
-  nameWithType: BMaxHeap<T>.BMaxHeap()
-  nameWithType.vb: BMaxHeap(Of T).BMaxHeap()
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IComparer{`0})
-  name: BMaxHeap(IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IComparer{`0})
-  name.vb: BMaxHeap(IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap(IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap(IComparer(Of T))
-  nameWithType: BMaxHeap<T>.BMaxHeap(IComparer<T>)
-  nameWithType.vb: BMaxHeap(Of T).BMaxHeap(IComparer(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IEnumerable{`0})
-  name: BMaxHeap(IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IEnumerable{`0})
-  name.vb: BMaxHeap(IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap(IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap(IEnumerable(Of T))
-  nameWithType: BMaxHeap<T>.BMaxHeap(IEnumerable<T>)
-  nameWithType.vb: BMaxHeap(Of T).BMaxHeap(IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IEnumerable{`0},IComparer{`0})
-  name: BMaxHeap(IEnumerable<T>, IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_IEnumerable__0__IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor(IEnumerable{`0},IComparer{`0})
-  name.vb: BMaxHeap(IEnumerable(Of T), IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap(IEnumerable<T>, IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap(IEnumerable(Of T), IComparer(Of T))
-  nameWithType: BMaxHeap<T>.BMaxHeap(IEnumerable<T>, IComparer<T>)
-  nameWithType.vb: BMaxHeap(Of T).BMaxHeap(IEnumerable(Of T), IComparer(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor*
-  name: BMaxHeap
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.#ctor
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.BMaxHeap
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).BMaxHeap
-  nameWithType: BMaxHeap<T>.BMaxHeap
-  nameWithType.vb: BMaxHeap(Of T).BMaxHeap
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.BMaxHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).Count
-  nameWithType: BMaxHeap<T>.Count
-  nameWithType.vb: BMaxHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.Count
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).Count
-  nameWithType: BMaxHeap<T>.Count
-  nameWithType.vb: BMaxHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.Delete(`0)
-  name: Delete(T)
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_Delete__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.Delete(`0)
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.Delete(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).Delete(T)
-  nameWithType: BMaxHeap<T>.Delete(T)
-  nameWithType.vb: BMaxHeap(Of T).Delete(T)
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.Delete*
-  name: Delete
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_Delete_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.Delete
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.Delete
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).Delete
-  nameWithType: BMaxHeap<T>.Delete
-  nameWithType.vb: BMaxHeap(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.Exists(`0)
-  name: Exists(T)
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_Exists__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.Exists(`0)
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.Exists(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).Exists(T)
-  nameWithType: BMaxHeap<T>.Exists(T)
-  nameWithType.vb: BMaxHeap(Of T).Exists(T)
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.Exists*
-  name: Exists
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_Exists_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.Exists
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.Exists
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).Exists
-  nameWithType: BMaxHeap<T>.Exists
-  nameWithType.vb: BMaxHeap(Of T).Exists
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.ExtractMax
-  name: ExtractMax()
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_ExtractMax
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.ExtractMax
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.ExtractMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).ExtractMax()
-  nameWithType: BMaxHeap<T>.ExtractMax()
-  nameWithType.vb: BMaxHeap(Of T).ExtractMax()
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.ExtractMax*
-  name: ExtractMax
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_ExtractMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.ExtractMax
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.ExtractMax
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).ExtractMax
-  nameWithType: BMaxHeap<T>.ExtractMax
-  nameWithType.vb: BMaxHeap(Of T).ExtractMax
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).GetEnumerator()
-  nameWithType: BMaxHeap<T>.GetEnumerator()
-  nameWithType.vb: BMaxHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.GetEnumerator
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).GetEnumerator
-  nameWithType: BMaxHeap<T>.GetEnumerator
-  nameWithType.vb: BMaxHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.Insert(`0)
-  name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).Insert(T)
-  nameWithType: BMaxHeap<T>.Insert(T)
-  nameWithType.vb: BMaxHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.Insert*
-  name: Insert
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.Insert
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).Insert
-  nameWithType: BMaxHeap<T>.Insert
-  nameWithType.vb: BMaxHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.PeekMax
-  name: PeekMax()
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_PeekMax
-  commentId: M:Advanced.Algorithms.DataStructures.BMaxHeap`1.PeekMax
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.PeekMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).PeekMax()
-  nameWithType: BMaxHeap<T>.PeekMax()
-  nameWithType.vb: BMaxHeap(Of T).PeekMax()
-- uid: Advanced.Algorithms.DataStructures.BMaxHeap`1.PeekMax*
-  name: PeekMax
-  href: api/Advanced.Algorithms.DataStructures.BMaxHeap-1.html#Advanced_Algorithms_DataStructures_BMaxHeap_1_PeekMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMaxHeap`1.PeekMax
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMaxHeap<T>.PeekMax
-  fullName.vb: Advanced.Algorithms.DataStructures.BMaxHeap(Of T).PeekMax
-  nameWithType: BMaxHeap<T>.PeekMax
-  nameWithType.vb: BMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1
-  name: BMinHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.BMinHeap`1
-  name.vb: BMinHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T)
-  nameWithType: BMinHeap<T>
-  nameWithType.vb: BMinHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor
-  name: BMinHeap()
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap()
-  nameWithType: BMinHeap<T>.BMinHeap()
-  nameWithType.vb: BMinHeap(Of T).BMinHeap()
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IComparer{`0})
-  name: BMinHeap(IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IComparer{`0})
-  name.vb: BMinHeap(IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(IComparer(Of T))
-  nameWithType: BMinHeap<T>.BMinHeap(IComparer<T>)
-  nameWithType.vb: BMinHeap(Of T).BMinHeap(IComparer(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IEnumerable{`0})
-  name: BMinHeap(IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IEnumerable{`0})
-  name.vb: BMinHeap(IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(IEnumerable(Of T))
-  nameWithType: BMinHeap<T>.BMinHeap(IEnumerable<T>)
-  nameWithType.vb: BMinHeap(Of T).BMinHeap(IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IEnumerable{`0},IComparer{`0})
-  name: BMinHeap(IEnumerable<T>, IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_IEnumerable__0__IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor(IEnumerable{`0},IComparer{`0})
-  name.vb: BMinHeap(IEnumerable(Of T), IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap(IEnumerable<T>, IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap(IEnumerable(Of T), IComparer(Of T))
-  nameWithType: BMinHeap<T>.BMinHeap(IEnumerable<T>, IComparer<T>)
-  nameWithType.vb: BMinHeap(Of T).BMinHeap(IEnumerable(Of T), IComparer(Of T))
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor*
-  name: BMinHeap
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.#ctor
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.BMinHeap
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).BMinHeap
-  nameWithType: BMinHeap<T>.BMinHeap
-  nameWithType.vb: BMinHeap(Of T).BMinHeap
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.BMinHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Count
-  nameWithType: BMinHeap<T>.Count
-  nameWithType.vb: BMinHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.Count
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Count
-  nameWithType: BMinHeap<T>.Count
-  nameWithType.vb: BMinHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Delete(`0)
-  name: Delete(T)
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Delete__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.Delete(`0)
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Delete(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Delete(T)
-  nameWithType: BMinHeap<T>.Delete(T)
-  nameWithType.vb: BMinHeap(Of T).Delete(T)
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Delete*
-  name: Delete
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Delete_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.Delete
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Delete
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Delete
-  nameWithType: BMinHeap<T>.Delete
-  nameWithType.vb: BMinHeap(Of T).Delete
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Exists(`0)
-  name: Exists(T)
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Exists__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.Exists(`0)
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Exists(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Exists(T)
-  nameWithType: BMinHeap<T>.Exists(T)
-  nameWithType.vb: BMinHeap(Of T).Exists(T)
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Exists*
-  name: Exists
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Exists_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.Exists
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Exists
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Exists
-  nameWithType: BMinHeap<T>.Exists
-  nameWithType.vb: BMinHeap(Of T).Exists
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.ExtractMin
-  name: ExtractMin()
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_ExtractMin
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.ExtractMin
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.ExtractMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).ExtractMin()
-  nameWithType: BMinHeap<T>.ExtractMin()
-  nameWithType.vb: BMinHeap(Of T).ExtractMin()
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.ExtractMin*
-  name: ExtractMin
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_ExtractMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.ExtractMin
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.ExtractMin
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).ExtractMin
-  nameWithType: BMinHeap<T>.ExtractMin
-  nameWithType.vb: BMinHeap(Of T).ExtractMin
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).GetEnumerator()
-  nameWithType: BMinHeap<T>.GetEnumerator()
-  nameWithType.vb: BMinHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.GetEnumerator
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).GetEnumerator
-  nameWithType: BMinHeap<T>.GetEnumerator
-  nameWithType.vb: BMinHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Insert(`0)
-  name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Insert(T)
-  nameWithType: BMinHeap<T>.Insert(T)
-  nameWithType.vb: BMinHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.Insert*
-  name: Insert
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.Insert
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).Insert
-  nameWithType: BMinHeap<T>.Insert
-  nameWithType.vb: BMinHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.PeekMin
-  name: PeekMin()
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_PeekMin
-  commentId: M:Advanced.Algorithms.DataStructures.BMinHeap`1.PeekMin
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.PeekMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).PeekMin()
-  nameWithType: BMinHeap<T>.PeekMin()
-  nameWithType.vb: BMinHeap(Of T).PeekMin()
-- uid: Advanced.Algorithms.DataStructures.BMinHeap`1.PeekMin*
-  name: PeekMin
-  href: api/Advanced.Algorithms.DataStructures.BMinHeap-1.html#Advanced_Algorithms_DataStructures_BMinHeap_1_PeekMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BMinHeap`1.PeekMin
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BMinHeap<T>.PeekMin
-  fullName.vb: Advanced.Algorithms.DataStructures.BMinHeap(Of T).PeekMin
-  nameWithType: BMinHeap<T>.PeekMin
-  nameWithType.vb: BMinHeap(Of T).PeekMin
 - uid: Advanced.Algorithms.DataStructures.BpTree`1
   name: BpTree<T>
   href: api/Advanced.Algorithms.DataStructures.BpTree-1.html
@@ -1883,212 +1599,109 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.CircularLinkedListNode(Of T).Previous
   nameWithType: CircularLinkedListNode<T>.Previous
   nameWithType.vb: CircularLinkedListNode(Of T).Previous
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1
-  name: DaryMaxHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.DaryMaxHeap`1
-  name.vb: DaryMaxHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T)
-  nameWithType: DaryMaxHeap<T>
-  nameWithType.vb: DaryMaxHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.#ctor(System.Int32,IEnumerable{`0})
-  name: DaryMaxHeap(Int32, IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1__ctor_System_Int32_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.#ctor(System.Int32,IEnumerable{`0})
-  name.vb: DaryMaxHeap(Int32, IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.DaryMaxHeap(System.Int32, IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).DaryMaxHeap(System.Int32, IEnumerable(Of T))
-  nameWithType: DaryMaxHeap<T>.DaryMaxHeap(Int32, IEnumerable<T>)
-  nameWithType.vb: DaryMaxHeap(Of T).DaryMaxHeap(Int32, IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.#ctor*
-  name: DaryMaxHeap
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.#ctor
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1
+  name: DaryHeap<T>
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.DaryHeap`1
+  name.vb: DaryHeap(Of T)
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T)
+  nameWithType: DaryHeap<T>
+  nameWithType.vb: DaryHeap(Of T)
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.#ctor(System.Int32,System.Boolean,IEnumerable{`0})
+  name: DaryHeap(Int32, Boolean, IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1__ctor_System_Int32_System_Boolean_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.DaryHeap`1.#ctor(System.Int32,System.Boolean,IEnumerable{`0})
+  name.vb: DaryHeap(Int32, Boolean, IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.DaryHeap(System.Int32, System.Boolean, IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).DaryHeap(System.Int32, System.Boolean, IEnumerable(Of T))
+  nameWithType: DaryHeap<T>.DaryHeap(Int32, Boolean, IEnumerable<T>)
+  nameWithType.vb: DaryHeap(Of T).DaryHeap(Int32, Boolean, IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.#ctor*
+  name: DaryHeap
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.DaryHeap`1.#ctor
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.DaryMaxHeap
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).DaryMaxHeap
-  nameWithType: DaryMaxHeap<T>.DaryMaxHeap
-  nameWithType.vb: DaryMaxHeap(Of T).DaryMaxHeap
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.DaryHeap
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).DaryHeap
+  nameWithType: DaryHeap<T>.DaryHeap
+  nameWithType.vb: DaryHeap(Of T).DaryHeap
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.Count
   name: Count
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_Count
-  commentId: F:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).Count
-  nameWithType: DaryMaxHeap<T>.Count
-  nameWithType.vb: DaryMaxHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.ExtractMax
-  name: ExtractMax()
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_ExtractMax
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.ExtractMax
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.ExtractMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).ExtractMax()
-  nameWithType: DaryMaxHeap<T>.ExtractMax()
-  nameWithType.vb: DaryMaxHeap(Of T).ExtractMax()
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.ExtractMax*
-  name: ExtractMax
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_ExtractMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.ExtractMax
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1_Count
+  commentId: F:Advanced.Algorithms.DataStructures.DaryHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).Count
+  nameWithType: DaryHeap<T>.Count
+  nameWithType.vb: DaryHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.Extract
+  name: Extract()
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1_Extract
+  commentId: M:Advanced.Algorithms.DataStructures.DaryHeap`1.Extract
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.Extract()
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).Extract()
+  nameWithType: DaryHeap<T>.Extract()
+  nameWithType.vb: DaryHeap(Of T).Extract()
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.Extract*
+  name: Extract
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1_Extract_
+  commentId: Overload:Advanced.Algorithms.DataStructures.DaryHeap`1.Extract
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.ExtractMax
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).ExtractMax
-  nameWithType: DaryMaxHeap<T>.ExtractMax
-  nameWithType.vb: DaryMaxHeap(Of T).ExtractMax
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.Extract
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).Extract
+  nameWithType: DaryHeap<T>.Extract
+  nameWithType.vb: DaryHeap(Of T).Extract
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.GetEnumerator
   name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).GetEnumerator()
-  nameWithType: DaryMaxHeap<T>.GetEnumerator()
-  nameWithType.vb: DaryMaxHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.GetEnumerator*
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.DaryHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).GetEnumerator()
+  nameWithType: DaryHeap<T>.GetEnumerator()
+  nameWithType.vb: DaryHeap(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.GetEnumerator*
   name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.DaryHeap`1.GetEnumerator
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).GetEnumerator
-  nameWithType: DaryMaxHeap<T>.GetEnumerator
-  nameWithType.vb: DaryMaxHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.Insert(`0)
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).GetEnumerator
+  nameWithType: DaryHeap<T>.GetEnumerator
+  nameWithType.vb: DaryHeap(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.Insert(`0)
   name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).Insert(T)
-  nameWithType: DaryMaxHeap<T>.Insert(T)
-  nameWithType.vb: DaryMaxHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.Insert*
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1_Insert__0_
+  commentId: M:Advanced.Algorithms.DataStructures.DaryHeap`1.Insert(`0)
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.Insert(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).Insert(T)
+  nameWithType: DaryHeap<T>.Insert(T)
+  nameWithType.vb: DaryHeap(Of T).Insert(T)
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.Insert*
   name: Insert
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.Insert
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1_Insert_
+  commentId: Overload:Advanced.Algorithms.DataStructures.DaryHeap`1.Insert
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).Insert
-  nameWithType: DaryMaxHeap<T>.Insert
-  nameWithType.vb: DaryMaxHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.PeekMax
-  name: PeekMax()
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_PeekMax
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.PeekMax
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.PeekMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).PeekMax()
-  nameWithType: DaryMaxHeap<T>.PeekMax()
-  nameWithType.vb: DaryMaxHeap(Of T).PeekMax()
-- uid: Advanced.Algorithms.DataStructures.DaryMaxHeap`1.PeekMax*
-  name: PeekMax
-  href: api/Advanced.Algorithms.DataStructures.DaryMaxHeap-1.html#Advanced_Algorithms_DataStructures_DaryMaxHeap_1_PeekMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMaxHeap`1.PeekMax
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.Insert
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).Insert
+  nameWithType: DaryHeap<T>.Insert
+  nameWithType.vb: DaryHeap(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.Peek
+  name: Peek()
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1_Peek
+  commentId: M:Advanced.Algorithms.DataStructures.DaryHeap`1.Peek
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.Peek()
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).Peek()
+  nameWithType: DaryHeap<T>.Peek()
+  nameWithType.vb: DaryHeap(Of T).Peek()
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.Peek*
+  name: Peek
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1_Peek_
+  commentId: Overload:Advanced.Algorithms.DataStructures.DaryHeap`1.Peek
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMaxHeap<T>.PeekMax
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMaxHeap(Of T).PeekMax
-  nameWithType: DaryMaxHeap<T>.PeekMax
-  nameWithType.vb: DaryMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1
-  name: DaryMinHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.DaryMinHeap`1
-  name.vb: DaryMinHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T)
-  nameWithType: DaryMinHeap<T>
-  nameWithType.vb: DaryMinHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.#ctor(System.Int32,IEnumerable{`0})
-  name: DaryMinHeap(Int32, IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1__ctor_System_Int32_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMinHeap`1.#ctor(System.Int32,IEnumerable{`0})
-  name.vb: DaryMinHeap(Int32, IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.DaryMinHeap(System.Int32, IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).DaryMinHeap(System.Int32, IEnumerable(Of T))
-  nameWithType: DaryMinHeap<T>.DaryMinHeap(Int32, IEnumerable<T>)
-  nameWithType.vb: DaryMinHeap(Of T).DaryMinHeap(Int32, IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.#ctor*
-  name: DaryMinHeap
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1__ctor_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMinHeap`1.#ctor
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.DaryMinHeap
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).DaryMinHeap
-  nameWithType: DaryMinHeap<T>.DaryMinHeap
-  nameWithType.vb: DaryMinHeap(Of T).DaryMinHeap
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_Count
-  commentId: F:Advanced.Algorithms.DataStructures.DaryMinHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).Count
-  nameWithType: DaryMinHeap<T>.Count
-  nameWithType.vb: DaryMinHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.ExtractMin
-  name: ExtractMin()
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_ExtractMin
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMinHeap`1.ExtractMin
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.ExtractMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).ExtractMin()
-  nameWithType: DaryMinHeap<T>.ExtractMin()
-  nameWithType.vb: DaryMinHeap(Of T).ExtractMin()
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.ExtractMin*
-  name: ExtractMin
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_ExtractMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMinHeap`1.ExtractMin
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.ExtractMin
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).ExtractMin
-  nameWithType: DaryMinHeap<T>.ExtractMin
-  nameWithType.vb: DaryMinHeap(Of T).ExtractMin
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMinHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).GetEnumerator()
-  nameWithType: DaryMinHeap<T>.GetEnumerator()
-  nameWithType.vb: DaryMinHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMinHeap`1.GetEnumerator
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).GetEnumerator
-  nameWithType: DaryMinHeap<T>.GetEnumerator
-  nameWithType.vb: DaryMinHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.Insert(`0)
-  name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMinHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).Insert(T)
-  nameWithType: DaryMinHeap<T>.Insert(T)
-  nameWithType.vb: DaryMinHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.Insert*
-  name: Insert
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMinHeap`1.Insert
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).Insert
-  nameWithType: DaryMinHeap<T>.Insert
-  nameWithType.vb: DaryMinHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.PeekMin
-  name: PeekMin()
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_PeekMin
-  commentId: M:Advanced.Algorithms.DataStructures.DaryMinHeap`1.PeekMin
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.PeekMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).PeekMin()
-  nameWithType: DaryMinHeap<T>.PeekMin()
-  nameWithType.vb: DaryMinHeap(Of T).PeekMin()
-- uid: Advanced.Algorithms.DataStructures.DaryMinHeap`1.PeekMin*
-  name: PeekMin
-  href: api/Advanced.Algorithms.DataStructures.DaryMinHeap-1.html#Advanced_Algorithms_DataStructures_DaryMinHeap_1_PeekMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.DaryMinHeap`1.PeekMin
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.DaryMinHeap<T>.PeekMin
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryMinHeap(Of T).PeekMin
-  nameWithType: DaryMinHeap<T>.PeekMin
-  nameWithType.vb: DaryMinHeap(Of T).PeekMin
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.Peek
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).Peek
+  nameWithType: DaryHeap<T>.Peek
+  nameWithType.vb: DaryHeap(Of T).Peek
 - uid: Advanced.Algorithms.DataStructures.DisJointSet`1
   name: DisJointSet<T>
   href: api/Advanced.Algorithms.DataStructures.DisJointSet-1.html
@@ -2500,264 +2113,152 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FenwickTree(Of T).PrefixSum
   nameWithType: FenwickTree<T>.PrefixSum
   nameWithType.vb: FenwickTree(Of T).PrefixSum
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1
-  name: FibornacciMaxHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1
-  name.vb: FibornacciMaxHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T)
-  nameWithType: FibornacciMaxHeap<T>
-  nameWithType.vb: FibornacciMaxHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).Count
-  nameWithType: FibornacciMaxHeap<T>.Count
-  nameWithType.vb: FibornacciMaxHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Count
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1
+  name: FibornacciHeap<T>
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.FibornacciHeap`1
+  name.vb: FibornacciHeap(Of T)
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T)
+  nameWithType: FibornacciHeap<T>
+  nameWithType.vb: FibornacciHeap(Of T)
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.#ctor(System.Boolean)
+  name: FibornacciHeap(Boolean)
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1__ctor_System_Boolean_
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciHeap`1.#ctor(System.Boolean)
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.FibornacciHeap(System.Boolean)
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).FibornacciHeap(System.Boolean)
+  nameWithType: FibornacciHeap<T>.FibornacciHeap(Boolean)
+  nameWithType.vb: FibornacciHeap(Of T).FibornacciHeap(Boolean)
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.#ctor*
+  name: FibornacciHeap
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciHeap`1.#ctor
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).Count
-  nameWithType: FibornacciMaxHeap<T>.Count
-  nameWithType.vb: FibornacciMaxHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.ExtractMax
-  name: ExtractMax()
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_ExtractMax
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.ExtractMax
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.ExtractMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).ExtractMax()
-  nameWithType: FibornacciMaxHeap<T>.ExtractMax()
-  nameWithType.vb: FibornacciMaxHeap(Of T).ExtractMax()
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.ExtractMax*
-  name: ExtractMax
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_ExtractMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.ExtractMax
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.FibornacciHeap
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).FibornacciHeap
+  nameWithType: FibornacciHeap<T>.FibornacciHeap
+  nameWithType.vb: FibornacciHeap(Of T).FibornacciHeap
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Count
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Count
+  nameWithType: FibornacciHeap<T>.Count
+  nameWithType.vb: FibornacciHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Count*
+  name: Count
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Count
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.ExtractMax
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).ExtractMax
-  nameWithType: FibornacciMaxHeap<T>.ExtractMax
-  nameWithType.vb: FibornacciMaxHeap(Of T).ExtractMax
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Count
+  nameWithType: FibornacciHeap<T>.Count
+  nameWithType.vb: FibornacciHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Extract
+  name: Extract()
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Extract
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Extract
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Extract()
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Extract()
+  nameWithType: FibornacciHeap<T>.Extract()
+  nameWithType.vb: FibornacciHeap(Of T).Extract()
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Extract*
+  name: Extract
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Extract_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Extract
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Extract
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Extract
+  nameWithType: FibornacciHeap<T>.Extract
+  nameWithType.vb: FibornacciHeap(Of T).Extract
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.GetEnumerator
   name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).GetEnumerator()
-  nameWithType: FibornacciMaxHeap<T>.GetEnumerator()
-  nameWithType.vb: FibornacciMaxHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.GetEnumerator*
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).GetEnumerator()
+  nameWithType: FibornacciHeap<T>.GetEnumerator()
+  nameWithType.vb: FibornacciHeap(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.GetEnumerator*
   name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciHeap`1.GetEnumerator
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).GetEnumerator
-  nameWithType: FibornacciMaxHeap<T>.GetEnumerator
-  nameWithType.vb: FibornacciMaxHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.IncrementKey(`0,`0)
-  name: IncrementKey(T, T)
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_IncrementKey__0__0_
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.IncrementKey(`0,`0)
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.IncrementKey(T, T)
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).IncrementKey(T, T)
-  nameWithType: FibornacciMaxHeap<T>.IncrementKey(T, T)
-  nameWithType.vb: FibornacciMaxHeap(Of T).IncrementKey(T, T)
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.IncrementKey*
-  name: IncrementKey
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_IncrementKey_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.IncrementKey
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.IncrementKey
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).IncrementKey
-  nameWithType: FibornacciMaxHeap<T>.IncrementKey
-  nameWithType.vb: FibornacciMaxHeap(Of T).IncrementKey
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Insert(`0)
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).GetEnumerator
+  nameWithType: FibornacciHeap<T>.GetEnumerator
+  nameWithType.vb: FibornacciHeap(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Insert(`0)
   name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).Insert(T)
-  nameWithType: FibornacciMaxHeap<T>.Insert(T)
-  nameWithType.vb: FibornacciMaxHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Insert*
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Insert__0_
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Insert(`0)
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Insert(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Insert(T)
+  nameWithType: FibornacciHeap<T>.Insert(T)
+  nameWithType.vb: FibornacciHeap(Of T).Insert(T)
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Insert*
   name: Insert
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Insert
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Insert_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Insert
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).Insert
-  nameWithType: FibornacciMaxHeap<T>.Insert
-  nameWithType.vb: FibornacciMaxHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Merge(Advanced.Algorithms.DataStructures.FibornacciMaxHeap{`0})
-  name: Merge(FibornacciMaxHeap<T>)
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_Merge_Advanced_Algorithms_DataStructures_FibornacciMaxHeap__0__
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Merge(Advanced.Algorithms.DataStructures.FibornacciMaxHeap{`0})
-  name.vb: Merge(FibornacciMaxHeap(Of T))
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.Merge(Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).Merge(Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T))
-  nameWithType: FibornacciMaxHeap<T>.Merge(FibornacciMaxHeap<T>)
-  nameWithType.vb: FibornacciMaxHeap(Of T).Merge(FibornacciMaxHeap(Of T))
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Merge*
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Insert
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Insert
+  nameWithType: FibornacciHeap<T>.Insert
+  nameWithType.vb: FibornacciHeap(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Merge(Advanced.Algorithms.DataStructures.FibornacciHeap{`0})
+  name: Merge(FibornacciHeap<T>)
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Merge_Advanced_Algorithms_DataStructures_FibornacciHeap__0__
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Merge(Advanced.Algorithms.DataStructures.FibornacciHeap{`0})
+  name.vb: Merge(FibornacciHeap(Of T))
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Merge(Advanced.Algorithms.DataStructures.FibornacciHeap<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Merge(Advanced.Algorithms.DataStructures.FibornacciHeap(Of T))
+  nameWithType: FibornacciHeap<T>.Merge(FibornacciHeap<T>)
+  nameWithType.vb: FibornacciHeap(Of T).Merge(FibornacciHeap(Of T))
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Merge*
   name: Merge
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_Merge_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.Merge
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Merge_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Merge
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.Merge
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).Merge
-  nameWithType: FibornacciMaxHeap<T>.Merge
-  nameWithType.vb: FibornacciMaxHeap(Of T).Merge
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.PeekMax
-  name: PeekMax()
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_PeekMax
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.PeekMax
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.PeekMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).PeekMax()
-  nameWithType: FibornacciMaxHeap<T>.PeekMax()
-  nameWithType.vb: FibornacciMaxHeap(Of T).PeekMax()
-- uid: Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.PeekMax*
-  name: PeekMax
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMaxHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMaxHeap_1_PeekMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMaxHeap`1.PeekMax
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Merge
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Merge
+  nameWithType: FibornacciHeap<T>.Merge
+  nameWithType.vb: FibornacciHeap(Of T).Merge
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Peek
+  name: Peek()
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Peek
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Peek
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Peek()
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Peek()
+  nameWithType: FibornacciHeap<T>.Peek()
+  nameWithType.vb: FibornacciHeap(Of T).Peek()
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.Peek*
+  name: Peek
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_Peek_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciHeap`1.Peek
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMaxHeap<T>.PeekMax
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMaxHeap(Of T).PeekMax
-  nameWithType: FibornacciMaxHeap<T>.PeekMax
-  nameWithType.vb: FibornacciMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1
-  name: FibornacciMinHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1
-  name.vb: FibornacciMinHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T)
-  nameWithType: FibornacciMinHeap<T>
-  nameWithType.vb: FibornacciMinHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).Count
-  nameWithType: FibornacciMinHeap<T>.Count
-  nameWithType.vb: FibornacciMinHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.Peek
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).Peek
+  nameWithType: FibornacciHeap<T>.Peek
+  nameWithType.vb: FibornacciHeap(Of T).Peek
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.UpdateKey(`0,`0)
+  name: UpdateKey(T, T)
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_UpdateKey__0__0_
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciHeap`1.UpdateKey(`0,`0)
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.UpdateKey(T, T)
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).UpdateKey(T, T)
+  nameWithType: FibornacciHeap<T>.UpdateKey(T, T)
+  nameWithType.vb: FibornacciHeap(Of T).UpdateKey(T, T)
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.UpdateKey*
+  name: UpdateKey
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1_UpdateKey_
+  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciHeap`1.UpdateKey
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).Count
-  nameWithType: FibornacciMinHeap<T>.Count
-  nameWithType.vb: FibornacciMinHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.DecrementKey(`0,`0)
-  name: DecrementKey(T, T)
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_DecrementKey__0__0_
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.DecrementKey(`0,`0)
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.DecrementKey(T, T)
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).DecrementKey(T, T)
-  nameWithType: FibornacciMinHeap<T>.DecrementKey(T, T)
-  nameWithType.vb: FibornacciMinHeap(Of T).DecrementKey(T, T)
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.DecrementKey*
-  name: DecrementKey
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_DecrementKey_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.DecrementKey
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.DecrementKey
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).DecrementKey
-  nameWithType: FibornacciMinHeap<T>.DecrementKey
-  nameWithType.vb: FibornacciMinHeap(Of T).DecrementKey
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.ExtractMin
-  name: ExtractMin()
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_ExtractMin
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.ExtractMin
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.ExtractMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).ExtractMin()
-  nameWithType: FibornacciMinHeap<T>.ExtractMin()
-  nameWithType.vb: FibornacciMinHeap(Of T).ExtractMin()
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.ExtractMin*
-  name: ExtractMin
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_ExtractMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.ExtractMin
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.ExtractMin
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).ExtractMin
-  nameWithType: FibornacciMinHeap<T>.ExtractMin
-  nameWithType.vb: FibornacciMinHeap(Of T).ExtractMin
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).GetEnumerator()
-  nameWithType: FibornacciMinHeap<T>.GetEnumerator()
-  nameWithType.vb: FibornacciMinHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.GetEnumerator
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).GetEnumerator
-  nameWithType: FibornacciMinHeap<T>.GetEnumerator
-  nameWithType.vb: FibornacciMinHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Insert(`0)
-  name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).Insert(T)
-  nameWithType: FibornacciMinHeap<T>.Insert(T)
-  nameWithType.vb: FibornacciMinHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Insert*
-  name: Insert
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Insert
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).Insert
-  nameWithType: FibornacciMinHeap<T>.Insert
-  nameWithType.vb: FibornacciMinHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Merge(Advanced.Algorithms.DataStructures.FibornacciMinHeap{`0})
-  name: Merge(FibornacciMinHeap<T>)
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_Merge_Advanced_Algorithms_DataStructures_FibornacciMinHeap__0__
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Merge(Advanced.Algorithms.DataStructures.FibornacciMinHeap{`0})
-  name.vb: Merge(FibornacciMinHeap(Of T))
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.Merge(Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).Merge(Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T))
-  nameWithType: FibornacciMinHeap<T>.Merge(FibornacciMinHeap<T>)
-  nameWithType.vb: FibornacciMinHeap(Of T).Merge(FibornacciMinHeap(Of T))
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Merge*
-  name: Merge
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_Merge_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.Merge
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.Merge
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).Merge
-  nameWithType: FibornacciMinHeap<T>.Merge
-  nameWithType.vb: FibornacciMinHeap(Of T).Merge
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.PeekMin
-  name: PeekMin()
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_PeekMin
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.PeekMin
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.PeekMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).PeekMin()
-  nameWithType: FibornacciMinHeap<T>.PeekMin()
-  nameWithType.vb: FibornacciMinHeap(Of T).PeekMin()
-- uid: Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.PeekMin*
-  name: PeekMin
-  href: api/Advanced.Algorithms.DataStructures.FibornacciMinHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciMinHeap_1_PeekMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.FibornacciMinHeap`1.PeekMin
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.FibornacciMinHeap<T>.PeekMin
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciMinHeap(Of T).PeekMin
-  nameWithType: FibornacciMinHeap<T>.PeekMin
-  nameWithType.vb: FibornacciMinHeap(Of T).PeekMin
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.UpdateKey
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).UpdateKey
+  nameWithType: FibornacciHeap<T>.UpdateKey
+  nameWithType.vb: FibornacciHeap(Of T).UpdateKey
 - uid: Advanced.Algorithms.DataStructures.Foundation
   name: Advanced.Algorithms.DataStructures.Foundation
   href: api/Advanced.Algorithms.DataStructures.Foundation.html
@@ -6207,418 +5708,246 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.KDTree(Of T).RangeSearch
   nameWithType: KDTree<T>.RangeSearch
   nameWithType.vb: KDTree(Of T).RangeSearch
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1
-  name: MaxPriorityQueue<T>
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1
-  name.vb: MaxPriorityQueue(Of T)
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T)
-  nameWithType: MaxPriorityQueue<T>
-  nameWithType.vb: MaxPriorityQueue(Of T)
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Dequeue
-  name: Dequeue()
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_Dequeue
-  commentId: M:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Dequeue
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.Dequeue()
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Dequeue()
-  nameWithType: MaxPriorityQueue<T>.Dequeue()
-  nameWithType.vb: MaxPriorityQueue(Of T).Dequeue()
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Dequeue*
-  name: Dequeue
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_Dequeue_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Dequeue
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1
+  name: PairingHeap<T>
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.PairingHeap`1
+  name.vb: PairingHeap(Of T)
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T)
+  nameWithType: PairingHeap<T>
+  nameWithType.vb: PairingHeap(Of T)
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.#ctor(System.Boolean)
+  name: PairingHeap(Boolean)
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1__ctor_System_Boolean_
+  commentId: M:Advanced.Algorithms.DataStructures.PairingHeap`1.#ctor(System.Boolean)
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.PairingHeap(System.Boolean)
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).PairingHeap(System.Boolean)
+  nameWithType: PairingHeap<T>.PairingHeap(Boolean)
+  nameWithType.vb: PairingHeap(Of T).PairingHeap(Boolean)
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.#ctor*
+  name: PairingHeap
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingHeap`1.#ctor
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.Dequeue
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Dequeue
-  nameWithType: MaxPriorityQueue<T>.Dequeue
-  nameWithType.vb: MaxPriorityQueue(Of T).Dequeue
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Enqueue(`0)
-  name: Enqueue(T)
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_Enqueue__0_
-  commentId: M:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Enqueue(`0)
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.Enqueue(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Enqueue(T)
-  nameWithType: MaxPriorityQueue<T>.Enqueue(T)
-  nameWithType.vb: MaxPriorityQueue(Of T).Enqueue(T)
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Enqueue*
-  name: Enqueue
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_Enqueue_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Enqueue
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.Enqueue
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Enqueue
-  nameWithType: MaxPriorityQueue<T>.Enqueue
-  nameWithType.vb: MaxPriorityQueue(Of T).Enqueue
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).GetEnumerator()
-  nameWithType: MaxPriorityQueue<T>.GetEnumerator()
-  nameWithType.vb: MaxPriorityQueue(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.GetEnumerator
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).GetEnumerator
-  nameWithType: MaxPriorityQueue<T>.GetEnumerator
-  nameWithType.vb: MaxPriorityQueue(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Peek
-  name: Peek()
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_Peek
-  commentId: M:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Peek
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.Peek()
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Peek()
-  nameWithType: MaxPriorityQueue<T>.Peek()
-  nameWithType.vb: MaxPriorityQueue(Of T).Peek()
-- uid: Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Peek*
-  name: Peek
-  href: api/Advanced.Algorithms.DataStructures.MaxPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MaxPriorityQueue_1_Peek_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MaxPriorityQueue`1.Peek
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.MaxPriorityQueue<T>.Peek
-  fullName.vb: Advanced.Algorithms.DataStructures.MaxPriorityQueue(Of T).Peek
-  nameWithType: MaxPriorityQueue<T>.Peek
-  nameWithType.vb: MaxPriorityQueue(Of T).Peek
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1
-  name: MinPriorityQueue<T>
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.MinPriorityQueue`1
-  name.vb: MinPriorityQueue(Of T)
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T)
-  nameWithType: MinPriorityQueue<T>
-  nameWithType.vb: MinPriorityQueue(Of T)
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Dequeue
-  name: Dequeue()
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_Dequeue
-  commentId: M:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Dequeue
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.Dequeue()
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Dequeue()
-  nameWithType: MinPriorityQueue<T>.Dequeue()
-  nameWithType.vb: MinPriorityQueue(Of T).Dequeue()
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Dequeue*
-  name: Dequeue
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_Dequeue_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Dequeue
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.Dequeue
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Dequeue
-  nameWithType: MinPriorityQueue<T>.Dequeue
-  nameWithType.vb: MinPriorityQueue(Of T).Dequeue
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Enqueue(`0)
-  name: Enqueue(T)
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_Enqueue__0_
-  commentId: M:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Enqueue(`0)
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.Enqueue(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Enqueue(T)
-  nameWithType: MinPriorityQueue<T>.Enqueue(T)
-  nameWithType.vb: MinPriorityQueue(Of T).Enqueue(T)
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Enqueue*
-  name: Enqueue
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_Enqueue_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Enqueue
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.Enqueue
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Enqueue
-  nameWithType: MinPriorityQueue<T>.Enqueue
-  nameWithType.vb: MinPriorityQueue(Of T).Enqueue
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).GetEnumerator()
-  nameWithType: MinPriorityQueue<T>.GetEnumerator()
-  nameWithType.vb: MinPriorityQueue(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.GetEnumerator
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).GetEnumerator
-  nameWithType: MinPriorityQueue<T>.GetEnumerator
-  nameWithType.vb: MinPriorityQueue(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Peek
-  name: Peek()
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_Peek
-  commentId: M:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Peek
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.Peek()
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Peek()
-  nameWithType: MinPriorityQueue<T>.Peek()
-  nameWithType.vb: MinPriorityQueue(Of T).Peek()
-- uid: Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Peek*
-  name: Peek
-  href: api/Advanced.Algorithms.DataStructures.MinPriorityQueue-1.html#Advanced_Algorithms_DataStructures_MinPriorityQueue_1_Peek_
-  commentId: Overload:Advanced.Algorithms.DataStructures.MinPriorityQueue`1.Peek
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.MinPriorityQueue<T>.Peek
-  fullName.vb: Advanced.Algorithms.DataStructures.MinPriorityQueue(Of T).Peek
-  nameWithType: MinPriorityQueue<T>.Peek
-  nameWithType.vb: MinPriorityQueue(Of T).Peek
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1
-  name: PairingMaxHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.PairingMaxHeap`1
-  name.vb: PairingMaxHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T)
-  nameWithType: PairingMaxHeap<T>
-  nameWithType.vb: PairingMaxHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.PairingHeap
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).PairingHeap
+  nameWithType: PairingHeap<T>.PairingHeap
+  nameWithType.vb: PairingHeap(Of T).PairingHeap
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Count
   name: Count
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).Count
-  nameWithType: PairingMaxHeap<T>.Count
-  nameWithType.vb: PairingMaxHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Count*
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Count
+  commentId: P:Advanced.Algorithms.DataStructures.PairingHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Count
+  nameWithType: PairingHeap<T>.Count
+  nameWithType.vb: PairingHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Count*
   name: Count
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Count
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Count_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingHeap`1.Count
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).Count
-  nameWithType: PairingMaxHeap<T>.Count
-  nameWithType.vb: PairingMaxHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.ExtractMax
-  name: ExtractMax()
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_ExtractMax
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.ExtractMax
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.ExtractMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).ExtractMax()
-  nameWithType: PairingMaxHeap<T>.ExtractMax()
-  nameWithType.vb: PairingMaxHeap(Of T).ExtractMax()
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.ExtractMax*
-  name: ExtractMax
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_ExtractMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.ExtractMax
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Count
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Count
+  nameWithType: PairingHeap<T>.Count
+  nameWithType.vb: PairingHeap(Of T).Count
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Extract
+  name: Extract()
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Extract
+  commentId: M:Advanced.Algorithms.DataStructures.PairingHeap`1.Extract
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Extract()
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Extract()
+  nameWithType: PairingHeap<T>.Extract()
+  nameWithType.vb: PairingHeap(Of T).Extract()
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Extract*
+  name: Extract
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Extract_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingHeap`1.Extract
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.ExtractMax
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).ExtractMax
-  nameWithType: PairingMaxHeap<T>.ExtractMax
-  nameWithType.vb: PairingMaxHeap(Of T).ExtractMax
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Extract
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Extract
+  nameWithType: PairingHeap<T>.Extract
+  nameWithType.vb: PairingHeap(Of T).Extract
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.GetEnumerator
   name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).GetEnumerator()
-  nameWithType: PairingMaxHeap<T>.GetEnumerator()
-  nameWithType.vb: PairingMaxHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.GetEnumerator*
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.PairingHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).GetEnumerator()
+  nameWithType: PairingHeap<T>.GetEnumerator()
+  nameWithType.vb: PairingHeap(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.GetEnumerator*
   name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingHeap`1.GetEnumerator
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).GetEnumerator
-  nameWithType: PairingMaxHeap<T>.GetEnumerator
-  nameWithType.vb: PairingMaxHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.IncrementKey(`0,`0)
-  name: IncrementKey(T, T)
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_IncrementKey__0__0_
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.IncrementKey(`0,`0)
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.IncrementKey(T, T)
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).IncrementKey(T, T)
-  nameWithType: PairingMaxHeap<T>.IncrementKey(T, T)
-  nameWithType.vb: PairingMaxHeap(Of T).IncrementKey(T, T)
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.IncrementKey*
-  name: IncrementKey
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_IncrementKey_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.IncrementKey
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.IncrementKey
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).IncrementKey
-  nameWithType: PairingMaxHeap<T>.IncrementKey
-  nameWithType.vb: PairingMaxHeap(Of T).IncrementKey
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Insert(`0)
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).GetEnumerator
+  nameWithType: PairingHeap<T>.GetEnumerator
+  nameWithType.vb: PairingHeap(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Insert(`0)
   name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).Insert(T)
-  nameWithType: PairingMaxHeap<T>.Insert(T)
-  nameWithType.vb: PairingMaxHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Insert*
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Insert__0_
+  commentId: M:Advanced.Algorithms.DataStructures.PairingHeap`1.Insert(`0)
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Insert(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Insert(T)
+  nameWithType: PairingHeap<T>.Insert(T)
+  nameWithType.vb: PairingHeap(Of T).Insert(T)
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Insert*
   name: Insert
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Insert
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Insert_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingHeap`1.Insert
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).Insert
-  nameWithType: PairingMaxHeap<T>.Insert
-  nameWithType.vb: PairingMaxHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Merge(Advanced.Algorithms.DataStructures.PairingMaxHeap{`0})
-  name: Merge(PairingMaxHeap<T>)
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Merge_Advanced_Algorithms_DataStructures_PairingMaxHeap__0__
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Merge(Advanced.Algorithms.DataStructures.PairingMaxHeap{`0})
-  name.vb: Merge(PairingMaxHeap(Of T))
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.Merge(Advanced.Algorithms.DataStructures.PairingMaxHeap<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).Merge(Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T))
-  nameWithType: PairingMaxHeap<T>.Merge(PairingMaxHeap<T>)
-  nameWithType.vb: PairingMaxHeap(Of T).Merge(PairingMaxHeap(Of T))
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Merge*
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Insert
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Insert
+  nameWithType: PairingHeap<T>.Insert
+  nameWithType.vb: PairingHeap(Of T).Insert
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Merge(Advanced.Algorithms.DataStructures.PairingHeap{`0})
+  name: Merge(PairingHeap<T>)
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Merge_Advanced_Algorithms_DataStructures_PairingHeap__0__
+  commentId: M:Advanced.Algorithms.DataStructures.PairingHeap`1.Merge(Advanced.Algorithms.DataStructures.PairingHeap{`0})
+  name.vb: Merge(PairingHeap(Of T))
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Merge(Advanced.Algorithms.DataStructures.PairingHeap<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Merge(Advanced.Algorithms.DataStructures.PairingHeap(Of T))
+  nameWithType: PairingHeap<T>.Merge(PairingHeap<T>)
+  nameWithType.vb: PairingHeap(Of T).Merge(PairingHeap(Of T))
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Merge*
   name: Merge
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_Merge_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.Merge
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Merge_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingHeap`1.Merge
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.Merge
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).Merge
-  nameWithType: PairingMaxHeap<T>.Merge
-  nameWithType.vb: PairingMaxHeap(Of T).Merge
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.PeekMax
-  name: PeekMax()
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_PeekMax
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.PeekMax
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.PeekMax()
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).PeekMax()
-  nameWithType: PairingMaxHeap<T>.PeekMax()
-  nameWithType.vb: PairingMaxHeap(Of T).PeekMax()
-- uid: Advanced.Algorithms.DataStructures.PairingMaxHeap`1.PeekMax*
-  name: PeekMax
-  href: api/Advanced.Algorithms.DataStructures.PairingMaxHeap-1.html#Advanced_Algorithms_DataStructures_PairingMaxHeap_1_PeekMax_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMaxHeap`1.PeekMax
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Merge
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Merge
+  nameWithType: PairingHeap<T>.Merge
+  nameWithType.vb: PairingHeap(Of T).Merge
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Peek
+  name: Peek()
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Peek
+  commentId: M:Advanced.Algorithms.DataStructures.PairingHeap`1.Peek
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Peek()
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Peek()
+  nameWithType: PairingHeap<T>.Peek()
+  nameWithType.vb: PairingHeap(Of T).Peek()
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.Peek*
+  name: Peek
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_Peek_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingHeap`1.Peek
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMaxHeap<T>.PeekMax
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMaxHeap(Of T).PeekMax
-  nameWithType: PairingMaxHeap<T>.PeekMax
-  nameWithType.vb: PairingMaxHeap(Of T).PeekMax
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1
-  name: PairingMinHeap<T>
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html
-  commentId: T:Advanced.Algorithms.DataStructures.PairingMinHeap`1
-  name.vb: PairingMinHeap(Of T)
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T)
-  nameWithType: PairingMinHeap<T>
-  nameWithType.vb: PairingMinHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.Count
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_Count
-  commentId: P:Advanced.Algorithms.DataStructures.PairingMinHeap`1.Count
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).Count
-  nameWithType: PairingMinHeap<T>.Count
-  nameWithType.vb: PairingMinHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.Count*
-  name: Count
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_Count_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.Count
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.Peek
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).Peek
+  nameWithType: PairingHeap<T>.Peek
+  nameWithType.vb: PairingHeap(Of T).Peek
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.UpdateKey(`0,`0)
+  name: UpdateKey(T, T)
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_UpdateKey__0__0_
+  commentId: M:Advanced.Algorithms.DataStructures.PairingHeap`1.UpdateKey(`0,`0)
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.UpdateKey(T, T)
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).UpdateKey(T, T)
+  nameWithType: PairingHeap<T>.UpdateKey(T, T)
+  nameWithType.vb: PairingHeap(Of T).UpdateKey(T, T)
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.UpdateKey*
+  name: UpdateKey
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1_UpdateKey_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PairingHeap`1.UpdateKey
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.Count
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).Count
-  nameWithType: PairingMinHeap<T>.Count
-  nameWithType.vb: PairingMinHeap(Of T).Count
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.DecrementKey(`0,`0)
-  name: DecrementKey(T, T)
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_DecrementKey__0__0_
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMinHeap`1.DecrementKey(`0,`0)
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.DecrementKey(T, T)
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).DecrementKey(T, T)
-  nameWithType: PairingMinHeap<T>.DecrementKey(T, T)
-  nameWithType.vb: PairingMinHeap(Of T).DecrementKey(T, T)
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.DecrementKey*
-  name: DecrementKey
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_DecrementKey_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.DecrementKey
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.UpdateKey
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).UpdateKey
+  nameWithType: PairingHeap<T>.UpdateKey
+  nameWithType.vb: PairingHeap(Of T).UpdateKey
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1
+  name: PriorityQueue<T>
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html
+  commentId: T:Advanced.Algorithms.DataStructures.PriorityQueue`1
+  name.vb: PriorityQueue(Of T)
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T)
+  nameWithType: PriorityQueue<T>
+  nameWithType.vb: PriorityQueue(Of T)
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.#ctor(System.Boolean)
+  name: PriorityQueue(Boolean)
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1__ctor_System_Boolean_
+  commentId: M:Advanced.Algorithms.DataStructures.PriorityQueue`1.#ctor(System.Boolean)
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.PriorityQueue(System.Boolean)
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).PriorityQueue(System.Boolean)
+  nameWithType: PriorityQueue<T>.PriorityQueue(Boolean)
+  nameWithType.vb: PriorityQueue(Of T).PriorityQueue(Boolean)
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.#ctor*
+  name: PriorityQueue
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1__ctor_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PriorityQueue`1.#ctor
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.DecrementKey
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).DecrementKey
-  nameWithType: PairingMinHeap<T>.DecrementKey
-  nameWithType.vb: PairingMinHeap(Of T).DecrementKey
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.ExtractMin
-  name: ExtractMin()
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_ExtractMin
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMinHeap`1.ExtractMin
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.ExtractMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).ExtractMin()
-  nameWithType: PairingMinHeap<T>.ExtractMin()
-  nameWithType.vb: PairingMinHeap(Of T).ExtractMin()
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.ExtractMin*
-  name: ExtractMin
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_ExtractMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.ExtractMin
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.PriorityQueue
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).PriorityQueue
+  nameWithType: PriorityQueue<T>.PriorityQueue
+  nameWithType.vb: PriorityQueue(Of T).PriorityQueue
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.Dequeue
+  name: Dequeue()
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1_Dequeue
+  commentId: M:Advanced.Algorithms.DataStructures.PriorityQueue`1.Dequeue
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.Dequeue()
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).Dequeue()
+  nameWithType: PriorityQueue<T>.Dequeue()
+  nameWithType.vb: PriorityQueue(Of T).Dequeue()
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.Dequeue*
+  name: Dequeue
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1_Dequeue_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PriorityQueue`1.Dequeue
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.ExtractMin
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).ExtractMin
-  nameWithType: PairingMinHeap<T>.ExtractMin
-  nameWithType.vb: PairingMinHeap(Of T).ExtractMin
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.Dequeue
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).Dequeue
+  nameWithType: PriorityQueue<T>.Dequeue
+  nameWithType.vb: PriorityQueue(Of T).Dequeue
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.Enqueue(`0)
+  name: Enqueue(T)
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1_Enqueue__0_
+  commentId: M:Advanced.Algorithms.DataStructures.PriorityQueue`1.Enqueue(`0)
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.Enqueue(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).Enqueue(T)
+  nameWithType: PriorityQueue<T>.Enqueue(T)
+  nameWithType.vb: PriorityQueue(Of T).Enqueue(T)
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.Enqueue*
+  name: Enqueue
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1_Enqueue_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PriorityQueue`1.Enqueue
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.Enqueue
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).Enqueue
+  nameWithType: PriorityQueue<T>.Enqueue
+  nameWithType.vb: PriorityQueue(Of T).Enqueue
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.GetEnumerator
   name: GetEnumerator()
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_GetEnumerator
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMinHeap`1.GetEnumerator
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.GetEnumerator()
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).GetEnumerator()
-  nameWithType: PairingMinHeap<T>.GetEnumerator()
-  nameWithType.vb: PairingMinHeap(Of T).GetEnumerator()
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.GetEnumerator*
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1_GetEnumerator
+  commentId: M:Advanced.Algorithms.DataStructures.PriorityQueue`1.GetEnumerator
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.GetEnumerator()
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).GetEnumerator()
+  nameWithType: PriorityQueue<T>.GetEnumerator()
+  nameWithType.vb: PriorityQueue(Of T).GetEnumerator()
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.GetEnumerator*
   name: GetEnumerator
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_GetEnumerator_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.GetEnumerator
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1_GetEnumerator_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PriorityQueue`1.GetEnumerator
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.GetEnumerator
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).GetEnumerator
-  nameWithType: PairingMinHeap<T>.GetEnumerator
-  nameWithType.vb: PairingMinHeap(Of T).GetEnumerator
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.Insert(`0)
-  name: Insert(T)
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_Insert__0_
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMinHeap`1.Insert(`0)
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.Insert(T)
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).Insert(T)
-  nameWithType: PairingMinHeap<T>.Insert(T)
-  nameWithType.vb: PairingMinHeap(Of T).Insert(T)
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.Insert*
-  name: Insert
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_Insert_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.Insert
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.GetEnumerator
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).GetEnumerator
+  nameWithType: PriorityQueue<T>.GetEnumerator
+  nameWithType.vb: PriorityQueue(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.Peek
+  name: Peek()
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1_Peek
+  commentId: M:Advanced.Algorithms.DataStructures.PriorityQueue`1.Peek
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.Peek()
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).Peek()
+  nameWithType: PriorityQueue<T>.Peek()
+  nameWithType.vb: PriorityQueue(Of T).Peek()
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.Peek*
+  name: Peek
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1_Peek_
+  commentId: Overload:Advanced.Algorithms.DataStructures.PriorityQueue`1.Peek
   isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.Insert
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).Insert
-  nameWithType: PairingMinHeap<T>.Insert
-  nameWithType.vb: PairingMinHeap(Of T).Insert
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.Merge(Advanced.Algorithms.DataStructures.PairingMinHeap{`0})
-  name: Merge(PairingMinHeap<T>)
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_Merge_Advanced_Algorithms_DataStructures_PairingMinHeap__0__
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMinHeap`1.Merge(Advanced.Algorithms.DataStructures.PairingMinHeap{`0})
-  name.vb: Merge(PairingMinHeap(Of T))
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.Merge(Advanced.Algorithms.DataStructures.PairingMinHeap<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).Merge(Advanced.Algorithms.DataStructures.PairingMinHeap(Of T))
-  nameWithType: PairingMinHeap<T>.Merge(PairingMinHeap<T>)
-  nameWithType.vb: PairingMinHeap(Of T).Merge(PairingMinHeap(Of T))
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.Merge*
-  name: Merge
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_Merge_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.Merge
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.Merge
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).Merge
-  nameWithType: PairingMinHeap<T>.Merge
-  nameWithType.vb: PairingMinHeap(Of T).Merge
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.PeekMin
-  name: PeekMin()
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_PeekMin
-  commentId: M:Advanced.Algorithms.DataStructures.PairingMinHeap`1.PeekMin
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.PeekMin()
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).PeekMin()
-  nameWithType: PairingMinHeap<T>.PeekMin()
-  nameWithType.vb: PairingMinHeap(Of T).PeekMin()
-- uid: Advanced.Algorithms.DataStructures.PairingMinHeap`1.PeekMin*
-  name: PeekMin
-  href: api/Advanced.Algorithms.DataStructures.PairingMinHeap-1.html#Advanced_Algorithms_DataStructures_PairingMinHeap_1_PeekMin_
-  commentId: Overload:Advanced.Algorithms.DataStructures.PairingMinHeap`1.PeekMin
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.PairingMinHeap<T>.PeekMin
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingMinHeap(Of T).PeekMin
-  nameWithType: PairingMinHeap<T>.PeekMin
-  nameWithType.vb: PairingMinHeap(Of T).PeekMin
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.Peek
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).Peek
+  nameWithType: PriorityQueue<T>.Peek
+  nameWithType.vb: PriorityQueue(Of T).Peek
 - uid: Advanced.Algorithms.DataStructures.QuadTree`1
   name: QuadTree<T>
   href: api/Advanced.Algorithms.DataStructures.QuadTree-1.html
