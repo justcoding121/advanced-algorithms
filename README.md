@@ -61,7 +61,7 @@ Supports
 ### Queue
 
 - [X] Queue (using [dynamic array](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Queues/ArrayQueue.cs) and optionally using [doubly linked list](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Queues/LinkedListQueue.cs)) ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Queues/Queue.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Queues/Queue_Tests.cs))
-- [X] Min/Max priority queue ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Queues/PriorityQueue.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Queues/PriorityQueue_Tests.cs))
+- [X] Priority queue ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Queues/PriorityQueue.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Queues/PriorityQueue_Tests.cs))
 
 ### Linked list
 
@@ -71,11 +71,11 @@ Supports
 
 ### Heap
 
-- [X] Binary min/max heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/BHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/BHeap_Tests.cs))
-- [X] d-ary min/max heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/d-aryHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/D-aryHeap_Tests.cs))
-- [X] Binomial min/max heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/BinomialHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/BinomialHeap_Tests.cs))
-- [X] Fibornacci min/max heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/FibornacciHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/FibornacciHeap_Tests.cs))
-- [X] Pairing min/max heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/PairingHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/PairingHeap_Tests.cs))
+- [X] Binary heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/BHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/BHeap_Tests.cs))
+- [X] d-ary heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/d-aryHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/D-aryHeap_Tests.cs))
+- [X] Binomial heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/BinomialHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/BinomialHeap_Tests.cs))
+- [X] Fibornacci heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/FibornacciHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/FibornacciHeap_Tests.cs))
+- [X] Pairing heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/PairingHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/PairingHeap_Tests.cs))
 
 Note: It is observed that among the implementations here in practice, with the exclusion of DecrementKey/IncrementKey operation regular Binary Heap & d-ary Heap outperforms other in theory superiors. Likely because it don't have pointer juggling overhead and hey arrays are faster!
 
