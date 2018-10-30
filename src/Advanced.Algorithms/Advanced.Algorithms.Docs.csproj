@@ -94,6 +94,10 @@
     <Compile Include="DataStructures\LinkedList\SinglyLinkedList.cs" />
     <Compile Include="DataStructures\List\ArrayList.cs" />
     <Compile Include="DataStructures\List\SkipList.cs" />
+    <Compile Include="DataStructures\Queues\ArrayQueue.cs" />
+    <Compile Include="DataStructures\Queues\LinkedListQueue.cs" />
+    <Compile Include="DataStructures\Queues\PriorityQueue.cs" />
+    <Compile Include="DataStructures\Queues\Queue.cs" />
     <Compile Include="DataStructures\Set\BloomFilter.cs" />
     <Compile Include="DataStructures\Set\DisJointSet.cs" />
     <Compile Include="DataStructures\Set\SparseSet.cs" />
