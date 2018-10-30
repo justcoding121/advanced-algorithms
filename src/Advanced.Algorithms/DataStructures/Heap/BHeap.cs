@@ -6,37 +6,41 @@ using System.Linq;
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// A binary max heap implementation.
+    /// A binary heap implementation.
     /// </summary>
-    public class BMaxHeap<T> : IEnumerable<T> where T : IComparable
+    public class BHeap<T> : IEnumerable<T> where T : IComparable
     {
+        private readonly bool isMax;
+
         private T[] heapArray;
         private readonly IComparer<T> comparer;
 
         public int Count { get; private set; }
 
-        public BMaxHeap()
-            : this(null, null) { }
+        public BHeap(bool isMax = false)
+            : this(isMax, null, null) { }
 
-        public BMaxHeap(IEnumerable<T> initial)
-            : this(initial, null) { }
+        public BHeap(bool isMax, IEnumerable<T> initial)
+            : this(isMax, initial, null) { }
 
-        public BMaxHeap(IComparer<T> comparer)
-            : this(null, comparer) { }
+        public BHeap(bool isMax, IComparer<T> comparer)
+            : this(isMax, null, comparer) { }
 
         /// <summary>
         /// Time complexity: O(n) if initial is provided. Otherwise O(1).
         /// </summary>
         /// <param name="initial">The initial items in the heap.</param>
-        public BMaxHeap(IEnumerable<T> initial, IComparer<T> comparer)
+        public BHeap(bool isMax, IEnumerable<T> initial, IComparer<T> comparer)
         {
+            this.isMax = isMax;
+
             if (comparer != null)
             {
-                this.comparer = comparer;
+                this.comparer = new HeapComparer<T>(isMax, comparer);
             }
             else
             {
-                this.comparer = Comparer<T>.Default;
+                this.comparer = new HeapComparer<T>(isMax, Comparer<T>.Default);
             }
 
             if (initial != null)
@@ -82,20 +86,21 @@ namespace Advanced.Algorithms.DataStructures
                 var left = 2 * i + 1;
                 var right = 2 * i + 2;
 
-                var max = left < initial.Length && right < initial.Length ? comparer.Compare(initial[left], initial[right]) > 0 ? left : right
+                var minMax = left < initial.Length && right < initial.Length ? comparer.Compare(initial[left], initial[right]) < 0 ? left : right
                     : left < initial.Length ? left
                     : right < initial.Length ? right : -1;
 
-                if (max != -1 && comparer.Compare(initial[max], initial[parent]) > 0)
+                if (minMax != -1 && comparer.Compare(initial[minMax], initial[parent]) < 0)
                 {
-                    var temp = initial[max];
-                    initial[max] = initial[parent];
+                    var temp = initial[minMax];
+                    initial[minMax] = initial[parent];
                     initial[parent] = temp;
 
-                    //if max is child then drill down child
-                    i = max;
+                    //drill down to child
+                    i = minMax;
                     continue;
                 }
+
 
                 break;
             }
@@ -115,7 +120,7 @@ namespace Advanced.Algorithms.DataStructures
 
             for (int i = Count; i > 0; i = (i - 1) / 2)
             {
-                if (comparer.Compare(heapArray[i], heapArray[(i - 1) / 2]) > 0)
+                if (comparer.Compare(heapArray[i], heapArray[(i - 1) / 2]) < 0)
                 {
                     var temp = heapArray[(i - 1) / 2];
                     heapArray[(i - 1) / 2] = heapArray[i];
@@ -133,24 +138,24 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
-        public T ExtractMax()
+        public T Extract()
         {
             if (Count == 0)
             {
                 throw new Exception("Empty heap");
             }
 
-            var max = heapArray[0];
+            var minMax = heapArray[0];
 
             delete(0);
 
-            return max;
+            return minMax;
         }
 
         /// <summary>
         /// Time complexity: O(1).
         /// </summary>
-        public T PeekMax()
+        public T Peek()
         {
             if (Count == 0)
             {
@@ -203,22 +208,22 @@ namespace Advanced.Algorithms.DataStructures
                     var leftChild = heapArray[leftIndex];
                     var rightChild = heapArray[rightIndex];
 
-                    var leftIsMax = false;
+                    var leftIsMinMax = false;
 
-                    if (comparer.Compare(leftChild, rightChild) > 0)
+                    if (comparer.Compare(leftChild, rightChild) < 0)
                     {
-                        leftIsMax = true;
+                        leftIsMinMax = true;
                     }
 
-                    var maxChildIndex = leftIsMax ? leftIndex : rightIndex;
+                    var minMaxChildIndex = leftIsMinMax ? leftIndex : rightIndex;
 
-                    if (comparer.Compare(heapArray[maxChildIndex], parent) > 0)
+                    if (comparer.Compare(heapArray[minMaxChildIndex], parent) < 0)
                     {
                         var temp = heapArray[parentIndex];
-                        heapArray[parentIndex] = heapArray[maxChildIndex];
-                        heapArray[maxChildIndex] = temp;
+                        heapArray[parentIndex] = heapArray[minMaxChildIndex];
+                        heapArray[minMaxChildIndex] = temp;
 
-                        if (leftIsMax)
+                        if (leftIsMinMax)
                         {
                             parentIndex = leftIndex;
                         }
@@ -235,7 +240,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
                 else if (leftIndex < Count)
                 {
-                    if (comparer.Compare(heapArray[leftIndex], parent) > 0)
+                    if (comparer.Compare(heapArray[leftIndex], parent) < 0)
                     {
                         var temp = heapArray[parentIndex];
                         heapArray[parentIndex] = heapArray[leftIndex];
@@ -250,7 +255,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
                 else if (rightIndex < Count)
                 {
-                    if (comparer.Compare(heapArray[rightIndex], parent) > 0)
+                    if (comparer.Compare(heapArray[rightIndex], parent) < 0)
                     {
                         var temp = heapArray[parentIndex];
                         heapArray[parentIndex] = heapArray[rightIndex];
@@ -322,5 +327,6 @@ namespace Advanced.Algorithms.DataStructures
         {
             return heapArray.Take(Count).GetEnumerator();
         }
+
     }
 }

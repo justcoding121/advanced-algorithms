@@ -16,7 +16,7 @@ namespace Advanced.Algorithms.Geometry
         private HashSet<Event> verticalHorizontalLines;
         private HashSet<Event> normalLines;
 
-        private BMinHeap<Event> eventQueue;
+        private BHeap<Event> eventQueue;
         private HashSet<Event> eventQueueLookUp;
 
         private Dictionary<Event, Event> rightLeftEventLookUp;
@@ -66,7 +66,7 @@ namespace Advanced.Algorithms.Geometry
                                     x.Value
                                 }), new PointComparer());
 
-            eventQueue = new BMinHeap<Event>(eventQueueLookUp, new EventQueueComparer());
+            eventQueue = new BHeap<Event>(false, eventQueueLookUp, new EventQueueComparer());
         }
 
         public Dictionary<Point, List<Line>> FindIntersections(IEnumerable<Line> lineSegments)
@@ -75,7 +75,7 @@ namespace Advanced.Algorithms.Geometry
 
             while (eventQueue.Count > 0)
             {
-                var currentEvent = eventQueue.ExtractMin();
+                var currentEvent = eventQueue.Extract();
                 eventQueueLookUp.Remove(currentEvent);
                 sweepTo(currentEvent);
 

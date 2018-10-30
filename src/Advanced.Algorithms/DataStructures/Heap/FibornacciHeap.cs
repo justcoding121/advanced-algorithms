@@ -6,19 +6,28 @@ using System.Linq;
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// A fibornacci max heap implementation.
+    /// A fibornacci minMax heap implementation.
     /// </summary>
-    public class FibornacciMaxHeap<T> : IEnumerable<T> where T : IComparable
+    public class FibornacciHeap<T> : IEnumerable<T> where T : IComparable
     {
-        private FibornacciHeapNode<T> maxNode = null;
+        private readonly bool isMax;
+        private readonly IComparer<T> comparer;
 
-        //holds the maximum node at any given time
+        //holds the min/max node at any given time
+        private FibornacciHeapNode<T> minMaxNode = null;
+
         private FibornacciHeapNode<T> heapForestHead;
 
         private Dictionary<T, List<FibornacciHeapNode<T>>> heapMapping
             = new Dictionary<T, List<FibornacciHeapNode<T>>>();
 
         public int Count { get; private set; }
+
+        public FibornacciHeap(bool isMax = false)
+        {
+            this.isMax = isMax;
+            comparer = new HeapComparer<T>(isMax, Comparer<T>.Default);
+        }
 
         /// <summary>
         /// Time complexity: O(1).
@@ -30,46 +39,46 @@ namespace Advanced.Algorithms.DataStructures
             //return pointer to new Node
             mergeForests(newNode);
 
-            if (maxNode == null)
+            if (minMaxNode == null)
             {
-                maxNode = newNode;
+                minMaxNode = newNode;
             }
             else
             {
-                if (maxNode.Value.CompareTo(newNode.Value) < 0)
+                if (comparer.Compare(minMaxNode.Value, newNode.Value) > 0)
                 {
-                    maxNode = newNode;
+                    minMaxNode = newNode;
                 }
             }
 
             addMapping(newItem, newNode);
-
+          
             Count++;
         }
 
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
-        public T ExtractMax()
+        public T Extract()
         {
             if (heapForestHead == null)
             {
                 throw new Exception("Empty heap");
             }
 
-            var maxValue = maxNode.Value;
+            var minMaxValue = minMaxNode.Value;
 
-            removeMapping(maxValue, maxNode);
+            removeMapping(minMaxValue, minMaxNode);
 
             //remove tree root
-            deleteNode(ref heapForestHead, maxNode);
+            deleteNode(ref heapForestHead, minMaxNode);
 
-            mergeForests(maxNode.ChildrenHead);
+            mergeForests(minMaxNode.ChildrenHead);
             Meld();
 
             Count--;
 
-            return maxValue;
+            return minMaxValue;
         }
 
 
@@ -77,7 +86,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Update the Heap with new value for this node pointer.
         /// Time complexity: O(1).
         /// </summary>
-        public void IncrementKey(T currentValue, T newValue)
+        public void UpdateKey(T currentValue, T newValue)
         {
             var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
 
@@ -86,22 +95,22 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Current value is not present in this heap.");
             }
 
-            if (newValue.CompareTo(node.Value) < 0)
+            if (comparer.Compare(newValue, node.Value) > 0)
             {
-                throw new Exception("New value is not greater than old value.");
+                throw new Exception($"New value is not {(!isMax ? "less" : "greater")} than old value.");
             }
 
             updateNodeValue(currentValue, newValue, node);
 
             if (node.Parent == null
-                && maxNode.Value.CompareTo(node.Value) < 0)
+                && comparer.Compare(minMaxNode.Value, node.Value) > 0)
             {
-                maxNode = node;
+                minMaxNode = node;
             }
 
             var current = node;
 
-            if (current.Parent == null || current.Value.CompareTo(current.Parent.Value) <= 0)
+            if (current.Parent == null || comparer.Compare(current.Value, current.Parent.Value) >= 0)
             {
                 return;
             }
@@ -136,7 +145,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Unions this heap with another.
         /// Time complexity: O(1).
         /// </summary>
-        public void Merge(FibornacciMaxHeap<T> FibornacciHeap)
+        public void Merge(FibornacciHeap<T> FibornacciHeap)
         {
             mergeForests(FibornacciHeap.heapForestHead);
             Count = Count + FibornacciHeap.Count;
@@ -145,12 +154,14 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(1).
         /// </summary>
-        public T PeekMax()
+        public T Peek()
         {
             if (heapForestHead == null)
+            {
                 throw new Exception("Empty heap");
+            }
 
-            return maxNode.Value;
+            return minMaxNode.Value;
         }
 
         /// <summary>
@@ -161,7 +172,7 @@ namespace Advanced.Algorithms.DataStructures
 
             if (heapForestHead == null)
             {
-                maxNode = null;
+                minMaxNode = null;
                 return;
             }
 
@@ -169,7 +180,7 @@ namespace Advanced.Algorithms.DataStructures
             var mergeDictionary = new Dictionary<int, FibornacciHeapNode<T>>();
 
             var current = heapForestHead;
-            maxNode = current;
+            minMaxNode = current;
             while (current != null)
             {
                 current.Parent = null;
@@ -180,9 +191,9 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     mergeDictionary.Add(current.Degree, current);
 
-                    if (maxNode == current)
+                    if (minMaxNode == current)
                     {
-                        maxNode = null;
+                        minMaxNode = null;
                     }
 
                     deleteNode(ref heapForestHead, current);
@@ -196,7 +207,7 @@ namespace Advanced.Algorithms.DataStructures
                     var currentDegree = current.Degree;
                     var existing = mergeDictionary[currentDegree];
 
-                    if (existing.Value.CompareTo(current.Value) > 0)
+                    if (comparer.Compare(existing.Value, current.Value) < 0)
                     {
                         current.Parent = existing;
 
@@ -225,10 +236,10 @@ namespace Advanced.Algorithms.DataStructures
                     }
 
 
-                    if (maxNode == null
-                        || maxNode.Value.CompareTo(current.Value) < 0)
+                    if (minMaxNode == null
+                        || comparer.Compare(minMaxNode.Value, current.Value) > 0)
                     {
-                        maxNode = current;
+                        minMaxNode = current;
                     }
 
                     mergeDictionary.Remove(currentDegree);
@@ -244,10 +255,10 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     insertNode(ref heapForestHead, node.Value);
 
-                    if (maxNode == null
-                        || maxNode.Value.CompareTo(node.Value.Value) < 0)
+                    if (minMaxNode == null
+                        || comparer.Compare(minMaxNode.Value, node.Value.Value) > 0)
                     {
-                        maxNode = node.Value;
+                        minMaxNode = node.Value;
                     }
                 }
 
@@ -255,7 +266,6 @@ namespace Advanced.Algorithms.DataStructures
             }
 
         }
-
 
         /// <summary>
         /// Delete this node from Heap Tree and adds it to forest as a new tree 
@@ -280,10 +290,10 @@ namespace Advanced.Algorithms.DataStructures
 
             insertNode(ref heapForestHead, node);
 
-            //update max
-            if (maxNode.Value.CompareTo(node.Value) < 0)
+            //update 
+            if (comparer.Compare(minMaxNode.Value, node.Value) > 0)
             {
-                maxNode = node;
+                minMaxNode = node;
             }
 
         }
@@ -363,7 +373,6 @@ namespace Advanced.Algorithms.DataStructures
             node.Value = newValue;
             addMapping(newValue, node);
         }
-
 
         private void removeMapping(T currentValue, FibornacciHeapNode<T> node)
         {

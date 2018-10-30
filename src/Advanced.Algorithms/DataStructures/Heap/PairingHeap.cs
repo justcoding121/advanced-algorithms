@@ -6,15 +6,24 @@ using System.Linq;
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// A pairing min heap implementation.
+    /// A pairing minMax heap implementation.
     /// </summary>
-    public class PairingMinHeap<T> : IEnumerable<T> where T : IComparable
+    public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     {
+        private readonly bool isMax;
+        private readonly IComparer<T> comparer;
+
         private PairingHeapNode<T> Root;
         private Dictionary<T, List<PairingHeapNode<T>>> heapMapping
                 = new Dictionary<T, List<PairingHeapNode<T>>>();
 
         public int Count { get; private set; }
+
+        public PairingHeap(bool isMax = false)
+        {
+            this.isMax = isMax;
+            comparer = new HeapComparer<T>(isMax, Comparer<T>.Default);
+        }
 
         /// <summary>
         /// Insert a new Node.
@@ -31,19 +40,19 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
-        public T ExtractMin()
+        public T Extract()
         {
-            var min = Root;
-            removeMapping(min.Value, min);
+            var minMax = Root;
+            removeMapping(minMax.Value, minMax);
             meld(Root.ChildrenHead);
             Count--;
-            return min.Value;
+            return minMax.Value;
         }
 
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
-        public void DecrementKey(T currentValue, T newValue)
+        public void UpdateKey(T currentValue, T newValue)
         {
             var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
 
@@ -52,9 +61,9 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Current value is not present in this heap.");
             }
 
-            if (newValue.CompareTo(node.Value) > 0)
+            if (comparer.Compare(newValue, node.Value) > 0)
             {
-                throw new Exception("New value is not less than old value.");
+                throw new Exception($"New value is not {(!isMax ? "less" : "greater")} than old value.");
             }
 
             updateNodeValue(currentValue, newValue, node);
@@ -73,7 +82,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Merge another heap with this heap.
         /// Time complexity: O(1).
         /// </summary>
-        public void Merge(PairingMinHeap<T> PairingHeap)
+        public void Merge(PairingHeap<T> PairingHeap)
         {
             Root = meld(Root, PairingHeap.Root);
             Count = Count + PairingHeap.Count;
@@ -82,7 +91,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(1).
         /// </summary>
-        public T PeekMin()
+        public T Peek()
         {
             if (Root == null)
                 throw new Exception("Empty heap");
@@ -173,7 +182,7 @@ namespace Advanced.Algorithms.DataStructures
             node1.Previous = null;
             node1.Next = null;
 
-            if (node2 != null && node1.Value.CompareTo(node2.Value) <= 0)
+            if (node2 != null && comparer.Compare(node1.Value, node2.Value) <= 0)
             {
 
                 addChild(ref node1, node2);

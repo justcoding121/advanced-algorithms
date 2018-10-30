@@ -6,10 +6,13 @@ using System.Linq;
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
-    /// A binomial min heap implementation.
+    /// A binomial minMax heap implementation.
     /// </summary>
-    public class BinomialMinHeap<T> : IEnumerable<T> where T : IComparable
+    public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
     {
+        private readonly bool isMax;
+        private readonly IComparer<T> comparer;
+
         private DoublyLinkedList<BinomialHeapNode<T>> heapForest
             = new DoublyLinkedList<BinomialHeapNode<T>>();
 
@@ -17,6 +20,12 @@ namespace Advanced.Algorithms.DataStructures
             = new Dictionary<T, List<BinomialHeapNode<T>>>();
 
         public int Count { get; private set; }
+
+        public BinomialHeap(bool isMax = false)
+        {
+            this.isMax = isMax;
+            comparer = new HeapComparer<T>(isMax, Comparer<T>.Default);
+        }
 
         /// <summary>
         /// Time complexity: O(log(n)).
@@ -41,33 +50,33 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
-        public T ExtractMin()
+        public T Extract()
         {
             if (heapForest.Head == null)
             {
                 throw new Exception("Empty heap");
             }
 
-            var minTree = heapForest.Head;
+            var minMaxTree = heapForest.Head;
             var current = heapForest.Head;
 
-            //find minimum tree
+            //find minMaximum tree
             while (current.Next != null)
             {
                 current = current.Next;
 
-                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
+                if (comparer.Compare(minMaxTree.Data.Value, current.Data.Value) > 0)
                 {
-                    minTree = current;
+                    minMaxTree = current;
                 }
             }
 
             //remove tree root
-            heapForest.Delete(minTree);
+            heapForest.Delete(minMaxTree);
 
             var newHeapForest = new DoublyLinkedList<BinomialHeapNode<T>>();
             //add removed roots children as new trees to forest
-            foreach (var child in minTree.Data.Children)
+            foreach (var child in minMaxTree.Data.Children)
             {
                 child.Parent = null;
                 newHeapForest.InsertLast(child);
@@ -77,19 +86,19 @@ namespace Advanced.Algorithms.DataStructures
 
             meld();
 
-            removeMapping(minTree.Data.Value, minTree.Data);
+            removeMapping(minMaxTree.Data.Value, minMaxTree.Data);
 
             Count--;
 
-            return minTree.Data.Value;
+            return minMaxTree.Data.Value;
         }
 
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
-        /// <param name="currentValue">The value to increment.</param>
-        /// <param name="newValue">The incremented new value.</param>
-        public void DecrementKey(T currentValue, T newValue)
+        /// <param name="currentValue">The value to update.</param>
+        /// <param name="newValue">The updated new value.</param>
+        public void UpdateKey(T currentValue, T newValue)
         {
             var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
 
@@ -98,9 +107,9 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Current value is not present in this heap.");
             }
 
-            if (newValue.CompareTo(node.Value) > 0)
+            if (comparer.Compare(newValue, node.Value) > 0)
             {
-                throw new Exception("New value is not less than old value.");
+                throw new Exception($"New value is not {(!isMax ? "less" : "greater")} than old value.");
             }
 
             updateNodeValue(currentValue, newValue, node);
@@ -108,7 +117,7 @@ namespace Advanced.Algorithms.DataStructures
             var current = node;
 
             while (current.Parent != null
-                && current.Value.CompareTo(current.Parent.Value) < 0)
+                && comparer.Compare(current.Value, current.Parent.Value) < 0)
             {
                 //swap parent with child
                 var tmp = current.Value;
@@ -123,7 +132,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Time complexity: O(log(n)).
         /// </summary>
         /// <param name="binomialHeap">The heap to union with.</param>
-        public void Merge(BinomialMinHeap<T> binomialHeap)
+        public void Merge(BinomialHeap<T> binomialHeap)
         {
             mergeSortedForests(binomialHeap.heapForest);
 
@@ -135,28 +144,28 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
-        public T PeekMin()
+        public T Peek()
         {
             if (heapForest.Head == null)
             {
                 throw new Exception("Empty heap");
             }
 
-            var minTree = heapForest.Head;
+            var minMaxTree = heapForest.Head;
             var current = heapForest.Head;
 
-            //find minimum tree
+            //find  tree
             while (current.Next != null)
             {
                 current = current.Next;
 
-                if (minTree.Data.Value.CompareTo(current.Data.Value) > 0)
+                if (comparer.Compare(minMaxTree.Data.Value, current.Data.Value) > 0)
                 {
-                    minTree = current;
+                    minMaxTree = current;
                 }
             }
 
-            return minTree.Data.Value;
+            return minMaxTree.Data.Value;
         }
 
         /// <summary>
@@ -196,7 +205,7 @@ namespace Advanced.Algorithms.DataStructures
                     }
 
                     //case 3 cur value is less than next
-                    if (cur.Data.Value.CompareTo(next.Data.Value) <= 0)
+                    if (comparer.Compare(cur.Data.Value, next.Data.Value) <= 0)
                     {
                         //add next as child of current
                         cur.Data.Children.Add(next.Data);
@@ -208,7 +217,7 @@ namespace Advanced.Algorithms.DataStructures
                     }
 
                     //case 4 cur value is greater than next
-                    if (cur.Data.Value.CompareTo(next.Data.Value) > 0)
+                    if (comparer.Compare(cur.Data.Value, next.Data.Value) > 0)
                     {
                         //add current as child of next
                         next.Data.Children.Add(cur.Data);
@@ -227,7 +236,7 @@ namespace Advanced.Algorithms.DataStructures
 
         /// <summary>
         /// Merges the given sorted forest to current sorted Forest 
-        /// and returns the last inserted node (pointer required for decrement-key)
+        /// and returns the last inserted node (pointer required for update-key)
         /// </summary>
         private void mergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
         {

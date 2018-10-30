@@ -14,14 +14,14 @@ namespace Advanced.Algorithms.Sorting
         public static T[] Sort(T[] array)
         {
             //heapify
-            var heap = new BMinHeap<T>(array);
+            var heap = new BHeap<T>(false, array);
 
             //now extract min until empty and return them as sorted array
             var sortedArray = new T[array.Length];
             var j = 0;
             while (heap.Count > 0)
             {
-                sortedArray[j] = heap.ExtractMin();
+                sortedArray[j] = heap.Extract();
                 j++;
             }
 

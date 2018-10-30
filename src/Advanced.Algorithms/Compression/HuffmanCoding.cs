@@ -16,7 +16,7 @@ namespace Advanced.Algorithms.Compression
         {
             var frequencies = computeFrequency(input);
 
-            var minHeap = new BMinHeap<FrequencyWrap>();
+            var minHeap = new BHeap<FrequencyWrap>();
 
             foreach (var frequency in frequencies)
             {
@@ -26,8 +26,8 @@ namespace Advanced.Algorithms.Compression
 
             while (minHeap.Count > 1)
             {
-                var a = minHeap.ExtractMin();
-                var b = minHeap.ExtractMin();
+                var a = minHeap.Extract();
+                var b = minHeap.Extract();
 
                 var newNode = new FrequencyWrap(
                     default(T), a.Frequency + b.Frequency);
@@ -38,7 +38,7 @@ namespace Advanced.Algorithms.Compression
                 minHeap.Insert(newNode);
             }
 
-            var root = minHeap.ExtractMin();
+            var root = minHeap.Extract();
 
             var result = new Dictionary<T, byte[]>();
 
