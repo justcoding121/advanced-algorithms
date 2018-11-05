@@ -1,18 +1,34 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
     /// <summary>
     /// A treap tree implementation.
     /// </summary>
-    public class TreapTree<T> : IEnumerable<T> where T : IComparable
+    public class TreapTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
     {
         private Random rndGenerator = new Random();
         internal TreapTreeNode<T> Root { get; set; }
-        public int Count { get; private set; }
+        public int Count => Root == null ? 0 : Root.Count;
 
+        public TreapTree() { }
+
+        /// <summary>
+        /// Initialize the BST with given sorted keys.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="sortedKeys">The sorted keys.</param>
+        public TreapTree(IEnumerable<T> collection) : this()
+        {
+            ValidateCollection(collection);
+            var nodes = collection.Select(x => new TreapTreeNode<T>(null, x, rndGenerator.Next())).ToArray();
+            Root = (TreapTreeNode<T>)ToBST(nodes);
+            assignCount(Root);
+            heapify(Root);
+        }
         /// <summary>
         /// Time complexity: O(log(n))
         /// </summary>
@@ -29,7 +45,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(log(n))
         /// </summary>
-        public int GetHeight()
+        internal int GetHeight()
         {
             return getHeight(Root);
         }
@@ -53,14 +69,12 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new TreapTreeNode<T>(null, value, rndGenerator.Next());
-                Count++;
                 return;
             }
 
             var newNode = insert(Root, value);
 
             heapify(newNode);
-            Count++;
         }
 
         //O(log(n)) always
@@ -103,6 +117,27 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public int IndexOf(T item)
+        {
+            return Root.Position(item);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T ElementAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentNullException("index");
+            }
+
+            return Root.KthSmallest(index).Value;
+        }
+
+        /// <summary>
         /// Time complexity: O(log(n))
         /// </summary>
         public void Delete(T value)
@@ -113,7 +148,23 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             delete(Root, value);
-            Count--;
+        }
+
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T RemoveAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentException("index");
+            }
+
+            var nodeToDelete = Root.KthSmallest(index) as TreapTreeNode<T>;
+
+            delete(nodeToDelete, nodeToDelete.Value);
+
+            return nodeToDelete.Value;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -179,6 +230,8 @@ namespace Advanced.Algorithms.DataStructures
 
                 break;
             }
+
+            node.UpdateCounts(true);
         }
 
         private void deleteLeaf(TreapTreeNode<T> node)
@@ -319,6 +372,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             while (node.Parent != null)
             {
+                node.UpdateCounts();
                 if (node.Priority < node.Parent.Priority)
                 {
                     node = node.IsLeftChild ? rightRotate(node.Parent) : leftRotate(node.Parent);
@@ -329,6 +383,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
             }
 
+            node.UpdateCounts(true);
         }
 
         /// <summary>
@@ -366,6 +421,10 @@ namespace Advanced.Algorithms.DataStructures
             {
                 newRoot.Right.Left.Parent = newRoot.Right;
             }
+
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
 
             if (prevRoot == Root)
             {
@@ -413,6 +472,10 @@ namespace Advanced.Algorithms.DataStructures
                 newRoot.Left.Right.Parent = newRoot.Left;
             }
 
+            newRoot.Left.UpdateCounts();
+            newRoot.Right.UpdateCounts();
+            newRoot.UpdateCounts();
+
             if (prevRoot == Root)
             {
                 Root = newRoot;
@@ -459,6 +522,19 @@ namespace Advanced.Algorithms.DataStructures
 
             var next = (node as BSTNodeBase<T>).NextHigher();
             return next != null ? next.Value : default(T);
+        }
+
+        /// <summary>
+        /// Descending enumerable.
+        /// </summary>
+        public IEnumerable<T> AsEnumerableDesc()
+        {
+            return GetEnumeratorDesc().AsEnumerable();
+        }
+
+        public IEnumerator<T> GetEnumeratorDesc()
+        {
+            return new BSTEnumerator<T>(Root, false);
         }
 
         //Implementation for the GetEnumerator method.

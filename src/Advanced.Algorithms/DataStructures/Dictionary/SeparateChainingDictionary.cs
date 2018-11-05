@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
     {
         private const double tolerance = 0.1;
 
-        private DoublyLinkedList<DictionaryNode<K, V>>[] hashArray;
+        private DoublyLinkedList<KeyValuePair<K, V>>[] hashArray;
         private int bucketSize => hashArray.Length;
         private readonly int initialBucketSize;
         private int filledBuckets;
@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         public SeparateChainingDictionary(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new DoublyLinkedList<DictionaryNode<K, V>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<KeyValuePair<K, V>>[initialBucketSize];
         }
 
         public V this[K key]
@@ -62,8 +62,8 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new DoublyLinkedList<DictionaryNode<K, V>>();
-                hashArray[index].InsertFirst(new DictionaryNode<K, V>(key, value));
+                hashArray[index] = new DoublyLinkedList<KeyValuePair<K, V>>();
+                hashArray[index].InsertFirst(new KeyValuePair<K, V>(key, value));
                 filledBuckets++;
             }
             else
@@ -80,7 +80,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                     current = current.Next;
                 }
 
-                hashArray[index].InsertFirst(new DictionaryNode<K, V>(key, value));
+                hashArray[index].InsertFirst(new KeyValuePair<K, V>(key, value));
             }
 
             Count++;
@@ -99,7 +99,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                 var current = hashArray[index].Head;
 
                 //TODO merge both search and remove to a single loop here!
-                DoublyLinkedListNode<DictionaryNode<K, V>> item = null;
+                DoublyLinkedListNode<KeyValuePair<K, V>> item = null;
                 while (current != null)
                 {
                     if (current.Data.Key.Equals(key))
@@ -138,7 +138,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public void Clear()
         {
-            hashArray = new DoublyLinkedList<DictionaryNode<K, V>>[initialBucketSize];
+            hashArray = new DoublyLinkedList<KeyValuePair<K, V>>[initialBucketSize];
             Count = 0;
             filledBuckets = 0;
         }
@@ -205,7 +205,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                 //increase array size exponentially on demand
                 var newBucketSize = bucketSize * 2;
 
-                var biggerArray = new DoublyLinkedList<DictionaryNode<K, V>>[newBucketSize];
+                var biggerArray = new DoublyLinkedList<KeyValuePair<K, V>>[newBucketSize];
 
                 for (int i = 0; i < bucketSize; i++)
                 {
@@ -228,7 +228,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                                 if (biggerArray[newIndex] == null)
                                 {
                                     filledBuckets++;
-                                    biggerArray[newIndex] = new DoublyLinkedList<DictionaryNode<K, V>>();
+                                    biggerArray[newIndex] = new DoublyLinkedList<KeyValuePair<K, V>>();
                                 }
 
                                 biggerArray[newIndex].InsertFirst(current);
@@ -254,7 +254,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                 //reduce array by half 
                 var newBucketSize = bucketSize / 2;
 
-                var smallerArray = new DoublyLinkedList<DictionaryNode<K, V>>[newBucketSize];
+                var smallerArray = new DoublyLinkedList<KeyValuePair<K, V>>[newBucketSize];
 
                 for (var i = 0; i < bucketSize; i++)
                 {
@@ -275,7 +275,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                             if (smallerArray[newIndex] == null)
                             {
                                 filledBuckets++;
-                                smallerArray[newIndex] = new DoublyLinkedList<DictionaryNode<K, V>>();
+                                smallerArray[newIndex] = new DoublyLinkedList<KeyValuePair<K, V>>();
                             }
 
                             smallerArray[newIndex].InsertFirst(current);
@@ -303,16 +303,16 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
     internal class SeparateChainingDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>> 
     {
-        internal DoublyLinkedList<DictionaryNode<TK, TV>>[] HashList;
+        internal DoublyLinkedList<KeyValuePair<TK, TV>>[] HashList;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
-        DoublyLinkedListNode<DictionaryNode<TK, TV>> currentNode = null;
+        DoublyLinkedListNode<KeyValuePair<TK, TV>> currentNode = null;
 
         int length;
 
-        internal SeparateChainingDictionaryEnumerator(DoublyLinkedList<DictionaryNode<TK, TV>>[] hashList, int length)
+        internal SeparateChainingDictionaryEnumerator(DoublyLinkedList<KeyValuePair<TK, TV>>[] hashList, int length)
         {
             this.length = length;
             this.HashList = hashList;

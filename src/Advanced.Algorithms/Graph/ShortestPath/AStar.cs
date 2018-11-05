@@ -38,7 +38,7 @@ namespace Advanced.Algorithms.Graph
             var parentMap = new Dictionary<T, T>();
 
             //min heap to pick next closest vertex 
-            var minHeap = new FibornacciMinHeap<AStarWrap<T, W>>();
+            var minHeap = new FibornacciHeap<AStarWrap<T, W>>();
             //keep references of heap Node for decrement key operation
             var heapMapping = new Dictionary<T, AStarWrap<T, W>>();
 
@@ -72,7 +72,7 @@ namespace Advanced.Algorithms.Graph
             while (minHeap.Count > 0)
             {
                 //next min vertex to visit
-                current = minHeap.ExtractMin();
+                current = minHeap.Extract();
                 heapMapping.Remove(current.Vertex);
 
                 //no path exists, so return max value
@@ -100,7 +100,7 @@ namespace Advanced.Algorithms.Graph
                         {
                             //decrement distance to neighbour in heap
                             var decremented = new AStarWrap<T, W>(heuristic, destination) { Distance = newDistance, Vertex = neighbour.Key.Value };
-                            minHeap.DecrementKey(heapMapping[neighbour.Key.Value], decremented);
+                            minHeap.UpdateKey(heapMapping[neighbour.Key.Value], decremented);
                             heapMapping[neighbour.Key.Value] = decremented;
 
                         }

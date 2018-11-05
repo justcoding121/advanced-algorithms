@@ -126,6 +126,35 @@ This may be better than regular HashSet implementation which can give o(K) in wo
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public SortedHashSet()</code></pre>
   </div>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1__ctor_IEnumerable__0__" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.#ctor(IEnumerable{`0})">SortedHashSet(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialize the sorted hashset with given sorted key collection.
+Time complexity: log(n).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SortedHashSet(IEnumerable&lt;T&gt; sortedKeys)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">sortedKeys</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   
@@ -149,6 +178,49 @@ This may be better than regular HashSet implementation which can give o(K) in wo
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Item_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Item*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Item_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -233,6 +305,49 @@ Time complexity: O(log(n)).</p>
   </table>
   
   
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_ElementAt_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.ElementAt*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_ElementAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.ElementAt(System.Int32)">ElementAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T ElementAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.GetEnumerator*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.GetEnumerator">GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
@@ -258,15 +373,58 @@ Time complexity: O(log(n)).</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Next_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Next*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Next__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Next(`0)">Next(T)</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_IndexOf_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.IndexOf*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_IndexOf__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.IndexOf(`0)">IndexOf(T)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(T key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_NextHigher_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.NextHigher*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_NextHigher__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.NextHigher(`0)">NextHigher(T)</h4>
   <div class="markdown level1 summary"><p>Return the next higher value after given value in this hashset.
 Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Next(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public T NextHigher(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -303,15 +461,15 @@ Time complexity: O(log(n)).</p>
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Previous_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Previous*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_Previous__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.Previous(`0)">Previous(T)</h4>
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_NextLower_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.NextLower*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_NextLower__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.NextLower(`0)">NextLower(T)</h4>
   <div class="markdown level1 summary"><p>Return the next lower value before given value in this HashSet.
 Time complexity: O(log(n)).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Previous(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public T NextLower(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -356,7 +514,7 @@ Time complexity: O(log(n)).</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Remove(T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Remove(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -373,6 +531,65 @@ Time complexity: O(log(n)).</p>
         <td><span class="parametername">value</span></td>
         <td><p>The value to remove.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_RemoveAt_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.RemoveAt*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_SortedHashSet_1_RemoveAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.SortedHashSet`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Remove the element at given index.
+Time complexity: O(log(n)).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

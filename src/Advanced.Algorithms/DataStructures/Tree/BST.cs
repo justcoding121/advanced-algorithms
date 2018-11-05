@@ -1,18 +1,32 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
-
     /// <summary>
     /// A binary search tree implementation.
     /// </summary>
-    public class BST<T> : IEnumerable<T> where T : IComparable
+    public class BST<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
     {
         internal BSTNode<T> Root { get; set; }
 
-        public int Count { get; private set; }
+        public int Count => Root == null ? 0 : Root.Count;
+
+        public BST() { }
+
+        /// <summary>
+        /// Initialize the BST with given sorted keys.
+        /// Time complexity: O(n).
+        /// </summary>
+        public BST(IEnumerable<T> sortedKeys) : this()
+        {
+            ValidateCollection(sortedKeys);
+            var nodes = sortedKeys.Select(x => new BSTNode<T>(null, x)).ToArray();
+            Root = (BSTNode<T>)ToBST(nodes);
+            assignCount(Root);
+        }
 
         /// <summary>
         /// Time complexity: O(n)
@@ -30,7 +44,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Time complexity: O(n)
         /// </summary>
-        public int getHeight()
+        internal int GetHeight()
         {
             return getHeight(Root);
         }
@@ -52,13 +66,10 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new BSTNode<T>(null, value);
-                Count++;
                 return Root;
             }
 
             var newNode = insert(Root, value);
-            Count++;
-
             return newNode;
         }
 
@@ -71,13 +82,14 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new BSTNode<T>(null, value);
-                Count++;
                 return;
             }
 
-            insert(Root, value);
-            Count++;
+            var newNode = insert(Root, value);
+            newNode.UpdateCounts(true);
         }
+
+
 
         //worst O(n) for unbalanced tree
         private BSTNode<T> insert(BSTNode<T> currentNode, T newNodeValue)
@@ -120,6 +132,28 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        // <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
+        public int IndexOf(T item)
+        {
+            return Root.Position(item);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
+        public T ElementAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentNullException("index");
+            }
+
+            return Root.KthSmallest(index).Value;
+        }
+
+
         /// <summary>
         /// Time complexity: O(n)
         /// </summary>
@@ -130,22 +164,26 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("Empty BST");
             }
 
-            delete(Root, value);
-            Count--;
+            var deleted = delete(Root, value);
+            deleted.UpdateCounts(true);
         }
 
-        internal BSTNode<T> DeleteAndReturnParent(T value)
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
+        public T RemoveAt(int index)
         {
-            if (Root == null)
+            if (index < 0 || index >= Count)
             {
-                throw new Exception("Empty BST");
+                throw new ArgumentException("index");
             }
 
-            var parentNode = delete(Root, value);
+            var nodeToDelete = Root.KthSmallest(index) as BSTNode<T>;
 
-            Count--;
+            var deleted = delete(nodeToDelete, nodeToDelete.Value);
+            deleted.UpdateCounts(true);
 
-            return parentNode;
+            return nodeToDelete.Value;
         }
 
         //worst O(n) for unbalanced tree
@@ -163,8 +201,8 @@ namespace Advanced.Algorithms.DataStructures
                         node = node.Right ?? throw new Exception("Item do not exist");
                         continue;
                     }
-                    //node is less than the search value so move left to find the deletion node
 
+                    //node is less than the search value so move left to find the deletion node
                     if (compareResult > 0)
                     {
                         node = node.Left ?? throw new Exception("Item do not exist");
@@ -172,35 +210,36 @@ namespace Advanced.Algorithms.DataStructures
                     }
                 }
 
+                if (node == null)
+                {
+                    return null;
+                }
+
+
                 //node is a leaf node
-                if (node != null && node.IsLeaf)
+                if (node.IsLeaf)
                 {
                     deleteLeaf(node);
-                    return node.Parent;
+                    return node;
                 }
 
                 //case one - right tree is null (move sub tree up)
-                if (node?.Left != null && node.Right == null)
+                if (node.Left != null && node.Right == null)
                 {
                     deleteLeftNode(node);
-                    return node.Parent;
+                    return node;
                 }
-                //case two - left tree is null  (move sub tree up)
 
-                if (node?.Right != null && node.Left == null)
+                //case two - left tree is null  (move sub tree up)
+                if (node.Right != null && node.Left == null)
                 {
                     deleteRightNode(node);
-                    return node.Parent;
+                    return node;
                 }
+
                 //case three - two child trees 
                 //replace the node value with maximum element of left subtree (left max node)
                 //and then delete the left max node
-
-                if (node == null)
-                {
-                    continue;
-                }
-
                 var maxLeftNode = FindMax(node.Left);
 
                 node.Value = maxLeftNode.Value;
@@ -389,6 +428,19 @@ namespace Advanced.Algorithms.DataStructures
 
             var next = (node as BSTNodeBase<T>).NextHigher();
             return next != null ? next.Value : default(T);
+        }
+
+        /// <summary>
+        /// Descending enumerable.
+        /// </summary>
+        public IEnumerable<T> AsEnumerableDesc()
+        {
+            return GetEnumeratorDesc().AsEnumerable();
+        }
+
+        public IEnumerator<T> GetEnumeratorDesc()
+        {
+            return new BSTEnumerator<T>(Root, false);
         }
 
         //Implementation for the GetEnumerator method.

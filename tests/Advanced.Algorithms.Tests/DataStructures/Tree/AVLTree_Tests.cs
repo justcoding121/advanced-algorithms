@@ -94,12 +94,13 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
         [TestMethod]
-        public void AVLTree_AccuracyTest()
+        public void AVLTree_Accuracy_Test()
         {
             var nodeCount = 1000;
 
             var rnd = new Random();
-            var randomNumbers = Enumerable.Range(1, nodeCount)
+            var sorted = Enumerable.Range(1, nodeCount).ToList();
+            var randomNumbers = sorted
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
@@ -110,8 +111,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 tree.Insert(randomNumbers[i]);
 
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
-
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+                tree.Root.VerifyCount();
 
                 var actualHeight = tree.GetHeight();
 
@@ -122,18 +123,35 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(tree.Count == i + 1);
             }
 
+            for (int i = 0; i < sorted.Count; i++)
+            {
+                Assert.AreEqual(sorted[i], tree.ElementAt(i));
+                Assert.AreEqual(i, tree.IndexOf(sorted[i]));
+            }
+
             randomNumbers = Enumerable.Range(1, nodeCount)
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
+            Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Delete(randomNumbers[i]);
+                if (rnd.NextDouble() >= 0.5)
+                {
+                    tree.Delete(randomNumbers[i]);
+                }
+                else
+                {
+                    var index = tree.IndexOf(randomNumbers[i]);
+                    Assert.AreEqual(tree.ElementAt(index), randomNumbers[i]);
+                    tree.RemoveAt(index);
+                }
 
-                Assert.IsTrue(BinarySearchTreeTester<int>.VerifyIsBinarySearchTree(tree.Root, int.MinValue, int.MaxValue));
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+                tree.Root.VerifyCount();
 
                 var actualHeight = tree.GetHeight();
 
@@ -146,9 +164,43 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsTrue(tree.Count == 0);
         }
 
+        [TestMethod]
+        public void AVLTree_BulkInit_Test()
+        {
+            var nodeCount = 1000;
+
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(1, nodeCount).ToList();
+
+            var tree = new AVLTree<int>(randomNumbers);
+
+            Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+            Assert.AreEqual(tree.Count, tree.Count());
+
+            tree.Root.VerifyCount();
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(randomNumbers[i]);
+
+                tree.Root.VerifyCount();
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+
+                var actualHeight = tree.GetHeight();
+
+                //http://stackoverflow.com/questions/30769383/finding-the-minimum-and-maximum-height-in-a-avl-tree-given-a-number-of-nodes
+                var maxHeight = 1.44 * Math.Log(nodeCount + 2, 2) - 0.328;
+
+                Assert.IsTrue(actualHeight < maxHeight);
+
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
+
+            Assert.IsTrue(tree.Count == 0);
+        }
 
         [TestMethod]
-        public void AVLTree_StressTest()
+        public void AVLTree_Stress_Test()
         {
             var nodeCount = 1000 * 10;
 

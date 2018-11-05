@@ -1,0 +1,749 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class OrderedHashSet&lt;T&gt;
+   | Advanced Algorithms </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class OrderedHashSet&lt;T&gt;
+   | Advanced Algorithms ">
+    <meta name="generator" content="docfx 2.40.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1">
+  
+  
+  <h1 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1" class="text-break">Class OrderedHashSet&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>A sorted HashSet implementation using balanced binary search tree. IEnumerable will enumerate in sorted order.
+This may be better than regular HashSet implementation which can give o(K) in worst case (but O(1) amortized when collisions K is avoided).</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">OrderedHashSet&lt;T&gt;</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.Foundation.html">Advanced.Algorithms.DataStructures.Foundation</a></h6>
+  <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
+  <h5 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class OrderedHashSet&lt;T&gt; : IEnumerable&lt;T&gt; where T : IComparable</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The value datatype.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1__ctor" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.#ctor">OrderedHashSet()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrderedHashSet()</code></pre>
+  </div>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1__ctor_IEnumerable__0__" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.#ctor(IEnumerable{`0})">OrderedHashSet(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialize the sorted hashset with given sorted key collection.
+Time complexity: log(n).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrderedHashSet(IEnumerable&lt;T&gt; sortedKeys)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">sortedKeys</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Count_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Count*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Count" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Item_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Item*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Item_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Add_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Add*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Add__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Add(`0)">Add(T)</h4>
+  <div class="markdown level1 summary"><p>Add a new key.
+Time complexity: O(log(n)).
+Returns the position (index) of the key in sorted order of this OrderedHashSet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Add(T key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_AsEnumerableDesc_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.AsEnumerableDesc*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_AsEnumerableDesc" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.AsEnumerableDesc">AsEnumerableDesc()</h4>
+  <div class="markdown level1 summary"><p>Descending enumerable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; AsEnumerableDesc()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Contains_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Contains*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Contains__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Contains(`0)">Contains(T)</h4>
+  <div class="markdown level1 summary"><p>Does this hash table contains the given value.
+Time complexity: O(log(n)).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>True if this hashset contains the given value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_ElementAt_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.ElementAt*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_ElementAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.ElementAt(System.Int32)">ElementAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T ElementAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerator</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_GetEnumeratorDesc_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.GetEnumeratorDesc*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_GetEnumeratorDesc" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.GetEnumeratorDesc">GetEnumeratorDesc()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumeratorDesc()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerator</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_IndexOf_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.IndexOf*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_IndexOf__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.IndexOf(`0)">IndexOf(T)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(T key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Max_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Max*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Max" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Max">Max()</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Max()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Min_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Min*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Min" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Min">Min()</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n)).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Min()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_NextHigher_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.NextHigher*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_NextHigher__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.NextHigher(`0)">NextHigher(T)</h4>
+  <div class="markdown level1 summary"><p>Return the next higher value after given value in this hashset.
+Time complexity: O(log(n)).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T NextHigher(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>Null if the given value does&apos;nt exist or next value does&apos;nt exist.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_NextLower_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.NextLower*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_NextLower__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.NextLower(`0)">NextLower(T)</h4>
+  <div class="markdown level1 summary"><p>Return the next lower value before given value in this HashSet.
+Time complexity: O(log(n)).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T NextLower(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>Null if the given value does&apos;nt exist or previous value does&apos;nt exist.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Remove_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Remove*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_Remove__0_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.Remove(`0)">Remove(T)</h4>
+  <div class="markdown level1 summary"><p>Remove the given key if present.
+Time complexity: O(log(n)).
+Returns the position (index) of the removed key if removed. Otherwise returns -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Remove(T key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_RemoveAt_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.RemoveAt*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedHashSet_1_RemoveAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedHashSet`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Remove the element at given index.
+Time complexity: O(log(n)).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

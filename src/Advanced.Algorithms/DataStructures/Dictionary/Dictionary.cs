@@ -111,18 +111,6 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         int Count { get; }
     }
 
-    internal class DictionaryNode<K, V>
-    {
-        internal K Key;
-        internal V Value;
-
-        internal DictionaryNode(K key, V value)
-        {
-            this.Key = key;
-            this.Value = value;
-        }
-    }
-
     /// <summary>
     /// The dictionary implementation type.
     /// </summary>

@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 {
     internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV> 
     {
-        private DictionaryNode<TK, TV>[] hashArray;
+        private DictionaryKeyValuePair<TK, TV>[] hashArray;
         private int bucketSize => hashArray.Length;
         private readonly int initialBucketSize;
 
@@ -15,7 +15,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         internal OpenAddressDictionary(int initialBucketSize = 2)
         {
             this.initialBucketSize = initialBucketSize;
-            hashArray = new DictionaryNode<TK, TV>[initialBucketSize];
+            hashArray = new DictionaryKeyValuePair<TK, TV>[initialBucketSize];
         }
 
         public TV this[TK key]
@@ -75,7 +75,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
             if (hashArray[index] == null)
             {
-                hashArray[index] = new DictionaryNode<TK, TV>(key, value);
+                hashArray[index] = new DictionaryKeyValuePair<TK, TV>(key, value);
             }
             else
             {
@@ -104,7 +104,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                     }
                 }
 
-                hashArray[index] = new DictionaryNode<TK, TV>(key, value);
+                hashArray[index] = new DictionaryKeyValuePair<TK, TV>(key, value);
             }
 
             Count++;
@@ -127,7 +127,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                 //prevent circling around infinitely
                 var hitKey = current.Key;
 
-                DictionaryNode<TK, TV> target = null;
+                DictionaryKeyValuePair<TK, TV> target = null;
 
                 while (current != null)
                 {
@@ -202,7 +202,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public void Clear()
         {
-            hashArray = new DictionaryNode<TK, TV>[initialBucketSize];
+            hashArray = new DictionaryKeyValuePair<TK, TV>[initialBucketSize];
             Count = 0;
         }
 
@@ -295,7 +295,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                 var currentArray = hashArray;
 
                 //increase array size exponentially on demand
-                hashArray = new DictionaryNode<TK, TV>[bucketSize * 2];
+                hashArray = new DictionaryKeyValuePair<TK, TV>[bucketSize * 2];
 
                 for (int i = 0; i < orgBucketSize; i++)
                 {
@@ -322,7 +322,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                 var currentArray = hashArray;
 
                 //reduce array by half logarithamic
-                hashArray = new DictionaryNode<TK, TV>[bucketSize / 2];
+                hashArray = new DictionaryKeyValuePair<TK, TV>[bucketSize / 2];
 
                 for (int i = 0; i < orgBucketSize; i++)
                 {
@@ -356,16 +356,28 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
     }
 
+    internal class DictionaryKeyValuePair<K, V>
+    {
+        internal K Key;
+        internal V Value;
+
+        internal DictionaryKeyValuePair(K key, V value)
+        {
+            this.Key = key;
+            this.Value = value;
+        }
+    }
+
     internal class OpenAddressDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>> 
     {
-        internal DictionaryNode<TK, TV>[] HashArray;
+        internal DictionaryKeyValuePair<TK, TV>[] HashArray;
 
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         int position = -1;
         private readonly int length;
 
-        internal OpenAddressDictionaryEnumerator(DictionaryNode<TK, TV>[] hashArray, int length)
+        internal OpenAddressDictionaryEnumerator(DictionaryKeyValuePair<TK, TV>[] hashArray, int length)
         {
             this.length = length;
             HashArray = hashArray;

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AVLTree&lt;T&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.40.0.0">
+    <meta name="generator" content="docfx 2.40.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -89,13 +89,18 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">AVLTree&lt;T&gt;</span></div>
+    <div class="level1"><a class="xref" href="Advanced.Algorithms.DataStructures.BSTBase-1.html">BSTBase</a>&lt;T&gt;</div>
+    <div class="level2"><span class="xref">AVLTree&lt;T&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IEnumerable</span>&lt;T&gt;</div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.html">Advanced.Algorithms.DataStructures</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_AVLTree_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AVLTree&lt;T&gt; : IEnumerable&lt;T&gt; where T : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class AVLTree&lt;T&gt; : BSTBase&lt;T&gt;, IEnumerable&lt;T&gt; where T : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -114,6 +119,43 @@
   </table>
   <h3 id="constructors">Constructors
   </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_AVLTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_AVLTree_1__ctor_IEnumerable__0__System_Boolean_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.#ctor(IEnumerable{`0},System.Boolean)">AVLTree(IEnumerable&lt;T&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initialize the BST with given sorted keys.
+Time complexity: O(n).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AVLTree(IEnumerable&lt;T&gt; sortedKeys, bool enableNodeLookUp = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">sortedKeys</span></td>
+        <td><p>The sorted keys.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">enableNodeLookUp</span></td>
+        <td><p>Enabling lookup will fasten deletion/insertion/exists operations
+ at the cost of additional space.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Advanced_Algorithms_DataStructures_AVLTree_1__ctor_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.#ctor*"></a>
@@ -138,7 +180,7 @@
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">enableNodeLookUp</span></td>
         <td><p>Enabling lookup will fasten deletion/insertion/exists operations
- at the cost of additional space.</p>
+at the cost of additional space.</p>
 </td>
       </tr>
     </tbody>
@@ -172,6 +214,32 @@
   </table>
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_AVLTree_1_AsEnumerableDesc_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.AsEnumerableDesc*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_AVLTree_1_AsEnumerableDesc" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.AsEnumerableDesc">AsEnumerableDesc()</h4>
+  <div class="markdown level1 summary"><p>Descending enumerable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; AsEnumerableDesc()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Advanced_Algorithms_DataStructures_AVLTree_1_Contains_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.Contains*"></a>
@@ -239,6 +307,49 @@
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_AVLTree_1_ElementAt_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.ElementAt*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_AVLTree_1_ElementAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.ElementAt(System.Int32)">ElementAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T ElementAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -322,14 +433,13 @@
   </table>
   
   
-  <a id="Advanced_Algorithms_DataStructures_AVLTree_1_GetHeight_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.GetHeight*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_AVLTree_1_GetHeight" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.GetHeight">GetHeight()</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
-</div>
+  <a id="Advanced_Algorithms_DataStructures_AVLTree_1_GetEnumeratorDesc_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumeratorDesc*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_AVLTree_1_GetEnumeratorDesc" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumeratorDesc">GetEnumeratorDesc()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int GetHeight()</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumeratorDesc()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -341,7 +451,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="xref">IEnumerator</span>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -385,6 +495,49 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_AVLTree_1_IndexOf_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.IndexOf*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_AVLTree_1_IndexOf__0_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.IndexOf(`0)">IndexOf(T)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -505,6 +658,53 @@ Time complexity: O(log(n))</p>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_AVLTree_1_RemoveAt_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.RemoveAt*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_AVLTree_1_RemoveAt_System_Int32_" data-uid="Advanced.Algorithms.DataStructures.AVLTree`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(log(n))</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IEnumerable&lt;&gt;</span>
+  </div>
 </article>
           </div>
           

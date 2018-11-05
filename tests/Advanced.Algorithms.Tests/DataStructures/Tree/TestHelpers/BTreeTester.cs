@@ -5,7 +5,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 {
     internal static class BTreeTester
     {
-
         /// <summary>
         /// find max height by recursively visiting children
         /// </summary>

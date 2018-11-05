@@ -21,7 +21,7 @@ namespace Advanced.Algorithms.Graph
 
             //gather all unique edges
             dfs(graph, graph.ReferenceVertex,
-                new BMinHeap<MSTEdge<T, W>>(),
+                new BHeap<MSTEdge<T, W>>(),
                 new HashSet<T>(),
                 edges);
 
@@ -35,7 +35,7 @@ namespace Advanced.Algorithms.Graph
         /// <param name="spanTreeNeighbours"> Use Fibornacci Min Heap to pick smallest edge neighbour </param>
         /// <param name="spanTreeEdges">result MST edges</param>
         private void dfs(WeightedGraph<T, W> graph, WeightedGraphVertex<T, W> currentVertex, 
-            BMinHeap<MSTEdge<T, W>> spanTreeNeighbours, HashSet<T> spanTreeVertices, 
+            BHeap<MSTEdge<T, W>> spanTreeNeighbours, HashSet<T> spanTreeVertices, 
             List<MSTEdge<T, W>> spanTreeEdges)
         {
             while (true)
@@ -48,12 +48,12 @@ namespace Advanced.Algorithms.Graph
                 }
 
                 //pick min edge
-                var minNeighbourEdge = spanTreeNeighbours.ExtractMin();
+                var minNeighbourEdge = spanTreeNeighbours.Extract();
 
                 //skip edges already in MST
                 while (spanTreeVertices.Contains(minNeighbourEdge.Source) && spanTreeVertices.Contains(minNeighbourEdge.Destination))
                 {
-                    minNeighbourEdge = spanTreeNeighbours.ExtractMin();
+                    minNeighbourEdge = spanTreeNeighbours.Extract();
 
                     //if no more neighbours to explore 
                     //time to end exploring
