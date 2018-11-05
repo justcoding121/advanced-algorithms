@@ -43,7 +43,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         ///  Time complexity: O(n)
         /// </summary>
-        public int GetHeight()
+        internal int GetHeight()
         {
             return GetHeight(Root);
         }

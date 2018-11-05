@@ -16,40 +16,40 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             //insert test
             var tree = new BST<int>();
-            Assert.AreEqual(tree.getHeight(), -1);
+            Assert.AreEqual(tree.GetHeight(), -1);
 
             tree.Insert(11);
-            Assert.AreEqual(tree.getHeight(), 0);
+            Assert.AreEqual(tree.GetHeight(), 0);
 
             tree.Insert(6);
-            Assert.AreEqual(tree.getHeight(), 1);
+            Assert.AreEqual(tree.GetHeight(), 1);
 
             tree.Insert(8);
-            Assert.AreEqual(tree.getHeight(), 2);
+            Assert.AreEqual(tree.GetHeight(), 2);
 
             tree.Insert(19);
-            Assert.AreEqual(tree.getHeight(), 2);
+            Assert.AreEqual(tree.GetHeight(), 2);
 
             tree.Insert(4);
-            Assert.AreEqual(tree.getHeight(), 2);
+            Assert.AreEqual(tree.GetHeight(), 2);
 
             tree.Insert(10);
-            Assert.AreEqual(tree.getHeight(), 3);
+            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(5);
-            Assert.AreEqual(tree.getHeight(), 3);
+            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(17);
-            Assert.AreEqual(tree.getHeight(), 3);
+            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(43);
-            Assert.AreEqual(tree.getHeight(), 3);
+            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(49);
-            Assert.AreEqual(tree.getHeight(), 3);
+            Assert.AreEqual(tree.GetHeight(), 3);
 
             tree.Insert(31);
-            Assert.AreEqual(tree.getHeight(), 3);
+            Assert.AreEqual(tree.GetHeight(), 3);
 
             Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
 
@@ -69,7 +69,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Delete(49);
             tree.Delete(31);
 
-            Assert.AreEqual(tree.getHeight(), -1);
+            Assert.AreEqual(tree.GetHeight(), -1);
             Assert.AreEqual(tree.Count, 0);
 
             tree.Insert(31);
