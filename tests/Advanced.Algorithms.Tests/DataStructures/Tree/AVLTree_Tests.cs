@@ -99,7 +99,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var nodeCount = 1000;
 
             var rnd = new Random();
-            var sortedNumbers = Enumerable.Range(1, nodeCount)
+            var sorted = Enumerable.Range(1, nodeCount).ToList();
+            var randomNumbers = sorted
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
@@ -107,9 +108,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Insert(sortedNumbers[i]);
+                tree.Insert(randomNumbers[i]);
 
-                Assert.IsTrue(tree.HasItem(sortedNumbers[i]));
+                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
                 tree.Root.VerifyCount();
 
@@ -122,19 +123,35 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(tree.Count == i + 1);
             }
 
-            sortedNumbers = Enumerable.Range(1, nodeCount)
+            for (int i = 0; i < sorted.Count; i++)
+            {
+                Assert.AreEqual(sorted[i], tree.ElementAt(i));
+                Assert.AreEqual(i, tree.IndexOf(sorted[i]));
+            }
+
+            randomNumbers = Enumerable.Range(1, nodeCount)
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
+            Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Delete(sortedNumbers[i]);
+                if (rnd.NextDouble() >= 0.5)
+                {
+                    tree.Delete(randomNumbers[i]);
+                }
+                else
+                {
+                    var index = tree.IndexOf(randomNumbers[i]);
+                    Assert.AreEqual(tree.ElementAt(index), randomNumbers[i]);
+                    tree.RemoveAt(index);
+                }
 
-                tree.Root.VerifyCount();
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+                tree.Root.VerifyCount();
 
                 var actualHeight = tree.GetHeight();
 

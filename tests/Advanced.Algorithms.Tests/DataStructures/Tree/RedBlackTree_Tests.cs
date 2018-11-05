@@ -87,7 +87,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(i, tree.IndexOf(sorted[i]));
             }
 
-
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
                                    .OrderBy(x => rnd.Next())
@@ -106,6 +105,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 else
                 {
                     var index = tree.IndexOf(randomNumbers[i]);
+                    Assert.AreEqual(tree.ElementAt(index), randomNumbers[i]);
                     tree.RemoveAt(index);
                 }
                 

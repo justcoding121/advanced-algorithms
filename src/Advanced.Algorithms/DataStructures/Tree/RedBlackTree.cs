@@ -381,7 +381,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             if (index < 0 || index >= Count)
             {
-                throw new ArgumentNullException("index");
+                throw new ArgumentException("index");
             }
 
             var node = Root.KthSmallest(index) as RedBlackTreeNode<T>;

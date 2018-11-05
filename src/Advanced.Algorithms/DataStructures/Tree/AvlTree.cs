@@ -33,7 +33,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="sortedKeys">The sorted keys.</param>
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         ///  at the cost of additional space.</param>
-        public AVLTree(IEnumerable<T> sortedKeys, bool enableNodeLookUp = false) 
+        public AVLTree(IEnumerable<T> sortedKeys, bool enableNodeLookUp = false)
             : this(enableNodeLookUp)
         {
             ValidateCollection(sortedKeys);
@@ -43,7 +43,7 @@ namespace Advanced.Algorithms.DataStructures
             assignCount(Root);
         }
 
-     
+
         /// <summary>
         /// Time complexity: O(log(n))
         /// </summary>
@@ -139,6 +139,25 @@ namespace Advanced.Algorithms.DataStructures
             node.UpdateCounts();
         }
 
+        /// <summary>
+        /// </summary>
+        public int IndexOf(T item)
+        {
+            return Root.Position(item);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T ElementAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentNullException("index");
+            }
+
+            return Root.KthSmallest(index).Value;
+        }
 
         /// <summary>
         /// Time complexity: O(log(n)).
@@ -159,8 +178,37 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        
-        private void delete(AVLTreeNode<T> node, T value)
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T RemoveAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentException("index");
+            }
+
+            var nodeToDelete = Root.KthSmallest(index) as AVLTreeNode<T>;
+            var nodeToBalance = delete(nodeToDelete, nodeToDelete.Value);
+
+            while (nodeToBalance != null)
+            {
+                nodeToBalance.UpdateCounts();
+                updateHeight(nodeToBalance);
+                balance(nodeToBalance);
+
+                nodeToBalance = nodeToBalance.Parent;
+            }
+
+            if (nodeLookUp != null)
+            {
+                nodeLookUp.Remove(nodeToDelete.Value);
+            }
+
+            return nodeToDelete.Value;
+        }
+
+        private AVLTreeNode<T> delete(AVLTreeNode<T> node, T value)
         {
             var baseCase = false;
 
@@ -289,14 +337,15 @@ namespace Advanced.Algorithms.DataStructures
                 node.Parent.UpdateCounts();
                 updateHeight(node.Parent);
                 balance(node.Parent);
+                return node.Parent;
             }
             else
             {
                 node.UpdateCounts();
                 updateHeight(node);
                 balance(node);
+                return node;
             }
-
         }
 
         /// <summary>
@@ -306,7 +355,6 @@ namespace Advanced.Algorithms.DataStructures
         {
             return findMax(Root).Value;
         }
-
 
         private AVLTreeNode<T> findMax(AVLTreeNode<T> node)
         {
@@ -565,7 +613,7 @@ namespace Advanced.Algorithms.DataStructures
 
         private void recomputeHeight(AVLTreeNode<T> node)
         {
-            if(node == null)
+            if (node == null)
             {
                 return;
             }
@@ -627,6 +675,19 @@ namespace Advanced.Algorithms.DataStructures
                 nodeLookUp[node1.Value] = node1;
                 nodeLookUp[node2.Value] = node2;
             }
+        }
+
+        /// <summary>
+        /// Descending enumerable.
+        /// </summary>
+        public IEnumerable<T> AsEnumerableDesc()
+        {
+            return GetEnumeratorDesc().AsEnumerable();
+        }
+
+        public IEnumerator<T> GetEnumeratorDesc()
+        {
+            return new BSTEnumerator<T>(Root, false);
         }
 
         //Implementation for the GetEnumerator method.
