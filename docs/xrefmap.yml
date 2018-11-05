@@ -223,6 +223,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).AVLTree
   nameWithType: AVLTree<T>.AVLTree
   nameWithType.vb: AVLTree(Of T).AVLTree
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.AsEnumerableDesc
+  name: AsEnumerableDesc()
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_AsEnumerableDesc
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.AsEnumerableDesc
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.AsEnumerableDesc()
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).AsEnumerableDesc()
+  nameWithType: AVLTree<T>.AsEnumerableDesc()
+  nameWithType.vb: AVLTree(Of T).AsEnumerableDesc()
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.AsEnumerableDesc*
+  name: AsEnumerableDesc
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_AsEnumerableDesc_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.AsEnumerableDesc
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.AsEnumerableDesc
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).AsEnumerableDesc
+  nameWithType: AVLTree<T>.AsEnumerableDesc
+  nameWithType.vb: AVLTree(Of T).AsEnumerableDesc
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.Contains(`0)
   name: Contains(T)
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Contains__0_
@@ -274,6 +291,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).Delete
   nameWithType: AVLTree<T>.Delete
   nameWithType.vb: AVLTree(Of T).Delete
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.ElementAt(System.Int32)
+  name: ElementAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_ElementAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.ElementAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.ElementAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).ElementAt(System.Int32)
+  nameWithType: AVLTree<T>.ElementAt(Int32)
+  nameWithType.vb: AVLTree(Of T).ElementAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.ElementAt*
+  name: ElementAt
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_ElementAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.ElementAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.ElementAt
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).ElementAt
+  nameWithType: AVLTree<T>.ElementAt
+  nameWithType.vb: AVLTree(Of T).ElementAt
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.FindMax
   name: FindMax()
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_FindMax
@@ -325,6 +359,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).GetEnumerator
   nameWithType: AVLTree<T>.GetEnumerator
   nameWithType.vb: AVLTree(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumeratorDesc
+  name: GetEnumeratorDesc()
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_GetEnumeratorDesc
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumeratorDesc
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.GetEnumeratorDesc()
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).GetEnumeratorDesc()
+  nameWithType: AVLTree<T>.GetEnumeratorDesc()
+  nameWithType.vb: AVLTree(Of T).GetEnumeratorDesc()
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumeratorDesc*
+  name: GetEnumeratorDesc
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_GetEnumeratorDesc_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.GetEnumeratorDesc
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.GetEnumeratorDesc
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).GetEnumeratorDesc
+  nameWithType: AVLTree<T>.GetEnumeratorDesc
+  nameWithType.vb: AVLTree(Of T).GetEnumeratorDesc
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.GetHeight
   name: GetHeight()
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_GetHeight
@@ -359,6 +410,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).HasItem
   nameWithType: AVLTree<T>.HasItem
   nameWithType.vb: AVLTree(Of T).HasItem
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.IndexOf(`0)
+  name: IndexOf(T)
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_IndexOf__0_
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.IndexOf(`0)
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.IndexOf(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).IndexOf(T)
+  nameWithType: AVLTree<T>.IndexOf(T)
+  nameWithType.vb: AVLTree(Of T).IndexOf(T)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.IndexOf*
+  name: IndexOf
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_IndexOf_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.IndexOf
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.IndexOf
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).IndexOf
+  nameWithType: AVLTree<T>.IndexOf
+  nameWithType.vb: AVLTree(Of T).IndexOf
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.Insert(`0)
   name: Insert(T)
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_Insert__0_
@@ -410,6 +478,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).NextLower
   nameWithType: AVLTree<T>.NextLower
   nameWithType.vb: AVLTree(Of T).NextLower
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.RemoveAt(System.Int32)
+  name: RemoveAt(Int32)
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_RemoveAt_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.RemoveAt(System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.RemoveAt(System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).RemoveAt(System.Int32)
+  nameWithType: AVLTree<T>.RemoveAt(Int32)
+  nameWithType.vb: AVLTree(Of T).RemoveAt(Int32)
+- uid: Advanced.Algorithms.DataStructures.AVLTree`1.RemoveAt*
+  name: RemoveAt
+  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_RemoveAt_
+  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.RemoveAt
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.RemoveAt
+  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).RemoveAt
+  nameWithType: AVLTree<T>.RemoveAt
+  nameWithType.vb: AVLTree(Of T).RemoveAt
 - uid: Advanced.Algorithms.DataStructures.BHeap`1
   name: BHeap<T>
   href: api/Advanced.Algorithms.DataStructures.BHeap-1.html
