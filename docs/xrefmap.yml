@@ -376,23 +376,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).GetEnumeratorDesc
   nameWithType: AVLTree<T>.GetEnumeratorDesc
   nameWithType.vb: AVLTree(Of T).GetEnumeratorDesc
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.GetHeight
-  name: GetHeight()
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_GetHeight
-  commentId: M:Advanced.Algorithms.DataStructures.AVLTree`1.GetHeight
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.GetHeight()
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).GetHeight()
-  nameWithType: AVLTree<T>.GetHeight()
-  nameWithType.vb: AVLTree(Of T).GetHeight()
-- uid: Advanced.Algorithms.DataStructures.AVLTree`1.GetHeight*
-  name: GetHeight
-  href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_GetHeight_
-  commentId: Overload:Advanced.Algorithms.DataStructures.AVLTree`1.GetHeight
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.AVLTree<T>.GetHeight
-  fullName.vb: Advanced.Algorithms.DataStructures.AVLTree(Of T).GetHeight
-  nameWithType: AVLTree<T>.GetHeight
-  nameWithType.vb: AVLTree(Of T).GetHeight
 - uid: Advanced.Algorithms.DataStructures.AVLTree`1.HasItem(`0)
   name: HasItem(T)
   href: api/Advanced.Algorithms.DataStructures.AVLTree-1.html#Advanced_Algorithms_DataStructures_AVLTree_1_HasItem__0_
@@ -1317,23 +1300,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).GetEnumeratorDesc
   nameWithType: BST<T>.GetEnumeratorDesc
   nameWithType.vb: BST(Of T).GetEnumeratorDesc
-- uid: Advanced.Algorithms.DataStructures.BST`1.getHeight
-  name: getHeight()
-  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_getHeight
-  commentId: M:Advanced.Algorithms.DataStructures.BST`1.getHeight
-  fullName: Advanced.Algorithms.DataStructures.BST<T>.getHeight()
-  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).getHeight()
-  nameWithType: BST<T>.getHeight()
-  nameWithType.vb: BST(Of T).getHeight()
-- uid: Advanced.Algorithms.DataStructures.BST`1.getHeight*
-  name: getHeight
-  href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_getHeight_
-  commentId: Overload:Advanced.Algorithms.DataStructures.BST`1.getHeight
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.BST<T>.getHeight
-  fullName.vb: Advanced.Algorithms.DataStructures.BST(Of T).getHeight
-  nameWithType: BST<T>.getHeight
-  nameWithType.vb: BST(Of T).getHeight
 - uid: Advanced.Algorithms.DataStructures.BST`1.HasItem(`0)
   name: HasItem(T)
   href: api/Advanced.Algorithms.DataStructures.BST-1.html#Advanced_Algorithms_DataStructures_BST_1_HasItem__0_
@@ -7362,23 +7328,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).GetEnumeratorDesc
   nameWithType: SplayTree<T>.GetEnumeratorDesc
   nameWithType.vb: SplayTree(Of T).GetEnumeratorDesc
-- uid: Advanced.Algorithms.DataStructures.SplayTree`1.GetHeight
-  name: GetHeight()
-  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_GetHeight
-  commentId: M:Advanced.Algorithms.DataStructures.SplayTree`1.GetHeight
-  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.GetHeight()
-  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).GetHeight()
-  nameWithType: SplayTree<T>.GetHeight()
-  nameWithType.vb: SplayTree(Of T).GetHeight()
-- uid: Advanced.Algorithms.DataStructures.SplayTree`1.GetHeight*
-  name: GetHeight
-  href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_GetHeight_
-  commentId: Overload:Advanced.Algorithms.DataStructures.SplayTree`1.GetHeight
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.SplayTree<T>.GetHeight
-  fullName.vb: Advanced.Algorithms.DataStructures.SplayTree(Of T).GetHeight
-  nameWithType: SplayTree<T>.GetHeight
-  nameWithType.vb: SplayTree(Of T).GetHeight
 - uid: Advanced.Algorithms.DataStructures.SplayTree`1.HasItem(`0)
   name: HasItem(T)
   href: api/Advanced.Algorithms.DataStructures.SplayTree-1.html#Advanced_Algorithms_DataStructures_SplayTree_1_HasItem__0_
@@ -7934,23 +7883,6 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).GetEnumeratorDesc
   nameWithType: TreapTree<T>.GetEnumeratorDesc
   nameWithType.vb: TreapTree(Of T).GetEnumeratorDesc
-- uid: Advanced.Algorithms.DataStructures.TreapTree`1.GetHeight
-  name: GetHeight()
-  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_GetHeight
-  commentId: M:Advanced.Algorithms.DataStructures.TreapTree`1.GetHeight
-  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.GetHeight()
-  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).GetHeight()
-  nameWithType: TreapTree<T>.GetHeight()
-  nameWithType.vb: TreapTree(Of T).GetHeight()
-- uid: Advanced.Algorithms.DataStructures.TreapTree`1.GetHeight*
-  name: GetHeight
-  href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_GetHeight_
-  commentId: Overload:Advanced.Algorithms.DataStructures.TreapTree`1.GetHeight
-  isSpec: "True"
-  fullName: Advanced.Algorithms.DataStructures.TreapTree<T>.GetHeight
-  fullName.vb: Advanced.Algorithms.DataStructures.TreapTree(Of T).GetHeight
-  nameWithType: TreapTree<T>.GetHeight
-  nameWithType.vb: TreapTree(Of T).GetHeight
 - uid: Advanced.Algorithms.DataStructures.TreapTree`1.HasItem(`0)
   name: HasItem(T)
   href: api/Advanced.Algorithms.DataStructures.TreapTree-1.html#Advanced_Algorithms_DataStructures_TreapTree_1_HasItem__0_
