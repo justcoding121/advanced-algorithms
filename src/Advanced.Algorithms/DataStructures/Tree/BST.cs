@@ -89,6 +89,8 @@ namespace Advanced.Algorithms.DataStructures
             newNode.UpdateCounts(true);
         }
 
+
+
         //worst O(n) for unbalanced tree
         private BSTNode<T> insert(BSTNode<T> currentNode, T newNodeValue)
         {
@@ -130,6 +132,28 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        // <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
+        public int IndexOf(T item)
+        {
+            return Root.Position(item);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
+        public T ElementAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentNullException("index");
+            }
+
+            return Root.KthSmallest(index).Value;
+        }
+
+
         /// <summary>
         /// Time complexity: O(n)
         /// </summary>
@@ -142,6 +166,24 @@ namespace Advanced.Algorithms.DataStructures
 
             var deleted = delete(Root, value);
             deleted.UpdateCounts(true);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(n)
+        /// </summary>
+        public T RemoveAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentException("index");
+            }
+
+            var nodeToDelete = Root.KthSmallest(index) as BSTNode<T>;
+
+            var deleted = delete(nodeToDelete, nodeToDelete.Value);
+            deleted.UpdateCounts(true);
+
+            return nodeToDelete.Value;
         }
 
         //worst O(n) for unbalanced tree
@@ -194,7 +236,7 @@ namespace Advanced.Algorithms.DataStructures
                     deleteRightNode(node);
                     return node;
                 }
-              
+
                 //case three - two child trees 
                 //replace the node value with maximum element of left subtree (left max node)
                 //and then delete the left max node
@@ -386,6 +428,19 @@ namespace Advanced.Algorithms.DataStructures
 
             var next = (node as BSTNodeBase<T>).NextHigher();
             return next != null ? next.Value : default(T);
+        }
+
+        /// <summary>
+        /// Descending enumerable.
+        /// </summary>
+        public IEnumerable<T> AsEnumerableDesc()
+        {
+            return GetEnumeratorDesc().AsEnumerable();
+        }
+
+        public IEnumerator<T> GetEnumeratorDesc()
+        {
+            return new BSTEnumerator<T>(Root, false);
         }
 
         //Implementation for the GetEnumerator method.

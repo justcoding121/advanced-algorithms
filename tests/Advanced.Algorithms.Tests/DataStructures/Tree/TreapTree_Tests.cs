@@ -81,7 +81,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var nodeCount = 1000;
 
             var rnd = new Random();
-            var randomNumbers = Enumerable.Range(1, nodeCount)
+            var sorted = Enumerable.Range(1, nodeCount).ToList();
+            var randomNumbers = sorted
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
@@ -94,6 +95,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(tree.Count == i + 1);
             }
 
+            for (int i = 0; i < sorted.Count; i++)
+            {
+                Assert.AreEqual(sorted[i], tree.ElementAt(i));
+                Assert.AreEqual(i, tree.IndexOf(sorted[i]));
+            }
 
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
@@ -102,10 +108,21 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
+            Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Delete(randomNumbers[i]);
+                if (rnd.NextDouble() >= 0.5)
+                {
+                    tree.Delete(randomNumbers[i]);
+                }
+                else
+                {
+                    var index = tree.IndexOf(randomNumbers[i]);
+                    Assert.AreEqual(tree.ElementAt(index), randomNumbers[i]);
+                    tree.RemoveAt(index);
+                }
+
                 tree.Root.VerifyCount();
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
             }
@@ -127,7 +144,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Insert(randomNumbers[i]);   
+                tree.Insert(randomNumbers[i]);
                 Assert.IsTrue(tree.Count == i + 1);
             }
 

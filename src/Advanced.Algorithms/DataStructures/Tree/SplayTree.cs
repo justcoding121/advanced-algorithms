@@ -114,6 +114,27 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public int IndexOf(T item)
+        {
+            return Root.Position(item);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T ElementAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentNullException("index");
+            }
+
+            return Root.KthSmallest(index).Value;
+        }
+
+        /// <summary>
         ///  Time complexity: O(n)
         /// </summary>
         public void Delete(T value)
@@ -124,6 +145,23 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             delete(Root, value);
+        }
+
+        /// <summary>
+        ///  Time complexity: O(log(n))
+        /// </summary>
+        public T RemoveAt(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentException("index");
+            }
+
+            var nodeToDelete = Root.KthSmallest(index) as SplayTreeNode<T>;
+
+            delete(nodeToDelete, nodeToDelete.Value);
+
+            return nodeToDelete.Value;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -489,6 +527,19 @@ namespace Advanced.Algorithms.DataStructures
 
             var next = (node as BSTNodeBase<T>).NextHigher();
             return next != null ? next.Value : default(T);
+        }
+
+        /// <summary>
+        /// Descending enumerable.
+        /// </summary>
+        public IEnumerable<T> AsEnumerableDesc()
+        {
+            return GetEnumeratorDesc().AsEnumerable();
+        }
+
+        public IEnumerator<T> GetEnumeratorDesc()
+        {
+            return new BSTEnumerator<T>(Root, false);
         }
 
         //Implementation for the GetEnumerator method.
