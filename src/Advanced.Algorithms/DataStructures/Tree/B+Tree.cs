@@ -16,7 +16,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Keep a reference of Bottom Left/Right Node
         /// for fast ascending/descending enumeration using Next pointer.
-        /// See IEnumerable & IEnumerableDesc implementation at bottom.
+        /// See IEnumerable and IEnumerableDesc implementation at bottom.
         /// </summary>
         internal BpTreeNode<T> BottomLeftNode;
         internal BpTreeNode<T> BottomRightNode;
