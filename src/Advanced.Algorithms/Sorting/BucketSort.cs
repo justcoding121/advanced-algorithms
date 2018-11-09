@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Sort given integers using bucket sort with merge sort as sub sort.
         /// </summary>
-        public static int[] Sort(int[] array, int bucketSize, Order order = Order.Ascending)
+        public static int[] Sort(int[] array, int bucketSize, SortDirection sortDirection = SortDirection.Ascending)
         {
             if (bucketSize < 0 || bucketSize > array.Length)
             {
@@ -45,13 +45,13 @@ namespace Advanced.Algorithms.Sorting
             foreach (var bucket in buckets.ToList())
             {
                 buckets[bucket.Key] = new List<int>(MergeSort<int>
-                                            .Sort(bucket.Value.ToArray(), order));
+                                            .Sort(bucket.Value.ToArray(), sortDirection));
 
                 bucketKeys[i] = bucket.Key;
                 i++;
             }
 
-            bucketKeys = MergeSort<int>.Sort(bucketKeys, order);
+            bucketKeys = MergeSort<int>.Sort(bucketKeys, sortDirection);
 
             var result = new int[array.Length];
 

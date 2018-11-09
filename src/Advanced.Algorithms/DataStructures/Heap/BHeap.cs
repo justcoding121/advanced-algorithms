@@ -17,30 +17,30 @@ namespace Advanced.Algorithms.DataStructures
 
         public int Count { get; private set; }
 
-        public BHeap(Order order = Order.Ascending)
-            : this(order, null, null) { }
+        public BHeap(SortDirection sortDirection = SortDirection.Ascending)
+            : this(sortDirection, null, null) { }
 
-        public BHeap(Order order, IEnumerable<T> initial)
-            : this(order, initial, null) { }
+        public BHeap(SortDirection sortDirection, IEnumerable<T> initial)
+            : this(sortDirection, initial, null) { }
 
-        public BHeap(Order order, IComparer<T> comparer)
-            : this(order, null, comparer) { }
+        public BHeap(SortDirection sortDirection, IComparer<T> comparer)
+            : this(sortDirection, null, comparer) { }
 
         /// <summary>
         /// Time complexity: O(n) if initial is provided. Otherwise O(1).
         /// </summary>
         /// <param name="initial">The initial items in the heap.</param>
-        public BHeap(Order order, IEnumerable<T> initial, IComparer<T> comparer)
+        public BHeap(SortDirection sortDirection, IEnumerable<T> initial, IComparer<T> comparer)
         {
-            this.isMaxHeap = order == Order.Descending;
+            this.isMaxHeap = sortDirection == SortDirection.Descending;
 
             if (comparer != null)
             {
-                this.comparer = new CustomComparer<T>(order, comparer);
+                this.comparer = new CustomComparer<T>(sortDirection, comparer);
             }
             else
             {
-                this.comparer = new CustomComparer<T>(order, Comparer<T>.Default);
+                this.comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
             }
 
             if (initial != null)

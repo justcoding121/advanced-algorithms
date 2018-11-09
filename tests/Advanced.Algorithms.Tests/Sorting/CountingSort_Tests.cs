@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.Tests.Sorting
         [TestMethod]
         public void CountingSort_Descending_Smoke_Test()
         {
-            var result = CountingSort.Sort(testArray, Order.Descending);
+            var result = CountingSort.Sort(testArray, SortDirection.Descending);
 
             for (int i = 0; i < testArray.Length; i++)
             {
@@ -59,7 +59,7 @@ namespace Advanced.Algorithms.Tests.Sorting
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var result = CountingSort.Sort(randomNumbers.ToArray(), Order.Descending);
+            var result = CountingSort.Sort(randomNumbers.ToArray(), SortDirection.Descending);
 
             for (int i = 0; i < nodeCount; i++)
             {

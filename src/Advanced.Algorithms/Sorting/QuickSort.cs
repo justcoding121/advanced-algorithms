@@ -11,14 +11,14 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(n^2)
         /// </summary>
-        public static T[] Sort(T[] array, Order order = Order.Ascending)
+        public static T[] Sort(T[] array, SortDirection sortDirection = SortDirection.Ascending)
         {
             if (array.Length <= 1)
             {
                 return array;
             }
 
-            var comparer = new CustomComparer<T>(order, Comparer<T>.Default);
+            var comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
 
             sort(array, 0, array.Length - 1, comparer);
 

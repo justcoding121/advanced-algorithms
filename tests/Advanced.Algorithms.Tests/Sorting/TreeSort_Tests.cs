@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Tests.Sorting
         [TestMethod]
         public void TreeSort_Ascending_Smoke_Test()
         {
-            var result = TreeSort<int>.Sort(testArray);
+            var result = TreeSort<int>.Sort(testArray).ToArray();
 
             for (int i = 0; i < testArray.Length; i++)
             {
@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.Tests.Sorting
         [TestMethod]
         public void TreeSort_Descending_Smoke_Test()
         {
-            var result = TreeSort<int>.Sort(testArray, Order.Descending);
+            var result = TreeSort<int>.Sort(testArray, SortDirection.Descending).ToArray();
 
             for (int i = 0; i < testArray.Length; i++)
             {
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.Tests.Sorting
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var result = TreeSort<int>.Sort(randomNumbers.ToArray());
+            var result = TreeSort<int>.Sort(randomNumbers).ToArray();
 
             for (int i = 1; i <= nodeCount; i++)
             {
@@ -59,7 +59,7 @@ namespace Advanced.Algorithms.Tests.Sorting
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var result = TreeSort<int>.Sort(randomNumbers.ToArray(), Order.Descending);
+            var result = TreeSort<int>.Sort(randomNumbers, SortDirection.Descending).ToArray();
 
             for (int i = 0; i < nodeCount; i++)
             {

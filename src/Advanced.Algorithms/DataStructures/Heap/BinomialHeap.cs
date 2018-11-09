@@ -21,10 +21,10 @@ namespace Advanced.Algorithms.DataStructures
 
         public int Count { get; private set; }
 
-        public BinomialHeap(Order order = Order.Ascending)
+        public BinomialHeap(SortDirection sortDirection = SortDirection.Ascending)
         {
-            this.isMaxHeap = order == Order.Descending;
-            comparer = new CustomComparer<T>(order, Comparer<T>.Default);
+            this.isMaxHeap = sortDirection == SortDirection.Descending;
+            comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
         }
 
         /// <summary>

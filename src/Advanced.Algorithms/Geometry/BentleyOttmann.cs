@@ -66,7 +66,7 @@ namespace Advanced.Algorithms.Geometry
                                     x.Value
                                 }), new PointComparer());
 
-            eventQueue = new BHeap<Event>(Order.Ascending, eventQueueLookUp, new EventQueueComparer());
+            eventQueue = new BHeap<Event>(SortDirection.Ascending, eventQueueLookUp, new EventQueueComparer());
         }
 
         public Dictionary<Point, List<Line>> FindIntersections(IEnumerable<Line> lineSegments)
