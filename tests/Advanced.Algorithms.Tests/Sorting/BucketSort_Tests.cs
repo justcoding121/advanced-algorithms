@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.Tests.Sorting
         [TestMethod]
         public void BucketSort_Descending_Smoke_Test()
         {
-            var result = BucketSort.Sort(testArray, 11, Order.Descending);
+            var result = BucketSort.Sort(testArray, 11, SortDirection.Descending);
 
             for (int i = 0; i < testArray.Length; i++)
             {
@@ -59,7 +59,7 @@ namespace Advanced.Algorithms.Tests.Sorting
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var result = BucketSort.Sort(randomNumbers.ToArray(), 4, Order.Descending);
+            var result = BucketSort.Sort(randomNumbers.ToArray(), 4, SortDirection.Descending);
 
             for (int i = 0; i < nodeCount; i++)
             {

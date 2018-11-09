@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var initial = Enumerable.Range(0, 51).OrderBy(x => rnd.Next()).ToList();
 
 
-            var minHeap = new DaryHeap<int>(4, Order.Ascending, initial);
+            var minHeap = new DaryHeap<int>(4, SortDirection.Ascending, initial);
 
             for (int i = 51; i <= 99; i++)
             {
@@ -59,7 +59,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var initial = new List<int>(Enumerable.Range(0, 51)
                 .OrderBy(x => rnd.Next()));
 
-            var maxHeap = new DaryHeap<int>(4, Order.Descending, initial);
+            var maxHeap = new DaryHeap<int>(4, SortDirection.Descending, initial);
             for (int i = 51; i <= 99; i++)
             {
                 maxHeap.Insert(i);

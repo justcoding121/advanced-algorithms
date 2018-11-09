@@ -60,7 +60,7 @@ namespace Advanced.Algorithms.Search
                 return input[left];
             }
 
-            var comparer = new CustomComparer<T>(Order.Ascending, Comparer<T>.Default);
+            var comparer = new CustomComparer<T>(SortDirection.Ascending, Comparer<T>.Default);
 
             var size = 5;
             var currentLeft = left;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms
 {
-    public enum Order
+    public enum SortDirection
     {
         Ascending = 0,
         Descending = 1

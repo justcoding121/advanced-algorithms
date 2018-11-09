@@ -22,10 +22,10 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="k">The number of children per heap node.</param>
         /// <param name="initial">The initial items if any.</param>
-        public DaryHeap(int k, Order order = Order.Ascending, IEnumerable<T> initial = null)
+        public DaryHeap(int k, SortDirection sortDirection = SortDirection.Ascending, IEnumerable<T> initial = null)
         {
-            this.isMaxHeap = order == Order.Descending;
-            comparer = new CustomComparer<T>(order, Comparer<T>.Default);
+            this.isMaxHeap = sortDirection == SortDirection.Descending;
+            comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
 
             if (k <= 2)
             {

@@ -487,41 +487,41 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T)
   nameWithType: BHeap<T>
   nameWithType.vb: BHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(Order)
-  name: BHeap(Order)
-  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_Order_
-  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(Order)
-  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(Order)
-  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(Order)
-  nameWithType: BHeap<T>.BHeap(Order)
-  nameWithType.vb: BHeap(Of T).BHeap(Order)
-- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(Order,IComparer{`0})
-  name: BHeap(Order, IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_Order_IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(Order,IComparer{`0})
-  name.vb: BHeap(Order, IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(Order, IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(Order, IComparer(Of T))
-  nameWithType: BHeap<T>.BHeap(Order, IComparer<T>)
-  nameWithType.vb: BHeap(Of T).BHeap(Order, IComparer(Of T))
-- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(Order,IEnumerable{`0})
-  name: BHeap(Order, IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_Order_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(Order,IEnumerable{`0})
-  name.vb: BHeap(Order, IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(Order, IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(Order, IEnumerable(Of T))
-  nameWithType: BHeap<T>.BHeap(Order, IEnumerable<T>)
-  nameWithType.vb: BHeap(Of T).BHeap(Order, IEnumerable(Of T))
-- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(Order,IEnumerable{`0},IComparer{`0})
-  name: BHeap(Order, IEnumerable<T>, IComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_Order_IEnumerable__0__IComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(Order,IEnumerable{`0},IComparer{`0})
-  name.vb: BHeap(Order, IEnumerable(Of T), IComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(Order, IEnumerable<T>, IComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(Order, IEnumerable(Of T), IComparer(Of T))
-  nameWithType: BHeap<T>.BHeap(Order, IEnumerable<T>, IComparer<T>)
-  nameWithType.vb: BHeap(Of T).BHeap(Order, IEnumerable(Of T), IComparer(Of T))
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(SortDirection)
+  name: BHeap(SortDirection)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_SortDirection_
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(SortDirection)
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(SortDirection)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(SortDirection)
+  nameWithType: BHeap<T>.BHeap(SortDirection)
+  nameWithType.vb: BHeap(Of T).BHeap(SortDirection)
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(SortDirection,IComparer{`0})
+  name: BHeap(SortDirection, IComparer<T>)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_SortDirection_IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(SortDirection,IComparer{`0})
+  name.vb: BHeap(SortDirection, IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(SortDirection, IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(SortDirection, IComparer(Of T))
+  nameWithType: BHeap<T>.BHeap(SortDirection, IComparer<T>)
+  nameWithType.vb: BHeap(Of T).BHeap(SortDirection, IComparer(Of T))
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(SortDirection,IEnumerable{`0})
+  name: BHeap(SortDirection, IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_SortDirection_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(SortDirection,IEnumerable{`0})
+  name.vb: BHeap(SortDirection, IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(SortDirection, IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(SortDirection, IEnumerable(Of T))
+  nameWithType: BHeap<T>.BHeap(SortDirection, IEnumerable<T>)
+  nameWithType.vb: BHeap(Of T).BHeap(SortDirection, IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor(SortDirection,IEnumerable{`0},IComparer{`0})
+  name: BHeap(SortDirection, IEnumerable<T>, IComparer<T>)
+  href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_SortDirection_IEnumerable__0__IComparer__0__
+  commentId: M:Advanced.Algorithms.DataStructures.BHeap`1.#ctor(SortDirection,IEnumerable{`0},IComparer{`0})
+  name.vb: BHeap(SortDirection, IEnumerable(Of T), IComparer(Of T))
+  fullName: Advanced.Algorithms.DataStructures.BHeap<T>.BHeap(SortDirection, IEnumerable<T>, IComparer<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.BHeap(Of T).BHeap(SortDirection, IEnumerable(Of T), IComparer(Of T))
+  nameWithType: BHeap<T>.BHeap(SortDirection, IEnumerable<T>, IComparer<T>)
+  nameWithType.vb: BHeap(Of T).BHeap(SortDirection, IEnumerable(Of T), IComparer(Of T))
 - uid: Advanced.Algorithms.DataStructures.BHeap`1.#ctor*
   name: BHeap
   href: api/Advanced.Algorithms.DataStructures.BHeap-1.html#Advanced_Algorithms_DataStructures_BHeap_1__ctor_
@@ -787,14 +787,14 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T)
   nameWithType: BinomialHeap<T>
   nameWithType.vb: BinomialHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.#ctor(Order)
-  name: BinomialHeap(Order)
-  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1__ctor_Order_
-  commentId: M:Advanced.Algorithms.DataStructures.BinomialHeap`1.#ctor(Order)
-  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.BinomialHeap(Order)
-  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).BinomialHeap(Order)
-  nameWithType: BinomialHeap<T>.BinomialHeap(Order)
-  nameWithType.vb: BinomialHeap(Of T).BinomialHeap(Order)
+- uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.#ctor(SortDirection)
+  name: BinomialHeap(SortDirection)
+  href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1__ctor_SortDirection_
+  commentId: M:Advanced.Algorithms.DataStructures.BinomialHeap`1.#ctor(SortDirection)
+  fullName: Advanced.Algorithms.DataStructures.BinomialHeap<T>.BinomialHeap(SortDirection)
+  fullName.vb: Advanced.Algorithms.DataStructures.BinomialHeap(Of T).BinomialHeap(SortDirection)
+  nameWithType: BinomialHeap<T>.BinomialHeap(SortDirection)
+  nameWithType.vb: BinomialHeap(Of T).BinomialHeap(SortDirection)
 - uid: Advanced.Algorithms.DataStructures.BinomialHeap`1.#ctor*
   name: BinomialHeap
   href: api/Advanced.Algorithms.DataStructures.BinomialHeap-1.html#Advanced_Algorithms_DataStructures_BinomialHeap_1__ctor_
@@ -1744,15 +1744,15 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T)
   nameWithType: DaryHeap<T>
   nameWithType.vb: DaryHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.#ctor(System.Int32,Order,IEnumerable{`0})
-  name: DaryHeap(Int32, Order, IEnumerable<T>)
-  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1__ctor_System_Int32_Order_IEnumerable__0__
-  commentId: M:Advanced.Algorithms.DataStructures.DaryHeap`1.#ctor(System.Int32,Order,IEnumerable{`0})
-  name.vb: DaryHeap(Int32, Order, IEnumerable(Of T))
-  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.DaryHeap(System.Int32, Order, IEnumerable<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).DaryHeap(System.Int32, Order, IEnumerable(Of T))
-  nameWithType: DaryHeap<T>.DaryHeap(Int32, Order, IEnumerable<T>)
-  nameWithType.vb: DaryHeap(Of T).DaryHeap(Int32, Order, IEnumerable(Of T))
+- uid: Advanced.Algorithms.DataStructures.DaryHeap`1.#ctor(System.Int32,SortDirection,IEnumerable{`0})
+  name: DaryHeap(Int32, SortDirection, IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1__ctor_System_Int32_SortDirection_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.DaryHeap`1.#ctor(System.Int32,SortDirection,IEnumerable{`0})
+  name.vb: DaryHeap(Int32, SortDirection, IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.DaryHeap<T>.DaryHeap(System.Int32, SortDirection, IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.DaryHeap(Of T).DaryHeap(System.Int32, SortDirection, IEnumerable(Of T))
+  nameWithType: DaryHeap<T>.DaryHeap(Int32, SortDirection, IEnumerable<T>)
+  nameWithType.vb: DaryHeap(Of T).DaryHeap(Int32, SortDirection, IEnumerable(Of T))
 - uid: Advanced.Algorithms.DataStructures.DaryHeap`1.#ctor*
   name: DaryHeap
   href: api/Advanced.Algorithms.DataStructures.DaryHeap-1.html#Advanced_Algorithms_DataStructures_DaryHeap_1__ctor_
@@ -2258,14 +2258,14 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T)
   nameWithType: FibornacciHeap<T>
   nameWithType.vb: FibornacciHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.#ctor(Order)
-  name: FibornacciHeap(Order)
-  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1__ctor_Order_
-  commentId: M:Advanced.Algorithms.DataStructures.FibornacciHeap`1.#ctor(Order)
-  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.FibornacciHeap(Order)
-  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).FibornacciHeap(Order)
-  nameWithType: FibornacciHeap<T>.FibornacciHeap(Order)
-  nameWithType.vb: FibornacciHeap(Of T).FibornacciHeap(Order)
+- uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.#ctor(SortDirection)
+  name: FibornacciHeap(SortDirection)
+  href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1__ctor_SortDirection_
+  commentId: M:Advanced.Algorithms.DataStructures.FibornacciHeap`1.#ctor(SortDirection)
+  fullName: Advanced.Algorithms.DataStructures.FibornacciHeap<T>.FibornacciHeap(SortDirection)
+  fullName.vb: Advanced.Algorithms.DataStructures.FibornacciHeap(Of T).FibornacciHeap(SortDirection)
+  nameWithType: FibornacciHeap<T>.FibornacciHeap(SortDirection)
+  nameWithType.vb: FibornacciHeap(Of T).FibornacciHeap(SortDirection)
 - uid: Advanced.Algorithms.DataStructures.FibornacciHeap`1.#ctor*
   name: FibornacciHeap
   href: api/Advanced.Algorithms.DataStructures.FibornacciHeap-1.html#Advanced_Algorithms_DataStructures_FibornacciHeap_1__ctor_
@@ -5853,14 +5853,14 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T)
   nameWithType: PairingHeap<T>
   nameWithType.vb: PairingHeap(Of T)
-- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.#ctor(Order)
-  name: PairingHeap(Order)
-  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1__ctor_Order_
-  commentId: M:Advanced.Algorithms.DataStructures.PairingHeap`1.#ctor(Order)
-  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.PairingHeap(Order)
-  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).PairingHeap(Order)
-  nameWithType: PairingHeap<T>.PairingHeap(Order)
-  nameWithType.vb: PairingHeap(Of T).PairingHeap(Order)
+- uid: Advanced.Algorithms.DataStructures.PairingHeap`1.#ctor(SortDirection)
+  name: PairingHeap(SortDirection)
+  href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1__ctor_SortDirection_
+  commentId: M:Advanced.Algorithms.DataStructures.PairingHeap`1.#ctor(SortDirection)
+  fullName: Advanced.Algorithms.DataStructures.PairingHeap<T>.PairingHeap(SortDirection)
+  fullName.vb: Advanced.Algorithms.DataStructures.PairingHeap(Of T).PairingHeap(SortDirection)
+  nameWithType: PairingHeap<T>.PairingHeap(SortDirection)
+  nameWithType.vb: PairingHeap(Of T).PairingHeap(SortDirection)
 - uid: Advanced.Algorithms.DataStructures.PairingHeap`1.#ctor*
   name: PairingHeap
   href: api/Advanced.Algorithms.DataStructures.PairingHeap-1.html#Advanced_Algorithms_DataStructures_PairingHeap_1__ctor_
@@ -5999,14 +5999,14 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T)
   nameWithType: PriorityQueue<T>
   nameWithType.vb: PriorityQueue(Of T)
-- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.#ctor(Order)
-  name: PriorityQueue(Order)
-  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1__ctor_Order_
-  commentId: M:Advanced.Algorithms.DataStructures.PriorityQueue`1.#ctor(Order)
-  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.PriorityQueue(Order)
-  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).PriorityQueue(Order)
-  nameWithType: PriorityQueue<T>.PriorityQueue(Order)
-  nameWithType.vb: PriorityQueue(Of T).PriorityQueue(Order)
+- uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.#ctor(SortDirection)
+  name: PriorityQueue(SortDirection)
+  href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1__ctor_SortDirection_
+  commentId: M:Advanced.Algorithms.DataStructures.PriorityQueue`1.#ctor(SortDirection)
+  fullName: Advanced.Algorithms.DataStructures.PriorityQueue<T>.PriorityQueue(SortDirection)
+  fullName.vb: Advanced.Algorithms.DataStructures.PriorityQueue(Of T).PriorityQueue(SortDirection)
+  nameWithType: PriorityQueue<T>.PriorityQueue(SortDirection)
+  nameWithType.vb: PriorityQueue(Of T).PriorityQueue(SortDirection)
 - uid: Advanced.Algorithms.DataStructures.PriorityQueue`1.#ctor*
   name: PriorityQueue
   href: api/Advanced.Algorithms.DataStructures.PriorityQueue-1.html#Advanced_Algorithms_DataStructures_PriorityQueue_1__ctor_
@@ -10954,15 +10954,15 @@ references:
   fullName.vb: Advanced.Algorithms.Sorting.BubbleSort(Of T)
   nameWithType: BubbleSort<T>
   nameWithType.vb: BubbleSort(Of T)
-- uid: Advanced.Algorithms.Sorting.BubbleSort`1.Sort(`0[],Order)
-  name: Sort(T[], Order)
-  href: api/Advanced.Algorithms.Sorting.BubbleSort-1.html#Advanced_Algorithms_Sorting_BubbleSort_1_Sort__0___Order_
-  commentId: M:Advanced.Algorithms.Sorting.BubbleSort`1.Sort(`0[],Order)
-  name.vb: Sort(T(), Order)
-  fullName: Advanced.Algorithms.Sorting.BubbleSort<T>.Sort(T[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.BubbleSort(Of T).Sort(T(), Order)
-  nameWithType: BubbleSort<T>.Sort(T[], Order)
-  nameWithType.vb: BubbleSort(Of T).Sort(T(), Order)
+- uid: Advanced.Algorithms.Sorting.BubbleSort`1.Sort(`0[],SortDirection)
+  name: Sort(T[], SortDirection)
+  href: api/Advanced.Algorithms.Sorting.BubbleSort-1.html#Advanced_Algorithms_Sorting_BubbleSort_1_Sort__0___SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.BubbleSort`1.Sort(`0[],SortDirection)
+  name.vb: Sort(T(), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.BubbleSort<T>.Sort(T[], SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.BubbleSort(Of T).Sort(T(), SortDirection)
+  nameWithType: BubbleSort<T>.Sort(T[], SortDirection)
+  nameWithType.vb: BubbleSort(Of T).Sort(T(), SortDirection)
 - uid: Advanced.Algorithms.Sorting.BubbleSort`1.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.BubbleSort-1.html#Advanced_Algorithms_Sorting_BubbleSort_1_Sort_
@@ -10978,15 +10978,15 @@ references:
   commentId: T:Advanced.Algorithms.Sorting.BucketSort
   fullName: Advanced.Algorithms.Sorting.BucketSort
   nameWithType: BucketSort
-- uid: Advanced.Algorithms.Sorting.BucketSort.Sort(System.Int32[],System.Int32,Order)
-  name: Sort(Int32[], Int32, Order)
-  href: api/Advanced.Algorithms.Sorting.BucketSort.html#Advanced_Algorithms_Sorting_BucketSort_Sort_System_Int32___System_Int32_Order_
-  commentId: M:Advanced.Algorithms.Sorting.BucketSort.Sort(System.Int32[],System.Int32,Order)
-  name.vb: Sort(Int32(), Int32, Order)
-  fullName: Advanced.Algorithms.Sorting.BucketSort.Sort(System.Int32[], System.Int32, Order)
-  fullName.vb: Advanced.Algorithms.Sorting.BucketSort.Sort(System.Int32(), System.Int32, Order)
-  nameWithType: BucketSort.Sort(Int32[], Int32, Order)
-  nameWithType.vb: BucketSort.Sort(Int32(), Int32, Order)
+- uid: Advanced.Algorithms.Sorting.BucketSort.Sort(System.Int32[],System.Int32,SortDirection)
+  name: Sort(Int32[], Int32, SortDirection)
+  href: api/Advanced.Algorithms.Sorting.BucketSort.html#Advanced_Algorithms_Sorting_BucketSort_Sort_System_Int32___System_Int32_SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.BucketSort.Sort(System.Int32[],System.Int32,SortDirection)
+  name.vb: Sort(Int32(), Int32, SortDirection)
+  fullName: Advanced.Algorithms.Sorting.BucketSort.Sort(System.Int32[], System.Int32, SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.BucketSort.Sort(System.Int32(), System.Int32, SortDirection)
+  nameWithType: BucketSort.Sort(Int32[], Int32, SortDirection)
+  nameWithType.vb: BucketSort.Sort(Int32(), Int32, SortDirection)
 - uid: Advanced.Algorithms.Sorting.BucketSort.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.BucketSort.html#Advanced_Algorithms_Sorting_BucketSort_Sort_
@@ -11000,15 +11000,15 @@ references:
   commentId: T:Advanced.Algorithms.Sorting.CountingSort
   fullName: Advanced.Algorithms.Sorting.CountingSort
   nameWithType: CountingSort
-- uid: Advanced.Algorithms.Sorting.CountingSort.Sort(System.Int32[],Order)
-  name: Sort(Int32[], Order)
-  href: api/Advanced.Algorithms.Sorting.CountingSort.html#Advanced_Algorithms_Sorting_CountingSort_Sort_System_Int32___Order_
-  commentId: M:Advanced.Algorithms.Sorting.CountingSort.Sort(System.Int32[],Order)
-  name.vb: Sort(Int32(), Order)
-  fullName: Advanced.Algorithms.Sorting.CountingSort.Sort(System.Int32[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.CountingSort.Sort(System.Int32(), Order)
-  nameWithType: CountingSort.Sort(Int32[], Order)
-  nameWithType.vb: CountingSort.Sort(Int32(), Order)
+- uid: Advanced.Algorithms.Sorting.CountingSort.Sort(IEnumerable{System.Int32},SortDirection)
+  name: Sort(IEnumerable<Int32>, SortDirection)
+  href: api/Advanced.Algorithms.Sorting.CountingSort.html#Advanced_Algorithms_Sorting_CountingSort_Sort_IEnumerable_System_Int32__SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.CountingSort.Sort(IEnumerable{System.Int32},SortDirection)
+  name.vb: Sort(IEnumerable(Of Int32), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.CountingSort.Sort(IEnumerable<System.Int32>, SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.CountingSort.Sort(IEnumerable(Of System.Int32), SortDirection)
+  nameWithType: CountingSort.Sort(IEnumerable<Int32>, SortDirection)
+  nameWithType.vb: CountingSort.Sort(IEnumerable(Of Int32), SortDirection)
 - uid: Advanced.Algorithms.Sorting.CountingSort.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.CountingSort.html#Advanced_Algorithms_Sorting_CountingSort_Sort_
@@ -11025,15 +11025,15 @@ references:
   fullName.vb: Advanced.Algorithms.Sorting.HeapSort(Of T)
   nameWithType: HeapSort<T>
   nameWithType.vb: HeapSort(Of T)
-- uid: Advanced.Algorithms.Sorting.HeapSort`1.Sort(`0[],Order)
-  name: Sort(T[], Order)
-  href: api/Advanced.Algorithms.Sorting.HeapSort-1.html#Advanced_Algorithms_Sorting_HeapSort_1_Sort__0___Order_
-  commentId: M:Advanced.Algorithms.Sorting.HeapSort`1.Sort(`0[],Order)
-  name.vb: Sort(T(), Order)
-  fullName: Advanced.Algorithms.Sorting.HeapSort<T>.Sort(T[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.HeapSort(Of T).Sort(T(), Order)
-  nameWithType: HeapSort<T>.Sort(T[], Order)
-  nameWithType.vb: HeapSort(Of T).Sort(T(), Order)
+- uid: Advanced.Algorithms.Sorting.HeapSort`1.Sort(ICollection{`0},SortDirection)
+  name: Sort(ICollection<T>, SortDirection)
+  href: api/Advanced.Algorithms.Sorting.HeapSort-1.html#Advanced_Algorithms_Sorting_HeapSort_1_Sort_ICollection__0__SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.HeapSort`1.Sort(ICollection{`0},SortDirection)
+  name.vb: Sort(ICollection(Of T), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.HeapSort<T>.Sort(ICollection<T>, SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.HeapSort(Of T).Sort(ICollection(Of T), SortDirection)
+  nameWithType: HeapSort<T>.Sort(ICollection<T>, SortDirection)
+  nameWithType.vb: HeapSort(Of T).Sort(ICollection(Of T), SortDirection)
 - uid: Advanced.Algorithms.Sorting.HeapSort`1.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.HeapSort-1.html#Advanced_Algorithms_Sorting_HeapSort_1_Sort_
@@ -11052,15 +11052,15 @@ references:
   fullName.vb: Advanced.Algorithms.Sorting.InsertionSort(Of T)
   nameWithType: InsertionSort<T>
   nameWithType.vb: InsertionSort(Of T)
-- uid: Advanced.Algorithms.Sorting.InsertionSort`1.Sort(`0[],Order)
-  name: Sort(T[], Order)
-  href: api/Advanced.Algorithms.Sorting.InsertionSort-1.html#Advanced_Algorithms_Sorting_InsertionSort_1_Sort__0___Order_
-  commentId: M:Advanced.Algorithms.Sorting.InsertionSort`1.Sort(`0[],Order)
-  name.vb: Sort(T(), Order)
-  fullName: Advanced.Algorithms.Sorting.InsertionSort<T>.Sort(T[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.InsertionSort(Of T).Sort(T(), Order)
-  nameWithType: InsertionSort<T>.Sort(T[], Order)
-  nameWithType.vb: InsertionSort(Of T).Sort(T(), Order)
+- uid: Advanced.Algorithms.Sorting.InsertionSort`1.Sort(`0[],SortDirection)
+  name: Sort(T[], SortDirection)
+  href: api/Advanced.Algorithms.Sorting.InsertionSort-1.html#Advanced_Algorithms_Sorting_InsertionSort_1_Sort__0___SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.InsertionSort`1.Sort(`0[],SortDirection)
+  name.vb: Sort(T(), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.InsertionSort<T>.Sort(T[], SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.InsertionSort(Of T).Sort(T(), SortDirection)
+  nameWithType: InsertionSort<T>.Sort(T[], SortDirection)
+  nameWithType.vb: InsertionSort(Of T).Sort(T(), SortDirection)
 - uid: Advanced.Algorithms.Sorting.InsertionSort`1.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.InsertionSort-1.html#Advanced_Algorithms_Sorting_InsertionSort_1_Sort_
@@ -11079,15 +11079,15 @@ references:
   fullName.vb: Advanced.Algorithms.Sorting.MergeSort(Of T)
   nameWithType: MergeSort<T>
   nameWithType.vb: MergeSort(Of T)
-- uid: Advanced.Algorithms.Sorting.MergeSort`1.Sort(`0[],Order)
-  name: Sort(T[], Order)
-  href: api/Advanced.Algorithms.Sorting.MergeSort-1.html#Advanced_Algorithms_Sorting_MergeSort_1_Sort__0___Order_
-  commentId: M:Advanced.Algorithms.Sorting.MergeSort`1.Sort(`0[],Order)
-  name.vb: Sort(T(), Order)
-  fullName: Advanced.Algorithms.Sorting.MergeSort<T>.Sort(T[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.MergeSort(Of T).Sort(T(), Order)
-  nameWithType: MergeSort<T>.Sort(T[], Order)
-  nameWithType.vb: MergeSort(Of T).Sort(T(), Order)
+- uid: Advanced.Algorithms.Sorting.MergeSort`1.Sort(`0[],SortDirection)
+  name: Sort(T[], SortDirection)
+  href: api/Advanced.Algorithms.Sorting.MergeSort-1.html#Advanced_Algorithms_Sorting_MergeSort_1_Sort__0___SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.MergeSort`1.Sort(`0[],SortDirection)
+  name.vb: Sort(T(), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.MergeSort<T>.Sort(T[], SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.MergeSort(Of T).Sort(T(), SortDirection)
+  nameWithType: MergeSort<T>.Sort(T[], SortDirection)
+  nameWithType.vb: MergeSort(Of T).Sort(T(), SortDirection)
 - uid: Advanced.Algorithms.Sorting.MergeSort`1.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.MergeSort-1.html#Advanced_Algorithms_Sorting_MergeSort_1_Sort_
@@ -11106,15 +11106,15 @@ references:
   fullName.vb: Advanced.Algorithms.Sorting.QuickSort(Of T)
   nameWithType: QuickSort<T>
   nameWithType.vb: QuickSort(Of T)
-- uid: Advanced.Algorithms.Sorting.QuickSort`1.Sort(`0[],Order)
-  name: Sort(T[], Order)
-  href: api/Advanced.Algorithms.Sorting.QuickSort-1.html#Advanced_Algorithms_Sorting_QuickSort_1_Sort__0___Order_
-  commentId: M:Advanced.Algorithms.Sorting.QuickSort`1.Sort(`0[],Order)
-  name.vb: Sort(T(), Order)
-  fullName: Advanced.Algorithms.Sorting.QuickSort<T>.Sort(T[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.QuickSort(Of T).Sort(T(), Order)
-  nameWithType: QuickSort<T>.Sort(T[], Order)
-  nameWithType.vb: QuickSort(Of T).Sort(T(), Order)
+- uid: Advanced.Algorithms.Sorting.QuickSort`1.Sort(`0[],SortDirection)
+  name: Sort(T[], SortDirection)
+  href: api/Advanced.Algorithms.Sorting.QuickSort-1.html#Advanced_Algorithms_Sorting_QuickSort_1_Sort__0___SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.QuickSort`1.Sort(`0[],SortDirection)
+  name.vb: Sort(T(), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.QuickSort<T>.Sort(T[], SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.QuickSort(Of T).Sort(T(), SortDirection)
+  nameWithType: QuickSort<T>.Sort(T[], SortDirection)
+  nameWithType.vb: QuickSort(Of T).Sort(T(), SortDirection)
 - uid: Advanced.Algorithms.Sorting.QuickSort`1.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.QuickSort-1.html#Advanced_Algorithms_Sorting_QuickSort_1_Sort_
@@ -11130,15 +11130,15 @@ references:
   commentId: T:Advanced.Algorithms.Sorting.RadixSort
   fullName: Advanced.Algorithms.Sorting.RadixSort
   nameWithType: RadixSort
-- uid: Advanced.Algorithms.Sorting.RadixSort.Sort(System.Int32[],Order)
-  name: Sort(Int32[], Order)
-  href: api/Advanced.Algorithms.Sorting.RadixSort.html#Advanced_Algorithms_Sorting_RadixSort_Sort_System_Int32___Order_
-  commentId: M:Advanced.Algorithms.Sorting.RadixSort.Sort(System.Int32[],Order)
-  name.vb: Sort(Int32(), Order)
-  fullName: Advanced.Algorithms.Sorting.RadixSort.Sort(System.Int32[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.RadixSort.Sort(System.Int32(), Order)
-  nameWithType: RadixSort.Sort(Int32[], Order)
-  nameWithType.vb: RadixSort.Sort(Int32(), Order)
+- uid: Advanced.Algorithms.Sorting.RadixSort.Sort(System.Int32[],SortDirection)
+  name: Sort(Int32[], SortDirection)
+  href: api/Advanced.Algorithms.Sorting.RadixSort.html#Advanced_Algorithms_Sorting_RadixSort_Sort_System_Int32___SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.RadixSort.Sort(System.Int32[],SortDirection)
+  name.vb: Sort(Int32(), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.RadixSort.Sort(System.Int32[], SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.RadixSort.Sort(System.Int32(), SortDirection)
+  nameWithType: RadixSort.Sort(Int32[], SortDirection)
+  nameWithType.vb: RadixSort.Sort(Int32(), SortDirection)
 - uid: Advanced.Algorithms.Sorting.RadixSort.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.RadixSort.html#Advanced_Algorithms_Sorting_RadixSort_Sort_
@@ -11155,15 +11155,15 @@ references:
   fullName.vb: Advanced.Algorithms.Sorting.SelectionSort(Of T)
   nameWithType: SelectionSort<T>
   nameWithType.vb: SelectionSort(Of T)
-- uid: Advanced.Algorithms.Sorting.SelectionSort`1.Sort(`0[],Order)
-  name: Sort(T[], Order)
-  href: api/Advanced.Algorithms.Sorting.SelectionSort-1.html#Advanced_Algorithms_Sorting_SelectionSort_1_Sort__0___Order_
-  commentId: M:Advanced.Algorithms.Sorting.SelectionSort`1.Sort(`0[],Order)
-  name.vb: Sort(T(), Order)
-  fullName: Advanced.Algorithms.Sorting.SelectionSort<T>.Sort(T[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.SelectionSort(Of T).Sort(T(), Order)
-  nameWithType: SelectionSort<T>.Sort(T[], Order)
-  nameWithType.vb: SelectionSort(Of T).Sort(T(), Order)
+- uid: Advanced.Algorithms.Sorting.SelectionSort`1.Sort(`0[],SortDirection)
+  name: Sort(T[], SortDirection)
+  href: api/Advanced.Algorithms.Sorting.SelectionSort-1.html#Advanced_Algorithms_Sorting_SelectionSort_1_Sort__0___SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.SelectionSort`1.Sort(`0[],SortDirection)
+  name.vb: Sort(T(), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.SelectionSort<T>.Sort(T[], SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.SelectionSort(Of T).Sort(T(), SortDirection)
+  nameWithType: SelectionSort<T>.Sort(T[], SortDirection)
+  nameWithType.vb: SelectionSort(Of T).Sort(T(), SortDirection)
 - uid: Advanced.Algorithms.Sorting.SelectionSort`1.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.SelectionSort-1.html#Advanced_Algorithms_Sorting_SelectionSort_1_Sort_
@@ -11182,15 +11182,15 @@ references:
   fullName.vb: Advanced.Algorithms.Sorting.ShellSort(Of T)
   nameWithType: ShellSort<T>
   nameWithType.vb: ShellSort(Of T)
-- uid: Advanced.Algorithms.Sorting.ShellSort`1.Sort(`0[],Order)
-  name: Sort(T[], Order)
-  href: api/Advanced.Algorithms.Sorting.ShellSort-1.html#Advanced_Algorithms_Sorting_ShellSort_1_Sort__0___Order_
-  commentId: M:Advanced.Algorithms.Sorting.ShellSort`1.Sort(`0[],Order)
-  name.vb: Sort(T(), Order)
-  fullName: Advanced.Algorithms.Sorting.ShellSort<T>.Sort(T[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.ShellSort(Of T).Sort(T(), Order)
-  nameWithType: ShellSort<T>.Sort(T[], Order)
-  nameWithType.vb: ShellSort(Of T).Sort(T(), Order)
+- uid: Advanced.Algorithms.Sorting.ShellSort`1.Sort(`0[],SortDirection)
+  name: Sort(T[], SortDirection)
+  href: api/Advanced.Algorithms.Sorting.ShellSort-1.html#Advanced_Algorithms_Sorting_ShellSort_1_Sort__0___SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.ShellSort`1.Sort(`0[],SortDirection)
+  name.vb: Sort(T(), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.ShellSort<T>.Sort(T[], SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.ShellSort(Of T).Sort(T(), SortDirection)
+  nameWithType: ShellSort<T>.Sort(T[], SortDirection)
+  nameWithType.vb: ShellSort(Of T).Sort(T(), SortDirection)
 - uid: Advanced.Algorithms.Sorting.ShellSort`1.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.ShellSort-1.html#Advanced_Algorithms_Sorting_ShellSort_1_Sort_
@@ -11209,15 +11209,15 @@ references:
   fullName.vb: Advanced.Algorithms.Sorting.TreeSort(Of T)
   nameWithType: TreeSort<T>
   nameWithType.vb: TreeSort(Of T)
-- uid: Advanced.Algorithms.Sorting.TreeSort`1.Sort(`0[],Order)
-  name: Sort(T[], Order)
-  href: api/Advanced.Algorithms.Sorting.TreeSort-1.html#Advanced_Algorithms_Sorting_TreeSort_1_Sort__0___Order_
-  commentId: M:Advanced.Algorithms.Sorting.TreeSort`1.Sort(`0[],Order)
-  name.vb: Sort(T(), Order)
-  fullName: Advanced.Algorithms.Sorting.TreeSort<T>.Sort(T[], Order)
-  fullName.vb: Advanced.Algorithms.Sorting.TreeSort(Of T).Sort(T(), Order)
-  nameWithType: TreeSort<T>.Sort(T[], Order)
-  nameWithType.vb: TreeSort(Of T).Sort(T(), Order)
+- uid: Advanced.Algorithms.Sorting.TreeSort`1.Sort(IEnumerable{`0},SortDirection)
+  name: Sort(IEnumerable<T>, SortDirection)
+  href: api/Advanced.Algorithms.Sorting.TreeSort-1.html#Advanced_Algorithms_Sorting_TreeSort_1_Sort_IEnumerable__0__SortDirection_
+  commentId: M:Advanced.Algorithms.Sorting.TreeSort`1.Sort(IEnumerable{`0},SortDirection)
+  name.vb: Sort(IEnumerable(Of T), SortDirection)
+  fullName: Advanced.Algorithms.Sorting.TreeSort<T>.Sort(IEnumerable<T>, SortDirection)
+  fullName.vb: Advanced.Algorithms.Sorting.TreeSort(Of T).Sort(IEnumerable(Of T), SortDirection)
+  nameWithType: TreeSort<T>.Sort(IEnumerable<T>, SortDirection)
+  nameWithType.vb: TreeSort(Of T).Sort(IEnumerable(Of T), SortDirection)
 - uid: Advanced.Algorithms.Sorting.TreeSort`1.Sort*
   name: Sort
   href: api/Advanced.Algorithms.Sorting.TreeSort-1.html#Advanced_Algorithms_Sorting_TreeSort_1_Sort_

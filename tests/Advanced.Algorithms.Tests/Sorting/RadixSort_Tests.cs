@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.Tests.Sorting
         [TestMethod]
         public void RadixSort_Descending_Smoke_Test()
         {
-            var result = RadixSort.Sort(testArray, Order.Descending);
+            var result = RadixSort.Sort(testArray, SortDirection.Descending);
 
             for (int i = 0; i < testArray.Length; i++)
             {
@@ -59,7 +59,7 @@ namespace Advanced.Algorithms.Tests.Sorting
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
 
-            var result = RadixSort.Sort(randomNumbers.ToArray(), Order.Descending);
+            var result = RadixSort.Sort(randomNumbers.ToArray(), SortDirection.Descending);
 
             for (int i = 0; i < nodeCount; i++)
             {

@@ -8,9 +8,9 @@ namespace Advanced.Algorithms.Sorting
     /// </summary>
     public class ShellSort<T> where T : IComparable
     {
-        public static T[] Sort(T[] array, Order order = Order.Ascending)
+        public static T[] Sort(T[] array, SortDirection sortDirection = SortDirection.Ascending)
         {
-            var comparer = new CustomComparer<T>(order, Comparer<T>.Default);
+            var comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
 
             var k = array.Length / 2;
             var j = 0;

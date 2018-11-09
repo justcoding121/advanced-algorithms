@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.Sorting
     /// </summary>
     public class RadixSort
     {
-        public static int[] Sort(int[] array, Order order = Order.Ascending)
+        public static int[] Sort(int[] array, SortDirection sortDirection = SortDirection.Ascending)
         {
             int i;
             for (i = 0; i < array.Length; i++)
@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.Sorting
             }
 
             var @base = 1;
-            var max = getMax(array);
+            var max = array.Max();
 
 
             while (max / @base > 0)
@@ -41,7 +41,7 @@ namespace Advanced.Algorithms.Sorting
                 }
 
                 //now update array with what is in buckets
-                var orderedBuckets = order == Order.Ascending ?
+                var orderedBuckets = sortDirection == SortDirection.Ascending ?
                                         buckets : buckets.Reverse();
 
                 i = 0;
@@ -60,22 +60,5 @@ namespace Advanced.Algorithms.Sorting
             return array;
         }
 
-        /// <summary>
-        /// Get Max of given array.
-        /// </summary>
-        private static int getMax(int[] array)
-        {
-            var max = int.MinValue;
-
-            foreach (var item in array)
-            {
-                if (item.CompareTo(max) > 0)
-                {
-                    max = item;
-                }
-            }
-
-            return max;
-        }
     }
 }

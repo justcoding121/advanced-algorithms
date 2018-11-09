@@ -11,9 +11,9 @@ namespace Advanced.Algorithms
         private readonly bool isMax;
         private readonly IComparer<T> comparer;
 
-        internal CustomComparer(Order order, IComparer<T> comparer)
+        internal CustomComparer(SortDirection sortDirection, IComparer<T> comparer)
         {
-            this.isMax = order == Order.Descending;
+            this.isMax = sortDirection == SortDirection.Descending;
             this.comparer = comparer;
         }
 

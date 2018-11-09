@@ -11,9 +11,9 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(nlog(n)).
         /// </summary>
-        public static T[] Sort(T[] array, Order order = Order.Ascending)
+        public static T[] Sort(T[] array, SortDirection sortDirection = SortDirection.Ascending)
         {
-            PartitionMerge(array, 0, array.Length - 1, new CustomComparer<T>(order, Comparer<T>.Default));
+            PartitionMerge(array, 0, array.Length - 1, new CustomComparer<T>(sortDirection, Comparer<T>.Default));
             return array;
         }
 

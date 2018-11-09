@@ -69,7 +69,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             int nodeCount = 1000 * 10;
 
-            var maxHeap = new PairingHeap<int>(Order.Descending);
+            var maxHeap = new PairingHeap<int>(SortDirection.Descending);
 
             for (int i = 0; i <= nodeCount; i++)
             {
