@@ -55,7 +55,7 @@ namespace Advanced.Algorithms.DataStructures
                     i++;
                 }
 
-                BulkInit(initArray);
+                bulkInit(initArray);
                 Count = initArray.Length;
             }
             else
@@ -64,7 +64,7 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        private void BulkInit(T[] initial)
+        private void bulkInit(T[] initial)
         {
             var i = (initial.Length - 1) / 2;
 
@@ -86,7 +86,8 @@ namespace Advanced.Algorithms.DataStructures
                 var left = 2 * i + 1;
                 var right = 2 * i + 2;
 
-                var minMax = left < initial.Length && right < initial.Length ? comparer.Compare(initial[left], initial[right]) < 0 ? left : right
+                var minMax = left < initial.Length && right < initial.Length ? 
+                    comparer.Compare(initial[left], initial[right]) < 0 ? left : right
                     : left < initial.Length ? left
                     : right < initial.Length ? right : -1;
 

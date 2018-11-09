@@ -47,7 +47,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
 
                 Count = initArray.Length;
-                BulkInit(initArray);
+                bulkInit(initArray);
               
             }
             else
@@ -60,7 +60,7 @@ namespace Advanced.Algorithms.DataStructures
         /// Initialize with given input.
         /// Time complexity: O(n).
         /// </summary>
-        private void BulkInit(T[] initial)
+        private void bulkInit(T[] initial)
         {
             var i = (initial.Length - 1) / k;
 
