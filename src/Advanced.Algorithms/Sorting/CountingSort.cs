@@ -1,4 +1,6 @@
-﻿namespace Advanced.Algorithms.Sorting
+﻿using System.Collections.Generic;
+
+namespace Advanced.Algorithms.Sorting
 {
     /// <summary>
     /// A counting sort implementation.
@@ -8,7 +10,7 @@
         /// <summary>
         /// Sort given integers.
         /// </summary>
-        public static int[] Sort(int[] array)
+        public static int[] Sort(int[] array, Order order = Order.Ascending)
         {
             var max = getMax(array);
 
@@ -40,7 +42,7 @@
             foreach (var item in array)
             {
                 var index = countArray[item];
-                result[index-1] = item;
+                result[order == Order.Ascending ? index-1 : result.Length - index] = item;
                 countArray[item]--;
             }
 
@@ -56,7 +58,7 @@
 
             foreach (var item in array)
             {
-                if (item > max)
+                if (item.CompareTo(max) > 0)
                 {
                     max = item;
                 }

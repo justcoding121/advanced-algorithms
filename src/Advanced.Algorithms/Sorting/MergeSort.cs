@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Sorting
 {
@@ -10,13 +11,14 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(nlog(n)).
         /// </summary>
-        public static T[] Sort(T[] array)
+        public static T[] Sort(T[] array, Order order = Order.Ascending)
         {
-            PartitionMerge(array, 0, array.Length - 1);
+            PartitionMerge(array, 0, array.Length - 1, new CustomComparer<T>(order, Comparer<T>.Default));
             return array;
         }
 
-        internal static void PartitionMerge(T[] array, int leftIndex, int rightIndex)
+        internal static void PartitionMerge(T[] array, int leftIndex, int rightIndex,
+            CustomComparer<T> comparer)
         {
             if (leftIndex < 0 || rightIndex < 0 || (rightIndex - leftIndex + 1) < 2)
             {
@@ -25,16 +27,17 @@ namespace Advanced.Algorithms.Sorting
 
             var middle = (leftIndex + rightIndex) / 2;
 
-            PartitionMerge(array, leftIndex, middle);
-            PartitionMerge(array, middle + 1, rightIndex);
+            PartitionMerge(array, leftIndex, middle, comparer);
+            PartitionMerge(array, middle + 1, rightIndex, comparer);
 
-            merge(array, leftIndex, middle, rightIndex);
+            merge(array, leftIndex, middle, rightIndex, comparer);
         }
 
         /// <summary>
         /// Merge two sorted arrays.
         /// </summary>
-        private static void merge(T[] array, int leftStart, int middle, int rightEnd)
+        private static void merge(T[] array, int leftStart, int middle, int rightEnd,
+            CustomComparer<T> comparer)
         {
             var newLength = rightEnd - leftStart + 1;
 
@@ -44,7 +47,7 @@ namespace Advanced.Algorithms.Sorting
             //iteratively compare and pick min to result
             while (i <= middle && j <= rightEnd)
             {
-                if (array[i].CompareTo(array[j]) < 0)
+                if (comparer.Compare(array[i], array[j]) < 0)
                 {
                     result[k] = array[i];
                     i++;

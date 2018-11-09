@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Sorting
 {
@@ -10,14 +11,16 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(n^2).
         /// </summary>
-        public static T[] Sort(T[] array)
+        public static T[] Sort(T[] array, Order order = Order.Ascending)
         {
+            var comparer = new CustomComparer<T>(order, Comparer<T>.Default);
+
             for (int i = 0; i < array.Length; i++)
             {
                 //select the smallest item in sub array and move it to front
                 for (int j = i + 1; j < array.Length; j++)
                 {
-                    if (array[j].CompareTo(array[i]) >= 0)
+                    if (comparer.Compare(array[j], array[i]) >= 0)
                     {
                         continue;
                     }

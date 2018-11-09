@@ -60,6 +60,8 @@ namespace Advanced.Algorithms.Search
                 return input[left];
             }
 
+            var comparer = new CustomComparer<T>(Order.Ascending, Comparer<T>.Default);
+
             var size = 5;
             var currentLeft = left;
 
@@ -71,12 +73,12 @@ namespace Advanced.Algorithms.Search
 
                 if (currentRight <= right)
                 {
-                    sort(input, currentLeft, currentRight);
+                    sort(input, currentLeft, currentRight, comparer);
                     medians[++medianIndex] = median(input, currentLeft, currentRight);
                 }
                 else
                 {
-                    sort(input, currentLeft, right);
+                    sort(input, currentLeft, right, comparer);
                     medians[++medianIndex] = median(input, currentLeft, right);
                 }
 
@@ -116,9 +118,9 @@ namespace Advanced.Algorithms.Search
             return newPivot;
         }
 
-        private static void sort(T[] input, int left, int right)
+        private static void sort(T[] input, int left, int right, CustomComparer<T> comparer)
         {
-            MergeSort<T>.PartitionMerge(input, left, right);
+            MergeSort<T>.PartitionMerge(input, left, right, comparer);
         }
 
         private static T median(T[] input, int left, int right)

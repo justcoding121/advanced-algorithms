@@ -8,30 +8,36 @@ namespace Advanced.Algorithms.Tests.Sorting
     [TestClass]
     public class QuickSort_Tests
     {
-        private static int[] TestArray =
+        private static int[] testArray =
             new int[] { 12, 7, 9, 8, 3, 10, 2, 1, 5, 11, 4, 6, 0 };
 
-        /// <summary>
-        /// </summary>
         [TestMethod]
-        public void QuickSort_Smoke_Test()
+        public void QuickSort_Ascending_Smoke_Test()
         {
-            var result = QuickSort<int>.Sort(TestArray);
+            var result = QuickSort<int>.Sort(testArray);
 
-            for (int i = 0; i < TestArray.Length; i++)
+            for (int i = 0; i < testArray.Length; i++)
             {
                 Assert.AreEqual(i, result[i]);
             }
-
         }
 
-        /// <summary>
-        /// </summary>
         [TestMethod]
-        public void QuickSort_Stress_Test()
+        public void QuickSort_Descending_Smoke_Test()
+        {
+            var result = QuickSort<int>.Sort(testArray, Order.Descending);
+
+            for (int i = 0; i < testArray.Length; i++)
+            {
+                Assert.AreEqual(testArray.Length - i - 1, result[i]);
+            }
+        }
+
+        [TestMethod]
+        public void QuickSort_Ascending_Stress_Test()
         {
             var rnd = new Random();
-            var nodeCount = 1000 * 1000;
+            var nodeCount = 1000;
             var randomNumbers = Enumerable.Range(1, nodeCount)
                                 .OrderBy(x => rnd.Next())
                                 .ToList();
@@ -44,6 +50,22 @@ namespace Advanced.Algorithms.Tests.Sorting
             }
         }
 
+        [TestMethod]
+        public void QuickSort_Descending_Stress_Test()
+        {
+            var rnd = new Random();
+            var nodeCount = 1000;
+            var randomNumbers = Enumerable.Range(1, nodeCount)
+                                .OrderBy(x => rnd.Next())
+                                .ToList();
+
+            var result = QuickSort<int>.Sort(randomNumbers.ToArray(), Order.Descending);
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                Assert.AreEqual(randomNumbers.Count - i, result[i]);
+            }
+        }
 
     }
 }

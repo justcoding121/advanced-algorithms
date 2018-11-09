@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var initial = Enumerable.Range(0, 51).OrderBy(x => rnd.Next()).ToList();
 
-            var minHeap = new BHeap<int>(false, initial);
+            var minHeap = new BHeap<int>(Order.Ascending, initial);
 
             for (int i = 51; i <= 99; i++)
             {
@@ -61,7 +61,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 .OrderBy(x => rnd.Next()));
 
 
-            var maxHeap = new BHeap<int>(true, initial);
+            var maxHeap = new BHeap<int>(Order.Descending, initial);
 
             for (int i = 51; i <= 99; i++)
             {

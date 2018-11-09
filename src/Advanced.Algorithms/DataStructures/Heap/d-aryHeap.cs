@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class DaryHeap<T> : IEnumerable<T> where T : IComparable
     {
-        private readonly bool isMax;
+        private readonly bool isMaxHeap;
         private readonly IComparer<T> comparer;
 
         private T[] heapArray;
@@ -22,10 +22,10 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         /// <param name="k">The number of children per heap node.</param>
         /// <param name="initial">The initial items if any.</param>
-        public DaryHeap(int k,  bool isMax = false, IEnumerable<T> initial = null)
+        public DaryHeap(int k, Order order = Order.Ascending, IEnumerable<T> initial = null)
         {
-            this.isMax = isMax;
-            comparer = new HeapComparer<T>(isMax, Comparer<T>.Default);
+            this.isMaxHeap = order == Order.Descending;
+            comparer = new CustomComparer<T>(order, Comparer<T>.Default);
 
             if (k <= 2)
             {

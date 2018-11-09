@@ -27,7 +27,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void Max_PriorityQueue_Test()
         {
-            var queue = new PriorityQueue<int>(true);
+            var queue = new PriorityQueue<int>(Order.Descending);
 
             queue.Enqueue(10);
             queue.Enqueue(9);

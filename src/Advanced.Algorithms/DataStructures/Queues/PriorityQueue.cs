@@ -10,9 +10,9 @@ namespace Advanced.Algorithms.DataStructures
     public class PriorityQueue<T> : IEnumerable<T> where T : IComparable
     {
         private readonly BHeap<T> heap;
-        public PriorityQueue(bool isMax = false)
+        public PriorityQueue(Order order = Order.Ascending)
         {
-            heap = new BHeap<T>(isMax);
+            heap = new BHeap<T>(order);
         }
 
         /// <summary>
