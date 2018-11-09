@@ -14,16 +14,18 @@ namespace Advanced.Algorithms.DataStructures
         internal BpTreeNode<T> Root;
 
         /// <summary>
-        ///Keep a reference of Bottom Left Node
-        ///For faster enumeration with IEnumerable implementation using Next pointer
+        /// Keep a reference of Bottom Left Node
+        /// for fast ascending/descending enumeration using Next pointer.
+        /// See IEnumerable & IEnumerableDesc implementation at bottom.
         /// </summary>
         internal BpTreeNode<T> BottomLeftNode;
+        internal BpTreeNode<T> BottomRightNode;
 
         private readonly int maxKeysPerNode;
         private readonly int minKeysPerNode;
 
         /// <summary>
-        /// Time complexity: O(log(n)).
+        /// Time complexity: O(1).
         /// </summary>
         public T Max
         {
@@ -31,7 +33,7 @@ namespace Advanced.Algorithms.DataStructures
             {
                 if (Root == null) return default(T);
 
-                var maxNode = findMaxNode(Root);
+                var maxNode = BottomRightNode;
                 return maxNode.Keys[maxNode.KeyCount - 1];
             }
         }
@@ -50,7 +52,7 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        public BpTree(int maxKeysPerNode)
+        public BpTree(int maxKeysPerNode = 3)
         {
             if (maxKeysPerNode < 3)
             {
@@ -122,6 +124,7 @@ namespace Advanced.Algorithms.DataStructures
                 Root.KeyCount++;
                 Count++;
                 BottomLeftNode = Root;
+                BottomRightNode = Root;
                 return;
             }
 
@@ -204,6 +207,11 @@ namespace Advanced.Algorithms.DataStructures
                     right.Next = node.Next;
                     node.Next.Prev = right;
                 }
+                else
+                {
+                    //bottom right most node
+                    BottomRightNode = right;
+                }
 
                 if (node.Prev != null)
                 {
@@ -212,7 +220,7 @@ namespace Advanced.Algorithms.DataStructures
                 }
                 else
                 {
-                    //left most bottom node
+                    //bottom left most node
                     BottomLeftNode = left;
                 }
             }
@@ -559,7 +567,10 @@ namespace Advanced.Algorithms.DataStructures
                     newNode.Next = rightSibling.Next;
                     rightSibling.Next.Prev = newNode;
                 }
-
+                else
+                {
+                    BottomRightNode = newNode;
+                }
             }
 
             var newIndex = 0;
@@ -912,6 +923,14 @@ namespace Advanced.Algorithms.DataStructures
             Array.Copy(array, index + 1, array, index, array.Length - index - 1);
         }
 
+        /// <summary>
+        /// Descending enumerable.
+        /// </summary>
+        public IEnumerable<T> AsEnumerableDesc()
+        {
+            return GetEnumeratorDesc().AsEnumerable();
+        }
+
         //Implementation for the GetEnumerator method.
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -921,6 +940,11 @@ namespace Advanced.Algorithms.DataStructures
         public IEnumerator<T> GetEnumerator()
         {
             return new BpTreeEnumerator<T>(this);
+        }
+
+        public IEnumerator<T> GetEnumeratorDesc()
+        {
+            return new BpTreeEnumerator<T>(this, false);
         }
     }
 
@@ -970,14 +994,21 @@ namespace Advanced.Algorithms.DataStructures
 
     internal class BpTreeEnumerator<T> : IEnumerator<T> where T : IComparable
     {
-        private BpTreeNode<T> bottomLeftNode;
-        private BpTreeNode<T> current;
-        private int index = -1;
+        private readonly bool asc;
 
-        internal BpTreeEnumerator(BpTree<T> tree)
+        private BpTreeNode<T> startNode;
+        private BpTreeNode<T> current;
+
+        private int index;
+
+        internal BpTreeEnumerator(BpTree<T> tree, bool asc = true)
         {
-            bottomLeftNode = tree.BottomLeftNode;
-            current = bottomLeftNode;
+            this.asc = asc;
+
+            startNode = asc ? tree.BottomLeftNode : tree.BottomRightNode;
+            current = startNode;
+
+            index = asc ? -1 : current.KeyCount;
         }
 
         public bool MoveNext()
@@ -987,22 +1018,38 @@ namespace Advanced.Algorithms.DataStructures
                 return false;
             }
 
-            if (index + 1 < current.KeyCount)
+            if (asc)
             {
-                index++;
-                return true;
+                if (index + 1 < current.KeyCount)
+                {
+                    index++;
+                    return true;
+                }
+            }
+            else
+            {
+                if (index - 1 >= 0)
+                {
+                    index--;
+                    return true;
+                }
             }
 
-            current = current.Next;
-            index = 0;
+            current = asc ? current.Next : current.Prev;
 
-            return current != null && current.KeyCount > 0;
+            var canMove = current != null && current.KeyCount > 0;
+            if (canMove)
+            {
+                index = asc ? 0 : current.KeyCount - 1;
+            }
+
+            return canMove;
         }
 
         public void Reset()
         {
-            current = bottomLeftNode;
-            index = -1;
+            current = startNode;
+            index = asc ? -1 : current.KeyCount;
         }
 
         object IEnumerator.Current => Current;
@@ -1018,8 +1065,7 @@ namespace Advanced.Algorithms.DataStructures
         public void Dispose()
         {
             current = null;
-            bottomLeftNode = null;
-            index = -1;
+            startNode = null;
         }
     }
 
