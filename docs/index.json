@@ -722,7 +722,7 @@
   "api/Advanced.Algorithms.Sorting.CountingSort.html": {
     "href": "api/Advanced.Algorithms.Sorting.CountingSort.html",
     "title": "Class CountingSort | Advanced Algorithms",
-    "keywords": "Class CountingSort A counting sort implementation. Inheritance Object CountingSort Namespace : Advanced.Algorithms.Sorting Assembly : Advanced.Algorithms.dll Syntax public class CountingSort : object Methods Sort(IEnumerable<Int32>, SortDirection) Sort given integers. Declaration public static int[] Sort(IEnumerable<int> array, SortDirection sortDirection = null) Parameters Type Name Description IEnumerable < Int32 > array SortDirection sortDirection Returns Type Description Int32 []"
+    "keywords": "Class CountingSort A counting sort implementation. Inheritance Object CountingSort Namespace : Advanced.Algorithms.Sorting Assembly : Advanced.Algorithms.dll Syntax public class CountingSort : object Methods Sort(IEnumerable<Int32>, SortDirection) Sort given integers. Declaration public static int[] Sort(IEnumerable<int> enumerable, SortDirection sortDirection = null) Parameters Type Name Description IEnumerable < Int32 > enumerable SortDirection sortDirection Returns Type Description Int32 []"
   },
   "api/Advanced.Algorithms.Sorting.HeapSort-1.html": {
     "href": "api/Advanced.Algorithms.Sorting.HeapSort-1.html",
@@ -767,7 +767,7 @@
   "api/Advanced.Algorithms.Sorting.TreeSort-1.html": {
     "href": "api/Advanced.Algorithms.Sorting.TreeSort-1.html",
     "title": "Class TreeSort<T> | Advanced Algorithms",
-    "keywords": "Class TreeSort<T> A tree sort implementation. Inheritance Object TreeSort<T> Namespace : Advanced.Algorithms.Sorting Assembly : Advanced.Algorithms.dll Syntax public class TreeSort<T> : object where T : IComparable Type Parameters Name Description T Methods Sort(IEnumerable<T>, SortDirection) Time complexity: O(nlog(n)). Declaration public static IEnumerable<T> Sort(IEnumerable<T> array, SortDirection sortDirection = null) Parameters Type Name Description IEnumerable <T> array SortDirection sortDirection Returns Type Description IEnumerable <T>"
+    "keywords": "Class TreeSort<T> A tree sort implementation. Inheritance Object TreeSort<T> Namespace : Advanced.Algorithms.Sorting Assembly : Advanced.Algorithms.dll Syntax public class TreeSort<T> : object where T : IComparable Type Parameters Name Description T Methods Sort(IEnumerable<T>, SortDirection) Time complexity: O(nlog(n)). Declaration public static IEnumerable<T> Sort(IEnumerable<T> enumerable, SortDirection sortDirection = null) Parameters Type Name Description IEnumerable <T> enumerable SortDirection sortDirection Returns Type Description IEnumerable <T>"
   },
   "api/Advanced.Algorithms.String.html": {
     "href": "api/Advanced.Algorithms.String.html",
