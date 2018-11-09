@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.Sorting
 {
@@ -7,7 +8,7 @@ namespace Advanced.Algorithms.Sorting
     /// </summary>
     public class RadixSort
     {
-        public static int[] Sort(int[] array)
+        public static int[] Sort(int[] array, Order order = Order.Ascending)
         {
             int i;
             for (i = 0; i < array.Length; i++)
@@ -21,17 +22,17 @@ namespace Advanced.Algorithms.Sorting
             var @base = 1;
             var max = getMax(array);
 
-           
-            while (max/@base > 0)
+
+            while (max / @base > 0)
             {
                 //create a bucket for digits 0 to 9
                 var buckets = new List<int>[10];
 
                 for (i = 0; i < array.Length; i++)
                 {
-                    var bucketIndex = array[i]/@base % 10;
+                    var bucketIndex = array[i] / @base % 10;
 
-                    if(buckets[bucketIndex] == null)
+                    if (buckets[bucketIndex] == null)
                     {
                         buckets[bucketIndex] = new List<int>();
                     }
@@ -40,14 +41,12 @@ namespace Advanced.Algorithms.Sorting
                 }
 
                 //now update array with what is in buckets
-                i = 0;
-                foreach (var bucket in buckets)
-                {
-                    if (bucket == null)
-                    {
-                        continue;
-                    }
+                var orderedBuckets = order == Order.Ascending ?
+                                        buckets : buckets.Reverse();
 
+                i = 0;
+                foreach (var bucket in orderedBuckets.Where(x => x != null))
+                {
                     foreach (var item in bucket)
                     {
                         array[i] = item;
@@ -70,7 +69,7 @@ namespace Advanced.Algorithms.Sorting
 
             foreach (var item in array)
             {
-                if(item > max)
+                if (item.CompareTo(max) > 0)
                 {
                     max = item;
                 }

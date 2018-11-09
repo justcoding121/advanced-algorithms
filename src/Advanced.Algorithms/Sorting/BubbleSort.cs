@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Sorting
 {
@@ -10,8 +11,9 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(n^2).
         /// </summary>
-        public static T[] Sort(T[] array)
+        public static T[] Sort(T[] array, Order order = Order.Ascending)
         {
+            var comparer = new CustomComparer<T>(order, Comparer<T>.Default);
             var swapped = true;
 
             while (swapped)
@@ -21,7 +23,7 @@ namespace Advanced.Algorithms.Sorting
                 for (int i = 0; i < array.Length - 1; i++)
                 {
                     //compare adjacent elements 
-                    if (array[i].CompareTo(array[i + 1]) > 0)
+                    if (comparer.Compare(array[i], array[i + 1]) > 0)
                     {
                         var temp = array[i];
                         array[i] = array[i + 1];

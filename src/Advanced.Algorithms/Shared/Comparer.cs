@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms
 {
-    internal class HeapComparer<T> : IComparer<T> where T : IComparable
+    internal class CustomComparer<T> : IComparer<T> where T : IComparable
     {
         private readonly bool isMax;
         private readonly IComparer<T> comparer;
 
-        internal HeapComparer(bool isMax, IComparer<T> comparer)
+        internal CustomComparer(Order order, IComparer<T> comparer)
         {
-            this.isMax = isMax;
+            this.isMax = order == Order.Descending;
             this.comparer = comparer;
         }
 

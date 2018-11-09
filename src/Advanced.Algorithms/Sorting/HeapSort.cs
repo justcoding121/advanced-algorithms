@@ -11,10 +11,10 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(nlog(n)).
         /// </summary>
-        public static T[] Sort(T[] array)
+        public static T[] Sort(T[] array, Order order = Order.Ascending)
         {
             //heapify
-            var heap = new BHeap<T>(false, array);
+            var heap = new BHeap<T>(order, array);
 
             //now extract min until empty and return them as sorted array
             var sortedArray = new T[array.Length];

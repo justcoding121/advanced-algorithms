@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Sorting
 {
@@ -7,18 +8,18 @@ namespace Advanced.Algorithms.Sorting
     /// </summary>
     public class ShellSort<T> where T : IComparable
     {
-        
-        public static T[] Sort(T[] array)
+        public static T[] Sort(T[] array, Order order = Order.Ascending)
         {
-            var k = array.Length / 2;
+            var comparer = new CustomComparer<T>(order, Comparer<T>.Default);
 
+            var k = array.Length / 2;
             var j = 0;
 
             while (k >= 1)
             {
                 for (int i = k; i < array.Length; i = i + k, j = j + k)
                 {
-                    if (array[i].CompareTo(array[j]) >= 0)
+                    if (comparer.Compare(array[i], array[j]) >= 0)
                     {
                         continue;
                     }

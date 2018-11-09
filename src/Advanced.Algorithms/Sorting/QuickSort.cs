@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Sorting
 {
@@ -10,19 +11,21 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(n^2)
         /// </summary>
-        public static T[] Sort(T[] array)
+        public static T[] Sort(T[] array, Order order = Order.Ascending)
         {
             if (array.Length <= 1)
             {
                 return array;
             }
 
-            sort(array, 0, array.Length - 1);
+            var comparer = new CustomComparer<T>(order, Comparer<T>.Default);
+
+            sort(array, 0, array.Length - 1, comparer);
 
             return array;
         }
 
-        private static void sort(T[] array, int startIndex, int endIndex)
+        private static void sort(T[] array, int startIndex, int endIndex, CustomComparer<T> comparer)
         {
             while (true)
             {
@@ -42,7 +45,7 @@ namespace Advanced.Algorithms.Sorting
                 //others will be on left
                 for (var j = wall; j <= endIndex; j++)
                 {
-                    if (pivot.CompareTo(array[j]) <= 0 && j != endIndex)
+                    if (comparer.Compare(pivot, array[j]) <= 0 && j != endIndex)
                     {
                         continue;
                     }
@@ -54,8 +57,8 @@ namespace Advanced.Algorithms.Sorting
                     wall++;
                 }
 
-                //soft left
-                sort(array, startIndex, wall - 2);
+                //sort left
+                sort(array, startIndex, wall - 2, comparer);
                 //sort right
                 startIndex = wall;
             }

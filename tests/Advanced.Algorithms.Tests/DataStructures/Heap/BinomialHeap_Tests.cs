@@ -69,7 +69,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             int nodeCount = 1000 * 10;
 
-            var tree = new BinomialHeap<int>(true);
+            var tree = new BinomialHeap<int>(Order.Descending);
 
             for (int i = 0; i <= nodeCount; i++)
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Sorting
@@ -11,7 +12,7 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(nlog(n)).
         /// </summary>
-        public static T[] Sort(T[] array)
+        public static T[] Sort(T[] array, Order order = Order.Ascending)
         {
             //create BST
             var tree = new RedBlackTree<T>();
@@ -20,20 +21,10 @@ namespace Advanced.Algorithms.Sorting
                 tree.Insert(item);
             }
 
-            //now extract min until empty
-            //and return them as sorted array
-            var sortedArray = new T[array.Length];
-            var j = 0;
-            while (tree.Count > 0)
-            {
-                //can be optimized by consolidating FindMin and Delete!
-                var min = tree.Min();
-                sortedArray[j] = min;
-                tree.Delete(min);
-                j++;
-            }
+            return order == Order.Ascending ? 
+                tree.AsEnumerable().ToArray() 
+                : tree.AsEnumerableDesc().ToArray();
 
-            return sortedArray;
         }
     }
 }

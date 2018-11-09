@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     {
-        private readonly bool isMax;
+        private readonly bool isMaxHeap;
         private readonly IComparer<T> comparer;
 
         private PairingHeapNode<T> Root;
@@ -19,10 +19,10 @@ namespace Advanced.Algorithms.DataStructures
 
         public int Count { get; private set; }
 
-        public PairingHeap(bool isMax = false)
+        public PairingHeap(Order order = Order.Ascending)
         {
-            this.isMax = isMax;
-            comparer = new HeapComparer<T>(isMax, Comparer<T>.Default);
+            this.isMaxHeap = order == Order.Descending;
+            comparer = new CustomComparer<T>(order, Comparer<T>.Default);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Advanced.Algorithms.DataStructures
 
             if (comparer.Compare(newValue, node.Value) > 0)
             {
-                throw new Exception($"New value is not {(!isMax ? "less" : "greater")} than old value.");
+                throw new Exception($"New value is not {(!isMaxHeap ? "less" : "greater")} than old value.");
             }
 
             updateNodeValue(currentValue, newValue, node);

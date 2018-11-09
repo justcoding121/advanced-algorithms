@@ -10,37 +10,37 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class BHeap<T> : IEnumerable<T> where T : IComparable
     {
-        private readonly bool isMax;
+        private readonly bool isMaxHeap;
 
         private T[] heapArray;
         private readonly IComparer<T> comparer;
 
         public int Count { get; private set; }
 
-        public BHeap(bool isMax = false)
-            : this(isMax, null, null) { }
+        public BHeap(Order order = Order.Ascending)
+            : this(order, null, null) { }
 
-        public BHeap(bool isMax, IEnumerable<T> initial)
-            : this(isMax, initial, null) { }
+        public BHeap(Order order, IEnumerable<T> initial)
+            : this(order, initial, null) { }
 
-        public BHeap(bool isMax, IComparer<T> comparer)
-            : this(isMax, null, comparer) { }
+        public BHeap(Order order, IComparer<T> comparer)
+            : this(order, null, comparer) { }
 
         /// <summary>
         /// Time complexity: O(n) if initial is provided. Otherwise O(1).
         /// </summary>
         /// <param name="initial">The initial items in the heap.</param>
-        public BHeap(bool isMax, IEnumerable<T> initial, IComparer<T> comparer)
+        public BHeap(Order order, IEnumerable<T> initial, IComparer<T> comparer)
         {
-            this.isMax = isMax;
+            this.isMaxHeap = order == Order.Descending;
 
             if (comparer != null)
             {
-                this.comparer = new HeapComparer<T>(isMax, comparer);
+                this.comparer = new CustomComparer<T>(order, comparer);
             }
             else
             {
-                this.comparer = new HeapComparer<T>(isMax, Comparer<T>.Default);
+                this.comparer = new CustomComparer<T>(order, Comparer<T>.Default);
             }
 
             if (initial != null)

@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class FibornacciHeap<T> : IEnumerable<T> where T : IComparable
     {
-        private readonly bool isMax;
+        private readonly bool isMaxHeap;
         private readonly IComparer<T> comparer;
 
         //holds the min/max node at any given time
@@ -23,10 +23,10 @@ namespace Advanced.Algorithms.DataStructures
 
         public int Count { get; private set; }
 
-        public FibornacciHeap(bool isMax = false)
+        public FibornacciHeap(Order order = Order.Ascending)
         {
-            this.isMax = isMax;
-            comparer = new HeapComparer<T>(isMax, Comparer<T>.Default);
+            this.isMaxHeap = order == Order.Descending;
+            comparer = new CustomComparer<T>(order, Comparer<T>.Default);
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Advanced.Algorithms.DataStructures
 
             if (comparer.Compare(newValue, node.Value) > 0)
             {
-                throw new Exception($"New value is not {(!isMax ? "less" : "greater")} than old value.");
+                throw new Exception($"New value is not {(!isMaxHeap ? "less" : "greater")} than old value.");
             }
 
             updateNodeValue(currentValue, newValue, node);
