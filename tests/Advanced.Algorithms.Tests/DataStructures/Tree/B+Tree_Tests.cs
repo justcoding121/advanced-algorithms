@@ -103,7 +103,13 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 var theoreticalMaxHeight = Math.Ceiling(Math.Log((i + 2) / 2, (int)Math.Ceiling((double)order / 2))) + 1;
 
                 Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
+
                 Assert.IsTrue(tree.Count == i + 1);
+                Assert.AreEqual(i + 1, tree.Count());
+                Assert.AreEqual(i + 1, tree.Distinct().Count());
+                Assert.AreEqual(i + 1, tree.AsEnumerableDesc().Count());
+                Assert.AreEqual(i + 1, tree.AsEnumerableDesc().Distinct().Count());
+                Assert.IsTrue(tree.AsEnumerable().OrderByDescending(x => x).SequenceEqual(tree.AsEnumerableDesc()));
 
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
@@ -119,11 +125,19 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //check that the elements are in sorted order
             //since B+ tree stores all elements in leaves in sorted order from left to right
             int j = 1;
-            foreach(var element in tree)
+            foreach (var element in tree)
             {
                 Assert.AreEqual(j, element);
                 j++;
             }
+
+            j = nodeCount;
+            foreach (var element in tree.AsEnumerableDesc())
+            {
+                Assert.AreEqual(j, element);
+                j--;
+            }
+
 
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
@@ -145,7 +159,13 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 var theoreticalMaxHeight = i == nodeCount - 1 ? 0 : Math.Ceiling(Math.Log((nodeCount - i - 1 + 1) / 2, (int)Math.Ceiling((double)order / 2))) + 1;
 
                 Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
+
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+                Assert.AreEqual(nodeCount - 1 - i, tree.Count());
+                Assert.AreEqual(nodeCount - 1 - i, tree.Distinct().Count());
+                Assert.AreEqual(nodeCount - 1 - i, tree.AsEnumerableDesc().Count());
+                Assert.AreEqual(nodeCount - 1 - i, tree.AsEnumerableDesc().Distinct().Count());
+                Assert.IsTrue(tree.AsEnumerable().OrderByDescending(x => x).SequenceEqual(tree.AsEnumerableDesc()));
             }
 
             Assert.IsTrue(BTreeTester.GetMaxHeight(tree.Root) == 0);
