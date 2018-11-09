@@ -11,9 +11,9 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Sort given integers.
         /// </summary>
-        public static int[] Sort(IEnumerable<int> array, SortDirection sortDirection = SortDirection.Ascending)
+        public static int[] Sort(IEnumerable<int> enumerable, SortDirection sortDirection = SortDirection.Ascending)
         {
-            var lengthAndMax = getLengthAndMax(array);
+            var lengthAndMax = getLengthAndMax(enumerable);
 
             var length = lengthAndMax.Item1;
             var max = lengthAndMax.Item2;
@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.Sorting
             var countArray = new int[max + 1];
 
             //count the appearances of elements
-            foreach (var item in array)
+            foreach (var item in enumerable)
             {
                 if (item < 0)
                 {
@@ -43,7 +43,7 @@ namespace Advanced.Algorithms.Sorting
             var result = new int[length];
 
             //now assign result
-            foreach (var item in array)
+            foreach (var item in enumerable)
             {
                 var index = countArray[item];
                 result[sortDirection == SortDirection.Ascending ? index-1 : result.Length - index] = item;

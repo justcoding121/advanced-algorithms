@@ -13,11 +13,11 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(nlog(n)).
         /// </summary>
-        public static IEnumerable<T> Sort(IEnumerable<T> array, SortDirection sortDirection = SortDirection.Ascending)
+        public static IEnumerable<T> Sort(IEnumerable<T> enumerable, SortDirection sortDirection = SortDirection.Ascending)
         {
             //create BST
             var tree = new RedBlackTree<T>();
-            foreach (var item in array)
+            foreach (var item in enumerable)
             {
                 tree.Insert(item);
             }
