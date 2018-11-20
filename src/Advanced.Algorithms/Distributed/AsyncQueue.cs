@@ -54,7 +54,6 @@ namespace Advanced.Algorithms.Distributed
                 if (queue.Count > 0)
                 {
                     var result = queue.Dequeue();
-                    consumerQueueLock.Release();
                     return result;
                 }
 
