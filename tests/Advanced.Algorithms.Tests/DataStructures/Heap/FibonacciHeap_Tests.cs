@@ -7,15 +7,15 @@ using System.Linq;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class FibornacciHeap_Tests
+    public class FibonacciHeap_Tests
     {
 
         [TestMethod]
-        public void Min_FibornacciHeap_Test()
+        public void Min_FibonacciHeap_Test()
         {
             int nodeCount = 1000 * 10;
 
-            var minHeap = new FibornacciHeap<int>();
+            var minHeap = new FibonacciHeap<int>();
 
             for (int i = 0; i <= nodeCount; i++)
             {
@@ -66,11 +66,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
 
         [TestMethod]
-        public void Max_FibornacciHeap_Test()
+        public void Max_FibonacciHeap_Test()
         {
             int nodeCount = 1000 * 10;
  
-            var maxHeap = new FibornacciHeap<int>(SortDirection.Descending);
+            var maxHeap = new FibonacciHeap<int>(SortDirection.Descending);
 
             for (int i = 0; i <= nodeCount; i++)
             {

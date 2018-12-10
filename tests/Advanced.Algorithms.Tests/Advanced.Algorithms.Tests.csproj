@@ -78,7 +78,7 @@
     <Compile Include="DataStructures\Heap\BHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\BinomialHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\D-aryHeap_Tests.cs" />
-    <Compile Include="DataStructures\Heap\FibornacciHeap_Tests.cs" />
+    <Compile Include="DataStructures\Heap\FibonacciHeap_Tests.cs" />
     <Compile Include="DataStructures\Heap\PairingHeap_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\CircularLinkedList_Tests.cs" />
     <Compile Include="DataStructures\LinkedList\DoublyLinkedList_Tests.cs" />

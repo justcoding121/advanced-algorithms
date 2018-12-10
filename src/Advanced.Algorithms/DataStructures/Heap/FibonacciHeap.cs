@@ -8,22 +8,22 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A fibornacci minMax heap implementation.
     /// </summary>
-    public class FibornacciHeap<T> : IEnumerable<T> where T : IComparable
+    public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     {
         private readonly bool isMaxHeap;
         private readonly IComparer<T> comparer;
 
         //holds the min/max node at any given time
-        private FibornacciHeapNode<T> minMaxNode = null;
+        private FibonacciHeapNode<T> minMaxNode = null;
 
-        private FibornacciHeapNode<T> heapForestHead;
+        private FibonacciHeapNode<T> heapForestHead;
 
-        private Dictionary<T, List<FibornacciHeapNode<T>>> heapMapping
-            = new Dictionary<T, List<FibornacciHeapNode<T>>>();
+        private Dictionary<T, List<FibonacciHeapNode<T>>> heapMapping
+            = new Dictionary<T, List<FibonacciHeapNode<T>>>();
 
         public int Count { get; private set; }
 
-        public FibornacciHeap(SortDirection sortDirection = SortDirection.Ascending)
+        public FibonacciHeap(SortDirection sortDirection = SortDirection.Ascending)
         {
             this.isMaxHeap = sortDirection == SortDirection.Descending;
             comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
@@ -34,7 +34,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void Insert(T newItem)
         {
-            var newNode = new FibornacciHeapNode<T>(newItem);
+            var newNode = new FibonacciHeapNode<T>(newItem);
 
             //return pointer to new Node
             mergeForests(newNode);
@@ -145,10 +145,10 @@ namespace Advanced.Algorithms.DataStructures
         /// Unions this heap with another.
         /// Time complexity: O(1).
         /// </summary>
-        public void Merge(FibornacciHeap<T> FibornacciHeap)
+        public void Merge(FibonacciHeap<T> FibonacciHeap)
         {
-            mergeForests(FibornacciHeap.heapForestHead);
-            Count = Count + FibornacciHeap.Count;
+            mergeForests(FibonacciHeap.heapForestHead);
+            Count = Count + FibonacciHeap.Count;
         }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             //degree - node dictionary
-            var mergeDictionary = new Dictionary<int, FibornacciHeapNode<T>>();
+            var mergeDictionary = new Dictionary<int, FibonacciHeapNode<T>>();
 
             var current = heapForestHead;
             minMaxNode = current;
@@ -270,7 +270,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Delete this node from Heap Tree and adds it to forest as a new tree 
         /// </summary>
-        private void cut(FibornacciHeapNode<T> node)
+        private void cut(FibonacciHeapNode<T> node)
         {
             var parent = node.Parent;
 
@@ -301,7 +301,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Merges the given fibornacci node list to current Forest 
         /// </summary>
-        private void mergeForests(FibornacciHeapNode<T> headPointer)
+        private void mergeForests(FibonacciHeapNode<T> headPointer)
         {
             var current = headPointer;
             while (current != null)
@@ -313,7 +313,7 @@ namespace Advanced.Algorithms.DataStructures
 
         }
 
-        private void insertNode(ref FibornacciHeapNode<T> head, FibornacciHeapNode<T> newNode)
+        private void insertNode(ref FibonacciHeapNode<T> head, FibonacciHeapNode<T> newNode)
         {
             newNode.Next = newNode.Previous = null;
 
@@ -329,7 +329,7 @@ namespace Advanced.Algorithms.DataStructures
             head = newNode;
         }
 
-        private void deleteNode(ref FibornacciHeapNode<T> heapForestHead, FibornacciHeapNode<T> deletionNode)
+        private void deleteNode(ref FibonacciHeapNode<T> heapForestHead, FibonacciHeapNode<T> deletionNode)
         {
             if (deletionNode == heapForestHead)
             {
@@ -355,7 +355,7 @@ namespace Advanced.Algorithms.DataStructures
             deletionNode.Previous = null;
         }
 
-        private void addMapping(T newItem, FibornacciHeapNode<T> newNode)
+        private void addMapping(T newItem, FibonacciHeapNode<T> newNode)
         {
             if (heapMapping.ContainsKey(newItem))
             {
@@ -363,18 +363,18 @@ namespace Advanced.Algorithms.DataStructures
             }
             else
             {
-                heapMapping[newItem] = new List<FibornacciHeapNode<T>>(new[] { newNode });
+                heapMapping[newItem] = new List<FibonacciHeapNode<T>>(new[] { newNode });
             }
         }
 
-        private void updateNodeValue(T currentValue, T newValue, FibornacciHeapNode<T> node)
+        private void updateNodeValue(T currentValue, T newValue, FibonacciHeapNode<T> node)
         {
             removeMapping(currentValue, node);
             node.Value = newValue;
             addMapping(newValue, node);
         }
 
-        private void removeMapping(T currentValue, FibornacciHeapNode<T> node)
+        private void removeMapping(T currentValue, FibonacciHeapNode<T> node)
         {
             heapMapping[currentValue].Remove(node);
             if (heapMapping[currentValue].Count == 0)

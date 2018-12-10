@@ -5,7 +5,7 @@ using Advanced.Algorithms.DataStructures;
 namespace Advanced.Algorithms.Compression
 {
     /// <summary>
-    /// A huffman coding implementation using Fibornacci Min Heap.
+    /// A huffman coding implementation using Fibonacci Min Heap.
     /// </summary>
     public class HuffmanCoding<T>
     {
