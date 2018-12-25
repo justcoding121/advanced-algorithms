@@ -68,7 +68,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             for (int i = 0; i < nodeCount; i++)
             {
-                tree.Insert(randomNumbers[i]);
+                var index = tree.Insert(randomNumbers[i]);
+                Assert.AreEqual(index, tree.IndexOf(randomNumbers[i]));
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
                 tree.Root.VerifyCount();
@@ -98,9 +99,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             for (int i = 0; i < nodeCount; i++)
             {
-                if(rnd.NextDouble() >= 0.5)
+                if (rnd.NextDouble() >= 0.5)
                 {
-                    tree.Delete(randomNumbers[i]);
+                    var index = tree.IndexOf(randomNumbers[i]);
+                    Assert.AreEqual(index, tree.Delete(randomNumbers[i]));
                 }
                 else
                 {
@@ -108,7 +110,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                     Assert.AreEqual(tree.ElementAt(index), randomNumbers[i]);
                     tree.RemoveAt(index);
                 }
-                
+
                 Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
                 tree.Root.VerifyCount();
                 var actualHeight = tree.Root.GetHeight();

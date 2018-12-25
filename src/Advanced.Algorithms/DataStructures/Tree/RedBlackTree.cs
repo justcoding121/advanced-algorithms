@@ -59,7 +59,7 @@ namespace Advanced.Algorithms.DataStructures
                 return nodeLookUp.ContainsKey(value);
             }
 
-            return find(value) != null;
+            return find(value).Item1 != null;
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Advanced.Algorithms.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         internal RedBlackTreeNode<T> FindNode(T value)
         {
-            return Root == null ? null : find(value);
+            return Root == null ? null : find(value).Item1;
         }
 
         //O(log(n)) worst O(n) for unbalanced tree
@@ -129,14 +129,15 @@ namespace Advanced.Algorithms.DataStructures
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(log(n)) worst O(n) for unbalanced tree
-        private RedBlackTreeNode<T> find(T value)
+        private (RedBlackTreeNode<T>, int) find(T value)
         {
             if (nodeLookUp != null)
             {
-                return nodeLookUp[value] as RedBlackTreeNode<T>;
+                return (nodeLookUp[value] as RedBlackTreeNode<T>, Root.Position(value));
             }
 
-            return Root.Find<T>(value) as RedBlackTreeNode<T>;
+            var result = Root.Find(value);
+            return (result.Item1 as RedBlackTreeNode<T>, result.Item2);
         }
 
         /// <summary>
@@ -146,13 +147,13 @@ namespace Advanced.Algorithms.DataStructures
         public int Insert(T value)
         {
             var node = InsertAndReturnNode(value);
-            return Root.Position(value);
+            return node.Item2;
         }
 
         /// <summary>
         ///  Time complexity: O(log(n))
         /// </summary>
-        internal RedBlackTreeNode<T> InsertAndReturnNode(T value)
+        internal (RedBlackTreeNode<T>, int) InsertAndReturnNode(T value)
         {
             //empty tree
             if (Root == null)
@@ -163,22 +164,24 @@ namespace Advanced.Algorithms.DataStructures
                     nodeLookUp[value] = Root;
                 }
 
-                return Root;
+                return (Root, 0);
             }
 
-            var newNode = insert(Root, value);
+            var newNode = Insert(Root, value);
 
             if (nodeLookUp != null)
             {
-                nodeLookUp[value] = newNode;
+                nodeLookUp[value] = newNode.Item1;
             }
 
             return newNode;
         }
 
         //O(log(n)) always
-        private RedBlackTreeNode<T> insert(RedBlackTreeNode<T> currentNode, T newNodeValue)
+        private (RedBlackTreeNode<T>, int) Insert(RedBlackTreeNode<T> currentNode, T newNodeValue)
         {
+            var insertionPosition = 0;
+
             while (true)
             {
                 var compareResult = currentNode.Value.CompareTo(newNodeValue);
@@ -186,16 +189,18 @@ namespace Advanced.Algorithms.DataStructures
                 //current node is less than new item
                 if (compareResult < 0)
                 {
+                    insertionPosition += (currentNode.Left != null ? currentNode.Left.Count : 0) + 1;
+
                     //no right child
                     if (currentNode.Right == null)
                     {
                         //insert
                         var node = currentNode.Right = new RedBlackTreeNode<T>(currentNode, newNodeValue);
                         balanceInsertion(currentNode.Right);
-                        return node;
+                        return (node, insertionPosition);
                     }
 
-                    currentNode = currentNode.Right;
+                    currentNode = currentNode.Right;  
                 }
                 //current node is greater than new node
                 else if (compareResult > 0)
@@ -205,7 +210,7 @@ namespace Advanced.Algorithms.DataStructures
                         //insert
                         var node = currentNode.Left = new RedBlackTreeNode<T>(currentNode, newNodeValue);
                         balanceInsertion(currentNode.Left);
-                        return node;
+                        return (node, insertionPosition);
                     }
 
                     currentNode = currentNode.Left;
@@ -356,14 +361,14 @@ namespace Advanced.Algorithms.DataStructures
 
             var node = find(value);
 
-            if (node == null)
+            if (node.Item1 == null)
             {
                 return -1;
             }
 
-            var position = Root.Position(value);
+            var position = node.Item2;
 
-            delete(node);
+            delete(node.Item1);
 
             if (nodeLookUp != null)
             {
@@ -830,8 +835,8 @@ namespace Advanced.Algorithms.DataStructures
 
         internal void Swap(T value1, T value2)
         {
-            var node1 = find(value1);
-            var node2 = find(value2);
+            var node1 = find(value1).Item1;
+            var node2 = find(value2).Item1;
 
             if (node1 == null || node2 == null)
             {
