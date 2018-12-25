@@ -146,7 +146,7 @@ namespace Advanced.Algorithms.DataStructures
         public int Insert(T value)
         {
             var node = InsertAndReturnNode(value);
-            return node.Position;
+            return Root.Position(value);
         }
 
         /// <summary>
@@ -361,7 +361,7 @@ namespace Advanced.Algorithms.DataStructures
                 return -1;
             }
 
-            var position = node.Position;
+            var position = Root.Position(value);
 
             delete(node);
 
