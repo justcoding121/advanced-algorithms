@@ -7,7 +7,7 @@ using System.Linq;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// A* algorithm implementation using Fibornacci Heap.
+    /// A* algorithm implementation using Fibonacci Heap.
     /// </summary>
     public class AStarShortestPath<T, W> where W : IComparable
     {
@@ -38,7 +38,7 @@ namespace Advanced.Algorithms.Graph
             var parentMap = new Dictionary<T, T>();
 
             //min heap to pick next closest vertex 
-            var minHeap = new FibornacciHeap<AStarWrap<T, W>>();
+            var minHeap = new FibonacciHeap<AStarWrap<T, W>>();
             //keep references of heap Node for decrement key operation
             var heapMapping = new Dictionary<T, AStarWrap<T, W>>();
 
@@ -167,7 +167,7 @@ namespace Advanced.Algorithms.Graph
         W HueristicDistanceToTarget(T sourceVertex, T targetVertex);
     }
 
-    //Node for our Fibornacci heap
+    //Node for our Fibonacci heap
     internal class AStarWrap<T, W> : IComparable where W : IComparable
     {
         private IAStarHeuristic<T, W> heuristic;

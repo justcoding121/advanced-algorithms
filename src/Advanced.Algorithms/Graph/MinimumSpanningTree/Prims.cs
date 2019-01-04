@@ -32,7 +32,7 @@ namespace Advanced.Algorithms.Graph
         /// Do DFS to pick smallest weight neighbour edges 
         /// of current spanning tree one by one.
         /// </summary>
-        /// <param name="spanTreeNeighbours"> Use Fibornacci Min Heap to pick smallest edge neighbour </param>
+        /// <param name="spanTreeNeighbours"> Use Fibonacci Min Heap to pick smallest edge neighbour </param>
         /// <param name="spanTreeEdges">result MST edges</param>
         private void dfs(WeightedGraph<T, W> graph, WeightedGraphVertex<T, W> currentVertex, 
             BHeap<MSTEdge<T, W>> spanTreeNeighbours, HashSet<T> spanTreeVertices, 
@@ -40,7 +40,7 @@ namespace Advanced.Algorithms.Graph
         {
             while (true)
             {
-                //add all edges to Fibornacci Heap
+                //add all edges to Fibonacci Heap
                 //So that we can pick the min edge in next step
                 foreach (var edge in currentVertex.Edges)
                 {

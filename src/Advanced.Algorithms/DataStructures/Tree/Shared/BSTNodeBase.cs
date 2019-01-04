@@ -10,9 +10,6 @@ namespace Advanced.Algorithms.DataStructures
         //Used to fasten kth smallest computation.
         internal int Count { get; set; } = 1;
 
-        //position of this node in sorted order of containing BST
-        internal int Position => Left == null ? 0 : Left.Count;
-
         internal virtual BSTNodeBase<T> Parent { get; set; }
 
         internal virtual BSTNodeBase<T> Left { get; set; }

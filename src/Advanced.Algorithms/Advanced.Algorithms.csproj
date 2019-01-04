@@ -8,8 +8,13 @@
     <AssemblyOriginatorKeyFile>StrongNameKey.snk</AssemblyOriginatorKeyFile>
     <DelaySign>False</DelaySign>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+  
   <ItemGroup>
     <Compile Remove="Binary\**" />
     <Compile Remove="DynamicProgramming\**" />
@@ -24,5 +29,5 @@
     <Compile Include="Binary\Logarithm.cs" />
     <Compile Include="Binary\GCD.cs" />
   </ItemGroup>
-
+ 
 </Project>

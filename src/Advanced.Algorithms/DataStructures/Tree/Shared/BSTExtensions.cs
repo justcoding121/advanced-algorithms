@@ -8,20 +8,23 @@ namespace Advanced.Algorithms.DataStructures
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
         //O(log(n)) worst O(n) for unbalanced tree
-        internal static BSTNodeBase<T> Find<T>(this BSTNodeBase<T> current, T value) where T : IComparable
+        internal static (BSTNodeBase<T>, int) Find<T>(this BSTNodeBase<T> current, T value) where T : IComparable
         {
+            int position = 0;
+
             while (true)
             {
                 if (current == null)
                 {
-                    return null;
+                    return (null, -1);
                 }
 
                 var compareResult = current.Value.CompareTo(value);
 
                 if (compareResult == 0)
                 {
-                    return current;
+                    position += (current.Left != null ? current.Left.Count : 0);
+                    return (current, position);
                 }
 
                 if (compareResult > 0)
@@ -30,7 +33,8 @@ namespace Advanced.Algorithms.DataStructures
                 }
                 else
                 {
-                    current = current.Right;
+                    position += (current.Left != null ? current.Left.Count : 0) + 1;
+                    current = current.Right;           
                 }
             }
         }

@@ -7,7 +7,7 @@ using System.Linq;
 namespace Advanced.Algorithms.Graph
 {
     /// <summary>
-    /// A dijikstra algorithm implementation using Fibornacci Heap.
+    /// A dijikstra algorithm implementation using Fibonacci Heap.
     /// </summary>
     public class DijikstraShortestPath<T, W> where W : IComparable
     {
@@ -35,7 +35,7 @@ namespace Advanced.Algorithms.Graph
             var parentMap = new Dictionary<T, T>();
 
             //min heap to pick next closest vertex 
-            var minHeap = new FibornacciHeap<MinHeapWrap<T, W>>();
+            var minHeap = new FibonacciHeap<MinHeapWrap<T, W>>();
             //keep references of heap Node for decrement key operation
             var heapMapping = new Dictionary<T, MinHeapWrap<T, W>>();
 

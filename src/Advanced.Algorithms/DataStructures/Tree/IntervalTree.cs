@@ -304,12 +304,10 @@ namespace Advanced.Algorithms.DataStructures
             if (existing != null)
             {
                 existing.Value.End.Add(newInterval.End[0]);
-
             }
             else
             {
-
-                existing = redBlackTree.InsertAndReturnNode(newInterval);
+                existing = redBlackTree.InsertAndReturnNode(newInterval).Item1;
             }
             updateMax(existing);
             Count++;
