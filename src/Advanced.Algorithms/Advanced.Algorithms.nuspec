@@ -13,9 +13,12 @@
     <releaseNotes></releaseNotes>
     <copyright>Copyright &#x00A9; justcoding121.  All rights reserved.</copyright>
     <tags></tags>
+    <dependencies>
+		<dependency id="System.ValueTuple" version="4.5.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="bin\$configuration$\net45\Advanced.Algorithms.dll" target="lib\net45"  />
-    <file src="bin\$configuration$\netstandard1.0\Advanced.Algorithms.*" target="lib\netstandard1.0"  />
+    <file src="bin\$configuration$\netstandard1.0\Advanced.Algorithms.dll" target="lib\netstandard1.0"  />
   </files>
 </package>
