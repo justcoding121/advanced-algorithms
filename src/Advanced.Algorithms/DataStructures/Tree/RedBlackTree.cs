@@ -17,27 +17,40 @@ namespace Advanced.Algorithms.DataStructures
 
         public int Count => Root == null ? 0 : Root.Count;
 
+        /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
+        /// at the cost of additional space.</param>
+        public RedBlackTree(bool enableNodeLookUp = false)
+        {
+            if (enableNodeLookUp)
+            {
+                nodeLookUp = new Dictionary<T, BSTNodeBase<T>>();
+            }
+        }
+
         /// <summary>
         /// Initialize the BST with given sorted keys optionally.
         /// Time complexity: O(n).
         /// </summary>
         /// <param name="sortedCollection">The sorted initial collection.</param>
-        public RedBlackTree(IEnumerable<T> sortedCollection = null)
+        /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
+        /// at the cost of additional space.</param>
+        public RedBlackTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false)
         {
-            if (sortedCollection != null)
+            ValidateSortedCollection(sortedCollection);
+            var nodes = sortedCollection.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
+            Root = (RedBlackTreeNode<T>)ToBST(nodes);
+            assignColors(Root);
+            assignCount(Root);
+
+            if (enableNodeLookUp)
             {
-                ValidateSortedCollection(sortedCollection);
-                var nodes = sortedCollection.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
-                Root = (RedBlackTreeNode<T>)ToBST(nodes);
-                assignColors(Root);
-                assignCount(Root);
+                nodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BSTNodeBase<T>);
             }
         }
 
         ///Special (internal only) constructor for Bentley-Ottmann sweep line algorithm for fast line swap.
         /// <param name="equalityComparer">Provide custom IEquality comparer for node lookup dictionary.</param>
         internal RedBlackTree(IEqualityComparer<T> equalityComparer)
-            : this()
         {
             nodeLookUp = new Dictionary<T, BSTNodeBase<T>>(equalityComparer);
         }
@@ -131,9 +144,13 @@ namespace Advanced.Algorithms.DataStructures
         {
             if (nodeLookUp != null)
             {
-                //since node look up is only used by Bentley-Ottmann algorithm internally
-                //and it does'nt need the position we can return defualt(int).
-                return (nodeLookUp[value] as RedBlackTreeNode<T>, default(int));
+                if (nodeLookUp.ContainsKey(value))
+                {
+                    var node = (nodeLookUp[value] as RedBlackTreeNode<T>);
+                    return (node, Root.Position(value));
+                }
+
+                return (null, -1);
             }
 
             var result = Root.Find(value);
@@ -391,11 +408,13 @@ namespace Advanced.Algorithms.DataStructures
 
             var node = Root.KthSmallest(index) as RedBlackTreeNode<T>;
 
+            var deletedValue = node.Value;
+
             delete(node);
 
             if (nodeLookUp != null)
             {
-                nodeLookUp.Remove(node.Value);
+                nodeLookUp.Remove(deletedValue);
             }
 
             return node.Value;
@@ -439,12 +458,13 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     var maxLeftNode = findMax(node.Left);
 
-                    node.Value = maxLeftNode.Value;
-
                     if (nodeLookUp != null)
                     {
-                        nodeLookUp[node.Value] = node;
+                        nodeLookUp[node.Value] = maxLeftNode;
+                        nodeLookUp[maxLeftNode.Value] = node;
                     }
+
+                    node.Value = maxLeftNode.Value;
 
                     //delete left max node
                     delete(maxLeftNode);

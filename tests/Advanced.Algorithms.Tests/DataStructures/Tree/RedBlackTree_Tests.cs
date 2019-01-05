@@ -126,6 +126,78 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
         [TestMethod]
+        public void RedBlack_Accuracy_Test_With_Node_LookUp()
+        {
+            var nodeCount = 1000;
+
+            var rnd = new Random();
+            var sorted = Enumerable.Range(1, nodeCount).ToList();
+            var randomNumbers = sorted
+                                .OrderBy(x => rnd.Next())
+                                .ToList();
+
+            var tree = new RedBlackTree<int>(true);
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                var index = tree.Insert(randomNumbers[i]);
+                Assert.AreEqual(index, tree.IndexOf(randomNumbers[i]));
+                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+                tree.Root.VerifyCount();
+                var actualHeight = tree.Root.GetHeight();
+
+                //http://doctrina.org/maximum-height-of-red-black-tree.html
+                var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
+
+                Assert.IsTrue(actualHeight < maxHeight);
+                Assert.IsTrue(tree.Count == i + 1);
+            }
+
+            for (int i = 0; i < sorted.Count; i++)
+            {
+                Assert.AreEqual(sorted[i], tree.ElementAt(i));
+                Assert.AreEqual(i, tree.IndexOf(sorted[i]));
+            }
+
+            //shuffle again before deletion tests
+            randomNumbers = Enumerable.Range(1, nodeCount)
+                                   .OrderBy(x => rnd.Next())
+                                   .ToList();
+
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
+            Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                if (rnd.NextDouble() >= 0.5)
+                {
+                    var index = tree.IndexOf(randomNumbers[i]);
+                    Assert.AreEqual(index, tree.Delete(randomNumbers[i]));
+                }
+                else
+                {
+                    var index = tree.IndexOf(randomNumbers[i]);
+                    Assert.AreEqual(tree.ElementAt(index), randomNumbers[i]);
+                    tree.RemoveAt(index);
+                }
+
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+                tree.Root.VerifyCount();
+                var actualHeight = tree.Root.GetHeight();
+
+                //http://doctrina.org/maximum-height-of-red-black-tree.html
+                var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
+
+                Assert.IsTrue(actualHeight < maxHeight);
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
+
+            Assert.IsTrue(tree.Count == 0);
+        }
+
+        [TestMethod]
         public void RedBlackTree_BulkInit_Test()
         {
             var nodeCount = 1000;
@@ -134,6 +206,44 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var sortedNumbers = Enumerable.Range(1, nodeCount).ToList();
 
             var tree = new RedBlackTree<int>(sortedNumbers);
+
+            Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+
+            //IEnumerable test using linq
+            Assert.AreEqual(tree.Count, tree.Count());
+            Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
+
+            tree.Root.VerifyCount();
+
+            for (int i = 0; i < nodeCount; i++)
+            {
+                tree.Delete(sortedNumbers[i]);
+
+                tree.Root.VerifyCount();
+                Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
+
+                var actualHeight = tree.Root.GetHeight();
+
+                //http://doctrina.org/maximum-height-of-red-black-tree.html
+                var maxHeight = 2 * Math.Log(nodeCount + 1, 2);
+
+                Assert.IsTrue(actualHeight < maxHeight);
+                Assert.IsTrue(tree.Count == nodeCount - 1 - i);
+            }
+
+            Assert.IsTrue(tree.Count == 0);
+        }
+
+
+        [TestMethod]
+        public void RedBlackTree_BulkInit_Test_With_Node_LookUp()
+        {
+            var nodeCount = 1000;
+
+            var rnd = new Random();
+            var sortedNumbers = Enumerable.Range(1, nodeCount).ToList();
+
+            var tree = new RedBlackTree<int>(sortedNumbers, true);
 
             Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
 
