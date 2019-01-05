@@ -419,7 +419,7 @@ namespace Advanced.Algorithms.DataStructures
                 return nodeLookUp[value] as AVLTreeNode<T>;
             }
 
-            return Root.Find<T>(value) as AVLTreeNode<T>;
+            return Root.Find(value).Item1 as AVLTreeNode<T>;
         }
 
         //find the node with the given identifier among descendants of parent and parent

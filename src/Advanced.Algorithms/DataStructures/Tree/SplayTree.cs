@@ -494,7 +494,7 @@ namespace Advanced.Algorithms.DataStructures
         //O(log(n)) worst O(n) for unbalanced tree
         private BSTNodeBase<T> find(T value)
         {
-            return Root.Find<T>(value) as BSTNodeBase<T>;
+            return Root.Find<T>(value).Item1 as BSTNodeBase<T>;
         }
 
         /// <summary>
