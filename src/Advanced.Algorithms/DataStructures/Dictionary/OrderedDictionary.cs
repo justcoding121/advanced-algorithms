@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public OrderedDictionary()
         {
-            binarySearchTree = new RedBlackTree<OrderedKeyValuePair<K, V>>(true);
+            binarySearchTree = new RedBlackTree<OrderedKeyValuePair<K, V>>();
         }
 
         /// <summary>
