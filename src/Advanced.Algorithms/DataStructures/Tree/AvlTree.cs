@@ -34,13 +34,17 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         ///  at the cost of additional space.</param>
         public AVLTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false)
-            : this(enableNodeLookUp)
         {
             ValidateSortedCollection(sortedCollection);
             var nodes = sortedCollection.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
             Root = (AVLTreeNode<T>)ToBST(nodes);
             recomputeHeight(Root);
             assignCount(Root);
+
+            if (enableNodeLookUp)
+            {
+                nodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BSTNodeBase<T>);
+            }
         }
 
 
