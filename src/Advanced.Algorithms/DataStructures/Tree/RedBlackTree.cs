@@ -131,7 +131,9 @@ namespace Advanced.Algorithms.DataStructures
         {
             if (nodeLookUp != null)
             {
-                return (nodeLookUp[value] as RedBlackTreeNode<T>, Root.Position(value));
+                //since node look up is only used by Bentley-Ottmann algorithm internally
+                //and it does'nt need the position we can return defualt(int).
+                return (nodeLookUp[value] as RedBlackTreeNode<T>, default(int));
             }
 
             var result = Root.Find(value);
@@ -831,6 +833,7 @@ namespace Advanced.Algorithms.DataStructures
             return next != null ? next.Value : default(T);
         }
 
+        ///Special (internal only) method for Bentley-Ottmann sweep line algorithm.
         internal void Swap(T value1, T value2)
         {
             var node1 = find(value1).Item1;
