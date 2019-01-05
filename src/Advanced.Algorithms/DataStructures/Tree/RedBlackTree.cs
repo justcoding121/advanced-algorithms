@@ -21,16 +21,13 @@ namespace Advanced.Algorithms.DataStructures
         /// Initialize the BST with given sorted keys optionally.
         /// Time complexity: O(n).
         /// </summary>
-        /// <param name="collection">The sorted keys.</param>
-        /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
-        /// at the cost of additional space.</param>
-        /// <param name="equalityComparer">Provide custom IEquality comparer for node lookup dictionary when enabled.</param>
-        public RedBlackTree(IEnumerable<T> sortedKeys = null)
+        /// <param name="sortedCollection">The sorted initial collection.</param>
+        public RedBlackTree(IEnumerable<T> sortedCollection = null)
         {
-            if (sortedKeys != null)
+            if (sortedCollection != null)
             {
-                ValidateCollection(sortedKeys);
-                var nodes = sortedKeys.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
+                ValidateSortedCollection(sortedCollection);
+                var nodes = sortedCollection.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
                 Root = (RedBlackTreeNode<T>)ToBST(nodes);
                 assignColors(Root);
                 assignCount(Root);

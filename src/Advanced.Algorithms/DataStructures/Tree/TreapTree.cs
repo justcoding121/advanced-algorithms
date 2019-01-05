@@ -20,11 +20,11 @@ namespace Advanced.Algorithms.DataStructures
         /// Initialize the BST with given sorted keys.
         /// Time complexity: O(n).
         /// </summary>
-        /// <param name="sortedKeys">The sorted keys.</param>
-        public TreapTree(IEnumerable<T> collection) : this()
+        /// <param name="sortedCollection">The initial sorted collection.</param>
+        public TreapTree(IEnumerable<T> sortedCollection) : this()
         {
-            ValidateCollection(collection);
-            var nodes = collection.Select(x => new TreapTreeNode<T>(null, x, rndGenerator.Next())).ToArray();
+            ValidateSortedCollection(sortedCollection);
+            var nodes = sortedCollection.Select(x => new TreapTreeNode<T>(null, x, rndGenerator.Next())).ToArray();
             Root = (TreapTreeNode<T>)ToBST(nodes);
             assignCount(Root);
             heapify(Root);

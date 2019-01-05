@@ -18,11 +18,11 @@ namespace Advanced.Algorithms.DataStructures
         /// Initialize the BST with given sorted keys.
         /// Time complexity: O(n).
         /// </summary>
-        /// <param name="sortedKeys">The sorted keys.</param>
-        public SplayTree(IEnumerable<T> collection) : this()
+        /// <param name="sortedCollection">The sorted collection.</param>
+        public SplayTree(IEnumerable<T> sortedCollection) : this()
         {
-            ValidateCollection(collection);
-            var nodes = collection.Select(x => new SplayTreeNode<T>(null, x)).ToArray();
+            ValidateSortedCollection(sortedCollection);
+            var nodes = sortedCollection.Select(x => new SplayTreeNode<T>(null, x)).ToArray();
             Root = (SplayTreeNode<T>)ToBST(nodes);
             assignCount(Root);
         }
