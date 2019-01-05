@@ -40,7 +40,7 @@ namespace Advanced.Algorithms.Geometry
         {
             SweepLine = new Line(new Point(0, 0), new Point(0, int.MaxValue), Tolerance);
 
-            currentlyTrackedLines = new RedBlackTree<Event>(true, pointComparer);
+            currentlyTrackedLines = new RedBlackTree<Event>(pointComparer);
             intersectionEvents = new Dictionary<Point, HashSet<Tuple<Event, Event>>>(pointComparer);
 
             verticalHorizontalLines = new HashSet<Event>();
