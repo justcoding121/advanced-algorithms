@@ -6189,24 +6189,15 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T)
   nameWithType: RedBlackTree<T>
   nameWithType.vb: RedBlackTree(Of T)
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(IEnumerable{`0},System.Boolean,IEqualityComparer{`0})
-  name: RedBlackTree(IEnumerable<T>, Boolean, IEqualityComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_IEnumerable__0__System_Boolean_IEqualityComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(IEnumerable{`0},System.Boolean,IEqualityComparer{`0})
-  name.vb: RedBlackTree(IEnumerable(Of T), Boolean, IEqualityComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RedBlackTree(IEnumerable<T>, System.Boolean, IEqualityComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RedBlackTree(IEnumerable(Of T), System.Boolean, IEqualityComparer(Of T))
-  nameWithType: RedBlackTree<T>.RedBlackTree(IEnumerable<T>, Boolean, IEqualityComparer<T>)
-  nameWithType.vb: RedBlackTree(Of T).RedBlackTree(IEnumerable(Of T), Boolean, IEqualityComparer(Of T))
-- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,IEqualityComparer{`0})
-  name: RedBlackTree(Boolean, IEqualityComparer<T>)
-  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_System_Boolean_IEqualityComparer__0__
-  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(System.Boolean,IEqualityComparer{`0})
-  name.vb: RedBlackTree(Boolean, IEqualityComparer(Of T))
-  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RedBlackTree(System.Boolean, IEqualityComparer<T>)
-  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RedBlackTree(System.Boolean, IEqualityComparer(Of T))
-  nameWithType: RedBlackTree<T>.RedBlackTree(Boolean, IEqualityComparer<T>)
-  nameWithType.vb: RedBlackTree(Of T).RedBlackTree(Boolean, IEqualityComparer(Of T))
+- uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(IEnumerable{`0})
+  name: RedBlackTree(IEnumerable<T>)
+  href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_IEnumerable__0__
+  commentId: M:Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor(IEnumerable{`0})
+  name.vb: RedBlackTree(IEnumerable(Of T))
+  fullName: Advanced.Algorithms.DataStructures.RedBlackTree<T>.RedBlackTree(IEnumerable<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.RedBlackTree(Of T).RedBlackTree(IEnumerable(Of T))
+  nameWithType: RedBlackTree<T>.RedBlackTree(IEnumerable<T>)
+  nameWithType.vb: RedBlackTree(Of T).RedBlackTree(IEnumerable(Of T))
 - uid: Advanced.Algorithms.DataStructures.RedBlackTree`1.#ctor*
   name: RedBlackTree
   href: api/Advanced.Algorithms.DataStructures.RedBlackTree-1.html#Advanced_Algorithms_DataStructures_RedBlackTree_1__ctor_
