@@ -5,9 +5,9 @@ namespace Advanced.Algorithms.DataStructures
 {
     public class BSTBase<T> where T : IComparable
     {
-        internal void ValidateCollection(IEnumerable<T> collection)
+        internal void ValidateSortedCollection(IEnumerable<T> sortedCollection)
         {
-            if (!isSorted(collection))
+            if (!isSorted(sortedCollection))
             {
                 throw new ArgumentException("Initial collection should have unique keys and be in sorted order.");
             }

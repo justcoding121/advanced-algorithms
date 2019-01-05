@@ -30,14 +30,14 @@ namespace Advanced.Algorithms.DataStructures
         /// Initialize the BST with given sorted keys.
         /// Time complexity: O(n).
         /// </summary>
-        /// <param name="sortedKeys">The sorted keys.</param>
+        /// <param name="sortedCollection">The initial sorted collection.</param>
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         ///  at the cost of additional space.</param>
-        public AVLTree(IEnumerable<T> sortedKeys, bool enableNodeLookUp = false)
+        public AVLTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false)
             : this(enableNodeLookUp)
         {
-            ValidateCollection(sortedKeys);
-            var nodes = sortedKeys.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
+            ValidateSortedCollection(sortedCollection);
+            var nodes = sortedCollection.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
             Root = (AVLTreeNode<T>)ToBST(nodes);
             recomputeHeight(Root);
             assignCount(Root);
