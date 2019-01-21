@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A treap tree implementation.
     /// </summary>
-    public class TreapTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
+    public class TreapTree<T> : IEnumerable<T> where T : IComparable
     {
         private Random rndGenerator = new Random();
         internal TreapTreeNode<T> Root { get; set; }
@@ -23,10 +23,10 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="sortedCollection">The initial sorted collection.</param>
         public TreapTree(IEnumerable<T> sortedCollection) : this()
         {
-            ValidateSortedCollection(sortedCollection);
+            BSTHelpers.ValidateSortedCollection(sortedCollection);
             var nodes = sortedCollection.Select(x => new TreapTreeNode<T>(null, x, rndGenerator.Next())).ToArray();
-            Root = (TreapTreeNode<T>)ToBST(nodes);
-            assignCount(Root);
+            Root = (TreapTreeNode<T>)BSTHelpers.ToBST(nodes);
+            BSTHelpers.AssignCount(Root);
             heapify(Root);
         }
         /// <summary>

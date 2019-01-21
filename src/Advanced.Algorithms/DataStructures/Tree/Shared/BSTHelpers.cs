@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.DataStructures
 {
-    public class BSTBase<T> where T : IComparable
+    internal class BSTHelpers
     {
-        internal void ValidateSortedCollection(IEnumerable<T> sortedCollection)
+        internal static void ValidateSortedCollection<T>(IEnumerable<T> sortedCollection) where T : IComparable
         {
             if (!isSorted(sortedCollection))
             {
@@ -13,24 +16,24 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
-        internal BSTNodeBase<T> ToBST(BSTNodeBase<T>[] sortedNodes)
+        internal static BSTNodeBase<T> ToBST<T>(BSTNodeBase<T>[] sortedNodes) where T : IComparable
         {
             return toBST(sortedNodes, 0, sortedNodes.Length - 1);
         }
 
-        internal int assignCount(BSTNodeBase<T> node) 
+        internal static int AssignCount<T>(BSTNodeBase<T> node) where T : IComparable
         {
             if (node == null)
             {
                 return 0;
             }
 
-            node.Count = assignCount(node.Left) + assignCount(node.Right) + 1;
+            node.Count = AssignCount(node.Left) + AssignCount(node.Right) + 1;
 
             return node.Count;
         }
 
-        private BSTNodeBase<T> toBST(BSTNodeBase<T>[] sortedNodes, int start, int end)
+        private static BSTNodeBase<T> toBST<T>(BSTNodeBase<T>[] sortedNodes, int start, int end) where T : IComparable
         {
             if (start > end)
                 return null;
@@ -53,7 +56,7 @@ namespace Advanced.Algorithms.DataStructures
             return root;
         }
 
-        private bool isSorted(IEnumerable<T> collection)
+        private static bool isSorted<T>(IEnumerable<T> collection) where T : IComparable
         {
             var enumerator = collection.GetEnumerator();
             if (!enumerator.MoveNext())

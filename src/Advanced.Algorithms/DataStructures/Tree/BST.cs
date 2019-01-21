@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A binary search tree implementation.
     /// </summary>
-    public class BST<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
+    public class BST<T> : IEnumerable<T> where T : IComparable
     {
         internal BSTNode<T> Root { get; set; }
 
@@ -22,10 +22,10 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public BST(IEnumerable<T> sortedCollection) : this()
         {
-            ValidateSortedCollection(sortedCollection);
+            BSTHelpers.ValidateSortedCollection(sortedCollection);
             var nodes = sortedCollection.Select(x => new BSTNode<T>(null, x)).ToArray();
-            Root = (BSTNode<T>)ToBST(nodes);
-            assignCount(Root);
+            Root = (BSTNode<T>)BSTHelpers.ToBST(nodes);
+            BSTHelpers.AssignCount(Root);
         }
 
         /// <summary>

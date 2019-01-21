@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A red black tree implementation.
     /// </summary>
-    public class RedBlackTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
+    public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
     {
         //only used internally by Bentley-Ottmann sweepline algorithm for faster line swap operation.
         private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
@@ -36,11 +36,11 @@ namespace Advanced.Algorithms.DataStructures
         /// at the cost of additional space.</param>
         public RedBlackTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false)
         {
-            ValidateSortedCollection(sortedCollection);
+            BSTHelpers.ValidateSortedCollection(sortedCollection);
             var nodes = sortedCollection.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
-            Root = (RedBlackTreeNode<T>)ToBST(nodes);
+            Root = (RedBlackTreeNode<T>)BSTHelpers.ToBST(nodes);
             assignColors(Root);
-            assignCount(Root);
+            BSTHelpers.AssignCount(Root);
 
             if (enableNodeLookUp)
             {
@@ -184,7 +184,7 @@ namespace Advanced.Algorithms.DataStructures
                 return (Root, 0);
             }
 
-            var newNode = Insert(Root, value);
+            var newNode = insert(Root, value);
 
             if (nodeLookUp != null)
             {
@@ -195,7 +195,7 @@ namespace Advanced.Algorithms.DataStructures
         }
 
         //O(log(n)) always
-        private (RedBlackTreeNode<T>, int) Insert(RedBlackTreeNode<T> currentNode, T newNodeValue)
+        private (RedBlackTreeNode<T>, int) insert(RedBlackTreeNode<T> currentNode, T newNodeValue)
         {
             var insertionPosition = 0;
 
