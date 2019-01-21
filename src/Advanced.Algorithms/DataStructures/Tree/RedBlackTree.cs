@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
     {
-        //only used internally by Bentley-Ottmann sweepline algorithm for faster line swap operation.
+        //if enabled, lookup will fasten deletion/insertion/exists operations. 
         private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
 
         internal RedBlackTreeNode<T> Root { get; set; }
