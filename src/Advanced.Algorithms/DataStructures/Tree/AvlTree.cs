@@ -411,7 +411,6 @@ namespace Advanced.Algorithms.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
         private AVLTreeNode<T> find(T value)
         {
             if (nodeLookUp != null)
@@ -424,7 +423,6 @@ namespace Advanced.Algorithms.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
         private AVLTreeNode<T> find(AVLTreeNode<T> parent, T value)
         {
             if (parent == null)

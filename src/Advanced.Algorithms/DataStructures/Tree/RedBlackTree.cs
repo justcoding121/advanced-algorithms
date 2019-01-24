@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -10,20 +11,26 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
     {
-        //if enabled, lookup will fasten deletion/insertion/exists operations. 
-        private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
-
         internal RedBlackTreeNode<T> Root { get; set; }
+
+        //if enabled, lookup will fasten deletion/insertion/exists operations. 
+        internal readonly Dictionary<T, BSTNodeBase<T>> NodeLookUp;
 
         public int Count => Root == null ? 0 : Root.Count;
 
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         /// at the cost of additional space.</param>
-        public RedBlackTree(bool enableNodeLookUp = false)
+        /// <param name="equalityComparer">Provide equality comparer for node lookup if enabled (required when T is not a value type).</param>
+        public RedBlackTree(bool enableNodeLookUp = false, IEqualityComparer<T> equalityComparer = null)
         {
             if (enableNodeLookUp)
             {
-                nodeLookUp = new Dictionary<T, BSTNodeBase<T>>();
+                if (!typeof(T).GetTypeInfo().IsValueType && equalityComparer == null)
+                {
+                    throw new ArgumentException("equalityComparer parameter is required when node lookup us enabled and T is not a value type.");
+                }
+
+                NodeLookUp = new Dictionary<T, BSTNodeBase<T>>(equalityComparer);
             }
         }
 
@@ -34,7 +41,9 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="sortedCollection">The sorted initial collection.</param>
         /// <param name="enableNodeLookUp">Enabling lookup will fasten deletion/insertion/exists operations
         /// at the cost of additional space.</param>
-        public RedBlackTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false)
+        /// <param name="equalityComparer">Provide equality comparer for node lookup if enabled (required when T is not a value type).</param>
+        public RedBlackTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false,
+            IEqualityComparer<T> equalityComparer = null)
         {
             BSTHelpers.ValidateSortedCollection(sortedCollection);
             var nodes = sortedCollection.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
@@ -44,15 +53,13 @@ namespace Advanced.Algorithms.DataStructures
 
             if (enableNodeLookUp)
             {
-                nodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BSTNodeBase<T>);
-            }
-        }
+                if (!typeof(T).GetTypeInfo().IsValueType && equalityComparer == null)
+                {
+                    throw new ArgumentException("equalityComparer parameter is required when node lookup us enabled and T is not a value type.");
+                }
 
-        ///Special (internal only) constructor for Bentley-Ottmann sweep line algorithm for fast line swap.
-        /// <param name="equalityComparer">Provide custom IEquality comparer for node lookup dictionary.</param>
-        internal RedBlackTree(IEqualityComparer<T> equalityComparer)
-        {
-            nodeLookUp = new Dictionary<T, BSTNodeBase<T>>(equalityComparer);
+                NodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BSTNodeBase<T>);
+            }
         }
 
         /// <summary>
@@ -65,12 +72,12 @@ namespace Advanced.Algorithms.DataStructures
                 return false;
             }
 
-            if (nodeLookUp != null)
+            if (NodeLookUp != null)
             {
-                return nodeLookUp.ContainsKey(value);
+                return NodeLookUp.ContainsKey(value);
             }
 
-            return find(value).Item1 != null;
+            return Find(value).Item1 != null;
         }
 
         /// <summary>
@@ -125,13 +132,11 @@ namespace Advanced.Algorithms.DataStructures
             return Root.KthSmallest(index).Value;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
         internal RedBlackTreeNode<T> FindNode(T value)
         {
-            return Root == null ? null : find(value).Item1;
+            return Root == null ? null : Find(value).Item1;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
         internal bool Exists(T value)
         {
             return FindNode(value) != null;
@@ -139,14 +144,13 @@ namespace Advanced.Algorithms.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
-        private (RedBlackTreeNode<T>, int) find(T value)
+        internal (RedBlackTreeNode<T>, int) Find(T value)
         {
-            if (nodeLookUp != null)
+            if (NodeLookUp != null)
             {
-                if (nodeLookUp.ContainsKey(value))
+                if (NodeLookUp.ContainsKey(value))
                 {
-                    var node = (nodeLookUp[value] as RedBlackTreeNode<T>);
+                    var node = (NodeLookUp[value] as RedBlackTreeNode<T>);
                     return (node, Root.Position(value));
                 }
 
@@ -176,9 +180,9 @@ namespace Advanced.Algorithms.DataStructures
             if (Root == null)
             {
                 Root = new RedBlackTreeNode<T>(null, value) { NodeColor = RedBlackTreeNodeColor.Black };
-                if (nodeLookUp != null)
+                if (NodeLookUp != null)
                 {
-                    nodeLookUp[value] = Root;
+                    NodeLookUp[value] = Root;
                 }
 
                 return (Root, 0);
@@ -186,9 +190,9 @@ namespace Advanced.Algorithms.DataStructures
 
             var newNode = insert(Root, value);
 
-            if (nodeLookUp != null)
+            if (NodeLookUp != null)
             {
-                nodeLookUp[value] = newNode.Item1;
+                NodeLookUp[value] = newNode.Item1;
             }
 
             return newNode;
@@ -376,7 +380,7 @@ namespace Advanced.Algorithms.DataStructures
                 return -1;
             }
 
-            var node = find(value);
+            var node = Find(value);
 
             if (node.Item1 == null)
             {
@@ -387,9 +391,9 @@ namespace Advanced.Algorithms.DataStructures
 
             delete(node.Item1);
 
-            if (nodeLookUp != null)
+            if (NodeLookUp != null)
             {
-                nodeLookUp.Remove(value);
+                NodeLookUp.Remove(value);
             }
 
             return position;
@@ -412,9 +416,9 @@ namespace Advanced.Algorithms.DataStructures
 
             delete(node);
 
-            if (nodeLookUp != null)
+            if (NodeLookUp != null)
             {
-                nodeLookUp.Remove(deletedValue);
+                NodeLookUp.Remove(deletedValue);
             }
 
             return node.Value;
@@ -458,10 +462,10 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     var maxLeftNode = findMax(node.Left);
 
-                    if (nodeLookUp != null)
+                    if (NodeLookUp != null)
                     {
-                        nodeLookUp[node.Value] = maxLeftNode;
-                        nodeLookUp[maxLeftNode.Value] = node;
+                        NodeLookUp[node.Value] = maxLeftNode;
+                        NodeLookUp[maxLeftNode.Value] = node;
                     }
 
                     node.Value = maxLeftNode.Value;
@@ -851,28 +855,6 @@ namespace Advanced.Algorithms.DataStructures
 
             var next = (node as BSTNodeBase<T>).NextHigher();
             return next != null ? next.Value : default(T);
-        }
-
-        ///Special (internal only) method for Bentley-Ottmann sweep line algorithm.
-        internal void Swap(T value1, T value2)
-        {
-            var node1 = find(value1).Item1;
-            var node2 = find(value2).Item1;
-
-            if (node1 == null || node2 == null)
-            {
-                throw new Exception("Value1, Value2 or both was not found in this BST.");
-            }
-
-            var tmp = node1.Value;
-            node1.Value = node2.Value;
-            node2.Value = tmp;
-
-            if (nodeLookUp != null)
-            {
-                nodeLookUp[node1.Value] = node1;
-                nodeLookUp[node2.Value] = node2;
-            }
         }
 
         /// <summary>

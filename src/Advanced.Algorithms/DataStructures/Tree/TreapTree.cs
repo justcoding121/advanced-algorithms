@@ -50,7 +50,6 @@ namespace Advanced.Algorithms.DataStructures
             return getHeight(Root);
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
         private int getHeight(TreapTreeNode<T> node)
         {
             if (node == null)
@@ -167,7 +166,6 @@ namespace Advanced.Algorithms.DataStructures
             return nodeToDelete.Value;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
         private void delete(TreapTreeNode<T> node, T value)
         {
             while (true)
@@ -341,7 +339,6 @@ namespace Advanced.Algorithms.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
         private TreapTreeNode<T> find(TreapTreeNode<T> parent, T value)
         {
             while (true)
@@ -486,7 +483,6 @@ namespace Advanced.Algorithms.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
         private BSTNodeBase<T> find(T value)
         {
             return Root.Find<T>(value).Item1 as BSTNodeBase<T>;

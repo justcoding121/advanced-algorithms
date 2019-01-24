@@ -40,7 +40,7 @@ namespace Advanced.Algorithms.Geometry
         {
             SweepLine = new Line(new Point(0, 0), new Point(0, int.MaxValue), Tolerance);
 
-            currentlyTrackedLines = new RedBlackTree<Event>(pointComparer);
+            currentlyTrackedLines = new RedBlackTree<Event>(true, pointComparer);
             intersectionEvents = new Dictionary<Point, HashSet<Tuple<Event, Event>>>(pointComparer);
 
             verticalHorizontalLines = new HashSet<Event>();
@@ -151,7 +151,7 @@ namespace Advanced.Algorithms.Geometry
 
                         foreach (var item in intersectionLines)
                         {
-                            currentlyTrackedLines.Swap(item.Item1, item.Item2);
+                            swapBstNodes(currentlyTrackedLines, item.Item1, item.Item2);
 
                             var upperLine = item.Item1;
                             var upperUpper = currentlyTrackedLines.NextHigher(upperLine);
@@ -181,6 +181,24 @@ namespace Advanced.Algorithms.Geometry
         private void sweepTo(Event currentEvent)
         {
             SweepLine = new Line(new Point(currentEvent.X, 0), new Point(currentEvent.X, int.MaxValue), Tolerance);
+        }
+
+        internal void swapBstNodes(RedBlackTree<Event> currentlyTrackedLines, Event value1, Event value2)
+        {
+            var node1 = currentlyTrackedLines.Find(value1).Item1;
+            var node2 = currentlyTrackedLines.Find(value2).Item1;
+
+            if (node1 == null || node2 == null)
+            {
+                throw new Exception("Value1, Value2 or both was not found in this BST.");
+            }
+
+            var tmp = node1.Value;
+            node1.Value = node2.Value;
+            node2.Value = tmp;
+
+            currentlyTrackedLines.NodeLookUp[node1.Value] = node1;
+            currentlyTrackedLines.NodeLookUp[node2.Value] = node2;
         }
 
         private void enqueueIntersectionEvent(Event currentEvent, Point intersection)
