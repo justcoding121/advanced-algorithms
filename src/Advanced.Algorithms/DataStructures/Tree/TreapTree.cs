@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A treap tree implementation.
     /// </summary>
-    public class TreapTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
+    public class TreapTree<T> : IEnumerable<T> where T : IComparable
     {
         private Random rndGenerator = new Random();
         internal TreapTreeNode<T> Root { get; set; }
@@ -23,10 +23,10 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="sortedCollection">The initial sorted collection.</param>
         public TreapTree(IEnumerable<T> sortedCollection) : this()
         {
-            ValidateSortedCollection(sortedCollection);
+            BSTHelpers.ValidateSortedCollection(sortedCollection);
             var nodes = sortedCollection.Select(x => new TreapTreeNode<T>(null, x, rndGenerator.Next())).ToArray();
-            Root = (TreapTreeNode<T>)ToBST(nodes);
-            assignCount(Root);
+            Root = (TreapTreeNode<T>)BSTHelpers.ToBST(nodes);
+            BSTHelpers.AssignCount(Root);
             heapify(Root);
         }
         /// <summary>
@@ -50,7 +50,6 @@ namespace Advanced.Algorithms.DataStructures
             return getHeight(Root);
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
         private int getHeight(TreapTreeNode<T> node)
         {
             if (node == null)
@@ -167,7 +166,6 @@ namespace Advanced.Algorithms.DataStructures
             return nodeToDelete.Value;
         }
 
-        //O(log(n)) worst O(n) for unbalanced tree
         private void delete(TreapTreeNode<T> node, T value)
         {
             while (true)
@@ -341,7 +339,6 @@ namespace Advanced.Algorithms.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
         private TreapTreeNode<T> find(TreapTreeNode<T> parent, T value)
         {
             while (true)
@@ -486,7 +483,6 @@ namespace Advanced.Algorithms.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
         private BSTNodeBase<T> find(T value)
         {
             return Root.Find<T>(value).Item1 as BSTNodeBase<T>;

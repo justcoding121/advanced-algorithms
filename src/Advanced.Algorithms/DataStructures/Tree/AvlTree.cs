@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// An AVL tree implementation.
     /// </summary>
-    public class AVLTree<T> : BSTBase<T>, IEnumerable<T> where T : IComparable
+    public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
         private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
 
@@ -35,11 +35,11 @@ namespace Advanced.Algorithms.DataStructures
         ///  at the cost of additional space.</param>
         public AVLTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false)
         {
-            ValidateSortedCollection(sortedCollection);
+            BSTHelpers.ValidateSortedCollection(sortedCollection);
             var nodes = sortedCollection.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
-            Root = (AVLTreeNode<T>)ToBST(nodes);
+            Root = (AVLTreeNode<T>)BSTHelpers.ToBST(nodes);
             recomputeHeight(Root);
-            assignCount(Root);
+            BSTHelpers.AssignCount(Root);
 
             if (enableNodeLookUp)
             {
@@ -411,7 +411,6 @@ namespace Advanced.Algorithms.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
         private AVLTreeNode<T> find(T value)
         {
             if (nodeLookUp != null)
@@ -424,7 +423,6 @@ namespace Advanced.Algorithms.DataStructures
 
         //find the node with the given identifier among descendants of parent and parent
         //uses pre-order traversal
-        //O(log(n)) worst O(n) for unbalanced tree
         private AVLTreeNode<T> find(AVLTreeNode<T> parent, T value)
         {
             if (parent == null)
