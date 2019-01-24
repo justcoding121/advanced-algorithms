@@ -30,7 +30,7 @@ namespace Advanced.Algorithms.DataStructures
                     throw new ArgumentException("equalityComparer parameter is required when node lookup us enabled and T is not a value type.");
                 }
 
-                NodeLookUp = new Dictionary<T, BSTNodeBase<T>>(equalityComparer);
+                NodeLookUp = new Dictionary<T, BSTNodeBase<T>>(equalityComparer ?? EqualityComparer<T>.Default);
             }
         }
 
@@ -58,7 +58,7 @@ namespace Advanced.Algorithms.DataStructures
                     throw new ArgumentException("equalityComparer parameter is required when node lookup us enabled and T is not a value type.");
                 }
 
-                NodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BSTNodeBase<T>);
+                NodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BSTNodeBase<T>, equalityComparer ?? EqualityComparer<T>.Default);
             }
         }
 
