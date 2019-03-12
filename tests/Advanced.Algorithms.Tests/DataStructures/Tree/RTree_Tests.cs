@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Tree
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class RTree_Tests
