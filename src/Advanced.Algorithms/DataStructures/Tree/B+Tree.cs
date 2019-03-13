@@ -24,6 +24,17 @@ namespace Advanced.Algorithms.DataStructures
         private readonly int maxKeysPerNode;
         private readonly int minKeysPerNode;
 
+        public BpTree(int maxKeysPerNode = 3)
+        {
+            if (maxKeysPerNode < 3)
+            {
+                throw new Exception("Max keys per node should be atleast 3.");
+            }
+
+            this.maxKeysPerNode = maxKeysPerNode;
+            this.minKeysPerNode = maxKeysPerNode / 2;
+        }
+
         /// <summary>
         /// Time complexity: O(1).
         /// </summary>
@@ -50,17 +61,6 @@ namespace Advanced.Algorithms.DataStructures
                 var minNode = BottomLeftNode;
                 return minNode.Keys[0];
             }
-        }
-
-        public BpTree(int maxKeysPerNode = 3)
-        {
-            if (maxKeysPerNode < 3)
-            {
-                throw new Exception("Max keys per node should be atleast 3.");
-            }
-
-            this.maxKeysPerNode = maxKeysPerNode;
-            this.minKeysPerNode = maxKeysPerNode / 2;
         }
 
         /// <summary>
