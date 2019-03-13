@@ -9,7 +9,8 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class BpTree<T> : IEnumerable<T> where T : IComparable
     {
-        public int Count { get; private set; }
+        private readonly int maxKeysPerNode;
+        private readonly int minKeysPerNode;
 
         internal BpTreeNode<T> Root;
 
@@ -21,8 +22,7 @@ namespace Advanced.Algorithms.DataStructures
         internal BpTreeNode<T> BottomLeftNode;
         internal BpTreeNode<T> BottomRightNode;
 
-        private readonly int maxKeysPerNode;
-        private readonly int minKeysPerNode;
+        public int Count { get; private set; }
 
         public BpTree(int maxKeysPerNode = 3)
         {
