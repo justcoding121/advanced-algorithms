@@ -1,5 +1,6 @@
 ﻿
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,21 +10,25 @@ namespace Advanced.Algorithms.Graph
     /// Uses dynamic programming for a
     /// psuedo-polynomial time runTime complexity for this NP hard problem.
     /// </summary>
-    public class TravellingSalesman
+    public class TravellingSalesman<T, W> where W : IComparable
     {
-        public static int FindMinWeight(WeightedDiGraph<int, int> graph)
+        IShortestPathOperators<W> @operator;
+
+        public W FindMinWeight(WeightedDiGraph<T, W> graph, IShortestPathOperators<W> @operator)
         {
+            this.@operator = @operator;
+
             return findMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
                                 graph.VerticesCount,
-                                new HashSet<WeightedDiGraphVertex<int, int>>(),
-                                new Dictionary<string, int>());
+                                new HashSet<WeightedDiGraphVertex<T, W>>(),
+                                new Dictionary<string, W>());
         }
 
-        private static int findMinWeight(WeightedDiGraphVertex<int, int> currentVertex,
-            WeightedDiGraphVertex<int, int> tgtVertex,
+        private W findMinWeight(WeightedDiGraphVertex<T, W> currentVertex,
+            WeightedDiGraphVertex<T, W> tgtVertex,
             int remainingVertexCount,
-            HashSet<WeightedDiGraphVertex<int, int>> visited,
-            Dictionary<string, int> cache)
+            HashSet<WeightedDiGraphVertex<T, W>> visited,
+            Dictionary<string, W> cache)
         {
             var cacheKey = $"{currentVertex.Value}-{remainingVertexCount}";
 
@@ -34,7 +39,7 @@ namespace Advanced.Algorithms.Graph
 
             visited.Add(currentVertex);
 
-            var results = new List<int>();
+            var results = new List<W>();
 
             foreach (var vertex in currentVertex.OutEdges)
             {
@@ -50,9 +55,9 @@ namespace Advanced.Algorithms.Graph
                 {
                     var result = findMinWeight(vertex.Key, tgtVertex, remainingVertexCount - 1, visited, cache);
 
-                    if (result != int.MaxValue)
+                    if (!result.Equals(@operator.MaxValue))
                     {
-                        results.Add(result + vertex.Value);
+                        results.Add(@operator.Sum(result, vertex.Value));
                     }
 
                 }
@@ -62,7 +67,7 @@ namespace Advanced.Algorithms.Graph
 
             if (results.Count == 0)
             {
-                return int.MaxValue;
+                return @operator.MaxValue;
             }
 
             var min = results.Min();
