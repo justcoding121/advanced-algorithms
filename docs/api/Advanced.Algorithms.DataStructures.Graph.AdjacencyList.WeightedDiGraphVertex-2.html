@@ -94,13 +94,14 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
+    <div><span class="xref">IGraphVertex</span>&lt;T&gt;</div>
     <div><span class="xref">IEnumerable</span>&lt;T&gt;</div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.html">Advanced.Algorithms.DataStructures.Graph.AdjacencyList</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WeightedDiGraphVertex&lt;T, TW&gt; : IDiGraphVertex&lt;T&gt;, IEnumerable&lt;T&gt; where TW : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class WeightedDiGraphVertex&lt;T, TW&gt; : IDiGraphVertex&lt;T&gt;, IGraphVertex&lt;T&gt;, IEnumerable&lt;T&gt; where TW : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -347,6 +348,9 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IGraphVertex&lt;&gt;</span>
+  </div>
   <div>
       <span class="xref">IEnumerable&lt;&gt;</span>
   </div>

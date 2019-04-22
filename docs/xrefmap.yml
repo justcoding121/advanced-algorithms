@@ -3839,6 +3839,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T).RemoveVertex
   nameWithType: DiGraph<T>.RemoveVertex
   nameWithType.vb: DiGraph(Of T).RemoveVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.VerticesAsEnumberable
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph_1_VerticesAsEnumberable
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.VerticesAsEnumberable
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T).VerticesAsEnumberable
+  nameWithType: DiGraph<T>.VerticesAsEnumberable
+  nameWithType.vb: DiGraph(Of T).VerticesAsEnumberable
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.VerticesAsEnumberable*
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph_1_VerticesAsEnumberable_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.VerticesAsEnumberable
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<T>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph(Of T).VerticesAsEnumberable
+  nameWithType: DiGraph<T>.VerticesAsEnumberable
+  nameWithType.vb: DiGraph(Of T).VerticesAsEnumberable
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph`1.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraph_1_VerticesCount
@@ -4249,6 +4266,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T).RemoveVertex
   nameWithType: Graph<T>.RemoveVertex
   nameWithType.vb: Graph(Of T).RemoveVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.VerticesAsEnumberable
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph_1_VerticesAsEnumberable
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.VerticesAsEnumberable
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T).VerticesAsEnumberable
+  nameWithType: Graph<T>.VerticesAsEnumberable
+  nameWithType.vb: Graph(Of T).VerticesAsEnumberable
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.VerticesAsEnumberable*
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph_1_VerticesAsEnumberable_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.VerticesAsEnumberable
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<T>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph(Of T).VerticesAsEnumberable
+  nameWithType: Graph<T>.VerticesAsEnumberable
+  nameWithType.vb: Graph(Of T).VerticesAsEnumberable
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph`1.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_Graph_1_VerticesCount
@@ -4607,6 +4641,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, TW).RemoveVertex
   nameWithType: WeightedDiGraph<T, TW>.RemoveVertex
   nameWithType.vb: WeightedDiGraph(Of T, TW).RemoveVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.VerticesAsEnumberable
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_VerticesAsEnumberable
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.VerticesAsEnumberable
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, TW>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, TW).VerticesAsEnumberable
+  nameWithType: WeightedDiGraph<T, TW>.VerticesAsEnumberable
+  nameWithType.vb: WeightedDiGraph(Of T, TW).VerticesAsEnumberable
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.VerticesAsEnumberable*
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_VerticesAsEnumberable_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.VerticesAsEnumberable
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, TW>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, TW).VerticesAsEnumberable
+  nameWithType: WeightedDiGraph<T, TW>.VerticesAsEnumberable
+  nameWithType.vb: WeightedDiGraph(Of T, TW).VerticesAsEnumberable
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_VerticesCount
@@ -5017,6 +5068,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, TW).RemoveVertex
   nameWithType: WeightedGraph<T, TW>.RemoveVertex
   nameWithType.vb: WeightedGraph(Of T, TW).RemoveVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.VerticesAsEnumberable
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph_2_VerticesAsEnumberable
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.VerticesAsEnumberable
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, TW>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, TW).VerticesAsEnumberable
+  nameWithType: WeightedGraph<T, TW>.VerticesAsEnumberable
+  nameWithType.vb: WeightedGraph(Of T, TW).VerticesAsEnumberable
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.VerticesAsEnumberable*
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph_2_VerticesAsEnumberable_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.VerticesAsEnumberable
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<T, TW>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph(Of T, TW).VerticesAsEnumberable
+  nameWithType: WeightedGraph<T, TW>.VerticesAsEnumberable
+  nameWithType.vb: WeightedGraph(Of T, TW).VerticesAsEnumberable
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph`2.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraph_2_VerticesCount
