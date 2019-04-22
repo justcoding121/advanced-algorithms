@@ -1,28 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.DataStructures.Graph
 {
     public interface IDiGraph<T> : IEnumerable<IDiGraphVertex<T>>
     {
+        bool IsWeightedGraph { get; }
+
         bool ContainsVertex(T value);
-        IDiGraphVertex<T> GetVertex(T value);
+        IDiGraphVertex<T> GetVertex(T key);
         IDiGraphVertex<T> ReferenceVertex { get; }
 
         int VerticesCount { get; }
 
         bool HasEdge(T source, T destination);
 
-        IDiGraph<T> Clone();
-        
+        IDiGraph<T> Clone();      
     }
 
     public interface IDiGraphVertex<T>
     {
-        T Value { get; }
+        T Key { get; }
         IEnumerable<IDiEdge<T>> OutEdges { get; }
         IEnumerable<IDiEdge<T>> InEdges { get; }
 
@@ -30,31 +28,28 @@ namespace Advanced.Algorithms.DataStructures.Graph
 
         int OutEdgeCount { get; }
         int InEdgeCount { get; }
-
-      
     }
 
     public interface IDiEdge<T>
     {
         W Weight<W>() where W : IComparable;
-        T Value { get; }
-        IDiGraphVertex<T> Target { get; }
+        T TargetVertexKey { get; }
+        IDiGraphVertex<T> TargetVertex { get; }
     }
 
     internal class DiEdge<T, C> : IDiEdge<T> where C : IComparable
     {
-        private IDiGraphVertex<T> target;
         private object weight;
 
         internal DiEdge(IDiGraphVertex<T> target, C weight)
         {
-            this.target = target;
+            TargetVertex = target;
             this.weight = weight;
         }
 
-        public T Value => target.Value;
+        public T TargetVertexKey => TargetVertex.Key;
 
-        public IDiGraphVertex<T> Target => target;
+        public IDiGraphVertex<T> TargetVertex { get; private set; }
 
         public W Weight<W>() where W : IComparable
         {

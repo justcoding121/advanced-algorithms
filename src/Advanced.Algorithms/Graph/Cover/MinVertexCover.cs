@@ -25,15 +25,15 @@ namespace Advanced.Algorithms.Graph
 
             foreach (var edge in vertex.Edges)
             {
-                if(!cover.Contains(vertex) && !cover.Contains(edge.Target))
+                if(!cover.Contains(vertex) && !cover.Contains(edge.TargetVertex))
                 {
                     cover.Add(vertex);
-                    cover.Add(edge.Target);
+                    cover.Add(edge.TargetVertex);
                 }
 
-                if(!visited.Contains(edge.Target))
+                if(!visited.Contains(edge.TargetVertex))
                 {
-                    getMinVertexCover(edge.Target, visited, cover);
+                    getMinVertexCover(edge.TargetVertex, visited, cover);
                 }
             }
 

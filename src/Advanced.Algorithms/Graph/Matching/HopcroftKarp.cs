@@ -10,12 +10,6 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class HopcroftKarpMatching<T>
     {
-        IBiPartiteMatchOperators<T> operators;
-        public HopcroftKarpMatching(IBiPartiteMatchOperators<T> operators)
-        {
-            this.operators = operators;
-        }
-
         /// <summary>
         /// Returns a list of Max BiPartite Match Edges.
         /// </summary>
@@ -107,7 +101,7 @@ namespace Advanced.Algorithms.Graph
             HashSet<T> visitPath,
             bool isRightSide)
         {
-            if (!leftMatch.ContainsKey(current.Value)
+            if (!leftMatch.ContainsKey(current.Key)
                 && !isRightSide)
             {
                 return new List<PathResult>();
@@ -116,16 +110,16 @@ namespace Advanced.Algorithms.Graph
             foreach (var edge in current.Edges)
             {
                 //do not re-visit ancestors in current DFS tree
-                if (visitPath.Contains(edge.Value))
+                if (visitPath.Contains(edge.TargetVertexKey))
                 {
                     continue;
                 }
 
-                if (!visitPath.Contains(edge.Value))
+                if (!visitPath.Contains(edge.TargetVertexKey))
                 {
-                    visitPath.Add(edge.Value);
+                    visitPath.Add(edge.TargetVertexKey);
                 }
-                var pathResult = dfs(edge.Target, leftMatch, rightMatch, visitPath, !isRightSide);
+                var pathResult = dfs(edge.TargetVertex, leftMatch, rightMatch, visitPath, !isRightSide);
                 if (pathResult == null)
                 {
                     continue;
@@ -133,21 +127,21 @@ namespace Advanced.Algorithms.Graph
 
                 //XOR (partially done here by removing same edges)
                 //other part of XOR (adding new ones) is done after DFS method is finished
-                if (leftMatch.ContainsKey(current.Value)
-                    && leftMatch[current.Value].Equals(edge.Value))
+                if (leftMatch.ContainsKey(current.Key)
+                    && leftMatch[current.Key].Equals(edge.TargetVertexKey))
                 {
-                    leftMatch.Remove(current.Value);
-                    rightMatch.Remove(edge.Value);
+                    leftMatch.Remove(current.Key);
+                    rightMatch.Remove(edge.TargetVertexKey);
                 }
-                else if (rightMatch.ContainsKey(current.Value)
-                         && rightMatch[current.Value].Equals(edge.Value))
+                else if (rightMatch.ContainsKey(current.Key)
+                         && rightMatch[current.Key].Equals(edge.TargetVertexKey))
                 {
-                    rightMatch.Remove(current.Value);
-                    leftMatch.Remove(edge.Value);
+                    rightMatch.Remove(current.Key);
+                    leftMatch.Remove(edge.TargetVertexKey);
                 }
                 else
                 {
-                    pathResult.Add(new PathResult(current.Value, edge.Value, isRightSide));
+                    pathResult.Add(new PathResult(current.Key, edge.TargetVertexKey, isRightSide));
                 }
 
                 return pathResult;
@@ -195,13 +189,13 @@ namespace Advanced.Algorithms.Graph
 
                 foreach (var edge in graph.GetVertex(current).Edges)
                 {
-                    if (visited.Contains(edge.Value))
+                    if (visited.Contains(edge.TargetVertexKey))
                     {
                         continue;
                     }
 
-                    queue.Enqueue(edge.Value);
-                    visited.Add(edge.Value);
+                    queue.Enqueue(edge.TargetVertexKey);
+                    visited.Add(edge.TargetVertexKey);
                 }
 
             }

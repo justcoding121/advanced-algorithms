@@ -10,10 +10,10 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class BiPartiteMatching<T>
     {
-        readonly IBiPartiteMatchOperators<T> operators;
-        public BiPartiteMatching(IBiPartiteMatchOperators<T> operators)
+        readonly IBiPartiteMatchOperators<T> @operator;
+        public BiPartiteMatching(IBiPartiteMatchOperators<T> @operator)
         {
-            this.operators = operators;
+            this.@operator = @operator;
         }
 
         /// <summary>
@@ -21,6 +21,11 @@ namespace Advanced.Algorithms.Graph
         /// </summary>
         public List<MatchEdge<T>> GetMaxBiPartiteMatching(IGraph<T> graph)
         {
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type T during initialization.");
+            }
+
             //check if the graph is BiPartite by coloring 2 colors
             var mColorer = new MColorer<T, int>();
             var colorResult = mColorer.Color(graph, new int[] { 1, 2 });
@@ -41,14 +46,14 @@ namespace Advanced.Algorithms.Graph
             Dictionary<int, List<T>> partitions)
         {
             //add unit edges from dymmy source to group 1 vertices
-            var dummySource = operators.GetRandomUniqueVertex();
+            var dummySource = @operator.GetRandomUniqueVertex();
             if (graph.ContainsVertex(dummySource))
             {
                 throw new Exception("Dummy vertex provided is not unique to given graph.");
             }
 
             //add unit edges from group 2 vertices to sink
-            var dummySink = operators.GetRandomUniqueVertex();
+            var dummySink = @operator.GetRandomUniqueVertex();
             if (graph.ContainsVertex(dummySink))
             {
                 throw new Exception("Dummy vertex provided is not unique to given graph.");
@@ -57,7 +62,7 @@ namespace Advanced.Algorithms.Graph
             var workGraph = createFlowGraph(graph, dummySource, dummySink, partitions);
 
             //run ford fulkerson using edmon karp method
-            var fordFulkerson = new EdmondKarpMaxFlow<T, int>(operators);
+            var fordFulkerson = new EdmondKarpMaxFlow<T, int>(@operator);
 
             var flowPaths = fordFulkerson
                 .ComputeMaxFlowAndReturnFlowPath(workGraph, dummySource, dummySink);
@@ -102,7 +107,7 @@ namespace Advanced.Algorithms.Graph
             {
                 foreach (var edge in graph.GetVertex(group1Vertex).Edges)
                 {
-                    workGraph.AddEdge(group1Vertex, edge.Value, 1);
+                    workGraph.AddEdge(group1Vertex, edge.TargetVertexKey, 1);
                 }
             }
 

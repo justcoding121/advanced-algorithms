@@ -11,10 +11,10 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class FordFulkersonMaxFlow<T, W> where W : IComparable
     {
-        readonly IFlowOperators<W> operators;
-        public FordFulkersonMaxFlow(IFlowOperators<W> operators)
+        readonly IFlowOperators<W> @operator;
+        public FordFulkersonMaxFlow(IFlowOperators<W> @operator)
         {
-            this.operators = operators;
+            this.@operator = @operator;
         }
 
         /// <summary>
@@ -26,15 +26,17 @@ namespace Advanced.Algorithms.Graph
         public W ComputeMaxFlow(IDiGraph<T> graph,
             T source, T sink)
         {
+            validateOperator(graph);
+
             var residualGraph = createResidualGraph(graph);
 
             var path = DFS(residualGraph, source, sink);
 
-            var result = operators.defaultWeight;
+            var result = @operator.defaultWeight;
 
             while (path != null)
             {
-                result = operators.AddWeights(result, augmentResidualGraph(residualGraph, path));
+                result = @operator.AddWeights(result, augmentResidualGraph(residualGraph, path));
                 path = DFS(residualGraph, source, sink);
             }
 
@@ -48,21 +50,40 @@ namespace Advanced.Algorithms.Graph
         public List<List<T>> ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W> graph,
             T source, T sink)
         {
+            validateOperator(graph);
+
             var residualGraph = createResidualGraph(graph);
 
             List<T> path = DFS(residualGraph, source, sink);
 
-            var flow = operators.defaultWeight;
+            var flow = @operator.defaultWeight;
 
             var result = new List<List<T>>();
             while (path != null)
             {
                 result.Add(path);
-                flow = operators.AddWeights(flow, augmentResidualGraph(residualGraph, path));
+                flow = @operator.AddWeights(flow, augmentResidualGraph(residualGraph, path));
                 path = DFS(residualGraph, source, sink);
             }
 
             return result;
+        }
+
+        private void validateOperator(IDiGraph<T> graph)
+        {
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
+            }
+
+            if (!graph.IsWeightedGraph)
+            {
+                if (this.@operator.defaultWeight.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                        "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
+                }
+            }
         }
 
         /// <summary>
@@ -70,7 +91,7 @@ namespace Advanced.Algorithms.Graph
         /// </summary>
         private W augmentResidualGraph(WeightedDiGraph<T, W> residualGraph, List<T> path)
         {
-            var min = operators.MaxWeight;
+            var min = @operator.MaxWeight;
 
             for (int i = 0; i < path.Count - 1; i++)
             {
@@ -93,10 +114,10 @@ namespace Advanced.Algorithms.Graph
                 var vertex_2 = residualGraph.FindVertex(path[i + 1]);
 
                 //substract from forward paths
-                vertex_1.OutEdges[vertex_2] = operators.SubstractWeights(vertex_1.OutEdges[vertex_2], min);
+                vertex_1.OutEdges[vertex_2] = @operator.SubstractWeights(vertex_1.OutEdges[vertex_2], min);
 
                 //add for backward paths
-                vertex_2.OutEdges[vertex_1] = operators.AddWeights(vertex_2.OutEdges[vertex_1], min);
+                vertex_2.OutEdges[vertex_1] = @operator.AddWeights(vertex_2.OutEdges[vertex_1], min);
 
             }
 
@@ -128,7 +149,7 @@ namespace Advanced.Algorithms.Graph
                 currentVertex = stack.Pop();
 
                 //reached sink? then break otherwise dig in
-                if (currentVertex.Value.Equals(sink))
+                if (currentVertex.Key.Equals(sink))
                 {
                     break;
                 }
@@ -139,7 +160,7 @@ namespace Advanced.Algorithms.Graph
 
                         //visit only if edge have available flow
                         if (!visited.Contains(edge.Key)
-                            && edge.Value.CompareTo(operators.defaultWeight) > 0)
+                            && edge.Value.CompareTo(@operator.defaultWeight) > 0)
                         {
                             //keep track of this to trace out path once sink is found
                             parentLookUp[edge.Key] = currentVertex;
@@ -151,7 +172,7 @@ namespace Advanced.Algorithms.Graph
             }
 
             //could'nt find a path
-            if (currentVertex == null || !currentVertex.Value.Equals(sink))
+            if (currentVertex == null || !currentVertex.Key.Equals(sink))
             {
                 return null;
             }
@@ -161,9 +182,9 @@ namespace Advanced.Algorithms.Graph
 
             path.Push(sink);
 
-            while (currentVertex != null && !currentVertex.Value.Equals(source))
+            while (currentVertex != null && !currentVertex.Key.Equals(source))
             {
-                path.Push(parentLookUp[currentVertex].Value);
+                path.Push(parentLookUp[currentVertex].Key);
                 currentVertex = parentLookUp[currentVertex];
             }
 
@@ -188,7 +209,7 @@ namespace Advanced.Algorithms.Graph
             //clone graph vertices
             foreach (var vertex in graph)
             {
-                newGraph.AddVertex(vertex.Value);
+                newGraph.AddVertex(vertex.Key);
             }
 
             //clone edges
@@ -199,9 +220,9 @@ namespace Advanced.Algorithms.Graph
                 foreach (var edge in vertex.OutEdges)
                 {
                     //original edge
-                    newGraph.AddEdge(vertex.Value, edge.Value, edge.Weight<W>());
+                    newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<W>());
                     //add a backward edge for residual graph with edge value as default(W)
-                    newGraph.AddEdge(edge.Value, vertex.Value, default(W));
+                    newGraph.AddEdge(edge.TargetVertexKey, vertex.Key, default(W));
                 }
             }
 

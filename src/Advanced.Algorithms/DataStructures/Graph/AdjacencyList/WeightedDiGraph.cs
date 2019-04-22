@@ -13,6 +13,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, WeightedDiGraphVertex<T, TW>> Vertices { get; set; }
+        public bool IsWeightedGraph => true;
 
         public WeightedDiGraph()
         {
@@ -164,7 +165,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].OutEdges.Select(x => new Tuple<T, TW>(x.Key.Value, x.Value));
+            return Vertices[vertex].OutEdges.Select(x => new Tuple<T, TW>(x.Key.Key, x.Value));
         }
 
         public IEnumerable<Tuple<T, TW>> InEdges(T vertex)
@@ -174,7 +175,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].InEdges.Select(x => new Tuple<T, TW>(x.Key.Value, x.Value));
+            return Vertices[vertex].InEdges.Select(x => new Tuple<T, TW>(x.Key.Key, x.Value));
         }
 
         /// <summary>
@@ -217,7 +218,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             {
                 foreach (var edge in vertex.Value.OutEdges)
                 {
-                    newGraph.AddEdge(vertex.Value.Value, edge.Key.Value, edge.Value);
+                    newGraph.AddEdge(vertex.Value.Key, edge.Key.Key, edge.Value);
                 }
             }
 
@@ -246,7 +247,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// </summary>
     public class WeightedDiGraphVertex<T, TW> : IDiGraphVertex<T>, IEnumerable<T> where TW : IComparable
     {
-        public T Value { get; private set; }
+        public T Key { get; private set; }
 
         public Dictionary<WeightedDiGraphVertex<T, TW>, TW> OutEdges { get; set; }
         public Dictionary<WeightedDiGraphVertex<T, TW>, TW> InEdges { get; set; }
@@ -259,7 +260,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public WeightedDiGraphVertex(T value)
         {
-            Value = value;
+            Key = value;
 
             OutEdges = new Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
             InEdges = new Dictionary<WeightedDiGraphVertex<T, TW>, TW>();
@@ -278,7 +279,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public IEnumerator<T> GetEnumerator()
         {
-            return OutEdges.Select(x => x.Key.Value).GetEnumerator();
+            return OutEdges.Select(x => x.Key.Key).GetEnumerator();
         }
 
 

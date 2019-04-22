@@ -13,6 +13,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, WeightedGraphVertex<T, TW>> Vertices { get; set; }
+        public bool IsWeightedGraph => true;
 
         public WeightedGraph()
         {
@@ -231,7 +232,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         public T Value { get; private set; }
 
         public Dictionary<WeightedGraphVertex<T, TW>, TW> Edges { get; }
-        T IGraphVertex<T>.Value => Value;
+        T IGraphVertex<T>.Key => Value;
 
         IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => Edges.Select(x => new Edge<T, TW>(x.Key, x.Value));
 

@@ -35,7 +35,7 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('E', 'F');
             graph.AddEdge('E', 'I');
 
-            var algorithm = new HopcroftKarpMatching<char>(null);
+            var algorithm = new HopcroftKarpMatching<char>();
 
             var result = algorithm.GetMaxBiPartiteMatching(graph);
 

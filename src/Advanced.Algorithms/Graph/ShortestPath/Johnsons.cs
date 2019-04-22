@@ -1,31 +1,45 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 
 namespace Advanced.Algorithms.Graph
-{ 
+{
     /// <summary>
     /// A Johnson's shortest path algorithm implementation.
     /// </summary>
     public class JohnsonsShortestPath<T, W> where W : IComparable
     {
-        readonly IJohnsonsShortestPathOperators<T, W> operators;
+        readonly IJohnsonsShortestPathOperators<T, W> @operator;
 
-        public JohnsonsShortestPath(IJohnsonsShortestPathOperators<T, W> operators)
+        public JohnsonsShortestPath(IJohnsonsShortestPathOperators<T, W> @operator)
         {
-            this.operators = operators;
+            this.@operator = @operator;
         }
 
         public List<AllPairShortestPathResult<T, W>>
-            FindAllPairShortestPaths(WeightedDiGraph<T, W> graph)
+            FindAllPairShortestPaths(IDiGraph<T> graph)
         {
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
+            }
 
-            var workGraph = graph.Clone();
+            if (!graph.IsWeightedGraph)
+            {
+                if (this.@operator.DefaultValue.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                        "Provide an appropriate IJohnsonsShortestPathOperators<T, int> operator implementation during initialization.");
+                }
+            }
+
+            var workGraph = clone(graph);
 
             //add an extra vertex with zero weight edge to all nodes
-            var randomVetex = operators.RandomVertex();
+            var randomVetex = @operator.RandomVertex();
 
             if (workGraph.Vertices.ContainsKey(randomVetex))
             {
@@ -35,11 +49,11 @@ namespace Advanced.Algorithms.Graph
 
             foreach (var vertex in workGraph.Vertices)
             {
-                workGraph.AddEdge(randomVetex, vertex.Key, operators.DefaultValue);
+                workGraph.AddEdge(randomVetex, vertex.Key, @operator.DefaultValue);
             }
 
             //now compute shortest path from random vertex to all other vertices
-            var bellmanFordSp = new BellmanFordShortestPath<T, W>(operators);
+            var bellmanFordSp = new BellmanFordShortestPath<T, W>(@operator);
             var bellFordResult = new Dictionary<T, W>();
             foreach (var vertex in workGraph.Vertices)
             {
@@ -52,9 +66,9 @@ namespace Advanced.Algorithms.Graph
             {
                 foreach (var edge in vertex.Value.OutEdges.ToList())
                 {
-                    vertex.Value.OutEdges[edge.Key] = operators.Substract(
-                        operators.Sum(bellFordResult[vertex.Key], edge.Value),
-                        bellFordResult[edge.Key.Value]);
+                    vertex.Value.OutEdges[edge.Key] = @operator.Substract(
+                        @operator.Sum(bellFordResult[vertex.Key], edge.Value),
+                        bellFordResult[edge.Key.Key]);
                 }
 
             }
@@ -62,18 +76,18 @@ namespace Advanced.Algorithms.Graph
             workGraph.RemoveVertex(randomVetex);
             //now run dijikstra for all pairs of vertices
             //trace path
-            var dijikstras = new DijikstraShortestPath<T, W>(operators);
+            var dijikstras = new DijikstraShortestPath<T, W>(@operator);
             var finalResult = new List<AllPairShortestPathResult<T, W>>();
             foreach (var vertexA in workGraph.Vertices)
             {
                 foreach (var vertexB in workGraph.Vertices)
                 {
                     var source = vertexA.Key;
-                    var dest = vertexB.Key;  
+                    var dest = vertexB.Key;
                     var sp = dijikstras.FindShortestPath(workGraph, source, dest);
 
                     //no path exists
-                    if(sp.Length.Equals(operators.MaxValue))
+                    if (sp.Length.Equals(@operator.MaxValue))
                     {
                         continue;
                     }
@@ -89,6 +103,26 @@ namespace Advanced.Algorithms.Graph
             return finalResult;
         }
 
+        private WeightedDiGraph<T, W> clone(IDiGraph<T> graph)
+        {
+            var newGraph = new WeightedDiGraph<T, W>();
+
+            foreach (var vertex in graph)
+            {
+                newGraph.AddVertex(vertex.Key);
+            }
+
+            foreach (var vertex in graph)
+            {
+                foreach (var edge in vertex.OutEdges)
+                {
+                    newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<W>());
+                }
+            }
+
+            return newGraph;
+
+        }
     }
 
     /// <summary>

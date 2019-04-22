@@ -24,7 +24,7 @@ namespace Advanced.Algorithms.Graph
             var discoveryTime = 0;
             foreach (var vertex in graph)
             {
-                if (!discoveryTimeMap.ContainsKey(vertex.Value))
+                if (!discoveryTimeMap.ContainsKey(vertex.Key))
                 {
                     DFS(vertex,
                      result,
@@ -48,22 +48,22 @@ namespace Advanced.Algorithms.Graph
              HashSet<T> pathStackMap, ref int discoveryTime)
         {
 
-            discoveryTimeMap.Add(currentVertex.Value, discoveryTime);
-            lowTimeMap.Add(currentVertex.Value, discoveryTime);
-            pathStack.Push(currentVertex.Value);
-            pathStackMap.Add(currentVertex.Value);
+            discoveryTimeMap.Add(currentVertex.Key, discoveryTime);
+            lowTimeMap.Add(currentVertex.Key, discoveryTime);
+            pathStack.Push(currentVertex.Key);
+            pathStackMap.Add(currentVertex.Key);
 
             foreach (var edge in currentVertex.OutEdges)
             {
-                if (!discoveryTimeMap.ContainsKey(edge.Value))
+                if (!discoveryTimeMap.ContainsKey(edge.TargetVertexKey))
                 {
                     discoveryTime++;
-                    DFS(edge.Target, result, discoveryTimeMap, lowTimeMap,
+                    DFS(edge.TargetVertex, result, discoveryTimeMap, lowTimeMap,
                                 pathStack, pathStackMap, ref discoveryTime);
 
                     //propogate lowTime index of neighbour so that ancestors can see it in DFS
-                    lowTimeMap[currentVertex.Value] =
-                        Math.Min(lowTimeMap[currentVertex.Value], lowTimeMap[edge.Value]);
+                    lowTimeMap[currentVertex.Key] =
+                        Math.Min(lowTimeMap[currentVertex.Key], lowTimeMap[edge.TargetVertexKey]);
 
 
                 }
@@ -72,24 +72,24 @@ namespace Advanced.Algorithms.Graph
                     //ignore cross edges
                     //even if edge vertex was already visisted
                     //update this so that ancestors can see it
-                    if (pathStackMap.Contains(edge.Value))
+                    if (pathStackMap.Contains(edge.TargetVertexKey))
                     {
-                        lowTimeMap[currentVertex.Value] =
-                            Math.Min(lowTimeMap[currentVertex.Value],
-                            discoveryTimeMap[edge.Value]);
+                        lowTimeMap[currentVertex.Key] =
+                            Math.Min(lowTimeMap[currentVertex.Key],
+                            discoveryTimeMap[edge.TargetVertexKey]);
                     }
                 }
             }
 
             //if low is high this means we reached head of the DFS tree with strong connectivity
             //now print items in the stack
-            if (lowTimeMap[currentVertex.Value] != discoveryTimeMap[currentVertex.Value])
+            if (lowTimeMap[currentVertex.Key] != discoveryTimeMap[currentVertex.Key])
             {
                 return;
             }
 
             var strongConnected = new List<T>();
-            while (!pathStack.Peek().Equals(currentVertex.Value))
+            while (!pathStack.Peek().Equals(currentVertex.Key))
             {
                 var vertex = pathStack.Pop();
                 strongConnected.Add(vertex);

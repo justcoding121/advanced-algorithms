@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.Graph
             //we need a loop so that we can reach all vertices
             foreach(var vertex in graph)
             {
-                if(!visited.Contains(vertex.Value))
+                if(!visited.Contains(vertex.Key))
                 {
                     dfs(vertex, visited, pathStack);
                 }
@@ -43,18 +43,18 @@ namespace Advanced.Algorithms.Graph
         private void dfs(IDiGraphVertex<T> vertex, 
             HashSet<T> visited, Stack<T> pathStack)
         {
-            visited.Add(vertex.Value);
+            visited.Add(vertex.Key);
 
             foreach(var edge in vertex.OutEdges)
             {
-                if(!visited.Contains(edge.Value))
+                if(!visited.Contains(edge.TargetVertexKey))
                 {
-                    dfs(edge.Target, visited, pathStack);
+                    dfs(edge.TargetVertex, visited, pathStack);
                 }
             }
 
             //add vertex to stack after all edges are visited
-            pathStack.Push(vertex.Value);
+            pathStack.Push(vertex.Key);
         }
     }
 }

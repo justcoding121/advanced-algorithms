@@ -1,4 +1,5 @@
 ﻿
+using Advanced.Algorithms.DataStructures.Graph;
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
@@ -14,56 +15,69 @@ namespace Advanced.Algorithms.Graph
     {
         IShortestPathOperators<W> @operator;
 
-        public W FindMinWeight(WeightedDiGraph<T, W> graph, IShortestPathOperators<W> @operator)
+        public W FindMinWeight(IDiGraph<T> graph, IShortestPathOperators<W> @operator)
         {
             this.@operator = @operator;
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
+            }
+
+            if (!graph.IsWeightedGraph)
+            {
+                if (this.@operator.DefaultValue.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                        "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
+                }
+            }
 
             return findMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
                                 graph.VerticesCount,
-                                new HashSet<WeightedDiGraphVertex<T, W>>(),
+                                new HashSet<IDiGraphVertex<T>>(),
                                 new Dictionary<string, W>());
         }
 
-        private W findMinWeight(WeightedDiGraphVertex<T, W> currentVertex,
-            WeightedDiGraphVertex<T, W> tgtVertex,
+        private W findMinWeight(IDiGraphVertex<T> sourceVertex,
+            IDiGraphVertex<T> tgtVertex,
             int remainingVertexCount,
-            HashSet<WeightedDiGraphVertex<T, W>> visited,
+            HashSet<IDiGraphVertex<T>> visited,
             Dictionary<string, W> cache)
         {
-            var cacheKey = $"{currentVertex.Value}-{remainingVertexCount}";
+            var cacheKey = $"{sourceVertex.Key}-{remainingVertexCount}";
 
             if (cache.ContainsKey(cacheKey))
             {
                 return cache[cacheKey];
             }
 
-            visited.Add(currentVertex);
+            visited.Add(sourceVertex);
 
             var results = new List<W>();
 
-            foreach (var vertex in currentVertex.OutEdges)
+            foreach (var edge in sourceVertex.OutEdges)
             {
                 //base case
-                if (vertex.Key == tgtVertex
+                if (edge.TargetVertex.Equals(tgtVertex)
                     && remainingVertexCount == 1)
                 {
-                    results.Add(vertex.Value);
+                    results.Add(edge.Weight<W>());
                     break;
                 }
 
-                if (!visited.Contains(vertex.Key))
+                if (!visited.Contains(edge.TargetVertex))
                 {
-                    var result = findMinWeight(vertex.Key, tgtVertex, remainingVertexCount - 1, visited, cache);
+                    var result = findMinWeight(edge.TargetVertex, tgtVertex, remainingVertexCount - 1, visited, cache);
 
                     if (!result.Equals(@operator.MaxValue))
                     {
-                        results.Add(@operator.Sum(result, vertex.Value));
+                        results.Add(@operator.Sum(result, edge.Weight<W>()));
                     }
 
                 }
             }
 
-            visited.Remove(currentVertex);
+            visited.Remove(sourceVertex);
 
             if (results.Count == 0)
             {

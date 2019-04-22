@@ -31,31 +31,31 @@ namespace Advanced.Algorithms.Graph
              Dictionary<T, T> parent, ref int discoveryTime)
         {
 
-            discoveryTimeMap.Add(currentVertex.Value, discoveryTime);
-            lowTimeMap.Add(currentVertex.Value, discoveryTime);
+            discoveryTimeMap.Add(currentVertex.Key, discoveryTime);
+            lowTimeMap.Add(currentVertex.Key, discoveryTime);
 
             //discovery childs in this iteration
             foreach (var edge in currentVertex.Edges)
             {
-                if (!discoveryTimeMap.ContainsKey(edge.Value))
+                if (!discoveryTimeMap.ContainsKey(edge.TargetVertexKey))
                 {
-                    parent.Add(edge.Value, currentVertex.Value);
+                    parent.Add(edge.TargetVertexKey, currentVertex.Key);
 
                     discoveryTime++;
-                    dfs(edge.Target, result,
+                    dfs(edge.TargetVertex, result,
                                 discoveryTimeMap, lowTimeMap, parent, ref discoveryTime);
 
                     //propogate lowTime index of neighbour so that ancestors can see check for back edge
-                    lowTimeMap[currentVertex.Value] =
-                        Math.Min(lowTimeMap[currentVertex.Value], lowTimeMap[edge.Value]);
+                    lowTimeMap[currentVertex.Key] =
+                        Math.Min(lowTimeMap[currentVertex.Key], lowTimeMap[edge.TargetVertexKey]);
 
                     //if neighbours lowTime is less than current
                     //then this is an Bridge point 
                     //because neighbour never had a chance to propogate any ancestors low value
                     //since this is an isolated componant
-                    if (discoveryTimeMap[currentVertex.Value] < lowTimeMap[edge.Value])
+                    if (discoveryTimeMap[currentVertex.Key] < lowTimeMap[edge.TargetVertexKey])
                     {
-                        result.Add(new Bridge<T>(currentVertex.Value, edge.Value));
+                        result.Add(new Bridge<T>(currentVertex.Key, edge.TargetVertexKey));
                     }
 
                 }
@@ -64,11 +64,11 @@ namespace Advanced.Algorithms.Graph
                     //check if this edge target vertex is not in the current DFS path
                     //even if edge target vertex was already visisted
                     //update discovery so that ancestors can see it
-                    if (parent.ContainsKey(currentVertex.Value) == false
-                        || !edge.Value.Equals(parent[currentVertex.Value]))
+                    if (parent.ContainsKey(currentVertex.Key) == false
+                        || !edge.TargetVertexKey.Equals(parent[currentVertex.Key]))
                     {
-                        lowTimeMap[currentVertex.Value] =
-                            Math.Min(lowTimeMap[currentVertex.Value], discoveryTimeMap[edge.Value]);
+                        lowTimeMap[currentVertex.Key] =
+                            Math.Min(lowTimeMap[currentVertex.Key], discoveryTimeMap[edge.TargetVertexKey]);
                     }
                 }
             }      

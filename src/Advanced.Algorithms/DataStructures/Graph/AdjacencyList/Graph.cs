@@ -13,6 +13,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, GraphVertex<T>> Vertices { get; set; }
+        public bool IsWeightedGraph => false;
 
         public Graph()
         {
@@ -159,7 +160,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].Edges.Select(x => x.Value);
+            return Vertices[vertex].Edges.Select(x => x.Key);
         }
 
         /// <summary>
@@ -202,7 +203,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             {
                 foreach (var edge in vertex.Value.Edges)
                 {
-                    newGraph.AddEdge(vertex.Value.Value, edge.Value);
+                    newGraph.AddEdge(vertex.Value.Key, edge.Key);
                 }
             }
 
@@ -231,7 +232,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// </summary>
     public class GraphVertex<T> : IEnumerable<T>, IGraphVertex<T>
     {
-        public T Value { get; set; }
+        public T Key { get; set; }
 
         public HashSet<GraphVertex<T>> Edges { get; set; }
 
@@ -239,7 +240,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public GraphVertex(T value)
         {
-            Value = value;
+            Key = value;
             Edges = new HashSet<GraphVertex<T>>();
         }
 
@@ -250,7 +251,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public IEnumerator<T> GetEnumerator()
         {
-            return Edges.Select(x => x.Value).GetEnumerator();
+            return Edges.Select(x => x.Key).GetEnumerator();
         }
     }
 }

@@ -22,21 +22,21 @@ namespace Advanced.Algorithms.Graph
         private bool dfs(IGraphVertex<T> current,
             HashSet<T> visited, T searchVetex)
         {
-            visited.Add(current.Value);
+            visited.Add(current.Key);
 
-            if (current.Value.Equals(searchVetex))
+            if (current.Key.Equals(searchVetex))
             {
                 return true;
             }
 
             foreach (var edge in current.Edges)
             {
-                if (visited.Contains(edge.Value))
+                if (visited.Contains(edge.TargetVertexKey))
                 {
                     continue;
                 }
 
-                if (dfs(edge.Target, visited, searchVetex))
+                if (dfs(edge.TargetVertex, visited, searchVetex))
                 {
                     return true;
                 }

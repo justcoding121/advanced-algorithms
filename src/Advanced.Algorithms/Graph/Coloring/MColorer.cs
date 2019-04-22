@@ -35,7 +35,7 @@ namespace Advanced.Algorithms.Graph
                     result.Add(vertex.Value, new List<T>());
                 }
 
-                result[vertex.Value].Add(vertex.Key.Value);
+                result[vertex.Value].Add(vertex.Key.Key);
             }
 
             return new MColorResult<T, C>(true, result);
@@ -65,12 +65,12 @@ namespace Advanced.Algorithms.Graph
 
                 foreach (var edge in vertex.Edges)
                 {
-                    if (visited.Contains(edge.Target))
+                    if (visited.Contains(edge.TargetVertex))
                     {
                         continue;
                     }
 
-                    canColor(edge.Target, colors, progress, visited);
+                    canColor(edge.TargetVertex, colors, progress, visited);
                 }
             }
 
@@ -85,8 +85,8 @@ namespace Advanced.Algorithms.Graph
         {
            foreach(var edge in vertex.Edges)
             {
-                if(progress.ContainsKey(edge.Target)
-                    && progress[edge.Target].Equals(color))
+                if(progress.ContainsKey(edge.TargetVertex)
+                    && progress[edge.TargetVertex].Equals(color))
                 {
                     return false;
                 }

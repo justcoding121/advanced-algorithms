@@ -44,7 +44,7 @@ namespace Advanced.Algorithms.Graph
                 //So that we can pick the min edge in next step
                 foreach (var edge in currentVertex.Edges)
                 {
-                    spanTreeNeighbours.Insert(new MSTEdge<T, W>(currentVertex.Value, edge.Value, edge.Weight<W>()));
+                    spanTreeNeighbours.Insert(new MSTEdge<T, W>(currentVertex.Key, edge.TargetVertexKey, edge.Weight<W>()));
                 }
 
                 //pick min edge

@@ -21,7 +21,7 @@ namespace Advanced.Algorithms.Graph
             //step one - create DFS finish visit stack
             foreach (var vertex in graph)
             {
-                if(!visited.Contains(vertex.Value))
+                if(!visited.Contains(vertex.Key))
                 {
                     kosarajuStep1(vertex, visited, finishStack);
                 }           
@@ -39,7 +39,7 @@ namespace Advanced.Algorithms.Graph
             {
                 var currentVertex = reverseGraph.GetVertex(finishStack.Pop());
 
-                if (!visited.Contains(currentVertex.Value))
+                if (!visited.Contains(currentVertex.Key))
                 {
                     result.Add(kosarajuStep2(currentVertex, visited,
                         finishStack, new List<T>()));
@@ -56,18 +56,18 @@ namespace Advanced.Algorithms.Graph
             HashSet<T> visited,
             Stack<T> finishStack)
         {
-            visited.Add(currentVertex.Value);
+            visited.Add(currentVertex.Key);
 
             foreach(var edge in currentVertex.OutEdges)
             {
-                if(!visited.Contains(edge.Value))
+                if(!visited.Contains(edge.TargetVertexKey))
                 {
-                    kosarajuStep1(edge.Target, visited, finishStack);
+                    kosarajuStep1(edge.TargetVertex, visited, finishStack);
                 }
             }
 
             //finished visiting, so add to stack
-            finishStack.Push(currentVertex.Value);
+            finishStack.Push(currentVertex.Key);
         }
 
         /// <summary>
@@ -77,14 +77,14 @@ namespace Advanced.Algorithms.Graph
             HashSet<T> visited, Stack<T> finishStack,
             List<T> result)
         {
-            visited.Add(currentVertex.Value);
-            result.Add(currentVertex.Value);
+            visited.Add(currentVertex.Key);
+            result.Add(currentVertex.Key);
 
             foreach (var edge in currentVertex.OutEdges)
             {
-                if (!visited.Contains(edge.Value))
+                if (!visited.Contains(edge.TargetVertexKey))
                 {
-                    kosarajuStep2(edge.Target, visited, finishStack, result);
+                    kosarajuStep2(edge.TargetVertex, visited, finishStack, result);
                 }
             }
 
@@ -100,7 +100,7 @@ namespace Advanced.Algorithms.Graph
 
             foreach (var vertex in graph)
             {
-                newGraph.AddVertex(vertex.Value);
+                newGraph.AddVertex(vertex.Key);
             }
 
             foreach (var vertex in graph)
@@ -108,7 +108,7 @@ namespace Advanced.Algorithms.Graph
                 foreach (var edge in vertex.OutEdges)
                 {
                     //reverse edge
-                    newGraph.AddEdge(edge.Value, vertex.Value);
+                    newGraph.AddEdge(edge.TargetVertexKey, vertex.Key);
                 }
             }
 

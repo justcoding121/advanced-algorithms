@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.Graph
             //create set
             foreach (var vertex in graph)
             {
-                disJointSet.MakeSet(vertex.Value);
+                disJointSet.MakeSet(vertex.Key);
             }
 
             //pick each edge one by one
@@ -77,35 +77,35 @@ namespace Advanced.Algorithms.Graph
         private void dfs(IGraphVertex<T> currentVertex, HashSet<T> visitedVertices, Dictionary<T, HashSet<T>> visitedEdges,
             List<MSTEdge<T, W>> result)
         {
-            if (!visitedVertices.Contains(currentVertex.Value))
+            if (!visitedVertices.Contains(currentVertex.Key))
             {
-                visitedVertices.Add(currentVertex.Value);
+                visitedVertices.Add(currentVertex.Key);
 
                 foreach (var edge in currentVertex.Edges)
                 {
-                    if (!visitedEdges.ContainsKey(currentVertex.Value)
-                        || !visitedEdges[currentVertex.Value].Contains(edge.Value))
+                    if (!visitedEdges.ContainsKey(currentVertex.Key)
+                        || !visitedEdges[currentVertex.Key].Contains(edge.TargetVertexKey))
                     {
-                        result.Add(new MSTEdge<T, W>(currentVertex.Value, edge.Value, edge.Weight<W>()));
+                        result.Add(new MSTEdge<T, W>(currentVertex.Key, edge.TargetVertexKey, edge.Weight<W>()));
 
                         //update visited edge
-                        if (!visitedEdges.ContainsKey(currentVertex.Value))
+                        if (!visitedEdges.ContainsKey(currentVertex.Key))
                         {
-                            visitedEdges.Add(currentVertex.Value, new HashSet<T>());
+                            visitedEdges.Add(currentVertex.Key, new HashSet<T>());
                         }
 
-                        visitedEdges[currentVertex.Value].Add(edge.Value);
+                        visitedEdges[currentVertex.Key].Add(edge.TargetVertexKey);
 
                         //update visited back edge
-                        if (!visitedEdges.ContainsKey(edge.Value))
+                        if (!visitedEdges.ContainsKey(edge.TargetVertexKey))
                         {
-                            visitedEdges.Add(edge.Value, new HashSet<T>());
+                            visitedEdges.Add(edge.TargetVertexKey, new HashSet<T>());
                         }
 
-                        visitedEdges[edge.Value].Add(currentVertex.Value);
+                        visitedEdges[edge.TargetVertexKey].Add(currentVertex.Key);
                     }
 
-                    dfs(edge.Target, visitedVertices, visitedEdges, result);
+                    dfs(edge.TargetVertex, visitedVertices, visitedEdges, result);
                 }
 
             }

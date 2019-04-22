@@ -12,16 +12,30 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class MinCut<T, W> where W : IComparable
     {
-        readonly IFlowOperators<W> operators;
-        public MinCut(IFlowOperators<W> operators)
+        private IFlowOperators<W> @operator;
+        public MinCut(IFlowOperators<W> @operator)
         {
-            this.operators = operators;
+            this.@operator = @operator;
         }
 
         public List<MinCutEdge<T>> ComputeMinCut(IDiGraph<T> graph,
         T source, T sink)
         {
-            var edmondsKarpMaxFlow = new EdmondKarpMaxFlow<T, W>(operators);
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
+            }
+
+            if (!graph.IsWeightedGraph)
+            {
+                if (this.@operator.defaultWeight.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                        "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
+                }
+            }
+
+            var edmondsKarpMaxFlow = new EdmondKarpMaxFlow<T, W>(@operator);
 
             var maxFlowResidualGraph = edmondsKarpMaxFlow
                 .computeMaxFlowAndReturnResidualGraph(graph, source, sink);
@@ -39,9 +53,9 @@ namespace Advanced.Algorithms.Graph
                 foreach (var edge in graph.GetVertex(vertex).OutEdges)
                 {
                     //if unreachable
-                    if (!reachableVertices.Contains(edge.Value))
+                    if (!reachableVertices.Contains(edge.TargetVertexKey))
                     {
-                        result.Add(new MinCutEdge<T>(vertex, edge.Value));
+                        result.Add(new MinCutEdge<T>(vertex, edge.TargetVertexKey));
                     }
                 }
             }
@@ -68,17 +82,17 @@ namespace Advanced.Algorithms.Graph
         private void dfs(WeightedDiGraphVertex<T, W> currentResidualGraphVertex,
             HashSet<T> visited)
         {
-            visited.Add(currentResidualGraphVertex.Value);
+            visited.Add(currentResidualGraphVertex.Key);
 
             foreach (var edge in currentResidualGraphVertex.OutEdges)
             {
-                if (visited.Contains(edge.Key.Value))
+                if (visited.Contains(edge.Key.Key))
                 {
                     continue;
                 }
 
                 //reachable only if +ive weight (unsaturated edge)
-                if (edge.Value.CompareTo(operators.defaultWeight) != 0)
+                if (edge.Value.CompareTo(@operator.defaultWeight) != 0)
                 {
                     dfs(edge.Key, visited);
                 }

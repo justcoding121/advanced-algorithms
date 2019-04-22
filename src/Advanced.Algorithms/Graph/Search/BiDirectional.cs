@@ -33,8 +33,8 @@ namespace Advanced.Algorithms.Graph
             bfsQueueA.Enqueue(graph.GetVertex(source));
             bfsQueueB.Enqueue(graph.GetVertex(destination));
 
-            visitedA.Add(graph.GetVertex(source).Value);
-            visitedB.Add(graph.GetVertex(destination).Value);
+            visitedA.Add(graph.GetVertex(source).Key);
+            visitedB.Add(graph.GetVertex(destination).Key);
 
             //search from both ends for a Path
             while (true)
@@ -44,20 +44,20 @@ namespace Advanced.Algorithms.Graph
                     var current = bfsQueueA.Dequeue();
 
                     //intersects with search from other end
-                    if (visitedB.Contains(current.Value))
+                    if (visitedB.Contains(current.Key))
                     {
                         return true;
                     }
 
                     foreach (var edge in current.OutEdges)
                     {
-                        if (visitedA.Contains(edge.Value))
+                        if (visitedA.Contains(edge.TargetVertexKey))
                         {
                             continue;
                         }
 
-                        visitedA.Add(edge.Value);
-                        bfsQueueA.Enqueue(edge.Target);
+                        visitedA.Add(edge.TargetVertexKey);
+                        bfsQueueA.Enqueue(edge.TargetVertex);
                     }
                 }
 
@@ -66,20 +66,20 @@ namespace Advanced.Algorithms.Graph
                     var current = bfsQueueB.Dequeue();
 
                     //intersects with search from other end
-                    if (visitedA.Contains(current.Value))
+                    if (visitedA.Contains(current.Key))
                     {
                         return true;
                     }
 
                     foreach (var edge in current.InEdges)
                     {
-                        if (visitedB.Contains(edge.Value))
+                        if (visitedB.Contains(edge.TargetVertexKey))
                         {
                             continue;
                         }
 
-                        visitedB.Add(edge.Value);
-                        bfsQueueB.Enqueue(edge.Target);
+                        visitedB.Add(edge.TargetVertexKey);
+                        bfsQueueB.Enqueue(edge.TargetVertex);
                     }
                 }
 

@@ -9,14 +9,28 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class FloydWarshallShortestPath<T, W> where W : IComparable
     {
-        readonly IShortestPathOperators<W> operators;
-        public FloydWarshallShortestPath(IShortestPathOperators<W> operators)
+        readonly IShortestPathOperators<W> @operator;
+        public FloydWarshallShortestPath(IShortestPathOperators<W> @operator)
         {
-            this.operators = operators;
+            this.@operator = @operator;
         }
 
         public List<AllPairShortestPathResult<T, W>> FindAllPairShortestPaths(IGraph<T> graph)
         {
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
+            }
+
+            if (!graph.IsWeightedGraph)
+            {
+                if (this.@operator.DefaultValue.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                        "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
+                }
+            }
+
             //we need this vertex array index for generics
             //since array indices are int and T is unknown type
             var vertexIndex = new Dictionary<int, T>();
@@ -24,8 +38,8 @@ namespace Advanced.Algorithms.Graph
             var i = 0;
             foreach (var vertex in graph)
             {
-                vertexIndex.Add(i, vertex.Value);
-                reverseVertexIndex.Add(vertex.Value, i);
+                vertexIndex.Add(i, vertex.Key);
+                reverseVertexIndex.Add(vertex.Key, i);
                 i++;
             }
 
@@ -37,24 +51,24 @@ namespace Advanced.Algorithms.Graph
             {
                 for (int j = 0; j < graph.VerticesCount; j++)
                 {
-                    result[i, j] = operators.MaxValue;
+                    result[i, j] = @operator.MaxValue;
                 }
             }
 
             for (i = 0; i < graph.VerticesCount; i++)
             {
-                result[i, i] = operators.DefaultValue;
+                result[i, i] = @operator.DefaultValue;
             }
             //now set the known edge weights to neighbours
             for (i = 0; i < graph.VerticesCount; i++)
             {
                 foreach (var edge in graph.GetVertex(vertexIndex[i]).Edges)
                 {
-                    result[i, reverseVertexIndex[edge.Value]] = edge.Weight<W>();
-                    parent[i, reverseVertexIndex[edge.Value]] = graph.GetVertex(vertexIndex[i]).Value;
+                    result[i, reverseVertexIndex[edge.TargetVertexKey]] = edge.Weight<W>();
+                    parent[i, reverseVertexIndex[edge.TargetVertexKey]] = graph.GetVertex(vertexIndex[i]).Key;
 
-                    result[reverseVertexIndex[edge.Value], i] = edge.Weight<W>();
-                    parent[reverseVertexIndex[edge.Value], i] = edge.Value;
+                    result[reverseVertexIndex[edge.TargetVertexKey], i] = edge.Weight<W>();
+                    parent[reverseVertexIndex[edge.TargetVertexKey], i] = edge.TargetVertexKey;
                 }
             }
 
@@ -67,13 +81,13 @@ namespace Advanced.Algorithms.Graph
                     for (int j = 0; j < graph.VerticesCount; j++)
                     {
                         //no path
-                        if (result[i, k].Equals(operators.MaxValue) 
-                            || result[k, j].Equals(operators.MaxValue))
+                        if (result[i, k].Equals(@operator.MaxValue) 
+                            || result[k, j].Equals(@operator.MaxValue))
                         {
                             continue;
                         }
 
-                        var sum = operators.Sum(result[i, k], result[k, j]);
+                        var sum = @operator.Sum(result[i, k], result[k, j]);
 
                         if (sum.CompareTo(result[i, j]) >= 0)
                         {

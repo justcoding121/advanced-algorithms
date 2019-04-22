@@ -25,26 +25,26 @@ namespace Advanced.Algorithms.Graph
             var bfsQueue = new Queue<IGraphVertex<T>>();
 
             bfsQueue.Enqueue(referenceVertex);
-            visited.Add(referenceVertex.Value);
+            visited.Add(referenceVertex.Key);
 
             while (bfsQueue.Count > 0)
             {
                 var current = bfsQueue.Dequeue();
 
-                if (current.Value.Equals(searchVertex))
+                if (current.Key.Equals(searchVertex))
                 {
                     return true;
                 }
 
                 foreach (var edge in current.Edges)
                 {
-                    if (visited.Contains(edge.Value))
+                    if (visited.Contains(edge.TargetVertexKey))
                     {
                         continue;
                     }
 
-                    visited.Add(edge.Value);
-                    bfsQueue.Enqueue(edge.Target);
+                    visited.Add(edge.TargetVertexKey);
+                    bfsQueue.Enqueue(edge.TargetVertex);
                 }
             }
 

@@ -21,12 +21,12 @@ namespace Advanced.Algorithms.Graph
 
             foreach (var vertex in graph)
             {
-                inEdgeMap.Add(vertex.Value, vertex.InEdgeCount);
+                inEdgeMap.Add(vertex.Key, vertex.InEdgeCount);
 
                 //init queue with vertices having not in edges
                 if(vertex.InEdgeCount == 0)
                 {
-                    kahnQueue.Enqueue(vertex.Value);
+                    kahnQueue.Enqueue(vertex.Key);
                 }
             }
 
@@ -52,16 +52,16 @@ namespace Advanced.Algorithms.Graph
                 var nextPick = graph.GetVertex(kahnQueue.Dequeue());       
 
                 //if in edge count is 0 then ready for result
-                if(inEdgeMap[nextPick.Value] == 0)
+                if(inEdgeMap[nextPick.Key] == 0)
                 {
-                    result.Add(nextPick.Value);
+                    result.Add(nextPick.Key);
                 }
 
                 //decrement in edge count for neighbours
                 foreach(var edge in nextPick.OutEdges)
                 {
-                    inEdgeMap[edge.Value]--;
-                    kahnQueue.Enqueue(edge.Value);
+                    inEdgeMap[edge.TargetVertexKey]--;
+                    kahnQueue.Enqueue(edge.TargetVertexKey);
                 }
 
                 visitCount++;

@@ -13,6 +13,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, DiGraphVertex<T>> Vertices { get; set; }
+        public bool IsWeightedGraph => false;
 
         public DiGraph()
         {
@@ -41,8 +42,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => ReferenceVertex;
-
-
+        
         /// <summary>
         /// Add a new vertex to this graph.
         /// Time complexity: O(1).
@@ -163,7 +163,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].OutEdges.Select(x => x.Value);
+            return Vertices[vertex].OutEdges.Select(x => x.Key);
         }
 
         public IEnumerable<T> InEdges(T vertex)
@@ -173,7 +173,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].InEdges.Select(x => x.Value);
+            return Vertices[vertex].InEdges.Select(x => x.Key);
         }
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             {
                 foreach (var edge in vertex.Value.OutEdges)
                 {
-                    newGraph.AddEdge(vertex.Value.Value, edge.Value);
+                    newGraph.AddEdge(vertex.Value.Key, edge.Key);
                 }
             }
 
@@ -218,6 +218,11 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             return Vertices[value];
         }
 
+        IDiGraph<T> IDiGraph<T>.Clone()
+        {
+            return Clone();
+        }
+
         IEnumerator<IDiGraphVertex<T>> IEnumerable<IDiGraphVertex<T>>.GetEnumerator()
         {
             return GetEnumerator() as IEnumerator<IDiGraphVertex<T>>;
@@ -228,10 +233,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             return Vertices.Select(x => x.Value).GetEnumerator();
         }
 
-        IDiGraph<T> IDiGraph<T>.Clone()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     /// <summary>
@@ -240,7 +241,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// </summary>
     public class DiGraphVertex<T> : IDiGraphVertex<T>, IEnumerable<T>
     {
-        public T Value { get; set; }
+        public T Key { get; set; }
 
         public HashSet<DiGraphVertex<T>> OutEdges { get; set; }
         public HashSet<DiGraphVertex<T>> InEdges { get; set; }
@@ -253,7 +254,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public DiGraphVertex(T value)
         {
-            Value = value;
+            Key = value;
             OutEdges = new HashSet<DiGraphVertex<T>>();
             InEdges = new HashSet<DiGraphVertex<T>>();
         }
@@ -271,7 +272,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public IEnumerator<T> GetEnumerator()
         {
-            return OutEdges.Select(x => x.Value).GetEnumerator();
+            return OutEdges.Select(x => x.Key).GetEnumerator();
         }
 
     }

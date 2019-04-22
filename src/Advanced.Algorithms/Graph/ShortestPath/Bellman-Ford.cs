@@ -10,10 +10,10 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class BellmanFordShortestPath<T, W> where W : IComparable
     {
-        readonly IShortestPathOperators<W> operators;
-        public BellmanFordShortestPath(IShortestPathOperators<W> operators)
+        readonly IShortestPathOperators<W> @operator;
+        public BellmanFordShortestPath(IShortestPathOperators<W> @operator)
         {
-            this.operators = operators;
+            this.@operator = @operator;
         }
 
         /// <summary>
@@ -26,7 +26,21 @@ namespace Advanced.Algorithms.Graph
             if (graph == null || graph.GetVertex(source) == null
                 || graph.GetVertex(destination) == null)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Empty Graph or invalid source/destination.");
+            }
+
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
+            }
+
+            if (!graph.IsWeightedGraph)
+            {
+                if (this.@operator.DefaultValue.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                        "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
+                }
             }
 
             var progress = new Dictionary<T, W>();
@@ -34,11 +48,11 @@ namespace Advanced.Algorithms.Graph
 
             foreach (var vertex in graph)
             {
-                parentMap.Add(vertex.Value, default(T));
-                progress.Add(vertex.Value, operators.MaxValue);
+                parentMap.Add(vertex.Key, default(T));
+                progress.Add(vertex.Key, @operator.MaxValue);
             }
 
-            progress[source] = operators.DefaultValue;
+            progress[source] = @operator.DefaultValue;
 
             var iterations = graph.VerticesCount - 1;
             var updated = true;
@@ -50,22 +64,22 @@ namespace Advanced.Algorithms.Graph
                 foreach (var vertex in graph)
                 {
                     //skip not discovered nodes
-                    if (progress[vertex.Value].Equals(operators.MaxValue))
+                    if (progress[vertex.Key].Equals(@operator.MaxValue))
                     {
                         continue;
                     }
 
                     foreach (var edge in vertex.OutEdges)
                     {
-                        var currentDistance = progress[edge.Value];
-                        var newDistance = operators.Sum(progress[vertex.Value],
-                            vertex.GetOutEdge(edge.Target).Weight<W>());
+                        var currentDistance = progress[edge.TargetVertexKey];
+                        var newDistance = @operator.Sum(progress[vertex.Key],
+                            vertex.GetOutEdge(edge.TargetVertex).Weight<W>());
 
                         if (newDistance.CompareTo(currentDistance) < 0)
                         {
                             updated = true;
-                            progress[edge.Value] = newDistance;
-                            parentMap[edge.Value] = vertex.Value;
+                            progress[edge.TargetVertexKey] = newDistance;
+                            parentMap[edge.TargetVertexKey] = vertex.Key;
                         }
 
                     }
@@ -102,7 +116,7 @@ namespace Advanced.Algorithms.Graph
 
             //return result
             var resultPath = new List<T>();
-            var resultLength = operators.DefaultValue;
+            var resultLength = @operator.DefaultValue;
             while (pathStack.Count > 0)
             {
                 resultPath.Add(pathStack.Pop());
@@ -110,7 +124,7 @@ namespace Advanced.Algorithms.Graph
 
             for (var i = 0; i < resultPath.Count - 1; i++)
             {
-                resultLength = operators.Sum(resultLength,
+                resultLength = @operator.Sum(resultLength,
                     graph.GetVertex(resultPath[i]).GetOutEdge(graph.GetVertex(resultPath[i + 1])).Weight<W>());
             }
 
