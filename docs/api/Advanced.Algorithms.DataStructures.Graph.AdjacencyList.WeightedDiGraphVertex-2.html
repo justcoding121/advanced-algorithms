@@ -92,11 +92,15 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">WeightedDiGraphVertex&lt;T, TW&gt;</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IEnumerable</span>&lt;T&gt;</div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.html">Advanced.Algorithms.DataStructures.Graph.AdjacencyList</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WeightedDiGraphVertex&lt;T, TW&gt; : IEnumerable&lt;T&gt; where TW : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class WeightedDiGraphVertex&lt;T, TW&gt; : IDiGraphVertex&lt;T&gt;, IEnumerable&lt;T&gt; where TW : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -150,6 +154,31 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
   </h3>
   
   
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_InEdgeCount_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.InEdgeCount*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_InEdgeCount" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.InEdgeCount">InEdgeCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int InEdgeCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_InEdges_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.InEdges*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_InEdges" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.InEdges">InEdges</h4>
   <div class="markdown level1 summary"></div>
@@ -175,6 +204,56 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
   </table>
   
   
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_Key_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.Key*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_Key" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.Key">Key</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Key { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_OutEdgeCount_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.OutEdgeCount*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_OutEdgeCount" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.OutEdgeCount">OutEdgeCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int OutEdgeCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_OutEdges_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.OutEdges*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_OutEdges" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.OutEdges">OutEdges</h4>
   <div class="markdown level1 summary"></div>
@@ -194,31 +273,6 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
     <tbody>
       <tr>
         <td><span class="xref">Dictionary</span>&lt;<a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex-2.html">WeightedDiGraphVertex</a>&lt;T, TW&gt;, TW&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_Value_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.Value*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_Value" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.Value">Value</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Value { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -250,6 +304,52 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_GetOutEdge_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.GetOutEdge*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_GetOutEdge_IDiGraphVertex__0__" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.GetOutEdge(IDiGraphVertex{`0})">GetOutEdge(IDiGraphVertex&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDiEdge&lt;T&gt; GetOutEdge(IDiGraphVertex&lt;T&gt; targetVertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDiGraphVertex</span>&lt;T&gt;</td>
+        <td><span class="parametername">targetVertex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDiEdge</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IEnumerable&lt;&gt;</span>
+  </div>
 </article>
           </div>
           
