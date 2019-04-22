@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 
@@ -12,20 +13,20 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns the vertices in Topologically Sorted Order.
         /// </summary>
-        public List<T> GetTopSort(DiGraph<T> graph)
+        public List<T> GetTopSort(IDiGraph<T> graph)
         {
             var inEdgeMap = new Dictionary<T, int>();
 
             var kahnQueue = new Queue<T>();
 
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
-                inEdgeMap.Add(vertex.Key, vertex.Value.InEdges.Count);
+                inEdgeMap.Add(vertex.Key, vertex.InEdgeCount);
 
                 //init queue with vertices having not in edges
-                if(vertex.Value.InEdges.Count == 0)
+                if(vertex.InEdgeCount == 0)
                 {
-                    kahnQueue.Enqueue(vertex.Value.Value);
+                    kahnQueue.Enqueue(vertex.Key);
                 }
             }
 
@@ -42,25 +43,25 @@ namespace Advanced.Algorithms.Graph
             while (kahnQueue.Count > 0)
             {
                 //cannot exceed vertex number of iterations
-                if (visitCount > graph.Vertices.Count)
+                if (visitCount > graph.VerticesCount)
                 {
                     throw new Exception("Graph has a cycle.");
                 }
 
                 //pick a neighbour
-                var nextPick = graph.Vertices[kahnQueue.Dequeue()];       
+                var nextPick = graph.GetVertex(kahnQueue.Dequeue());       
 
                 //if in edge count is 0 then ready for result
-                if(inEdgeMap[nextPick.Value] == 0)
+                if(inEdgeMap[nextPick.Key] == 0)
                 {
-                    result.Add(nextPick.Value);
+                    result.Add(nextPick.Key);
                 }
 
                 //decrement in edge count for neighbours
                 foreach(var edge in nextPick.OutEdges)
                 {
-                    inEdgeMap[edge.Value]--;
-                    kahnQueue.Enqueue(edge.Value);
+                    inEdgeMap[edge.TargetVertexKey]--;
+                    kahnQueue.Enqueue(edge.TargetVertexKey);
                 }
 
                 visitCount++;

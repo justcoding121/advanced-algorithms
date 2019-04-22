@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Advanced.Algorithms.Tests.DataStructures.Tree
+namespace Advanced.Algorithms.Tests.DataStructures
 {
     public class QuadTree_Tests
     {

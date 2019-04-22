@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
@@ -11,7 +11,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns true if item exists.
         /// </summary>
-        public bool Find(Graph<T> graph, T vertex)
+        public bool Find(IGraph<T> graph, T vertex)
         {
             return bfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
         }
@@ -19,32 +19,32 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// BFS implementation.
         /// </summary>
-        private bool bfs(GraphVertex<T> referenceVertex,
+        private bool bfs(IGraphVertex<T> referenceVertex,
             HashSet<T> visited, T searchVertex)
         {
-            var bfsQueue = new Queue<GraphVertex<T>>();
+            var bfsQueue = new Queue<IGraphVertex<T>>();
 
             bfsQueue.Enqueue(referenceVertex);
-            visited.Add(referenceVertex.Value);
+            visited.Add(referenceVertex.Key);
 
             while (bfsQueue.Count > 0)
             {
                 var current = bfsQueue.Dequeue();
 
-                if (current.Value.Equals(searchVertex))
+                if (current.Key.Equals(searchVertex))
                 {
                     return true;
                 }
 
                 foreach (var edge in current.Edges)
                 {
-                    if (visited.Contains(edge.Value))
+                    if (visited.Contains(edge.TargetVertexKey))
                     {
                         continue;
                     }
 
-                    visited.Add(edge.Value);
-                    bfsQueue.Enqueue(edge);
+                    visited.Add(edge.TargetVertexKey);
+                    bfsQueue.Enqueue(edge.TargetVertex);
                 }
             }
 

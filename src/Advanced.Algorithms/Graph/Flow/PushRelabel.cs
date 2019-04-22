@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +12,32 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class PushRelabelMaxFlow<T, W> where W : IComparable
     {
-        readonly IFlowOperators<W> operators;
-        public PushRelabelMaxFlow(IFlowOperators<W> operators)
+        readonly IFlowOperators<W> @operator;
+        public PushRelabelMaxFlow(IFlowOperators<W> @operator)
         {
-            this.operators = operators;
+            this.@operator = @operator;
         }
 
         /// <summary>
         /// Computes Max Flow using Push-Relabel algorithm.
         /// </summary>
-        public W ComputeMaxFlow(WeightedDiGraph<T, W> graph,
+        public W ComputeMaxFlow(IDiGraph<T> graph,
             T source, T sink)
         {
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
+            }
+
+            if (!graph.IsWeightedGraph)
+            {
+                if (this.@operator.defaultWeight.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                        "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
+                }
+            }
+
             //clone to create a residual graph
             var residualGraph = createResidualGraph(graph);
 
@@ -30,19 +45,19 @@ namespace Advanced.Algorithms.Graph
             var vertexStatusMap = new Dictionary<T, ResidualGraphVertexStatus>();
             foreach(var vertex in residualGraph.Vertices)
             {
-                if (vertex.Value.Value.Equals(source))
+                if (vertex.Value.Key.Equals(source))
                 {
                     //for source vertex
                     //init source height to Maximum (equal to total vertex count)
-                    vertexStatusMap.Add(vertex.Value.Value,
+                    vertexStatusMap.Add(vertex.Value.Key,
                       new ResidualGraphVertexStatus(residualGraph.Vertices.Count,
-                      operators.defaultWeight));
+                      @operator.defaultWeight));
                 }
                 else
                 {              
-                    vertexStatusMap.Add(vertex.Value.Value,
+                    vertexStatusMap.Add(vertex.Value.Key,
                       new ResidualGraphVertexStatus(0,
-                      operators.defaultWeight));
+                      @operator.defaultWeight));
                 }
 
             }
@@ -51,14 +66,14 @@ namespace Advanced.Algorithms.Graph
             foreach (var edge in residualGraph.Vertices[source].OutEdges.ToList())
             {
                //update edge vertex overflow
-                vertexStatusMap[edge.Key.Value].Overflow = edge.Value;
+                vertexStatusMap[edge.Key.Key].Overflow = edge.Value;
 
                 //increment reverse edge
-                residualGraph.Vertices[edge.Key.Value]
+                residualGraph.Vertices[edge.Key.Key]
                     .OutEdges[residualGraph.Vertices[source]] = edge.Value;
 
                 //set to minimum
-                residualGraph.Vertices[source].OutEdges[edge.Key] = operators.defaultWeight;
+                residualGraph.Vertices[source].OutEdges[edge.Key] = @operator.defaultWeight;
 
             }
 
@@ -93,15 +108,15 @@ namespace Advanced.Algorithms.Graph
             foreach(var edge in vertex.OutEdges)
             {
                 //+ive out capacity  
-                if(min.CompareTo(vertexStatusMap[edge.Key.Value].Height) > 0
-                    && edge.Value.CompareTo(operators.defaultWeight) > 0)
+                if(min.CompareTo(vertexStatusMap[edge.Key.Key].Height) > 0
+                    && edge.Value.CompareTo(@operator.defaultWeight) > 0)
                 {
-                    min = vertexStatusMap[edge.Key.Value].Height;
+                    min = vertexStatusMap[edge.Key.Key].Height;
                    
                 }
             }
 
-            vertexStatusMap[vertex.Value].Height = min + 1;
+            vertexStatusMap[vertex.Key].Height = min + 1;
 
         }
 
@@ -114,31 +129,31 @@ namespace Advanced.Algorithms.Graph
         private bool push(WeightedDiGraphVertex<T, W> overflowVertex, 
             Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
         {
-            var overflow = vertexStatusMap[overflowVertex.Value].Overflow;
+            var overflow = vertexStatusMap[overflowVertex.Key].Overflow;
 
             foreach(var edge in overflowVertex.OutEdges)
             {
                 //if out edge has +ive weight and neighbour height is less then flow is possible
-                if(edge.Value.CompareTo(operators.defaultWeight) > 0
-                    && vertexStatusMap[edge.Key.Value].Height 
-                       < vertexStatusMap[overflowVertex.Value].Height)
+                if(edge.Value.CompareTo(@operator.defaultWeight) > 0
+                    && vertexStatusMap[edge.Key.Key].Height 
+                       < vertexStatusMap[overflowVertex.Key].Height)
                 {
                     var possibleWeightToPush = edge.Value.CompareTo(overflow) < 0 ? edge.Value : overflow;
 
                     //decrement overflow
-                    vertexStatusMap[overflowVertex.Value].Overflow = 
-                        operators.SubstractWeights(vertexStatusMap[overflowVertex.Value].Overflow,
+                    vertexStatusMap[overflowVertex.Key].Overflow = 
+                        @operator.SubstractWeights(vertexStatusMap[overflowVertex.Key].Overflow,
                         possibleWeightToPush);
 
                     //increment flow of target vertex
-                    vertexStatusMap[edge.Key.Value].Overflow =
-                        operators.AddWeights(vertexStatusMap[edge.Key.Value].Overflow,
+                    vertexStatusMap[edge.Key.Key].Overflow =
+                        @operator.AddWeights(vertexStatusMap[edge.Key.Key].Overflow,
                          possibleWeightToPush);
 
                     //decrement edge weight
-                    overflowVertex.OutEdges[edge.Key] = operators.SubstractWeights(edge.Value, possibleWeightToPush);
+                    overflowVertex.OutEdges[edge.Key] = @operator.SubstractWeights(edge.Value, possibleWeightToPush);
                     //increment reverse edge weight
-                    edge.Key.OutEdges[overflowVertex] = operators.AddWeights(edge.Key.OutEdges[overflowVertex], possibleWeightToPush);
+                    edge.Key.OutEdges[overflowVertex] = @operator.AddWeights(edge.Key.OutEdges[overflowVertex], possibleWeightToPush);
 
                     return true;
                 }
@@ -157,7 +172,7 @@ namespace Advanced.Algorithms.Graph
             {
                 //ignore source and sink (which can have non-zero overflow)
                 if(!vertexStatus.Key.Equals(source) && !vertexStatus.Key.Equals(sink) &&
-                    vertexStatus.Value.Overflow.CompareTo(operators.defaultWeight) > 0)
+                    vertexStatus.Value.Overflow.CompareTo(@operator.defaultWeight) > 0)
                 {
                     return vertexStatus.Key;
                 }
@@ -169,27 +184,27 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Clones this graph and creates a residual graph.
         /// </summary>
-        private WeightedDiGraph<T, W> createResidualGraph(WeightedDiGraph<T, W> graph)
+        private WeightedDiGraph<T, W> createResidualGraph(IDiGraph<T> graph)
         {
             var newGraph = new WeightedDiGraph<T, W>();
 
             //clone graph vertices
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 newGraph.AddVertex(vertex.Key);
             }
 
             //clone edges
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 //Use either OutEdges or InEdges for cloning
                 //here we use OutEdges
-                foreach (var edge in vertex.Value.OutEdges)
+                foreach (var edge in vertex.OutEdges)
                 {
                     //original edge
-                    newGraph.AddEdge(vertex.Key, edge.Key.Value, edge.Value);
+                    newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<W>());
                     //add a backward edge for residual graph with edge value as default(W)
-                    newGraph.AddEdge(edge.Key.Value, vertex.Key, default(W));
+                    newGraph.AddEdge(edge.TargetVertexKey, vertex.Key, default(W));
                 }
             }
 

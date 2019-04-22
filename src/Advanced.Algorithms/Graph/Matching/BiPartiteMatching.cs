@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 
@@ -9,17 +10,22 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class BiPartiteMatching<T>
     {
-        readonly IBiPartiteMatchOperators<T> operators;
-        public BiPartiteMatching(IBiPartiteMatchOperators<T> operators)
+        readonly IBiPartiteMatchOperators<T> @operator;
+        public BiPartiteMatching(IBiPartiteMatchOperators<T> @operator)
         {
-            this.operators = operators;
+            this.@operator = @operator;
         }
 
         /// <summary>
         /// Returns a list of Max BiPartite Match Edges.
         /// </summary>
-        public List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph)
+        public List<MatchEdge<T>> GetMaxBiPartiteMatching(IGraph<T> graph)
         {
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type T during initialization.");
+            }
+
             //check if the graph is BiPartite by coloring 2 colors
             var mColorer = new MColorer<T, int>();
             var colorResult = mColorer.Color(graph, new int[] { 1, 2 });
@@ -36,19 +42,19 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Get Max Match from Given BiPartitioned Graph.
         /// </summary>
-        private List<MatchEdge<T>> getMaxBiPartiteMatching(Graph<T> graph,
+        private List<MatchEdge<T>> getMaxBiPartiteMatching(IGraph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
             //add unit edges from dymmy source to group 1 vertices
-            var dummySource = operators.GetRandomUniqueVertex();
-            if (graph.Vertices.ContainsKey(dummySource))
+            var dummySource = @operator.GetRandomUniqueVertex();
+            if (graph.ContainsVertex(dummySource))
             {
                 throw new Exception("Dummy vertex provided is not unique to given graph.");
             }
 
             //add unit edges from group 2 vertices to sink
-            var dummySink = operators.GetRandomUniqueVertex();
-            if (graph.Vertices.ContainsKey(dummySink))
+            var dummySink = @operator.GetRandomUniqueVertex();
+            if (graph.ContainsVertex(dummySink))
             {
                 throw new Exception("Dummy vertex provided is not unique to given graph.");
             }
@@ -56,7 +62,7 @@ namespace Advanced.Algorithms.Graph
             var workGraph = createFlowGraph(graph, dummySource, dummySink, partitions);
 
             //run ford fulkerson using edmon karp method
-            var fordFulkerson = new EdmondKarpMaxFlow<T, int>(operators);
+            var fordFulkerson = new EdmondKarpMaxFlow<T, int>(@operator);
 
             var flowPaths = fordFulkerson
                 .ComputeMaxFlowAndReturnFlowPath(workGraph, dummySource, dummySink);
@@ -75,7 +81,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// create a directed unit weighted graph with given dummySource to Patition 1 and Patition 2 to dummy sink.
         /// </summary>
-        private static WeightedDiGraph<T, int> createFlowGraph(Graph<T> graph,
+        private static WeightedDiGraph<T, int> createFlowGraph(IGraph<T> graph,
             T dummySource, T dummySink,
             Dictionary<int, List<T>> partitions)
         {
@@ -99,9 +105,9 @@ namespace Advanced.Algorithms.Graph
             //now add directed edges from group 1 vertices to group 2 vertices
             foreach (var group1Vertex in partitions[1])
             {
-                foreach (var edge in graph.Vertices[group1Vertex].Edges)
+                foreach (var edge in graph.GetVertex(group1Vertex).Edges)
                 {
-                    workGraph.AddEdge(group1Vertex, edge.Value, 1);
+                    workGraph.AddEdge(group1Vertex, edge.TargetVertexKey, 1);
                 }
             }
 

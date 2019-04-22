@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
@@ -11,17 +12,17 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns the vertices in Topologically Sorted Order.
         /// </summary>
-        public List<T> GetTopSort(DiGraph<T> graph)
+        public List<T> GetTopSort(IDiGraph<T> graph)
         {
             var pathStack = new Stack<T>();
             var visited = new HashSet<T>();
 
             //we need a loop so that we can reach all vertices
-            foreach(var vertex in graph.Vertices)
+            foreach(var vertex in graph.VerticesAsEnumberable)
             {
                 if(!visited.Contains(vertex.Key))
                 {
-                    dfs(vertex.Value, visited, pathStack);
+                    dfs(vertex, visited, pathStack);
                 }
                 
             }
@@ -39,21 +40,21 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Do a depth first search.
         /// </summary>
-        private void dfs(DiGraphVertex<T> vertex, 
+        private void dfs(IDiGraphVertex<T> vertex, 
             HashSet<T> visited, Stack<T> pathStack)
         {
-            visited.Add(vertex.Value);
+            visited.Add(vertex.Key);
 
             foreach(var edge in vertex.OutEdges)
             {
-                if(!visited.Contains(edge.Value))
+                if(!visited.Contains(edge.TargetVertexKey))
                 {
-                    dfs(edge, visited, pathStack);
+                    dfs(edge.TargetVertex, visited, pathStack);
                 }
             }
 
             //add vertex to stack after all edges are visited
-            pathStack.Push(vertex.Value);
+            pathStack.Push(vertex.Key);
         }
     }
 }

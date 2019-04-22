@@ -1,4 +1,5 @@
 ﻿using Advanced.Algorithms.DataStructures;
+using Advanced.Algorithms.DataStructures.Graph;
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
@@ -11,21 +12,35 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class DijikstraShortestPath<T, W> where W : IComparable
     {
-        readonly IShortestPathOperators<W> operators;
-        public DijikstraShortestPath(IShortestPathOperators<W> operators)
+        readonly IShortestPathOperators<W> @operator;
+        public DijikstraShortestPath(IShortestPathOperators<W> @operator)
         {
-            this.operators = operators;
+            this.@operator = @operator;
         }
 
         /// <summary>
         /// Get shortest distance to target.
         /// </summary>
-        public ShortestPathResult<T, W> FindShortestPath(WeightedDiGraph<T, W> graph, T source, T destination)
+        public ShortestPathResult<T, W> FindShortestPath(IDiGraph<T> graph, T source, T destination)
         {
             //regular argument checks
-            if (graph?.FindVertex(source) == null || graph.FindVertex(destination) == null)
+            if (graph?.GetVertex(source) == null || graph.GetVertex(destination) == null)
             {
                 throw new ArgumentException();
+            }
+
+            if (this.@operator == null)
+            {
+                throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
+            }
+
+            if (!graph.IsWeightedGraph)
+            {
+                if (this.@operator.DefaultValue.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                        "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
+                }
             }
 
             //track progress for distance to each Vertex from source
@@ -40,13 +55,13 @@ namespace Advanced.Algorithms.Graph
             var heapMapping = new Dictionary<T, MinHeapWrap<T, W>>();
 
             //add vertices to min heap and progress map
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 //init parent
                 parentMap.Add(vertex.Key, default(T));
 
                 //init to max value
-                progress.Add(vertex.Key, operators.MaxValue);
+                progress.Add(vertex.Key, @operator.MaxValue);
 
                 if (vertex.Key.Equals(source))
                 {
@@ -57,7 +72,7 @@ namespace Advanced.Algorithms.Graph
             //start from source vertex as current 
             var current = new MinHeapWrap<T, W>()
             {
-                Distance = operators.DefaultValue,
+                Distance = @operator.DefaultValue,
                 Vertex = source
             };
 
@@ -72,42 +87,42 @@ namespace Advanced.Algorithms.Graph
                 heapMapping.Remove(current.Vertex);
 
                 //no path exists, so return max value
-                if (current.Distance.Equals(operators.MaxValue))
+                if (current.Distance.Equals(@operator.MaxValue))
                 {
-                    return new ShortestPathResult<T, W>(null, operators.MaxValue);
+                    return new ShortestPathResult<T, W>(null, @operator.MaxValue);
                 }
 
                 //visit neighbours of current
-                foreach (var neighbour in graph.Vertices[current.Vertex].OutEdges.Where(x => !x.Key.Value.Equals(source)))
+                foreach (var neighbour in graph.GetVertex(current.Vertex).OutEdges.Where(x => !x.TargetVertexKey.Equals(source)))
                 {
                     //new distance to neighbour
-                    var newDistance = operators.Sum(current.Distance,
-                        graph.Vertices[current.Vertex].OutEdges[neighbour.Key]);
+                    var newDistance = @operator.Sum(current.Distance,
+                        graph.GetVertex(current.Vertex).GetOutEdge(neighbour.TargetVertex).Weight<W>());
 
                     //current distance to neighbour
-                    var existingDistance = progress[neighbour.Key.Value];
+                    var existingDistance = progress[neighbour.TargetVertexKey];
 
                     //update distance if new is better
                     if (newDistance.CompareTo(existingDistance) < 0)
                     {
-                        progress[neighbour.Key.Value] = newDistance;
+                        progress[neighbour.TargetVertexKey] = newDistance;
 
-                        if (!heapMapping.ContainsKey(neighbour.Key.Value))
+                        if (!heapMapping.ContainsKey(neighbour.TargetVertexKey))
                         {
-                            var wrap = new MinHeapWrap<T, W>() { Distance = newDistance, Vertex = neighbour.Key.Value };
+                            var wrap = new MinHeapWrap<T, W>() { Distance = newDistance, Vertex = neighbour.TargetVertexKey };
                             minHeap.Insert(wrap);
-                            heapMapping.Add(neighbour.Key.Value, wrap);
+                            heapMapping.Add(neighbour.TargetVertexKey, wrap);
                         }
                         else
                         {
                             //decrement distance to neighbour in heap
-                            var decremented = new MinHeapWrap<T, W>() { Distance = newDistance, Vertex = neighbour.Key.Value };
-                            minHeap.UpdateKey(heapMapping[neighbour.Key.Value], decremented);
-                            heapMapping[neighbour.Key.Value] = decremented;
+                            var decremented = new MinHeapWrap<T, W>() { Distance = newDistance, Vertex = neighbour.TargetVertexKey };
+                            minHeap.UpdateKey(heapMapping[neighbour.TargetVertexKey], decremented);
+                            heapMapping[neighbour.TargetVertexKey] = decremented;
                         }
 
                         //trace parent
-                        parentMap[neighbour.Key.Value] = current.Vertex;
+                        parentMap[neighbour.TargetVertexKey] = current.Vertex;
                     }
                 }
 
@@ -120,7 +135,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Trace back path from destination to source using parent map.
         /// </summary>
-        private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph, Dictionary<T, T> parentMap, T source, T destination)
+        private ShortestPathResult<T, W> tracePath(IDiGraph<T> graph, Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
             var pathStack = new Stack<T>();
@@ -136,7 +151,7 @@ namespace Advanced.Algorithms.Graph
 
             //return result
             var resultPath = new List<T>();
-            var resultLength = operators.DefaultValue;
+            var resultLength = @operator.DefaultValue;
             while (pathStack.Count > 0)
             {
                 resultPath.Add(pathStack.Pop());
@@ -144,8 +159,8 @@ namespace Advanced.Algorithms.Graph
 
             for (int i = 0; i < resultPath.Count - 1; i++)
             {
-                resultLength = operators.Sum(resultLength,
-                    graph.Vertices[resultPath[i]].OutEdges[graph.Vertices[resultPath[i + 1]]]);
+                resultLength = @operator.Sum(resultLength,
+                    graph.GetVertex(resultPath[i]).GetOutEdge(graph.GetVertex(resultPath[i + 1])).Weight<W>());
             }
 
             return new ShortestPathResult<T, W>(resultPath, resultLength);

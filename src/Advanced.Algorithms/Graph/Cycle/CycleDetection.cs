@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.Graph
 
             foreach(var vertex in graph.Vertices)
             {
-                if (!visited.Contains(vertex.Value.Value))
+                if (!visited.Contains(vertex.Value.Key))
                 {
                     if (dfs(vertex.Value, visited, visiting))
                     {
@@ -33,18 +33,18 @@ namespace Advanced.Algorithms.Graph
         private bool dfs(DiGraphVertex<T> current, 
             HashSet<T> visited, HashSet<T> visiting)
         {
-            visiting.Add(current.Value);
+            visiting.Add(current.Key);
 
             foreach (var edge in current.OutEdges)
             {
                 //if we encountered a visiting vertex again
                 //then their is a cycle
-                if(visiting.Contains(edge.Value))
+                if(visiting.Contains(edge.Key))
                 {
                     return true;
                 }
 
-                if (visited.Contains(edge.Value))
+                if (visited.Contains(edge.Key))
                 {
                     continue;
                 }
@@ -56,8 +56,8 @@ namespace Advanced.Algorithms.Graph
 
             }
 
-            visiting.Remove(current.Value);
-            visited.Add(current.Value);
+            visiting.Remove(current.Key);
+            visited.Add(current.Key);
 
             return false;
         }

@@ -127,7 +127,7 @@ adjacency list representation of graph and residual graph.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EdmondKarpMaxFlow(IFlowOperators&lt;W&gt; operators)</code></pre>
+    <pre><code class="lang-csharp hljs">public EdmondKarpMaxFlow(IFlowOperators&lt;W&gt; operator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,7 +141,7 @@ adjacency list representation of graph and residual graph.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Advanced.Algorithms.Graph.IFlowOperators-1.html">IFlowOperators</a>&lt;W&gt;</td>
-        <td><span class="parametername">operators</span></td>
+        <td><span class="parametername">operator</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -151,7 +151,7 @@ adjacency list representation of graph and residual graph.</p>
   
   
   <a id="Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_ComputeMaxFlow_" data-uid="Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.ComputeMaxFlow*"></a>
-  <h4 id="Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_ComputeMaxFlow_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_" data-uid="Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.ComputeMaxFlow(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)">ComputeMaxFlow(WeightedDiGraph&lt;T, W&gt;, T, T)</h4>
+  <h4 id="Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_ComputeMaxFlow_IDiGraph__0___0__0_" data-uid="Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.ComputeMaxFlow(IDiGraph{`0},`0,`0)">ComputeMaxFlow(IDiGraph&lt;T&gt;, T, T)</h4>
   <div class="markdown level1 summary"><p>Compute max flow by searching a path
 and then augmenting the residual graph until
 no more path exists in residual graph with possible flow.</p>
@@ -159,7 +159,7 @@ no more path exists in residual graph with possible flow.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public W ComputeMaxFlow(WeightedDiGraph&lt;T, W&gt; graph, T source, T sink)</code></pre>
+    <pre><code class="lang-csharp hljs">public W ComputeMaxFlow(IDiGraph&lt;T&gt; graph, T source, T sink)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -172,7 +172,7 @@ no more path exists in residual graph with possible flow.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html">WeightedDiGraph</a>&lt;T, W&gt;</td>
+        <td><span class="xref">IDiGraph</span>&lt;T&gt;</td>
         <td><span class="parametername">graph</span></td>
         <td></td>
       </tr>
@@ -206,7 +206,7 @@ no more path exists in residual graph with possible flow.</p>
   
   
   <a id="Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_computeMaxFlowAndReturnResidualGraph_" data-uid="Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph*"></a>
-  <h4 id="Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_computeMaxFlowAndReturnResidualGraph_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_" data-uid="Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)">computeMaxFlowAndReturnResidualGraph(WeightedDiGraph&lt;T, W&gt;, T, T)</h4>
+  <h4 id="Advanced_Algorithms_Graph_EdmondKarpMaxFlow_2_computeMaxFlowAndReturnResidualGraph_IDiGraph__0___0__0_" data-uid="Advanced.Algorithms.Graph.EdmondKarpMaxFlow`2.computeMaxFlowAndReturnResidualGraph(IDiGraph{`0},`0,`0)">computeMaxFlowAndReturnResidualGraph(IDiGraph&lt;T&gt;, T, T)</h4>
   <div class="markdown level1 summary"><p>Compute max flow by searching a path
 and then augmenting the residual graph until
 no more path exists in residual graph with possible flow.</p>
@@ -214,7 +214,7 @@ no more path exists in residual graph with possible flow.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WeightedDiGraph&lt;T, W&gt; computeMaxFlowAndReturnResidualGraph(WeightedDiGraph&lt;T, W&gt; graph, T source, T sink)</code></pre>
+    <pre><code class="lang-csharp hljs">public WeightedDiGraph&lt;T, W&gt; computeMaxFlowAndReturnResidualGraph(IDiGraph&lt;T&gt; graph, T source, T sink)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -227,7 +227,7 @@ no more path exists in residual graph with possible flow.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html">WeightedDiGraph</a>&lt;T, W&gt;</td>
+        <td><span class="xref">IDiGraph</span>&lt;T&gt;</td>
         <td><span class="parametername">graph</span></td>
         <td></td>
       </tr>

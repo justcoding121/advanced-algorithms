@@ -37,7 +37,39 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge(3, 1, 4);
             graph.AddEdge(3, 2, 8);
 
-            Assert.AreEqual(21, TravellingSalesman.FindMinWeight(graph));
+            var tsp = new TravellingSalesman<int, int>();
+            Assert.AreEqual(21, tsp.FindMinWeight(graph, new TSPShortestPathOperators()));
+        }
+    }
+
+    /// <summary>
+    /// generic operations for int type
+    /// </summary>
+    public class TSPShortestPathOperators : IShortestPathOperators<int>
+    {
+        public int DefaultValue
+        {
+            get
+            {
+                return 0;
+            }
+
+
+        }
+
+        public int MaxValue
+        {
+            get
+            {
+                return int.MaxValue;
+            }
+        }
+
+        public int Sum(int a, int b)
+        {
+            return checked(a + b);
         }
     }
 }
+
+

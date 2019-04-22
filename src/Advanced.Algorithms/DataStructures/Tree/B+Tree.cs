@@ -9,7 +9,8 @@ namespace Advanced.Algorithms.DataStructures
     /// </summary>
     public class BpTree<T> : IEnumerable<T> where T : IComparable
     {
-        public int Count { get; private set; }
+        private readonly int maxKeysPerNode;
+        private readonly int minKeysPerNode;
 
         internal BpTreeNode<T> Root;
 
@@ -21,8 +22,18 @@ namespace Advanced.Algorithms.DataStructures
         internal BpTreeNode<T> BottomLeftNode;
         internal BpTreeNode<T> BottomRightNode;
 
-        private readonly int maxKeysPerNode;
-        private readonly int minKeysPerNode;
+        public int Count { get; private set; }
+
+        public BpTree(int maxKeysPerNode = 3)
+        {
+            if (maxKeysPerNode < 3)
+            {
+                throw new Exception("Max keys per node should be atleast 3.");
+            }
+
+            this.maxKeysPerNode = maxKeysPerNode;
+            this.minKeysPerNode = maxKeysPerNode / 2;
+        }
 
         /// <summary>
         /// Time complexity: O(1).
@@ -50,17 +61,6 @@ namespace Advanced.Algorithms.DataStructures
                 var minNode = BottomLeftNode;
                 return minNode.Keys[0];
             }
-        }
-
-        public BpTree(int maxKeysPerNode = 3)
-        {
-            if (maxKeysPerNode < 3)
-            {
-                throw new Exception("Max keys per node should be atleast 3.");
-            }
-
-            this.maxKeysPerNode = maxKeysPerNode;
-            this.minKeysPerNode = maxKeysPerNode / 2;
         }
 
         /// <summary>
@@ -199,30 +199,7 @@ namespace Advanced.Algorithms.DataStructures
             //connect leaves via linked list for faster enumeration
             if (node.IsLeaf)
             {
-                left.Next = right;
-                right.Prev = left;
-
-                if (node.Next != null)
-                {
-                    right.Next = node.Next;
-                    node.Next.Prev = right;
-                }
-                else
-                {
-                    //bottom right most node
-                    BottomRightNode = right;
-                }
-
-                if (node.Prev != null)
-                {
-                    left.Prev = node.Prev;
-                    node.Prev.Next = left;
-                }
-                else
-                {
-                    //bottom left most node
-                    BottomLeftNode = left;
-                }
+                connectLeaves(node, left, right);
             }
 
             //median of current Node
@@ -396,6 +373,35 @@ namespace Advanced.Algorithms.DataStructures
             setChild(node, node.KeyCount, newValueRight);
         }
 
+
+        private void connectLeaves(BpTreeNode<T> node, BpTreeNode<T> left, BpTreeNode<T> right)
+        {
+            left.Next = right;
+            right.Prev = left;
+
+            if (node.Next != null)
+            {
+                right.Next = node.Next;
+                node.Next.Prev = right;
+            }
+            else
+            {
+                //bottom right most node
+                BottomRightNode = right;
+            }
+
+            if (node.Prev != null)
+            {
+                left.Prev = node.Prev;
+                node.Prev.Next = left;
+            }
+            else
+            {
+                //bottom left most node
+                BottomLeftNode = left;
+            }
+        }
+
         /// <summary>
         /// Time complexity: O(log(n)).
         /// </summary>
@@ -552,25 +558,7 @@ namespace Advanced.Algorithms.DataStructures
             //if leaves are merged then update the Next and Prev pointers
             if (leftSibling.IsLeaf)
             {
-                if (leftSibling.Prev != null)
-                {
-                    newNode.Prev = leftSibling.Prev;
-                    leftSibling.Prev.Next = newNode;
-                }
-                else
-                {
-                    BottomLeftNode = newNode;
-                }
-
-                if (rightSibling.Next != null)
-                {
-                    newNode.Next = rightSibling.Next;
-                    rightSibling.Next.Prev = newNode;
-                }
-                else
-                {
-                    BottomRightNode = newNode;
-                }
+                mergeLeaves(newNode, leftSibling, rightSibling);
             }
 
             var newIndex = 0;
@@ -754,6 +742,28 @@ namespace Advanced.Algorithms.DataStructures
             }
         }
 
+        private void mergeLeaves(BpTreeNode<T> newNode, BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
+        {
+            if (leftSibling.Prev != null)
+            {
+                newNode.Prev = leftSibling.Prev;
+                leftSibling.Prev.Next = newNode;
+            }
+            else
+            {
+                BottomLeftNode = newNode;
+            }
+
+            if (rightSibling.Next != null)
+            {
+                newNode.Next = rightSibling.Next;
+                rightSibling.Next.Prev = newNode;
+            }
+            else
+            {
+                BottomRightNode = newNode;
+            }
+        }
         /// <summary>
         /// Locate the node in which the item to delete exist
         /// </summary>

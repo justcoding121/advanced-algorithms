@@ -11,7 +11,7 @@ namespace Advanced.Algorithms.DataStructures
     public class BTree<T> : IEnumerable<T> where T : IComparable
     {
         private readonly int maxKeysPerNode;
-        private int minKeysPerNode;
+        private readonly int minKeysPerNode;
 
         internal BTreeNode<T> Root;
 

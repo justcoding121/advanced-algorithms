@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
@@ -11,7 +11,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns true if item exists.
         /// </summary>
-        public bool Find(Graph<T> graph, T vertex)
+        public bool Find(IGraph<T> graph, T vertex)
         {
             return dfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
         }
@@ -19,24 +19,24 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Recursive DFS.
         /// </summary>
-        private bool dfs(GraphVertex<T> current,
+        private bool dfs(IGraphVertex<T> current,
             HashSet<T> visited, T searchVetex)
         {
-            visited.Add(current.Value);
+            visited.Add(current.Key);
 
-            if (current.Value.Equals(searchVetex))
+            if (current.Key.Equals(searchVetex))
             {
                 return true;
             }
 
             foreach (var edge in current.Edges)
             {
-                if (visited.Contains(edge.Value))
+                if (visited.Contains(edge.TargetVertexKey))
                 {
                     continue;
                 }
 
-                if (dfs(edge, visited, searchVetex))
+                if (dfs(edge.TargetVertex, visited, searchVetex))
                 {
                     return true;
                 }

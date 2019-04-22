@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using Advanced.Algorithms.Sorting;
 using System;
 using System.Collections.Generic;
@@ -10,16 +10,16 @@ namespace Advanced.Algorithms.Graph
     /// A Kruskal's alogorithm implementation
     /// using merge sort and disjoint set.
     /// </summary>
-    public class Kruskals<T, TW> where TW : IComparable
+    public class Kruskals<T, W> where W : IComparable
     {
         /// <summary>
         /// Find Minimum Spanning Tree of given weighted graph.
         /// </summary>
         /// <returns>List of MST edges</returns>
-        public List<MSTEdge<T, TW>>
-            FindMinimumSpanningTree(WeightedGraph<T, TW> graph)
+        public List<MSTEdge<T, W>>
+            FindMinimumSpanningTree(IGraph<T> graph)
         {
-            var edges = new List<MSTEdge<T, TW>>();
+            var edges = new List<MSTEdge<T, W>>();
 
             //gather all unique edges
             dfs(graph.ReferenceVertex, new HashSet<T>(),
@@ -27,20 +27,20 @@ namespace Advanced.Algorithms.Graph
                 edges);
 
             //quick sort preparation
-            var sortArray = new MSTEdge<T, TW>[edges.Count];
+            var sortArray = new MSTEdge<T, W>[edges.Count];
             for (int i = 0; i < edges.Count; i++)
             {
                 sortArray[i] = edges[i];
             }
 
             //quick sort edges
-            var sortedEdges = MergeSort<MSTEdge<T, TW>>.Sort(sortArray);
+            var sortedEdges = MergeSort<MSTEdge<T, W>>.Sort(sortArray);
 
-            var result = new List<MSTEdge<T, TW>>();
+            var result = new List<MSTEdge<T, W>>();
             var disJointSet = new DisJointSet<T>();
 
             //create set
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 disJointSet.MakeSet(vertex.Key);
             }
@@ -74,38 +74,38 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Do DFS to find all unique edges.
         /// </summary>
-        private void dfs(WeightedGraphVertex<T, TW> currentVertex, System.Collections.Generic.HashSet<T> visitedVertices, Dictionary<T, System.Collections.Generic.HashSet<T>> visitedEdges,
-            List<MSTEdge<T, TW>> result)
+        private void dfs(IGraphVertex<T> currentVertex, HashSet<T> visitedVertices, Dictionary<T, HashSet<T>> visitedEdges,
+            List<MSTEdge<T, W>> result)
         {
-            if (!visitedVertices.Contains(currentVertex.Value))
+            if (!visitedVertices.Contains(currentVertex.Key))
             {
-                visitedVertices.Add(currentVertex.Value);
+                visitedVertices.Add(currentVertex.Key);
 
                 foreach (var edge in currentVertex.Edges)
                 {
-                    if (!visitedEdges.ContainsKey(currentVertex.Value)
-                        || !visitedEdges[currentVertex.Value].Contains(edge.Key.Value))
+                    if (!visitedEdges.ContainsKey(currentVertex.Key)
+                        || !visitedEdges[currentVertex.Key].Contains(edge.TargetVertexKey))
                     {
-                        result.Add(new MSTEdge<T, TW>(currentVertex.Value, edge.Key.Value, edge.Value));
+                        result.Add(new MSTEdge<T, W>(currentVertex.Key, edge.TargetVertexKey, edge.Weight<W>()));
 
                         //update visited edge
-                        if (!visitedEdges.ContainsKey(currentVertex.Value))
+                        if (!visitedEdges.ContainsKey(currentVertex.Key))
                         {
-                            visitedEdges.Add(currentVertex.Value, new HashSet<T>());
+                            visitedEdges.Add(currentVertex.Key, new HashSet<T>());
                         }
 
-                        visitedEdges[currentVertex.Value].Add(edge.Key.Value);
+                        visitedEdges[currentVertex.Key].Add(edge.TargetVertexKey);
 
                         //update visited back edge
-                        if (!visitedEdges.ContainsKey(edge.Key.Value))
+                        if (!visitedEdges.ContainsKey(edge.TargetVertexKey))
                         {
-                            visitedEdges.Add(edge.Key.Value, new HashSet<T>());
+                            visitedEdges.Add(edge.TargetVertexKey, new HashSet<T>());
                         }
 
-                        visitedEdges[edge.Key.Value].Add(currentVertex.Value);
+                        visitedEdges[edge.TargetVertexKey].Add(currentVertex.Key);
                     }
 
-                    dfs(edge.Key, visitedVertices, visitedEdges, result);
+                    dfs(edge.TargetVertex, visitedVertices, visitedEdges, result);
                 }
 
             }

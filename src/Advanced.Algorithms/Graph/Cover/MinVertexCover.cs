@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
@@ -8,32 +8,32 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class MinVertexCover<T>
     {
-        public List<GraphVertex<T>> GetMinVertexCover(Graph<T> graph)
+        public List<IGraphVertex<T>> GetMinVertexCover(IGraph<T> graph)
         {
-            return getMinVertexCover(graph.ReferenceVertex, new HashSet<GraphVertex<T>>(),
-                new List<GraphVertex<T>>());
+            return getMinVertexCover(graph.ReferenceVertex, new HashSet<IGraphVertex<T>>(),
+                new List<IGraphVertex<T>>());
         }
 
         /// <summary>
         /// An approximation algorithm for NP complete vertex cover problem.
         /// Add a random edge vertices until done visiting all edges.
         /// </summary>
-        private List<GraphVertex<T>> getMinVertexCover(GraphVertex<T> vertex,
-            HashSet<GraphVertex<T>> visited, List<GraphVertex<T>> cover)
+        private List<IGraphVertex<T>> getMinVertexCover(IGraphVertex<T> vertex,
+            HashSet<IGraphVertex<T>> visited, List<IGraphVertex<T>> cover)
         {
             visited.Add(vertex);
 
             foreach (var edge in vertex.Edges)
             {
-                if(!cover.Contains(vertex) && !cover.Contains(edge))
+                if(!cover.Contains(vertex) && !cover.Contains(edge.TargetVertex))
                 {
                     cover.Add(vertex);
-                    cover.Add(edge);
+                    cover.Add(edge.TargetVertex);
                 }
 
-                if(!visited.Contains(edge))
+                if(!visited.Contains(edge.TargetVertex))
                 {
-                    getMinVertexCover(edge, visited, cover);
+                    getMinVertexCover(edge.TargetVertex, visited, cover);
                 }
             }
 

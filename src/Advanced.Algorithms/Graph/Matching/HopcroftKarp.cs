@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using System;
 using System.Collections.Generic;
 
@@ -10,16 +10,10 @@ namespace Advanced.Algorithms.Graph
     /// </summary>
     public class HopcroftKarpMatching<T>
     {
-        IBiPartiteMatchOperators<T> operators;
-        public HopcroftKarpMatching(IBiPartiteMatchOperators<T> operators)
-        {
-            this.operators = operators;
-        }
-
         /// <summary>
         /// Returns a list of Max BiPartite Match Edges.
         /// </summary>
-        public List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph)
+        public List<MatchEdge<T>> GetMaxBiPartiteMatching(IGraph<T> graph)
         {
             //check if the graph is BiPartite by coloring 2 colors
             var mColorer = new MColorer<T, int>();
@@ -37,7 +31,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Get Max Match from Given BiPartitioned Graph.
         /// </summary>
-        private List<MatchEdge<T>> getMaxBiPartiteMatching(Graph<T> graph,
+        private List<MatchEdge<T>> getMaxBiPartiteMatching(IGraph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
             var leftMatch = new Dictionary<T, T>();
@@ -52,7 +46,7 @@ namespace Advanced.Algorithms.Graph
                     {
                         var visited = new HashSet<T> {vertex};
 
-                        var pathResult = dfs(graph.Vertices[vertex],
+                        var pathResult = dfs(graph.GetVertex(vertex),
                           leftMatch, rightMatch, visited, true);
                         
                         //XOR remaining done here (partially done inside DFS)
@@ -102,12 +96,12 @@ namespace Advanced.Algorithms.Graph
             }
         }
 
-        private List<PathResult> dfs(GraphVertex<T> current,
+        private List<PathResult> dfs(IGraphVertex<T> current,
             Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch,
             HashSet<T> visitPath,
             bool isRightSide)
         {
-            if (!leftMatch.ContainsKey(current.Value)
+            if (!leftMatch.ContainsKey(current.Key)
                 && !isRightSide)
             {
                 return new List<PathResult>();
@@ -116,16 +110,16 @@ namespace Advanced.Algorithms.Graph
             foreach (var edge in current.Edges)
             {
                 //do not re-visit ancestors in current DFS tree
-                if (visitPath.Contains(edge.Value))
+                if (visitPath.Contains(edge.TargetVertexKey))
                 {
                     continue;
                 }
 
-                if (!visitPath.Contains(edge.Value))
+                if (!visitPath.Contains(edge.TargetVertexKey))
                 {
-                    visitPath.Add(edge.Value);
+                    visitPath.Add(edge.TargetVertexKey);
                 }
-                var pathResult = dfs(edge, leftMatch, rightMatch, visitPath, !isRightSide);
+                var pathResult = dfs(edge.TargetVertex, leftMatch, rightMatch, visitPath, !isRightSide);
                 if (pathResult == null)
                 {
                     continue;
@@ -133,21 +127,21 @@ namespace Advanced.Algorithms.Graph
 
                 //XOR (partially done here by removing same edges)
                 //other part of XOR (adding new ones) is done after DFS method is finished
-                if (leftMatch.ContainsKey(current.Value)
-                    && leftMatch[current.Value].Equals(edge.Value))
+                if (leftMatch.ContainsKey(current.Key)
+                    && leftMatch[current.Key].Equals(edge.TargetVertexKey))
                 {
-                    leftMatch.Remove(current.Value);
-                    rightMatch.Remove(edge.Value);
+                    leftMatch.Remove(current.Key);
+                    rightMatch.Remove(edge.TargetVertexKey);
                 }
-                else if (rightMatch.ContainsKey(current.Value)
-                         && rightMatch[current.Value].Equals(edge.Value))
+                else if (rightMatch.ContainsKey(current.Key)
+                         && rightMatch[current.Key].Equals(edge.TargetVertexKey))
                 {
-                    rightMatch.Remove(current.Value);
-                    leftMatch.Remove(edge.Value);
+                    rightMatch.Remove(current.Key);
+                    leftMatch.Remove(edge.TargetVertexKey);
                 }
                 else
                 {
-                    pathResult.Add(new PathResult(current.Value, edge.Value, isRightSide));
+                    pathResult.Add(new PathResult(current.Key, edge.TargetVertexKey, isRightSide));
                 }
 
                 return pathResult;
@@ -162,7 +156,7 @@ namespace Advanced.Algorithms.Graph
         /// An augmenting path is a path which starts from a free vertex 
         /// and ends at a free vertex via Matched/UnMatched edges alternatively.
         /// </summary>
-        private bool bfs(Graph<T> graph,
+        private bool bfs(IGraph<T> graph,
             Dictionary<int, List<T>> partitions,
             Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch)
         {
@@ -193,15 +187,15 @@ namespace Advanced.Algorithms.Graph
                     return true;
                 }
 
-                foreach (var edge in graph.Vertices[current].Edges)
+                foreach (var edge in graph.GetVertex(current).Edges)
                 {
-                    if (visited.Contains(edge.Value))
+                    if (visited.Contains(edge.TargetVertexKey))
                     {
                         continue;
                     }
 
-                    queue.Enqueue(edge.Value);
-                    visited.Add(edge.Value);
+                    queue.Enqueue(edge.TargetVertexKey);
+                    visited.Add(edge.TargetVertexKey);
                 }
 
             }

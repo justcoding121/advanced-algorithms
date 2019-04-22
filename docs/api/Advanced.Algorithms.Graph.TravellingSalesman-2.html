@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class TarjansStronglyConnected&lt;T&gt;
+    <title>Class TravellingSalesman&lt;T, W&gt;
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class TarjansStronglyConnected&lt;T&gt;
+    <meta name="title" content="Class TravellingSalesman&lt;T, W&gt;
    | Advanced Algorithms ">
     <meta name="generator" content="docfx 2.40.1.0">
     
@@ -78,24 +78,25 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Graph.TarjansStronglyConnected`1">
+            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Graph.TravellingSalesman`2">
   
   
-  <h1 id="Advanced_Algorithms_Graph_TarjansStronglyConnected_1" data-uid="Advanced.Algorithms.Graph.TarjansStronglyConnected`1" class="text-break">Class TarjansStronglyConnected&lt;T&gt;
+  <h1 id="Advanced_Algorithms_Graph_TravellingSalesman_2" data-uid="Advanced.Algorithms.Graph.TravellingSalesman`2" class="text-break">Class TravellingSalesman&lt;T, W&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Strongly connected using Tarjan&apos;s algorithm.</p>
+  <div class="markdown level0 summary"><p>Uses dynamic programming for a
+psuedo-polynomial time runTime complexity for this NP hard problem.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">TarjansStronglyConnected&lt;T&gt;</span></div>
+    <div class="level1"><span class="xref">TravellingSalesman&lt;T, W&gt;</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.Graph.html">Advanced.Algorithms.Graph</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
-  <h5 id="Advanced_Algorithms_Graph_TarjansStronglyConnected_1_syntax">Syntax</h5>
+  <h5 id="Advanced_Algorithms_Graph_TravellingSalesman_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TarjansStronglyConnected&lt;T&gt; : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class TravellingSalesman&lt;T, W&gt; : object where W : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -110,20 +111,23 @@
         <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="parametername">W</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Advanced_Algorithms_Graph_TarjansStronglyConnected_1_FindStronglyConnectedComponents_" data-uid="Advanced.Algorithms.Graph.TarjansStronglyConnected`1.FindStronglyConnectedComponents*"></a>
-  <h4 id="Advanced_Algorithms_Graph_TarjansStronglyConnected_1_FindStronglyConnectedComponents_IDiGraph__0__" data-uid="Advanced.Algorithms.Graph.TarjansStronglyConnected`1.FindStronglyConnectedComponents(IDiGraph{`0})">FindStronglyConnectedComponents(IDiGraph&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Rreturns a list of Strongly Connected components in this graph.</p>
-</div>
+  <a id="Advanced_Algorithms_Graph_TravellingSalesman_2_FindMinWeight_" data-uid="Advanced.Algorithms.Graph.TravellingSalesman`2.FindMinWeight*"></a>
+  <h4 id="Advanced_Algorithms_Graph_TravellingSalesman_2_FindMinWeight_IDiGraph__0__Advanced_Algorithms_Graph_IShortestPathOperators__1__" data-uid="Advanced.Algorithms.Graph.TravellingSalesman`2.FindMinWeight(IDiGraph{`0},Advanced.Algorithms.Graph.IShortestPathOperators{`1})">FindMinWeight(IDiGraph&lt;T&gt;, IShortestPathOperators&lt;W&gt;)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;List&lt;T&gt;&gt; FindStronglyConnectedComponents(IDiGraph&lt;T&gt; graph)</code></pre>
+    <pre><code class="lang-csharp hljs">public W FindMinWeight(IDiGraph&lt;T&gt; graph, IShortestPathOperators&lt;W&gt; operator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -140,6 +144,11 @@
         <td><span class="parametername">graph</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.Graph.IShortestPathOperators-1.html">IShortestPathOperators</a>&lt;W&gt;</td>
+        <td><span class="parametername">operator</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -152,7 +161,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">List</span>&lt;<span class="xref">List</span>&lt;T&gt;&gt;</td>
+        <td><span class="xref">W</span></td>
         <td></td>
       </tr>
     </tbody>

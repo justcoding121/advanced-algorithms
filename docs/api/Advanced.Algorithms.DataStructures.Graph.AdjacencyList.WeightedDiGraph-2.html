@@ -96,7 +96,7 @@ IEnumerable enumerates all vertices.</p>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WeightedDiGraph&lt;T, TW&gt; : IEnumerable&lt;T&gt; where TW : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class WeightedDiGraph&lt;T, TW&gt; : IDiGraph&lt;T&gt; where TW : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -131,6 +131,31 @@ IEnumerable enumerates all vertices.</p>
   </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_IsWeightedGraph_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.IsWeightedGraph*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_IsWeightedGraph" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.IsWeightedGraph">IsWeightedGraph</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsWeightedGraph { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_ReferenceVertex_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.ReferenceVertex*"></a>
@@ -270,6 +295,74 @@ Time complexity: O(1).</p>
   </table>
   
   
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_Clone_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.Clone*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_Clone" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.Clone">Clone()</h4>
+  <div class="markdown level1 summary"><p>Clone this graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WeightedDiGraph&lt;T, TW&gt; Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph-2.html">WeightedDiGraph</a>&lt;T, TW&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_ContainsVertex_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.ContainsVertex*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_ContainsVertex__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.ContainsVertex(`0)">ContainsVertex(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsVertex(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_FindVertex_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.FindVertex*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_FindVertex__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.FindVertex(`0)">FindVertex(T)</h4>
   <div class="markdown level1 summary"><p>Returns the vertex with given value.
@@ -320,7 +413,7 @@ Time complexity: O(1).</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerator GetEnumerator()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -332,7 +425,49 @@ Time complexity: O(1).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerator</span>&lt;T&gt;</td>
+        <td><span class="xref">IEnumerator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_GetVertex_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.GetVertex*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph_2_GetVertex__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph`2.GetVertex(`0)">GetVertex(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDiGraphVertex&lt;T&gt; GetVertex(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDiGraphVertex</span>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
