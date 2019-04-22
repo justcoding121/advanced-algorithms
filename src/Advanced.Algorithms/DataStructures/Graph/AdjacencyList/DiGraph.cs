@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// A directed graph implementation.
     /// IEnumerable enumerates all vertices.
     /// </summary>
-    public class DiGraph<T> : IDiGraph<T>
+    public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, DiGraphVertex<T>> Vertices { get; set; }
@@ -42,7 +42,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => ReferenceVertex;
-        
+        IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
+
+       
         /// <summary>
         /// Add a new vertex to this graph.
         /// Time complexity: O(1).
@@ -218,28 +220,40 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             return Vertices[value];
         }
 
+        IGraphVertex<T> IGraph<T>.GetVertex(T key)
+        {
+            return Vertices[key];
+        }
+
         IDiGraph<T> IDiGraph<T>.Clone()
         {
             return Clone();
         }
 
-        IEnumerator<IDiGraphVertex<T>> IEnumerable<IDiGraphVertex<T>>.GetEnumerator()
+        IGraph<T> IGraph<T>.Clone()
         {
-            return GetEnumerator() as IEnumerator<IDiGraphVertex<T>>;
+            return Clone();
         }
 
         public IEnumerator GetEnumerator()
         {
-            return Vertices.Select(x => x.Value).GetEnumerator();
+            return Vertices.Select(x => x.Key).GetEnumerator(); 
         }
 
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            return GetEnumerator() as IEnumerator<T>;
+        }
+
+        public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => Vertices.Select(x => x.Value);
+        IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumberable => Vertices.Select(x => x.Value);
     }
 
     /// <summary>
     /// DiGraph vertex for adjacency list Graph implementation. 
     /// IEnumerable enumerates all the outgoing edge destination vertices.
     /// </summary>
-    public class DiGraphVertex<T> : IDiGraphVertex<T>, IEnumerable<T>
+    public class DiGraphVertex<T> : IDiGraphVertex<T>, IGraphVertex<T>, IEnumerable<T>
     {
         public T Key { get; set; }
 
@@ -251,6 +265,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public int OutEdgeCount => OutEdges.Count;
         public int InEdgeCount => InEdges.Count;
+
+        IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => OutEdges.Select(x => new Edge<T, int>(x, 1));
 
         public DiGraphVertex(T value)
         {

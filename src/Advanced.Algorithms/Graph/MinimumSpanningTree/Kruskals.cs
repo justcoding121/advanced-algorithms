@@ -40,7 +40,7 @@ namespace Advanced.Algorithms.Graph
             var disJointSet = new DisJointSet<T>();
 
             //create set
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 disJointSet.MakeSet(vertex.Key);
             }

@@ -3,14 +3,18 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Graph
 {
-    public interface IDiGraph<T> : IEnumerable<IDiGraphVertex<T>>
+    /// <summary>
+    /// Directed graph. 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IDiGraph<T> 
     {
         bool IsWeightedGraph { get; }
 
         bool ContainsVertex(T value);
         IDiGraphVertex<T> GetVertex(T key);
         IDiGraphVertex<T> ReferenceVertex { get; }
-
+        IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable { get; }
         int VerticesCount { get; }
 
         bool HasEdge(T source, T destination);

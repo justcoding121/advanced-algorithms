@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 
 namespace Advanced.Algorithms.DataStructures.Graph
 {
-    public interface IGraph<T> : IEnumerable<IGraphVertex<T>>
+    /// <summary>
+    /// UnDirected graph. 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IGraph<T>
     {
         bool IsWeightedGraph { get; }
 
         int VerticesCount { get; }
-
         IGraphVertex<T> ReferenceVertex { get; }
         bool ContainsVertex(T key);
         IGraphVertex<T> GetVertex(T key);
+        IEnumerable<IGraphVertex<T>> VerticesAsEnumberable { get; }
 
         bool HasEdge(T source, T destination);
 

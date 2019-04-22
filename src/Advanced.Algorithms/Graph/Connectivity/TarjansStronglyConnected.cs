@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.Graph
             var pathStack = new Stack<T>();
             var pathStackMap = new HashSet<T>();
             var discoveryTime = 0;
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 if (!discoveryTimeMap.ContainsKey(vertex.Key))
                 {

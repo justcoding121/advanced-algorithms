@@ -36,7 +36,7 @@ namespace Advanced.Algorithms.Graph
             var vertexIndex = new Dictionary<int, T>();
             var reverseVertexIndex = new Dictionary<T, int>();
             var i = 0;
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 vertexIndex.Add(i, vertex.Key);
                 reverseVertexIndex.Add(vertex.Key, i);

@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// A weighted graph implementation.
     /// IEnumerable enumerates all vertices.
     /// </summary>
-    public class WeightedDiGraph<T, TW> : IDiGraph<T> where TW : IComparable
+    public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> where TW : IComparable
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, WeightedDiGraphVertex<T, TW>> Vertices { get; set; }
@@ -41,6 +41,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         }
 
         IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => ReferenceVertex;
+        IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
 
         /// <summary>
         /// Add a new vertex to this graph.
@@ -197,9 +198,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             return Vertices.ContainsKey(value);
         }
 
-        public IDiGraphVertex<T> GetVertex(T value)
+        IGraphVertex<T> IGraph<T>.GetVertex(T key)
         {
-            return Vertices[value];
+            return Vertices[key];
+        }
+
+        public IDiGraphVertex<T> GetVertex(T key)
+        {
+            return Vertices[key];
         }
 
         /// <summary>
@@ -225,27 +231,35 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             return newGraph;
         }
 
-        IEnumerator<IDiGraphVertex<T>> IEnumerable<IDiGraphVertex<T>>.GetEnumerator()
-        {
-            return GetEnumerator() as IEnumerator<IDiGraphVertex<T>>;
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            return Vertices.Select(x => x.Value).GetEnumerator();
-        }
-
         IDiGraph<T> IDiGraph<T>.Clone()
         {
             return Clone();
         }
+
+        IGraph<T> IGraph<T>.Clone()
+        {
+            return Clone();
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return Vertices.Select(x => x.Key).GetEnumerator();
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            return GetEnumerator() as IEnumerator<T>;
+        }
+
+        public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => Vertices.Select(x => x.Value);
+        IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumberable => Vertices.Select(x => x.Value);
     }
 
     /// <summary>
     /// A weighted graph vertex for adjacency list Graph implementation. 
     /// IEnumerable enumerates all the outgoing edge destination vertices.
     /// </summary>
-    public class WeightedDiGraphVertex<T, TW> : IDiGraphVertex<T>, IEnumerable<T> where TW : IComparable
+    public class WeightedDiGraphVertex<T, TW> : IDiGraphVertex<T>, IGraphVertex<T>, IEnumerable<T> where TW : IComparable
     {
         public T Key { get; private set; }
 
@@ -257,6 +271,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public int OutEdgeCount => OutEdges.Count;
         public int InEdgeCount => InEdges.Count;
+
+        IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => OutEdges.Select(x => new Edge<T, TW>(x.Key, x.Value));
 
         public WeightedDiGraphVertex(T value)
         {

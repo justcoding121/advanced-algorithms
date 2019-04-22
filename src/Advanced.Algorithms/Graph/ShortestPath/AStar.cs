@@ -58,7 +58,7 @@ namespace Advanced.Algorithms.Graph
             var heapMapping = new Dictionary<T, AStarWrap<T, W>>();
 
             //add vertices to min heap and progress map
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 //init parent
                 parentMap.Add(vertex.Key, default(T));

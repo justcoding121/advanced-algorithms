@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.Graph
             var visited = new HashSet<T>();
 
             //we need a loop so that we can reach all vertices
-            foreach(var vertex in graph)
+            foreach(var vertex in graph.VerticesAsEnumberable)
             {
                 if(!visited.Contains(vertex.Key))
                 {

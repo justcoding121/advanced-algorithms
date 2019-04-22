@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.Graph
 
             var kahnQueue = new Queue<T>();
 
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 inEdgeMap.Add(vertex.Key, vertex.InEdgeCount);
 

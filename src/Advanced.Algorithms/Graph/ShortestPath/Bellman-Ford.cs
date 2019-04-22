@@ -46,7 +46,7 @@ namespace Advanced.Algorithms.Graph
             var progress = new Dictionary<T, W>();
             var parentMap = new Dictionary<T, T>();
 
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 parentMap.Add(vertex.Key, default(T));
                 progress.Add(vertex.Key, @operator.MaxValue);
@@ -61,7 +61,7 @@ namespace Advanced.Algorithms.Graph
             {
                 updated = false;
 
-                foreach (var vertex in graph)
+                foreach (var vertex in graph.VerticesAsEnumberable)
                 {
                     //skip not discovered nodes
                     if (progress[vertex.Key].Equals(@operator.MaxValue))

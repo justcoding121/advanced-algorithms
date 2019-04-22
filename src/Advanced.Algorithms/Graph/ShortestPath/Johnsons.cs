@@ -107,12 +107,12 @@ namespace Advanced.Algorithms.Graph
         {
             var newGraph = new WeightedDiGraph<T, W>();
 
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 newGraph.AddVertex(vertex.Key);
             }
 
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 foreach (var edge in vertex.OutEdges)
                 {

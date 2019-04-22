@@ -207,13 +207,13 @@ namespace Advanced.Algorithms.Graph
             var newGraph = new WeightedDiGraph<T, W>();
 
             //clone graph vertices
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 newGraph.AddVertex(vertex.Key);
             }
 
             //clone edges
-            foreach (var vertex in graph)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 //Use either OutEdges or InEdges for cloning
                 //here we use OutEdges
