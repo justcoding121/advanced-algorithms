@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 
@@ -18,11 +19,12 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Find shortest distance to target.
         /// </summary>
-        public ShortestPathResult<T, W> FindShortestPath(WeightedDiGraph<T, W> graph, T source, T destination)
+        public ShortestPathResult<T, W> FindShortestPath(IDiGraph<T> graph,
+            T source, T destination)
         {
             //regular argument checks
-            if (graph == null || graph.FindVertex(source) == null
-                || graph.FindVertex(destination) == null)
+            if (graph == null || graph.GetVertex(source) == null
+                || graph.GetVertex(destination) == null)
             {
                 throw new ArgumentException();
             }
@@ -30,40 +32,40 @@ namespace Advanced.Algorithms.Graph
             var progress = new Dictionary<T, W>();
             var parentMap = new Dictionary<T, T>();
 
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph)
             {
-                parentMap.Add(vertex.Key, default(T));
-                progress.Add(vertex.Key, operators.MaxValue);
+                parentMap.Add(vertex.Value, default(T));
+                progress.Add(vertex.Value, operators.MaxValue);
             }
 
             progress[source] = operators.DefaultValue;
 
-            var iterations = graph.Vertices.Count - 1;
+            var iterations = graph.VerticesCount - 1;
             var updated = true;
 
             while (iterations > 0 && updated)
             {
                 updated = false;
 
-                foreach (var vertex in graph.Vertices)
+                foreach (var vertex in graph)
                 {
                     //skip not discovered nodes
-                    if (progress[vertex.Key].Equals(operators.MaxValue))
+                    if (progress[vertex.Value].Equals(operators.MaxValue))
                     {
                         continue;
                     }
 
-                    foreach (var edge in vertex.Value.OutEdges)
+                    foreach (var edge in vertex.OutEdges)
                     {
-                        var currentDistance = progress[edge.Key.Value];
-                        var newDistance = operators.Sum(progress[vertex.Key],
-                            vertex.Value.OutEdges[edge.Key]);
+                        var currentDistance = progress[edge.Value];
+                        var newDistance = operators.Sum(progress[vertex.Value],
+                            vertex.GetOutEdge(edge.Target).Weight<W>());
 
                         if (newDistance.CompareTo(currentDistance) < 0)
                         {
                             updated = true;
-                            progress[edge.Key.Value] = newDistance;
-                            parentMap[edge.Key.Value] = vertex.Key;
+                            progress[edge.Value] = newDistance;
+                            parentMap[edge.Value] = vertex.Value;
                         }
 
                     }
@@ -71,7 +73,7 @@ namespace Advanced.Algorithms.Graph
 
                 iterations--;
 
-                if(iterations < 0)
+                if (iterations < 0)
                 {
                     throw new Exception("Negative cycle exists in this graph.");
                 }
@@ -83,7 +85,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Trace back path from destination to source using parent map.
         /// </summary>
-        private ShortestPathResult<T, W> tracePath(WeightedDiGraph<T, W> graph,
+        private ShortestPathResult<T, W> tracePath(IDiGraph<T> graph,
             Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
@@ -92,7 +94,7 @@ namespace Advanced.Algorithms.Graph
             pathStack.Push(destination);
 
             var currentV = destination;
-            while (!Equals(currentV, default(T)) && !Equals(parentMap[currentV],default(T)))
+            while (!Equals(currentV, default(T)) && !Equals(parentMap[currentV], default(T)))
             {
                 pathStack.Push(parentMap[currentV]);
                 currentV = parentMap[currentV];
@@ -109,7 +111,7 @@ namespace Advanced.Algorithms.Graph
             for (var i = 0; i < resultPath.Count - 1; i++)
             {
                 resultLength = operators.Sum(resultLength,
-                    graph.Vertices[resultPath[i]].OutEdges[graph.Vertices[resultPath[i + 1]]]);
+                    graph.GetVertex(resultPath[i]).GetOutEdge(graph.GetVertex(resultPath[i + 1])).Weight<W>());
             }
 
             return new ShortestPathResult<T, W>(resultPath, resultLength);

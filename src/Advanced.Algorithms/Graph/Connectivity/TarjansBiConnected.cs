@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 
 namespace Advanced.Algorithms.Graph
 {
@@ -11,7 +11,7 @@ namespace Advanced.Algorithms.Graph
         /// This is using ariticulation alogrithm based on the observation that
         /// a graph is BiConnected if and only if there is no articulation Points.
         /// </summary>
-        public bool IsBiConnected(Graph<T> graph)
+        public bool IsBiConnected(IGraph<T> graph)
         {
             var algorithm = new TarjansArticulationFinder<T>();
             return algorithm.FindArticulationPoints(graph).Count == 0;

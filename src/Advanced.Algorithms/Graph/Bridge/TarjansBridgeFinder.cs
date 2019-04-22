@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using System;
 using System.Collections.Generic;
 
@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns a list if Bridge points in this graph.
         /// </summary>
-        public List<Bridge<T>> FindBridges(Graph<T> graph)
+        public List<Bridge<T>> FindBridges(IGraph<T> graph)
         {
             int visitTime = 0;
             return dfs(graph.ReferenceVertex, new List<Bridge<T>>(),
@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.Graph
         /// Do a depth first search to find Bridge edges by keeping track of 
         /// discovery nodes and checking for back edges using low/discovery time maps.
         /// </summary>
-        private List<Bridge<T>> dfs(GraphVertex<T> currentVertex,
+        private List<Bridge<T>> dfs(IGraphVertex<T> currentVertex,
              List<Bridge<T>> result,
              Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
              Dictionary<T, T> parent, ref int discoveryTime)
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.Graph
                     parent.Add(edge.Value, currentVertex.Value);
 
                     discoveryTime++;
-                    dfs(edge, result,
+                    dfs(edge.Target, result,
                                 discoveryTimeMap, lowTimeMap, parent, ref discoveryTime);
 
                     //propogate lowTime index of neighbour so that ancestors can see check for back edge

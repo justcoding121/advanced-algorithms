@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// A weighted graph implementation.
     /// IEnumerable enumerates all vertices.
     /// </summary>
-    public class WeightedGraph<T, TW> : IEnumerable<T> where TW : IComparable
+    public class WeightedGraph<T, TW> : IGraph<T> where TW : IComparable
     {
         public int VerticesCount => Vertices.Count;
         internal Dictionary<T, WeightedGraphVertex<T, TW>> Vertices { get; set; }
@@ -38,6 +38,8 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 return null;
             }
         }
+
+        IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
 
 
         /// <summary>
@@ -121,7 +123,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 throw new Exception("Source or Destination Vertex is not in this graph.");
             }
 
-            if (!Vertices[source].Edges.ContainsKey(Vertices[dest]) 
+            if (!Vertices[source].Edges.ContainsKey(Vertices[dest])
                 || !Vertices[dest].Edges.ContainsKey(Vertices[source]))
             {
                 throw new Exception("Edge do not exists.");
@@ -137,7 +139,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// </summary>
         public bool HasEdge(T source, T dest)
         {
-            if(!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+            if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             {
                 throw new ArgumentException("source or destination is not in this graph.");
             }
@@ -171,14 +173,52 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             return null;
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public bool ContainsVertex(T value)
         {
-            return GetEnumerator();
+            return Vertices.ContainsKey(value);
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IGraphVertex<T> GetVertex(T value)
         {
-            return Vertices.Select(x => x.Key).GetEnumerator();
+            return Vertices[value];
+        }
+
+        /// <summary>
+        /// Clones this graph.
+        /// </summary>
+        public WeightedGraph<T, TW> Clone()
+        {
+            var newGraph = new WeightedGraph<T, TW>();
+
+            foreach (var vertex in Vertices)
+            {
+                newGraph.AddVertex(vertex.Key);
+            }
+
+            foreach (var vertex in Vertices)
+            {
+                foreach (var edge in vertex.Value.Edges)
+                {
+                    newGraph.AddEdge(vertex.Value.Value, edge.Key.Value, edge.Value);
+                }
+            }
+
+            return newGraph;
+        }
+
+        IEnumerator<IGraphVertex<T>> IEnumerable<IGraphVertex<T>>.GetEnumerator()
+        {
+            return GetEnumerator() as IEnumerator<IGraphVertex<T>>;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return Vertices.Select(x => x.Value).GetEnumerator();
+        }
+
+        IGraph<T> IGraph<T>.Clone()
+        {
+            return Clone();
         }
     }
 
@@ -186,11 +226,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// A weighted graph vertex for adjacency list Graph implementation. 
     /// IEnumerable enumerates all the outgoing edge destination vertices.
     /// </summary>
-    public class WeightedGraphVertex<T, TW> : IEnumerable<T> where TW : IComparable
+    public class WeightedGraphVertex<T, TW> : IGraphVertex<T>, IEnumerable<T> where TW : IComparable
     {
         public T Value { get; private set; }
 
-        public Dictionary<WeightedGraphVertex<T, TW>, TW> Edges { get; set; }
+        public Dictionary<WeightedGraphVertex<T, TW>, TW> Edges { get; }
+        T IGraphVertex<T>.Value => Value;
+
+        IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => Edges.Select(x => new Edge<T, TW>(x.Key, x.Value));
 
         public WeightedGraphVertex(T value)
         {

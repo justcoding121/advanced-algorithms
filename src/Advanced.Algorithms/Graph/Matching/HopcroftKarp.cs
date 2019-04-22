@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using System;
 using System.Collections.Generic;
 
@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns a list of Max BiPartite Match Edges.
         /// </summary>
-        public List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph)
+        public List<MatchEdge<T>> GetMaxBiPartiteMatching(IGraph<T> graph)
         {
             //check if the graph is BiPartite by coloring 2 colors
             var mColorer = new MColorer<T, int>();
@@ -37,7 +37,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Get Max Match from Given BiPartitioned Graph.
         /// </summary>
-        private List<MatchEdge<T>> getMaxBiPartiteMatching(Graph<T> graph,
+        private List<MatchEdge<T>> getMaxBiPartiteMatching(IGraph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
             var leftMatch = new Dictionary<T, T>();
@@ -52,7 +52,7 @@ namespace Advanced.Algorithms.Graph
                     {
                         var visited = new HashSet<T> {vertex};
 
-                        var pathResult = dfs(graph.Vertices[vertex],
+                        var pathResult = dfs(graph.GetVertex(vertex),
                           leftMatch, rightMatch, visited, true);
                         
                         //XOR remaining done here (partially done inside DFS)
@@ -102,7 +102,7 @@ namespace Advanced.Algorithms.Graph
             }
         }
 
-        private List<PathResult> dfs(GraphVertex<T> current,
+        private List<PathResult> dfs(IGraphVertex<T> current,
             Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch,
             HashSet<T> visitPath,
             bool isRightSide)
@@ -125,7 +125,7 @@ namespace Advanced.Algorithms.Graph
                 {
                     visitPath.Add(edge.Value);
                 }
-                var pathResult = dfs(edge, leftMatch, rightMatch, visitPath, !isRightSide);
+                var pathResult = dfs(edge.Target, leftMatch, rightMatch, visitPath, !isRightSide);
                 if (pathResult == null)
                 {
                     continue;
@@ -162,7 +162,7 @@ namespace Advanced.Algorithms.Graph
         /// An augmenting path is a path which starts from a free vertex 
         /// and ends at a free vertex via Matched/UnMatched edges alternatively.
         /// </summary>
-        private bool bfs(Graph<T> graph,
+        private bool bfs(IGraph<T> graph,
             Dictionary<int, List<T>> partitions,
             Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch)
         {
@@ -193,7 +193,7 @@ namespace Advanced.Algorithms.Graph
                     return true;
                 }
 
-                foreach (var edge in graph.Vertices[current].Edges)
+                foreach (var edge in graph.GetVertex(current).Edges)
                 {
                     if (visited.Contains(edge.Value))
                     {

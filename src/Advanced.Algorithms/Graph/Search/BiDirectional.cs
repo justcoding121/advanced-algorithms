@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
 
 
@@ -12,7 +13,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns true if Path exists from source to destination.
         /// </summary>
-        public bool PathExists(DiGraph<T> graph, T source, T destination)
+        public bool PathExists(IDiGraph<T> graph, T source, T destination)
         {
             return bfs(graph, source, destination);
         }
@@ -21,19 +22,19 @@ namespace Advanced.Algorithms.Graph
         /// Use breadth First Search from Source and Target until they meet.
         /// If they could'nt find the element before they meet return false.
         /// </summary>
-        private bool bfs(DiGraph<T> graph, T source, T destination)
+        private bool bfs(IDiGraph<T> graph, T source, T destination)
         {
             var visitedA = new HashSet<T>();
             var visitedB = new HashSet<T>();
 
-            var bfsQueueA = new Queue<DiGraphVertex<T>>();
-            var bfsQueueB = new Queue<DiGraphVertex<T>>();
+            var bfsQueueA = new Queue<IDiGraphVertex<T>>();
+            var bfsQueueB = new Queue<IDiGraphVertex<T>>();
 
-            bfsQueueA.Enqueue(graph.Vertices[source]);
-            bfsQueueB.Enqueue(graph.Vertices[destination]);
+            bfsQueueA.Enqueue(graph.GetVertex(source));
+            bfsQueueB.Enqueue(graph.GetVertex(destination));
 
-            visitedA.Add(graph.Vertices[source].Value);
-            visitedB.Add(graph.Vertices[destination].Value);
+            visitedA.Add(graph.GetVertex(source).Value);
+            visitedB.Add(graph.GetVertex(destination).Value);
 
             //search from both ends for a Path
             while (true)
@@ -56,7 +57,7 @@ namespace Advanced.Algorithms.Graph
                         }
 
                         visitedA.Add(edge.Value);
-                        bfsQueueA.Enqueue(edge);
+                        bfsQueueA.Enqueue(edge.Target);
                     }
                 }
 
@@ -78,7 +79,7 @@ namespace Advanced.Algorithms.Graph
                         }
 
                         visitedB.Add(edge.Value);
-                        bfsQueueB.Enqueue(edge);
+                        bfsQueueB.Enqueue(edge.Target);
                     }
                 }
 

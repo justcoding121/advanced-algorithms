@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Computes Max Flow using Push-Relabel algorithm.
         /// </summary>
-        public W ComputeMaxFlow(WeightedDiGraph<T, W> graph,
+        public W ComputeMaxFlow(IDiGraph<T> graph,
             T source, T sink)
         {
             //clone to create a residual graph
@@ -169,27 +170,27 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Clones this graph and creates a residual graph.
         /// </summary>
-        private WeightedDiGraph<T, W> createResidualGraph(WeightedDiGraph<T, W> graph)
+        private WeightedDiGraph<T, W> createResidualGraph(IDiGraph<T> graph)
         {
             var newGraph = new WeightedDiGraph<T, W>();
 
             //clone graph vertices
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph)
             {
-                newGraph.AddVertex(vertex.Key);
+                newGraph.AddVertex(vertex.Value);
             }
 
             //clone edges
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph)
             {
                 //Use either OutEdges or InEdges for cloning
                 //here we use OutEdges
-                foreach (var edge in vertex.Value.OutEdges)
+                foreach (var edge in vertex.OutEdges)
                 {
                     //original edge
-                    newGraph.AddEdge(vertex.Key, edge.Key.Value, edge.Value);
+                    newGraph.AddEdge(vertex.Value, edge.Value, edge.Weight<W>());
                     //add a backward edge for residual graph with edge value as default(W)
-                    newGraph.AddEdge(edge.Key.Value, vertex.Key, default(W));
+                    newGraph.AddEdge(edge.Value, vertex.Value, default(W));
                 }
             }
 

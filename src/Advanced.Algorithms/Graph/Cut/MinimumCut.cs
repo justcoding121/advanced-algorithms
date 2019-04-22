@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 
@@ -17,7 +18,7 @@ namespace Advanced.Algorithms.Graph
             this.operators = operators;
         }
 
-        public List<MinCutEdge<T>> ComputeMinCut(WeightedDiGraph<T, W> graph,
+        public List<MinCutEdge<T>> ComputeMinCut(IDiGraph<T> graph,
         T source, T sink)
         {
             var edmondsKarpMaxFlow = new EdmondKarpMaxFlow<T, W>(operators);
@@ -35,12 +36,12 @@ namespace Advanced.Algorithms.Graph
 
             foreach (var vertex in reachableVertices)
             {
-                foreach (var edge in graph.Vertices[vertex].OutEdges)
+                foreach (var edge in graph.GetVertex(vertex).OutEdges)
                 {
                     //if unreachable
-                    if (!reachableVertices.Contains(edge.Key.Value))
+                    if (!reachableVertices.Contains(edge.Value))
                     {
-                        result.Add(new MinCutEdge<T>(vertex, edge.Key.Value));
+                        result.Add(new MinCutEdge<T>(vertex, edge.Value));
                     }
                 }
             }

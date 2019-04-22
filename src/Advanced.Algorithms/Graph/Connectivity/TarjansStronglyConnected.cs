@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 
@@ -10,9 +11,9 @@ namespace Advanced.Algorithms.Graph
     public class TarjansStronglyConnected<T>
     {
         /// <summary>
-        /// Rreturns a list if Strongly Connected components in this graph.
+        /// Rreturns a list of Strongly Connected components in this graph.
         /// </summary>
-        public List<List<T>> FindStronglyConnectedComponents(DiGraph<T> graph)
+        public List<List<T>> FindStronglyConnectedComponents(IDiGraph<T> graph)
         {
             var result = new List<List<T>>();
 
@@ -21,11 +22,11 @@ namespace Advanced.Algorithms.Graph
             var pathStack = new Stack<T>();
             var pathStackMap = new HashSet<T>();
             var discoveryTime = 0;
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph)
             {
-                if (!discoveryTimeMap.ContainsKey(vertex.Key))
+                if (!discoveryTimeMap.ContainsKey(vertex.Value))
                 {
-                    DFS(vertex.Value,
+                    DFS(vertex,
                      result,
                      discoveryTimeMap, lowTimeMap,
                      pathStack, pathStackMap, ref discoveryTime);
@@ -40,7 +41,7 @@ namespace Advanced.Algorithms.Graph
         /// Do a depth first search to find Strongly Connected by keeping track of 
         /// discovery nodes and checking for back edges using low/discovery time maps.
         /// </summary>
-        private void DFS(DiGraphVertex<T> currentVertex,
+        private void DFS(IDiGraphVertex<T> currentVertex,
              List<List<T>> result,
              Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
              Stack<T> pathStack,
@@ -57,7 +58,7 @@ namespace Advanced.Algorithms.Graph
                 if (!discoveryTimeMap.ContainsKey(edge.Value))
                 {
                     discoveryTime++;
-                    DFS(edge, result, discoveryTimeMap, lowTimeMap,
+                    DFS(edge.Target, result, discoveryTimeMap, lowTimeMap,
                                 pathStack, pathStackMap, ref discoveryTime);
 
                     //propogate lowTime index of neighbour so that ancestors can see it in DFS

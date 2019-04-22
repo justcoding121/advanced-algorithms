@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using System;
 using System.Collections.Generic;
 
@@ -15,24 +15,24 @@ namespace Advanced.Algorithms.Graph
             this.operators = operators;
         }
 
-        public List<AllPairShortestPathResult<T, W>> FindAllPairShortestPaths(WeightedGraph<T, W> graph)
+        public List<AllPairShortestPathResult<T, W>> FindAllPairShortestPaths(IGraph<T> graph)
         {
             //we need this vertex array index for generics
             //since array indices are int and T is unknown type
             var vertexIndex = new Dictionary<int, T>();
             var reverseVertexIndex = new Dictionary<T, int>();
             var i = 0;
-            foreach (var vertex in graph.Vertices)
+            foreach (var vertex in graph)
             {
-                vertexIndex.Add(i, vertex.Key);
-                reverseVertexIndex.Add(vertex.Key, i);
+                vertexIndex.Add(i, vertex.Value);
+                reverseVertexIndex.Add(vertex.Value, i);
                 i++;
             }
 
             //init all distance to default Weight
-            var result = new W[graph.Vertices.Count, graph.Vertices.Count];
+            var result = new W[graph.VerticesCount, graph.VerticesCount];
             //to trace the path
-            var parent = new T[graph.Vertices.Count, graph.Vertices.Count];
+            var parent = new T[graph.VerticesCount, graph.VerticesCount];
             for (i = 0; i < graph.VerticesCount; i++)
             {
                 for (int j = 0; j < graph.VerticesCount; j++)
@@ -48,13 +48,13 @@ namespace Advanced.Algorithms.Graph
             //now set the known edge weights to neighbours
             for (i = 0; i < graph.VerticesCount; i++)
             {
-                foreach (var edge in graph.Vertices[vertexIndex[i]].Edges)
+                foreach (var edge in graph.GetVertex(vertexIndex[i]).Edges)
                 {
-                    result[i, reverseVertexIndex[edge.Key.Value]] = edge.Value;
-                    parent[i, reverseVertexIndex[edge.Key.Value]] = graph.Vertices[vertexIndex[i]].Value;
+                    result[i, reverseVertexIndex[edge.Value]] = edge.Weight<W>();
+                    parent[i, reverseVertexIndex[edge.Value]] = graph.GetVertex(vertexIndex[i]).Value;
 
-                    result[reverseVertexIndex[edge.Key.Value], i] = edge.Value;
-                    parent[reverseVertexIndex[edge.Key.Value], i] = edge.Key.Value;
+                    result[reverseVertexIndex[edge.Value], i] = edge.Weight<W>();
+                    parent[reverseVertexIndex[edge.Value], i] = edge.Value;
                 }
             }
 

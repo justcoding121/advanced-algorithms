@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 
@@ -18,7 +19,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns a list of Max BiPartite Match Edges.
         /// </summary>
-        public List<MatchEdge<T>> GetMaxBiPartiteMatching(Graph<T> graph)
+        public List<MatchEdge<T>> GetMaxBiPartiteMatching(IGraph<T> graph)
         {
             //check if the graph is BiPartite by coloring 2 colors
             var mColorer = new MColorer<T, int>();
@@ -36,19 +37,19 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Get Max Match from Given BiPartitioned Graph.
         /// </summary>
-        private List<MatchEdge<T>> getMaxBiPartiteMatching(Graph<T> graph,
+        private List<MatchEdge<T>> getMaxBiPartiteMatching(IGraph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
             //add unit edges from dymmy source to group 1 vertices
             var dummySource = operators.GetRandomUniqueVertex();
-            if (graph.Vertices.ContainsKey(dummySource))
+            if (graph.ContainsVertex(dummySource))
             {
                 throw new Exception("Dummy vertex provided is not unique to given graph.");
             }
 
             //add unit edges from group 2 vertices to sink
             var dummySink = operators.GetRandomUniqueVertex();
-            if (graph.Vertices.ContainsKey(dummySink))
+            if (graph.ContainsVertex(dummySink))
             {
                 throw new Exception("Dummy vertex provided is not unique to given graph.");
             }
@@ -75,7 +76,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// create a directed unit weighted graph with given dummySource to Patition 1 and Patition 2 to dummy sink.
         /// </summary>
-        private static WeightedDiGraph<T, int> createFlowGraph(Graph<T> graph,
+        private static WeightedDiGraph<T, int> createFlowGraph(IGraph<T> graph,
             T dummySource, T dummySink,
             Dictionary<int, List<T>> partitions)
         {
@@ -99,7 +100,7 @@ namespace Advanced.Algorithms.Graph
             //now add directed edges from group 1 vertices to group 2 vertices
             foreach (var group1Vertex in partitions[1])
             {
-                foreach (var edge in graph.Vertices[group1Vertex].Edges)
+                foreach (var edge in graph.GetVertex(group1Vertex).Edges)
                 {
                     workGraph.AddEdge(group1Vertex, edge.Value, 1);
                 }

@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
@@ -12,14 +12,14 @@ namespace Advanced.Algorithms.Graph
         /// Returns true if all vertices can be colored using the given colors 
         /// in such a way so that no neighbours have same color.
         /// </summary>
-        public MColorResult<T, C> Color(Graph<T> graph, C[] colors)
+        public MColorResult<T, C> Color(IGraph<T> graph, C[] colors)
         {
 
             var first = graph.ReferenceVertex;
 
             var progress = canColor(first, colors, 
-                new Dictionary<GraphVertex<T>, C>(),
-                new HashSet<GraphVertex<T>>());
+                new Dictionary<IGraphVertex<T>, C>(),
+                new HashSet<IGraphVertex<T>>());
 
             if (progress.Count != graph.VerticesCount)
             {
@@ -45,8 +45,8 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Assign color to each new node.
         /// </summary>
-        private Dictionary<GraphVertex<T>, C> canColor(GraphVertex<T> vertex, C[] colors, 
-             Dictionary<GraphVertex<T>, C> progress, HashSet<GraphVertex<T>> visited)
+        private Dictionary<IGraphVertex<T>, C> canColor(IGraphVertex<T> vertex, C[] colors, 
+             Dictionary<IGraphVertex<T>, C> progress, HashSet<IGraphVertex<T>> visited)
         {
             foreach (var item in colors)
             {
@@ -65,12 +65,12 @@ namespace Advanced.Algorithms.Graph
 
                 foreach (var edge in vertex.Edges)
                 {
-                    if (visited.Contains(edge))
+                    if (visited.Contains(edge.Target))
                     {
                         continue;
                     }
 
-                    canColor(edge, colors, progress, visited);
+                    canColor(edge.Target, colors, progress, visited);
                 }
             }
 
@@ -80,13 +80,13 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Is it safe to assign this color to this vertex?
         /// </summary>
-        private bool isSafe(Dictionary<GraphVertex<T>, C> progress,
-            GraphVertex<T> vertex, C color)
+        private bool isSafe(Dictionary<IGraphVertex<T>, C> progress,
+            IGraphVertex<T> vertex, C color)
         {
            foreach(var edge in vertex.Edges)
             {
-                if(progress.ContainsKey(edge)
-                    && progress[edge].Equals(color))
+                if(progress.ContainsKey(edge.Target)
+                    && progress[edge.Target].Equals(color))
                 {
                     return false;
                 }

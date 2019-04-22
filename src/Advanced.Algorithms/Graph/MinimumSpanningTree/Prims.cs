@@ -1,5 +1,5 @@
 ﻿using Advanced.Algorithms.DataStructures;
-using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.DataStructures.Graph;
 using System;
 using System.Collections.Generic;
 
@@ -11,11 +11,11 @@ namespace Advanced.Algorithms.Graph
     public class Prims<T, W> where W : IComparable
     {
         /// <summary>
-        /// Find Minimum Spanning Tree of given weighted graph.
+        /// Find Minimum Spanning Tree of given undirected graph.
         /// </summary>
         /// <returns>List of MST edges</returns>
         public List<MSTEdge<T, W>>
-            FindMinimumSpanningTree(WeightedGraph<T, W> graph)
+            FindMinimumSpanningTree(IGraph<T> graph)
         {
             var edges = new List<MSTEdge<T, W>>();
 
@@ -34,7 +34,7 @@ namespace Advanced.Algorithms.Graph
         /// </summary>
         /// <param name="spanTreeNeighbours"> Use Fibonacci Min Heap to pick smallest edge neighbour </param>
         /// <param name="spanTreeEdges">result MST edges</param>
-        private void dfs(WeightedGraph<T, W> graph, WeightedGraphVertex<T, W> currentVertex, 
+        private void dfs(IGraph<T> graph, IGraphVertex<T> currentVertex, 
             BHeap<MSTEdge<T, W>> spanTreeNeighbours, HashSet<T> spanTreeVertices, 
             List<MSTEdge<T, W>> spanTreeEdges)
         {
@@ -44,7 +44,7 @@ namespace Advanced.Algorithms.Graph
                 //So that we can pick the min edge in next step
                 foreach (var edge in currentVertex.Edges)
                 {
-                    spanTreeNeighbours.Insert(new MSTEdge<T, W>(currentVertex.Value, edge.Key.Value, edge.Value));
+                    spanTreeNeighbours.Insert(new MSTEdge<T, W>(currentVertex.Value, edge.Value, edge.Weight<W>()));
                 }
 
                 //pick min edge
@@ -79,7 +79,7 @@ namespace Advanced.Algorithms.Graph
 
                 //now explore the destination vertex
                 var graph1 = graph;
-                currentVertex = graph1.Vertices[minNeighbourEdge.Destination];
+                currentVertex = graph1.GetVertex(minNeighbourEdge.Destination);
             }
         }
     }
