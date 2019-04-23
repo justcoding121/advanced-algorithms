@@ -47,7 +47,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Return all flow Paths.
         /// </summary>
-        public List<List<T>> ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W> graph,
+        public List<List<T>> ComputeMaxFlowAndReturnFlowPath(IDiGraph<T> graph,
             T source, T sink)
         {
             validateOperator(graph);
