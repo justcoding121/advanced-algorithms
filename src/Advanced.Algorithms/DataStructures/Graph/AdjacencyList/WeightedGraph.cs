@@ -244,6 +244,11 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             Edges = new Dictionary<WeightedGraphVertex<T, TW>, TW>();
         }
 
+        public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
+        {
+            return new Edge<T, TW>(targetVertex, Edges[targetVertex as WeightedGraphVertex<T, TW>]);
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -253,6 +258,5 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         {
             return Edges.Select(x => x.Key.Value).GetEnumerator();
         }
-
     }
 }

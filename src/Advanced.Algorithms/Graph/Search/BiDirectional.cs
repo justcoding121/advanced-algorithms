@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns true if Path exists from source to destination.
         /// </summary>
-        public bool PathExists(IDiGraph<T> graph, T source, T destination)
+        public bool PathExists(IGraph<T> graph, T source, T destination)
         {
             return bfs(graph, source, destination);
         }
@@ -22,13 +22,13 @@ namespace Advanced.Algorithms.Graph
         /// Use breadth First Search from Source and Target until they meet.
         /// If they could'nt find the element before they meet return false.
         /// </summary>
-        private bool bfs(IDiGraph<T> graph, T source, T destination)
+        private bool bfs(IGraph<T> graph, T source, T destination)
         {
             var visitedA = new HashSet<T>();
             var visitedB = new HashSet<T>();
 
-            var bfsQueueA = new Queue<IDiGraphVertex<T>>();
-            var bfsQueueB = new Queue<IDiGraphVertex<T>>();
+            var bfsQueueA = new Queue<IGraphVertex<T>>();
+            var bfsQueueB = new Queue<IGraphVertex<T>>();
 
             bfsQueueA.Enqueue(graph.GetVertex(source));
             bfsQueueB.Enqueue(graph.GetVertex(destination));
@@ -49,7 +49,7 @@ namespace Advanced.Algorithms.Graph
                         return true;
                     }
 
-                    foreach (var edge in current.OutEdges)
+                    foreach (var edge in current.Edges)
                     {
                         if (visitedA.Contains(edge.TargetVertexKey))
                         {
@@ -71,7 +71,7 @@ namespace Advanced.Algorithms.Graph
                         return true;
                     }
 
-                    foreach (var edge in current.InEdges)
+                    foreach (var edge in current.Edges)
                     {
                         if (visitedB.Contains(edge.TargetVertexKey))
                         {

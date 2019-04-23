@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.Graph
 
     /// <summary>
     /// Compute minimum cut edges of given graph 
-    /// using Edmond Karps improved Ford-Fulkerson Max Flow Algorithm.
+    /// using Edmond-Karps improved Ford-Fulkerson Max Flow Algorithm.
     /// </summary>
     public class MinCut<T, W> where W : IComparable
     {

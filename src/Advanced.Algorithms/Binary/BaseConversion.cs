@@ -27,16 +27,16 @@ namespace Advanced.Algorithms.Binary
                 var whole = tmp[0].TrimEnd();
                 var fraction = tmp[1].TrimStart();
 
-                return ConvertWhole(whole, srcBaseChars, dstBaseChars) +
+                return convertWhole(whole, srcBaseChars, dstBaseChars) +
                    "." + ConvertFraction(fraction, srcBaseChars, dstBaseChars, precision);
             }
 
-            return ConvertWhole(srcNumber, srcBaseChars, dstBaseChars);
+            return convertWhole(srcNumber, srcBaseChars, dstBaseChars);
         }
         /// <summary>
         /// Converts the whole part of source number.
         /// </summary>
-        private static string ConvertWhole(string srcNumber,
+        private static string convertWhole(string srcNumber,
                 string srcBaseChars,
                 string dstBaseChars)
         {

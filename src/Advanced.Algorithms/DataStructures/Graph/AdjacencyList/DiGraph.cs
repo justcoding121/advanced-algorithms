@@ -44,7 +44,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => ReferenceVertex;
         IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
 
-       
+
         /// <summary>
         /// Add a new vertex to this graph.
         /// Time complexity: O(1).
@@ -237,7 +237,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public IEnumerator GetEnumerator()
         {
-            return Vertices.Select(x => x.Key).GetEnumerator(); 
+            return Vertices.Select(x => x.Key).GetEnumerator();
         }
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
@@ -275,10 +275,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             InEdges = new HashSet<DiGraphVertex<T>>();
         }
 
-     
         public IDiEdge<T> GetOutEdge(IDiGraphVertex<T> targetVertex)
         {
             return new DiEdge<T, int>(targetVertex, 1);
+        }
+
+        public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
+        {
+            return new Edge<T, int>(targetVertex, 1);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

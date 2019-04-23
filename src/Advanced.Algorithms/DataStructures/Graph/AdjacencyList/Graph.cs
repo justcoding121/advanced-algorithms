@@ -246,6 +246,11 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             Edges = new HashSet<GraphVertex<T>>();
         }
 
+        public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
+        {
+            return new Edge<T, int>(targetVertex, 1);
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
