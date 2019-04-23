@@ -3899,6 +3899,24 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex(Of T).DiGraphVertex
   nameWithType: DiGraphVertex<T>.DiGraphVertex
   nameWithType.vb: DiGraphVertex(Of T).DiGraphVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.GetEdge(IGraphVertex{`0})
+  name: GetEdge(IGraphVertex<T>)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_GetEdge_IGraphVertex__0__
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.GetEdge(IGraphVertex{`0})
+  name.vb: GetEdge(IGraphVertex(Of T))
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex<T>.GetEdge(IGraphVertex<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex(Of T).GetEdge(IGraphVertex(Of T))
+  nameWithType: DiGraphVertex<T>.GetEdge(IGraphVertex<T>)
+  nameWithType.vb: DiGraphVertex(Of T).GetEdge(IGraphVertex(Of T))
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.GetEdge*
+  name: GetEdge
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_GetEdge_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.GetEdge
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex<T>.GetEdge
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex(Of T).GetEdge
+  nameWithType: DiGraphVertex<T>.GetEdge
+  nameWithType.vb: DiGraphVertex(Of T).GetEdge
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_GetEnumerator
@@ -4343,6 +4361,24 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex(Of T).Edges
   nameWithType: GraphVertex<T>.Edges
   nameWithType.vb: GraphVertex(Of T).Edges
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.GetEdge(IGraphVertex{`0})
+  name: GetEdge(IGraphVertex<T>)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_GraphVertex_1_GetEdge_IGraphVertex__0__
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.GetEdge(IGraphVertex{`0})
+  name.vb: GetEdge(IGraphVertex(Of T))
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex<T>.GetEdge(IGraphVertex<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex(Of T).GetEdge(IGraphVertex(Of T))
+  nameWithType: GraphVertex<T>.GetEdge(IGraphVertex<T>)
+  nameWithType.vb: GraphVertex(Of T).GetEdge(IGraphVertex(Of T))
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.GetEdge*
+  name: GetEdge
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_GraphVertex_1_GetEdge_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.GetEdge
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex<T>.GetEdge
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex(Of T).GetEdge
+  nameWithType: GraphVertex<T>.GetEdge
+  nameWithType.vb: GraphVertex(Of T).GetEdge
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex`1.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.GraphVertex-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_GraphVertex_1_GetEnumerator
@@ -4701,6 +4737,24 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex(Of T, TW).WeightedDiGraphVertex
   nameWithType: WeightedDiGraphVertex<T, TW>.WeightedDiGraphVertex
   nameWithType.vb: WeightedDiGraphVertex(Of T, TW).WeightedDiGraphVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.GetEdge(IGraphVertex{`0})
+  name: GetEdge(IGraphVertex<T>)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_GetEdge_IGraphVertex__0__
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.GetEdge(IGraphVertex{`0})
+  name.vb: GetEdge(IGraphVertex(Of T))
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex<T, TW>.GetEdge(IGraphVertex<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex(Of T, TW).GetEdge(IGraphVertex(Of T))
+  nameWithType: WeightedDiGraphVertex<T, TW>.GetEdge(IGraphVertex<T>)
+  nameWithType.vb: WeightedDiGraphVertex(Of T, TW).GetEdge(IGraphVertex(Of T))
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.GetEdge*
+  name: GetEdge
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_GetEdge_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.GetEdge
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex<T, TW>.GetEdge
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex(Of T, TW).GetEdge
+  nameWithType: WeightedDiGraphVertex<T, TW>.GetEdge
+  nameWithType.vb: WeightedDiGraphVertex(Of T, TW).GetEdge
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex`2.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraphVertex_2_GetEnumerator
@@ -5145,6 +5199,24 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex(Of T, TW).Edges
   nameWithType: WeightedGraphVertex<T, TW>.Edges
   nameWithType.vb: WeightedGraphVertex(Of T, TW).Edges
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.GetEdge(IGraphVertex{`0})
+  name: GetEdge(IGraphVertex<T>)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraphVertex_2_GetEdge_IGraphVertex__0__
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.GetEdge(IGraphVertex{`0})
+  name.vb: GetEdge(IGraphVertex(Of T))
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex<T, TW>.GetEdge(IGraphVertex<T>)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex(Of T, TW).GetEdge(IGraphVertex(Of T))
+  nameWithType: WeightedGraphVertex<T, TW>.GetEdge(IGraphVertex<T>)
+  nameWithType.vb: WeightedGraphVertex(Of T, TW).GetEdge(IGraphVertex(Of T))
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.GetEdge*
+  name: GetEdge
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraphVertex_2_GetEdge_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.GetEdge
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex<T, TW>.GetEdge
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex(Of T, TW).GetEdge
+  nameWithType: WeightedGraphVertex<T, TW>.GetEdge
+  nameWithType.vb: WeightedGraphVertex(Of T, TW).GetEdge
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex`2.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraphVertex-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedGraphVertex_2_GetEnumerator
@@ -9575,15 +9647,15 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.AStarShortestPath(Of T, W).AStarShortestPath
   nameWithType: AStarShortestPath<T, W>.AStarShortestPath
   nameWithType.vb: AStarShortestPath(Of T, W).AStarShortestPath
-- uid: Advanced.Algorithms.Graph.AStarShortestPath`2.FindShortestPath(IDiGraph{`0},`0,`0)
-  name: FindShortestPath(IDiGraph<T>, T, T)
-  href: api/Advanced.Algorithms.Graph.AStarShortestPath-2.html#Advanced_Algorithms_Graph_AStarShortestPath_2_FindShortestPath_IDiGraph__0___0__0_
-  commentId: M:Advanced.Algorithms.Graph.AStarShortestPath`2.FindShortestPath(IDiGraph{`0},`0,`0)
-  name.vb: FindShortestPath(IDiGraph(Of T), T, T)
-  fullName: Advanced.Algorithms.Graph.AStarShortestPath<T, W>.FindShortestPath(IDiGraph<T>, T, T)
-  fullName.vb: Advanced.Algorithms.Graph.AStarShortestPath(Of T, W).FindShortestPath(IDiGraph(Of T), T, T)
-  nameWithType: AStarShortestPath<T, W>.FindShortestPath(IDiGraph<T>, T, T)
-  nameWithType.vb: AStarShortestPath(Of T, W).FindShortestPath(IDiGraph(Of T), T, T)
+- uid: Advanced.Algorithms.Graph.AStarShortestPath`2.FindShortestPath(IGraph{`0},`0,`0)
+  name: FindShortestPath(IGraph<T>, T, T)
+  href: api/Advanced.Algorithms.Graph.AStarShortestPath-2.html#Advanced_Algorithms_Graph_AStarShortestPath_2_FindShortestPath_IGraph__0___0__0_
+  commentId: M:Advanced.Algorithms.Graph.AStarShortestPath`2.FindShortestPath(IGraph{`0},`0,`0)
+  name.vb: FindShortestPath(IGraph(Of T), T, T)
+  fullName: Advanced.Algorithms.Graph.AStarShortestPath<T, W>.FindShortestPath(IGraph<T>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.AStarShortestPath(Of T, W).FindShortestPath(IGraph(Of T), T, T)
+  nameWithType: AStarShortestPath<T, W>.FindShortestPath(IGraph<T>, T, T)
+  nameWithType.vb: AStarShortestPath(Of T, W).FindShortestPath(IGraph(Of T), T, T)
 - uid: Advanced.Algorithms.Graph.AStarShortestPath`2.FindShortestPath*
   name: FindShortestPath
   href: api/Advanced.Algorithms.Graph.AStarShortestPath-2.html#Advanced_Algorithms_Graph_AStarShortestPath_2_FindShortestPath_
@@ -9647,15 +9719,15 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.BiDirectional(Of T)
   nameWithType: BiDirectional<T>
   nameWithType.vb: BiDirectional(Of T)
-- uid: Advanced.Algorithms.Graph.BiDirectional`1.PathExists(IDiGraph{`0},`0,`0)
-  name: PathExists(IDiGraph<T>, T, T)
-  href: api/Advanced.Algorithms.Graph.BiDirectional-1.html#Advanced_Algorithms_Graph_BiDirectional_1_PathExists_IDiGraph__0___0__0_
-  commentId: M:Advanced.Algorithms.Graph.BiDirectional`1.PathExists(IDiGraph{`0},`0,`0)
-  name.vb: PathExists(IDiGraph(Of T), T, T)
-  fullName: Advanced.Algorithms.Graph.BiDirectional<T>.PathExists(IDiGraph<T>, T, T)
-  fullName.vb: Advanced.Algorithms.Graph.BiDirectional(Of T).PathExists(IDiGraph(Of T), T, T)
-  nameWithType: BiDirectional<T>.PathExists(IDiGraph<T>, T, T)
-  nameWithType.vb: BiDirectional(Of T).PathExists(IDiGraph(Of T), T, T)
+- uid: Advanced.Algorithms.Graph.BiDirectional`1.PathExists(IGraph{`0},`0,`0)
+  name: PathExists(IGraph<T>, T, T)
+  href: api/Advanced.Algorithms.Graph.BiDirectional-1.html#Advanced_Algorithms_Graph_BiDirectional_1_PathExists_IGraph__0___0__0_
+  commentId: M:Advanced.Algorithms.Graph.BiDirectional`1.PathExists(IGraph{`0},`0,`0)
+  name.vb: PathExists(IGraph(Of T), T, T)
+  fullName: Advanced.Algorithms.Graph.BiDirectional<T>.PathExists(IGraph<T>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.BiDirectional(Of T).PathExists(IGraph(Of T), T, T)
+  nameWithType: BiDirectional<T>.PathExists(IGraph<T>, T, T)
+  nameWithType.vb: BiDirectional(Of T).PathExists(IGraph(Of T), T, T)
 - uid: Advanced.Algorithms.Graph.BiDirectional`1.PathExists*
   name: PathExists
   href: api/Advanced.Algorithms.Graph.BiDirectional-1.html#Advanced_Algorithms_Graph_BiDirectional_1_PathExists_
@@ -9905,15 +9977,15 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).DijikstraShortestPath
   nameWithType: DijikstraShortestPath<T, W>.DijikstraShortestPath
   nameWithType.vb: DijikstraShortestPath(Of T, W).DijikstraShortestPath
-- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.FindShortestPath(IDiGraph{`0},`0,`0)
-  name: FindShortestPath(IDiGraph<T>, T, T)
-  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2_FindShortestPath_IDiGraph__0___0__0_
-  commentId: M:Advanced.Algorithms.Graph.DijikstraShortestPath`2.FindShortestPath(IDiGraph{`0},`0,`0)
-  name.vb: FindShortestPath(IDiGraph(Of T), T, T)
-  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.FindShortestPath(IDiGraph<T>, T, T)
-  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).FindShortestPath(IDiGraph(Of T), T, T)
-  nameWithType: DijikstraShortestPath<T, W>.FindShortestPath(IDiGraph<T>, T, T)
-  nameWithType.vb: DijikstraShortestPath(Of T, W).FindShortestPath(IDiGraph(Of T), T, T)
+- uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.FindShortestPath(IGraph{`0},`0,`0)
+  name: FindShortestPath(IGraph<T>, T, T)
+  href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2_FindShortestPath_IGraph__0___0__0_
+  commentId: M:Advanced.Algorithms.Graph.DijikstraShortestPath`2.FindShortestPath(IGraph{`0},`0,`0)
+  name.vb: FindShortestPath(IGraph(Of T), T, T)
+  fullName: Advanced.Algorithms.Graph.DijikstraShortestPath<T, W>.FindShortestPath(IGraph<T>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.DijikstraShortestPath(Of T, W).FindShortestPath(IGraph(Of T), T, T)
+  nameWithType: DijikstraShortestPath<T, W>.FindShortestPath(IGraph<T>, T, T)
+  nameWithType.vb: DijikstraShortestPath(Of T, W).FindShortestPath(IGraph(Of T), T, T)
 - uid: Advanced.Algorithms.Graph.DijikstraShortestPath`2.FindShortestPath*
   name: FindShortestPath
   href: api/Advanced.Algorithms.Graph.DijikstraShortestPath-2.html#Advanced_Algorithms_Graph_DijikstraShortestPath_2_FindShortestPath_
@@ -11086,15 +11158,15 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.TravellingSalesman(Of T, W)
   nameWithType: TravellingSalesman<T, W>
   nameWithType.vb: TravellingSalesman(Of T, W)
-- uid: Advanced.Algorithms.Graph.TravellingSalesman`2.FindMinWeight(IDiGraph{`0},Advanced.Algorithms.Graph.IShortestPathOperators{`1})
-  name: FindMinWeight(IDiGraph<T>, IShortestPathOperators<W>)
-  href: api/Advanced.Algorithms.Graph.TravellingSalesman-2.html#Advanced_Algorithms_Graph_TravellingSalesman_2_FindMinWeight_IDiGraph__0__Advanced_Algorithms_Graph_IShortestPathOperators__1__
-  commentId: M:Advanced.Algorithms.Graph.TravellingSalesman`2.FindMinWeight(IDiGraph{`0},Advanced.Algorithms.Graph.IShortestPathOperators{`1})
-  name.vb: FindMinWeight(IDiGraph(Of T), IShortestPathOperators(Of W))
-  fullName: Advanced.Algorithms.Graph.TravellingSalesman<T, W>.FindMinWeight(IDiGraph<T>, Advanced.Algorithms.Graph.IShortestPathOperators<W>)
-  fullName.vb: Advanced.Algorithms.Graph.TravellingSalesman(Of T, W).FindMinWeight(IDiGraph(Of T), Advanced.Algorithms.Graph.IShortestPathOperators(Of W))
-  nameWithType: TravellingSalesman<T, W>.FindMinWeight(IDiGraph<T>, IShortestPathOperators<W>)
-  nameWithType.vb: TravellingSalesman(Of T, W).FindMinWeight(IDiGraph(Of T), IShortestPathOperators(Of W))
+- uid: Advanced.Algorithms.Graph.TravellingSalesman`2.FindMinWeight(IGraph{`0},Advanced.Algorithms.Graph.IShortestPathOperators{`1})
+  name: FindMinWeight(IGraph<T>, IShortestPathOperators<W>)
+  href: api/Advanced.Algorithms.Graph.TravellingSalesman-2.html#Advanced_Algorithms_Graph_TravellingSalesman_2_FindMinWeight_IGraph__0__Advanced_Algorithms_Graph_IShortestPathOperators__1__
+  commentId: M:Advanced.Algorithms.Graph.TravellingSalesman`2.FindMinWeight(IGraph{`0},Advanced.Algorithms.Graph.IShortestPathOperators{`1})
+  name.vb: FindMinWeight(IGraph(Of T), IShortestPathOperators(Of W))
+  fullName: Advanced.Algorithms.Graph.TravellingSalesman<T, W>.FindMinWeight(IGraph<T>, Advanced.Algorithms.Graph.IShortestPathOperators<W>)
+  fullName.vb: Advanced.Algorithms.Graph.TravellingSalesman(Of T, W).FindMinWeight(IGraph(Of T), Advanced.Algorithms.Graph.IShortestPathOperators(Of W))
+  nameWithType: TravellingSalesman<T, W>.FindMinWeight(IGraph<T>, IShortestPathOperators<W>)
+  nameWithType.vb: TravellingSalesman(Of T, W).FindMinWeight(IGraph(Of T), IShortestPathOperators(Of W))
 - uid: Advanced.Algorithms.Graph.TravellingSalesman`2.FindMinWeight*
   name: FindMinWeight
   href: api/Advanced.Algorithms.Graph.TravellingSalesman-2.html#Advanced_Algorithms_Graph_TravellingSalesman_2_FindMinWeight_
