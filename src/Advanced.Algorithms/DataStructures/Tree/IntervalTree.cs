@@ -94,7 +94,7 @@ namespace Advanced.Algorithms.DataStructures
                 allOverlaps.Add(overlap.NextDimensionIntervals);
             }
 
-            DeleteOverlaps(allOverlaps, start, end, 1);
+            deleteOverlaps(allOverlaps, start, end, 1);
             tree.Delete(new OneDimentionalInterval<T>(start[0], end[0], defaultValue));
 
             items.Remove(new Tuple<T[], T[]>(start, end));
@@ -104,7 +104,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Recursively delete values from overlaps in next dimension.
         /// </summary>
-        private void DeleteOverlaps(List<OneDimentionalIntervalTree<T>> currentTrees, T[] start, T[] end, int index)
+        private void deleteOverlaps(List<OneDimentionalIntervalTree<T>> currentTrees, T[] start, T[] end, int index)
         {
             //base case
             if (index == start.Length)
@@ -123,7 +123,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             //dig in to next dimension to 
-            DeleteOverlaps(allOverlaps, start, end, ++index);
+            deleteOverlaps(allOverlaps, start, end, ++index);
 
             index--;
 

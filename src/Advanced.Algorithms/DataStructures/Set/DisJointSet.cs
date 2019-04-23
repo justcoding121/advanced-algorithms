@@ -54,7 +54,7 @@ namespace Advanced.Algorithms.DataStructures
                 throw new Exception("No such set with given member.");
             }
 
-            return FindSet(set[member]).Data;
+            return findSet(set[member]).Data;
         }
 
         /// <summary>
@@ -63,14 +63,14 @@ namespace Advanced.Algorithms.DataStructures
         /// Does path Compression on all visited members on way to root
         /// by pointing their parent to Root.
         /// </summary>
-        private DisJointSetNode<T> FindSet(DisJointSetNode<T> node)
+        private DisJointSetNode<T> findSet(DisJointSetNode<T> node)
         {
             var parent = node.Parent;
 
             if(node !=parent)
             {
                 //compress path by setting parent to Root
-                node.Parent = FindSet(node.Parent);
+                node.Parent = findSet(node.Parent);
                 return node.Parent;
             }
 

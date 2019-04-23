@@ -1,6 +1,5 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Advanced.Algorithms.DataStructures.Graph;
-using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +20,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Get shortest distance to target.
         /// </summary>
-        public ShortestPathResult<T, W> FindShortestPath(IDiGraph<T> graph, T source, T destination)
+        public ShortestPathResult<T, W> FindShortestPath(IGraph<T> graph, T source, T destination)
         {
             //regular argument checks
             if (graph?.GetVertex(source) == null || graph.GetVertex(destination) == null)
@@ -93,11 +92,11 @@ namespace Advanced.Algorithms.Graph
                 }
 
                 //visit neighbours of current
-                foreach (var neighbour in graph.GetVertex(current.Vertex).OutEdges.Where(x => !x.TargetVertexKey.Equals(source)))
+                foreach (var neighbour in graph.GetVertex(current.Vertex).Edges.Where(x => !x.TargetVertexKey.Equals(source)))
                 {
                     //new distance to neighbour
                     var newDistance = @operator.Sum(current.Distance,
-                        graph.GetVertex(current.Vertex).GetOutEdge(neighbour.TargetVertex).Weight<W>());
+                        graph.GetVertex(current.Vertex).GetEdge(neighbour.TargetVertex).Weight<W>());
 
                     //current distance to neighbour
                     var existingDistance = progress[neighbour.TargetVertexKey];
@@ -135,7 +134,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Trace back path from destination to source using parent map.
         /// </summary>
-        private ShortestPathResult<T, W> tracePath(IDiGraph<T> graph, Dictionary<T, T> parentMap, T source, T destination)
+        private ShortestPathResult<T, W> tracePath(IGraph<T> graph, Dictionary<T, T> parentMap, T source, T destination)
         {
             //trace the path
             var pathStack = new Stack<T>();
@@ -160,7 +159,7 @@ namespace Advanced.Algorithms.Graph
             for (int i = 0; i < resultPath.Count - 1; i++)
             {
                 resultLength = @operator.Sum(resultLength,
-                    graph.GetVertex(resultPath[i]).GetOutEdge(graph.GetVertex(resultPath[i + 1])).Weight<W>());
+                    graph.GetVertex(resultPath[i]).GetEdge(graph.GetVertex(resultPath[i + 1])).Weight<W>());
             }
 
             return new ShortestPathResult<T, W>(resultPath, resultLength);

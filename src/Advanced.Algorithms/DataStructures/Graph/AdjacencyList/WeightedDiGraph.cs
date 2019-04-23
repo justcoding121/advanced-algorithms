@@ -288,6 +288,12 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             return new DiEdge<T, TW>(targetVertex, OutEdges[key]);
         }
 
+        public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
+        {
+            var key = targetVertex as WeightedDiGraphVertex<T, TW>;
+            return new Edge<T, TW>(targetVertex, OutEdges[key]);
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -297,7 +303,5 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         {
             return OutEdges.Select(x => x.Key.Key).GetEnumerator();
         }
-
-
     }
 }

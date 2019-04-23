@@ -33,7 +33,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public int GetHeight()
         {
-            return GetHeight(root);
+            return getHeight(root);
         }
 
         /// <summary>
@@ -175,14 +175,14 @@ namespace Advanced.Algorithms.DataStructures
             return null;
         }
 
-        private int GetHeight(BinaryTreeNode<T> node)
+        private int getHeight(BinaryTreeNode<T> node)
         {
             if (node == null)
             {
                 return -1;
             }
 
-            return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
+            return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
         }
 
         private BinaryTreeNode<T> find(T value)

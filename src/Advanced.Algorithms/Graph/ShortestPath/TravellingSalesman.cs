@@ -1,6 +1,5 @@
 ﻿
 using Advanced.Algorithms.DataStructures.Graph;
-using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +14,7 @@ namespace Advanced.Algorithms.Graph
     {
         IShortestPathOperators<W> @operator;
 
-        public W FindMinWeight(IDiGraph<T> graph, IShortestPathOperators<W> @operator)
+        public W FindMinWeight(IGraph<T> graph, IShortestPathOperators<W> @operator)
         {
             this.@operator = @operator;
             if (this.@operator == null)
@@ -34,14 +33,14 @@ namespace Advanced.Algorithms.Graph
 
             return findMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
                                 graph.VerticesCount,
-                                new HashSet<IDiGraphVertex<T>>(),
+                                new HashSet<IGraphVertex<T>>(),
                                 new Dictionary<string, W>());
         }
 
-        private W findMinWeight(IDiGraphVertex<T> sourceVertex,
-            IDiGraphVertex<T> tgtVertex,
+        private W findMinWeight(IGraphVertex<T> sourceVertex,
+            IGraphVertex<T> tgtVertex,
             int remainingVertexCount,
-            HashSet<IDiGraphVertex<T>> visited,
+            HashSet<IGraphVertex<T>> visited,
             Dictionary<string, W> cache)
         {
             var cacheKey = $"{sourceVertex.Key}-{remainingVertexCount}";
@@ -55,7 +54,7 @@ namespace Advanced.Algorithms.Graph
 
             var results = new List<W>();
 
-            foreach (var edge in sourceVertex.OutEdges)
+            foreach (var edge in sourceVertex.Edges)
             {
                 //base case
                 if (edge.TargetVertex.Equals(tgtVertex)

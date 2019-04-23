@@ -94,13 +94,14 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
+    <div><span class="xref">IGraphVertex</span>&lt;T&gt;</div>
     <div><span class="xref">IEnumerable</span>&lt;T&gt;</div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.html">Advanced.Algorithms.DataStructures.Graph.AdjacencyList</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DiGraphVertex&lt;T&gt; : IDiGraphVertex&lt;T&gt;, IEnumerable&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class DiGraphVertex&lt;T&gt; : IDiGraphVertex&lt;T&gt;, IGraphVertex&lt;T&gt;, IEnumerable&lt;T&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -277,6 +278,48 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
   </h3>
   
   
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_GetEdge_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.GetEdge*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_GetEdge_IGraphVertex__0__" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.GetEdge(IGraphVertex{`0})">GetEdge(IGraphVertex&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEdge&lt;T&gt; GetEdge(IGraphVertex&lt;T&gt; targetVertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IGraphVertex</span>&lt;T&gt;</td>
+        <td><span class="parametername">targetVertex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEdge</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.GetEnumerator*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyList_DiGraphVertex_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraphVertex`1.GetEnumerator">GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
@@ -343,6 +386,9 @@ IEnumerable enumerates all the outgoing edge destination vertices.</p>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IGraphVertex&lt;&gt;</span>
+  </div>
   <div>
       <span class="xref">IEnumerable&lt;&gt;</span>
   </div>

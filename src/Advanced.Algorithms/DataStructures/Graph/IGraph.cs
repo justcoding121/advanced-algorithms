@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Advanced.Algorithms.DataStructures.Graph
 {
     /// <summary>
-    /// UnDirected graph. 
+    /// UnDirected graph. (When implemented on a directed graphs only outgoing edges are considered as Edges).
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public interface IGraph<T>
@@ -29,6 +29,8 @@ namespace Advanced.Algorithms.DataStructures.Graph
     {
         T Key { get; }
         IEnumerable<IEdge<T>> Edges { get; }
+
+        IEdge<T> GetEdge(IGraphVertex<T> targetVertex);
     }
 
     public interface IEdge<T>
