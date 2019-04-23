@@ -10076,15 +10076,15 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).ComputeMaxFlow
   nameWithType: FordFulkersonMaxFlow<T, W>.ComputeMaxFlow
   nameWithType.vb: FordFulkersonMaxFlow(Of T, W).ComputeMaxFlow
-- uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name: ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W>, T, T)
-  href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html#Advanced_Algorithms_Graph_FordFulkersonMaxFlow_2_ComputeMaxFlowAndReturnFlowPath_Advanced_Algorithms_DataStructures_Graph_AdjacencyList_WeightedDiGraph__0__1___0__0_
-  commentId: M:Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph{`0,`1},`0,`0)
-  name.vb: ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph(Of T, W), T, T)
-  fullName: Advanced.Algorithms.Graph.FordFulkersonMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<T, W>, T, T)
-  fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath(Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph(Of T, W), T, T)
-  nameWithType: FordFulkersonMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph<T, W>, T, T)
-  nameWithType.vb: FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath(WeightedDiGraph(Of T, W), T, T)
+- uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlowAndReturnFlowPath(IDiGraph{`0},`0,`0)
+  name: ComputeMaxFlowAndReturnFlowPath(IDiGraph<T>, T, T)
+  href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html#Advanced_Algorithms_Graph_FordFulkersonMaxFlow_2_ComputeMaxFlowAndReturnFlowPath_IDiGraph__0___0__0_
+  commentId: M:Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlowAndReturnFlowPath(IDiGraph{`0},`0,`0)
+  name.vb: ComputeMaxFlowAndReturnFlowPath(IDiGraph(Of T), T, T)
+  fullName: Advanced.Algorithms.Graph.FordFulkersonMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath(IDiGraph<T>, T, T)
+  fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath(IDiGraph(Of T), T, T)
+  nameWithType: FordFulkersonMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath(IDiGraph<T>, T, T)
+  nameWithType.vb: FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath(IDiGraph(Of T), T, T)
 - uid: Advanced.Algorithms.Graph.FordFulkersonMaxFlow`2.ComputeMaxFlowAndReturnFlowPath*
   name: ComputeMaxFlowAndReturnFlowPath
   href: api/Advanced.Algorithms.Graph.FordFulkersonMaxFlow-2.html#Advanced_Algorithms_Graph_FordFulkersonMaxFlow_2_ComputeMaxFlowAndReturnFlowPath_
