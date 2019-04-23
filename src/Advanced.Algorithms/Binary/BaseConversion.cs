@@ -28,7 +28,7 @@ namespace Advanced.Algorithms.Binary
                 var fraction = tmp[1].TrimStart();
 
                 return convertWhole(whole, srcBaseChars, dstBaseChars) +
-                   "." + ConvertFraction(fraction, srcBaseChars, dstBaseChars, precision);
+                   "." + convertFraction(fraction, srcBaseChars, dstBaseChars, precision);
             }
 
             return convertWhole(srcNumber, srcBaseChars, dstBaseChars);
@@ -86,7 +86,7 @@ namespace Advanced.Algorithms.Binary
         /// <summary>
         /// Converts the fractional part of source number.
         /// </summary>
-        private static string ConvertFraction(string srcNumber,
+        private static string convertFraction(string srcNumber,
            string srcBaseChars,
            string dstBaseChars, int maxPrecision)
         {

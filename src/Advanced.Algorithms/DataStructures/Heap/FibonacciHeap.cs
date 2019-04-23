@@ -74,7 +74,7 @@ namespace Advanced.Algorithms.DataStructures
             deleteNode(ref heapForestHead, minMaxNode);
 
             mergeForests(minMaxNode.ChildrenHead);
-            Meld();
+            meld();
 
             Count--;
 
@@ -167,7 +167,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Merge roots with same degrees in Forest.
         /// </summary>
-        private void Meld()
+        private void meld()
         {
 
             if (heapForestHead == null)

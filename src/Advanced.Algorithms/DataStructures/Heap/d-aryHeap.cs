@@ -66,7 +66,7 @@ namespace Advanced.Algorithms.DataStructures
 
             while (i >= 0)
             {
-                BulkInitRecursive(i, initial);
+                bulkInitRecursive(i, initial);
                 i--;
             }
 
@@ -76,7 +76,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Recursively load bulk init values.
         /// </summary>
-        private void BulkInitRecursive(int i, T[] initial)
+        private void bulkInitRecursive(int i, T[] initial)
         {
             while (true)
             {

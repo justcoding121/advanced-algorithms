@@ -45,17 +45,17 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         internal int GetHeight()
         {
-            return GetHeight(Root);
+            return getHeight(Root);
         }
 
-        private int GetHeight(SplayTreeNode<T> node)
+        private int getHeight(SplayTreeNode<T> node)
         {
             if (node == null)
             {
                 return -1;
             }
 
-            return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
+            return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace Advanced.Algorithms.DataStructures
                     //and then delete the left max node
                     else
                     {
-                        var maxLeftNode = FindMax(node.Left);
+                        var maxLeftNode = findMax(node.Left);
 
                         node.Value = maxLeftNode.Value;
 
@@ -295,10 +295,10 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public T FindMax()
         {
-            return FindMax(Root).Value;
+            return findMax(Root).Value;
         }
 
-        private SplayTreeNode<T> FindMax(SplayTreeNode<T> node)
+        private SplayTreeNode<T> findMax(SplayTreeNode<T> node)
         {
             while (true)
             {

@@ -1,5 +1,4 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph;
-using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
