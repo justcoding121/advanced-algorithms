@@ -46,14 +46,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             return vertexObjects[this.First()];
         }
 
-        public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable => getVerticesAsEnumerable();
-        IEnumerable<IGraphVertex<T>> IGraph<T>.VerticesAsEnumberable => getVerticesAsEnumerable();
-
-        private IEnumerable<WeightedDiGraphVertex<T, TW>> getVerticesAsEnumerable()
-        {
-            return this.Select(x => vertexObjects[x]);
-        }
-
         /// <summary>
         /// Add a new vertex to this graph.
         /// Time complexity: O(1).
@@ -364,6 +356,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             reverseVertexIndices = newReverseIndices;
         }
 
+        public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable => getVerticesAsEnumerable();
+        IEnumerable<IGraphVertex<T>> IGraph<T>.VerticesAsEnumberable => getVerticesAsEnumerable();
+
+        private IEnumerable<WeightedDiGraphVertex<T, TW>> getVerticesAsEnumerable()
+        {
+            return this.Select(x => vertexObjects[x]);
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -419,9 +419,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             return graph;
         }
 
-        /// <summary>
-        /// IEnumerable enumerates all the outgoing edge destination vertices.
-        /// </summary>
         private class WeightedDiGraphVertex<T, TW> : IDiGraphVertex<T>, IGraphVertex<T> where TW : IComparable
         {
             WeightedDiGraph<T, TW> graph;
@@ -486,9 +483,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
                 var key = targetVertex as WeightedDiGraphVertex<T, TW>;
                 return new Edge<T, TW>(targetVertex, matrix[vertexIndex, index]);
             }
-
         }
     }
-
 
 }
