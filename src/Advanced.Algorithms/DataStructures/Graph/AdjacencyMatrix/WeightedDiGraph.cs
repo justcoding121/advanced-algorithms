@@ -240,8 +240,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             var index = vertexIndices[vertex];
 
-            var result = new List<Tuple<T, TW>>();
-
             for (int i = 0; i < maxSize; i++)
             {
                 if (!matrix[index, i].Equals(default(TW)))
@@ -281,8 +279,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             }
 
             var index = vertexIndices[vertex];
-
-            var result = new List<Tuple<T, TW>>();
 
             for (int i = 0; i < maxSize; i++)
             {
