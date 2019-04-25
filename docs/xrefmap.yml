@@ -4978,6 +4978,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).AddVertex
   nameWithType: Graph<T>.AddVertex
   nameWithType.vb: Graph(Of T).AddVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.Clone
+  name: Clone()
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_Clone
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.Clone
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.Clone()
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).Clone()
+  nameWithType: Graph<T>.Clone()
+  nameWithType.vb: Graph(Of T).Clone()
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.Clone*
+  name: Clone
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_Clone_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.Clone
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.Clone
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).Clone
+  nameWithType: Graph<T>.Clone
+  nameWithType.vb: Graph(Of T).Clone
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.ContainsVertex(`0)
+  name: ContainsVertex(T)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_ContainsVertex__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.ContainsVertex(`0)
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.ContainsVertex(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).ContainsVertex(T)
+  nameWithType: Graph<T>.ContainsVertex(T)
+  nameWithType.vb: Graph(Of T).ContainsVertex(T)
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.ContainsVertex*
+  name: ContainsVertex
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_ContainsVertex_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.ContainsVertex
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.ContainsVertex
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).ContainsVertex
+  nameWithType: Graph<T>.ContainsVertex
+  nameWithType.vb: Graph(Of T).ContainsVertex
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.Edges(`0)
   name: Edges(T)
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_Edges__0_
@@ -4995,6 +5029,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).Edges
   nameWithType: Graph<T>.Edges
   nameWithType.vb: Graph(Of T).Edges
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.EdgesCount(`0)
+  name: EdgesCount(T)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_EdgesCount__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.EdgesCount(`0)
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.EdgesCount(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).EdgesCount(T)
+  nameWithType: Graph<T>.EdgesCount(T)
+  nameWithType.vb: Graph(Of T).EdgesCount(T)
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.EdgesCount*
+  name: EdgesCount
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_EdgesCount_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.EdgesCount
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.EdgesCount
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).EdgesCount
+  nameWithType: Graph<T>.EdgesCount
+  nameWithType.vb: Graph(Of T).EdgesCount
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.GetEnumerator
   name: GetEnumerator()
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_GetEnumerator
@@ -5012,6 +5063,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).GetEnumerator
   nameWithType: Graph<T>.GetEnumerator
   nameWithType.vb: Graph(Of T).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.GetVertex(`0)
+  name: GetVertex(T)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_GetVertex__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.GetVertex(`0)
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.GetVertex(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).GetVertex(T)
+  nameWithType: Graph<T>.GetVertex(T)
+  nameWithType.vb: Graph(Of T).GetVertex(T)
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.GetVertex*
+  name: GetVertex
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_GetVertex_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.GetVertex
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.GetVertex
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).GetVertex
+  nameWithType: Graph<T>.GetVertex
+  nameWithType.vb: Graph(Of T).GetVertex
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.HasEdge(`0,`0)
   name: HasEdge(T, T)
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_HasEdge__0__0_
@@ -5029,6 +5097,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).HasEdge
   nameWithType: Graph<T>.HasEdge
   nameWithType.vb: Graph(Of T).HasEdge
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.IsWeightedGraph
+  name: IsWeightedGraph
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_IsWeightedGraph
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.IsWeightedGraph
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.IsWeightedGraph
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).IsWeightedGraph
+  nameWithType: Graph<T>.IsWeightedGraph
+  nameWithType.vb: Graph(Of T).IsWeightedGraph
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.IsWeightedGraph*
+  name: IsWeightedGraph
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_IsWeightedGraph_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.IsWeightedGraph
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.IsWeightedGraph
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).IsWeightedGraph
+  nameWithType: Graph<T>.IsWeightedGraph
+  nameWithType.vb: Graph(Of T).IsWeightedGraph
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.ReferenceVertex
+  name: ReferenceVertex
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_ReferenceVertex
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.ReferenceVertex
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.ReferenceVertex
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).ReferenceVertex
+  nameWithType: Graph<T>.ReferenceVertex
+  nameWithType.vb: Graph(Of T).ReferenceVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.ReferenceVertex*
+  name: ReferenceVertex
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_ReferenceVertex_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.ReferenceVertex
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.ReferenceVertex
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).ReferenceVertex
+  nameWithType: Graph<T>.ReferenceVertex
+  nameWithType.vb: Graph(Of T).ReferenceVertex
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.RemoveEdge(`0,`0)
   name: RemoveEdge(T, T)
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_RemoveEdge__0__0_
@@ -5063,6 +5165,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).RemoveVertex
   nameWithType: Graph<T>.RemoveVertex
   nameWithType.vb: Graph(Of T).RemoveVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.VerticesAsEnumberable
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_VerticesAsEnumberable
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.VerticesAsEnumberable
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).VerticesAsEnumberable
+  nameWithType: Graph<T>.VerticesAsEnumberable
+  nameWithType.vb: Graph(Of T).VerticesAsEnumberable
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.VerticesAsEnumberable*
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_VerticesAsEnumberable_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.VerticesAsEnumberable
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<T>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph(Of T).VerticesAsEnumberable
+  nameWithType: Graph<T>.VerticesAsEnumberable
+  nameWithType.vb: Graph(Of T).VerticesAsEnumberable
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph`1.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph-1.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_Graph_1_VerticesCount
@@ -5455,6 +5574,57 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).AddVertex
   nameWithType: WeightedGraph<T, TW>.AddVertex
   nameWithType.vb: WeightedGraph(Of T, TW).AddVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.Clone
+  name: Clone()
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_Clone
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.Clone
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.Clone()
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).Clone()
+  nameWithType: WeightedGraph<T, TW>.Clone()
+  nameWithType.vb: WeightedGraph(Of T, TW).Clone()
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.Clone*
+  name: Clone
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_Clone_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.Clone
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.Clone
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).Clone
+  nameWithType: WeightedGraph<T, TW>.Clone
+  nameWithType.vb: WeightedGraph(Of T, TW).Clone
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.ContainsVertex(`0)
+  name: ContainsVertex(T)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_ContainsVertex__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.ContainsVertex(`0)
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.ContainsVertex(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).ContainsVertex(T)
+  nameWithType: WeightedGraph<T, TW>.ContainsVertex(T)
+  nameWithType.vb: WeightedGraph(Of T, TW).ContainsVertex(T)
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.ContainsVertex*
+  name: ContainsVertex
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_ContainsVertex_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.ContainsVertex
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.ContainsVertex
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).ContainsVertex
+  nameWithType: WeightedGraph<T, TW>.ContainsVertex
+  nameWithType.vb: WeightedGraph(Of T, TW).ContainsVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.EdgeCount(`0)
+  name: EdgeCount(T)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_EdgeCount__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.EdgeCount(`0)
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.EdgeCount(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).EdgeCount(T)
+  nameWithType: WeightedGraph<T, TW>.EdgeCount(T)
+  nameWithType.vb: WeightedGraph(Of T, TW).EdgeCount(T)
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.EdgeCount*
+  name: EdgeCount
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_EdgeCount_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.EdgeCount
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.EdgeCount
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).EdgeCount
+  nameWithType: WeightedGraph<T, TW>.EdgeCount
+  nameWithType.vb: WeightedGraph(Of T, TW).EdgeCount
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.Edges(`0)
   name: Edges(T)
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_Edges__0_
@@ -5489,6 +5659,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).GetEnumerator
   nameWithType: WeightedGraph<T, TW>.GetEnumerator
   nameWithType.vb: WeightedGraph(Of T, TW).GetEnumerator
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetVertex(`0)
+  name: GetVertex(T)
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_GetVertex__0_
+  commentId: M:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetVertex(`0)
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.GetVertex(T)
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).GetVertex(T)
+  nameWithType: WeightedGraph<T, TW>.GetVertex(T)
+  nameWithType.vb: WeightedGraph(Of T, TW).GetVertex(T)
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetVertex*
+  name: GetVertex
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_GetVertex_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.GetVertex
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.GetVertex
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).GetVertex
+  nameWithType: WeightedGraph<T, TW>.GetVertex
+  nameWithType.vb: WeightedGraph(Of T, TW).GetVertex
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.HasEdge(`0,`0)
   name: HasEdge(T, T)
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_HasEdge__0__0_
@@ -5506,6 +5693,40 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).HasEdge
   nameWithType: WeightedGraph<T, TW>.HasEdge
   nameWithType.vb: WeightedGraph(Of T, TW).HasEdge
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.IsWeightedGraph
+  name: IsWeightedGraph
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_IsWeightedGraph
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.IsWeightedGraph
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.IsWeightedGraph
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).IsWeightedGraph
+  nameWithType: WeightedGraph<T, TW>.IsWeightedGraph
+  nameWithType.vb: WeightedGraph(Of T, TW).IsWeightedGraph
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.IsWeightedGraph*
+  name: IsWeightedGraph
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_IsWeightedGraph_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.IsWeightedGraph
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.IsWeightedGraph
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).IsWeightedGraph
+  nameWithType: WeightedGraph<T, TW>.IsWeightedGraph
+  nameWithType.vb: WeightedGraph(Of T, TW).IsWeightedGraph
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.ReferenceVertex
+  name: ReferenceVertex
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_ReferenceVertex
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.ReferenceVertex
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.ReferenceVertex
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).ReferenceVertex
+  nameWithType: WeightedGraph<T, TW>.ReferenceVertex
+  nameWithType.vb: WeightedGraph(Of T, TW).ReferenceVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.ReferenceVertex*
+  name: ReferenceVertex
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_ReferenceVertex_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.ReferenceVertex
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.ReferenceVertex
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).ReferenceVertex
+  nameWithType: WeightedGraph<T, TW>.ReferenceVertex
+  nameWithType.vb: WeightedGraph(Of T, TW).ReferenceVertex
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.RemoveEdge(`0,`0)
   name: RemoveEdge(T, T)
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_RemoveEdge__0__0_
@@ -5540,6 +5761,23 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).RemoveVertex
   nameWithType: WeightedGraph<T, TW>.RemoveVertex
   nameWithType.vb: WeightedGraph(Of T, TW).RemoveVertex
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.VerticesAsEnumberable
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_VerticesAsEnumberable
+  commentId: P:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.VerticesAsEnumberable
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).VerticesAsEnumberable
+  nameWithType: WeightedGraph<T, TW>.VerticesAsEnumberable
+  nameWithType.vb: WeightedGraph(Of T, TW).VerticesAsEnumberable
+- uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.VerticesAsEnumberable*
+  name: VerticesAsEnumberable
+  href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_VerticesAsEnumberable_
+  commentId: Overload:Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.VerticesAsEnumberable
+  isSpec: "True"
+  fullName: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<T, TW>.VerticesAsEnumberable
+  fullName.vb: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph(Of T, TW).VerticesAsEnumberable
+  nameWithType: WeightedGraph<T, TW>.VerticesAsEnumberable
+  nameWithType.vb: WeightedGraph(Of T, TW).VerticesAsEnumberable
 - uid: Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph`2.VerticesCount
   name: VerticesCount
   href: api/Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph-2.html#Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_WeightedGraph_2_VerticesCount
