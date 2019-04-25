@@ -11,24 +11,25 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// </summary>
     public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     {
-        public int VerticesCount => Vertices.Count;
-        internal Dictionary<T, DiGraphVertex<T>> Vertices { get; set; }
+        private Dictionary<T, DiGraphVertex<T>> vertices { get; set; }
+
+        public int VerticesCount => vertices.Count;
         public bool IsWeightedGraph => false;
 
         public DiGraph()
         {
-            Vertices = new Dictionary<T, DiGraphVertex<T>>();
+            vertices = new Dictionary<T, DiGraphVertex<T>>();
         }
 
         /// <summary>
         /// Return a reference vertex to start traversing Vertices
         /// Time complexity: O(1).
         /// </summary>
-        public DiGraphVertex<T> ReferenceVertex
+        private DiGraphVertex<T> referenceVertex
         {
             get
             {
-                using (var enumerator = Vertices.GetEnumerator())
+                using (var enumerator = vertices.GetEnumerator())
                 {
                     if (enumerator.MoveNext())
                     {
@@ -41,15 +42,15 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             }
         }
 
-        IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => ReferenceVertex;
-        IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
+        IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => referenceVertex;
+        IGraphVertex<T> IGraph<T>.ReferenceVertex => referenceVertex;
 
 
         /// <summary>
         /// Add a new vertex to this graph.
         /// Time complexity: O(1).
         /// </summary>
-        public DiGraphVertex<T> AddVertex(T value)
+        public void AddVertex(T value)
         {
             if (value == null)
             {
@@ -58,9 +59,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
             var newVertex = new DiGraphVertex<T>(value);
 
-            Vertices.Add(value, newVertex);
-
-            return newVertex;
+            vertices.Add(value, newVertex);
         }
 
         /// <summary>
@@ -74,22 +73,22 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 throw new ArgumentNullException();
             }
 
-            if (!Vertices.ContainsKey(value))
+            if (!vertices.ContainsKey(value))
             {
                 throw new Exception("Vertex not in this graph.");
             }
 
-            foreach (var vertex in Vertices[value].InEdges)
+            foreach (var vertex in vertices[value].InEdges)
             {
-                vertex.OutEdges.Remove(Vertices[value]);
+                vertex.OutEdges.Remove(vertices[value]);
             }
 
-            foreach (var vertex in Vertices[value].OutEdges)
+            foreach (var vertex in vertices[value].OutEdges)
             {
-                vertex.InEdges.Remove(Vertices[value]);
+                vertex.InEdges.Remove(vertices[value]);
             }
 
-            Vertices.Remove(value);
+            vertices.Remove(value);
         }
 
         /// <summary>
@@ -103,18 +102,18 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException();
             }
 
-            if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+            if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
             {
                 throw new Exception("Source or Destination Vertex is not in this graph.");
             }
 
-            if (Vertices[source].OutEdges.Contains(Vertices[dest]) || Vertices[dest].InEdges.Contains(Vertices[source]))
+            if (vertices[source].OutEdges.Contains(vertices[dest]) || vertices[dest].InEdges.Contains(vertices[source]))
             {
                 throw new Exception("Edge already exists.");
             }
 
-            Vertices[source].OutEdges.Add(Vertices[dest]);
-            Vertices[dest].InEdges.Add(Vertices[source]);
+            vertices[source].OutEdges.Add(vertices[dest]);
+            vertices[dest].InEdges.Add(vertices[source]);
         }
 
         /// <summary>
@@ -128,19 +127,19 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
                 throw new ArgumentException();
             }
 
-            if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+            if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
             {
                 throw new Exception("Source or Destination Vertex is not in this graph.");
             }
 
-            if (!Vertices[source].OutEdges.Contains(Vertices[dest])
-                || !Vertices[dest].InEdges.Contains(Vertices[source]))
+            if (!vertices[source].OutEdges.Contains(vertices[dest])
+                || !vertices[dest].InEdges.Contains(vertices[source]))
             {
                 throw new Exception("Edge do not exists.");
             }
 
-            Vertices[source].OutEdges.Remove(Vertices[dest]);
-            Vertices[dest].InEdges.Remove(Vertices[source]);
+            vertices[source].OutEdges.Remove(vertices[dest]);
+            vertices[dest].InEdges.Remove(vertices[source]);
         }
 
         /// <summary>
@@ -149,42 +148,33 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// </summary>
         public bool HasEdge(T source, T dest)
         {
-            if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+            if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
             {
                 throw new ArgumentException("source or destination is not in this graph.");
             }
 
-            return Vertices[source].OutEdges.Contains(Vertices[dest])
-                && Vertices[dest].InEdges.Contains(Vertices[source]);
+            return vertices[source].OutEdges.Contains(vertices[dest])
+                && vertices[dest].InEdges.Contains(vertices[source]);
         }
 
         public IEnumerable<T> OutEdges(T vertex)
         {
-            if (!Vertices.ContainsKey(vertex))
+            if (!vertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].OutEdges.Select(x => x.Key);
+            return vertices[vertex].OutEdges.Select(x => x.Key);
         }
 
         public IEnumerable<T> InEdges(T vertex)
         {
-            if (!Vertices.ContainsKey(vertex))
+            if (!vertices.ContainsKey(vertex))
             {
                 throw new ArgumentException("vertex is not in this graph.");
             }
 
-            return Vertices[vertex].InEdges.Select(x => x.Key);
-        }
-
-        /// <summary>
-        /// Returns the vertex object with given value.
-        /// Time complexity: O(1).
-        /// </summary>
-        public DiGraphVertex<T> FindVertex(T value)
-        {
-            return Vertices.ContainsKey(value) ? Vertices[value] : null;
+            return vertices[vertex].InEdges.Select(x => x.Key);
         }
 
         /// <summary>
@@ -194,12 +184,12 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         {
             var newGraph = new DiGraph<T>();
 
-            foreach (var vertex in Vertices)
+            foreach (var vertex in vertices)
             {
                 newGraph.AddVertex(vertex.Key);
             }
 
-            foreach (var vertex in Vertices)
+            foreach (var vertex in vertices)
             {
                 foreach (var edge in vertex.Value.OutEdges)
                 {
@@ -212,17 +202,17 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public bool ContainsVertex(T value)
         {
-            return Vertices.ContainsKey(value);
+            return vertices.ContainsKey(value);
         }
 
         public IDiGraphVertex<T> GetVertex(T value)
         {
-            return Vertices[value];
+            return vertices[value];
         }
 
         IGraphVertex<T> IGraph<T>.GetVertex(T key)
         {
-            return Vertices[key];
+            return vertices[key];
         }
 
         IDiGraph<T> IDiGraph<T>.Clone()
@@ -237,7 +227,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
 
         public IEnumerator GetEnumerator()
         {
-            return Vertices.Select(x => x.Key).GetEnumerator();
+            return vertices.Select(x => x.Key).GetEnumerator();
         }
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
@@ -245,20 +235,16 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             return GetEnumerator() as IEnumerator<T>;
         }
 
-        public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => Vertices.Select(x => x.Value);
-        IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumberable => Vertices.Select(x => x.Value);
+        public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => vertices.Select(x => x.Value);
+        IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumberable => vertices.Select(x => x.Value);
     }
 
-    /// <summary>
-    /// DiGraph vertex for adjacency list Graph implementation. 
-    /// IEnumerable enumerates all the outgoing edge destination vertices.
-    /// </summary>
-    public class DiGraphVertex<T> : IDiGraphVertex<T>, IGraphVertex<T>, IEnumerable<T>
+    internal class DiGraphVertex<T> : IDiGraphVertex<T>, IGraphVertex<T>, IEnumerable<T>
     {
         public T Key { get; set; }
 
-        public HashSet<DiGraphVertex<T>> OutEdges { get; set; }
-        public HashSet<DiGraphVertex<T>> InEdges { get; set; }
+        public HashSet<DiGraphVertex<T>> OutEdges { get; }
+        public HashSet<DiGraphVertex<T>> InEdges { get; }
 
         IEnumerable<IDiEdge<T>> IDiGraphVertex<T>.OutEdges => OutEdges.Select(x => new DiEdge<T, int>(x, 1));
         IEnumerable<IDiEdge<T>> IDiGraphVertex<T>.InEdges => InEdges.Select(x => new DiEdge<T, int>(x, 1));
@@ -294,6 +280,5 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         {
             return OutEdges.Select(x => x.Key).GetEnumerator();
         }
-
     }
 }

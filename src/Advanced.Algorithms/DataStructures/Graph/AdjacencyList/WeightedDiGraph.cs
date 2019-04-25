@@ -11,8 +11,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
     /// </summary>
     public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> where TW : IComparable
     {
-        public int VerticesCount => Vertices.Count;
         internal Dictionary<T, WeightedDiGraphVertex<T, TW>> Vertices { get; set; }
+
+        public int VerticesCount => Vertices.Count;
         public bool IsWeightedGraph => true;
 
         public WeightedDiGraph()
@@ -24,7 +25,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// Returns a reference vertex.
         /// Time complexity: O(1).
         /// </summary>
-        public WeightedDiGraphVertex<T, TW> ReferenceVertex
+        private WeightedDiGraphVertex<T, TW> referenceVertex
         {
             get
             {
@@ -40,14 +41,14 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             }
         }
 
-        IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => ReferenceVertex;
-        IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
+        IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => referenceVertex;
+        IGraphVertex<T> IGraph<T>.ReferenceVertex => referenceVertex;
 
         /// <summary>
         /// Add a new vertex to this graph.
         /// Time complexity: O(1).
         /// </summary>
-        public WeightedDiGraphVertex<T, TW> AddVertex(T value)
+        public void AddVertex(T value)
         {
             if (value == null)
             {
@@ -57,8 +58,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
             var newVertex = new WeightedDiGraphVertex<T, TW>(value);
 
             Vertices.Add(value, newVertex);
-
-            return newVertex;
         }
 
         /// <summary>
@@ -183,7 +182,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         /// Returns the vertex with given value.
         /// Time complexity: O(1).
         /// </summary>
-        public WeightedDiGraphVertex<T, TW> FindVertex(T value)
+        internal WeightedDiGraphVertex<T, TW> FindVertex(T value)
         {
             if (Vertices.ContainsKey(value))
             {
@@ -255,16 +254,12 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyList
         IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumberable => Vertices.Select(x => x.Value);
     }
 
-    /// <summary>
-    /// A weighted graph vertex for adjacency list Graph implementation. 
-    /// IEnumerable enumerates all the outgoing edge destination vertices.
-    /// </summary>
-    public class WeightedDiGraphVertex<T, TW> : IDiGraphVertex<T>, IGraphVertex<T>, IEnumerable<T> where TW : IComparable
+    internal class WeightedDiGraphVertex<T, TW> : IDiGraphVertex<T>, IGraphVertex<T>, IEnumerable<T> where TW : IComparable
     {
-        public T Key { get; private set; }
+        public T Key { get; set; }
 
-        public Dictionary<WeightedDiGraphVertex<T, TW>, TW> OutEdges { get; set; }
-        public Dictionary<WeightedDiGraphVertex<T, TW>, TW> InEdges { get; set; }
+        public Dictionary<WeightedDiGraphVertex<T, TW>, TW> OutEdges { get; }
+        public Dictionary<WeightedDiGraphVertex<T, TW>, TW> InEdges { get; }
 
         IEnumerable<IDiEdge<T>> IDiGraphVertex<T>.OutEdges => OutEdges.Select(x => new DiEdge<T, TW>(x.Key, x.Value));
         IEnumerable<IDiEdge<T>> IDiGraphVertex<T>.InEdges => InEdges.Select(x => new DiEdge<T, TW>(x.Key, x.Value));

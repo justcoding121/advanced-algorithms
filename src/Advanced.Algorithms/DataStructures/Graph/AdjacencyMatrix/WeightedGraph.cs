@@ -6,30 +6,42 @@ using System.Linq;
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 {
     /// <summary>
-    /// A weighted graph implementation using dynamically growinng/shrinking adjacency matrix array.
+    /// A weighted graph implementation using dynamically growing/shrinking adjacency matrix array.
     /// IEnumerable enumerates all vertices.
     /// </summary>
-    public class WeightedGraph<T, TW> : IEnumerable<T> where TW : IComparable
+    public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : IComparable
     {
-        public int VerticesCount => usedSize;
-
-        private Dictionary<T, int> vertexIndices;
-        private Dictionary<int, T> reverseVertexIndices;
-
         private TW[,] matrix;
 
-        private int maxSize;
+        private int maxSize => matrix.GetLength(0);
         private int usedSize;
         private int nextAvailableIndex;
 
+        private Dictionary<T, int> vertexIndices;
+        private Dictionary<int, T> reverseVertexIndices;
+        private Dictionary<T, WeightedGraphVertex<T, TW>> vertexObjects;
+
+        public int VerticesCount => usedSize;
+        public bool IsWeightedGraph => true; 
+
         public WeightedGraph()
         {
-            maxSize = 1;
             vertexIndices = new Dictionary<T, int>();
             reverseVertexIndices = new Dictionary<int, T>();
-            matrix = new TW[maxSize, maxSize];
+            vertexObjects = new Dictionary<T, WeightedGraphVertex<T, TW>>();
+            matrix = new TW[1, 1];
         }
 
+        public IGraphVertex<T> ReferenceVertex => getReferenceVertex();
+        private WeightedGraphVertex<T, TW> getReferenceVertex()
+        {
+            if (this.VerticesCount == 0)
+            {
+                throw new Exception("Empty graph.");
+            }
+
+            return vertexObjects[this.First()];
+        }
 
         /// <summary>
         /// Add a new vertex to this graph.
@@ -58,6 +70,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             vertexIndices.Add(value, nextAvailableIndex);
             reverseVertexIndices.Add(nextAvailableIndex, value);
+            vertexObjects.Add(value, new WeightedGraphVertex<T, TW>(this, value));
             nextAvailableIndex++;
             usedSize++;
         }
@@ -94,7 +107,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             reverseVertexIndices.Remove(index);
             vertexIndices.Remove(value);
-
+            vertexObjects.Remove(value);
 
             usedSize--;
         }
@@ -190,7 +203,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             return false;
         }
 
-        public IEnumerable<Tuple<T,TW>> Edges(T vertex)
+        public IEnumerable<KeyValuePair<T,TW>> Edges(T vertex)
         {
             if (!vertexIndices.ContainsKey(vertex))
             {
@@ -199,17 +212,35 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             var index = vertexIndices[vertex];
 
-            var result = new List<Tuple<T, TW>>();
-
             for (int i = 0; i < maxSize; i++)
             {
                 if (!matrix[i,index].Equals(default(TW)))
                 {
-                    result.Add(new Tuple<T, TW>(reverseVertexIndices[i], matrix[i, index]));
+                    yield return new KeyValuePair<T, TW>(reverseVertexIndices[i], matrix[i, index]);
+                }
+            }
+        }
+
+        public int EdgeCount(T vertex)
+        {
+            if (!vertexIndices.ContainsKey(vertex))
+            {
+                throw new ArgumentException("vertex is not in this graph.");
+            }
+
+            var index = vertexIndices[vertex];
+
+            int count = 0;
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                if (!matrix[i, index].Equals(default(TW)))
+                {
+                    count++;
                 }
             }
 
-            return result;
+            return count;
         }
 
         private void doubleMatrixSize()
@@ -249,7 +280,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             matrix = newMatrix;
             vertexIndices = newVertexIndices;
             reverseVertexIndices = newReverseIndices;
-            maxSize *= 2;
         }
 
         private void halfMatrixSize()
@@ -288,8 +318,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             matrix = newMatrix;
             vertexIndices = newVertexIndices;
             reverseVertexIndices = newReverseIndices;
-            maxSize /= 2;
         }
+
+        public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => vertexObjects.Select(x=>x.Value);
 
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -299,6 +330,99 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         public IEnumerator<T> GetEnumerator()
         {
             return vertexIndices.Select(x => x.Key).GetEnumerator();
+        }
+
+        public bool ContainsVertex(T key)
+        {
+            return vertexObjects.ContainsKey(key);
+        }
+
+        public IGraphVertex<T> GetVertex(T key)
+        {
+            return vertexObjects[key];
+        }
+
+        IGraph<T> IGraph<T>.Clone()
+        {
+            return Clone();
+        }
+
+        /// <summary>
+        /// Clones this graph.
+        /// </summary>
+        public WeightedGraph<T, TW> Clone()
+        {
+            var graph = new WeightedGraph<T, TW>();
+
+            foreach (var vertex in this)
+            {
+                graph.AddVertex(vertex);
+            }
+
+            foreach (var vertex in this)
+            {
+                foreach (var edge in Edges(vertex))
+                {
+                    graph.AddEdge(vertex, edge.Key, edge.Value);
+                }
+            }
+
+            return graph;
+        }
+
+        private class WeightedGraphVertex<T, TW> : IGraphVertex<T> where TW : IComparable
+        {
+            WeightedGraph<T, TW> graph;
+            private int vertexIndex;
+            private T vertexKey;
+
+            private int maxSize => graph.maxSize;
+            private TW[,] matrix => graph.matrix;
+
+            private Dictionary<T, int> vertexIndices => graph.vertexIndices;
+            private Dictionary<int, T> reverseVertexIndices => graph.reverseVertexIndices;
+
+            internal WeightedGraphVertex(WeightedGraph<T, TW> graph, T vertexKey)
+            {
+                if (!graph.vertexIndices.ContainsKey(vertexKey))
+                {
+                    throw new ArgumentException("vertex is not in this graph.");
+                }
+
+                this.graph = graph;
+                this.vertexKey = vertexKey;
+                this.vertexIndex = graph.vertexIndices[vertexKey];
+            }
+
+            public T Key => vertexKey;
+
+
+            IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => graph.Edges(vertexKey)
+              .Select(x => new Edge<T, TW>(graph.vertexObjects[x.Key], x.Value));
+
+            public IEdge<T> GetOutEdge(IGraphVertex<T> targetVertex)
+            {
+                if (!vertexIndices.ContainsKey(targetVertex.Key))
+                {
+                    throw new ArgumentException("vertex is not in this graph.");
+                }
+
+                var index = vertexIndices[targetVertex.Key];
+                var key = targetVertex as WeightedGraphVertex<T, TW>;
+                return new Edge<T, TW>(targetVertex, matrix[vertexIndex, index]);
+            }
+
+            public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
+            {
+                if (!vertexIndices.ContainsKey(targetVertex.Key))
+                {
+                    throw new ArgumentException("vertex is not in this graph.");
+                }
+
+                var index = vertexIndices[targetVertex.Key];
+                var key = targetVertex as WeightedGraphVertex<T, TW>;
+                return new Edge<T, TW>(targetVertex, matrix[vertexIndex, index]);
+            }
         }
     }
 }

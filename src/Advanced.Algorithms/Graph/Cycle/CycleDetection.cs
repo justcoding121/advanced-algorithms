@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
@@ -11,16 +11,16 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns true if a cycle exists
         /// </summary>
-        public bool HasCycle(DiGraph<T> graph)
+        public bool HasCycle(IDiGraph<T> graph)
         {
             var visiting = new HashSet<T>();
             var visited = new HashSet<T>();
 
-            foreach(var vertex in graph.Vertices)
+            foreach(var vertex in graph.VerticesAsEnumberable)
             {
-                if (!visited.Contains(vertex.Value.Key))
+                if (!visited.Contains(vertex.Key))
                 {
-                    if (dfs(vertex.Value, visited, visiting))
+                    if (dfs(vertex, visited, visiting))
                     {
                         return true;
                     }
@@ -30,7 +30,7 @@ namespace Advanced.Algorithms.Graph
             return false;
         }
 
-        private bool dfs(DiGraphVertex<T> current, 
+        private bool dfs(IDiGraphVertex<T> current, 
             HashSet<T> visited, HashSet<T> visiting)
         {
             visiting.Add(current.Key);
@@ -39,17 +39,17 @@ namespace Advanced.Algorithms.Graph
             {
                 //if we encountered a visiting vertex again
                 //then their is a cycle
-                if(visiting.Contains(edge.Key))
+                if(visiting.Contains(edge.TargetVertexKey))
                 {
                     return true;
                 }
 
-                if (visited.Contains(edge.Key))
+                if (visited.Contains(edge.TargetVertexKey))
                 {
                     continue;
                 }
 
-                if(dfs(edge, visited, visiting))
+                if(dfs(edge.TargetVertex, visited, visiting))
                 {
                     return true;
                 }

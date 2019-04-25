@@ -83,7 +83,7 @@
   
   <h1 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1" class="text-break">Class DiGraph&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A directed graph implementation using dynamically growinng/shrinking adjacency matrix array.
+  <div class="markdown level0 summary"><p>A directed graph implementation using dynamically growing/shrinking adjacency matrix array.
 IEnumerable enumerates all vertices.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -92,11 +92,16 @@ IEnumerable enumerates all vertices.</p>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">DiGraph&lt;T&gt;</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IDiGraph</span>&lt;T&gt;</div>
+    <div><span class="xref">IEnumerable</span>&lt;T&gt;</div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.html">Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DiGraph&lt;T&gt; : IEnumerable&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class DiGraph&lt;T&gt; : IGraph&lt;T&gt;, IDiGraph&lt;T&gt;, IEnumerable&lt;T&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -127,6 +132,81 @@ IEnumerable enumerates all vertices.</p>
   </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_IsWeightedGraph_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.IsWeightedGraph*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_IsWeightedGraph" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.IsWeightedGraph">IsWeightedGraph</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsWeightedGraph { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_ReferenceVertex_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.ReferenceVertex*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_ReferenceVertex" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.ReferenceVertex">ReferenceVertex</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGraphVertex&lt;T&gt; ReferenceVertex { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IGraphVertex</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_VerticesAsEnumberable_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.VerticesAsEnumberable*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_VerticesAsEnumberable" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.VerticesAsEnumberable">VerticesAsEnumberable</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IDiGraphVertex&lt;T&gt;&gt; VerticesAsEnumberable { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">IDiGraphVertex</span>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_VerticesCount_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.VerticesCount*"></a>
@@ -219,6 +299,73 @@ Time complexity: O(1).</p>
   </table>
   
   
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_Clone_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.Clone*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_Clone" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.Clone">Clone()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiGraph&lt;T&gt; Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph-1.html">DiGraph</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_ContainsVertex_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.ContainsVertex*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_ContainsVertex__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.ContainsVertex(`0)">ContainsVertex(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsVertex(T key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.GetEnumerator*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.GetEnumerator">GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
@@ -238,6 +385,48 @@ Time complexity: O(1).</p>
     <tbody>
       <tr>
         <td><span class="xref">IEnumerator</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_GetVertex_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.GetVertex*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_GetVertex__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.GetVertex(`0)">GetVertex(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGraphVertex&lt;T&gt; GetVertex(T key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IGraphVertex</span>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -293,6 +482,48 @@ Time complexity: O(1).</p>
   </table>
   
   
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_InEdgeCount_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.InEdgeCount*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_InEdgeCount__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.InEdgeCount(`0)">InEdgeCount(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int InEdgeCount(T vertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">vertex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_InEdges_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.InEdges*"></a>
   <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_InEdges__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.InEdges(`0)">InEdges(T)</h4>
   <div class="markdown level1 summary"></div>
@@ -329,6 +560,48 @@ Time complexity: O(1).</p>
     <tbody>
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_OutEdgeCount_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.OutEdgeCount*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Graph_AdjacencyMatrix_DiGraph_1_OutEdgeCount__0_" data-uid="Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph`1.OutEdgeCount(`0)">OutEdgeCount(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int OutEdgeCount(T vertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">vertex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -438,6 +711,13 @@ Time complexity: O(V) where V is the number of vertices.</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IDiGraph&lt;&gt;</span>
+  </div>
+  <div>
+      <span class="xref">IEnumerable&lt;&gt;</span>
+  </div>
 </article>
           </div>
           

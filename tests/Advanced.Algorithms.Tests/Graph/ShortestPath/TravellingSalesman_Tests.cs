@@ -1,4 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+﻿using Advanced.Algorithms.DataStructures.Graph;
 using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,9 +12,39 @@ namespace Advanced.Algorithms.Tests.Graph
     public class TravellingSalesman_Tests
     {
         [TestMethod]
-        public void TravellingSalesman_Smoke_Test()
+        public void TravellingSalesman_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new WeightedDiGraph<int, int>();
+            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<int, int>();
+
+            graph.AddVertex(0);
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            graph.AddVertex(3);
+
+            graph.AddEdge(0, 1, 1);
+            graph.AddEdge(0, 2, 15);
+            graph.AddEdge(0, 3, 6);
+
+            graph.AddEdge(1, 0, 2);
+            graph.AddEdge(1, 2, 7);
+            graph.AddEdge(1, 3, 3);
+
+            graph.AddEdge(2, 0, 9);
+            graph.AddEdge(2, 1, 6);
+            graph.AddEdge(2, 3, 12);
+
+            graph.AddEdge(3, 0, 10);
+            graph.AddEdge(3, 1, 4);
+            graph.AddEdge(3, 2, 8);
+
+            var tsp = new TravellingSalesman<int, int>();
+            Assert.AreEqual(21, tsp.FindMinWeight(graph, new TSPShortestPathOperators()));
+        }
+
+        [TestMethod]
+        public void TravellingSalesman_AdjacencyMatrixGraph_Smoke_Test()
+        {
+            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<int, int>();
 
             graph.AddVertex(0);
             graph.AddVertex(1);
