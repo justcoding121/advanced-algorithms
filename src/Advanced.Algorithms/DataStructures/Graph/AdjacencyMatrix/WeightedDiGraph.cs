@@ -6,23 +6,21 @@ using System.Linq;
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 {
     /// <summary>
-    /// A weighted graph implementation using dynamically growinng/shrinking adjacency matrix array.
+    /// A weighted graph implementation using dynamically growing/shrinking adjacency matrix array.
     /// IEnumerable enumerates all vertices.
     /// </summary>
     public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> where TW : IComparable
     {
-        public int VerticesCount { get; private set; }
-
         private Dictionary<T, int> vertexIndices;
         private Dictionary<int, T> reverseVertexIndices;
         private Dictionary<T, WeightedDiGraphVertex<T, TW>> vertexObjects;
 
         private TW[,] matrix;
         private int maxSize => matrix.GetLength(0);
+        private int nextAvailableIndex;
 
         public bool IsWeightedGraph => true;
-
-        private int nextAvailableIndex;
+        public int VerticesCount => vertexObjects.Count;
 
         public WeightedDiGraph()
         {
@@ -76,7 +74,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             reverseVertexIndices.Add(nextAvailableIndex, value);
             vertexObjects.Add(value, new WeightedDiGraphVertex<T, TW>(this, value));
             nextAvailableIndex++;
-            VerticesCount++;
 
         }
 
@@ -113,7 +110,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             reverseVertexIndices.Remove(index);
             vertexIndices.Remove(value);
             vertexObjects.Remove(value);
-            VerticesCount--;
 
         }
 
@@ -445,20 +441,17 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             public T Key => vertexKey;
 
-            IEnumerable<IDiEdge<T>> IDiGraphVertex<T>.OutEdges => OutEdges()
+            IEnumerable<IDiEdge<T>> IDiGraphVertex<T>.OutEdges => graph.OutEdges(vertexKey)
                 .Select(x => new DiEdge<T, TW>(graph.vertexObjects[x.Key], x.Value));
 
-            IEnumerable<IDiEdge<T>> IDiGraphVertex<T>.InEdges => InEdges()
+            IEnumerable<IDiEdge<T>> IDiGraphVertex<T>.InEdges => graph.InEdges(vertexKey)
                 .Select(x => new DiEdge<T, TW>(graph.vertexObjects[x.Key], x.Value));
 
-            IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => OutEdges()
+            IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => graph.OutEdges(vertexKey)
               .Select(x => new Edge<T, TW>(graph.vertexObjects[x.Key], x.Value));
 
             public int OutEdgeCount => graph.OutEdgeCount(vertexKey);
             public int InEdgeCount => graph.InEdgeCount(vertexKey);
-
-            public IEnumerable<KeyValuePair<T, TW>> OutEdges() => graph.OutEdges(vertexKey);
-            public IEnumerable<KeyValuePair<T, TW>> InEdges() => graph.InEdges(vertexKey);
 
             public IDiEdge<T> GetOutEdge(IDiGraphVertex<T> targetVertex)
             {

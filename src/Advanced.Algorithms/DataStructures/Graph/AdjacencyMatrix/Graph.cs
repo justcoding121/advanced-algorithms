@@ -5,35 +5,48 @@ using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 {
-
     /// <summary>
-    /// A directed graph implementation using dynamically growinng/shrinking adjacency matrix array.
+    /// A directed graph implementation using dynamically growing/shrinking adjacency matrix array.
     /// IEnumerable enumerates all vertices.
     /// </summary>
-    public class Graph<T> : IEnumerable<T>
+    public class Graph<T> : IGraph<T>, IEnumerable<T>
     {
-        public int VerticesCount => usedSize;
+        private BitArray[] matrix;
 
         private Dictionary<T, int> vertexIndices;
         private Dictionary<int, T> reverseVertexIndices;
+        private Dictionary<T, GraphVertex<T>> vertexObjects;
 
-        private BitArray[] matrix;
-
-        private int maxSize;
+        private int maxSize => matrix.Length;
         private int usedSize;
         private int nextAvailableIndex;
 
+        public int VerticesCount => usedSize;
+        public bool IsWeightedGraph => false;
+
         public Graph()
         {
-            maxSize = 1;
             vertexIndices = new Dictionary<T, int>();
             reverseVertexIndices = new Dictionary<int, T>();
-            matrix = new BitArray[maxSize];
+            vertexObjects = new Dictionary<T, GraphVertex<T>>();
+
+            matrix = new BitArray[1];
 
             for (int i = 0; i < maxSize; i++)
             {
                 matrix[i] = new BitArray(maxSize);
             }
+        }
+
+        public IGraphVertex<T> ReferenceVertex => getReferenceVertex();
+        private GraphVertex<T> getReferenceVertex()
+        {
+            if (this.VerticesCount == 0)
+            {
+                throw new Exception("Empty graph.");
+            }
+
+            return vertexObjects[this.First()];
         }
 
         /// <summary>
@@ -64,6 +77,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             vertexIndices.Add(value, nextAvailableIndex);
             reverseVertexIndices.Add(nextAvailableIndex, value);
+            vertexObjects.Add(value, new GraphVertex<T>(this, value));
 
             nextAvailableIndex++;
             usedSize++;
@@ -103,6 +117,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             reverseVertexIndices.Remove(index);
             vertexIndices.Remove(value);
+            vertexObjects.Remove(value);
 
             usedSize--;
 
@@ -199,18 +214,36 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             var index = vertexIndices[vertex];
 
-            var result = new List<T>();
+            for (int i = 0; i < maxSize; i++)
+            {
+                if (matrix[i].Get(index))
+                {
+                    yield return reverseVertexIndices[i];
+                }
+            }
+        }
+
+        public int EdgesCount(T vertex)
+        {
+            if (!vertexIndices.ContainsKey(vertex))
+            {
+                throw new ArgumentException("vertex is not in this graph.");
+            }
+
+            var count = 0;
+            var index = vertexIndices[vertex];
 
             for (int i = 0; i < maxSize; i++)
             {
                 if (matrix[i].Get(index))
                 {
-                    result.Add(reverseVertexIndices[i]);
+                    count++;
                 }
             }
 
-            return result;
+            return count;
         }
+
 
         private void doubleMatrixSize()
         {
@@ -237,7 +270,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             {
                 for (int j = i; j < maxSize; j++)
                 {
-                    if (matrix[i].Get(j) && matrix[j].Get(i) 
+                    if (matrix[i].Get(j) && matrix[j].Get(i)
                         && reverseVertexIndices.ContainsKey(i)
                         && reverseVertexIndices.ContainsKey(j))
                     {
@@ -253,7 +286,6 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             matrix = newMatrix;
             vertexIndices = newVertexIndices;
             reverseVertexIndices = newReverseIndices;
-            maxSize *= 2;
         }
 
         private void halfMatrixSize()
@@ -281,7 +313,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             {
                 for (int j = i; j < maxSize; j++)
                 {
-                    if (matrix[i].Get(j) && matrix[j].Get(i) 
+                    if (matrix[i].Get(j) && matrix[j].Get(i)
                         && reverseVertexIndices.ContainsKey(i)
                         && reverseVertexIndices.ContainsKey(j))
                     {
@@ -297,8 +329,9 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             matrix = newMatrix;
             vertexIndices = newVertexIndices;
             reverseVertexIndices = newReverseIndices;
-            maxSize /= 2;
         }
+
+        public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => vertexObjects.Select(x => x.Value);
 
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -308,6 +341,96 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         public IEnumerator<T> GetEnumerator()
         {
             return vertexIndices.Select(x => x.Key).GetEnumerator();
+        }
+
+        public bool ContainsVertex(T key)
+        {
+            return vertexObjects.ContainsKey(key);
+        }
+
+        public IGraphVertex<T> GetVertex(T key)
+        {
+            return vertexObjects[key];
+        }
+
+        IGraph<T> IGraph<T>.Clone()
+        {
+            return Clone();
+        }
+
+        public Graph<T> Clone()
+        {
+            var graph = new Graph<T>();
+
+            foreach (var vertex in this)
+            {
+                graph.AddVertex(vertex);
+            }
+
+            foreach (var vertex in this)
+            {
+                foreach (var edge in Edges(vertex))
+                {
+                    graph.AddEdge(vertex, edge);
+                }
+            }
+
+            return graph;
+        }
+
+        private class GraphVertex<T> : IGraphVertex<T>
+        {
+            Graph<T> graph;
+            private int vertexIndex;
+            private T vertexKey;
+
+            private int maxSize => graph.maxSize;
+            private BitArray[] matrix => graph.matrix;
+
+            private Dictionary<T, int> vertexIndices => graph.vertexIndices;
+            private Dictionary<int, T> reverseVertexIndices => graph.reverseVertexIndices;
+
+            internal GraphVertex(Graph<T> graph, T vertexKey)
+            {
+                if (!graph.vertexIndices.ContainsKey(vertexKey))
+                {
+                    throw new ArgumentException("vertex is not in this graph.");
+                }
+
+                this.graph = graph;
+                this.vertexKey = vertexKey;
+                this.vertexIndex = graph.vertexIndices[vertexKey];
+            }
+
+            public T Key => vertexKey;
+
+
+            IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => graph.Edges(vertexKey)
+              .Select(x => new Edge<T, int>(graph.vertexObjects[x], 1));
+
+            public IEdge<T> GetOutEdge(IGraphVertex<T> targetVertex)
+            {
+                if (!vertexIndices.ContainsKey(targetVertex.Key))
+                {
+                    throw new ArgumentException("vertex is not in this graph.");
+                }
+
+                var index = vertexIndices[targetVertex.Key];
+                var key = targetVertex as GraphVertex<T>;
+                return new Edge<T, int>(targetVertex, 1);
+            }
+
+            public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
+            {
+                if (!vertexIndices.ContainsKey(targetVertex.Key))
+                {
+                    throw new ArgumentException("vertex is not in this graph.");
+                }
+
+                var index = vertexIndices[targetVertex.Key];
+                var key = targetVertex as GraphVertex<T>;
+                return new Edge<T, int>(targetVertex, 1);
+            }
         }
     }
 }

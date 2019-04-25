@@ -6,16 +6,16 @@ using System.Linq;
 namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 {
     /// <summary>
-    /// A directed graph implementation using dynamically growinng/shrinking adjacency matrix array.
+    /// A directed graph implementation using dynamically growing/shrinking adjacency matrix array.
     /// IEnumerable enumerates all vertices.
     /// </summary>
     public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     {
+        private BitArray[] matrix;
+
         private Dictionary<T, int> vertexIndices;
         private Dictionary<int, T> reverseVertexIndices;
         private Dictionary<T, DiGraphVertex<T>> vertexObjects;
-
-        private BitArray[] matrix;
 
         private int maxSize => matrix.Length;
         private int usedSize;

@@ -1,5 +1,4 @@
 ﻿using System;
-using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,9 +11,9 @@ namespace Advanced.Algorithms.Tests.Graph
         /// Test Max BiParitite Edges using Ford-Fukerson algorithm
         /// </summary>
         [TestMethod]
-        public void MaxBiPartiteMatch_Smoke_Test()
+        public void MaxBiPartiteMatch_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Graph<char>();
+            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -44,6 +43,38 @@ namespace Advanced.Algorithms.Tests.Graph
             Assert.AreEqual(result.Count, 4);
         }
 
+        [TestMethod]
+        public void MaxBiPartiteMatch_AdjacencyMatrixGraph_Smoke_Test()
+        {
+            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
+
+            graph.AddVertex('A');
+            graph.AddVertex('B');
+            graph.AddVertex('C');
+            graph.AddVertex('D');
+            graph.AddVertex('E');
+
+            graph.AddVertex('F');
+            graph.AddVertex('G');
+            graph.AddVertex('H');
+            graph.AddVertex('I');
+
+            graph.AddEdge('A', 'F');
+            graph.AddEdge('B', 'F');
+            graph.AddEdge('B', 'G');
+            graph.AddEdge('C', 'H');
+            graph.AddEdge('C', 'I');
+            graph.AddEdge('D', 'G');
+            graph.AddEdge('D', 'H');
+            graph.AddEdge('E', 'F');
+            graph.AddEdge('E', 'I');
+
+            var algorithm = new BiPartiteMatching<char>(new BiPartiteMatchOperators());
+
+            var result = algorithm.GetMaxBiPartiteMatching(graph);
+
+            Assert.AreEqual(result.Count, 4);
+        }
         /// <summary>
         /// operators for generics
         /// implemented for int type for edge weights
