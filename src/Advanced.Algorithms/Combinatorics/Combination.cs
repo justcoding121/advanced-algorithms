@@ -7,23 +7,16 @@ namespace Advanced.Algorithms.Combinatorics
     /// </summary>
     public class Combination
     {
-        public static List<List<T>> Find<T>(List<T> input, int r, bool withRepetition)
+        public static IEnumerable<T[]> Find<T>(List<T> input, int r, bool withRepetition)
         {
-            var result = new List<List<T>>();
-
-            recurse(input, r, withRepetition, 0, new List<T>(), new HashSet<int>(), result);
-
-            return result;
+            return recurse(input, r, withRepetition, 0, new List<T>(), new HashSet<int>());
         }
 
-        private static void recurse<T>(List<T> input, int r, bool withRepetition,
-            int k, List<T> prefix, HashSet<int> prefixIndices,
-            List<List<T>> result)
+        private static IEnumerable<T[]> recurse<T>(List<T> input, int r, bool withRepetition,int k, List<T> prefix, HashSet<int> prefixIndices)
         {
             if (prefix.Count == r)
             {
-                result.Add(new List<T>(prefix));
-                return;
+                yield return prefix.ToArray();
             }
 
             for (int j = k; j < input.Count; j++)
@@ -36,12 +29,14 @@ namespace Advanced.Algorithms.Combinatorics
                 prefix.Add(input[j]);
                 prefixIndices.Add(j);
 
-                recurse(input, r, withRepetition, j, prefix, prefixIndices, result);
+                foreach (var item in recurse(input, r, withRepetition, j, prefix, prefixIndices))
+                {
+                    yield return item;
+                }
 
                 prefix.RemoveAt(prefix.Count - 1);
                 prefixIndices.Remove(j);
             }
         }
-
     }
 }
