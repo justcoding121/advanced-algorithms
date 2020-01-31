@@ -20,15 +20,15 @@ namespace Advanced.Algorithms.Tests.Combinatorics
         public void Combination_Without_Repetitions_Smoke_Test()
         {
             var input = "".ToCharArray().ToList();
-            var combinations = Combination.Find<char>(input, 2, false);
+            var combinations = Combination.Find<char>(input, 2, false).ToList();
             Assert.AreEqual(combination(input.Count, 2), combinations.Count);
 
             input = "cookie".ToCharArray().ToList();
-            combinations = Combination.Find<char>(input, 3, false);
+            combinations = Combination.Find<char>(input, 3, false).ToList();
             Assert.AreEqual(combination(input.Count, 3), combinations.Count);
 
             input = "monster".ToCharArray().ToList();
-            combinations = Combination.Find<char>(input, 4, false);
+            combinations = Combination.Find<char>(input, 4, false).ToList();
             Assert.AreEqual(combination(input.Count, 4), combinations.Count);
         }
 
@@ -37,15 +37,15 @@ namespace Advanced.Algorithms.Tests.Combinatorics
         public void Combination_With_Repetitions_Smoke_Test()
         {
             var input = "".ToCharArray().ToList();
-            var combinations = Combination.Find<char>(input, 3, true);
+            var combinations = Combination.Find<char>(input, 3, true).ToList();
             Assert.AreEqual(0, combinations.Count);
 
             input = "pen".ToCharArray().ToList();
-            combinations = Combination.Find<char>(input, 2, true);
+            combinations = Combination.Find<char>(input, 2, true).ToList();
             Assert.AreEqual(combination(input.Count + 2 - 1, 2), combinations.Count);
 
             input = "scan".ToCharArray().ToList();
-            combinations = Combination.Find<char>(input, 3, true);
+            combinations = Combination.Find<char>(input, 3, true).ToList();
             Assert.AreEqual(combination(input.Count + 3 - 1, 3), combinations.Count);
         }
 
