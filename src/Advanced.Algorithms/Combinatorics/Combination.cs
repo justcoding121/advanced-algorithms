@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.Combinatorics
             return recurse(input, r, withRepetition, 0, new List<T>(), new HashSet<int>());
         }
 
-        private static IEnumerable<T[]> recurse<T>(List<T> input, int r, bool withRepetition,int k, List<T> prefix, HashSet<int> prefixIndices)
+        private static IEnumerable<T[]> recurse<T>(List<T> input, int r, bool withRepetition, int k, List<T> prefix, HashSet<int> prefixIndices)
         {
             if (prefix.Count == r)
             {
