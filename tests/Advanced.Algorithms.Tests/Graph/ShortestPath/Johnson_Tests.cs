@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Advanced.Algorithms.Tests.Graph
 {
@@ -92,7 +92,7 @@ namespace Advanced.Algorithms.Tests.Graph
         /// <summary>
         /// generic operations for int type
         /// </summary>
-        public class JohnsonsShortestPathOperators 
+        public class JohnsonsShortestPathOperators
             : IJohnsonsShortestPathOperators<char, int>
         {
             public int DefaultValue

@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Advanced.Algorithms.Distributed;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using Advanced.Algorithms.Distributed;
 
 namespace Advanced.Algorithms.Tests
 {

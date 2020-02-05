@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Advanced.Algorithms.DataStructures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Geometry
 {

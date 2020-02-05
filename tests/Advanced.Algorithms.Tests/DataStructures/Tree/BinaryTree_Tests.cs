@@ -33,7 +33,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 tree.Delete(0);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Assert.IsTrue(e.Message.StartsWith("Cannot delete two child node"));
             }

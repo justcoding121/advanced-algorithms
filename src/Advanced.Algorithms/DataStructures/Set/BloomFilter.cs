@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace Advanced.Algorithms.DataStructures
-{    
+{
     /// <summary>
     /// A simple bloom filter implementation.
     /// </summary>
@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.DataStructures
         public void AddKey(T key)
         {
             var hashCode = key.GetHashCode();
-       
+
             //set 8 consecutive bits (a byte)
             for (var i = 0; i < 8; i++)
             {
@@ -40,14 +40,14 @@ namespace Advanced.Algorithms.DataStructures
         public bool KeyExists(T key)
         {
             var hashCode = key.GetHashCode();
-           
+
 
             //set 8 consecutive bits (a byte)
             for (var i = 0; i < 8; i++)
             {
                 var index = Math.Abs(hashCode + i) % filter.Length;
 
-                if (filter[index]== false)
+                if (filter[index] == false)
                 {
                     return false;
                 }

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Foundation
 {
-    internal class OpenAddressHashSet<T> : IHashSet<T> 
+    internal class OpenAddressHashSet<T> : IHashSet<T>
     {
         private HashSetNode<T>[] hashArray;
         private int bucketSize => hashArray.Length;
         private readonly int initialBucketSize;
 
         public int Count { get; private set; }
-      
+
         internal OpenAddressHashSet(int initialBucketSize = 2)
         {
             this.initialBucketSize = initialBucketSize;
@@ -281,7 +281,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
     }
 
-    internal class OpenAddressHashSetEnumerator<V> : IEnumerator<V> 
+    internal class OpenAddressHashSetEnumerator<V> : IEnumerator<V>
     {
         internal HashSetNode<V>[] hashArray;
 

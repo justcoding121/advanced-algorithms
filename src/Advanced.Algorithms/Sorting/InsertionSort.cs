@@ -19,10 +19,10 @@ namespace Advanced.Algorithms.Sorting
             {
                 for (int j = i + 1; j > 0; j--)
                 {
-                    if (comparer.Compare(array[j], array[j-1]) < 0)
+                    if (comparer.Compare(array[j], array[j - 1]) < 0)
                     {
-                        var temp = array[j-1];
-                        array[j-1] = array[j];
+                        var temp = array[j - 1];
+                        array[j - 1] = array[j];
                         array[j] = temp;
                     }
                     else

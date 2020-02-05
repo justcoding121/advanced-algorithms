@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class MColoring_Tests
-    {      
+    {
         [TestMethod]
         public void MColoring_AdjacencyListGraph_Smoke_Test()
         {

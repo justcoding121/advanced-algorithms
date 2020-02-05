@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Graph
-{ 
+{
     /// <summary>
     /// A Prims algorithm implementation.
     /// </summary>
@@ -34,8 +34,8 @@ namespace Advanced.Algorithms.Graph
         /// </summary>
         /// <param name="spanTreeNeighbours"> Use Fibonacci Min Heap to pick smallest edge neighbour </param>
         /// <param name="spanTreeEdges">result MST edges</param>
-        private void dfs(IGraph<T> graph, IGraphVertex<T> currentVertex, 
-            BHeap<MSTEdge<T, W>> spanTreeNeighbours, HashSet<T> spanTreeVertices, 
+        private void dfs(IGraph<T> graph, IGraphVertex<T> currentVertex,
+            BHeap<MSTEdge<T, W>> spanTreeNeighbours, HashSet<T> spanTreeVertices,
             List<MSTEdge<T, W>> spanTreeEdges)
         {
             while (true)

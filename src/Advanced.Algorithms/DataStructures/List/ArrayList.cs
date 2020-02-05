@@ -38,7 +38,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
                 return;
             }
 
-            foreach(var item in initial)
+            foreach (var item in initial)
             {
                 Add(item);
             }
@@ -48,8 +48,8 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// Time complexity: O(1) if initial is empty otherwise O(n).
         /// </summary>
         /// <param name="initial">Initial values if any.</param>
-        public ArrayList(IEnumerable<T> initial) 
-            : this (2, initial){ }
+        public ArrayList(IEnumerable<T> initial)
+            : this(2, initial) { }
 
         /// <summary>
         /// Indexed access to array.

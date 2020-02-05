@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public SparseSet(int maxVal, int capacity)
         {
-            sparse = Enumerable.Repeat(-1, maxVal + 1).ToArray(); 
+            sparse = Enumerable.Repeat(-1, maxVal + 1).ToArray();
             dense = Enumerable.Repeat(-1, capacity).ToArray();
         }
 

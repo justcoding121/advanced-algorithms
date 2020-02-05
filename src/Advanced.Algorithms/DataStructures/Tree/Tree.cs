@@ -207,7 +207,7 @@ namespace Advanced.Algorithms.DataStructures
         public IEnumerator<T> GetEnumerator()
         {
             return new TreeEnumerator<T>(root);
-           
+
         }
 
     }
@@ -268,7 +268,7 @@ namespace Advanced.Algorithms.DataStructures
                 {
                     progress.Push(child);
                 }
-              
+
                 return true;
             }
 

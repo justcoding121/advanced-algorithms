@@ -80,7 +80,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <param name="value">The value to insert.</param>
         public void Insert(T value)
         {
-            if(!Find(value).Equals(default(T)))
+            if (!Find(value).Equals(default(T)))
             {
                 throw new Exception("Cannot insert duplicate values.");
             }

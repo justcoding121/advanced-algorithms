@@ -52,7 +52,7 @@ namespace Advanced.Algorithms.Geometry
                 {
                     //check for radius 
                     min = Math.Min(min, getDistance(strips[i], strips[j]));
-                    
+
                 }
             }
 

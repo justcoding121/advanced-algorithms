@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.Geometry
     {
         public bool Equals(Point x, Point y)
         {
-            if(x == null && y == null)
+            if (x == null && y == null)
             {
                 return true;
             }

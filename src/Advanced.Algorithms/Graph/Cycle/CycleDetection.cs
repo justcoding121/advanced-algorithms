@@ -16,7 +16,7 @@ namespace Advanced.Algorithms.Graph
             var visiting = new HashSet<T>();
             var visited = new HashSet<T>();
 
-            foreach(var vertex in graph.VerticesAsEnumberable)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
                 if (!visited.Contains(vertex.Key))
                 {
@@ -30,7 +30,7 @@ namespace Advanced.Algorithms.Graph
             return false;
         }
 
-        private bool dfs(IDiGraphVertex<T> current, 
+        private bool dfs(IDiGraphVertex<T> current,
             HashSet<T> visited, HashSet<T> visiting)
         {
             visiting.Add(current.Key);
@@ -39,7 +39,7 @@ namespace Advanced.Algorithms.Graph
             {
                 //if we encountered a visiting vertex again
                 //then their is a cycle
-                if(visiting.Contains(edge.TargetVertexKey))
+                if (visiting.Contains(edge.TargetVertexKey))
                 {
                     return true;
                 }
@@ -49,7 +49,7 @@ namespace Advanced.Algorithms.Graph
                     continue;
                 }
 
-                if(dfs(edge.TargetVertex, visited, visiting))
+                if (dfs(edge.TargetVertex, visited, visiting))
                 {
                     return true;
                 }

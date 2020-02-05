@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -48,7 +48,7 @@ namespace Advanced.Algorithms.DataStructures
 
                 Count = initArray.Length;
                 bulkInit(initArray);
-              
+
             }
             else
             {
@@ -152,7 +152,7 @@ namespace Advanced.Algorithms.DataStructures
                 //init to left-most child
                 var minMaxChildIndex = findMinMaxChildIndex(currentParent, heapArray);
 
-                if (minMaxChildIndex!=-1 &&
+                if (minMaxChildIndex != -1 &&
                     comparer.Compare(heapArray[currentParent], heapArray[minMaxChildIndex]) > 0)
                 {
                     var tmp = heapArray[minMaxChildIndex];
@@ -245,7 +245,7 @@ namespace Advanced.Algorithms.DataStructures
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-            
+
         }
 
         public IEnumerator<T> GetEnumerator()

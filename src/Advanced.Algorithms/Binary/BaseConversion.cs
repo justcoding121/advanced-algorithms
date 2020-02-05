@@ -2,7 +2,7 @@
 using System.Text;
 
 namespace Advanced.Algorithms.Binary
-{ 
+{
     /// <summary>
     /// Base conversion implementation.
     /// </summary>

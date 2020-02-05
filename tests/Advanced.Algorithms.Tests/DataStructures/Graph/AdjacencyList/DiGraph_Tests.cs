@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
         public void DiGraph_Smoke_Test()
         {
             var graph = new DiGraph<int>();
-     
+
             graph.AddVertex(1);
             graph.AddVertex(2);
             graph.AddVertex(3);

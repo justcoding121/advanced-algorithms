@@ -17,18 +17,18 @@ namespace Advanced.Algorithms.Graph
             var visited = new HashSet<T>();
 
             //we need a loop so that we can reach all vertices
-            foreach(var vertex in graph.VerticesAsEnumberable)
+            foreach (var vertex in graph.VerticesAsEnumberable)
             {
-                if(!visited.Contains(vertex.Key))
+                if (!visited.Contains(vertex.Key))
                 {
                     dfs(vertex, visited, pathStack);
                 }
-                
+
             }
 
             //now just pop the stack to result
             var result = new List<T>();
-            while(pathStack.Count > 0)
+            while (pathStack.Count > 0)
             {
                 result.Add(pathStack.Pop());
             }
@@ -39,14 +39,14 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Do a depth first search.
         /// </summary>
-        private void dfs(IDiGraphVertex<T> vertex, 
+        private void dfs(IDiGraphVertex<T> vertex,
             HashSet<T> visited, Stack<T> pathStack)
         {
             visited.Add(vertex.Key);
 
-            foreach(var edge in vertex.OutEdges)
+            foreach (var edge in vertex.OutEdges)
             {
-                if(!visited.Contains(edge.TargetVertexKey))
+                if (!visited.Contains(edge.TargetVertexKey))
                 {
                     dfs(edge.TargetVertex, visited, pathStack);
                 }

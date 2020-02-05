@@ -25,7 +25,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(list.Head.Data, "c");
 
             list.Delete("c");
-          
+
             //{a,b,c}
             Assert.AreEqual(list.Count(), 3);
             Assert.AreEqual(list.Head.Data, "a");
@@ -39,7 +39,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             list.Delete("b");
             Assert.AreEqual(list.Count(), 0);
-        
+
         }
     }
 }

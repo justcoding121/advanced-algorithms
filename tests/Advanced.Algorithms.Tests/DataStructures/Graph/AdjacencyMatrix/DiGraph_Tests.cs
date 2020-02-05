@@ -64,7 +64,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
             graph.AddEdge(5, 5);
             graph.RemoveEdge(5, 5);
             graph.RemoveVertex(5);
-         
+
 
             Assert.AreEqual(0, graph.VerticesCount);
         }

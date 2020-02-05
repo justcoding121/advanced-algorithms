@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
         private Dictionary<T, WeightedGraphVertex<T, TW>> vertexObjects;
 
         public int VerticesCount => usedSize;
-        public bool IsWeightedGraph => true; 
+        public bool IsWeightedGraph => true;
 
         public WeightedGraph()
         {
@@ -203,7 +203,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             return false;
         }
 
-        public IEnumerable<KeyValuePair<T,TW>> Edges(T vertex)
+        public IEnumerable<KeyValuePair<T, TW>> Edges(T vertex)
         {
             if (!vertexIndices.ContainsKey(vertex))
             {
@@ -214,7 +214,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
 
             for (int i = 0; i < maxSize; i++)
             {
-                if (!matrix[i,index].Equals(default(TW)))
+                if (!matrix[i, index].Equals(default(TW)))
                 {
                     yield return new KeyValuePair<T, TW>(reverseVertexIndices[i], matrix[i, index]);
                 }
@@ -302,7 +302,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             {
                 for (int j = i; j < maxSize; j++)
                 {
-                    if (!matrix[i, j].Equals(default(TW)) && !matrix[j,i].Equals(default(TW))
+                    if (!matrix[i, j].Equals(default(TW)) && !matrix[j, i].Equals(default(TW))
                         && reverseVertexIndices.ContainsKey(i)
                         && reverseVertexIndices.ContainsKey(j))
                     {
@@ -320,7 +320,7 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix
             reverseVertexIndices = newReverseIndices;
         }
 
-        public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => vertexObjects.Select(x=>x.Value);
+        public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => vertexObjects.Select(x => x.Value);
 
         IEnumerator IEnumerable.GetEnumerator()
         {

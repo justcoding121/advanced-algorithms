@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.DataStructures
     /// <summary>
     /// A doubly linked list implementation.
     /// </summary>
-    public class DoublyLinkedList<T> :IEnumerable<T> 
+    public class DoublyLinkedList<T> : IEnumerable<T>
     {
         public DoublyLinkedListNode<T> Head;
         public DoublyLinkedListNode<T> Tail;
@@ -38,7 +38,7 @@ namespace Advanced.Algorithms.DataStructures
             return newNode;
         }
 
-        internal void InsertFirst(DoublyLinkedListNode<T> newNode) 
+        internal void InsertFirst(DoublyLinkedListNode<T> newNode)
         {
             if (Head != null)
             {
@@ -337,7 +337,7 @@ namespace Advanced.Algorithms.DataStructures
             newList.Tail.Next = Head;
 
             Head = newList.Head;
-            
+
 
         }
 
@@ -387,7 +387,7 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    internal class DoublyLinkedListEnumerator<T> : IEnumerator<T> 
+    internal class DoublyLinkedListEnumerator<T> : IEnumerator<T>
     {
         internal DoublyLinkedListNode<T> headNode;
         internal DoublyLinkedListNode<T> currentNode;

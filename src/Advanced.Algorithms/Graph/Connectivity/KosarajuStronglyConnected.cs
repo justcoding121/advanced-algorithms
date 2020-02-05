@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns all Connected Components using Kosaraju's Algorithm.
         /// </summary>
-        public List<List<T>> 
+        public List<List<T>>
             FindStronglyConnectedComponents(IDiGraph<T> graph)
         {
             var visited = new HashSet<T>();
@@ -21,10 +21,10 @@ namespace Advanced.Algorithms.Graph
             //step one - create DFS finish visit stack
             foreach (var vertex in graph.VerticesAsEnumberable)
             {
-                if(!visited.Contains(vertex.Key))
+                if (!visited.Contains(vertex.Key))
                 {
                     kosarajuStep1(vertex, visited, finishStack);
-                }           
+                }
             }
 
             //reverse edges
@@ -58,9 +58,9 @@ namespace Advanced.Algorithms.Graph
         {
             visited.Add(currentVertex.Key);
 
-            foreach(var edge in currentVertex.OutEdges)
+            foreach (var edge in currentVertex.OutEdges)
             {
-                if(!visited.Contains(edge.TargetVertexKey))
+                if (!visited.Contains(edge.TargetVertexKey))
                 {
                     kosarajuStep1(edge.TargetVertex, visited, finishStack);
                 }

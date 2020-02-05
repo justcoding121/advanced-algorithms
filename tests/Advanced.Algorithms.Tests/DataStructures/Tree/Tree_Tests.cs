@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void Tree_Test()
         {
-            
+
             var tree = new Tree<int>();
             Assert.AreEqual(tree.GetHeight(), -1);
 

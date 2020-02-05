@@ -1,9 +1,8 @@
-﻿using System;
-using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
-{ 
+{
     [TestClass]
     public class BiPartititeMatch_Tests
     {
@@ -81,7 +80,7 @@ namespace Advanced.Algorithms.Tests.Graph
         /// </summary>
         public class BiPartiteMatchOperators : IBiPartiteMatchOperators<char>
         {
-            
+
             private int currentIndex = 0;
             private char[] randomVertices = new char[] { '#', '*' };
 

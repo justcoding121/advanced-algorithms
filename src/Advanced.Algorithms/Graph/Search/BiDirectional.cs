@@ -1,5 +1,4 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph;
-using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System.Collections.Generic;
 
 
@@ -83,7 +82,7 @@ namespace Advanced.Algorithms.Graph
                     }
                 }
 
-                if(bfsQueueA.Count == 0 && bfsQueueB.Count == 0)
+                if (bfsQueueA.Count == 0 && bfsQueueB.Count == 0)
                 {
                     break;
                 }

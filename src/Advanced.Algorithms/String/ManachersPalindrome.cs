@@ -112,7 +112,7 @@ namespace Advanced.Algorithms.String
                         }
                         //mirror palindrome exactly fits inside right side
                         //of current palindrome
-                        else 
+                        else
                         {
                             //set length equals to maximum
                             //and then continue exploring in main loop
@@ -160,7 +160,7 @@ namespace Advanced.Algorithms.String
         /// </summary>
         private int findMax(int[] palindromeLengths)
         {
-            return palindromeLengths.Concat(new[] {int.MinValue}).Max();
+            return palindromeLengths.Concat(new[] { int.MinValue }).Max();
         }
     }
 }

@@ -103,7 +103,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         private void delete(KDTreeNode<T> currentNode, T[] point, int depth)
         {
-            if(currentNode == null)
+            if (currentNode == null)
             {
                 throw new Exception("Given deletion point do not exist in this kd tree.");
             }
@@ -421,8 +421,8 @@ namespace Advanced.Algorithms.DataStructures
                 //move right
                 if (end[currentDimension].CompareTo(currentNode.Points[currentDimension]) > 0)
                 {
-                    rangeSearch(result, currentNode.Right,  start, end, depth + 1);
-                    
+                    rangeSearch(result, currentNode.Right, start, end, depth + 1);
+
                 }
 
                 //start is less than current node
@@ -462,7 +462,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             return new KDTreeEnumerator<T>(root);
         }
-       
+
     }
 
     /// <summary>

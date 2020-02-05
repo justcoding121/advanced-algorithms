@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.Search
         {
             var candidate = findMajorityCandidate(input, input.Count());
 
-            if(verify(input, input.Count(), candidate))
+            if (verify(input, input.Count(), candidate))
             {
                 return candidate;
             }

@@ -52,7 +52,7 @@ namespace Advanced.Algorithms.DataStructures
             }
 
             addMapping(newItem, newNode);
-          
+
             Count++;
         }
 

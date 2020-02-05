@@ -81,7 +81,7 @@ namespace Advanced.Algorithms.Graph
                     for (int j = 0; j < graph.VerticesCount; j++)
                     {
                         //no path
-                        if (result[i, k].Equals(@operator.MaxValue) 
+                        if (result[i, k].Equals(@operator.MaxValue)
                             || result[k, j].Equals(@operator.MaxValue))
                         {
                             continue;

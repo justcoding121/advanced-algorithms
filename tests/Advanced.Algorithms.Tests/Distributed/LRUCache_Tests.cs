@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.Tests
         [TestMethod]
         public void LRUCache_Smoke_Test()
         {
-            var cache = new LRUCache<int,int>(2);
+            var cache = new LRUCache<int, int>(2);
 
             cache.Put(1, 1);
             cache.Put(2, 2);

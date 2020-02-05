@@ -21,7 +21,7 @@ namespace Advanced.Algorithms.Tests.Binary
 
             //decimal to base3
             Assert.AreEqual("Foo",
-                BaseConversion.Convert("9", "0123456789", 
+                BaseConversion.Convert("9", "0123456789",
                     "oF8"));
 
             //base3 to decimal 

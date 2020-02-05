@@ -1,23 +1,23 @@
-﻿using System;
-using Advanced.Algorithms.DataStructures;
+﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
-    internal static class BSTTester 
+    internal static class BSTTester
     {
-        internal static bool IsBinarySearchTree<T>(this BSTNodeBase<T> node, T lowerBound, T upperBound) where T:IComparable
+        internal static bool IsBinarySearchTree<T>(this BSTNodeBase<T> node, T lowerBound, T upperBound) where T : IComparable
         {
             if (node == null)
             {
                 return true;
             }
 
-             if (node.Value.CompareTo(upperBound)>= 0 || node.Value.CompareTo(lowerBound) <= 0)
+            if (node.Value.CompareTo(upperBound) >= 0 || node.Value.CompareTo(lowerBound) <= 0)
             {
                 return false;
             }
-     
+
             return IsBinarySearchTree(node.Left, lowerBound, node.Value) &&
                 IsBinarySearchTree(node.Right, node.Value, upperBound);
         }

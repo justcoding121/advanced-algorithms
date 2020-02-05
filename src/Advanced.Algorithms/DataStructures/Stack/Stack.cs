@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Foundation
@@ -25,7 +24,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
             }
             else
             {
-               stack = new LinkedListStack<T>();
+                stack = new LinkedListStack<T>();
             }
         }
 

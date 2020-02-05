@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,14 +26,14 @@ namespace Advanced.Algorithms.Tests.Distributed
             var consumerLock = new SemaphoreSlim(1);
 
             var random = new Random();
-            
+
             //multi-threaded async producer
             tasks.AddRange(Enumerable.Range(1, testDataCount).Select(async x =>
             {
                 await Task.Delay(random.Next(0, 1));
 
                 await producerLock.WaitAsync();
-                
+
                 expected.Add(x);
                 await queue.EnqueueAsync(x);
 

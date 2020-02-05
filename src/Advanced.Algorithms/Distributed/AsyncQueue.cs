@@ -26,7 +26,7 @@ namespace Advanced.Algorithms.Distributed
         {
             await consumerQueueLock.WaitAsync(millisecondsTimeout, taskCancellationToken);
 
-            if(consumerQueue.Count > 0)
+            if (consumerQueue.Count > 0)
             {
                 var consumer = consumerQueue.Dequeue();
                 consumer.TrySetResult(value);

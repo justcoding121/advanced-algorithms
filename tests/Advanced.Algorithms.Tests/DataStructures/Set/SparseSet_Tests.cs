@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Advanced.Algorithms.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
-using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -39,7 +39,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 .OrderBy(x => random.Next())
                 .ToList();
 
-            foreach(var element in testCollection)
+            foreach (var element in testCollection)
             {
                 set.Add(element);
             }

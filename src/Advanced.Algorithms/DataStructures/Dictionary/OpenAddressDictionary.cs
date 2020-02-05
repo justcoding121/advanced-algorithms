@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Foundation
 {
-    internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV> 
+    internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
     {
         private DictionaryKeyValuePair<TK, TV>[] hashArray;
         private int bucketSize => hashArray.Length;
@@ -368,7 +368,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         }
     }
 
-    internal class OpenAddressDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>> 
+    internal class OpenAddressDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>>
     {
         internal DictionaryKeyValuePair<TK, TV>[] HashArray;
 

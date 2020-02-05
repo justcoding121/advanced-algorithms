@@ -119,7 +119,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var testStrings = new List<string>();
 
-            while(testCount > 0)
+            while (testCount > 0)
             {
                 var testString = randomString(3);
                 testStrings.Add(testString);
@@ -128,7 +128,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             testStrings = new List<string>(testStrings.Distinct());
 
-            foreach(var testString in testStrings)
+            foreach (var testString in testStrings)
             {
                 tree.Insert(testString.ToArray());
             }
@@ -136,7 +136,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable test
             Assert.AreEqual(tree.Count, tree.Count());
 
-            foreach(var item in tree)
+            foreach (var item in tree)
             {
                 var existing = new string(item);
                 Assert.IsTrue(testStrings.Contains(existing));
@@ -151,7 +151,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 tree.Delete(testString.ToArray());
             }
-           
+
         }
 
         private static Random random = new Random();

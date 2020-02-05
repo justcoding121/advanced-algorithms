@@ -40,7 +40,7 @@
                 var k = i;
 
                 //increment prefixIndex (count of matching chars)
-                while (k < input.Length 
+                while (k < input.Length
                     && prefixIndex < patternLength
                     && input[prefixIndex] == input[k])
                 {
@@ -76,7 +76,7 @@
                             if (m + prefixIndex < input.Length)
                             {
                                 //increment right end of Z box as far as match goes
-                                while (right < input.Length 
+                                while (right < input.Length
                                     && prefixIndex < patternLength
                                     && input[prefixIndex] == input[right])
                                 {

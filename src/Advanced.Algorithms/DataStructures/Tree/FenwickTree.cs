@@ -106,7 +106,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public IEnumerator<T> GetEnumerator()
         {
-            return input.Select(x=>x).GetEnumerator();
+            return input.Select(x => x).GetEnumerator();
         }
     }
 }

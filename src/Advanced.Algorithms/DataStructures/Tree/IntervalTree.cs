@@ -38,7 +38,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             validateDimensions(start, end);
 
-            if(items.Contains(new Tuple<T[], T[]>(start, end)))
+            if (items.Contains(new Tuple<T[], T[]>(start, end)))
             {
                 throw new Exception("Inteval exists.");
             }
@@ -66,8 +66,8 @@ namespace Advanced.Algorithms.DataStructures
                 currentTrees = allOverlaps;
             }
 
-            items.Add(new Tuple<T[], T[]> (start, end));
-           
+            items.Add(new Tuple<T[], T[]>(start, end));
+
             Count++;
 
         }

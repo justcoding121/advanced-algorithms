@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.Tests.Sorting
     {
         private static int[] testArray =
             new int[] { 12, 7, 9, 8, 3, 10, 2, 1, 5, 11, 4, 6, 0 };
-        
+
         [TestMethod]
         public void ShellSort_Ascending_Smoke_Test()
         {

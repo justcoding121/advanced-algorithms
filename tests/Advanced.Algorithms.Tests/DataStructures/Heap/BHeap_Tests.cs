@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
     [TestClass]
     public class BHeap_Tests
     {
-  
+
         [TestMethod]
         public void Min_BHeap_Test()
         {
@@ -51,7 +51,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
         }
 
-  
+
         [TestMethod]
         public void Max_BHeap_Test()
         {

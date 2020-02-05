@@ -46,7 +46,7 @@ namespace Advanced.Algorithms.Sorting
             foreach (var item in enumerable)
             {
                 var index = countArray[item];
-                result[sortDirection == SortDirection.Ascending ? index-1 : result.Length - index] = item;
+                result[sortDirection == SortDirection.Ascending ? index - 1 : result.Length - index] = item;
                 countArray[item]--;
             }
 

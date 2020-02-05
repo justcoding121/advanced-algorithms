@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -56,7 +56,7 @@ namespace Advanced.Algorithms.DataStructures
         public void Delete(T[] value)
         {
             validateDimensions(value);
-          
+
             if (!items.Contains(value))
             {
                 throw new Exception("Item not found.");
@@ -71,7 +71,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// Recursively move until last dimension and then delete if found.
         /// </summary>
-        private void deleteRecursive(OneDimentionalRangeTree<T> tree, T[] value, 
+        private void deleteRecursive(OneDimentionalRangeTree<T> tree, T[] value,
             int currentDimension, ref bool found)
         {
             var node = tree.Find(value[currentDimension]);
