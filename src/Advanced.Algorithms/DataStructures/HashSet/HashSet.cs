@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
     /// A hash table implementation.
     /// </summary>
     /// <typeparam name="T">The value datatype.</typeparam>
-    public class HashSet<T> : IEnumerable<T> 
+    public class HashSet<T> : IEnumerable<T>
     {
         private readonly IHashSet<T> hashSet;
 

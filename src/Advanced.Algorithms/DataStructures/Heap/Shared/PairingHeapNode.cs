@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public int CompareTo(object obj)
         {
-            return Value.CompareTo(((PairingHeapNode<T>) obj).Value);
+            return Value.CompareTo(((PairingHeapNode<T>)obj).Value);
         }
     }
 

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Advanced.Algorithms.DataStructures;
+using System;
 using System.Collections.Generic;
-using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Compression
 {
@@ -53,7 +53,7 @@ namespace Advanced.Algorithms.Compression
         /// </summary>  
         private void dfs(FrequencyWrap currentNode, List<byte> pathStack, Dictionary<T, byte[]> result)
         {
-            if(currentNode.IsLeaf)
+            if (currentNode.IsLeaf)
             {
                 result.Add(currentNode.Item, pathStack.ToArray());
                 return;
@@ -114,7 +114,7 @@ namespace Advanced.Algorithms.Compression
 
             public int CompareTo(object obj)
             {
-                return Frequency.CompareTo(((FrequencyWrap) obj).Frequency);
+                return Frequency.CompareTo(((FrequencyWrap)obj).Frequency);
             }
         }
 

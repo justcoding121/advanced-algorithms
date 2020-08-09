@@ -1,7 +1,7 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
@@ -66,7 +66,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 intervals.Add(interval);
             }
 
-            foreach(var interval in intervals)
+            foreach (var interval in intervals)
             {
                 tree.Insert(interval.Item1, interval.Item2);
             }
@@ -74,7 +74,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable test
             Assert.AreEqual(tree.Count, tree.Count());
 
-            foreach(var interval in intervals)
+            foreach (var interval in intervals)
             {
                 Assert.IsTrue(tree.DoOverlap(interval.Item1,
                                                        interval.Item2));
@@ -133,14 +133,14 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 var startx = i - 1000 + rnd.Next(1, 10);
                 var starty = i + 15 + rnd.Next(1, 10);
                 //(x1,y1) and (x2, y2)
-                var interval = new Tuple<int[], int[]> (new int[dimension] { startx, starty },
+                var interval = new Tuple<int[], int[]>(new int[dimension] { startx, starty },
                     new int[dimension] { startx + rnd.Next(1, 10), starty + rnd.Next(1, 10) });
 
-                if(intervals.Add(interval))
+                if (intervals.Add(interval))
                 {
                     tree.Insert(interval.Item1, interval.Item2);
                 }
-               
+
             }
 
             foreach (var interval in intervals)
@@ -162,7 +162,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var notDeleted = new HashSet<Tuple<int[], int[]>>(new IntervalComparer<int>());
 
-            foreach(var interval in intervals)
+            foreach (var interval in intervals)
             {
                 notDeleted.Add(interval);
             }

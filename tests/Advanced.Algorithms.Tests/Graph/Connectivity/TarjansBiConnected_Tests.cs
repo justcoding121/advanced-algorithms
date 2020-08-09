@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('A', 'B');
             graph.AddEdge('A', 'C');
             graph.AddEdge('B', 'C');
-         
+
             var algorithm = new TarjansBiConnected<char>();
 
             var result = algorithm.IsBiConnected(graph);

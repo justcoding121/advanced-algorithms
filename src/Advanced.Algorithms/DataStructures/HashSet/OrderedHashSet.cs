@@ -83,7 +83,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// </summary>
         public int Remove(T key)
         {
-           return binarySearchTree.Delete(key);
+            return binarySearchTree.Delete(key);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
         /// </summary>
         public T RemoveAt(int index)
         {
-           return binarySearchTree.RemoveAt(index);
+            return binarySearchTree.RemoveAt(index);
         }
 
         /// <summary>

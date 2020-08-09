@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.Graph
 
             var first = graph.ReferenceVertex;
 
-            var progress = canColor(first, colors, 
+            var progress = canColor(first, colors,
                 new Dictionary<IGraphVertex<T>, C>(),
                 new HashSet<IGraphVertex<T>>());
 
@@ -28,9 +28,9 @@ namespace Advanced.Algorithms.Graph
 
             var result = new Dictionary<C, List<T>>();
 
-            foreach(var vertex in progress)
+            foreach (var vertex in progress)
             {
-                if(!result.ContainsKey(vertex.Value))
+                if (!result.ContainsKey(vertex.Value))
                 {
                     result.Add(vertex.Value, new List<T>());
                 }
@@ -45,7 +45,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Assign color to each new node.
         /// </summary>
-        private Dictionary<IGraphVertex<T>, C> canColor(IGraphVertex<T> vertex, C[] colors, 
+        private Dictionary<IGraphVertex<T>, C> canColor(IGraphVertex<T> vertex, C[] colors,
              Dictionary<IGraphVertex<T>, C> progress, HashSet<IGraphVertex<T>> visited)
         {
             foreach (var item in colors)
@@ -83,9 +83,9 @@ namespace Advanced.Algorithms.Graph
         private bool isSafe(Dictionary<IGraphVertex<T>, C> progress,
             IGraphVertex<T> vertex, C color)
         {
-           foreach(var edge in vertex.Edges)
+            foreach (var edge in vertex.Edges)
             {
-                if(progress.ContainsKey(edge.TargetVertex)
+                if (progress.ContainsKey(edge.TargetVertex)
                     && progress[edge.TargetVertex].Equals(color))
                 {
                     return false;

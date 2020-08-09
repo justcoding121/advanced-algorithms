@@ -60,7 +60,7 @@ namespace Advanced.Algorithms.Graph
 
                 }
                 else
-                {   
+                {
                     //check if this edge target vertex is not in the current DFS path
                     //even if edge target vertex was already visisted
                     //update discovery so that ancestors can see it
@@ -71,7 +71,7 @@ namespace Advanced.Algorithms.Graph
                             Math.Min(lowTimeMap[currentVertex.Key], discoveryTimeMap[edge.TargetVertexKey]);
                     }
                 }
-            }      
+            }
 
             return result;
         }

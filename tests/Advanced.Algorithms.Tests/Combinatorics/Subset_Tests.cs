@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Advanced.Algorithms.Combinatorics;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
-using Advanced.Algorithms.Combinatorics;
 
 namespace Advanced.Algorithms.Tests.Combinatorics
 {

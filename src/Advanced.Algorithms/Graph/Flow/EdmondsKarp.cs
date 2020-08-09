@@ -53,7 +53,7 @@ namespace Advanced.Algorithms.Graph
             T source, T sink)
         {
             validateOperator(graph);
-                
+
             var residualGraph = createResidualGraph(graph);
 
             var path = bfs(residualGraph, source, sink);
@@ -95,7 +95,7 @@ namespace Advanced.Algorithms.Graph
             var residualGraph = createResidualGraph(graph);
 
             var path = bfs(residualGraph, source, sink);
-            
+
             var flow = @operator.defaultWeight;
 
             var result = new List<List<T>>();
@@ -171,7 +171,7 @@ namespace Advanced.Algorithms.Graph
             while (queue.Count > 0)
             {
                 currentVertex = queue.Dequeue();
-              
+
                 //reached sink? then break otherwise dig in
                 if (currentVertex.Key.Equals(sink))
                 {
@@ -187,7 +187,7 @@ namespace Advanced.Algorithms.Graph
                         //keep track of this to trace out path once sink is found
                         parentLookUp[edge.Key] = currentVertex;
                         queue.Enqueue(edge.Key);
-                        visited.Add(edge.Key);                       
+                        visited.Add(edge.Key);
                     }
                 }
             }

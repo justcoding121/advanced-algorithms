@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Foundation
 {
-    internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>  
+    internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
     {
         private const double tolerance = 0.1;
 
@@ -15,7 +15,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public int Count { get; private set; }
 
-       
+
         public SeparateChainingDictionary(int initialBucketSize = 3)
         {
             this.initialBucketSize = initialBucketSize;
@@ -301,7 +301,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
     }
 
-    internal class SeparateChainingDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>> 
+    internal class SeparateChainingDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>>
     {
         internal DoublyLinkedList<KeyValuePair<TK, TV>>[] HashList;
 

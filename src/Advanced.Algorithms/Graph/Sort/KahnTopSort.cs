@@ -1,5 +1,4 @@
 ﻿using Advanced.Algorithms.DataStructures.Graph;
-using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using System;
 using System.Collections.Generic;
 
@@ -24,7 +23,7 @@ namespace Advanced.Algorithms.Graph
                 inEdgeMap.Add(vertex.Key, vertex.InEdgeCount);
 
                 //init queue with vertices having not in edges
-                if(vertex.InEdgeCount == 0)
+                if (vertex.InEdgeCount == 0)
                 {
                     kahnQueue.Enqueue(vertex.Key);
                 }
@@ -49,16 +48,16 @@ namespace Advanced.Algorithms.Graph
                 }
 
                 //pick a neighbour
-                var nextPick = graph.GetVertex(kahnQueue.Dequeue());       
+                var nextPick = graph.GetVertex(kahnQueue.Dequeue());
 
                 //if in edge count is 0 then ready for result
-                if(inEdgeMap[nextPick.Key] == 0)
+                if (inEdgeMap[nextPick.Key] == 0)
                 {
                     result.Add(nextPick.Key);
                 }
 
                 //decrement in edge count for neighbours
-                foreach(var edge in nextPick.OutEdges)
+                foreach (var edge in nextPick.OutEdges)
                 {
                     inEdgeMap[edge.TargetVertexKey]--;
                     kahnQueue.Enqueue(edge.TargetVertexKey);

@@ -123,7 +123,7 @@ namespace Advanced.Algorithms.DataStructures
 
             point.IsDeleted = true;
             Count--;
-          
+
             if (deletionCount == Count)
             {
                 reconstruct();
@@ -133,14 +133,14 @@ namespace Advanced.Algorithms.DataStructures
             {
                 deletionCount++;
             }
-          
+
         }
 
         private void reconstruct()
         {
             QuadTreeNode<T> newRoot = null;
 
-            foreach(var exisiting in this)
+            foreach (var exisiting in this)
             {
                 newRoot = insert(newRoot, exisiting.Item1, exisiting.Item2);
             }
@@ -216,7 +216,7 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    internal class QuadTreeEnumerator<T> : IEnumerator<Tuple<Point, T>> 
+    internal class QuadTreeEnumerator<T> : IEnumerator<Tuple<Point, T>>
     {
         private readonly QuadTreeNode<T> root;
 

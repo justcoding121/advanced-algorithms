@@ -1,7 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
@@ -69,7 +68,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         public void Max_FibonacciHeap_Test()
         {
             int nodeCount = 1000 * 10;
- 
+
             var maxHeap = new FibonacciHeap<int>(SortDirection.Descending);
 
             for (int i = 0; i <= nodeCount; i++)

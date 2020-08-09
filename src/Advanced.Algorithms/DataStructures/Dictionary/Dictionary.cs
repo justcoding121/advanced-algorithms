@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
     /// </summary>
     /// <typeparam name="K">The key datatype.</typeparam>
     /// <typeparam name="V">The value datatype.</typeparam>
-    public class Dictionary<K, V> : IEnumerable<KeyValuePair<K, V>> 
+    public class Dictionary<K, V> : IEnumerable<KeyValuePair<K, V>>
     {
         private readonly IDictionary<K, V> dictionary;
 

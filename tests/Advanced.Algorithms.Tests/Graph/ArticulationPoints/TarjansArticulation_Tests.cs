@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Advanced.Algorithms.Graph;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using Advanced.Algorithms.Graph;
 
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class TarjansArticulation_Tests
-    {     
+    {
         [TestMethod]
         public void TarjanArticulation_AdjacencyListGraph_Smoke_Test()
         {
@@ -43,7 +43,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
             var expectedResult = new char[] { 'C', 'D', 'E', 'F' };
 
-            foreach(var v in result)
+            foreach (var v in result)
             {
                 Assert.IsTrue(expectedResult.Contains(v));
             }

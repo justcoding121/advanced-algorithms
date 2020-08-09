@@ -12,13 +12,13 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public T Pop()
         {
-            if(Count == 0)
+            if (Count == 0)
             {
                 throw new Exception("Empty stack");
             }
 
             var result = list[list.Count - 1];
-            list.RemoveAt(list.Count-1);
+            list.RemoveAt(list.Count - 1);
             Count--;
             return result;
         }
@@ -31,7 +31,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public T Peek()
         {
-            if(Count == 0)
+            if (Count == 0)
             {
                 return default(T);
             }

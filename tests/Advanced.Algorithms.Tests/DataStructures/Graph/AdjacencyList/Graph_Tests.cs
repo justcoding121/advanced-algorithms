@@ -43,7 +43,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
             graph.RemoveEdge(4, 5);
             graph.RemoveEdge(4, 1);
 
- 
+
             Assert.IsTrue(graph.HasEdge(3, 5));
             graph.RemoveEdge(3, 5);
             Assert.IsFalse(graph.HasEdge(3, 5));

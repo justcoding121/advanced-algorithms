@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.DataStructures.Graph
     /// Directed graph. 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IDiGraph<T> 
+    public interface IDiGraph<T>
     {
         bool IsWeightedGraph { get; }
 
@@ -19,7 +19,7 @@ namespace Advanced.Algorithms.DataStructures.Graph
 
         bool HasEdge(T source, T destination);
 
-        IDiGraph<T> Clone();      
+        IDiGraph<T> Clone();
     }
 
     public interface IDiGraphVertex<T>

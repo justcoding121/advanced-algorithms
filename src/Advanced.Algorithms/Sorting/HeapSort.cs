@@ -1,7 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+/* Unmerged change from project 'Advanced.Algorithms (netstandard1.0)'
+Before:
+using System;
+After:
+using Advanced.Algorithms.DataStructures;
+using System;
+*/
+using Advanced.Algorithms.DataStructures;
+
+/* Unmerged change from project 'Advanced.Algorithms (netstandard1.0)'
+Before:
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
+After:
+using System.Linq;
+*/
+using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Sorting
 {

@@ -1,5 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Advanced.Algorithms.DataStructures.Foundation;
+﻿using Advanced.Algorithms.DataStructures.Foundation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
@@ -17,7 +16,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var dictionary = new Dictionary<int, int>(DictionaryType.SeparateChaining);
             int nodeCount = 1000;
-          
+
             //insert test
             for (int i = 0; i <= nodeCount; i++)
             {
@@ -71,7 +70,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var dictionary = new Dictionary<int, int>(DictionaryType.OpenAddressing);
             int nodeCount = 1000;
-          
+
             //insert test
             for (int i = 0; i <= nodeCount; i++)
             {

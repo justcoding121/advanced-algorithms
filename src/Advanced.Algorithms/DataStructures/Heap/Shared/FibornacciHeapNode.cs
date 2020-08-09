@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.DataStructures
 
         public int CompareTo(object obj)
         {
-            return Value.CompareTo(((FibonacciHeapNode<T>) obj).Value);
+            return Value.CompareTo(((FibonacciHeapNode<T>)obj).Value);
         }
     }
 

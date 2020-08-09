@@ -203,7 +203,7 @@ namespace Advanced.Algorithms.DataStructures
                 currentIndex = currentIndex + 1;
             }
         }
-      
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -232,7 +232,7 @@ namespace Advanced.Algorithms.DataStructures
         }
     }
 
-    internal class TrieEnumerator<T> : IEnumerator<T[]> 
+    internal class TrieEnumerator<T> : IEnumerator<T[]>
     {
         private readonly TrieNode<T> root;
         private Stack<TrieNode<T>> progress;
@@ -278,7 +278,7 @@ namespace Advanced.Algorithms.DataStructures
             var result = new Stack<T>();
             result.Push(next.Value);
 
-            while (next.Parent!=null && !next.Parent.Value.Equals(default(T)))
+            while (next.Parent != null && !next.Parent.Value.Equals(default(T)))
             {
                 next = next.Parent;
                 result.Push(next.Value);

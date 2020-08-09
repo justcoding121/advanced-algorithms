@@ -1,5 +1,4 @@
-﻿using Advanced.Algorithms.DataStructures.Graph;
-using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph

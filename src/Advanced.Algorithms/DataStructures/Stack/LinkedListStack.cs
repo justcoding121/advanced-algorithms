@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
         public T Pop()
         {
-            if(Count == 0)
+            if (Count == 0)
             {
                 throw new Exception("Empty stack");
             }

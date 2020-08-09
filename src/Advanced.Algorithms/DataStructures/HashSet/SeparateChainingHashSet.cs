@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Foundation
 {
-    internal class SeparateChainingHashSet<T> : IHashSet<T>  
+    internal class SeparateChainingHashSet<T> : IHashSet<T>
     {
         private const double tolerance = 0.1;
         private DoublyLinkedList<HashSetNode<T>>[] hashArray;
@@ -267,7 +267,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation
 
     }
 
-    internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<T> 
+    internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<T>
     {
         internal DoublyLinkedList<HashSetNode<T>>[] hashList;
 

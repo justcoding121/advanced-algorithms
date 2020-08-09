@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Advanced.Algorithms.Geometry;
+﻿using Advanced.Algorithms.Geometry;
 using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Advanced.Algorithms.Tests.Graph
 {

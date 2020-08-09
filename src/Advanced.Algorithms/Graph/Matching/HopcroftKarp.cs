@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 namespace Advanced.Algorithms.Graph
-{ 
+{
     /// <summary>
     ///  Compute Max BiParitite Edges using Hopcroft Karp algorithm.
     /// </summary>
@@ -44,15 +44,15 @@ namespace Advanced.Algorithms.Graph
                 {
                     if (!rightMatch.ContainsKey(vertex))
                     {
-                        var visited = new HashSet<T> {vertex};
+                        var visited = new HashSet<T> { vertex };
 
                         var pathResult = dfs(graph.GetVertex(vertex),
                           leftMatch, rightMatch, visited, true);
-                        
+
                         //XOR remaining done here (partially done inside DFS)
-                        foreach(var pair in pathResult)
+                        foreach (var pair in pathResult)
                         {
-                            if(pair.isRight)
+                            if (pair.isRight)
                             {
                                 rightMatch.Add(pair.A, pair.B);
                                 leftMatch.Add(pair.B, pair.A);
@@ -61,7 +61,7 @@ namespace Advanced.Algorithms.Graph
                             {
                                 leftMatch.Add(pair.A, pair.B);
                                 rightMatch.Add(pair.B, pair.A);
-                            }                   
+                            }
                         }
                     }
 

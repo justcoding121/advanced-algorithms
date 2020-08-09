@@ -1,13 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Advanced.Algorithms.Graph;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using Advanced.Algorithms.Graph;
 
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class TarjansBridge_Tests
-    {   
+    {
         [TestMethod]
         public void TarjanBridge_AdjacencyListGraph_Smoke_Test()
         {
@@ -51,7 +51,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
             foreach (var bridge in result)
             {
-                Assert.IsTrue(expected.Any(x => bridge.vertexA == x[0] 
+                Assert.IsTrue(expected.Any(x => bridge.vertexA == x[0]
                                     && bridge.vertexB == x[1]));
             }
         }

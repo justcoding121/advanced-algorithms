@@ -19,19 +19,19 @@ namespace Advanced.Algorithms.String
             var patternHash = computeHash(pattern);
             var hash = computeHash(input.Substring(0, pattern.Length));
 
-            if(Math.Abs(hash - patternHash) < tolerance)
+            if (Math.Abs(hash - patternHash) < tolerance)
             {
-               if(valid(pattern, input.Substring(0, pattern.Length)))
+                if (valid(pattern, input.Substring(0, pattern.Length)))
                 {
                     return 0;
-                } 
+                }
             }
 
             var lashHash = hash;
 
             for (var i = 1; i < input.Length - pattern.Length + 1; i++)
             {
-                var newHash = computeHash(lashHash, pattern.Length, input[i - 1], 
+                var newHash = computeHash(lashHash, pattern.Length, input[i - 1],
                     input[i + pattern.Length - 1]);
 
                 if (Math.Abs(newHash - patternHash) < tolerance)

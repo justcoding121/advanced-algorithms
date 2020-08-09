@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.Geometry
                 throw new Exception("Top corner should have higher Y value than bottom.");
             }
 
-            if(leftTop.X > rightBottom.X)
+            if (leftTop.X > rightBottom.X)
             {
                 throw new Exception("Right corner should have higher X value than left.");
             }

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Advanced.Algorithms.DataStructures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Geometry
 {
@@ -10,7 +10,6 @@ namespace Advanced.Algorithms.Geometry
     /// </summary>
     public class BentleyOttmann
     {
-        private readonly int precision;
         private readonly PointComparer pointComparer;
 
         private HashSet<Event> verticalHorizontalLines;
@@ -30,7 +29,6 @@ namespace Advanced.Algorithms.Geometry
 
         public BentleyOttmann(int precision = 5)
         {
-            this.precision = precision;
             pointComparer = new PointComparer();
 
             Tolerance = Math.Round(Math.Pow(0.1, precision), precision);
@@ -64,7 +62,7 @@ namespace Advanced.Algorithms.Geometry
             eventQueueLookUp = new HashSet<Event>(rightLeftEventLookUp.SelectMany(x => new[] {
                                     x.Key,
                                     x.Value
-                                }), new PointComparer());
+                                }));
 
             eventQueue = new BHeap<Event>(SortDirection.Ascending, eventQueueLookUp, new EventQueueComparer());
         }

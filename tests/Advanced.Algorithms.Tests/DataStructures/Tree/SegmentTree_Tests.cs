@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         public void SegmentTree_Sum_Smoke_Test()
         {
             var testArray = new int[] { 1, 3, 5, 7, 9, 11 };
-          
+
             //tree with sum operation
             var tree = new SegmentTree<int>(testArray,
                 new Func<int, int, int>((x, y) => x + y),

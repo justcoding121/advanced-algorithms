@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.DataStructures
         /// <summary>
         /// A Map for faster access for members.
         /// </summary>
-        private Dictionary<T, DisJointSetNode<T>> set 
+        private Dictionary<T, DisJointSetNode<T>> set
             = new Dictionary<T, DisJointSetNode<T>>();
 
         public int Count { get; private set; }
@@ -49,7 +49,7 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public T FindSet(T member)
         {
-            if(!set.ContainsKey(member))
+            if (!set.ContainsKey(member))
             {
                 throw new Exception("No such set with given member.");
             }
@@ -67,7 +67,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             var parent = node.Parent;
 
-            if(node !=parent)
+            if (node != parent)
             {
                 //compress path by setting parent to Root
                 node.Parent = findSet(node.Parent);
@@ -88,7 +88,7 @@ namespace Advanced.Algorithms.DataStructures
             var rootA = FindSet(memberA);
             var rootB = FindSet(memberB);
 
-            if(rootA.Equals(rootB))
+            if (rootA.Equals(rootB))
             {
                 return;
             }
@@ -98,7 +98,7 @@ namespace Advanced.Algorithms.DataStructures
 
             //equal rank so just pick any of two as Root
             //and increment rank
-            if(nodeA.Rank == nodeB.Rank)
+            if (nodeA.Rank == nodeB.Rank)
             {
                 nodeB.Parent = nodeA;
                 nodeA.Rank++;
@@ -106,7 +106,7 @@ namespace Advanced.Algorithms.DataStructures
             else
             {
                 //pick max Rank node as root
-                if(nodeA.Rank < nodeB.Rank)
+                if (nodeA.Rank < nodeB.Rank)
                 {
                     nodeA.Parent = nodeB;
                 }
@@ -126,7 +126,7 @@ namespace Advanced.Algorithms.DataStructures
         {
             return set.Values.Select(x => x.Data).GetEnumerator();
         }
-      
+
     }
 
     internal class DisJointSetNode<T>

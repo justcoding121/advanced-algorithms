@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
-using Advanced.Algorithms.DataStructures;
 using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures

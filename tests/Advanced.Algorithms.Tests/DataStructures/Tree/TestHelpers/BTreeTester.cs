@@ -1,5 +1,5 @@
-﻿using System;
-using Advanced.Algorithms.DataStructures;
+﻿using Advanced.Algorithms.DataStructures;
+using System;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -34,7 +34,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var min = int.MaxValue;
 
-            if(node.GetChildren()[0]==null)
+            if (node.GetChildren()[0] == null)
             {
                 min = 0;
             }

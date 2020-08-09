@@ -1,6 +1,6 @@
 ### Note: 
 
-Please don't take effort to create pull requests for new algorithms/data structures. This is just a curiosity driven personal hobby and [was originally not intented to be a library](https://github.com/justcoding121/Advanced-Algorithms/issues/2). Feel free fork and modify to fit your need if that's what you are looking for. You can however open issues/fix bugs with pull requests here, I would be happy to take a look when I get time.
+Please don't take effort to create pull requests for new algorithms/data structures. This is just a curiosity-driven personal hobby and [was originally not intended to be a library](https://github.com/justcoding121/Advanced-Algorithms/issues/2). Feel free fork and modify to fit your need if that's what you are looking for. You can, however, open issues/fix bugs with pull requests here, I would be happy to take a look when I get time
 
 ## Advanced Algorithms
 
@@ -77,7 +77,7 @@ Supports
 - [X] Fibonacci heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/FibonacciHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/FibonacciHeap_Tests.cs))
 - [X] Pairing heap ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/Heap/PairingHeap.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Heap/PairingHeap_Tests.cs))
 
-Note: It is observed that among the implementations here in practice, with the exclusion of UpdateKey (decrement/increment) operation regular Binary Heap & d-ary Heap outperforms other in theory superiors. Likely because it don't have pointer juggling overhead and hey arrays are faster!
+Note: It is observed that among the implementations here, in practice, with the exclusion of UpdateKey (decrement/increment) operation, regular Binary Heap & d-ary Heap outperforms other in theory superiors. Likely because it doesn't have pointer juggling overhead and hey arrays are faster!
 
 ### Tree
 
