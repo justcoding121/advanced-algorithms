@@ -11,7 +11,7 @@ namespace Advanced.Algorithms.Tests.Geometry
     public class BentleyOttmann_Tests
     {
         [TestMethod]
-        public void BentleyOttmann_Smoke_Test()
+        public void BentleyOttmann_Smoke_Test_1()
         {
             var lines = new List<Line>();
 
@@ -21,6 +21,26 @@ namespace Advanced.Algorithms.Tests.Geometry
             var s4 = new Line(new Point(50, 100), new Point(120, 300));
 
             lines.AddRange(new[] { s1, s2, s3, s4 });
+
+            var expectedIntersections = getExpectedIntersections(lines);
+
+            var bentleyOttmannAlgorithm = new BentleyOttmann();
+
+            var actualIntersections = bentleyOttmannAlgorithm.FindIntersections(lines);
+
+            Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+        }
+
+        [TestMethod]
+        public void BentleyOttmann_Smoke_Test_2()
+        {
+            var lines = new List<Line>();
+
+            var s1 = new Line(new Point(100, 0), new Point(150, 130));
+            var s2 = new Line(new Point(20, 80), new Point(80, 70));
+            var s3 = new Line(new Point(80, 70), new Point(50, 100));
+
+            lines.AddRange(new[] { s1, s2, s3 });
 
             var expectedIntersections = getExpectedIntersections(lines);
 
