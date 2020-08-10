@@ -84,6 +84,89 @@ namespace Advanced.Algorithms.Tests.Geometry
         }
 
         [TestMethod]
+        public void BentleyOttmann_Vertical_Horizontal_Lines_Test()
+        {
+            var lines = new List<Line>();
+
+            //vertical
+            lines.Add(new Line(new Point(100, 100), new Point(100, 200)));
+            lines.Add(new Line(new Point(125, 100), new Point(125, 200)));
+            lines.Add(new Line(new Point(150, 100), new Point(150, 200)));
+            lines.Add(new Line(new Point(175, 100), new Point(175, 200)));
+            lines.Add(new Line(new Point(200, 100), new Point(200, 200)));
+
+            //horizontal
+            lines.Add(new Line(new Point(100, 100), new Point(200, 100)));
+            lines.Add(new Line(new Point(100, 125), new Point(200, 125)));
+            lines.Add(new Line(new Point(100, 150), new Point(200, 150)));
+            lines.Add(new Line(new Point(100, 175), new Point(200, 175)));
+            lines.Add(new Line(new Point(100, 200), new Point(200, 200)));
+
+            var expectedIntersections = getExpectedIntersections(lines);
+
+            var bentleyOttmannAlgorithm = new BentleyOttmann();
+
+            var actualIntersections = bentleyOttmannAlgorithm.FindIntersections(lines);
+
+            Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+        }
+
+        [TestMethod]
+        public void BentleyOttmann_Vertical_Horizontal_Other_Lines_Test_1()
+        {
+            var lines = new List<Line>();
+
+            //vertical
+            lines.Add(new Line(new Point(100, 100), new Point(100, 200)));
+            lines.Add(new Line(new Point(200, 100), new Point(200, 200)));
+
+            //horizontal
+            lines.Add(new Line(new Point(100, 100), new Point(200, 100)));
+            lines.Add(new Line(new Point(100, 150), new Point(200, 150)));
+            lines.Add(new Line(new Point(100, 200), new Point(200, 200)));
+
+            //other lines
+            lines.Add(new Line(new Point(100, 100), new Point(200, 200)));
+            lines.Add(new Line(new Point(100, 200), new Point(200, 100)));
+
+            var expectedIntersections = getExpectedIntersections(lines);
+
+            var bentleyOttmannAlgorithm = new BentleyOttmann();
+
+            var actualIntersections = bentleyOttmannAlgorithm.FindIntersections(lines);
+
+            Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+        }
+
+
+        [TestMethod]
+        public void BentleyOttmann_Vertical_Horizontal_Other_Lines_Test_2()
+        {
+            var lines = new List<Line>();
+
+            //vertical
+            lines.Add(new Line(new Point(100, 100), new Point(100, 200)));
+            lines.Add(new Line(new Point(200, 100), new Point(200, 200)));
+
+            //horizontal
+            lines.Add(new Line(new Point(100, 100), new Point(200, 100)));
+            lines.Add(new Line(new Point(100, 150), new Point(200, 150)));
+            lines.Add(new Line(new Point(100, 200), new Point(200, 200)));
+
+            //other lines
+            lines.Add(new Line(new Point(110, 100), new Point(210, 200)));
+            lines.Add(new Line(new Point(90, 200), new Point(250, 100)));
+
+            var expectedIntersections = getExpectedIntersections(lines);
+
+            var bentleyOttmannAlgorithm = new BentleyOttmann();
+
+            var actualIntersections = bentleyOttmannAlgorithm.FindIntersections(lines);
+
+            Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+        }
+
+        [TestMethod]
         public void BentleyOttmann_Stress_Test()
         {
             var lines = new List<Line>();
@@ -178,7 +261,7 @@ namespace Advanced.Algorithms.Tests.Geometry
         {
             var lines = new List<Line>();
 
-            var s1 = new Line(new Point(200, 100), new Point(600, 100));
+            var s1 = new Line(new Point(100, 100), new Point(600, 100));
             var s2 = new Line(new Point(225, 100), new Point(625, 100));
             var s3 = new Line(new Point(250, 100), new Point(475, 100));
             var s4 = new Line(new Point(290, 100), new Point(675, 100));

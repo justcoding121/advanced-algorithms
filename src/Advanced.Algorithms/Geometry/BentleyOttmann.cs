@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.Geometry
         private readonly PointComparer pointComparer;
 
         private HashSet<Event> verticalHorizontalLines;
-        private HashSet<Event> normalLines;
+        private HashSet<Event> otherLines;
 
         private BHeap<Event> eventQueue;
         private HashSet<Event> eventQueueLookUp;
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.Geometry
             intersectionEvents = new Dictionary<Point, HashSet<Tuple<Event, Event>>>(pointComparer);
 
             verticalHorizontalLines = new HashSet<Event>();
-            normalLines = new HashSet<Event>();
+            otherLines = new HashSet<Event>();
 
             rightLeftEventLookUp = lineSegments
                                    .Select(x =>
@@ -81,6 +81,7 @@ namespace Advanced.Algorithms.Geometry
                 {
                     case EventType.Start:
 
+                        //special case
                         if (verticalHorizontalLines.Count > 0)
                         {
                             foreach (var line in verticalHorizontalLines)
@@ -90,11 +91,12 @@ namespace Advanced.Algorithms.Geometry
                             }
                         }
 
+                        //special case
                         if (currentEvent.Segment.IsVertical || currentEvent.Segment.IsHorizontal)
                         {
                             verticalHorizontalLines.Add(currentEvent);
 
-                            foreach (var line in normalLines)
+                            foreach (var line in otherLines)
                             {
                                 var intersection = findIntersection(currentEvent, line);
                                 recordIntersection(currentEvent, line, intersection);
@@ -103,7 +105,7 @@ namespace Advanced.Algorithms.Geometry
                             break;
                         }
 
-                        normalLines.Add(currentEvent);
+                        otherLines.Add(currentEvent);
 
                         currentlyTrackedLines.Insert(currentEvent);
 
@@ -124,13 +126,14 @@ namespace Advanced.Algorithms.Geometry
 
                         currentEvent = rightLeftEventLookUp[currentEvent];
 
+                        //special case
                         if (currentEvent.Segment.IsVertical || currentEvent.Segment.IsHorizontal)
                         {
                             verticalHorizontalLines.Remove(currentEvent);
                             break;
                         }
 
-                        normalLines.Remove(currentEvent);
+                        otherLines.Remove(currentEvent);
 
                         lower = currentlyTrackedLines.NextLower(currentEvent);
                         upper = currentlyTrackedLines.NextHigher(currentEvent);
@@ -147,18 +150,25 @@ namespace Advanced.Algorithms.Geometry
 
                         var intersectionLines = intersectionEvents[currentEvent as Point];
 
-                        foreach (var item in intersectionLines)
+                        foreach (var lines in intersectionLines)
                         {
-                            swapBstNodes(currentlyTrackedLines, item.Item1, item.Item2);
+                            //special case
+                            if (lines.Item1.Segment.IsHorizontal || lines.Item1.Segment.IsVertical
+                                || lines.Item2.Segment.IsHorizontal || lines.Item2.Segment.IsVertical)
+                            {
+                                continue;
+                            }
 
-                            var upperLine = item.Item1;
+                            swapBstNodes(currentlyTrackedLines, lines.Item1, lines.Item2);
+
+                            var upperLine = lines.Item1;
                             var upperUpper = currentlyTrackedLines.NextHigher(upperLine);
 
                             var newUpperIntersection = findIntersection(upperLine, upperUpper);
                             recordIntersection(upperLine, upperUpper, newUpperIntersection);
                             enqueueIntersectionEvent(currentEvent, newUpperIntersection);
 
-                            var lowerLine = item.Item2;
+                            var lowerLine = lines.Item2;
                             var lowerLower = currentlyTrackedLines.NextLower(lowerLine);
 
                             var newLowerIntersection = findIntersection(lowerLine, lowerLower);
