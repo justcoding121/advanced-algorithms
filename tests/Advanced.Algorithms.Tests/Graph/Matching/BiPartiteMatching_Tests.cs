@@ -42,6 +42,31 @@ namespace Advanced.Algorithms.Tests.Graph
             Assert.AreEqual(result.Count, 4);
         }
 
+        /// <summary>
+        /// Test Max BiParitite Edges using Ford-Fukerson algorithm
+        /// </summary>
+        [TestMethod]
+        public void MaxBiPartiteMatch_AdjacencyListGraph_Accuracy_Test_1()
+        {
+            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+
+            graph.AddVertex('0');
+            graph.AddVertex('1');
+            graph.AddVertex('2');
+            graph.AddVertex('3');
+
+
+            graph.AddEdge('0', '2');
+            graph.AddEdge('1', '3');
+          
+
+            var algorithm = new BiPartiteMatching<char>(new BiPartiteMatchOperators());
+
+            var result = algorithm.GetMaxBiPartiteMatching(graph);
+
+            Assert.AreEqual(result.Count, 2);
+        }
+
         [TestMethod]
         public void MaxBiPartiteMatch_AdjacencyMatrixGraph_Smoke_Test()
         {
@@ -73,6 +98,31 @@ namespace Advanced.Algorithms.Tests.Graph
             var result = algorithm.GetMaxBiPartiteMatching(graph);
 
             Assert.AreEqual(result.Count, 4);
+        }
+
+        /// <summary>
+        /// Test Max BiParitite Edges using Ford-Fukerson algorithm
+        /// </summary>
+        [TestMethod]
+        public void MaxBiPartiteMatch_AdjacencyMatrixGraph_Accuracy_Test_1()
+        {
+            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
+
+            graph.AddVertex('0');
+            graph.AddVertex('1');
+            graph.AddVertex('2');
+            graph.AddVertex('3');
+
+
+            graph.AddEdge('0', '2');
+            graph.AddEdge('1', '3');
+
+
+            var algorithm = new BiPartiteMatching<char>(new BiPartiteMatchOperators());
+
+            var result = algorithm.GetMaxBiPartiteMatching(graph);
+
+            Assert.AreEqual(result.Count, 2);
         }
         /// <summary>
         /// operators for generics
