@@ -14,32 +14,26 @@ namespace Advanced.Algorithms.Graph
         /// </summary>
         public MColorResult<T, C> Color(IGraph<T> graph, C[] colors)
         {
-            var totalProgress = new Dictionary<IGraphVertex<T>, C>();
+            var progress = new Dictionary<IGraphVertex<T>, C>();
 
             foreach (var vertex in graph.VerticesAsEnumberable)
             {
-                var progress = canColor(vertex, colors,
-                    new Dictionary<IGraphVertex<T>, C>(),
-                    new HashSet<IGraphVertex<T>>());
-                
-                foreach(var item in progress)
+                if (!progress.ContainsKey(vertex))
                 {
-                    if (!totalProgress.ContainsKey(item.Key))
-                    {
-                        totalProgress.Add(item.Key, item.Value);
-                    }
+                    canColor(vertex, colors,
+                        progress,
+                        new HashSet<IGraphVertex<T>>());
                 }
-               
             }
 
-            if (totalProgress.Count != graph.VerticesCount)
+            if (progress.Count != graph.VerticesCount)
             {
                 return new MColorResult<T, C>(false, null);
             }
 
             var result = new Dictionary<C, List<T>>();
 
-            foreach (var vertex in totalProgress)
+            foreach (var vertex in progress)
             {
                 if (!result.ContainsKey(vertex.Value))
                 {
