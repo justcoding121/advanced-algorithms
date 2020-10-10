@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.Geometry
     {
         private readonly PointComparer pointComparer;
 
-        private HashSet<Event> verticalHorizontalLines;
+        private HashSet<Event> verticalAndHorizontalLines;
         private HashSet<Event> otherLines;
 
         private BHeap<Event> eventQueue;
@@ -41,7 +41,7 @@ namespace Advanced.Algorithms.Geometry
             currentlyTrackedLines = new RedBlackTree<Event>(true, pointComparer);
             intersectionEvents = new Dictionary<Point, HashSet<Tuple<Event, Event>>>(pointComparer);
 
-            verticalHorizontalLines = new HashSet<Event>();
+            verticalAndHorizontalLines = new HashSet<Event>();
             otherLines = new HashSet<Event>();
 
             rightLeftEventLookUp = lineSegments
@@ -82,9 +82,9 @@ namespace Advanced.Algorithms.Geometry
                     case EventType.Start:
 
                         //special case
-                        if (verticalHorizontalLines.Count > 0)
+                        if (verticalAndHorizontalLines.Count > 0)
                         {
-                            foreach (var line in verticalHorizontalLines)
+                            foreach (var line in verticalAndHorizontalLines)
                             {
                                 var intersection = findIntersection(currentEvent, line);
                                 recordIntersection(currentEvent, line, intersection);
@@ -94,7 +94,7 @@ namespace Advanced.Algorithms.Geometry
                         //special case
                         if (currentEvent.Segment.IsVertical || currentEvent.Segment.IsHorizontal)
                         {
-                            verticalHorizontalLines.Add(currentEvent);
+                            verticalAndHorizontalLines.Add(currentEvent);
 
                             foreach (var line in otherLines)
                             {
@@ -129,7 +129,7 @@ namespace Advanced.Algorithms.Geometry
                         //special case
                         if (currentEvent.Segment.IsVertical || currentEvent.Segment.IsHorizontal)
                         {
-                            verticalHorizontalLines.Remove(currentEvent);
+                            verticalAndHorizontalLines.Remove(currentEvent);
                             break;
                         }
 
