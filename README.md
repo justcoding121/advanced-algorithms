@@ -16,7 +16,7 @@ For beta releases on [beta branch](https://github.com/justcoding121/Advanced-Alg
 
 Not a stable release yet.
 
-* [API documentation](https://justcoding121.github.io/Advanced-Algorithms/api/Advanced.Algorithms.DataStructures.html)
+* [API documentation](https://justcoding121.github.io/Advanced-Algorithms/docs/api/Advanced.Algorithms.DataStructures.html)
 
 Supports
 
