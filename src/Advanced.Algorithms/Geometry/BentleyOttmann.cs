@@ -30,7 +30,6 @@ namespace Advanced.Algorithms.Geometry
         public BentleyOttmann(int precision = 5)
         {
             pointComparer = new PointComparer();
-
             Tolerance = Math.Round(Math.Pow(0.1, precision), precision);
         }
 
