@@ -137,7 +137,6 @@
     <Compile Include="Graph\Flow\EdmondsKarp_Tests.cs" />
     <Compile Include="Graph\Flow\FordFulkerson_Tests.cs" />
     <Compile Include="Graph\Flow\PushRelabel_Tests.cs" />
-    <Compile Include="Graph\Matching\HopcroftKarp_Tests.cs" />
     <Compile Include="Graph\Matching\BiPartiteMatching_Tests.cs" />
     <Compile Include="Graph\MinimumSpanningTree\Prims_Test.cs" />
     <Compile Include="Graph\MinimumSpanningTree\Kruskals_Test.cs" />

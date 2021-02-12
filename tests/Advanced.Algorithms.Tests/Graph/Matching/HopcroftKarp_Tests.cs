@@ -77,7 +77,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void HopcroftKarp_AdjacencyListGraph_Accurancy_Test_1()
         {
 
