@@ -81,14 +81,14 @@ namespace Advanced.Algorithms.Graph
             foreach (var vertex in partitions[1])
             {
                 //if this left vertex is free
-                if (!leftToRightMatchEdges.ContainsKey(vertex))
+                if (!leftToRightMatchEdges.ContainsKey(vertex) && !visited.Contains(vertex))
                 {
                     queue.Enqueue(vertex);
-                    visited.Add(vertex);
-
+                    
                     while (queue.Count > 0)
                     {
                         var current = queue.Dequeue();
+                        visited.Add(vertex);
 
                         //unmatched edges left to right
                         foreach (var leftToRightEdge in graph.GetVertex(current).Edges)
