@@ -12167,6 +12167,33 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath
   nameWithType: FordFulkersonMaxFlow<T, W>.ComputeMaxFlowAndReturnFlowPath
   nameWithType.vb: FordFulkersonMaxFlow(Of T, W).ComputeMaxFlowAndReturnFlowPath
+- uid: Advanced.Algorithms.Graph.HopcroftKarpMatching`1
+  name: HopcroftKarpMatching<T>
+  href: api/Advanced.Algorithms.Graph.HopcroftKarpMatching-1.html
+  commentId: T:Advanced.Algorithms.Graph.HopcroftKarpMatching`1
+  name.vb: HopcroftKarpMatching(Of T)
+  fullName: Advanced.Algorithms.Graph.HopcroftKarpMatching<T>
+  fullName.vb: Advanced.Algorithms.Graph.HopcroftKarpMatching(Of T)
+  nameWithType: HopcroftKarpMatching<T>
+  nameWithType.vb: HopcroftKarpMatching(Of T)
+- uid: Advanced.Algorithms.Graph.HopcroftKarpMatching`1.GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.IGraph{`0})
+  name: GetMaxBiPartiteMatching(IGraph<T>)
+  href: api/Advanced.Algorithms.Graph.HopcroftKarpMatching-1.html#Advanced_Algorithms_Graph_HopcroftKarpMatching_1_GetMaxBiPartiteMatching_Advanced_Algorithms_DataStructures_Graph_IGraph__0__
+  commentId: M:Advanced.Algorithms.Graph.HopcroftKarpMatching`1.GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.IGraph{`0})
+  name.vb: GetMaxBiPartiteMatching(IGraph(Of T))
+  fullName: Advanced.Algorithms.Graph.HopcroftKarpMatching<T>.GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.IGraph<T>)
+  fullName.vb: Advanced.Algorithms.Graph.HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching(Advanced.Algorithms.DataStructures.Graph.IGraph(Of T))
+  nameWithType: HopcroftKarpMatching<T>.GetMaxBiPartiteMatching(IGraph<T>)
+  nameWithType.vb: HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching(IGraph(Of T))
+- uid: Advanced.Algorithms.Graph.HopcroftKarpMatching`1.GetMaxBiPartiteMatching*
+  name: GetMaxBiPartiteMatching
+  href: api/Advanced.Algorithms.Graph.HopcroftKarpMatching-1.html#Advanced_Algorithms_Graph_HopcroftKarpMatching_1_GetMaxBiPartiteMatching_
+  commentId: Overload:Advanced.Algorithms.Graph.HopcroftKarpMatching`1.GetMaxBiPartiteMatching
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.HopcroftKarpMatching<T>.GetMaxBiPartiteMatching
+  fullName.vb: Advanced.Algorithms.Graph.HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching
+  nameWithType: HopcroftKarpMatching<T>.GetMaxBiPartiteMatching
+  nameWithType.vb: HopcroftKarpMatching(Of T).GetMaxBiPartiteMatching
 - uid: Advanced.Algorithms.Graph.IAStarHeuristic`2
   name: IAStarHeuristic<T, W>
   href: api/Advanced.Algorithms.Graph.IAStarHeuristic-2.html
@@ -12551,6 +12578,40 @@ references:
   fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).MatchEdge
   nameWithType: MatchEdge<T>.MatchEdge
   nameWithType.vb: MatchEdge(Of T).MatchEdge
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.Equals(System.Object)
+  name: Equals(Object)
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1_Equals_System_Object_
+  commentId: M:Advanced.Algorithms.Graph.MatchEdge`1.Equals(System.Object)
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.Equals(System.Object)
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).Equals(System.Object)
+  nameWithType: MatchEdge<T>.Equals(Object)
+  nameWithType.vb: MatchEdge(Of T).Equals(Object)
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.Equals*
+  name: Equals
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1_Equals_
+  commentId: Overload:Advanced.Algorithms.Graph.MatchEdge`1.Equals
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.Equals
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).Equals
+  nameWithType: MatchEdge<T>.Equals
+  nameWithType.vb: MatchEdge(Of T).Equals
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.GetHashCode
+  name: GetHashCode()
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1_GetHashCode
+  commentId: M:Advanced.Algorithms.Graph.MatchEdge`1.GetHashCode
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.GetHashCode()
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).GetHashCode()
+  nameWithType: MatchEdge<T>.GetHashCode()
+  nameWithType.vb: MatchEdge(Of T).GetHashCode()
+- uid: Advanced.Algorithms.Graph.MatchEdge`1.GetHashCode*
+  name: GetHashCode
+  href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1_GetHashCode_
+  commentId: Overload:Advanced.Algorithms.Graph.MatchEdge`1.GetHashCode
+  isSpec: "True"
+  fullName: Advanced.Algorithms.Graph.MatchEdge<T>.GetHashCode
+  fullName.vb: Advanced.Algorithms.Graph.MatchEdge(Of T).GetHashCode
+  nameWithType: MatchEdge<T>.GetHashCode
+  nameWithType.vb: MatchEdge(Of T).GetHashCode
 - uid: Advanced.Algorithms.Graph.MatchEdge`1.Source
   name: Source
   href: api/Advanced.Algorithms.Graph.MatchEdge-1.html#Advanced_Algorithms_Graph_MatchEdge_1_Source
