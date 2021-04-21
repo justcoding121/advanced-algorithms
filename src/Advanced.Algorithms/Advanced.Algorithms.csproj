@@ -23,10 +23,6 @@
     <None Remove="Binary\**" />
     <None Remove="DynamicProgramming\**" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <Compile Remove="Graph\Matching\HopcroftKarp.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <Compile Include="Binary\BaseConversion.cs" />

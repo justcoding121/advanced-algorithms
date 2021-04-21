@@ -124,6 +124,83 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(result.Count, 2);
         }
+
+
+        [TestMethod]
+        public void MaxBiPartiteMatch_AdjacencyListGraph_Accurancy_Test()
+        {
+            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+
+            graph.AddVertex('E');
+            graph.AddVertex('N');
+            graph.AddVertex('J');
+            graph.AddVertex('O');
+            graph.AddVertex('Y');
+            graph.AddVertex('Z');
+
+            graph.AddVertex('1');
+            graph.AddVertex('2');
+            graph.AddVertex('3');
+            graph.AddVertex('4');
+            graph.AddVertex('5');
+            graph.AddVertex('6');
+
+            graph.AddEdge('E', '1');
+
+            graph.AddEdge('N', '4');
+
+            graph.AddEdge('J', '1');
+            graph.AddEdge('J', '2');
+            graph.AddEdge('J', '4');
+
+            graph.AddEdge('O', '2');
+            graph.AddEdge('O', '3');
+
+            graph.AddEdge('Y', '3');
+            graph.AddEdge('Y', '5');
+
+            graph.AddEdge('Z', '4');
+            graph.AddEdge('Z', '5');
+            graph.AddEdge('Z', '6');
+
+            var algorithm = new BiPartiteMatching<char>(new BiPartiteMatchOperators());
+
+            var result = algorithm.GetMaxBiPartiteMatching(graph);
+
+            Assert.AreEqual(result.Count, 6);
+
+        }
+
+        [TestMethod]
+        public void MaxBiPartiteMatch_AdjacencyListGraph_Accurancy_Test_Fully_Connected_Bipartite_Graph()
+        {
+            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+
+            graph.AddVertex('A');
+            graph.AddVertex('B');
+            graph.AddVertex('C');
+            graph.AddVertex('D');
+            graph.AddVertex('E');
+            graph.AddVertex('F');
+
+            graph.AddEdge('A', 'D');
+            graph.AddEdge('A', 'E');
+            graph.AddEdge('A', 'F');
+            graph.AddEdge('B', 'D');
+            graph.AddEdge('B', 'E');
+            graph.AddEdge('B', 'F');
+            graph.AddEdge('C', 'D');
+            graph.AddEdge('C', 'E');
+            graph.AddEdge('C', 'F');
+
+            var algorithm = new BiPartiteMatching<char>(new BiPartiteMatchOperators());
+
+            var result = algorithm.GetMaxBiPartiteMatching(graph);
+
+            Assert.AreEqual(result.Count, 3);
+
+        }
+
         /// <summary>
         /// operators for generics
         /// implemented for int type for edge weights
