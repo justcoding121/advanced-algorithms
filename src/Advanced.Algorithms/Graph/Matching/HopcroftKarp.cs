@@ -43,20 +43,20 @@ namespace Advanced.Algorithms.Graph
             while (freeVerticesOnRight.Count > 0)
             {
                 var visited = new HashSet<T>();
-                var paths = new HashSet<MatchEdge<T>>();
+                var path = new HashSet<MatchEdge<T>>();
 
                 foreach (var vertex in freeVerticesOnRight)
                 {
-                    var path = dfs(graph,
+                    var currentPath = dfs(graph,
                       leftToRightMatchEdges, rightToLeftMatchEdges, vertex, default, visited, true);
 
-                    if (path != null)
+                    if (currentPath != null)
                     {
-                        union(paths, path);
+                        union(path, currentPath);
                     }
                 }
 
-                xor(matches, paths, leftToRightMatchEdges, rightToLeftMatchEdges);
+                xor(matches, path, leftToRightMatchEdges, rightToLeftMatchEdges);
 
                 freeVerticesOnRight = bfs(graph, partitions, leftToRightMatchEdges, rightToLeftMatchEdges);
             }
