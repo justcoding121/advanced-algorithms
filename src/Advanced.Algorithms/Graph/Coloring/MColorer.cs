@@ -20,7 +20,7 @@ namespace Advanced.Algorithms.Graph
             {
                 if (!progress.ContainsKey(vertex))
                 {
-                    canColor(vertex, colors,
+                    colorRecursively(vertex, colors,
                         progress,
                         new HashSet<IGraphVertex<T>>());
                 }
@@ -50,7 +50,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Assign color to each new node.
         /// </summary>
-        private Dictionary<IGraphVertex<T>, C> canColor(IGraphVertex<T> vertex, C[] colors,
+        private Dictionary<IGraphVertex<T>, C> colorRecursively(IGraphVertex<T> vertex, C[] colors,
              Dictionary<IGraphVertex<T>, C> progress, HashSet<IGraphVertex<T>> visited)
         {
             foreach (var item in colors)
@@ -75,7 +75,7 @@ namespace Advanced.Algorithms.Graph
                         continue;
                     }
 
-                    canColor(edge.TargetVertex, colors, progress, visited);
+                    colorRecursively(edge.TargetVertex, colors, progress, visited);
                 }
             }
 

@@ -118,6 +118,7 @@
     <Compile Include="Distributed\LRUCache_Tests.cs" />
     <Compile Include="Geometry\BentleyOttmann_Tests.cs" />
     <Compile Include="Geometry\PointRotation_Tests.cs" />
+    <Compile Include="Graph\Matching\HopcroftKarp_Tests.cs" />
     <Compile Include="Graph\ShortestPath\AStar_Tests.cs" />
     <Compile Include="Graph\ShortestPath\TravellingSalesman_Tests.cs" />
     <Compile Include="Geometry\ClosestPointPair_Tests.cs" />
@@ -137,7 +138,6 @@
     <Compile Include="Graph\Flow\EdmondsKarp_Tests.cs" />
     <Compile Include="Graph\Flow\FordFulkerson_Tests.cs" />
     <Compile Include="Graph\Flow\PushRelabel_Tests.cs" />
-    <Compile Include="Graph\Matching\HopcroftKarp_Tests.cs" />
     <Compile Include="Graph\Matching\BiPartiteMatching_Tests.cs" />
     <Compile Include="Graph\MinimumSpanningTree\Prims_Test.cs" />
     <Compile Include="Graph\MinimumSpanningTree\Kruskals_Test.cs" />

@@ -1,6 +1,6 @@
 ### Note: 
 
-Please don't take effort to create pull requests for new algorithms/data structures. This is just a curiosity-driven personal hobby and [was originally not intended to be a library](https://github.com/justcoding121/Advanced-Algorithms/issues/2). Feel free fork and modify to fit your need if that's what you are looking for. You can, however, open issues/fix bugs with pull requests here, I would be happy to take a look when I get time
+Please don't take effort to create pull requests for new algorithms or data structures. This is just a curiosity-driven personal hobby and [was originally not intended to be a library](https://github.com/justcoding121/Advanced-Algorithms/issues/2). Feel free fork and modify to fit your need if that's what you are looking for. You can however open issues or fix bugs with pull requests, I would be happy to take a look when I get time
 
 ## Advanced Algorithms
 
@@ -16,7 +16,7 @@ For beta releases on [beta branch](https://github.com/justcoding121/Advanced-Alg
 
 Not a stable release yet.
 
-* [API documentation](https://justcoding121.github.io/Advanced-Algorithms/api/Advanced.Algorithms.DataStructures.html)
+* [API documentation](https://justcoding121.github.io/advanced-algorithms/docs/api/Advanced.Algorithms.DataStructures.html)
 
 Supports
 
@@ -41,8 +41,8 @@ Supports
 
 ### List
 
-- [X] Array list (dynamic array) ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/List/ArrayList.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Lists/ArrayList_Tests.cs))
-- [X] Skip list ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/List/SkipList.cs) | [Tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Lists/SkipList_Tests.cs))
+- [X] Array list (dynamic array) ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/List/ArrayList.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Lists/ArrayList_Tests.cs))
+- [X] Skip list ([implementation](https://github.com/justcoding121/Advanced-Algorithms/blob/master/src/Advanced.Algorithms/DataStructures/List/SkipList.cs) | [tests](https://github.com/justcoding121/Advanced-Algorithms/blob/master/tests/Advanced.Algorithms.Tests/DataStructures/Lists/SkipList_Tests.cs))
 
 ### HashSets
 

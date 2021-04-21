@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class OrderedDictionary&lt;K, V&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.40.1.0">
+    <meta name="generator" content="docfx 2.55.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -92,11 +92,40 @@ This may be better than regular Dictionary implementation which can give o(K) in
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">OrderedDictionary&lt;K, V&gt;</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.DataStructures.Foundation.html">Advanced.Algorithms.DataStructures.Foundation</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_DataStructures_Foundation_OrderedDictionary_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class OrderedDictionary&lt;K, V&gt; : IEnumerable&lt;KeyValuePair&lt;K, V&gt;&gt; where K : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class OrderedDictionary&lt;K, V&gt; : IEnumerable&lt;KeyValuePair&lt;K, V&gt;&gt;, IEnumerable where K : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -134,7 +163,7 @@ This may be better than regular Dictionary implementation which can give o(K) in
   
   
   <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedDictionary_2__ctor_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedDictionary`2.#ctor*"></a>
-  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedDictionary_2__ctor_IEnumerable_KeyValuePair__0__1___" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedDictionary`2.#ctor(IEnumerable{KeyValuePair{`0,`1}})">OrderedDictionary(IEnumerable&lt;KeyValuePair&lt;K, V&gt;&gt;)</h4>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedDictionary_2__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair__0__1___" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedDictionary`2.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}})">OrderedDictionary(IEnumerable&lt;KeyValuePair&lt;K, V&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Initialize the dictionary with given key value pairs sorted by key.
 Time complexity: log(n).</p>
 </div>
@@ -154,7 +183,7 @@ Time complexity: log(n).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;K, V&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;&gt;</td>
         <td><span class="parametername">sortedKeyValuePairs</span></td>
         <td></td>
       </tr>
@@ -304,7 +333,7 @@ Returns the position (index) of the key in sorted order of this OrderedDictionar
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;K, V&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -393,7 +422,7 @@ Time complexity: O(log(n)).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;K, V&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -418,7 +447,7 @@ Time complexity: O(log(n)).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerator</span>&lt;<span class="xref">KeyValuePair</span>&lt;K, V&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -443,7 +472,7 @@ Time complexity: O(log(n)).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerator</span>&lt;<span class="xref">KeyValuePair</span>&lt;K, V&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -512,7 +541,7 @@ Time complexity: O(log(n)).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;K, V&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -538,7 +567,7 @@ Time complexity: O(log(n)).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;K, V&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -582,7 +611,7 @@ Time complexity: O(log(n)).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;K, V&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;</td>
         <td><p>Null if the given key does&apos;nt exist or next key does&apos;nt exist.</p>
 </td>
       </tr>
@@ -627,7 +656,7 @@ Time complexity: O(log(n)).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;K, V&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;</td>
         <td><p>Null if the given key does&apos;nt exist or previous key does&apos;nt exist.</p>
 </td>
       </tr>
@@ -717,11 +746,45 @@ Time complexity: O(log(n)).</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;K, V&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;K, V&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Advanced_Algorithms_DataStructures_Foundation_OrderedDictionary_2_System_Collections_IEnumerable_GetEnumerator_" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedDictionary`2.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Advanced_Algorithms_DataStructures_Foundation_OrderedDictionary_2_System_Collections_IEnumerable_GetEnumerator" data-uid="Advanced.Algorithms.DataStructures.Foundation.OrderedDictionary`2.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           

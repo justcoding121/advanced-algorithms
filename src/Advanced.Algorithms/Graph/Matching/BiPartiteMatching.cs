@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.Graph
     /// <summary>
     ///  Compute Max BiParitite Edges using Ford-Fukerson algorithm.
     /// </summary>
-    public class BiPartiteMatching<T>
+    public class BiPartiteMatching<T> 
     {
         readonly IBiPartiteMatchOperators<T> @operator;
         public BiPartiteMatching(IBiPartiteMatchOperators<T> @operator)
@@ -118,7 +118,7 @@ namespace Advanced.Algorithms.Graph
     /// <summary>
     /// The match result object.
     /// </summary>
-    public class MatchEdge<T>
+    public class MatchEdge<T> 
     {
         public T Source { get; }
         public T Target { get; }
@@ -127,6 +127,28 @@ namespace Advanced.Algorithms.Graph
         {
             Source = source;
             Target = target;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(obj == this)
+            {
+                return true;
+            }
+
+            var tgt = obj as MatchEdge<T>;
+
+            if(tgt is null)
+            {
+                return false;
+            }
+
+            return tgt.Source.Equals(Source) && tgt.Target.Equals(Target);
+        }
+
+        public override int GetHashCode()
+        {
+            return new { Source, Target }.GetHashCode();
         }
     }
 

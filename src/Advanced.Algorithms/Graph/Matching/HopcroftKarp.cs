@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.Graph
         /// <summary>
         /// Returns a list of Max BiPartite Match Edges.
         /// </summary>
-        public List<MatchEdge<T>> GetMaxBiPartiteMatching(IGraph<T> graph)
+        public HashSet<MatchEdge<T>> GetMaxBiPartiteMatching(IGraph<T> graph)
         {
             //check if the graph is BiPartite by coloring 2 colors
             var mColorer = new MColorer<T, int>();
@@ -25,182 +25,195 @@ namespace Advanced.Algorithms.Graph
             }
 
             return getMaxBiPartiteMatching(graph, colorResult.Partitions);
-
         }
 
         /// <summary>
         /// Get Max Match from Given BiPartitioned Graph.
         /// </summary>
-        private List<MatchEdge<T>> getMaxBiPartiteMatching(IGraph<T> graph,
+        private HashSet<MatchEdge<T>> getMaxBiPartiteMatching(IGraph<T> graph,
             Dictionary<int, List<T>> partitions)
         {
-            var leftMatch = new Dictionary<T, T>();
-            var rightMatch = new Dictionary<T, T>();
+            var matches = new HashSet<MatchEdge<T>>();
 
+            var leftToRightMatchEdges = new Dictionary<T, T>();
+            var rightToLeftMatchEdges = new Dictionary<T, T>();
+
+            var freeVerticesOnRight = bfs(graph, partitions, leftToRightMatchEdges, rightToLeftMatchEdges);
             //while there is an augmenting Path
-            while (bfs(graph, partitions, leftMatch, rightMatch))
+            while (freeVerticesOnRight.Count > 0)
             {
-                foreach (var vertex in partitions[2])
+                var visited = new HashSet<T>();
+                var paths = new HashSet<MatchEdge<T>>();
+
+                foreach (var vertex in freeVerticesOnRight)
                 {
-                    if (!rightMatch.ContainsKey(vertex))
+                    var path = dfs(graph,
+                      leftToRightMatchEdges, rightToLeftMatchEdges, vertex, default, visited, true);
+
+                    if (path != null)
                     {
-                        var visited = new HashSet<T> { vertex };
-
-                        var pathResult = dfs(graph.GetVertex(vertex),
-                          leftMatch, rightMatch, visited, true);
-
-                        //XOR remaining done here (partially done inside DFS)
-                        foreach (var pair in pathResult)
-                        {
-                            if (pair.isRight)
-                            {
-                                rightMatch.Add(pair.A, pair.B);
-                                leftMatch.Add(pair.B, pair.A);
-                            }
-                            else
-                            {
-                                leftMatch.Add(pair.A, pair.B);
-                                rightMatch.Add(pair.B, pair.A);
-                            }
-                        }
+                        union(paths, path);
                     }
-
                 }
 
+                xor(matches, paths, leftToRightMatchEdges, rightToLeftMatchEdges);
+
+                freeVerticesOnRight = bfs(graph, partitions, leftToRightMatchEdges, rightToLeftMatchEdges);
             }
 
-            //now gather all 
-            var result = new List<MatchEdge<T>>();
-
-            foreach (var item in leftMatch)
-            {
-                result.Add(new MatchEdge<T>(item.Key, item.Value));
-            }
-            return result;
+            return matches;
         }
 
         /// <summary>
-        /// Trace Path for DFS
-        /// </summary>
-        private class PathResult
-        {
-            public T A { get; }
-            public T B { get; }
-            public bool isRight { get; }
-
-            public PathResult(T a, T b, bool isRight)
-            {
-                A = a;
-                B = b;
-                this.isRight = isRight;
-            }
-        }
-
-        private List<PathResult> dfs(IGraphVertex<T> current,
-            Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch,
-            HashSet<T> visitPath,
-            bool isRightSide)
-        {
-            if (!leftMatch.ContainsKey(current.Key)
-                && !isRightSide)
-            {
-                return new List<PathResult>();
-            }
-
-            foreach (var edge in current.Edges)
-            {
-                //do not re-visit ancestors in current DFS tree
-                if (visitPath.Contains(edge.TargetVertexKey))
-                {
-                    continue;
-                }
-
-                if (!visitPath.Contains(edge.TargetVertexKey))
-                {
-                    visitPath.Add(edge.TargetVertexKey);
-                }
-                var pathResult = dfs(edge.TargetVertex, leftMatch, rightMatch, visitPath, !isRightSide);
-                if (pathResult == null)
-                {
-                    continue;
-                }
-
-                //XOR (partially done here by removing same edges)
-                //other part of XOR (adding new ones) is done after DFS method is finished
-                if (leftMatch.ContainsKey(current.Key)
-                    && leftMatch[current.Key].Equals(edge.TargetVertexKey))
-                {
-                    leftMatch.Remove(current.Key);
-                    rightMatch.Remove(edge.TargetVertexKey);
-                }
-                else if (rightMatch.ContainsKey(current.Key)
-                         && rightMatch[current.Key].Equals(edge.TargetVertexKey))
-                {
-                    rightMatch.Remove(current.Key);
-                    leftMatch.Remove(edge.TargetVertexKey);
-                }
-                else
-                {
-                    pathResult.Add(new PathResult(current.Key, edge.TargetVertexKey, isRightSide));
-                }
-
-                return pathResult;
-
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Returns true if there is an augmenting Path from left to right.
+        /// Returns list of free vertices on right if there is an augmenting Path from left to right.
         /// An augmenting path is a path which starts from a free vertex 
-        /// and ends at a free vertex via Matched/UnMatched edges alternatively.
+        /// and ends at a free vertex via UnMatched (left -> right) and Matched (right -> left) edges alternatively.
         /// </summary>
-        private bool bfs(IGraph<T> graph,
+        private List<T> bfs(IGraph<T> graph,
             Dictionary<int, List<T>> partitions,
-            Dictionary<T, T> leftMatch, Dictionary<T, T> rightMatch)
+            Dictionary<T, T> leftToRightMatchEdges, Dictionary<T, T> rightToLeftMatchEdges)
         {
             var queue = new Queue<T>();
             var visited = new HashSet<T>();
 
-            var leftGroup = new HashSet<T>();
+            var freeVerticesOnRight = new List<T>();
 
             foreach (var vertex in partitions[1])
             {
-                leftGroup.Add(vertex);
-                //if vertex is free
-                if (!leftMatch.ContainsKey(vertex))
+                //if this left vertex is free
+                if (!leftToRightMatchEdges.ContainsKey(vertex))
                 {
                     queue.Enqueue(vertex);
                     visited.Add(vertex);
+
+                    while (queue.Count > 0)
+                    {
+                        var current = queue.Dequeue();
+
+                        //unmatched edges left to right
+                        foreach (var leftToRightEdge in graph.GetVertex(current).Edges)
+                        {
+                            if (visited.Contains(leftToRightEdge.TargetVertexKey))
+                            {
+                                continue;
+                            }
+
+                            //checking if this right vertex is free
+                            if (!rightToLeftMatchEdges.ContainsKey(leftToRightEdge.TargetVertex.Key))
+                            {
+                                freeVerticesOnRight.Add(leftToRightEdge.TargetVertex.Key);
+                            }
+                            else
+                            {
+                                foreach (var rightToLeftEdge in leftToRightEdge.TargetVertex.Edges)
+                                {
+                                    //matched edge right to left
+                                    if (leftToRightMatchEdges.ContainsKey(rightToLeftEdge.TargetVertexKey)
+                                        && !visited.Contains(rightToLeftEdge.TargetVertexKey))
+                                    {
+                                        queue.Enqueue(rightToLeftEdge.TargetVertexKey);
+                                    }
+                                }
+                            }
+
+                            visited.Add(leftToRightEdge.TargetVertexKey);
+                        }
+                    }
                 }
             }
 
-            while (queue.Count > 0)
+            return freeVerticesOnRight;
+        }
+
+        /// <summary>
+        /// Find an augmenting path that start from a given free vertex on right and ending
+        /// at a free vertex on left. Return the matching edges along that path.
+        /// </summary>
+        private HashSet<MatchEdge<T>> dfs(IGraph<T> graph,
+            Dictionary<T, T> leftToRightMatchEdges,
+            Dictionary<T, T> rightToLeftMatchEdges,
+            T current,
+            T previous,
+            HashSet<T> visited,
+            bool currentIsRight)
+        {
+            var currentIsLeft = !currentIsRight;
+
+            if (visited.Contains(current))
             {
-                var current = queue.Dequeue();
+                return null;
+            }
 
-                //if vertex is free
-                if (!leftGroup.Contains(current) &&
-                    !rightMatch.ContainsKey(current))
-                {
-                    return true;
-                }
+            //free vertex on left found!
+            if (currentIsLeft && !leftToRightMatchEdges.ContainsKey(current))
+            {
+                visited.Add(current);
+                return new HashSet<MatchEdge<T>>() { new MatchEdge<T>(current, previous) };
+            }
 
+            //right to left should be unmatched edges
+            if (currentIsRight && !rightToLeftMatchEdges.ContainsKey(current))
+            {
                 foreach (var edge in graph.GetVertex(current).Edges)
                 {
-                    if (visited.Contains(edge.TargetVertexKey))
+                    var result = dfs(graph, leftToRightMatchEdges, rightToLeftMatchEdges, edge.TargetVertexKey, current, visited, !currentIsRight);
+                    if (result != null)
                     {
-                        continue;
+                        result.Add(new MatchEdge<T>(edge.TargetVertexKey, current));
+                        visited.Add(current);
+                        return result;
                     }
-
-                    queue.Enqueue(edge.TargetVertexKey);
-                    visited.Add(edge.TargetVertexKey);
                 }
-
             }
 
-            return false;
+            //left to right should be matched edges
+            if (currentIsLeft && leftToRightMatchEdges.ContainsKey(current))
+            {
+                foreach (var edge in graph.GetVertex(current).Edges)
+                {
+                    var result = dfs(graph, leftToRightMatchEdges, rightToLeftMatchEdges, edge.TargetVertexKey, current, visited, !currentIsRight);
+                    if (result != null)
+                    {
+                        result.Add(new MatchEdge<T>(current, edge.TargetVertexKey));
+                        visited.Add(current);
+                        return result;
+                    }
+                }
+            }
+
+            return null;
         }
+        
+        private void union(HashSet<MatchEdge<T>> paths, HashSet<MatchEdge<T>> path)
+        {
+            foreach (var item in path)
+            {
+                if (!paths.Contains(item))
+                {
+                    paths.Add(item);
+                }
+            }
+        }
+
+        private void xor(HashSet<MatchEdge<T>> matches, HashSet<MatchEdge<T>> paths,
+            Dictionary<T, T> leftToRightMatchEdges, Dictionary<T, T> rightToLeftMatchEdges)
+        {
+            foreach (var item in paths)
+            {
+                if (matches.Contains(item))
+                {
+                    matches.Remove(item);
+                    leftToRightMatchEdges.Remove(item.Source);
+                    rightToLeftMatchEdges.Remove(item.Target);
+                }
+                else
+                {
+                    matches.Add(item);
+                    leftToRightMatchEdges.Add(item.Source, item.Target);
+                    rightToLeftMatchEdges.Add(item.Target, item.Source);
+                }
+            }
+        }
+
     }
 }
