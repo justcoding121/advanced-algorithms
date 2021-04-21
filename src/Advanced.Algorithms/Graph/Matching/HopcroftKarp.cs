@@ -127,7 +127,8 @@ namespace Advanced.Algorithms.Graph
 
         /// <summary>
         /// Find an augmenting path that start from a given free vertex on right and ending
-        /// at a free vertex on left. Return the matching edges along that path.
+        /// at a free vertex on left, via Matched (right -> left) and UnMatched (left -> right) edges alternatively.  
+        /// Return the matching edges along that path.
         /// </summary>
         private HashSet<MatchEdge<T>> dfs(IGraph<T> graph,
             Dictionary<T, T> leftToRightMatchEdges,
