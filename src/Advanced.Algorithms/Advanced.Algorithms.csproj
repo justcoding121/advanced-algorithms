@@ -8,7 +8,7 @@
     <AssemblyOriginatorKeyFile>StrongNameKey.snk</AssemblyOriginatorKeyFile>
     <DelaySign>False</DelaySign>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <LangVersion>default</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
