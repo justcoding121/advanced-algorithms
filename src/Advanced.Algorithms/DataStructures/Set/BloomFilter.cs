@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures
 {
@@ -10,12 +11,20 @@ namespace Advanced.Algorithms.DataStructures
     {
         private readonly BitArray filter;
 
+        private readonly int numberOfHashFunctions;
+
         /// <summary>
         /// Higher the size lower the collision and 
         /// failure probablity.
         /// </summary>
-        public BloomFilter(int size)
+        public BloomFilter(int size, int numberOfHashFunctions = 2)
         {
+            if (size <= numberOfHashFunctions)
+            {
+                throw new ArgumentException("size cannot be less than or equal to numberOfHashFunctions.");
+            }
+
+            this.numberOfHashFunctions = numberOfHashFunctions;
             filter = new BitArray(size);
         }
 
@@ -24,13 +33,9 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public void AddKey(T key)
         {
-            var hashCode = key.GetHashCode();
-
-            //set 8 consecutive bits (a byte)
-            for (var i = 0; i < 8; i++)
+            foreach (var hash in getHashes(key))
             {
-                var index = Math.Abs(hashCode + i) % filter.Length;
-                filter[index] = true;
+                filter[hash % filter.Length] = true;
             }
         }
 
@@ -39,21 +44,24 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         public bool KeyExists(T key)
         {
-            var hashCode = key.GetHashCode();
-
-
-            //set 8 consecutive bits (a byte)
-            for (var i = 0; i < 8; i++)
+            foreach (var hash in getHashes(key))
             {
-                var index = Math.Abs(hashCode + i) % filter.Length;
-
-                if (filter[index] == false)
+                if (filter[hash % filter.Length] == false)
                 {
                     return false;
                 }
             }
 
             return true;
+        }
+
+        private IEnumerable<int> getHashes(T key)
+        {
+            for (var i = 1; i <= numberOfHashFunctions; i++)
+            {
+                var obj = new { Key = key, InitialValue = i };
+                yield return Math.Abs(obj.GetHashCode());
+            }
         }
     }
 }
