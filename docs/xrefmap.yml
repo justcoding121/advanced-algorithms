@@ -1015,14 +1015,14 @@ references:
   fullName.vb: Advanced.Algorithms.DataStructures.BloomFilter(Of T)
   nameWithType: BloomFilter<T>
   nameWithType.vb: BloomFilter(Of T)
-- uid: Advanced.Algorithms.DataStructures.BloomFilter`1.#ctor(System.Int32)
-  name: BloomFilter(Int32)
-  href: api/Advanced.Algorithms.DataStructures.BloomFilter-1.html#Advanced_Algorithms_DataStructures_BloomFilter_1__ctor_System_Int32_
-  commentId: M:Advanced.Algorithms.DataStructures.BloomFilter`1.#ctor(System.Int32)
-  fullName: Advanced.Algorithms.DataStructures.BloomFilter<T>.BloomFilter(System.Int32)
-  fullName.vb: Advanced.Algorithms.DataStructures.BloomFilter(Of T).BloomFilter(System.Int32)
-  nameWithType: BloomFilter<T>.BloomFilter(Int32)
-  nameWithType.vb: BloomFilter(Of T).BloomFilter(Int32)
+- uid: Advanced.Algorithms.DataStructures.BloomFilter`1.#ctor(System.Int32,System.Int32)
+  name: BloomFilter(Int32, Int32)
+  href: api/Advanced.Algorithms.DataStructures.BloomFilter-1.html#Advanced_Algorithms_DataStructures_BloomFilter_1__ctor_System_Int32_System_Int32_
+  commentId: M:Advanced.Algorithms.DataStructures.BloomFilter`1.#ctor(System.Int32,System.Int32)
+  fullName: Advanced.Algorithms.DataStructures.BloomFilter<T>.BloomFilter(System.Int32, System.Int32)
+  fullName.vb: Advanced.Algorithms.DataStructures.BloomFilter(Of T).BloomFilter(System.Int32, System.Int32)
+  nameWithType: BloomFilter<T>.BloomFilter(Int32, Int32)
+  nameWithType.vb: BloomFilter(Of T).BloomFilter(Int32, Int32)
 - uid: Advanced.Algorithms.DataStructures.BloomFilter`1.#ctor*
   name: BloomFilter
   href: api/Advanced.Algorithms.DataStructures.BloomFilter-1.html#Advanced_Algorithms_DataStructures_BloomFilter_1__ctor_

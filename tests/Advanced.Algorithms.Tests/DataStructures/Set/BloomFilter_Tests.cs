@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void BloomFilter_Accuracy_Test()
         {
-            var bloomFilter = new BloomFilter<string>(10);
+            var bloomFilter = new BloomFilter<string>(10000);
 
             bloomFilter.AddKey("foo");
             bloomFilter.AddKey("bar");
