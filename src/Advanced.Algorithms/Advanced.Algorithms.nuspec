@@ -18,7 +18,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\$configuration$\net45\Advanced.Algorithms.dll" target="lib\net45"  />
+    <file src="bin\$configuration$\net451\Advanced.Algorithms.dll" target="lib\net451"  />
     <file src="bin\$configuration$\netstandard1.0\Advanced.Algorithms.dll" target="lib\netstandard1.0"  />
   </files>
 </package>
