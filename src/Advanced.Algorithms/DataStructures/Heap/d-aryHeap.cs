@@ -78,23 +78,18 @@ namespace Advanced.Algorithms.DataStructures
         /// </summary>
         private void bulkInitRecursive(int i, T[] initial)
         {
-            while (true)
+            var parent = i;
+            var minMax = findMinMaxChildIndex(i, initial);
+
+            if (minMax != -1 && comparer.Compare(initial[minMax], initial[parent]) < 0)
             {
-                var parent = i;
-                var minMax = findMinMaxChildIndex(i, initial);
+                var temp = initial[minMax];
+                initial[minMax] = initial[parent];
+                initial[parent] = temp;
 
-                if (minMax != -1 && comparer.Compare(initial[minMax], initial[parent]) < 0)
-                {
-                    var temp = initial[minMax];
-                    initial[minMax] = initial[parent];
-                    initial[parent] = temp;
-
-                    i = minMax;
-                    continue;
-                }
-
-                break;
+                bulkInitRecursive(minMax, initial);
             }
+
         }
 
 
