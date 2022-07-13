@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void Dijikstra_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<char, int>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
