@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Combinatorics
 {
     /// <summary>
-    /// Combinations computer.
+    /// Combination generator (nCr).
     /// </summary>
     public class Combination
     {
-        public static List<List<T>> Find<T>(List<T> input, int r, bool withRepetition)
+        public static List<List<T>> Find<T>(List<T> n, int r, bool withRepetition = false)
         {
             var result = new List<List<T>>();
 
-            recurse(input, r, withRepetition, 0, new List<T>(), new HashSet<int>(), result);
+            recurse(n, r, withRepetition, 0, new List<T>(), new HashSet<int>(), result);
 
             return result;
         }

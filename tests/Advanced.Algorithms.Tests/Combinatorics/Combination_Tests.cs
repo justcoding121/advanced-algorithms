@@ -14,7 +14,7 @@ namespace Advanced.Algorithms.Tests.Combinatorics
 
         //for verification
         static readonly Func<int, int, int> combination = (int n, int r)
-            => n == 0 || r == 0 ? 0 : factorial(n) / (factorial(r) * factorial(n - r));
+            => n == 0 ? 0 : factorial(n) / (factorial(r) * factorial(n - r));
 
         [TestMethod]
         public void Combination_Without_Repetitions_Smoke_Test()
@@ -30,6 +30,14 @@ namespace Advanced.Algorithms.Tests.Combinatorics
             input = "monster".ToCharArray().ToList();
             combinations = Combination.Find<char>(input, 4, false);
             Assert.AreEqual(combination(input.Count, 4), combinations.Count);
+
+            input = "pen".ToCharArray().ToList();
+            combinations = Combination.Find<char>(input, 0, false);
+            Assert.AreEqual(combination(input.Count, 0), combinations.Count);
+
+            input = "pen".ToCharArray().ToList();
+            combinations = Combination.Find<char>(input, input.Count, false);
+            Assert.AreEqual(combination(input.Count, input.Count), combinations.Count);
         }
 
 
@@ -47,6 +55,14 @@ namespace Advanced.Algorithms.Tests.Combinatorics
             input = "scan".ToCharArray().ToList();
             combinations = Combination.Find<char>(input, 3, true);
             Assert.AreEqual(combination(input.Count + 3 - 1, 3), combinations.Count);
+
+            input = "scan".ToCharArray().ToList();
+            combinations = Combination.Find<char>(input, 0, true);
+            Assert.AreEqual(combination(input.Count + 0 - 1, 0), combinations.Count);
+
+            input = "scan".ToCharArray().ToList();
+            combinations = Combination.Find<char>(input, input.Count, true);
+            Assert.AreEqual(combination(input.Count + input.Count - 1, input.Count), combinations.Count);
         }
 
     }

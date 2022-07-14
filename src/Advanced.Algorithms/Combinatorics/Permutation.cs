@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Combinatorics
 {
     /// <summary>
-    /// Permutation computer.
+    /// Permutation generator (nPr).
     /// </summary>
     public class Permutation
     {
-        public static List<List<T>> Find<T>(List<T> input, int r, bool withRepetition = false)
+        public static List<List<T>> Find<T>(List<T> n, int r, bool withRepetition = false)
         {
             var result = new List<List<T>>();
 
-            recurse(input, r, withRepetition, new List<T>(), new HashSet<int>(), result);
+            recurse(n, r, withRepetition, new List<T>(), new HashSet<int>(), result);
 
             return result;
         }

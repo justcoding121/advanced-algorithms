@@ -3,7 +3,7 @@
 namespace Advanced.Algorithms.Combinatorics
 {
     /// <summary>
-    /// Subset computer.
+    /// Subset generator.
     /// </summary>
     public class Subset
     {
@@ -32,7 +32,7 @@ namespace Advanced.Algorithms.Combinatorics
                 prefix.Add(input[j]);
                 prefixIndices.Add(j);
 
-                recurse(input, j, prefix, prefixIndices, result);
+                recurse(input, j + 1, prefix, prefixIndices, result);
 
                 prefix.RemoveAt(prefix.Count - 1);
                 prefixIndices.Remove(j);
