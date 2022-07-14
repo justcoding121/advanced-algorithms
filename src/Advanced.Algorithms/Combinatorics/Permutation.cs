@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.Combinatorics
             return result;
         }
 
-        private static void recurse<T>(List<T> input, int r, bool withRepetition,
+        private static void recurse<T>(List<T> n, int r, bool withRepetition,
             List<T> prefix, HashSet<int> prefixIndices,
             List<List<T>> result)
         {
@@ -27,17 +27,17 @@ namespace Advanced.Algorithms.Combinatorics
                 return;
             }
 
-            for (int j = 0; j < input.Count; j++)
+            for (int j = 0; j < n.Count; j++)
             {
                 if (prefixIndices.Contains(j) && !withRepetition)
                 {
                     continue;
                 }
 
-                prefix.Add(input[j]);
+                prefix.Add(n[j]);
                 prefixIndices.Add(j);
 
-                recurse(input, r, withRepetition, prefix, prefixIndices, result);
+                recurse(n, r, withRepetition, prefix, prefixIndices, result);
 
                 prefix.RemoveAt(prefix.Count - 1);
                 prefixIndices.Remove(j);
