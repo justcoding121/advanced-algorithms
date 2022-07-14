@@ -22,22 +22,22 @@
   "api/Advanced.Algorithms.Combinatorics.Combination.html": {
     "href": "api/Advanced.Algorithms.Combinatorics.Combination.html",
     "title": "Class Combination | Advanced Algorithms",
-    "keywords": "Class Combination Combinations computer. Inheritance Object Combination Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Combinatorics Assembly : Advanced.Algorithms.dll Syntax public class Combination Methods Find<T>(List<T>, Int32, Boolean) Declaration public static List<List<T>> Find<T>(List<T> input, int r, bool withRepetition) Parameters Type Name Description List <T> input Int32 r Boolean withRepetition Returns Type Description List < List <T>> Type Parameters Name Description T"
+    "keywords": "Class Combination Combination generator (nCr). Inheritance Object Combination Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Combinatorics Assembly : Advanced.Algorithms.dll Syntax public class Combination Methods Find<T>(List<T>, Int32, Boolean) Declaration public static List<List<T>> Find<T>(List<T> n, int r, bool withRepetition = false) Parameters Type Name Description List <T> n Int32 r Boolean withRepetition Returns Type Description List < List <T>> Type Parameters Name Description T"
   },
   "api/Advanced.Algorithms.Combinatorics.html": {
     "href": "api/Advanced.Algorithms.Combinatorics.html",
     "title": "Namespace Advanced.Algorithms.Combinatorics | Advanced Algorithms",
-    "keywords": "Namespace Advanced.Algorithms.Combinatorics Classes Combination Combinations computer. Permutation Permutation computer. Subset Subset computer."
+    "keywords": "Namespace Advanced.Algorithms.Combinatorics Classes Combination Combination generator (nCr). Permutation Permutation generator (nPr). Subset Subset generator."
   },
   "api/Advanced.Algorithms.Combinatorics.Permutation.html": {
     "href": "api/Advanced.Algorithms.Combinatorics.Permutation.html",
     "title": "Class Permutation | Advanced Algorithms",
-    "keywords": "Class Permutation Permutation computer. Inheritance Object Permutation Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Combinatorics Assembly : Advanced.Algorithms.dll Syntax public class Permutation Methods Find<T>(List<T>, Int32, Boolean) Declaration public static List<List<T>> Find<T>(List<T> input, int r, bool withRepetition = false) Parameters Type Name Description List <T> input Int32 r Boolean withRepetition Returns Type Description List < List <T>> Type Parameters Name Description T"
+    "keywords": "Class Permutation Permutation generator (nPr). Inheritance Object Permutation Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Combinatorics Assembly : Advanced.Algorithms.dll Syntax public class Permutation Methods Find<T>(List<T>, Int32, Boolean) Declaration public static List<List<T>> Find<T>(List<T> n, int r, bool withRepetition = false) Parameters Type Name Description List <T> n Int32 r Boolean withRepetition Returns Type Description List < List <T>> Type Parameters Name Description T"
   },
   "api/Advanced.Algorithms.Combinatorics.Subset.html": {
     "href": "api/Advanced.Algorithms.Combinatorics.Subset.html",
     "title": "Class Subset | Advanced Algorithms",
-    "keywords": "Class Subset Subset computer. Inheritance Object Subset Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Combinatorics Assembly : Advanced.Algorithms.dll Syntax public class Subset Methods Find<T>(List<T>) Declaration public static List<List<T>> Find<T>(List<T> input) Parameters Type Name Description List <T> input Returns Type Description List < List <T>> Type Parameters Name Description T"
+    "keywords": "Class Subset Subset generator. Inheritance Object Subset Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : Advanced.Algorithms.Combinatorics Assembly : Advanced.Algorithms.dll Syntax public class Subset Methods Find<T>(List<T>) Declaration public static List<List<T>> Find<T>(List<T> input) Parameters Type Name Description List <T> input Returns Type Description List < List <T>> Type Parameters Name Description T"
   },
   "api/Advanced.Algorithms.Compression.html": {
     "href": "api/Advanced.Algorithms.Compression.html",
