@@ -11,23 +11,24 @@ namespace Advanced.Algorithms.Sorting
         /// <summary>
         /// Time complexity: O(n^2).
         /// </summary>
-        public static T[] Sort(T[] array, SortDirection sortDirection = SortDirection.Ascending)
+        public static T[] Sort(T[] array)
         {
-            var comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
-
-            for (int i = 0; i < array.Length - 1; i++)
+            
+            for (int i = 1; i < array.Length; i++)
             {
-                for (int j = i + 1; j > 0; j--)
+                var key=array[i];
+                var flag=0;
+                for (int j = i - 1; j >= 0&&flag!=1;)
                 {
-                    if (comparer.Compare(array[j], array[j - 1]) < 0)
+                    if (key<array[j])
                     {
-                        var temp = array[j - 1];
-                        array[j - 1] = array[j];
-                        array[j] = temp;
+                         array[j + 1] = array[j];
+                         j--;
+                         array[j + 1] = key;
                     }
                     else
                     {
-                        break;
+                       flag=1;
                     }
                 }
             }
