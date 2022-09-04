@@ -5,6 +5,7 @@ namespace Advanced.Algorithms.Binary
 {
     /// <summary>
     /// Base conversion implementation.
+    /// added another line of comment
     /// </summary>
     public class BaseConversion
     {
