@@ -6,7 +6,6 @@ namespace Advanced.Algorithms.Tests
     [TestClass]
     public class CircularQueue_Tests
     {
-
         [TestMethod]
         public void CircularQueue_Test()
         {
@@ -55,7 +54,5 @@ namespace Advanced.Algorithms.Tests
             Assert.AreEqual(Queue.Count, 1);
             Assert.AreEqual(Queue.Dequeue(), 2);
         }
-
-
     }
 }

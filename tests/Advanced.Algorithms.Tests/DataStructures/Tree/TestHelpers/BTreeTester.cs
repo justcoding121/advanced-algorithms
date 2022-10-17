@@ -1,12 +1,12 @@
-﻿using Advanced.Algorithms.DataStructures;
-using System;
+﻿using System;
+using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     internal static class BTreeTester
     {
         /// <summary>
-        /// find max height by recursively visiting children
+        ///     find max height by recursively visiting children
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
@@ -14,19 +14,15 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var max = 0;
 
-            for (int i = 0; i <= node.KeyCount; i++)
-            {
+            for (var i = 0; i <= node.KeyCount; i++)
                 if (node.GetChildren()[i] != null)
-                {
                     max = Math.Max(GetMaxHeight(node.GetChildren()[i]) + 1, max);
-                }
-            }
 
             return max;
         }
 
         /// <summary>
-        /// find max height by recursively visiting children
+        ///     find max height by recursively visiting children
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
@@ -34,18 +30,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var min = int.MaxValue;
 
-            if (node.GetChildren()[0] == null)
-            {
-                min = 0;
-            }
+            if (node.GetChildren()[0] == null) min = 0;
 
-            for (int i = 0; i <= node.KeyCount; i++)
-            {
+            for (var i = 0; i <= node.KeyCount; i++)
                 if (node.GetChildren()[i] != null)
-                {
                     min = Math.Min(GetMinHeight(node.GetChildren()[i]) + 1, min);
-                }
-            }
 
             return min;
         }

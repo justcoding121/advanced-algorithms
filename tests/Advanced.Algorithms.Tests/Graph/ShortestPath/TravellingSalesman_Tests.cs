@@ -1,11 +1,12 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
 {
     /// <summary>
-    /// Problem details below
-    /// https://en.wikipedia.org/wiki/Travelling_salesman_problem
+    ///     Problem details below
+    ///     https://en.wikipedia.org/wiki/Travelling_salesman_problem
     /// </summary>
     [TestClass]
     public class TravellingSalesman_Tests
@@ -13,7 +14,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void TravellingSalesman_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<int, int>();
+            var graph = new WeightedDiGraph<int, int>();
 
             graph.AddVertex(0);
             graph.AddVertex(1);
@@ -43,7 +44,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void TravellingSalesman_AdjacencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<int, int>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<int, int>();
 
             graph.AddVertex(0);
             graph.AddVertex(1);
@@ -72,27 +73,13 @@ namespace Advanced.Algorithms.Tests.Graph
     }
 
     /// <summary>
-    /// generic operations for int type
+    ///     generic operations for int type
     /// </summary>
     public class TSPShortestPathOperators : IShortestPathOperators<int>
     {
-        public int DefaultValue
-        {
-            get
-            {
-                return 0;
-            }
+        public int DefaultValue => 0;
 
-
-        }
-
-        public int MaxValue
-        {
-            get
-            {
-                return int.MaxValue;
-            }
-        }
+        public int MaxValue => int.MaxValue;
 
         public int Sum(int a, int b)
         {
@@ -100,5 +87,3 @@ namespace Advanced.Algorithms.Tests.Graph
         }
     }
 }
-
-

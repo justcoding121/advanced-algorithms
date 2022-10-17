@@ -2,45 +2,40 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Foundation
+namespace Advanced.Algorithms.DataStructures.Foundation;
+
+internal class LinkedListStack<T> : IStack<T>
 {
-    internal class LinkedListStack<T> : IStack<T>
+    private readonly SinglyLinkedList<T> list = new();
+    public int Count { get; private set; }
+
+    public T Pop()
     {
-        public int Count { get; private set; }
+        if (Count == 0) throw new Exception("Empty stack");
 
-        private readonly SinglyLinkedList<T> list = new SinglyLinkedList<T>();
+        var result = list.DeleteFirst();
+        Count--;
+        return result;
+    }
 
-        public T Pop()
-        {
-            if (Count == 0)
-            {
-                throw new Exception("Empty stack");
-            }
+    public void Push(T item)
+    {
+        list.InsertFirst(item);
+        Count++;
+    }
 
-            var result = list.DeleteFirst();
-            Count--;
-            return result;
-        }
+    public T Peek()
+    {
+        return Count == 0 ? default : list.Head.Data;
+    }
 
-        public void Push(T item)
-        {
-            list.InsertFirst(item);
-            Count++;
-        }
+    public IEnumerator<T> GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 
-        public T Peek()
-        {
-            return Count == 0 ? default(T) : list.Head.Data;
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return list.GetEnumerator();
-        }
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return list.GetEnumerator();
     }
 }

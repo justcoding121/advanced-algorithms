@@ -1,8 +1,8 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Advanced.Algorithms.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -15,33 +15,33 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var tree = new IntervalTree<int>(1);
 
-            tree.Insert(new int[] { 1 }, new int[] { 2 });
-            tree.Insert(new int[] { 3 }, new int[] { 4 });
-            tree.Insert(new int[] { 5 }, new int[] { 6 });
-            tree.Insert(new int[] { 7 }, new int[] { 8 });
-            tree.Insert(new int[] { 9 }, new int[] { 10 });
-            tree.Insert(new int[] { 11 }, new int[] { 12 });
+            tree.Insert(new[] { 1 }, new[] { 2 });
+            tree.Insert(new[] { 3 }, new[] { 4 });
+            tree.Insert(new[] { 5 }, new[] { 6 });
+            tree.Insert(new[] { 7 }, new[] { 8 });
+            tree.Insert(new[] { 9 }, new[] { 10 });
+            tree.Insert(new[] { 11 }, new[] { 12 });
 
             //IEnumerable test
             Assert.AreEqual(tree.Count, tree.Count());
 
             Assert.AreEqual(tree.Count, 6);
 
-            Assert.IsTrue(tree.DoOverlap(new int[] { 1 }, new int[] { 10 }));
-            tree.Delete(new int[] { 1 }, new int[] { 2 });
-            Assert.IsFalse(tree.DoOverlap(new int[] { 1 }, new int[] { 2 }));
+            Assert.IsTrue(tree.DoOverlap(new[] { 1 }, new[] { 10 }));
+            tree.Delete(new[] { 1 }, new[] { 2 });
+            Assert.IsFalse(tree.DoOverlap(new[] { 1 }, new[] { 2 }));
 
-            tree.Delete(new int[] { 3 }, new int[] { 4 });
-            tree.Delete(new int[] { 5 }, new int[] { 6 });
-            tree.Delete(new int[] { 7 }, new int[] { 8 });
-            tree.Delete(new int[] { 9 }, new int[] { 10 });
+            tree.Delete(new[] { 3 }, new[] { 4 });
+            tree.Delete(new[] { 5 }, new[] { 6 });
+            tree.Delete(new[] { 7 }, new[] { 8 });
+            tree.Delete(new[] { 9 }, new[] { 10 });
 
             //IEnumerable test
             Assert.AreEqual(tree.Count, tree.Count());
 
-            Assert.IsTrue(tree.DoOverlap(new int[] { 11 }, new int[] { 12 }));
-            tree.Delete(new int[] { 11 }, new int[] { 12 });
-            Assert.IsFalse(tree.DoOverlap(new int[] { 11 }, new int[] { 12 }));
+            Assert.IsTrue(tree.DoOverlap(new[] { 11 }, new[] { 12 }));
+            tree.Delete(new[] { 11 }, new[] { 12 });
+            Assert.IsFalse(tree.DoOverlap(new[] { 11 }, new[] { 12 }));
 
 
             Assert.AreEqual(tree.Count, 0);
@@ -59,17 +59,14 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var intervals = new HashSet<Tuple<int[], int[]>>(new IntervalComparer<int>());
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 var start = i - 1000 + rnd.Next(1, 10);
-                var interval = new Tuple<int[], int[]>(new int[] { start }, new int[] { start + rnd.Next(1, 10) });
+                var interval = new Tuple<int[], int[]>(new[] { start }, new[] { start + rnd.Next(1, 10) });
                 intervals.Add(interval);
             }
 
-            foreach (var interval in intervals)
-            {
-                tree.Insert(interval.Item1, interval.Item2);
-            }
+            foreach (var interval in intervals) tree.Insert(interval.Item1, interval.Item2);
 
             //IEnumerable test
             Assert.AreEqual(tree.Count, tree.Count());
@@ -77,7 +74,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             foreach (var interval in intervals)
             {
                 Assert.IsTrue(tree.DoOverlap(interval.Item1,
-                                                       interval.Item2));
+                    interval.Item2));
                 var testStart = cloneArray(interval.Item1);
                 var testEnd = cloneArray(interval.Item2);
 
@@ -85,7 +82,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 testEnd[0] = testEnd[0] + rnd.Next(1, 5);
 
                 Assert.IsTrue(tree.DoOverlap(testStart,
-                        testEnd));
+                    testEnd));
             }
 
             //IEnumerable test
@@ -93,10 +90,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var notDeleted = new HashSet<Tuple<int[], int[]>>(new IntervalComparer<int>());
 
-            foreach (var interval in intervals)
-            {
-                notDeleted.Add(interval);
-            }
+            foreach (var interval in intervals) notDeleted.Add(interval);
 
             foreach (var interval in intervals)
             {
@@ -128,7 +122,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var intervals = new HashSet<Tuple<int[], int[]>>(new IntervalComparer<int>());
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 var startx = i - 1000 + rnd.Next(1, 10);
                 var starty = i + 15 + rnd.Next(1, 10);
@@ -136,17 +130,13 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 var interval = new Tuple<int[], int[]>(new int[dimension] { startx, starty },
                     new int[dimension] { startx + rnd.Next(1, 10), starty + rnd.Next(1, 10) });
 
-                if (intervals.Add(interval))
-                {
-                    tree.Insert(interval.Item1, interval.Item2);
-                }
-
+                if (intervals.Add(interval)) tree.Insert(interval.Item1, interval.Item2);
             }
 
             foreach (var interval in intervals)
             {
                 Assert.IsTrue(tree.DoOverlap(interval.Item1,
-                                                   interval.Item2));
+                    interval.Item2));
 
                 var testStart = cloneArray(interval.Item1);
                 var testEnd = cloneArray(interval.Item2);
@@ -162,10 +152,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var notDeleted = new HashSet<Tuple<int[], int[]>>(new IntervalComparer<int>());
 
-            foreach (var interval in intervals)
-            {
-                notDeleted.Add(interval);
-            }
+            foreach (var interval in intervals) notDeleted.Add(interval);
 
             foreach (var interval in intervals)
             {
@@ -186,10 +173,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var newArray = new int[array.Length];
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                newArray[i] = array[i];
-            }
+            for (var i = 0; i < array.Length; i++) newArray[i] = array[i];
 
             return newArray;
         }
@@ -199,15 +183,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var newArray = new int[array.Length][];
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array.Length; j++)
-
-                {
-                    newArray[i][j] = array[i][j];
-                }
-
-            }
+            for (var i = 0; i < array.Length; i++)
+            for (var j = 0; j < array.Length; j++)
+                newArray[i][j] = array[i][j];
 
             return newArray;
         }

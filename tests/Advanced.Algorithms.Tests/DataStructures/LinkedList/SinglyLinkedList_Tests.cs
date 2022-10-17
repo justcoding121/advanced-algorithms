@@ -1,6 +1,6 @@
-﻿using Advanced.Algorithms.DataStructures;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
     public class SinglyLinkedList_Tests
     {
         /// <summary>
-        /// singly linked list tests
+        ///     singly linked list tests
         /// </summary>
         [TestMethod]
         public void SinglyLinkedList_Test()
@@ -39,7 +39,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             list.Delete("b");
             Assert.AreEqual(list.Count(), 0);
-
         }
     }
 }

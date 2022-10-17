@@ -1,10 +1,10 @@
-﻿using Advanced.Algorithms.Distributed;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Advanced.Algorithms.Distributed;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Distributed
 {

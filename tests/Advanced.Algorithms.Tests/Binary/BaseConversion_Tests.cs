@@ -11,13 +11,13 @@ namespace Advanced.Algorithms.Tests.Binary
         {
             //decimal to binary
             Assert.AreEqual("11",
-              BaseConversion.Convert("1011", "01",
-                  "0123456789"));
+                BaseConversion.Convert("1011", "01",
+                    "0123456789"));
 
             //binary to decimal
             Assert.AreEqual("11.5",
                 BaseConversion.Convert("1011.10", "01",
-               "0123456789"));
+                    "0123456789"));
 
             //decimal to base3
             Assert.AreEqual("Foo",
@@ -41,9 +41,8 @@ namespace Advanced.Algorithms.Tests.Binary
 
             //hex to decimal with precision 5
             Assert.AreEqual("5.05619",
-               BaseConversion.Convert("5.0e631f8a0902de00d1b71758e219652b", "0123456789abcdef",
+                BaseConversion.Convert("5.0e631f8a0902de00d1b71758e219652b", "0123456789abcdef",
                     "0123456789", 5));
-
         }
     }
 }

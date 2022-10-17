@@ -1,6 +1,6 @@
-﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
 {
@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
     public class WeightedGraph_Tests
     {
         /// <summary>
-        /// key value dictionary tests 
+        ///     key value dictionary tests
         /// </summary>
         [TestMethod]
         public void WeightedGraph_Smoke_Test()

@@ -1,8 +1,8 @@
-﻿using Advanced.Algorithms.Search;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Advanced.Algorithms.Search;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Search
 {
@@ -17,10 +17,7 @@ namespace Advanced.Algorithms.Tests.Search
             var rnd = new Random();
             var randomNumbers = new List<int>();
 
-            while (randomNumbers.Count < elementCount / 2)
-            {
-                randomNumbers.Add(rnd.Next(0, elementCount));
-            }
+            while (randomNumbers.Count < elementCount / 2) randomNumbers.Add(rnd.Next(0, elementCount));
 
             var majorityElement = rnd.Next(0, elementCount);
 

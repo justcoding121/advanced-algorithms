@@ -1,6 +1,6 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 
 namespace Advanced.Algorithms.Tests.Graph
 {
@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void Prims_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedGraph<char, int>();
+            var graph = new WeightedGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
@@ -42,7 +42,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void Prims_AdjacencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<char, int>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');

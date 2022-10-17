@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
     public class BinaryTree_Tests
     {
         /// <summary>
-        /// A tree test
+        ///     A tree test
         /// </summary>
         [TestMethod]
         public void BinaryTree_Test()

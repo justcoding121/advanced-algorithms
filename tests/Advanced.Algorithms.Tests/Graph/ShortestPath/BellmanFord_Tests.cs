@@ -1,6 +1,6 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 
 namespace Advanced.Algorithms.Tests.Graph
 {
@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void BellmanFord_AdjacencyList_Smoke_Test()
         {
-            var graph = new Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<char, int>();
+            var graph = new WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
@@ -39,12 +39,8 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(4, result.Length);
 
-            var expectedPath = new char[] { 'S', 'A', 'B', 'T' };
-            for (int i = 0; i < expectedPath.Length; i++)
-            {
-                Assert.AreEqual(expectedPath[i], result.Path[i]);
-            }
-
+            var expectedPath = new[] { 'S', 'A', 'B', 'T' };
+            for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], result.Path[i]);
         }
 
         [TestMethod]
@@ -79,34 +75,18 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(4, result.Length);
 
-            var expectedPath = new char[] { 'S', 'A', 'B', 'T' };
-            for (int i = 0; i < expectedPath.Length; i++)
-            {
-                Assert.AreEqual(expectedPath[i], result.Path[i]);
-            }
-
+            var expectedPath = new[] { 'S', 'A', 'B', 'T' };
+            for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], result.Path[i]);
         }
 
         /// <summary>
-        /// generic operations for int type
+        ///     generic operations for int type
         /// </summary>
         public class BellmanFordShortestPathOperators : IShortestPathOperators<int>
         {
-            public int DefaultValue
-            {
-                get
-                {
-                    return 0;
-                }
-            }
+            public int DefaultValue => 0;
 
-            public int MaxValue
-            {
-                get
-                {
-                    return int.MaxValue;
-                }
-            }
+            public int MaxValue => int.MaxValue;
 
             public int Sum(int a, int b)
             {

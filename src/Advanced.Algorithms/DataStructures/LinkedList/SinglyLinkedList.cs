@@ -2,250 +2,217 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures;
+
+/// <summary>
+///     A singly linked list implementation.
+/// </summary>
+public class SinglyLinkedList<T> : IEnumerable<T>
 {
-    /// <summary>
-    /// A singly linked list implementation.
-    /// </summary>
-    public class SinglyLinkedList<T> : IEnumerable<T>
+    public SinglyLinkedListNode<T> Head;
+
+    IEnumerator IEnumerable.GetEnumerator()
     {
-        public SinglyLinkedListNode<T> Head;
+        return GetEnumerator();
+    }
 
-        /// <summary>
-        /// Insert first. Time complexity: O(1).
-        /// </summary>
-        public void InsertFirst(T data)
+    public IEnumerator<T> GetEnumerator()
+    {
+        return new SinglyLinkedListEnumerator<T>(ref Head);
+    }
+
+    /// <summary>
+    ///     Insert first. Time complexity: O(1).
+    /// </summary>
+    public void InsertFirst(T data)
+    {
+        var newNode = new SinglyLinkedListNode<T>(data);
+
+        newNode.Next = Head;
+
+        Head = newNode;
+    }
+
+    /// <summary>
+    ///     Time complexity: O(n).
+    /// </summary>
+    public void InsertLast(T data)
+    {
+        var newNode = new SinglyLinkedListNode<T>(data);
+
+        if (Head == null)
         {
-            var newNode = new SinglyLinkedListNode<T>(data);
-
-            newNode.Next = Head;
-
-            Head = newNode;
+            Head = new SinglyLinkedListNode<T>(data);
         }
-
-        /// <summary>
-        /// Time complexity: O(n).
-        /// </summary>
-        public void InsertLast(T data)
+        else
         {
-            var newNode = new SinglyLinkedListNode<T>(data);
-
-            if (Head == null)
-            {
-                Head = new SinglyLinkedListNode<T>(data);
-            }
-            else
-            {
-                var current = Head;
-
-                while (current.Next != null)
-                {
-                    current = current.Next;
-                }
-
-                current.Next = newNode;
-            }
-
-        }
-
-        /// <summary>
-        /// Time complexity: O(1).
-        /// </summary>
-        public T DeleteFirst()
-        {
-            if (Head == null)
-            {
-                throw new Exception("Nothing to remove");
-            }
-
-            var firstData = Head.Data;
-
-            Head = Head.Next;
-
-            return firstData;
-        }
-
-        /// <summary>
-        /// Time complexity: O(n).
-        /// </summary>
-        public T DeleteLast()
-        {
-            if (Head == null)
-            {
-                throw new Exception("Nothing to remove");
-            }
-
             var current = Head;
-            SinglyLinkedListNode<T> prev = null;
-            while (current.Next != null)
-            {
-                prev = current;
-                current = current.Next;
-            }
 
-            var lastData = prev.Next.Data;
-            prev.Next = null;
-            return lastData;
+            while (current.Next != null) current = current.Next;
+
+            current.Next = newNode;
+        }
+    }
+
+    /// <summary>
+    ///     Time complexity: O(1).
+    /// </summary>
+    public T DeleteFirst()
+    {
+        if (Head == null) throw new Exception("Nothing to remove");
+
+        var firstData = Head.Data;
+
+        Head = Head.Next;
+
+        return firstData;
+    }
+
+    /// <summary>
+    ///     Time complexity: O(n).
+    /// </summary>
+    public T DeleteLast()
+    {
+        if (Head == null) throw new Exception("Nothing to remove");
+
+        var current = Head;
+        SinglyLinkedListNode<T> prev = null;
+        while (current.Next != null)
+        {
+            prev = current;
+            current = current.Next;
         }
 
-        /// <summary>
-        /// Delete given element.
-        /// Time complexity: O(n)
-        /// </summary>
-        public void Delete(T element)
+        var lastData = prev.Next.Data;
+        prev.Next = null;
+        return lastData;
+    }
+
+    /// <summary>
+    ///     Delete given element.
+    ///     Time complexity: O(n)
+    /// </summary>
+    public void Delete(T element)
+    {
+        if (Head == null) throw new Exception("Empty list");
+
+        var current = Head;
+        SinglyLinkedListNode<T> prev = null;
+
+        do
         {
-            if (Head == null)
+            if (current.Data.Equals(element))
             {
-                throw new Exception("Empty list");
-            }
-
-            var current = Head;
-            SinglyLinkedListNode<T> prev = null;
-
-            do
-            {
-                if (current.Data.Equals(element))
+                //last element
+                if (current.Next == null)
                 {
-                    //last element
-                    if (current.Next == null)
-                    {
-                        //head is the only node
-                        if (prev == null)
-                        {
-                            Head = null;
-                        }
-                        else
-                        {
-                            //last element
-                            prev.Next = null;
-                        }
-                    }
+                    //head is the only node
+                    if (prev == null)
+                        Head = null;
                     else
-                    {
-                        //current is head
-                        if (prev == null)
-                        {
-                            Head = current.Next;
-                        }
-                        else
-                        {
-                            //delete
-                            prev.Next = current.Next;
-                        }
-                    }
-
-                    break;
+                        //last element
+                        prev.Next = null;
+                }
+                else
+                {
+                    //current is head
+                    if (prev == null)
+                        Head = current.Next;
+                    else
+                        //delete
+                        prev.Next = current.Next;
                 }
 
-                prev = current;
-                current = current.Next;
-            }
-            while (current != null);
-        }
-
-        // Time complexity: O(1).
-        public bool IsEmpty() => Head == null;
-
-        // Time complexity: O(1).
-        public void Clear()
-        {
-            if (Head == null)
-            {
-                throw new Exception("Empty list");
+                break;
             }
 
-            Head = null;
-        }
+            prev = current;
+            current = current.Next;
+        } while (current != null);
+    }
 
-        /// <summary>
-        /// Inserts this element to the begining.
-        /// Time complexity: O(1).
-        /// </summary>
-        public void InsertFirst(SinglyLinkedListNode<T> current)
-        {
-            current.Next = Head;
-            Head = current;
-        }
+    // Time complexity: O(1).
+    public bool IsEmpty()
+    {
+        return Head == null;
+    }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+    // Time complexity: O(1).
+    public void Clear()
+    {
+        if (Head == null) throw new Exception("Empty list");
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            return new SinglyLinkedListEnumerator<T>(ref Head);
-        }
+        Head = null;
     }
 
     /// <summary>
-    /// Singly linked list node.
+    ///     Inserts this element to the begining.
+    ///     Time complexity: O(1).
     /// </summary>
-    public class SinglyLinkedListNode<T>
+    public void InsertFirst(SinglyLinkedListNode<T> current)
     {
-        public SinglyLinkedListNode<T> Next;
-        public T Data;
+        current.Next = Head;
+        Head = current;
+    }
+}
 
-        public SinglyLinkedListNode(T data)
-        {
-            this.Data = data;
-        }
+/// <summary>
+///     Singly linked list node.
+/// </summary>
+public class SinglyLinkedListNode<T>
+{
+    public T Data;
+    public SinglyLinkedListNode<T> Next;
+
+    public SinglyLinkedListNode(T data)
+    {
+        Data = data;
+    }
+}
+
+internal class SinglyLinkedListEnumerator<T> : IEnumerator<T>
+{
+    internal SinglyLinkedListNode<T> currentNode;
+    internal SinglyLinkedListNode<T> headNode;
+
+    internal SinglyLinkedListEnumerator(ref SinglyLinkedListNode<T> headNode)
+    {
+        this.headNode = headNode;
     }
 
-    internal class SinglyLinkedListEnumerator<T> : IEnumerator<T>
+    public bool MoveNext()
     {
-        internal SinglyLinkedListNode<T> headNode;
-        internal SinglyLinkedListNode<T> currentNode;
-
-        internal SinglyLinkedListEnumerator(ref SinglyLinkedListNode<T> headNode)
-        {
-            this.headNode = headNode;
-        }
-
-        public bool MoveNext()
-        {
-            if (headNode == null)
-                return false;
-
-            if (currentNode == null)
-            {
-                currentNode = headNode;
-                return true;
-            }
-
-            if (currentNode.Next != null)
-            {
-                currentNode = currentNode.Next;
-                return true;
-            }
-
+        if (headNode == null)
             return false;
 
-        }
-
-        public void Reset()
+        if (currentNode == null)
         {
             currentNode = headNode;
+            return true;
         }
 
-
-        object IEnumerator.Current => Current;
-
-        public T Current
+        if (currentNode.Next != null)
         {
-            get
-            {
-                return currentNode.Data;
-            }
-        }
-        public void Dispose()
-        {
-            headNode = null;
-            currentNode = null;
+            currentNode = currentNode.Next;
+            return true;
         }
 
+        return false;
+    }
+
+    public void Reset()
+    {
+        currentNode = headNode;
     }
 
 
+    object IEnumerator.Current => Current;
 
+    public T Current => currentNode.Data;
+
+    public void Dispose()
+    {
+        headNode = null;
+        currentNode = null;
+    }
 }

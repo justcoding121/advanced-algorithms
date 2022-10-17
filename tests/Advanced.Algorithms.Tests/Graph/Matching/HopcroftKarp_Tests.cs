@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
@@ -6,12 +7,10 @@ namespace Advanced.Algorithms.Tests.Graph
     [TestClass]
     public class HopcroftKarp_Tests
     {
-
         [TestMethod]
         public void HopcroftKarp_AdjacencyListGraph_Smoke_Test()
         {
-
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -39,13 +38,11 @@ namespace Advanced.Algorithms.Tests.Graph
             var result = algorithm.GetMaxBiPartiteMatching(graph);
 
             Assert.AreEqual(result.Count, 4);
-
         }
 
         [TestMethod]
         public void HopcroftKarp_AdjacencyMatrixGraph_Smoke_Test()
         {
-
             var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
 
             graph.AddVertex('A');
@@ -74,13 +71,12 @@ namespace Advanced.Algorithms.Tests.Graph
             var result = algorithm.GetMaxBiPartiteMatching(graph);
 
             Assert.AreEqual(result.Count, 4);
-
         }
 
         [TestMethod]
         public void HopcroftKarp_AdjacencyListGraph_Accurancy_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('E');
             graph.AddVertex('N');
@@ -119,14 +115,13 @@ namespace Advanced.Algorithms.Tests.Graph
             var result = algorithm.GetMaxBiPartiteMatching(graph);
 
             Assert.AreEqual(result.Count, 6);
-
         }
 
 
         [TestMethod]
         public void HopcroftKarp_AdjacencyListGraph_Accurancy_Test_Fully_Connected_Bipartite_Graph()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -150,7 +145,6 @@ namespace Advanced.Algorithms.Tests.Graph
             var result = algorithm.GetMaxBiPartiteMatching(graph);
 
             Assert.AreEqual(result.Count, 3);
-
         }
     }
 }

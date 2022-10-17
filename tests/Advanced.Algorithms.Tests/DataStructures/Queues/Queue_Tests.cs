@@ -6,7 +6,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
     [TestClass]
     public class Queue_Tests
     {
-
         [TestMethod]
         public void ArrayQueue_Test()
         {
@@ -32,7 +31,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             Assert.AreEqual(Queue.Count, 1);
             Assert.AreEqual(Queue.Dequeue(), "a");
-
         }
 
         [TestMethod]
@@ -60,7 +58,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             Assert.AreEqual(Queue.Count, 1);
             Assert.AreEqual(Queue.Dequeue(), "a");
-
         }
     }
 }

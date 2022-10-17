@@ -1,17 +1,16 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
     public class BiDirectional_Tests
     {
-
         [TestMethod]
         public void BiDirectional_AdjancencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<char>();
+            var graph = new DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -41,13 +40,12 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('E', 'D');
 
             Assert.IsFalse(algorithm.PathExists(graph, 'A', 'I'));
-
         }
 
         [TestMethod]
         public void BiDirectional_AdjancencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph<char>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -77,7 +75,6 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge('E', 'D');
 
             Assert.IsFalse(algorithm.PathExists(graph, 'A', 'I'));
-
         }
     }
 }

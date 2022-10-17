@@ -1,7 +1,6 @@
 ﻿using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]

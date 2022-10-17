@@ -1,6 +1,6 @@
-﻿using Advanced.Algorithms.DataStructures;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -12,10 +12,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var disjointSet = new DisJointSet<int>();
 
-            for (int i = 1; i <= 7; i++)
-            {
-                disjointSet.MakeSet(i);
-            }
+            for (var i = 1; i <= 7; i++) disjointSet.MakeSet(i);
 
             //IEnumerable test
             Assert.AreEqual(disjointSet.Count, disjointSet.Count());
@@ -41,7 +38,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test
             Assert.AreEqual(disjointSet.Count, disjointSet.Count());
-
         }
     }
 }

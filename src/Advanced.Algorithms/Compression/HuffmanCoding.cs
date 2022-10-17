@@ -1,122 +1,117 @@
-﻿using Advanced.Algorithms.DataStructures;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Advanced.Algorithms.DataStructures;
 
-namespace Advanced.Algorithms.Compression
+namespace Advanced.Algorithms.Compression;
+
+/// <summary>
+///     A huffman coding implementation using Fibonacci Min Heap.
+/// </summary>
+public class HuffmanCoding<T>
 {
     /// <summary>
-    /// A huffman coding implementation using Fibonacci Min Heap.
+    ///     Returns a dictionary of chosen encoding bytes for each distinct T.
     /// </summary>
-    public class HuffmanCoding<T>
+    public Dictionary<T, byte[]> Compress(T[] input)
     {
-        /// <summary>
-        /// Returns a dictionary of chosen encoding bytes for each distinct T.
-        /// </summary>
-        public Dictionary<T, byte[]> Compress(T[] input)
+        var frequencies = computeFrequency(input);
+
+        var minHeap = new BHeap<FrequencyWrap>();
+
+        foreach (var frequency in frequencies)
+            minHeap.Insert(new FrequencyWrap(
+                frequency.Key, frequency.Value));
+
+        while (minHeap.Count > 1)
         {
-            var frequencies = computeFrequency(input);
+            var a = minHeap.Extract();
+            var b = minHeap.Extract();
 
-            var minHeap = new BHeap<FrequencyWrap>();
+            var newNode = new FrequencyWrap(
+                default, a.Frequency + b.Frequency);
 
-            foreach (var frequency in frequencies)
-            {
-                minHeap.Insert(new FrequencyWrap(
-                    frequency.Key, frequency.Value));
-            }
+            newNode.Left = a;
+            newNode.Right = b;
 
-            while (minHeap.Count > 1)
-            {
-                var a = minHeap.Extract();
-                var b = minHeap.Extract();
-
-                var newNode = new FrequencyWrap(
-                    default(T), a.Frequency + b.Frequency);
-
-                newNode.Left = a;
-                newNode.Right = b;
-
-                minHeap.Insert(newNode);
-            }
-
-            var root = minHeap.Extract();
-
-            var result = new Dictionary<T, byte[]>();
-
-            dfs(root, new List<byte>(), result);
-
-            return result;
-
+            minHeap.Insert(newNode);
         }
 
-        /// <summary>
-        /// Now gather the codes.
-        /// </summary>  
-        private void dfs(FrequencyWrap currentNode, List<byte> pathStack, Dictionary<T, byte[]> result)
+        var root = minHeap.Extract();
+
+        var result = new Dictionary<T, byte[]>();
+
+        dfs(root, new List<byte>(), result);
+
+        return result;
+    }
+
+    /// <summary>
+    ///     Now gather the codes.
+    /// </summary>
+    private void dfs(FrequencyWrap currentNode, List<byte> pathStack, Dictionary<T, byte[]> result)
+    {
+        if (currentNode.IsLeaf)
         {
-            if (currentNode.IsLeaf)
-            {
-                result.Add(currentNode.Item, pathStack.ToArray());
-                return;
-            }
-
-            if (currentNode.Left != null)
-            {
-                pathStack.Add(0);
-                dfs(currentNode.Left, pathStack, result);
-                pathStack.RemoveAt(pathStack.Count - 1);
-            }
-
-            if (currentNode.Right != null)
-            {
-                pathStack.Add(1);
-                dfs(currentNode.Right, pathStack, result);
-                pathStack.RemoveAt(pathStack.Count - 1);
-            }
+            result.Add(currentNode.Item, pathStack.ToArray());
+            return;
         }
 
-        /// <summary>
-        /// Computes frequencies of each of T in given input.
-        /// </summary>
-        private Dictionary<T, int> computeFrequency(T[] input)
+        if (currentNode.Left != null)
         {
-            var result = new Dictionary<T, int>();
-
-            foreach (var item in input)
-            {
-                if (!result.ContainsKey(item))
-                {
-                    result.Add(item, 1);
-                    continue;
-                }
-
-                result[item]++;
-            }
-
-            return result;
+            pathStack.Add(0);
+            dfs(currentNode.Left, pathStack, result);
+            pathStack.RemoveAt(pathStack.Count - 1);
         }
 
-        private class FrequencyWrap : IComparable
+        if (currentNode.Right != null)
         {
-            public T Item { get; }
-            public int Frequency { get; }
+            pathStack.Add(1);
+            dfs(currentNode.Right, pathStack, result);
+            pathStack.RemoveAt(pathStack.Count - 1);
+        }
+    }
 
-            public FrequencyWrap Left { get; set; }
+    /// <summary>
+    ///     Computes frequencies of each of T in given input.
+    /// </summary>
+    private Dictionary<T, int> computeFrequency(T[] input)
+    {
+        var result = new Dictionary<T, int>();
 
-            public FrequencyWrap Right { get; set; }
-
-            public bool IsLeaf => Left == null && Right == null;
-
-            public FrequencyWrap(T item, int frequency)
+        foreach (var item in input)
+        {
+            if (!result.ContainsKey(item))
             {
-                Item = item;
-                Frequency = frequency;
+                result.Add(item, 1);
+                continue;
             }
 
-            public int CompareTo(object obj)
-            {
-                return Frequency.CompareTo(((FrequencyWrap)obj).Frequency);
-            }
+            result[item]++;
         }
 
+        return result;
+    }
+
+    private class FrequencyWrap : IComparable
+    {
+        public FrequencyWrap(T item, int frequency)
+        {
+            Item = item;
+            Frequency = frequency;
+        }
+
+        public T Item { get; }
+        public int Frequency { get; }
+
+        public FrequencyWrap Left { get; set; }
+
+        public FrequencyWrap Right { get; set; }
+
+        public bool IsLeaf => Left == null && Right == null;
+
+        public int CompareTo(object obj)
+        {
+            return Frequency.CompareTo(((FrequencyWrap)obj).Frequency);
+        }
     }
 }

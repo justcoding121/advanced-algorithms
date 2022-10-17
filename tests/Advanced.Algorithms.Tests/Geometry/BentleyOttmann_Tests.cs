@@ -1,15 +1,17 @@
-﻿using Advanced.Algorithms.Geometry;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Advanced.Algorithms.Geometry;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Geometry
 {
     [TestClass]
     public class BentleyOttmann_Tests
     {
+        private static readonly Random random = new Random();
+
         [TestMethod]
         public void BentleyOttmann_Smoke_Test_1()
         {
@@ -192,38 +194,26 @@ namespace Advanced.Algorithms.Tests.Geometry
 
             Assert.IsTrue(actualElapsedTime <= naiveElapsedTime);
             Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
-
         }
-
-        private static Random random = new Random();
 
         private static Dictionary<Point, List<Line>> getExpectedIntersections(List<Line> lines)
         {
             var result = new Dictionary<Point, HashSet<Line>>(new PointComparer());
 
-            for (int i = 0; i < lines.Count; i++)
+            for (var i = 0; i < lines.Count; i++)
+            for (var j = i + 1; j < lines.Count; j++)
             {
-                for (int j = i + 1; j < lines.Count; j++)
+                var intersection = LineIntersection.Find(lines[i], lines[j]);
+
+                if (intersection != null)
                 {
-                    var intersection = LineIntersection.Find(lines[i], lines[j]);
+                    var existing = result.ContainsKey(intersection) ? result[intersection] : new HashSet<Line>();
 
-                    if (intersection != null)
-                    {
-                        var existing = result.ContainsKey(intersection) ?
-                                 result[intersection] : new HashSet<Line>();
+                    if (!existing.Contains(lines[i])) existing.Add(lines[i]);
 
-                        if (!existing.Contains(lines[i]))
-                        {
-                            existing.Add(lines[i]);
-                        }
+                    if (!existing.Contains(lines[j])) existing.Add(lines[j]);
 
-                        if (!existing.Contains(lines[j]))
-                        {
-                            existing.Add(lines[j]);
-                        }
-
-                        result[intersection] = existing;
-                    }
+                    result[intersection] = existing;
                 }
             }
 

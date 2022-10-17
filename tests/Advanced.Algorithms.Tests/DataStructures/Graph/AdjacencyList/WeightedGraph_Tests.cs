@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
     public class WeightedGraph_Tests
     {
         /// <summary>
-        /// key value dictionary tests 
+        ///     key value dictionary tests
         /// </summary>
         [TestMethod]
         public void WeightedGraph_Smoke_Test()

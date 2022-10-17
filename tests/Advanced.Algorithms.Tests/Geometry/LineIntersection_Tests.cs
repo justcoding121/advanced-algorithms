@@ -35,7 +35,7 @@ namespace Advanced.Algorithms.Tests.Geometry
             line1 = new Line(new Point(-5, -5), new Point(0, 0));
             line2 = new Line(new Point(1, 1), new Point(10, 10));
 
-            Assert.IsTrue(pointComparer.Equals(default(Point), LineIntersection.Find(line1, line2)));
+            Assert.IsTrue(pointComparer.Equals(default, LineIntersection.Find(line1, line2)));
 
             line1 = new Line(new Point(3, -5), new Point(3, 10));
             line2 = new Line(new Point(0, 5), new Point(10, 5));

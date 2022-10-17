@@ -1,6 +1,6 @@
-﻿using Advanced.Algorithms.DataStructures;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -8,7 +8,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
     public class CircularLinkedList_Tests
     {
         /// <summary>
-        /// doubly linked list tests 
+        ///     doubly linked list tests
         /// </summary>
         [TestMethod]
         public void CircularLinkedList_Test()

@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
@@ -9,7 +10,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void MColoring_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<int>();
+            var graph = new Graph<int>();
 
             graph.AddVertex(0);
             graph.AddVertex(1);
@@ -24,7 +25,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
             var algorithm = new MColorer<int, string>();
 
-            var result = algorithm.Color(graph, new string[] { "red", "green", "blue" });
+            var result = algorithm.Color(graph, new[] { "red", "green", "blue" });
 
             Assert.IsTrue(result.CanColor);
         }
@@ -32,7 +33,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void MColoring_AdjacencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<int>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<int>();
 
             graph.AddVertex(0);
             graph.AddVertex(1);
@@ -47,7 +48,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
             var algorithm = new MColorer<int, string>();
 
-            var result = algorithm.Color(graph, new string[] { "red", "green", "blue" });
+            var result = algorithm.Color(graph, new[] { "red", "green", "blue" });
 
             Assert.IsTrue(result.CanColor);
         }

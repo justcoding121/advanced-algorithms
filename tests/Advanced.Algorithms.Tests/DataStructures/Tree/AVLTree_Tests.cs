@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
     public class AvlTreeTests
     {
         /// <summary>
-        /// Smoke test
+        ///     Smoke test
         /// </summary>
         [TestMethod]
         public void AVLTree_Smoke_Test()
@@ -101,12 +101,12 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var sorted = Enumerable.Range(1, nodeCount).ToList();
             var randomNumbers = sorted
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             var tree = new AVLTree<int>();
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
 
@@ -123,21 +123,21 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(tree.Count == i + 1);
             }
 
-            for (int i = 0; i < sorted.Count; i++)
+            for (var i = 0; i < sorted.Count; i++)
             {
                 Assert.AreEqual(sorted[i], tree.ElementAt(i));
                 Assert.AreEqual(i, tree.IndexOf(sorted[i]));
             }
 
             randomNumbers = Enumerable.Range(1, nodeCount)
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
             Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 if (rnd.NextDouble() >= 0.5)
                 {
@@ -172,12 +172,12 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var sorted = Enumerable.Range(1, nodeCount).ToList();
             var randomNumbers = sorted
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             var tree = new AVLTree<int>(true);
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
 
@@ -194,21 +194,21 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(tree.Count == i + 1);
             }
 
-            for (int i = 0; i < sorted.Count; i++)
+            for (var i = 0; i < sorted.Count; i++)
             {
                 Assert.AreEqual(sorted[i], tree.ElementAt(i));
                 Assert.AreEqual(i, tree.IndexOf(sorted[i]));
             }
 
             randomNumbers = Enumerable.Range(1, nodeCount)
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
             Assert.AreEqual(tree.Count, tree.AsEnumerableDesc().Count());
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 if (rnd.NextDouble() >= 0.5)
                 {
@@ -250,7 +250,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             tree.Root.VerifyCount();
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
 
@@ -285,7 +285,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             tree.Root.VerifyCount();
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
 
@@ -312,12 +312,12 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount)
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             var tree = new AVLTree<int>();
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
                 Assert.IsTrue(tree.Count == i + 1);
@@ -326,13 +326,13 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
-                                   .OrderBy(x => rnd.Next())
-                                   .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             //IEnumerable test using linq
             Assert.AreEqual(tree.Count, tree.Count());
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);

@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.Combinatorics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.Combinatorics;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Combinatorics
 {
@@ -9,8 +9,8 @@ namespace Advanced.Algorithms.Tests.Combinatorics
     public class Combination_Tests
     {
         //for verification
-        static readonly Func<int, int> factorial = n => n == 0 ? 1 :
-            Enumerable.Range(1, n).Aggregate((acc, x) => acc * x);
+        static readonly Func<int, int> factorial = n =>
+            n == 0 ? 1 : Enumerable.Range(1, n).Aggregate((acc, x) => acc * x);
 
         //for verification
         static readonly Func<int, int, int> combination = (int n, int r)
@@ -64,6 +64,5 @@ namespace Advanced.Algorithms.Tests.Combinatorics
             combinations = Combination.Find<char>(input, input.Count, true);
             Assert.AreEqual(combination(input.Count + input.Count - 1, input.Count), combinations.Count);
         }
-
     }
 }

@@ -2,244 +2,211 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures;
+
+/// <summary>
+///     A circular linked list implementation.
+/// </summary>
+public class CircularLinkedList<T> : IEnumerable<T>
 {
-    /// <summary>
-    /// A circular linked list implementation.
-    /// </summary>
-    public class CircularLinkedList<T> : IEnumerable<T>
+    public CircularLinkedListNode<T> ReferenceNode;
+
+    IEnumerator IEnumerable.GetEnumerator()
     {
-        public CircularLinkedListNode<T> ReferenceNode;
+        return GetEnumerator();
+    }
 
-        /// <summary>
-        /// Marks this data as the new reference node after insertion.
-        /// Like insert first assuming that current reference node as head.
-        /// Time complexity: O(1).
-        /// </summary>
-        public CircularLinkedListNode<T> Insert(T data)
+    public IEnumerator<T> GetEnumerator()
+    {
+        return new CircularLinkedListEnumerator<T>(ref ReferenceNode);
+    }
+
+    /// <summary>
+    ///     Marks this data as the new reference node after insertion.
+    ///     Like insert first assuming that current reference node as head.
+    ///     Time complexity: O(1).
+    /// </summary>
+    public CircularLinkedListNode<T> Insert(T data)
+    {
+        var newNode = new CircularLinkedListNode<T>(data);
+
+        //if no item exist
+        if (ReferenceNode == null)
         {
-            var newNode = new CircularLinkedListNode<T>(data);
+            //attach the item after reference node
+            newNode.Next = newNode;
+            newNode.Previous = newNode;
+        }
+        else
+        {
+            //attach the item after reference node
+            newNode.Previous = ReferenceNode;
+            newNode.Next = ReferenceNode.Next;
 
-            //if no item exist
-            if (ReferenceNode == null)
-            {
-                //attach the item after reference node
-                newNode.Next = newNode;
-                newNode.Previous = newNode;
-
-            }
-            else
-            {
-                //attach the item after reference node
-                newNode.Previous = ReferenceNode;
-                newNode.Next = ReferenceNode.Next;
-
-                ReferenceNode.Next.Previous = newNode;
-                ReferenceNode.Next = newNode;
-
-            }
-
-            ReferenceNode = newNode;
-
-            return newNode;
+            ReferenceNode.Next.Previous = newNode;
+            ReferenceNode.Next = newNode;
         }
 
-        /// <summary>
-        /// Time complexity: O(1)
-        /// </summary>
-        public void Delete(CircularLinkedListNode<T> current)
-        {
-            if (ReferenceNode.Next == ReferenceNode)
-            {
-                if (ReferenceNode != current)
-                {
-                    throw new Exception("Not found");
-                }
+        ReferenceNode = newNode;
 
+        return newNode;
+    }
+
+    /// <summary>
+    ///     Time complexity: O(1)
+    /// </summary>
+    public void Delete(CircularLinkedListNode<T> current)
+    {
+        if (ReferenceNode.Next == ReferenceNode)
+        {
+            if (ReferenceNode != current) throw new Exception("Not found");
+
+            ReferenceNode = null;
+            return;
+        }
+
+        current.Previous.Next = current.Next;
+        current.Next.Previous = current.Previous;
+
+        //match is a reference node
+        if (current == ReferenceNode) ReferenceNode = current.Next;
+    }
+
+    /// <summary>
+    ///     search and delete.
+    ///     Time complexity:O(n).
+    /// </summary>
+    public void Delete(T data)
+    {
+        if (ReferenceNode == null) throw new Exception("Empty list");
+
+        //only one element on list
+        if (ReferenceNode.Next == ReferenceNode)
+        {
+            if (ReferenceNode.Data.Equals(data))
+            {
                 ReferenceNode = null;
                 return;
             }
 
-            current.Previous.Next = current.Next;
-            current.Next.Previous = current.Previous;
-
-            //match is a reference node
-            if (current == ReferenceNode)
-            {
-                ReferenceNode = current.Next;
-            }
+            throw new Exception("Not found");
         }
 
-        /// <summary>
-        /// search and delete.
-        /// Time complexity:O(n).
-        /// </summary>
-        public void Delete(T data)
+        //atleast two elements from here
+        var current = ReferenceNode;
+        var found = false;
+        while (true)
         {
-            if (ReferenceNode == null)
+            if (current.Data.Equals(data))
             {
-                throw new Exception("Empty list");
-            }
+                current.Previous.Next = current.Next;
+                current.Next.Previous = current.Previous;
 
-            //only one element on list
-            if (ReferenceNode.Next == ReferenceNode)
-            {
-                if (ReferenceNode.Data.Equals(data))
-                {
-                    ReferenceNode = null;
-                    return;
-                }
-                throw new Exception("Not found");
+                //match is a reference node
+                if (current == ReferenceNode) ReferenceNode = current.Next;
+
+                found = true;
+                break;
             }
 
-            //atleast two elements from here
-            var current = ReferenceNode;
-            var found = false;
-            while (true)
-            {
-                if (current.Data.Equals(data))
-                {
-                    current.Previous.Next = current.Next;
-                    current.Next.Previous = current.Previous;
+            //terminate loop if we are about to cycle
+            if (current.Next == ReferenceNode) break;
 
-                    //match is a reference node
-                    if (current == ReferenceNode)
-                    {
-                        ReferenceNode = current.Next;
-                    }
-
-                    found = true;
-                    break;
-                }
-
-                //terminate loop if we are about to cycle
-                if (current.Next == ReferenceNode)
-                {
-                    break;
-                }
-
-                current = current.Next;
-            }
-
-            if (found == false)
-            {
-                throw new Exception("Not found");
-            }
+            current = current.Next;
         }
 
-        /// <summary>
-        /// Time complexity: O(1).
-        /// </summary>
-        public bool IsEmpty()
-        {
-            return ReferenceNode == null;
-        }
-
-        /// <summary>
-        /// Time complexity:  O(1).
-        /// </summary>
-        public void Clear()
-        {
-            if (ReferenceNode == null)
-            {
-                throw new Exception("Empty list");
-            }
-
-            ReferenceNode = null;
-
-        }
-
-        /// <summary>
-        /// Time complexity: O(1).
-        /// </summary>
-        public void Union(CircularLinkedList<T> newList)
-        {
-            ReferenceNode.Previous.Next = newList.ReferenceNode;
-            ReferenceNode.Previous = newList.ReferenceNode.Previous;
-
-            newList.ReferenceNode.Previous.Next = ReferenceNode;
-            newList.ReferenceNode.Previous = ReferenceNode.Previous;
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return new CircularLinkedListEnumerator<T>(ref ReferenceNode);
-        }
-
+        if (found == false) throw new Exception("Not found");
     }
 
     /// <summary>
-    /// Circular linked list node.
+    ///     Time complexity: O(1).
     /// </summary>
-    public class CircularLinkedListNode<T>
+    public bool IsEmpty()
     {
-        public CircularLinkedListNode<T> Previous;
-        public CircularLinkedListNode<T> Next;
-
-        public T Data;
-
-        public CircularLinkedListNode(T data)
-        {
-            this.Data = data;
-        }
+        return ReferenceNode == null;
     }
 
-    internal class CircularLinkedListEnumerator<T> : IEnumerator<T>
+    /// <summary>
+    ///     Time complexity:  O(1).
+    /// </summary>
+    public void Clear()
     {
-        internal CircularLinkedListNode<T> referenceNode;
-        internal CircularLinkedListNode<T> currentNode;
+        if (ReferenceNode == null) throw new Exception("Empty list");
 
-        internal CircularLinkedListEnumerator(ref CircularLinkedListNode<T> referenceNode)
-        {
-            this.referenceNode = referenceNode;
-        }
+        ReferenceNode = null;
+    }
 
-        public bool MoveNext()
-        {
-            if (referenceNode == null)
-                return false;
+    /// <summary>
+    ///     Time complexity: O(1).
+    /// </summary>
+    public void Union(CircularLinkedList<T> newList)
+    {
+        ReferenceNode.Previous.Next = newList.ReferenceNode;
+        ReferenceNode.Previous = newList.ReferenceNode.Previous;
 
-            if (currentNode == null)
-            {
-                currentNode = referenceNode;
-                return true;
-            }
+        newList.ReferenceNode.Previous.Next = ReferenceNode;
+        newList.ReferenceNode.Previous = ReferenceNode.Previous;
+    }
+}
 
-            if (currentNode.Next != null && currentNode.Next != referenceNode)
-            {
-                currentNode = currentNode.Next;
-                return true;
-            }
+/// <summary>
+///     Circular linked list node.
+/// </summary>
+public class CircularLinkedListNode<T>
+{
+    public T Data;
+    public CircularLinkedListNode<T> Next;
+    public CircularLinkedListNode<T> Previous;
 
+    public CircularLinkedListNode(T data)
+    {
+        Data = data;
+    }
+}
+
+internal class CircularLinkedListEnumerator<T> : IEnumerator<T>
+{
+    internal CircularLinkedListNode<T> currentNode;
+    internal CircularLinkedListNode<T> referenceNode;
+
+    internal CircularLinkedListEnumerator(ref CircularLinkedListNode<T> referenceNode)
+    {
+        this.referenceNode = referenceNode;
+    }
+
+    public bool MoveNext()
+    {
+        if (referenceNode == null)
             return false;
 
-        }
-
-        public void Reset()
+        if (currentNode == null)
         {
             currentNode = referenceNode;
+            return true;
         }
 
-
-        object IEnumerator.Current => Current;
-
-        public T Current
+        if (currentNode.Next != null && currentNode.Next != referenceNode)
         {
-            get
-            {
-                return currentNode.Data;
-            }
-        }
-        public void Dispose()
-        {
-            referenceNode = null;
-            currentNode = null;
+            currentNode = currentNode.Next;
+            return true;
         }
 
+        return false;
+    }
+
+    public void Reset()
+    {
+        currentNode = referenceNode;
+    }
+
+
+    object IEnumerator.Current => Current;
+
+    public T Current => currentNode.Data;
+
+    public void Dispose()
+    {
+        referenceNode = null;
+        currentNode = null;
     }
 }

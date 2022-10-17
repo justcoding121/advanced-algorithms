@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms
+namespace Advanced.Algorithms;
+
+internal class CustomComparer<T> : IComparer<T> where T : IComparable
 {
-    internal class CustomComparer<T> : IComparer<T> where T : IComparable
+    private readonly IComparer<T> comparer;
+    private readonly bool isMax;
+
+    internal CustomComparer(SortDirection sortDirection, IComparer<T> comparer)
     {
-        private readonly bool isMax;
-        private readonly IComparer<T> comparer;
+        isMax = sortDirection == SortDirection.Descending;
+        this.comparer = comparer;
+    }
 
-        internal CustomComparer(SortDirection sortDirection, IComparer<T> comparer)
-        {
-            this.isMax = sortDirection == SortDirection.Descending;
-            this.comparer = comparer;
-        }
+    public int Compare(T x, T y)
+    {
+        return !isMax ? compare(x, y) : compare(y, x);
+    }
 
-        public int Compare(T x, T y)
-        {
-            return !isMax ? compare(x, y) : compare(y, x);
-        }
-
-        private int compare(T x, T y)
-        {
-            return comparer.Compare(x, y);
-        }
+    private int compare(T x, T y)
+    {
+        return comparer.Compare(x, y);
     }
 }

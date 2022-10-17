@@ -1,32 +1,25 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class BinomialHeap_Tests
     {
-
         [TestMethod]
         public void Min_BinomialHeap_Test()
         {
-            int nodeCount = 1000 * 10;
+            var nodeCount = 1000 * 10;
 
-            BinomialHeap<int> minHeap = new BinomialHeap<int>();
+            var minHeap = new BinomialHeap<int>();
 
-            for (int i = 0; i <= nodeCount; i++)
-            {
-                minHeap.Insert(i);
-            }
+            for (var i = 0; i <= nodeCount; i++) minHeap.Insert(i);
 
-            for (int i = 0; i <= nodeCount; i++)
-            {
-                minHeap.UpdateKey(i, i - 1);
-            }
-            int min = 0;
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++) minHeap.UpdateKey(i, i - 1);
+            var min = 0;
+            for (var i = 0; i <= nodeCount; i++)
             {
                 min = minHeap.Extract();
                 Assert.AreEqual(min, i - 1);
@@ -38,12 +31,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var testSeries = Enumerable.Range(0, nodeCount - 1).OrderBy(x => rnd.Next()).ToList();
 
-            foreach (var item in testSeries)
-            {
-                minHeap.Insert(item);
-            }
+            foreach (var item in testSeries) minHeap.Insert(item);
 
-            for (int i = 0; i < testSeries.Count; i++)
+            for (var i = 0; i < testSeries.Count; i++)
             {
                 var decremented = testSeries[i] - rnd.Next(0, 1000);
                 minHeap.UpdateKey(testSeries[i], decremented);
@@ -52,7 +42,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             testSeries.Sort();
 
-            for (int i = 0; i < nodeCount - 2; i++)
+            for (var i = 0; i < nodeCount - 2; i++)
             {
                 min = minHeap.Extract();
                 Assert.AreEqual(testSeries[i], min);
@@ -66,21 +56,15 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void Max_BinomialHeap_Test()
         {
-            int nodeCount = 1000 * 10;
+            var nodeCount = 1000 * 10;
 
             var tree = new BinomialHeap<int>(SortDirection.Descending);
 
-            for (int i = 0; i <= nodeCount; i++)
-            {
-                tree.Insert(i);
-            }
+            for (var i = 0; i <= nodeCount; i++) tree.Insert(i);
 
-            for (int i = 0; i <= nodeCount; i++)
-            {
-                tree.UpdateKey(i, i + 1);
-            }
-            int max = 0;
-            for (int i = nodeCount; i >= 0; i--)
+            for (var i = 0; i <= nodeCount; i++) tree.UpdateKey(i, i + 1);
+            var max = 0;
+            for (var i = nodeCount; i >= 0; i--)
             {
                 max = tree.Extract();
                 Assert.AreEqual(max, i + 1);
@@ -92,12 +76,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var testSeries = Enumerable.Range(0, nodeCount - 1).OrderBy(x => rnd.Next()).ToList();
 
-            foreach (var item in testSeries)
-            {
-                tree.Insert(item);
-            }
+            foreach (var item in testSeries) tree.Insert(item);
 
-            for (int i = 0; i < testSeries.Count; i++)
+            for (var i = 0; i < testSeries.Count; i++)
             {
                 var incremented = testSeries[i] + rnd.Next(0, 1000);
                 tree.UpdateKey(testSeries[i], incremented);
@@ -106,7 +87,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             testSeries = testSeries.OrderByDescending(x => x).ToList();
 
-            for (int i = 0; i < nodeCount - 2; i++)
+            for (var i = 0; i < nodeCount - 2; i++)
             {
                 max = tree.Extract();
                 Assert.AreEqual(testSeries[i], max);
@@ -114,7 +95,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable tests.
             Assert.AreEqual(tree.Count, tree.Count());
-
         }
     }
 }

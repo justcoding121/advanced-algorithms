@@ -1,8 +1,7 @@
-﻿namespace Advanced.Algorithms
+﻿namespace Advanced.Algorithms;
+
+public enum SortDirection
 {
-    public enum SortDirection
-    {
-        Ascending = 0,
-        Descending = 1
-    }
+    Ascending = 0,
+    Descending = 1
 }

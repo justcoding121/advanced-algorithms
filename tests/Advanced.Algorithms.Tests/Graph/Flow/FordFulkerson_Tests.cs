@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
@@ -7,12 +8,12 @@ namespace Advanced.Algorithms.Tests.Graph
     public class FordFulkerson_Tests
     {
         /// <summary>
-        /// FordFulkerson Max Flow test
+        ///     FordFulkerson Max Flow test
         /// </summary>
         [TestMethod]
         public void FordFulkerson_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<char, int>();
+            var graph = new WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
@@ -43,12 +44,12 @@ namespace Advanced.Algorithms.Tests.Graph
         }
 
         /// <summary>
-        /// FordFulkerson Max Flow test
+        ///     FordFulkerson Max Flow test
         /// </summary>
         [TestMethod]
         public void FordFulkerson_AdjacencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<char, int>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
@@ -77,9 +78,10 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(result, 19);
         }
+
         /// <summary>
-        /// operators for generics
-        /// implemented for int type for edge weights
+        ///     operators for generics
+        ///     implemented for int type for edge weights
         /// </summary>
         public class FordFulkersonOperators : IFlowOperators<int>
         {
@@ -88,21 +90,9 @@ namespace Advanced.Algorithms.Tests.Graph
                 return checked(a + b);
             }
 
-            public int defaultWeight
-            {
-                get
-                {
-                    return 0;
-                }
-            }
+            public int defaultWeight => 0;
 
-            public int MaxWeight
-            {
-                get
-                {
-                    return int.MaxValue;
-                }
-            }
+            public int MaxWeight => int.MaxValue;
 
             public int SubstractWeights(int a, int b)
             {

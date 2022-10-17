@@ -1,6 +1,6 @@
-﻿using Advanced.Algorithms.Geometry;
+﻿using System.Collections.Generic;
+using Advanced.Algorithms.Geometry;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Tests.Geometry
 {
@@ -10,15 +10,15 @@ namespace Advanced.Algorithms.Tests.Geometry
         [TestMethod]
         public void ConvexHull_Smoke_Test()
         {
-            var testPoints = new List<int[]>()
+            var testPoints = new List<int[]>
             {
-                new int[]{ 0, 3},
-                new int[]{ 2, 2},
-                new int[]{ 1, 1},
-                new int[]{ 2, 1},
-                new int[]{ 3, 0},
-                new int[]{ 0, 0},
-                new int[]{ 3, 3}
+                new[] { 0, 3 },
+                new[] { 2, 2 },
+                new[] { 1, 1 },
+                new[] { 2, 1 },
+                new[] { 3, 0 },
+                new[] { 0, 0 },
+                new[] { 3, 3 }
             };
 
             var result = ConvexHull.Find(testPoints);

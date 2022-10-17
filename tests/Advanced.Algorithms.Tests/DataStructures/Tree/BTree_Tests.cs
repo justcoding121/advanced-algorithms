@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -49,26 +49,23 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             Assert.AreEqual(tree.Count, 0);
             Assert.AreEqual(tree.Count, tree.Count());
-
         }
 
         [TestMethod]
         public void BTree_AccuracyTest()
         {
-
             var nodeCount = 1000;
 
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount)
-                        .OrderBy(x => rnd.Next())
-                        .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             var order = 5;
             var tree = new BTree<int>(order);
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
-
                 tree.Insert(randomNumbers[i]);
 
                 var actualMaxHeight = BTreeTester.GetMaxHeight(tree.Root);
@@ -87,10 +84,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(tree.Count, tree.Count());
             }
 
-            for (int i = 0; i < nodeCount; i++)
-            {
-                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
-            }
+            for (var i = 0; i < nodeCount; i++) Assert.IsTrue(tree.HasItem(randomNumbers[i]));
 
             //IEnumerable test using linq count()
             Assert.AreEqual(tree.Count, tree.Count());
@@ -100,10 +94,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
-                            .OrderBy(x => rnd.Next())
-                            .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
                 Assert.IsFalse(tree.HasItem(randomNumbers[i]));
@@ -114,7 +108,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(actualMaxHeight == actualMinHeight);
 
                 //https://en.wikipedia.org/wiki/B-tree#Best_case_and_worst_case_heights
-                var theoreticalMaxHeight = Math.Ceiling(Math.Log((nodeCount - i + 2) / 2, (int)Math.Ceiling((double)order / 2)));
+                var theoreticalMaxHeight =
+                    Math.Ceiling(Math.Log((nodeCount - i + 2) / 2, (int)Math.Ceiling((double)order / 2)));
 
                 Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
@@ -131,30 +126,28 @@ namespace Advanced.Algorithms.Tests.DataStructures
         [TestMethod]
         public void BTree_StressTest()
         {
-
             var nodeCount = 1000 * 10;
 
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount)
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             var tree = new BTree<int>(12);
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
                 Assert.IsTrue(tree.Count == i + 1);
-
             }
 
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
-                               .OrderBy(x => rnd.Next())
-                               .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
@@ -162,7 +155,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
 
             Assert.IsTrue(tree.Count == 0);
-
         }
     }
 }

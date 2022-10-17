@@ -1,7 +1,6 @@
 ﻿using Advanced.Algorithms.String;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
 namespace Advanced.Algorithms.Tests.String
 {
     [TestClass]

@@ -1,7 +1,8 @@
-﻿using Advanced.Algorithms.Graph;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
 {
@@ -11,7 +12,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void TarjanStronglyConnected_AdjancencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<char>();
+            var graph = new DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -42,32 +43,29 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(4, result.Count);
 
-            var expectedResult = new List<List<char>>() {
-                new char[] { 'H' }.ToList(),
-                new char[] { 'E', 'F', 'G' }.ToList(),
-                new char[] { 'D' }.ToList(),
-                new char[] { 'A', 'B', 'C' }.ToList()
+            var expectedResult = new List<List<char>>
+            {
+                new[] { 'H' }.ToList(),
+                new[] { 'E', 'F', 'G' }.ToList(),
+                new[] { 'D' }.ToList(),
+                new[] { 'A', 'B', 'C' }.ToList()
             };
 
-            for (int i = 0; i < expectedResult.Count; i++)
+            for (var i = 0; i < expectedResult.Count; i++)
             {
                 var expectation = expectedResult[i];
                 var actual = result[i];
 
                 Assert.IsTrue(expectation.Count == actual.Count);
 
-                foreach (var vertex in expectation)
-                {
-                    Assert.IsTrue(actual.Contains(vertex));
-                }
-
+                foreach (var vertex in expectation) Assert.IsTrue(actual.Contains(vertex));
             }
         }
 
         [TestMethod]
         public void TarjanStronglyConnected_AdjancencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph<char>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -98,27 +96,23 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(4, result.Count);
 
-            var expectedResult = new List<List<char>>() {
-                new char[] { 'H' }.ToList(),
-                new char[] { 'E', 'F', 'G' }.ToList(),
-                new char[] { 'D' }.ToList(),
-                new char[] { 'A', 'B', 'C' }.ToList()
+            var expectedResult = new List<List<char>>
+            {
+                new[] { 'H' }.ToList(),
+                new[] { 'E', 'F', 'G' }.ToList(),
+                new[] { 'D' }.ToList(),
+                new[] { 'A', 'B', 'C' }.ToList()
             };
 
-            for (int i = 0; i < expectedResult.Count; i++)
+            for (var i = 0; i < expectedResult.Count; i++)
             {
                 var expectation = expectedResult[i];
                 var actual = result[i];
 
                 Assert.IsTrue(expectation.Count == actual.Count);
 
-                foreach (var vertex in expectation)
-                {
-                    Assert.IsTrue(actual.Contains(vertex));
-                }
-
+                foreach (var vertex in expectation) Assert.IsTrue(actual.Contains(vertex));
             }
         }
     }
-
 }

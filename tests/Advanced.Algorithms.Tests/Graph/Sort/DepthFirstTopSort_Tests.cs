@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
@@ -9,7 +10,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void DFS_Topological_Sort_AdjancencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.DiGraph<char>();
+            var graph = new DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -42,7 +43,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void DFS_Topological_Sort_AdjancencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph<char>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.DiGraph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');

@@ -1,6 +1,7 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace Advanced.Algorithms.Tests.Graph
 {
@@ -10,7 +11,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void TarjanArticulation_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -41,18 +42,15 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(4, result.Count);
 
-            var expectedResult = new char[] { 'C', 'D', 'E', 'F' };
+            var expectedResult = new[] { 'C', 'D', 'E', 'F' };
 
-            foreach (var v in result)
-            {
-                Assert.IsTrue(expectedResult.Contains(v));
-            }
+            foreach (var v in result) Assert.IsTrue(expectedResult.Contains(v));
         }
 
         [TestMethod]
         public void TarjanArticulation_AdjacencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -83,12 +81,9 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(4, result.Count);
 
-            var expectedResult = new char[] { 'C', 'D', 'E', 'F' };
+            var expectedResult = new[] { 'C', 'D', 'E', 'F' };
 
-            foreach (var v in result)
-            {
-                Assert.IsTrue(expectedResult.Contains(v));
-            }
+            foreach (var v in result) Assert.IsTrue(expectedResult.Contains(v));
         }
     }
 }

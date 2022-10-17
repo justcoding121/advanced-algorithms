@@ -2,51 +2,43 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Foundation
+namespace Advanced.Algorithms.DataStructures.Foundation;
+
+internal class ArrayStack<T> : IStack<T>
 {
-    internal class ArrayStack<T> : IStack<T>
+    private readonly List<T> list = new();
+    public int Count { get; private set; }
+
+    public T Pop()
     {
-        public int Count { get; private set; }
+        if (Count == 0) throw new Exception("Empty stack");
 
-        private readonly List<T> list = new List<T>();
+        var result = list[list.Count - 1];
+        list.RemoveAt(list.Count - 1);
+        Count--;
+        return result;
+    }
 
-        public T Pop()
-        {
-            if (Count == 0)
-            {
-                throw new Exception("Empty stack");
-            }
+    public void Push(T item)
+    {
+        list.Add(item);
+        Count++;
+    }
 
-            var result = list[list.Count - 1];
-            list.RemoveAt(list.Count - 1);
-            Count--;
-            return result;
-        }
+    public T Peek()
+    {
+        if (Count == 0) return default;
 
-        public void Push(T item)
-        {
-            list.Add(item);
-            Count++;
-        }
+        return list[list.Count - 1];
+    }
 
-        public T Peek()
-        {
-            if (Count == 0)
-            {
-                return default(T);
-            }
+    public IEnumerator<T> GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 
-            return list[list.Count - 1];
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return list.GetEnumerator();
-        }
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return list.GetEnumerator();
     }
 }

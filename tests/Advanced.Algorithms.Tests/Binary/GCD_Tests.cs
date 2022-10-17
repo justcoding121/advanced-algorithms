@@ -13,7 +13,6 @@ namespace Advanced.Algorithms.Tests.Binary
             Assert.AreEqual(15, Gcd.Find(45, 30));
 
             Assert.AreEqual(1, Gcd.Find(3, 5));
-
         }
     }
 }

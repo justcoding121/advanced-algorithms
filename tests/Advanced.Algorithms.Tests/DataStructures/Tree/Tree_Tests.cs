@@ -1,6 +1,6 @@
-﻿using Advanced.Algorithms.DataStructures;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -8,12 +8,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
     public class Tree_Tests
     {
         /// <summary>
-        /// A tree test
+        ///     A tree test
         /// </summary>
         [TestMethod]
         public void Tree_Test()
         {
-
             var tree = new Tree<int>();
             Assert.AreEqual(tree.GetHeight(), -1);
 
@@ -49,7 +48,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq count()
             Assert.AreEqual(tree.Count, tree.Count());
-
         }
     }
 }

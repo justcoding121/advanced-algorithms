@@ -3,109 +3,90 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.DataStructures
+namespace Advanced.Algorithms.DataStructures;
+
+/// <summary>
+///     A sparse set implementation.
+/// </summary>
+public class SparseSet : IEnumerable<int>
 {
-    /// <summary>
-    /// A sparse set implementation.
-    /// </summary>
-    public class SparseSet : IEnumerable<int>
+    private readonly int[] dense;
+    private readonly int[] sparse;
+
+    public SparseSet(int maxVal, int capacity)
     {
-        private readonly int[] sparse;
-        private readonly int[] dense;
+        sparse = Enumerable.Repeat(-1, maxVal + 1).ToArray();
+        dense = Enumerable.Repeat(-1, capacity).ToArray();
+    }
 
-        public int Count { get; private set; }
+    public int Count { get; private set; }
 
-        public SparseSet(int maxVal, int capacity)
-        {
-            sparse = Enumerable.Repeat(-1, maxVal + 1).ToArray();
-            dense = Enumerable.Repeat(-1, capacity).ToArray();
-        }
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 
-        /// <summary>
-        /// Time complexity: O(1).
-        /// </summary>
-        public void Add(int value)
-        {
-            if (value < 0)
-            {
-                throw new Exception("Negative values not supported.");
-            }
+    public IEnumerator<int> GetEnumerator()
+    {
+        return dense.Take(Count).GetEnumerator();
+    }
 
-            if (value >= sparse.Length)
-            {
-                throw new Exception("Item is greater than max value.");
-            }
+    /// <summary>
+    ///     Time complexity: O(1).
+    /// </summary>
+    public void Add(int value)
+    {
+        if (value < 0) throw new Exception("Negative values not supported.");
 
-            if (Count >= dense.Length)
-            {
-                throw new Exception("Set reached its capacity.");
-            }
+        if (value >= sparse.Length) throw new Exception("Item is greater than max value.");
 
-            sparse[value] = Count;
-            dense[Count] = value;
-            Count++;
-        }
+        if (Count >= dense.Length) throw new Exception("Set reached its capacity.");
 
-        /// <summary>
-        /// Time complexity: O(1).
-        /// </summary>
-        public void Remove(int value)
-        {
-            if (value < 0)
-            {
-                throw new Exception("Negative values not supported.");
-            }
+        sparse[value] = Count;
+        dense[Count] = value;
+        Count++;
+    }
 
-            if (value >= sparse.Length)
-            {
-                throw new Exception("Item is greater than max value.");
-            }
+    /// <summary>
+    ///     Time complexity: O(1).
+    /// </summary>
+    public void Remove(int value)
+    {
+        if (value < 0) throw new Exception("Negative values not supported.");
 
-            if (HasItem(value) == false)
-            {
-                throw new Exception("Item do not exist.");
-            }
+        if (value >= sparse.Length) throw new Exception("Item is greater than max value.");
 
-            //find element
-            var index = sparse[value];
-            sparse[value] = -1;
+        if (HasItem(value) == false) throw new Exception("Item do not exist.");
 
-            //replace index with last value of dense
-            var lastVal = dense[Count - 1];
-            dense[index] = lastVal;
-            dense[Count - 1] = -1;
+        //find element
+        var index = sparse[value];
+        sparse[value] = -1;
 
-            //update sparse for lastVal
-            sparse[lastVal] = index;
+        //replace index with last value of dense
+        var lastVal = dense[Count - 1];
+        dense[index] = lastVal;
+        dense[Count - 1] = -1;
 
-            Count--;
-        }
+        //update sparse for lastVal
+        sparse[lastVal] = index;
 
-        /// <summary>
-        /// Time complexity: O(1).
-        /// </summary>
-        public bool HasItem(int value)
-        {
-            var index = sparse[value];
-            return index != -1 && dense[index] == value;
-        }
+        Count--;
+    }
 
-        /// <summary>
-        /// Time complexity: O(1).
-        /// </summary>
-        public void Clear()
-        {
-            Count = 0;
-        }
+    /// <summary>
+    ///     Time complexity: O(1).
+    /// </summary>
+    public bool HasItem(int value)
+    {
+        var index = sparse[value];
+        return index != -1 && dense[index] == value;
+    }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public IEnumerator<int> GetEnumerator()
-        {
-            return dense.Take(Count).GetEnumerator();
-        }
+    /// <summary>
+    ///     Time complexity: O(1).
+    /// </summary>
+    public void Clear()
+    {
+        Count = 0;
     }
 }

@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -39,18 +39,12 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 .OrderBy(x => random.Next())
                 .ToList();
 
-            foreach (var element in testCollection)
-            {
-                set.Add(element);
-            }
+            foreach (var element in testCollection) set.Add(element);
 
             //IEnumerable test
             Assert.AreEqual(set.Count, set.Count());
 
-            foreach (var element in testCollection)
-            {
-                Assert.IsTrue(set.HasItem(element));
-            }
+            foreach (var element in testCollection) Assert.IsTrue(set.HasItem(element));
 
             foreach (var element in testCollection)
             {

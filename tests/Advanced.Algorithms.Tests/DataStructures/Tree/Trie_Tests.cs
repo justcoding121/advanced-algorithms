@@ -1,6 +1,6 @@
-﻿using Advanced.Algorithms.DataStructures;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -66,7 +66,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
         /// <summary>
-        /// A tree test
+        ///     A tree test
         /// </summary>
         [TestMethod]
         public void Trie_Smoke_Test()
@@ -101,7 +101,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test
             Assert.AreEqual(trie.Count, trie.Count());
-
         }
     }
 }

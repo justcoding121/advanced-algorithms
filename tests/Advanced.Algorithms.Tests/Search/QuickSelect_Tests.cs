@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.Search;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.Search;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Search
 {
@@ -15,8 +15,8 @@ namespace Advanced.Algorithms.Tests.Search
 
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount)
-                                .OrderBy(x => rnd.Next())
-                                .ToArray();
+                .OrderBy(x => rnd.Next())
+                .ToArray();
 
             var k = rnd.Next(1, nodeCount);
 

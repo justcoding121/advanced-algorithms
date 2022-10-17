@@ -1,54 +1,47 @@
-﻿using Advanced.Algorithms.DataStructures.Graph;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Advanced.Algorithms.DataStructures.Graph;
 
-namespace Advanced.Algorithms.Graph
+namespace Advanced.Algorithms.Graph;
+
+/// <summary>
+///     Bread First Search implementation.
+/// </summary>
+public class BreadthFirst<T>
 {
     /// <summary>
-    /// Bread First Search implementation.
+    ///     Returns true if item exists.
     /// </summary>
-    public class BreadthFirst<T>
+    public bool Find(IGraph<T> graph, T vertex)
     {
-        /// <summary>
-        /// Returns true if item exists.
-        /// </summary>
-        public bool Find(IGraph<T> graph, T vertex)
+        return bfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
+    }
+
+    /// <summary>
+    ///     BFS implementation.
+    /// </summary>
+    private bool bfs(IGraphVertex<T> referenceVertex,
+        HashSet<T> visited, T searchVertex)
+    {
+        var bfsQueue = new Queue<IGraphVertex<T>>();
+
+        bfsQueue.Enqueue(referenceVertex);
+        visited.Add(referenceVertex.Key);
+
+        while (bfsQueue.Count > 0)
         {
-            return bfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
-        }
+            var current = bfsQueue.Dequeue();
 
-        /// <summary>
-        /// BFS implementation.
-        /// </summary>
-        private bool bfs(IGraphVertex<T> referenceVertex,
-            HashSet<T> visited, T searchVertex)
-        {
-            var bfsQueue = new Queue<IGraphVertex<T>>();
+            if (current.Key.Equals(searchVertex)) return true;
 
-            bfsQueue.Enqueue(referenceVertex);
-            visited.Add(referenceVertex.Key);
-
-            while (bfsQueue.Count > 0)
+            foreach (var edge in current.Edges)
             {
-                var current = bfsQueue.Dequeue();
+                if (visited.Contains(edge.TargetVertexKey)) continue;
 
-                if (current.Key.Equals(searchVertex))
-                {
-                    return true;
-                }
-
-                foreach (var edge in current.Edges)
-                {
-                    if (visited.Contains(edge.TargetVertexKey))
-                    {
-                        continue;
-                    }
-
-                    visited.Add(edge.TargetVertexKey);
-                    bfsQueue.Enqueue(edge.TargetVertex);
-                }
+                visited.Add(edge.TargetVertexKey);
+                bfsQueue.Enqueue(edge.TargetVertex);
             }
-
-            return false;
         }
+
+        return false;
     }
 }

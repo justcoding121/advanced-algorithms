@@ -1,4 +1,4 @@
-﻿
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,12 +8,12 @@ namespace Advanced.Algorithms.Tests.Graph
     public class MinCut_Tests
     {
         /// <summary>
-        /// Min Cut test
+        ///     Min Cut test
         /// </summary>
         [TestMethod]
         public void MinCut_AdjacencyListGraph_Smoke_Test_1()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<char, int>();
+            var graph = new WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
@@ -45,12 +45,12 @@ namespace Advanced.Algorithms.Tests.Graph
 
 
         /// <summary>
-        /// Min Cut test
+        ///     Min Cut test
         /// </summary>
         [TestMethod]
         public void MinCut_AdjacencyListGraph_Smoke_Test_2()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<char, int>();
+            var graph = new WeightedDiGraph<char, int>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -91,12 +91,12 @@ namespace Advanced.Algorithms.Tests.Graph
         }
 
         /// <summary>
-        /// Min Cut test
+        ///     Min Cut test
         /// </summary>
         [TestMethod]
         public void MinCut_AdjacencyListMatrix_Smoke_Test_1()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<char, int>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
@@ -128,12 +128,12 @@ namespace Advanced.Algorithms.Tests.Graph
 
 
         /// <summary>
-        /// Min Cut test
+        ///     Min Cut test
         /// </summary>
         [TestMethod]
         public void MinCut_AdjacencyMatrixGraph_Smoke_Test_2()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<char, int>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<char, int>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -172,9 +172,10 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(result.Count, 1);
         }
+
         /// <summary>
-        /// operators for generics
-        /// implemented for int type for edge weights
+        ///     operators for generics
+        ///     implemented for int type for edge weights
         /// </summary>
         public class EdmondKarpOperators : IFlowOperators<int>
         {
@@ -183,21 +184,9 @@ namespace Advanced.Algorithms.Tests.Graph
                 return checked(a + b);
             }
 
-            public int defaultWeight
-            {
-                get
-                {
-                    return 0;
-                }
-            }
+            public int defaultWeight => 0;
 
-            public int MaxWeight
-            {
-                get
-                {
-                    return int.MaxValue;
-                }
-            }
+            public int MaxWeight => int.MaxValue;
 
             public int SubstractWeights(int a, int b)
             {

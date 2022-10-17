@@ -6,7 +6,6 @@ namespace Advanced.Algorithms.Tests
     [TestClass]
     public class LRUCache_Tests
     {
-
         [TestMethod]
         public void LRUCache_Smoke_Test()
         {
@@ -24,6 +23,5 @@ namespace Advanced.Algorithms.Tests
             Assert.AreEqual(3, cache.Get(3));
             Assert.AreEqual(4, cache.Get(4));
         }
-
     }
 }

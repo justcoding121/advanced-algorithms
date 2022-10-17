@@ -1,6 +1,7 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace Advanced.Algorithms.Tests.Graph
 {
@@ -10,7 +11,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void Johnsons_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<char, int>();
+            var graph = new WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
@@ -40,19 +41,15 @@ namespace Advanced.Algorithms.Tests.Graph
             var testCase = result.First(x => x.Source == 'S' && x.Destination == 'T');
             Assert.AreEqual(2, testCase.Distance);
 
-            var expectedPath = new char[] { 'S', 'A', 'C', 'D', 'B', 'T' };
-            for (int i = 0; i < expectedPath.Length; i++)
-            {
-                Assert.AreEqual(expectedPath[i], testCase.Path[i]);
-            }
-
+            var expectedPath = new[] { 'S', 'A', 'C', 'D', 'B', 'T' };
+            for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], testCase.Path[i]);
         }
 
 
         [TestMethod]
         public void Johnsons_AdjacencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<char, int>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<char, int>();
 
             graph.AddVertex('S');
             graph.AddVertex('A');
@@ -82,37 +79,22 @@ namespace Advanced.Algorithms.Tests.Graph
             var testCase = result.First(x => x.Source == 'S' && x.Destination == 'T');
             Assert.AreEqual(2, testCase.Distance);
 
-            var expectedPath = new char[] { 'S', 'A', 'C', 'D', 'B', 'T' };
-            for (int i = 0; i < expectedPath.Length; i++)
-            {
-                Assert.AreEqual(expectedPath[i], testCase.Path[i]);
-            }
-
+            var expectedPath = new[] { 'S', 'A', 'C', 'D', 'B', 'T' };
+            for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], testCase.Path[i]);
         }
+
         /// <summary>
-        /// generic operations for int type
+        ///     generic operations for int type
         /// </summary>
         public class JohnsonsShortestPathOperators
             : IJohnsonsShortestPathOperators<char, int>
         {
-            public int DefaultValue
-            {
-                get
-                {
-                    return 0;
-                }
-            }
+            public int DefaultValue => 0;
 
-            public int MaxValue
-            {
-                get
-                {
-                    return int.MaxValue;
-                }
-            }
+            public int MaxValue => int.MaxValue;
 
             /// <summary>
-            /// return a char not in graph
+            ///     return a char not in graph
             /// </summary>
             /// <returns></returns>
             public char RandomVertex()

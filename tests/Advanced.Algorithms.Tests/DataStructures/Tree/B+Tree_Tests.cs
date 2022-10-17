@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -13,7 +13,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         public void BPTree_Smoke_Test()
         {
             //insert test
-            var tree = new BpTree<int>(3);
+            var tree = new BpTree<int>();
 
             tree.Insert(5);
             tree.Insert(3);
@@ -71,27 +71,23 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsFalse(tree.HasItem(12));
 
             Assert.AreEqual(tree.Count, 0);
-
-
         }
 
         [TestMethod]
         public void BPTree_AccuracyTest()
         {
-
             var nodeCount = 1000;
 
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount)
-                            .OrderBy(x => rnd.Next())
-                            .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             var order = 5;
             var tree = new BpTree<int>(order);
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
-
                 tree.Insert(randomNumbers[i]);
 
                 var actualMaxHeight = BTreeTester.GetMaxHeight(tree.Root);
@@ -100,7 +96,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(actualMaxHeight == actualMinHeight);
 
                 //https://en.wikipedia.org/wiki/B-tree#Best_case_and_worst_case_heights
-                var theoreticalMaxHeight = Math.Ceiling(Math.Log((i + 2) / 2, (int)Math.Ceiling((double)order / 2))) + 1;
+                var theoreticalMaxHeight =
+                    Math.Ceiling(Math.Log((i + 2) / 2, (int)Math.Ceiling((double)order / 2))) + 1;
 
                 Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
 
@@ -114,17 +111,14 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(tree.HasItem(randomNumbers[i]));
             }
 
-            for (int i = 0; i < nodeCount; i++)
-            {
-                Assert.IsTrue(tree.HasItem(randomNumbers[i]));
-            }
+            for (var i = 0; i < nodeCount; i++) Assert.IsTrue(tree.HasItem(randomNumbers[i]));
 
             Assert.AreEqual(tree.Max, randomNumbers.Max());
             Assert.AreEqual(tree.Min, randomNumbers.Min());
 
             //check that the elements are in sorted order
             //since B+ tree stores all elements in leaves in sorted order from left to right
-            int j = 1;
+            var j = 1;
             foreach (var element in tree)
             {
                 Assert.AreEqual(j, element);
@@ -141,12 +135,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
-                            .OrderBy(x => rnd.Next())
-                            .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
-
                 tree.Delete(randomNumbers[i]);
                 Assert.IsFalse(tree.HasItem(randomNumbers[i]));
 
@@ -156,7 +149,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(actualMaxHeight == actualMinHeight);
 
                 //https://en.wikipedia.org/wiki/B-tree#Best_case_and_worst_case_heights
-                var theoreticalMaxHeight = i == nodeCount - 1 ? 0 : Math.Ceiling(Math.Log((nodeCount - i - 1 + 1) / 2, (int)Math.Ceiling((double)order / 2))) + 1;
+                var theoreticalMaxHeight = i == nodeCount - 1
+                    ? 0
+                    : Math.Ceiling(Math.Log((nodeCount - i - 1 + 1) / 2, (int)Math.Ceiling((double)order / 2))) + 1;
 
                 Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
 
@@ -170,7 +165,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             Assert.IsTrue(BTreeTester.GetMaxHeight(tree.Root) == 0);
             Assert.IsTrue(tree.Count == 0);
-
         }
 
         [TestMethod]
@@ -180,12 +174,12 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount)
-                                .OrderBy(x => rnd.Next())
-                                .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             var tree = new BpTree<int>(12);
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Insert(randomNumbers[i]);
                 Assert.IsTrue(tree.Count == i + 1);
@@ -193,26 +187,25 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             ////shuffle again before deletion tests
             randomNumbers = Enumerable.Range(1, nodeCount)
-                               .OrderBy(x => rnd.Next())
-                               .ToList();
+                .OrderBy(x => rnd.Next())
+                .ToList();
 
             //check that the elements are in sorted order
             //since B+ tree stores all elements in leaves in sorted order from left to right
-            int j = 1;
+            var j = 1;
             foreach (var element in tree)
             {
                 Assert.AreEqual(j, element);
                 j++;
             }
 
-            for (int i = 0; i < nodeCount; i++)
+            for (var i = 0; i < nodeCount; i++)
             {
                 tree.Delete(randomNumbers[i]);
                 Assert.IsTrue(tree.Count == nodeCount - 1 - i);
             }
 
             Assert.IsTrue(tree.Count == 0);
-
         }
 
         [TestMethod]

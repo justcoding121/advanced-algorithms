@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures.Foundation;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.DataStructures.Foundation;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -9,16 +9,16 @@ namespace Advanced.Algorithms.Tests.DataStructures
     public class HashSet_Tests
     {
         /// <summary>
-        /// key value dictionary tests 
+        ///     key value dictionary tests
         /// </summary>
         [TestMethod]
         public void HashSet_SeparateChaining_Test()
         {
-            var hashSet = new HashSet<int>(HashSetType.SeparateChaining);
-            int nodeCount = 1000;
+            var hashSet = new HashSet<int>();
+            var nodeCount = 1000;
 
             //insert test
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++)
             {
                 hashSet.Add(i);
                 Assert.AreEqual(true, hashSet.Contains(i));
@@ -27,7 +27,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable test using linq
             Assert.AreEqual(hashSet.Count, hashSet.Count());
 
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++)
             {
                 hashSet.Remove(i);
                 Assert.AreEqual(false, hashSet.Contains(i));
@@ -48,12 +48,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable test using linq
             Assert.AreEqual(hashSet.Count, hashSet.Count());
 
-            foreach (var item in testSeries)
-            {
-                Assert.AreEqual(true, hashSet.Contains(item));
-            }
+            foreach (var item in testSeries) Assert.AreEqual(true, hashSet.Contains(item));
 
-            for (int i = 1; i <= nodeCount; i++)
+            for (var i = 1; i <= nodeCount; i++)
             {
                 hashSet.Remove(i);
                 Assert.AreEqual(false, hashSet.Contains(i));
@@ -61,7 +58,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test using linq
             Assert.AreEqual(hashSet.Count, hashSet.Count());
-
         }
 
 
@@ -69,10 +65,10 @@ namespace Advanced.Algorithms.Tests.DataStructures
         public void HashSet_OpenAddressing_Test()
         {
             var hashSet = new HashSet<int>(HashSetType.OpenAddressing);
-            int nodeCount = 1000;
+            var nodeCount = 1000;
 
             //insert test
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++)
             {
                 hashSet.Add(i);
                 Assert.AreEqual(true, hashSet.Contains(i));
@@ -81,7 +77,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable test using linq
             Assert.AreEqual(hashSet.Count, hashSet.Count());
 
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++)
             {
                 hashSet.Remove(i);
                 Assert.AreEqual(false, hashSet.Contains(i));
@@ -102,12 +98,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable test using linq
             Assert.AreEqual(hashSet.Count, hashSet.Count());
 
-            foreach (var item in testSeries)
-            {
-                Assert.AreEqual(true, hashSet.Contains(item));
-            }
+            foreach (var item in testSeries) Assert.AreEqual(true, hashSet.Contains(item));
 
-            for (int i = 1; i <= nodeCount; i++)
+            for (var i = 1; i <= nodeCount; i++)
             {
                 hashSet.Remove(i);
                 Assert.AreEqual(false, hashSet.Contains(i));

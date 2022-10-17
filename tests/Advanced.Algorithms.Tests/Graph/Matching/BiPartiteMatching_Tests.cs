@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
@@ -7,12 +8,12 @@ namespace Advanced.Algorithms.Tests.Graph
     public class BiPartititeMatch_Tests
     {
         /// <summary>
-        /// Test Max BiParitite Edges using Ford-Fukerson algorithm
+        ///     Test Max BiParitite Edges using Ford-Fukerson algorithm
         /// </summary>
         [TestMethod]
         public void MaxBiPartiteMatch_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -43,12 +44,12 @@ namespace Advanced.Algorithms.Tests.Graph
         }
 
         /// <summary>
-        /// Test Max BiParitite Edges using Ford-Fukerson algorithm
+        ///     Test Max BiParitite Edges using Ford-Fukerson algorithm
         /// </summary>
         [TestMethod]
         public void MaxBiPartiteMatch_AdjacencyListGraph_Accuracy_Test_1()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('0');
             graph.AddVertex('1');
@@ -58,7 +59,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
             graph.AddEdge('0', '2');
             graph.AddEdge('1', '3');
-          
+
 
             var algorithm = new BiPartiteMatching<char>(new BiPartiteMatchOperators());
 
@@ -70,7 +71,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void MaxBiPartiteMatch_AdjacencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -101,12 +102,12 @@ namespace Advanced.Algorithms.Tests.Graph
         }
 
         /// <summary>
-        /// Test Max BiParitite Edges using Ford-Fukerson algorithm
+        ///     Test Max BiParitite Edges using Ford-Fukerson algorithm
         /// </summary>
         [TestMethod]
         public void MaxBiPartiteMatch_AdjacencyMatrixGraph_Accuracy_Test_1()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
 
             graph.AddVertex('0');
             graph.AddVertex('1');
@@ -129,7 +130,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void MaxBiPartiteMatch_AdjacencyListGraph_Accurancy_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('E');
             graph.AddVertex('N');
@@ -168,13 +169,12 @@ namespace Advanced.Algorithms.Tests.Graph
             var result = algorithm.GetMaxBiPartiteMatching(graph);
 
             Assert.AreEqual(result.Count, 6);
-
         }
 
         [TestMethod]
         public void MaxBiPartiteMatch_AdjacencyListGraph_Accurancy_Test_Fully_Connected_Bipartite_Graph()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -198,34 +198,20 @@ namespace Advanced.Algorithms.Tests.Graph
             var result = algorithm.GetMaxBiPartiteMatching(graph);
 
             Assert.AreEqual(result.Count, 3);
-
         }
 
         /// <summary>
-        /// operators for generics
-        /// implemented for int type for edge weights
+        ///     operators for generics
+        ///     implemented for int type for edge weights
         /// </summary>
         public class BiPartiteMatchOperators : IBiPartiteMatchOperators<char>
         {
+            private int currentIndex;
+            private readonly char[] randomVertices = { '#', '*' };
 
-            private int currentIndex = 0;
-            private char[] randomVertices = new char[] { '#', '*' };
+            public int defaultWeight => 0;
 
-            public int defaultWeight
-            {
-                get
-                {
-                    return 0;
-                }
-            }
-
-            public int MaxWeight
-            {
-                get
-                {
-                    return int.MaxValue;
-                }
-            }
+            public int MaxWeight => int.MaxValue;
 
             public int AddWeights(int a, int b)
             {
@@ -233,8 +219,8 @@ namespace Advanced.Algorithms.Tests.Graph
             }
 
             /// <summary>
-            /// we need only two random unique vertices not in given graph
-            /// for Source & Sink dummy nodes
+            ///     we need only two random unique vertices not in given graph
+            ///     for Source & Sink dummy nodes
             /// </summary>
             /// <returns></returns>
             public char GetRandomUniqueVertex()

@@ -1,16 +1,16 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
 {
-
     [TestClass]
     public class TarjansBiConnected_Tests
     {
         [TestMethod]
         public void TarjanIsBiConnected_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -44,13 +44,12 @@ namespace Advanced.Algorithms.Tests.Graph
             result = algorithm.IsBiConnected(graph);
 
             Assert.IsFalse(result);
-
         }
 
         [TestMethod]
         public void TarjanIsBiConnected_AdjacencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -84,7 +83,6 @@ namespace Advanced.Algorithms.Tests.Graph
             result = algorithm.IsBiConnected(graph);
 
             Assert.IsFalse(result);
-
         }
     }
 }

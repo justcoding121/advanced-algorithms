@@ -2,56 +2,48 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Advanced.Algorithms.Search
+namespace Advanced.Algorithms.Search;
+
+/// <summary>
+///     A boyer-moore majority finder algorithm implementation.
+/// </summary>
+public class BoyerMoore<T> where T : IComparable
 {
-    /// <summary>
-    /// A boyer-moore majority finder algorithm implementation.
-    /// </summary>
-    public class BoyerMoore<T> where T : IComparable
+    public static T FindMajority(IEnumerable<T> input)
     {
-        public static T FindMajority(IEnumerable<T> input)
-        {
-            var candidate = findMajorityCandidate(input, input.Count());
+        var candidate = findMajorityCandidate(input, input.Count());
 
-            if (verify(input, input.Count(), candidate))
+        if (verify(input, input.Count(), candidate)) return candidate;
+
+        return default;
+    }
+
+    //Find majority candidate
+    private static T findMajorityCandidate(IEnumerable<T> input, int length)
+    {
+        var count = 1;
+        var candidate = input.First();
+
+        foreach (var element in input.Skip(1))
+        {
+            if (candidate.Equals(element))
+                count++;
+            else
+                count--;
+
+            if (count == 0)
             {
-                return candidate;
+                candidate = element;
+                count = 1;
             }
-
-            return default(T);
         }
 
-        //Find majority candidate
-        private static T findMajorityCandidate(IEnumerable<T> input, int length)
-        {
-            int count = 1;
-            T candidate = input.First();
+        return candidate;
+    }
 
-            foreach (var element in input.Skip(1))
-            {
-                if (candidate.Equals(element))
-                {
-                    count++;
-                }
-                else
-                {
-                    count--;
-                }
-
-                if (count == 0)
-                {
-                    candidate = element;
-                    count = 1;
-                }
-            }
-
-            return candidate;
-        }
-
-        //verify that candidate is indeed the majority
-        private static bool verify(IEnumerable<T> input, int size, T candidate)
-        {
-            return input.Count(x => x.Equals(candidate)) > size / 2;
-        }
+    //verify that candidate is indeed the majority
+    private static bool verify(IEnumerable<T> input, int size, T candidate)
+    {
+        return input.Count(x => x.Equals(candidate)) > size / 2;
     }
 }

@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures.Foundation;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.DataStructures.Foundation;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -9,17 +9,17 @@ namespace Advanced.Algorithms.Tests.DataStructures
     public class OrderedHashSet_Tests
     {
         /// <summary>
-        /// key value HashSet tests 
+        ///     key value HashSet tests
         /// </summary>
         [TestMethod]
         public void OrderedHashSet_Test()
         {
             var hashSet = new OrderedHashSet<int>();
 
-            int nodeCount = 1000;
+            var nodeCount = 1000;
 
             //insert test
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++)
             {
                 hashSet.Add(i);
                 Assert.AreEqual(true, hashSet.Contains(i));
@@ -29,7 +29,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(hashSet.Count, hashSet.Count());
             Assert.AreEqual(hashSet.Count, hashSet.AsEnumerableDesc().Count());
 
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++)
             {
                 hashSet.Remove(i);
                 Assert.AreEqual(false, hashSet.Contains(i));
@@ -52,7 +52,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(hashSet.Count, hashSet.Count());
             Assert.AreEqual(hashSet.Count, hashSet.AsEnumerableDesc().Count());
 
-            for (int i = 1; i <= nodeCount; i++)
+            for (var i = 1; i <= nodeCount; i++)
             {
                 hashSet.Remove(i);
                 Assert.AreEqual(false, hashSet.Contains(i));

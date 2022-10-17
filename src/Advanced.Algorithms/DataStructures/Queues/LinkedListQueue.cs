@@ -1,40 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
-namespace Advanced.Algorithms.DataStructures.Foundation
+namespace Advanced.Algorithms.DataStructures.Foundation;
+
+internal class LinkedListQueue<T> : IQueue<T>
 {
-    internal class LinkedListQueue<T> : IQueue<T>
+    private readonly DoublyLinkedList<T> list = new();
+
+    public int Count { get; private set; }
+
+    public void Enqueue(T item)
     {
-        private readonly DoublyLinkedList<T> list = new DoublyLinkedList<T>();
+        list.InsertFirst(item);
+        Count++;
+    }
 
-        public int Count { get; private set; }
+    public T Dequeue()
+    {
+        if (list.Head == null) throw new Exception("Empty Queue");
 
-        public void Enqueue(T item)
-        {
-            list.InsertFirst(item);
-            Count++;
-        }
+        var result = list.DeleteLast();
+        Count--;
+        return result;
+    }
 
-        public T Dequeue()
-        {
-            if (list.Head == null)
-            {
-                throw new System.Exception("Empty Queue");
-            }
+    public IEnumerator<T> GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 
-            var result = list.DeleteLast();
-            Count--;
-            return result;
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return list.GetEnumerator();
-        }
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return list.GetEnumerator();
     }
 }

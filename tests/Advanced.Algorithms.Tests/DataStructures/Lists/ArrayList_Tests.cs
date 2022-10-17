@@ -1,7 +1,7 @@
-﻿using Advanced.Algorithms.DataStructures.Foundation;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Advanced.Algorithms.DataStructures.Foundation;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -12,9 +12,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
         public void ArrayList_Test()
         {
             var arrayList = new ArrayList<int>();
-            int nodeCount = 1000;
+            var nodeCount = 1000;
 
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++)
             {
                 arrayList.Add(i);
                 Assert.AreEqual(true, arrayList.Contains(i));
@@ -23,7 +23,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable test using linq
             Assert.AreEqual(arrayList.Length, arrayList.Count());
 
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++)
             {
                 arrayList.RemoveAt(0);
                 Assert.AreEqual(false, arrayList.Contains(i));
@@ -38,20 +38,16 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(true, arrayList.Contains(item));
             }
 
-            for (int i = 1; i <= nodeCount; i++)
-            {
-                arrayList.RemoveAt(0);
-            }
-
+            for (var i = 1; i <= nodeCount; i++) arrayList.RemoveAt(0);
         }
 
         [TestMethod]
         public void ArrayList_InsertAt_Test()
         {
             var arrayList = new ArrayList<int>();
-            int nodeCount = 10;
+            var nodeCount = 10;
 
-            for (int i = 0; i <= nodeCount; i++)
+            for (var i = 0; i <= nodeCount; i++)
             {
                 arrayList.InsertAt(i, i);
                 Assert.AreEqual(true, arrayList.Contains(i));

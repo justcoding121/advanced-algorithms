@@ -1,9 +1,10 @@
-﻿using Advanced.Algorithms.Geometry;
-using Advanced.Algorithms.Graph;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Geometry;
+using Advanced.Algorithms.Graph;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Graph
 {
@@ -46,7 +47,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
             var locationMappings = new Dictionary<string, Location>();
 
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.WeightedDiGraph<Location, double>();
+            var graph = new WeightedDiGraph<Location, double>();
 
             using (var reader = new StringReader(testLocations))
             {
@@ -55,7 +56,7 @@ namespace Advanced.Algorithms.Tests.Graph
                 {
                     var @params = line.Split(' ');
 
-                    var location = new Location()
+                    var location = new Location
                     {
                         Point = new Point(double.Parse(@params[1]), double.Parse(@params[2])),
                         Name = @params[0]
@@ -103,28 +104,23 @@ namespace Advanced.Algorithms.Tests.Graph
                 {
                     var @params = line.Split(' ');
 
-                    for (int i = 2; i < int.Parse(@params[1]) + 2; i++)
-                    {
+                    for (var i = 2; i < int.Parse(@params[1]) + 2; i++)
                         graph.AddEdge(locationMappings[@params[0]], locationMappings[@params[i]],
-                                EucledianDistanceCalculator.GetEucledianDistance(locationMappings[@params[0]].Point,
-                                                                                 locationMappings[@params[i]].Point));
-                    }
-
+                            EucledianDistanceCalculator.GetEucledianDistance(locationMappings[@params[0]].Point,
+                                locationMappings[@params[i]].Point));
                 }
             }
 
-            var algorithm = new AStarShortestPath<Location, double>(new AStarShortestPathOperators(), new AStarSearchHeuristic());
+            var algorithm =
+                new AStarShortestPath<Location, double>(new AStarShortestPathOperators(), new AStarSearchHeuristic());
 
             var result = algorithm.FindShortestPath(graph, locationMappings["A1"], locationMappings["G5"]);
 
             Assert.AreEqual(10, result.Path.Count);
             Assert.AreEqual(1217.3209396395309, result.Length);
 
-            var expectedPath = new string[] { "A1", "B1", "B2", "C3", "C4", "D4", "E4", "E5", "F5", "G5" };
-            for (int i = 0; i < expectedPath.Length; i++)
-            {
-                Assert.AreEqual(expectedPath[i], result.Path[i].Name);
-            }
+            var expectedPath = new[] { "A1", "B1", "B2", "C3", "C4", "D4", "E4", "E5", "F5", "G5" };
+            for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], result.Path[i].Name);
         }
 
         //test using eucledian (straight line) distance to destination as heuristic.
@@ -163,7 +159,7 @@ namespace Advanced.Algorithms.Tests.Graph
 
             var locationMappings = new Dictionary<string, Location>();
 
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<Location, double>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.WeightedDiGraph<Location, double>();
 
             using (var reader = new StringReader(testLocations))
             {
@@ -172,7 +168,7 @@ namespace Advanced.Algorithms.Tests.Graph
                 {
                     var @params = line.Split(' ');
 
-                    var location = new Location()
+                    var location = new Location
                     {
                         Point = new Point(double.Parse(@params[1]), double.Parse(@params[2])),
                         Name = @params[0]
@@ -220,28 +216,23 @@ namespace Advanced.Algorithms.Tests.Graph
                 {
                     var @params = line.Split(' ');
 
-                    for (int i = 2; i < int.Parse(@params[1]) + 2; i++)
-                    {
+                    for (var i = 2; i < int.Parse(@params[1]) + 2; i++)
                         graph.AddEdge(locationMappings[@params[0]], locationMappings[@params[i]],
-                                EucledianDistanceCalculator.GetEucledianDistance(locationMappings[@params[0]].Point,
-                                                                                 locationMappings[@params[i]].Point));
-                    }
-
+                            EucledianDistanceCalculator.GetEucledianDistance(locationMappings[@params[0]].Point,
+                                locationMappings[@params[i]].Point));
                 }
             }
 
-            var algorithm = new AStarShortestPath<Location, double>(new AStarShortestPathOperators(), new AStarSearchHeuristic());
+            var algorithm =
+                new AStarShortestPath<Location, double>(new AStarShortestPathOperators(), new AStarSearchHeuristic());
 
             var result = algorithm.FindShortestPath(graph, locationMappings["A1"], locationMappings["G5"]);
 
             Assert.AreEqual(10, result.Path.Count);
             Assert.AreEqual(1217.3209396395309, result.Length);
 
-            var expectedPath = new string[] { "A1", "B1", "B2", "C3", "C4", "D4", "E4", "E5", "F5", "G5" };
-            for (int i = 0; i < expectedPath.Length; i++)
-            {
-                Assert.AreEqual(expectedPath[i], result.Path[i].Name);
-            }
+            var expectedPath = new[] { "A1", "B1", "B2", "C3", "C4", "D4", "E4", "E5", "F5", "G5" };
+            for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], result.Path[i].Name);
         }
 
         public class Location
@@ -255,32 +246,19 @@ namespace Advanced.Algorithms.Tests.Graph
             public double HueristicDistanceToTarget(Location sourceVertex, Location targetVertex)
             {
                 return EucledianDistanceCalculator.GetEucledianDistance(sourceVertex.Point,
-                                                                       targetVertex.Point);
+                    targetVertex.Point);
             }
         }
 
         public class AStarShortestPathOperators : IShortestPathOperators<double>
         {
-            public double DefaultValue
-            {
-                get
-                {
-                    return default(double);
-                }
+            public double DefaultValue => default;
 
-            }
-
-            public double MaxValue
-            {
-                get
-                {
-                    return double.MaxValue;
-                }
-            }
+            public double MaxValue => double.MaxValue;
 
             public double Sum(double a, double b)
             {
-                return checked(a + b);
+                return a + b;
             }
         }
     }
@@ -288,13 +266,12 @@ namespace Advanced.Algorithms.Tests.Graph
     public class EucledianDistanceCalculator
     {
         /// <summary>
-        /// returns the eucledian distance between given two points
+        ///     returns the eucledian distance between given two points
         /// </summary>
         public static double GetEucledianDistance(Point a, Point b)
         {
             return Math.Sqrt(Math.Pow(Math.Abs(a.X - b.X), 2)
-                + Math.Pow(Math.Abs(a.Y - b.Y), 2));
+                             + Math.Pow(Math.Abs(a.Y - b.Y), 2));
         }
     }
-
 }

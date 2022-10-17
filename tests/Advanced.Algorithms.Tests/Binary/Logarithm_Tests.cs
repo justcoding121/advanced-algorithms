@@ -1,7 +1,6 @@
 ﻿using Advanced.Algorithms.Binary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
 namespace Advanced.Algorithms.Tests.Binary
 {
     [TestClass]

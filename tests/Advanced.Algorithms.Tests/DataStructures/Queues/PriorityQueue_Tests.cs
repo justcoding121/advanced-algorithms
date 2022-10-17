@@ -6,7 +6,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
     [TestClass]
     public class PriorityQueue_Tests
     {
-
         [TestMethod]
         public void Min_PriorityQueue_Test()
         {
@@ -21,7 +20,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(queue.Dequeue(), 9);
             Assert.AreEqual(queue.Dequeue(), 10);
             Assert.AreEqual(queue.Dequeue(), 21);
-
         }
 
         [TestMethod]
@@ -38,7 +36,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(queue.Dequeue(), 10);
             Assert.AreEqual(queue.Dequeue(), 9);
             Assert.AreEqual(queue.Dequeue(), 1);
-
         }
     }
 }

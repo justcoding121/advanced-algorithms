@@ -1,16 +1,14 @@
-﻿using Advanced.Algorithms.DataStructures;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Advanced.Algorithms.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
     public class BHeap_Tests
     {
-
         [TestMethod]
         public void Min_BHeap_Test()
         {
@@ -19,12 +17,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var minHeap = new BHeap<int>(SortDirection.Ascending, initial);
 
-            for (int i = 51; i <= 99; i++)
-            {
-                minHeap.Insert(i);
-            }
+            for (var i = 51; i <= 99; i++) minHeap.Insert(i);
 
-            for (int i = 0; i <= 99; i++)
+            for (var i = 0; i <= 99; i++)
             {
                 var min = minHeap.Extract();
                 Assert.AreEqual(min, i);
@@ -35,12 +30,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var testSeries = Enumerable.Range(1, 49).OrderBy(x => rnd.Next()).ToList();
 
-            foreach (var item in testSeries)
-            {
-                minHeap.Insert(item);
-            }
+            foreach (var item in testSeries) minHeap.Insert(item);
 
-            for (int i = 1; i <= 49; i++)
+            for (var i = 1; i <= 49; i++)
             {
                 var min = minHeap.Extract();
                 Assert.AreEqual(min, i);
@@ -48,7 +40,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable tests.
             Assert.AreEqual(minHeap.Count, minHeap.Count());
-
         }
 
 
@@ -63,12 +54,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             var maxHeap = new BHeap<int>(SortDirection.Descending, initial);
 
-            for (int i = 51; i <= 99; i++)
-            {
-                maxHeap.Insert(i);
-            }
+            for (var i = 51; i <= 99; i++) maxHeap.Insert(i);
 
-            for (int i = 0; i <= 99; i++)
+            for (var i = 0; i <= 99; i++)
             {
                 var max = maxHeap.Extract();
                 Assert.AreEqual(max, 99 - i);
@@ -80,12 +68,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var testSeries = Enumerable.Range(1, 49)
                 .OrderBy(x => rnd.Next()).ToList();
 
-            foreach (var item in testSeries)
-            {
-                maxHeap.Insert(item);
-            }
+            foreach (var item in testSeries) maxHeap.Insert(item);
 
-            for (int i = 1; i <= 49; i++)
+            for (var i = 1; i <= 49; i++)
             {
                 var max = maxHeap.Extract();
                 Assert.AreEqual(max, 49 - i + 1);
@@ -93,7 +78,6 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable tests.
             Assert.AreEqual(maxHeap.Count, maxHeap.Count());
-
         }
     }
 }

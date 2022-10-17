@@ -1,5 +1,7 @@
-﻿using Advanced.Algorithms.Graph;
+﻿using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
+using Advanced.Algorithms.Graph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
@@ -8,7 +10,7 @@ namespace Advanced.Algorithms.Tests.Graph
         [TestMethod]
         public void BreadthFirst_AdjacencyListGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyList.Graph<char>();
+            var graph = new Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -35,13 +37,12 @@ namespace Advanced.Algorithms.Tests.Graph
             Assert.IsTrue(algorithm.Find(graph, 'D'));
 
             Assert.IsFalse(algorithm.Find(graph, 'M'));
-
         }
 
         [TestMethod]
         public void BreadthFirst_AdjacencyMatrixGraph_Smoke_Test()
         {
-            var graph = new Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
+            var graph = new Algorithms.DataStructures.Graph.AdjacencyMatrix.Graph<char>();
 
             graph.AddVertex('A');
             graph.AddVertex('B');
@@ -68,7 +69,6 @@ namespace Advanced.Algorithms.Tests.Graph
             Assert.IsTrue(algorithm.Find(graph, 'D'));
 
             Assert.IsFalse(algorithm.Find(graph, 'M'));
-
         }
     }
 }

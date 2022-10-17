@@ -1,74 +1,73 @@
 ﻿using System;
 
-namespace Advanced.Algorithms.Geometry
+namespace Advanced.Algorithms.Geometry;
+
+/// <summary>
+///     Line object.
+/// </summary>
+public class Line
 {
-    /// <summary>
-    /// Line object.
-    /// </summary>
-    public class Line
+    private readonly Lazy<double> slope;
+
+    private Line()
     {
-        public Point Left { get; private set; }
-        public Point Right { get; private set; }
+        slope = new Lazy<double>(() => calcSlope());
+    }
 
-        public bool IsVertical => Left.X == Right.X;
-        public bool IsHorizontal => Left.Y == Right.Y;
-
-        public double Slope => slope.Value;
-
-        private Line()
+    internal Line(Point start, Point end, double tolerance)
+        : this()
+    {
+        if (start.X < end.X)
         {
-            slope = new Lazy<double>(() => calcSlope());
+            Left = start;
+            Right = end;
         }
-
-        internal Line(Point start, Point end, double tolerance)
-            : this()
+        else if (start.X > end.X)
         {
-            if (start.X < end.X)
+            Left = end;
+            Right = start;
+        }
+        else
+        {
+            //use Y
+            if (start.Y < end.Y)
             {
                 Left = start;
                 Right = end;
             }
-            else if (start.X > end.X)
+            else
             {
                 Left = end;
                 Right = start;
             }
-            else
-            {
-                //use Y
-                if (start.Y < end.Y)
-                {
-                    Left = start;
-                    Right = end;
-                }
-                else
-                {
-                    Left = end;
-                    Right = start;
-                }
-            }
         }
+    }
 
-        public Line(Point start, Point end, int precision = 5)
-        : this(start, end, Math.Round(Math.Pow(0.1, precision), precision)) { }
+    public Line(Point start, Point end, int precision = 5)
+        : this(start, end, Math.Round(Math.Pow(0.1, precision), precision))
+    {
+    }
 
-        private readonly Lazy<double> slope;
-        private double calcSlope()
-        {
-            Point left = Left, right = Right;
+    public Point Left { get; }
+    public Point Right { get; }
 
-            //vertical line has infinite slope
-            if (left.Y == right.Y)
-            {
-                return double.MaxValue;
-            }
+    public bool IsVertical => Left.X == Right.X;
+    public bool IsHorizontal => Left.Y == Right.Y;
 
-            return ((right.Y - left.Y) / (right.X - left.X));
-        }
+    public double Slope => slope.Value;
 
-        public Line Clone()
-        {
-            return new Line(Left.Clone(), Right.Clone());
-        }
+    private double calcSlope()
+    {
+        Point left = Left, right = Right;
+
+        //vertical line has infinite slope
+        if (left.Y == right.Y) return double.MaxValue;
+
+        return (right.Y - left.Y) / (right.X - left.X);
+    }
+
+    public Line Clone()
+    {
+        return new Line(Left.Clone(), Right.Clone());
     }
 }
