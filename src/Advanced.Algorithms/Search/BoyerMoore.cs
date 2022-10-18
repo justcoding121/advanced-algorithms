@@ -11,15 +11,15 @@ public class BoyerMoore<T> where T : IComparable
 {
     public static T FindMajority(IEnumerable<T> input)
     {
-        var candidate = findMajorityCandidate(input, input.Count());
+        var candidate = FindMajorityCandidate(input, input.Count());
 
-        if (verify(input, input.Count(), candidate)) return candidate;
+        if (Verify(input, input.Count(), candidate)) return candidate;
 
         return default;
     }
 
     //Find majority candidate
-    private static T findMajorityCandidate(IEnumerable<T> input, int length)
+    private static T FindMajorityCandidate(IEnumerable<T> input, int length)
     {
         var count = 1;
         var candidate = input.First();
@@ -42,7 +42,7 @@ public class BoyerMoore<T> where T : IComparable
     }
 
     //verify that candidate is indeed the majority
-    private static bool verify(IEnumerable<T> input, int size, T candidate)
+    private static bool Verify(IEnumerable<T> input, int size, T candidate)
     {
         return input.Count(x => x.Equals(candidate)) > size / 2;
     }

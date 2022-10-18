@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class D_aryHeap_Tests
+    public class DAryHeapTests
     {
         [TestMethod]
         public void Min_D_ary_Heap_Test()

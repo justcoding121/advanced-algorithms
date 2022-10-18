@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class BiDirectional_Tests
+    public class BiDirectionalTests
     {
         [TestMethod]
         public void BiDirectional_AdjancencyListGraph_Smoke_Test()

@@ -4,9 +4,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
-    internal static class BSTTester
+    internal static class BstTester
     {
-        internal static bool IsBinarySearchTree<T>(this BSTNodeBase<T> node, T lowerBound, T upperBound)
+        internal static bool IsBinarySearchTree<T>(this BstNodeBase<T> node, T lowerBound, T upperBound)
             where T : IComparable
         {
             if (node == null) return true;
@@ -17,7 +17,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                    IsBinarySearchTree(node.Right, node.Value, upperBound);
         }
 
-        public static int VerifyCount<T>(this BSTNodeBase<T> node) where T : IComparable
+        public static int VerifyCount<T>(this BstNodeBase<T> node) where T : IComparable
         {
             if (node == null) return 0;
 
@@ -30,7 +30,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
 
         //O(log(n)) worst O(n) for unbalanced tree
-        internal static int GetHeight<T>(this BSTNodeBase<T> node) where T : IComparable
+        internal static int GetHeight<T>(this BstNodeBase<T> node) where T : IComparable
         {
             if (node == null) return -1;
 

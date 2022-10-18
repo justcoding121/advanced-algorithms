@@ -8,9 +8,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Geometry
 {
     [TestClass]
-    public class BentleyOttmann_Tests
+    public class BentleyOttmannTests
     {
-        private static readonly Random random = new Random();
+        private static readonly Random Random = new Random();
 
         [TestMethod]
         public void BentleyOttmann_Smoke_Test_1()
@@ -24,7 +24,7 @@ namespace Advanced.Algorithms.Tests.Geometry
 
             lines.AddRange(new[] { s1, s2, s3, s4 });
 
-            var expectedIntersections = getExpectedIntersections(lines);
+            var expectedIntersections = GetExpectedIntersections(lines);
 
             var bentleyOttmannAlgorithm = new BentleyOttmann();
 
@@ -44,7 +44,7 @@ namespace Advanced.Algorithms.Tests.Geometry
 
             lines.AddRange(new[] { s1, s2, s3 });
 
-            var expectedIntersections = getExpectedIntersections(lines);
+            var expectedIntersections = GetExpectedIntersections(lines);
 
             var bentleyOttmannAlgorithm = new BentleyOttmann();
 
@@ -58,9 +58,9 @@ namespace Advanced.Algorithms.Tests.Geometry
         {
             var lines = new List<Line>();
 
-            lines.AddRange(verticalLines());
+            lines.AddRange(VerticalLines());
 
-            var expectedIntersections = getExpectedIntersections(lines);
+            var expectedIntersections = GetExpectedIntersections(lines);
 
             var bentleyOttmannAlgorithm = new BentleyOttmann();
 
@@ -74,9 +74,9 @@ namespace Advanced.Algorithms.Tests.Geometry
         {
             var lines = new List<Line>();
 
-            lines.AddRange(horizontalLines());
+            lines.AddRange(HorizontalLines());
 
-            var expectedIntersections = getExpectedIntersections(lines);
+            var expectedIntersections = GetExpectedIntersections(lines);
 
             var bentleyOttmannAlgorithm = new BentleyOttmann();
 
@@ -104,7 +104,7 @@ namespace Advanced.Algorithms.Tests.Geometry
             lines.Add(new Line(new Point(100, 175), new Point(200, 175)));
             lines.Add(new Line(new Point(100, 200), new Point(200, 200)));
 
-            var expectedIntersections = getExpectedIntersections(lines);
+            var expectedIntersections = GetExpectedIntersections(lines);
 
             var bentleyOttmannAlgorithm = new BentleyOttmann();
 
@@ -131,7 +131,7 @@ namespace Advanced.Algorithms.Tests.Geometry
             lines.Add(new Line(new Point(100, 100), new Point(200, 200)));
             lines.Add(new Line(new Point(100, 200), new Point(200, 100)));
 
-            var expectedIntersections = getExpectedIntersections(lines);
+            var expectedIntersections = GetExpectedIntersections(lines);
 
             var bentleyOttmannAlgorithm = new BentleyOttmann();
 
@@ -159,7 +159,7 @@ namespace Advanced.Algorithms.Tests.Geometry
             lines.Add(new Line(new Point(110, 100), new Point(210, 200)));
             lines.Add(new Line(new Point(90, 200), new Point(250, 100)));
 
-            var expectedIntersections = getExpectedIntersections(lines);
+            var expectedIntersections = GetExpectedIntersections(lines);
 
             var bentleyOttmannAlgorithm = new BentleyOttmann();
 
@@ -173,12 +173,12 @@ namespace Advanced.Algorithms.Tests.Geometry
         {
             var lines = new List<Line>();
 
-            lines.AddRange(getRandomLines(1000));
+            lines.AddRange(GetRandomLines(1000));
 
             var stopWatch = new Stopwatch();
 
             stopWatch.Start();
-            var expectedIntersections = getExpectedIntersections(lines);
+            var expectedIntersections = GetExpectedIntersections(lines);
             stopWatch.Stop();
 
             var naiveElapsedTime = stopWatch.ElapsedMilliseconds;
@@ -196,7 +196,7 @@ namespace Advanced.Algorithms.Tests.Geometry
             Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
         }
 
-        private static Dictionary<Point, List<Line>> getExpectedIntersections(List<Line> lines)
+        private static Dictionary<Point, List<Line>> GetExpectedIntersections(List<Line> lines)
         {
             var result = new Dictionary<Point, HashSet<Line>>(new PointComparer());
 
@@ -220,20 +220,20 @@ namespace Advanced.Algorithms.Tests.Geometry
             return result.ToDictionary(x => x.Key, x => x.Value.ToList());
         }
 
-        private static List<Line> getRandomLines(int lineCount)
+        private static List<Line> GetRandomLines(int lineCount)
         {
             var lines = new List<Line>();
 
             while (lineCount > 0)
             {
-                lines.Add(getRandomLine());
+                lines.Add(GetRandomLine());
                 lineCount--;
             }
 
             return lines;
         }
 
-        private static List<Line> verticalLines()
+        private static List<Line> VerticalLines()
         {
             var lines = new List<Line>();
 
@@ -247,7 +247,7 @@ namespace Advanced.Algorithms.Tests.Geometry
             return lines;
         }
 
-        private static List<Line> horizontalLines()
+        private static List<Line> HorizontalLines()
         {
             var lines = new List<Line>();
 
@@ -261,13 +261,13 @@ namespace Advanced.Algorithms.Tests.Geometry
             return lines;
         }
 
-        private static Line getRandomLine()
+        private static Line GetRandomLine()
         {
-            var leftX = random.Next(0, 1000000) * random.NextDouble();
-            var leftY = random.Next(0, 1000000) * random.NextDouble();
+            var leftX = Random.Next(0, 1000000) * Random.NextDouble();
+            var leftY = Random.Next(0, 1000000) * Random.NextDouble();
 
-            var rightX = leftX + random.Next(0, 10000);
-            var rightY = leftY + random.Next(0, 10000);
+            var rightX = leftX + Random.Next(0, 10000);
+            var rightY = leftY + Random.Next(0, 10000);
 
             return new Line(new Point(leftX, leftY), new Point(rightX, rightY));
         }

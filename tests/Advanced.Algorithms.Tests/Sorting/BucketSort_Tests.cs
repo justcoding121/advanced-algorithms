@@ -6,25 +6,25 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Sorting
 {
     [TestClass]
-    public class BucketSort_Tests
+    public class BucketSortTests
     {
-        private static readonly int[] testArray =
+        private static readonly int[] TestArray =
             { 12, 7, 9, 8, 3, 10, 2, 1, 5, 11, 4, 6, 0 };
 
         [TestMethod]
         public void BucketSort_Ascending_Smoke_Test()
         {
-            var result = BucketSort.Sort(testArray, 11);
+            var result = BucketSort.Sort(TestArray, 11);
 
-            for (var i = 0; i < testArray.Length; i++) Assert.AreEqual(i, result[i]);
+            for (var i = 0; i < TestArray.Length; i++) Assert.AreEqual(i, result[i]);
         }
 
         [TestMethod]
         public void BucketSort_Descending_Smoke_Test()
         {
-            var result = BucketSort.Sort(testArray, 11, SortDirection.Descending);
+            var result = BucketSort.Sort(TestArray, 11, SortDirection.Descending);
 
-            for (var i = 0; i < testArray.Length; i++) Assert.AreEqual(testArray.Length - i - 1, result[i]);
+            for (var i = 0; i < TestArray.Length; i++) Assert.AreEqual(TestArray.Length - i - 1, result[i]);
         }
 
         [TestMethod]

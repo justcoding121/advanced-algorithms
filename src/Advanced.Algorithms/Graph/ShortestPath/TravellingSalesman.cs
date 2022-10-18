@@ -9,11 +9,11 @@ namespace Advanced.Algorithms.Graph;
 ///     Uses dynamic programming for a
 ///     psuedo-polynomial time runTime complexity for this NP hard problem.
 /// </summary>
-public class TravellingSalesman<T, W> where W : IComparable
+public class TravellingSalesman<T, TW> where TW : IComparable
 {
-    private IShortestPathOperators<W> @operator;
+    private IShortestPathOperators<TW> @operator;
 
-    public W FindMinWeight(IGraph<T> graph, IShortestPathOperators<W> @operator)
+    public TW FindMinWeight(IGraph<T> graph, IShortestPathOperators<TW> @operator)
     {
         this.@operator = @operator;
         if (this.@operator == null)
@@ -24,17 +24,17 @@ public class TravellingSalesman<T, W> where W : IComparable
                 throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
                                             "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
 
-        return findMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
+        return FindMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
             graph.VerticesCount,
             new HashSet<IGraphVertex<T>>(),
-            new Dictionary<string, W>());
+            new Dictionary<string, TW>());
     }
 
-    private W findMinWeight(IGraphVertex<T> sourceVertex,
+    private TW FindMinWeight(IGraphVertex<T> sourceVertex,
         IGraphVertex<T> tgtVertex,
         int remainingVertexCount,
         HashSet<IGraphVertex<T>> visited,
-        Dictionary<string, W> cache)
+        Dictionary<string, TW> cache)
     {
         var cacheKey = $"{sourceVertex.Key}-{remainingVertexCount}";
 
@@ -42,7 +42,7 @@ public class TravellingSalesman<T, W> where W : IComparable
 
         visited.Add(sourceVertex);
 
-        var results = new List<W>();
+        var results = new List<TW>();
 
         foreach (var edge in sourceVertex.Edges)
         {
@@ -50,15 +50,15 @@ public class TravellingSalesman<T, W> where W : IComparable
             if (edge.TargetVertex.Equals(tgtVertex)
                 && remainingVertexCount == 1)
             {
-                results.Add(edge.Weight<W>());
+                results.Add(edge.Weight<TW>());
                 break;
             }
 
             if (!visited.Contains(edge.TargetVertex))
             {
-                var result = findMinWeight(edge.TargetVertex, tgtVertex, remainingVertexCount - 1, visited, cache);
+                var result = FindMinWeight(edge.TargetVertex, tgtVertex, remainingVertexCount - 1, visited, cache);
 
-                if (!result.Equals(@operator.MaxValue)) results.Add(@operator.Sum(result, edge.Weight<W>()));
+                if (!result.Equals(@operator.MaxValue)) results.Add(@operator.Sum(result, edge.Weight<TW>()));
             }
         }
 

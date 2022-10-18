@@ -27,17 +27,17 @@ public class BaseConversion
             var whole = tmp[0].TrimEnd();
             var fraction = tmp[1].TrimStart();
 
-            return convertWhole(whole, srcBaseChars, dstBaseChars) +
-                   "." + convertFraction(fraction, srcBaseChars, dstBaseChars, precision);
+            return ConvertWhole(whole, srcBaseChars, dstBaseChars) +
+                   "." + ConvertFraction(fraction, srcBaseChars, dstBaseChars, precision);
         }
 
-        return convertWhole(srcNumber, srcBaseChars, dstBaseChars);
+        return ConvertWhole(srcNumber, srcBaseChars, dstBaseChars);
     }
 
     /// <summary>
     ///     Converts the whole part of source number.
     /// </summary>
-    private static string convertWhole(string srcNumber,
+    private static string ConvertWhole(string srcNumber,
         string srcBaseChars,
         string dstBaseChars)
     {
@@ -77,7 +77,7 @@ public class BaseConversion
     /// <summary>
     ///     Converts the fractional part of source number.
     /// </summary>
-    private static string convertFraction(string srcNumber,
+    private static string ConvertFraction(string srcNumber,
         string srcBaseChars,
         string dstBaseChars, int maxPrecision)
     {

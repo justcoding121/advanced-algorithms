@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class Dijikstras_Tests
+    public class DijikstrasTests
     {
         [TestMethod]
         public void Dijikstra_AdjacencyListGraph_Smoke_Test()

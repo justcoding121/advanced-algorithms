@@ -48,15 +48,15 @@ public class RTree : IEnumerable<Polygon>
     {
         var newNode = new RTreeNode(maxKeysPerNode, null)
         {
-            MBRectangle = newPolygon.GetContainingRectangle()
+            MbRectangle = newPolygon.GetContainingRectangle()
         };
 
         leafMappings.Add(newPolygon, newNode);
-        insertToLeaf(newNode);
+        InsertToLeaf(newNode);
         Count++;
     }
 
-    private void insertToLeaf(RTreeNode newNode)
+    private void InsertToLeaf(RTreeNode newNode)
     {
         if (Root == null)
         {
@@ -65,54 +65,54 @@ public class RTree : IEnumerable<Polygon>
             return;
         }
 
-        var leafToInsert = findInsertionLeaf(Root, newNode);
-        insertAndSplit(leafToInsert, newNode);
+        var leafToInsert = FindInsertionLeaf(Root, newNode);
+        InsertAndSplit(leafToInsert, newNode);
     }
 
     /// <summary>
     ///     Inserts the given internal node to the level where it belongs using its height.
     /// </summary>
-    private void insertInternalNode(RTreeNode internalNode)
+    private void InsertInternalNode(RTreeNode internalNode)
     {
-        insertInternalNode(Root, internalNode);
+        InsertInternalNode(Root, internalNode);
     }
 
-    private void insertInternalNode(RTreeNode currentNode, RTreeNode internalNode)
+    private void InsertInternalNode(RTreeNode currentNode, RTreeNode internalNode)
     {
         if (currentNode.Height == internalNode.Height + 1)
-            insertAndSplit(currentNode, internalNode);
+            InsertAndSplit(currentNode, internalNode);
         else
-            insertInternalNode(currentNode.GetMinimumEnlargementAreaMBR(internalNode.MBRectangle), internalNode);
+            InsertInternalNode(currentNode.GetMinimumEnlargementAreaMbr(internalNode.MbRectangle), internalNode);
     }
 
     /// <summary>
     ///     Find the leaf node to start initial insertion.
     /// </summary>
-    private RTreeNode findInsertionLeaf(RTreeNode node, RTreeNode newNode)
+    private RTreeNode FindInsertionLeaf(RTreeNode node, RTreeNode newNode)
     {
         //if leaf then its time to insert
         if (node.IsLeaf) return node;
 
-        return findInsertionLeaf(node.GetMinimumEnlargementAreaMBR(newNode.MBRectangle), newNode);
+        return FindInsertionLeaf(node.GetMinimumEnlargementAreaMbr(newNode.MbRectangle), newNode);
     }
 
     /// <summary>
     ///     Insert and split recursively up until no split is required.
     /// </summary>
-    private void insertAndSplit(RTreeNode node, RTreeNode newValue)
+    private void InsertAndSplit(RTreeNode node, RTreeNode newValue)
     {
         //newValue have room to fit in this node
         if (node.KeyCount < maxKeysPerNode)
         {
             node.AddChild(newValue);
-            expandAncestorMBRs(node);
+            ExpandAncestorMbRs(node);
             return;
         }
 
         var e = new List<RTreeNode>(new[] { newValue });
         e.AddRange(node.Children);
 
-        var distantPairs = getDistantPairs(e);
+        var distantPairs = GetDistantPairs(e);
 
         //Let E be the set consisting of all current entries and new entry.
         //Select as seeds two entries e1, e2 ∈ E, where the distance between
@@ -135,13 +135,13 @@ public class RTree : IEnumerable<Polygon>
         {
             var current = e[e.Count - 1];
 
-            var leftEnlargementArea = e1.MBRectangle.GetEnlargementArea(current.MBRectangle);
-            var rightEnlargementArea = e2.MBRectangle.GetEnlargementArea(current.MBRectangle);
+            var leftEnlargementArea = e1.MbRectangle.GetEnlargementArea(current.MbRectangle);
+            var rightEnlargementArea = e2.MbRectangle.GetEnlargementArea(current.MbRectangle);
 
             if (leftEnlargementArea == rightEnlargementArea)
             {
-                var leftArea = e1.MBRectangle.Area();
-                var rightArea = e2.MBRectangle.Area();
+                var leftArea = e1.MbRectangle.Area();
+                var rightArea = e2.MbRectangle.Area();
 
                 if (leftArea == rightArea)
                 {
@@ -195,7 +195,7 @@ public class RTree : IEnumerable<Polygon>
             //replace current node with e1
             parent.SetChild(node.Index, e1);
             //insert overflow element to parent
-            insertAndSplit(parent, e2);
+            InsertAndSplit(parent, e2);
         }
         else
         {
@@ -207,11 +207,11 @@ public class RTree : IEnumerable<Polygon>
         }
     }
 
-    private void expandAncestorMBRs(RTreeNode node)
+    private void ExpandAncestorMbRs(RTreeNode node)
     {
         while (node.Parent != null)
         {
-            node.Parent.MBRectangle.Merge(node.MBRectangle);
+            node.Parent.MbRectangle.Merge(node.MbRectangle);
             node.Parent.Height = node.Height + 1;
             node = node.Parent;
         }
@@ -220,7 +220,7 @@ public class RTree : IEnumerable<Polygon>
     /// <summary>
     ///     Get the pairs of rectangles farther apart by comparing enlargement areas.
     /// </summary>
-    private Tuple<RTreeNode, RTreeNode> getDistantPairs(List<RTreeNode> allEntries)
+    private Tuple<RTreeNode, RTreeNode> GetDistantPairs(List<RTreeNode> allEntries)
     {
         Tuple<RTreeNode, RTreeNode> result = null;
 
@@ -228,7 +228,7 @@ public class RTree : IEnumerable<Polygon>
         for (var i = 0; i < allEntries.Count; i++)
         for (var j = i + 1; j < allEntries.Count; j++)
         {
-            var currentArea = allEntries[i].MBRectangle.GetEnlargementArea(allEntries[j].MBRectangle);
+            var currentArea = allEntries[i].MbRectangle.GetEnlargementArea(allEntries[j].MbRectangle);
             if (currentArea > maxArea)
             {
                 result = new Tuple<RTreeNode, RTreeNode>(allEntries[i], allEntries[j]);
@@ -253,22 +253,22 @@ public class RTree : IEnumerable<Polygon>
     /// </summary>
     public List<Polygon> RangeSearch(Rectangle searchRectangle)
     {
-        return rangeSearch(Root, searchRectangle, new List<Polygon>());
+        return RangeSearch(Root, searchRectangle, new List<Polygon>());
     }
 
     /// <summary>
     ///     Returns a list of polygons that's contained within given search rectangle.
     /// </summary>
-    private List<Polygon> rangeSearch(RTreeNode current, Rectangle searchRectangle, List<Polygon> result)
+    private List<Polygon> RangeSearch(RTreeNode current, Rectangle searchRectangle, List<Polygon> result)
     {
         if (current.IsLeaf)
             foreach (var node in current.Children.Take(current.KeyCount))
-                if (RectangleIntersection.DoIntersect(node.MBRectangle, searchRectangle))
-                    result.Add(node.MBRectangle.Polygon);
+                if (RectangleIntersection.DoIntersect(node.MbRectangle, searchRectangle))
+                    result.Add(node.MbRectangle.Polygon);
 
         foreach (var node in current.Children.Take(current.KeyCount))
-            if (RectangleIntersection.DoIntersect(node.MBRectangle, searchRectangle))
-                rangeSearch(node, searchRectangle, result);
+            if (RectangleIntersection.DoIntersect(node.MbRectangle, searchRectangle))
+                RangeSearch(node, searchRectangle, result);
 
         return result;
     }
@@ -285,8 +285,8 @@ public class RTree : IEnumerable<Polygon>
         var nodeToDelete = leafMappings[polygon];
 
         //delete 
-        deleteNode(nodeToDelete);
-        condenseTree(nodeToDelete.Parent);
+        DeleteNode(nodeToDelete);
+        CondenseTree(nodeToDelete.Parent);
 
         if (Root.KeyCount == 1 && !Root.IsLeaf)
         {
@@ -300,25 +300,25 @@ public class RTree : IEnumerable<Polygon>
         if (Count == 0) Root = null;
     }
 
-    private void deleteNode(RTreeNode nodeToDelete)
+    private void DeleteNode(RTreeNode nodeToDelete)
     {
-        removeAt(nodeToDelete.Parent.Children, nodeToDelete.Index);
+        RemoveAt(nodeToDelete.Parent.Children, nodeToDelete.Index);
         nodeToDelete.Parent.KeyCount--;
-        updateIndex(nodeToDelete.Parent.Children, nodeToDelete.Parent.KeyCount, nodeToDelete.Index);
+        UpdateIndex(nodeToDelete.Parent.Children, nodeToDelete.Parent.KeyCount, nodeToDelete.Index);
     }
 
-    private void removeAt(RTreeNode[] array, int index)
+    private void RemoveAt(RTreeNode[] array, int index)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index + 1, array, index, array.Length - index - 1);
     }
 
-    private void updateIndex(RTreeNode[] children, int keyCount, int index)
+    private void UpdateIndex(RTreeNode[] children, int keyCount, int index)
     {
         for (var i = index; i < keyCount; i++) children[i].Index--;
     }
 
-    private void condenseTree(RTreeNode updatedleaf)
+    private void CondenseTree(RTreeNode updatedleaf)
     {
         var current = updatedleaf;
         var toReinsert = new Stack<RTreeNode>();
@@ -329,36 +329,36 @@ public class RTree : IEnumerable<Polygon>
 
             if (current.KeyCount < minKeysPerNode)
             {
-                deleteNode(current);
+                DeleteNode(current);
                 foreach (var node in current.Children.Take(current.KeyCount)) toReinsert.Push(node);
             }
             else
             {
-                shrinkMBR(current);
+                ShrinkMbr(current);
             }
 
             current = parent;
         }
 
         //update root
-        if (current.KeyCount > 0) shrinkMBR(current);
+        if (current.KeyCount > 0) ShrinkMbr(current);
 
         while (toReinsert.Count > 0)
         {
             var node = toReinsert.Pop();
 
             if (node.Height > 0)
-                insertInternalNode(node);
+                InsertInternalNode(node);
             else
-                insertToLeaf(node);
+                InsertToLeaf(node);
         }
     }
 
-    private void shrinkMBR(RTreeNode current)
+    private void ShrinkMbr(RTreeNode current)
     {
-        current.MBRectangle = new MBRectangle(current.Children[0].MBRectangle);
+        current.MbRectangle = new MbRectangle(current.Children[0].MbRectangle);
         foreach (var node in current.Children.Skip(1).Take(current.KeyCount - 1))
-            current.MBRectangle.Merge(node.MBRectangle);
+            current.MbRectangle.Merge(node.MbRectangle);
     }
 
     /// <summary>
@@ -377,7 +377,7 @@ internal static class PolygonExtensions
     /// <summary>
     ///     Gets the imaginary rectangle that contains the polygon.
     /// </summary>
-    internal static MBRectangle GetContainingRectangle(this Polygon polygon)
+    internal static MbRectangle GetContainingRectangle(this Polygon polygon)
     {
         var x = polygon.Edges.SelectMany(z => new[] { z.Left.X, z.Right.X })
             .Aggregate(new
@@ -402,7 +402,7 @@ internal static class PolygonExtensions
                 Min = Math.Min(o, accumulator.Min)
             });
 
-        return new MBRectangle(new Point(x.Min, y.Max), new Point(x.Max, y.Min))
+        return new MbRectangle(new Point(x.Min, y.Max), new Point(x.Max, y.Min))
         {
             Polygon = polygon
         };
@@ -426,15 +426,15 @@ internal class RTreeNode
         Children = new RTreeNode[maxKeysPerNode];
     }
 
-    internal MBRectangle MBRectangle { get; set; }
+    internal MbRectangle MbRectangle { get; set; }
 
     internal RTreeNode Parent { get; set; }
     internal RTreeNode[] Children { get; set; }
 
     //leafs will hold the actual polygon
     //we assume here that bottom two node levels as leafs
-    internal bool IsLeaf => MBRectangle.Polygon != null
-                            || Children[0].MBRectangle.Polygon != null;
+    internal bool IsLeaf => MbRectangle.Polygon != null
+                            || Children[0].MbRectangle.Polygon != null;
 
     internal void AddChild(RTreeNode child)
     {
@@ -451,10 +451,10 @@ internal class RTreeNode
         Children[index].Parent = this;
         Children[index].Index = index;
 
-        if (MBRectangle == null)
-            MBRectangle = new MBRectangle(child.MBRectangle);
+        if (MbRectangle == null)
+            MbRectangle = new MbRectangle(child.MbRectangle);
         else
-            MBRectangle.Merge(child.MBRectangle);
+            MbRectangle.Merge(child.MbRectangle);
 
         Height = child.Height + 1;
     }
@@ -463,14 +463,14 @@ internal class RTreeNode
     ///     Select the child node whose MBR will require the minimum area enlargement
     ///     to cover the given polygon.
     /// </summary>
-    internal RTreeNode GetMinimumEnlargementAreaMBR(MBRectangle newPolygon)
+    internal RTreeNode GetMinimumEnlargementAreaMbr(MbRectangle newPolygon)
     {
         //order by enlargement area
         //then by minimum area
         return Children[Children.Take(KeyCount)
             .Select((node, index) => new { node, index })
-            .OrderBy(x => x.node.MBRectangle.GetEnlargementArea(newPolygon))
-            .ThenBy(x => x.node.MBRectangle.Area())
+            .OrderBy(x => x.node.MbRectangle.GetEnlargementArea(newPolygon))
+            .ThenBy(x => x.node.MbRectangle.Area())
             .First().index];
     }
 }
@@ -478,15 +478,15 @@ internal class RTreeNode
 /// <summary>
 ///     Minimum bounded rectangle (MBR).
 /// </summary>
-internal class MBRectangle : Rectangle
+internal class MbRectangle : Rectangle
 {
-    internal MBRectangle(Point leftTopCorner, Point rightBottomCorner)
+    internal MbRectangle(Point leftTopCorner, Point rightBottomCorner)
     {
         LeftTop = leftTopCorner;
         RightBottom = rightBottomCorner;
     }
 
-    internal MBRectangle(Rectangle rectangle)
+    internal MbRectangle(Rectangle rectangle)
     {
         LeftTop = new Point(rectangle.LeftTop.X, rectangle.LeftTop.Y);
         RightBottom = new Point(rectangle.RightBottom.X, rectangle.RightBottom.Y);
@@ -501,17 +501,17 @@ internal class MBRectangle : Rectangle
     ///     Returns the required enlargement area to fit the given rectangle inside this minimum bounded rectangle.
     /// </summary>
     /// <param name="polygonToFit">The rectangle to fit inside current MBR.</param>
-    internal double GetEnlargementArea(MBRectangle rectangleToFit)
+    internal double GetEnlargementArea(MbRectangle rectangleToFit)
     {
-        return Math.Abs(getMergedRectangle(rectangleToFit).Area() - Area());
+        return Math.Abs(GetMergedRectangle(rectangleToFit).Area() - Area());
     }
 
     /// <summary>
     ///     Set current rectangle with the merge of given rectangle.
     /// </summary>
-    internal void Merge(MBRectangle rectangleToMerge)
+    internal void Merge(MbRectangle rectangleToMerge)
     {
-        var merged = getMergedRectangle(rectangleToMerge);
+        var merged = GetMergedRectangle(rectangleToMerge);
 
         LeftTop = merged.LeftTop;
         RightBottom = merged.RightBottom;
@@ -520,7 +520,7 @@ internal class MBRectangle : Rectangle
     /// <summary>
     ///     Merge the current rectangle with given rectangle.
     /// </summary>
-    private Rectangle getMergedRectangle(MBRectangle rectangleToMerge)
+    private Rectangle GetMergedRectangle(MbRectangle rectangleToMerge)
     {
         var leftTopCorner = new Point(LeftTop.X > rectangleToMerge.LeftTop.X ? rectangleToMerge.LeftTop.X : LeftTop.X,
             LeftTop.Y < rectangleToMerge.LeftTop.Y ? rectangleToMerge.LeftTop.Y : LeftTop.Y);
@@ -529,6 +529,6 @@ internal class MBRectangle : Rectangle
             RightBottom.X < rectangleToMerge.RightBottom.X ? rectangleToMerge.RightBottom.X : RightBottom.X,
             RightBottom.Y > rectangleToMerge.RightBottom.Y ? rectangleToMerge.RightBottom.Y : RightBottom.Y);
 
-        return new MBRectangle(leftTopCorner, rightBottomCorner);
+        return new MbRectangle(leftTopCorner, rightBottomCorner);
     }
 }

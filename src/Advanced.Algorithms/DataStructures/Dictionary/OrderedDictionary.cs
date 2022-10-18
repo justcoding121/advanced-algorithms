@@ -10,27 +10,27 @@ namespace Advanced.Algorithms.DataStructures.Foundation;
 ///     This may be better than regular Dictionary implementation which can give o(K) in worst case (but O(1) amortized
 ///     when collisions K is avoided).
 /// </summary>
-/// <typeparam name="K">The key datatype.</typeparam>
-/// <typeparam name="V">The value datatype.</typeparam>
-public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K : IComparable
+/// <typeparam name="TK">The key datatype.</typeparam>
+/// <typeparam name="TV">The value datatype.</typeparam>
+public class OrderedDictionary<TK, TV> : IEnumerable<KeyValuePair<TK, TV>> where TK : IComparable
 {
     //use red-black tree as our balanced BST since it gives good performance for both deletion/insertion
-    private readonly RedBlackTree<OrderedKeyValuePair<K, V>> binarySearchTree;
+    private readonly RedBlackTree<OrderedKeyValuePair<TK, TV>> binarySearchTree;
 
     public OrderedDictionary()
     {
-        binarySearchTree = new RedBlackTree<OrderedKeyValuePair<K, V>>();
+        binarySearchTree = new RedBlackTree<OrderedKeyValuePair<TK, TV>>();
     }
 
     /// <summary>
     ///     Initialize the dictionary with given key value pairs sorted by key.
     ///     Time complexity: log(n).
     /// </summary>
-    public OrderedDictionary(IEnumerable<KeyValuePair<K, V>> sortedKeyValuePairs)
+    public OrderedDictionary(IEnumerable<KeyValuePair<TK, TV>> sortedKeyValuePairs)
     {
         binarySearchTree =
-            new RedBlackTree<OrderedKeyValuePair<K, V>>(sortedKeyValuePairs.Select(x =>
-                new OrderedKeyValuePair<K, V>(x.Key, x.Value)));
+            new RedBlackTree<OrderedKeyValuePair<TK, TV>>(sortedKeyValuePairs.Select(x =>
+                new OrderedKeyValuePair<TK, TV>(x.Key, x.Value)));
     }
 
     public int Count => binarySearchTree.Count;
@@ -39,11 +39,11 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
     ///     Get/set value for given key.
     ///     Time complexity: O(log(n)).
     /// </summary>
-    public V this[K key]
+    public TV this[TK key]
     {
         get
         {
-            var node = binarySearchTree.FindNode(new OrderedKeyValuePair<K, V>(key, default));
+            var node = binarySearchTree.FindNode(new OrderedKeyValuePair<TK, TV>(key, default));
             if (node == null) throw new Exception("Key not found.");
 
             return node.Value.Value;
@@ -61,9 +61,9 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
         return GetEnumerator();
     }
 
-    public IEnumerator<KeyValuePair<K, V>> GetEnumerator()
+    public IEnumerator<KeyValuePair<TK, TV>> GetEnumerator()
     {
-        return new SortedDictionaryEnumerator<K, V>(binarySearchTree);
+        return new SortedDictionaryEnumerator<TK, TV>(binarySearchTree);
     }
 
     /// <summary>
@@ -72,9 +72,9 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
     /// </summary>
     /// <param name="key">The key to check.</param>
     /// <returns>True if this dictionary contains the given key.</returns>
-    public bool ContainsKey(K key)
+    public bool ContainsKey(TK key)
     {
-        return binarySearchTree.HasItem(new OrderedKeyValuePair<K, V>(key, default));
+        return binarySearchTree.HasItem(new OrderedKeyValuePair<TK, TV>(key, default));
     }
 
     /// <summary>
@@ -82,15 +82,15 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
     ///     Time complexity: O(log(n)).
     ///     Returns the position (index) of the key in sorted order of this OrderedDictionary.
     /// </summary>
-    public int Add(K key, V value)
+    public int Add(TK key, TV value)
     {
-        return binarySearchTree.Insert(new OrderedKeyValuePair<K, V>(key, value));
+        return binarySearchTree.Insert(new OrderedKeyValuePair<TK, TV>(key, value));
     }
 
     /// <summary>
     ///     Time complexity: O(log(n))
     /// </summary>
-    public KeyValuePair<K, V> ElementAt(int index)
+    public KeyValuePair<TK, TV> ElementAt(int index)
     {
         return binarySearchTree.ElementAt(index).ToKeyValuePair();
     }
@@ -98,9 +98,9 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
     /// <summary>
     ///     Time complexity: O(log(n))
     /// </summary>
-    public int IndexOf(K key)
+    public int IndexOf(TK key)
     {
-        return binarySearchTree.IndexOf(new OrderedKeyValuePair<K, V>(key, default));
+        return binarySearchTree.IndexOf(new OrderedKeyValuePair<TK, TV>(key, default));
     }
 
     /// <summary>
@@ -108,16 +108,16 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
     ///     Time complexity: O(log(n)).
     ///     Returns the position (index) of the removed key if removed. Otherwise returns -1.
     /// </summary>
-    public int Remove(K key)
+    public int Remove(TK key)
     {
-        return binarySearchTree.Delete(new OrderedKeyValuePair<K, V>(key, default));
+        return binarySearchTree.Delete(new OrderedKeyValuePair<TK, TV>(key, default));
     }
 
     /// <summary>
     ///     Remove the element at given index.
     ///     Time complexity: O(log(n)).
     /// </summary>
-    public KeyValuePair<K, V> RemoveAt(int index)
+    public KeyValuePair<TK, TV> RemoveAt(int index)
     {
         return binarySearchTree.RemoveAt(index).ToKeyValuePair();
     }
@@ -127,13 +127,13 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
     ///     Time complexity: O(log(n)).
     /// </summary>
     /// <returns>Null if the given key does'nt exist or next key does'nt exist.</returns>
-    public KeyValuePair<K, V> NextHigher(K key)
+    public KeyValuePair<TK, TV> NextHigher(TK key)
     {
-        var next = binarySearchTree.NextHigher(new OrderedKeyValuePair<K, V>(key, default));
+        var next = binarySearchTree.NextHigher(new OrderedKeyValuePair<TK, TV>(key, default));
 
-        if (next.Equals(default(OrderedKeyValuePair<K, V>))) return default;
+        if (next.Equals(default(OrderedKeyValuePair<TK, TV>))) return default;
 
-        return new KeyValuePair<K, V>(next.Key, next.Value);
+        return new KeyValuePair<TK, TV>(next.Key, next.Value);
     }
 
     /// <summary>
@@ -141,22 +141,22 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
     ///     Time complexity: O(log(n)).
     /// </summary>
     /// <returns>Null if the given key does'nt exist or previous key does'nt exist.</returns>
-    public KeyValuePair<K, V> NextLower(K key)
+    public KeyValuePair<TK, TV> NextLower(TK key)
     {
-        var prev = binarySearchTree.NextLower(new OrderedKeyValuePair<K, V>(key, default));
+        var prev = binarySearchTree.NextLower(new OrderedKeyValuePair<TK, TV>(key, default));
 
-        if (prev.Equals(default(OrderedKeyValuePair<K, V>))) return default;
+        if (prev.Equals(default(OrderedKeyValuePair<TK, TV>))) return default;
 
-        return new KeyValuePair<K, V>(prev.Key, prev.Value);
+        return new KeyValuePair<TK, TV>(prev.Key, prev.Value);
     }
 
     /// <summary>
     ///     Time complexity: O(1).
     /// </summary>
-    public KeyValuePair<K, V> Max()
+    public KeyValuePair<TK, TV> Max()
     {
         var max = binarySearchTree.Max();
-        return max.Equals(default(OrderedKeyValuePair<K, V>))
+        return max.Equals(default(OrderedKeyValuePair<TK, TV>))
             ? default
             : max.ToKeyValuePair();
     }
@@ -164,10 +164,10 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
     /// <summary>
     ///     Time complexity: O(log(n)).
     /// </summary>
-    public KeyValuePair<K, V> Min()
+    public KeyValuePair<TK, TV> Min()
     {
         var min = binarySearchTree.Min();
-        return min.Equals(default(OrderedKeyValuePair<K, V>))
+        return min.Equals(default(OrderedKeyValuePair<TK, TV>))
             ? default
             : min.ToKeyValuePair();
     }
@@ -185,44 +185,44 @@ public class OrderedDictionary<K, V> : IEnumerable<KeyValuePair<K, V>> where K :
     /// <summary>
     ///     Descending enumerable.
     /// </summary>
-    public IEnumerable<KeyValuePair<K, V>> AsEnumerableDesc()
+    public IEnumerable<KeyValuePair<TK, TV>> AsEnumerableDesc()
     {
         return GetEnumeratorDesc().AsEnumerable();
     }
 
-    public IEnumerator<KeyValuePair<K, V>> GetEnumeratorDesc()
+    public IEnumerator<KeyValuePair<TK, TV>> GetEnumeratorDesc()
     {
-        return new SortedDictionaryEnumerator<K, V>(binarySearchTree, false);
+        return new SortedDictionaryEnumerator<TK, TV>(binarySearchTree, false);
     }
 }
 
-internal struct OrderedKeyValuePair<K, V> : IComparable
-    where K : IComparable
+internal struct OrderedKeyValuePair<TK, TV> : IComparable
+    where TK : IComparable
 {
-    internal K Key { get; }
-    internal V Value { get; set; }
+    internal TK Key { get; }
+    internal TV Value { get; set; }
 
-    internal OrderedKeyValuePair(K key, V value)
+    internal OrderedKeyValuePair(TK key, TV value)
     {
         Key = key;
         Value = value;
     }
 
-    public KeyValuePair<K, V> ToKeyValuePair()
+    public KeyValuePair<TK, TV> ToKeyValuePair()
     {
-        return new KeyValuePair<K, V>(Key, Value);
+        return new KeyValuePair<TK, TV>(Key, Value);
     }
 
     public int CompareTo(object obj)
     {
-        if (obj is OrderedKeyValuePair<K, V> itemToComare) return Key.CompareTo(itemToComare.Key);
+        if (obj is OrderedKeyValuePair<TK, TV> itemToComare) return Key.CompareTo(itemToComare.Key);
 
         throw new ArgumentException("Compare object is nu");
     }
 
     public override bool Equals(object obj)
     {
-        return Key.Equals(((OrderedKeyValuePair<K, V>)obj).Key);
+        return Key.Equals(((OrderedKeyValuePair<TK, TV>)obj).Key);
     }
 
     public override int GetHashCode()
@@ -231,14 +231,14 @@ internal struct OrderedKeyValuePair<K, V> : IComparable
     }
 }
 
-internal class SortedDictionaryEnumerator<K, V> : IEnumerator<KeyValuePair<K, V>> where K : IComparable
+internal class SortedDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>> where TK : IComparable
 {
     private bool asc;
 
-    private RedBlackTree<OrderedKeyValuePair<K, V>> bst;
-    private IEnumerator<OrderedKeyValuePair<K, V>> enumerator;
+    private RedBlackTree<OrderedKeyValuePair<TK, TV>> bst;
+    private IEnumerator<OrderedKeyValuePair<TK, TV>> enumerator;
 
-    internal SortedDictionaryEnumerator(RedBlackTree<OrderedKeyValuePair<K, V>> bst, bool asc = true)
+    internal SortedDictionaryEnumerator(RedBlackTree<OrderedKeyValuePair<TK, TV>> bst, bool asc = true)
     {
         this.bst = bst;
         enumerator = asc ? bst.GetEnumerator() : bst.GetEnumeratorDesc();
@@ -256,7 +256,7 @@ internal class SortedDictionaryEnumerator<K, V> : IEnumerator<KeyValuePair<K, V>
 
     object IEnumerator.Current => Current;
 
-    public KeyValuePair<K, V> Current => new KeyValuePair<K, V>(enumerator.Current.Key, enumerator.Current.Value);
+    public KeyValuePair<TK, TV> Current => new KeyValuePair<TK, TV>(enumerator.Current.Key, enumerator.Current.Value);
 
     public void Dispose()
     {

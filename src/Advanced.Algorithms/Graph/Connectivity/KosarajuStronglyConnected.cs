@@ -21,10 +21,10 @@ public class KosarajuStronglyConnected<T>
         //step one - create DFS finish visit stack
         foreach (var vertex in graph.VerticesAsEnumberable)
             if (!visited.Contains(vertex.Key))
-                kosarajuStep1(vertex, visited, finishStack);
+                KosarajuStep1(vertex, visited, finishStack);
 
         //reverse edges
-        var reverseGraph = reverseEdges(graph);
+        var reverseGraph = ReverseEdges(graph);
 
         visited.Clear();
 
@@ -36,7 +36,7 @@ public class KosarajuStronglyConnected<T>
             var currentVertex = reverseGraph.GetVertex(finishStack.Pop());
 
             if (!visited.Contains(currentVertex.Key))
-                result.Add(kosarajuStep2(currentVertex, visited,
+                result.Add(KosarajuStep2(currentVertex, visited,
                     finishStack, new List<T>()));
         }
 
@@ -46,7 +46,7 @@ public class KosarajuStronglyConnected<T>
     /// <summary>
     ///     Just do a DFS keeping track on finish Stack of Vertices.
     /// </summary>
-    private void kosarajuStep1(IDiGraphVertex<T> currentVertex,
+    private void KosarajuStep1(IDiGraphVertex<T> currentVertex,
         HashSet<T> visited,
         Stack<T> finishStack)
     {
@@ -54,7 +54,7 @@ public class KosarajuStronglyConnected<T>
 
         foreach (var edge in currentVertex.OutEdges)
             if (!visited.Contains(edge.TargetVertexKey))
-                kosarajuStep1(edge.TargetVertex, visited, finishStack);
+                KosarajuStep1(edge.TargetVertex, visited, finishStack);
 
         //finished visiting, so add to stack
         finishStack.Push(currentVertex.Key);
@@ -63,7 +63,7 @@ public class KosarajuStronglyConnected<T>
     /// <summary>
     ///     In step two we just add all reachable nodes to result (connected componant).
     /// </summary>
-    private List<T> kosarajuStep2(IDiGraphVertex<T> currentVertex,
+    private List<T> KosarajuStep2(IDiGraphVertex<T> currentVertex,
         HashSet<T> visited, Stack<T> finishStack,
         List<T> result)
     {
@@ -72,7 +72,7 @@ public class KosarajuStronglyConnected<T>
 
         foreach (var edge in currentVertex.OutEdges)
             if (!visited.Contains(edge.TargetVertexKey))
-                kosarajuStep2(edge.TargetVertex, visited, finishStack, result);
+                KosarajuStep2(edge.TargetVertex, visited, finishStack, result);
 
         return result;
     }
@@ -80,7 +80,7 @@ public class KosarajuStronglyConnected<T>
     /// <summary>
     ///     Create a clone graph with reverse edge directions.
     /// </summary>
-    private IDiGraph<T> reverseEdges(IDiGraph<T> graph)
+    private IDiGraph<T> ReverseEdges(IDiGraph<T> graph)
     {
         var newGraph = new DiGraph<T>();
 

@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Numerical
 {
     [TestClass]
-    public class Exponentiation_Tests
+    public class ExponentiationTests
     {
         [TestMethod]
         public void Fast_Exponent_Smoke_Test()

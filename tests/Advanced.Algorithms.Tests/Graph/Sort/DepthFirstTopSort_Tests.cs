@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class DepthFirstTopSort_Tests
+    public class DepthFirstTopSortTests
     {
         [TestMethod]
         public void DFS_Topological_Sort_AdjancencyListGraph_Smoke_Test()

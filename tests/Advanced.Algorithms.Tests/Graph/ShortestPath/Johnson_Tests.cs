@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class Johnsons_Tests
+    public class JohnsonsTests
     {
         [TestMethod]
         public void Johnsons_AdjacencyListGraph_Smoke_Test()

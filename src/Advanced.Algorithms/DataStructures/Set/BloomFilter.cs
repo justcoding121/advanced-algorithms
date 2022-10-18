@@ -31,7 +31,7 @@ public class BloomFilter<T>
     /// </summary>
     public void AddKey(T key)
     {
-        foreach (var hash in getHashes(key)) filter[hash % filter.Length] = true;
+        foreach (var hash in GetHashes(key)) filter[hash % filter.Length] = true;
     }
 
     /// <summary>
@@ -39,14 +39,14 @@ public class BloomFilter<T>
     /// </summary>
     public bool KeyExists(T key)
     {
-        foreach (var hash in getHashes(key))
+        foreach (var hash in GetHashes(key))
             if (filter[hash % filter.Length] == false)
                 return false;
 
         return true;
     }
 
-    private IEnumerable<int> getHashes(T key)
+    private IEnumerable<int> GetHashes(T key)
     {
         for (var i = 1; i <= numberOfHashFunctions; i++)
         {

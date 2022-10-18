@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class TarjansArticulation_Tests
+    public class TarjansArticulationTests
     {
         [TestMethod]
         public void TarjanArticulation_AdjacencyListGraph_Smoke_Test()

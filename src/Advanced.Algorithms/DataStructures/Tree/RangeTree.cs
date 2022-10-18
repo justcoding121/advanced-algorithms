@@ -39,13 +39,13 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public void Insert(T[] value)
     {
-        validateDimensions(value);
+        ValidateDimensions(value);
 
         if (items.Contains(value)) throw new Exception("value exists.");
         var currentTree = tree;
         //get all overlaps
         //and insert next dimension value to each overlapping node
-        for (var i = 0; i < dimensions; i++) currentTree = currentTree.Insert(value[i]).tree;
+        for (var i = 0; i < dimensions; i++) currentTree = currentTree.Insert(value[i]).Tree;
 
         items.Add(value);
         Count++;
@@ -56,12 +56,12 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public void Delete(T[] value)
     {
-        validateDimensions(value);
+        ValidateDimensions(value);
 
         if (!items.Contains(value)) throw new Exception("Item not found.");
 
         var found = false;
-        deleteRecursive(tree, value, 0, ref found);
+        DeleteRecursive(tree, value, 0, ref found);
         items.Remove(value);
         Count--;
     }
@@ -69,7 +69,7 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Recursively move until last dimension and then delete if found.
     /// </summary>
-    private void deleteRecursive(OneDimentionalRangeTree<T> tree, T[] value,
+    private void DeleteRecursive(OneDimentionalRangeTree<T> tree, T[] value,
         int currentDimension, ref bool found)
     {
         var node = tree.Find(value[currentDimension]);
@@ -79,13 +79,13 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
             if (currentDimension + 1 == dimensions)
                 found = true;
             else
-                deleteRecursive(node.tree, value, currentDimension + 1, ref found);
+                DeleteRecursive(node.Tree, value, currentDimension + 1, ref found);
         }
 
         //delete node if next dimension has no elements
         //or when this is the last dimension and we found element
         if (node != null && found && (currentDimension + 1 == dimensions
-                                      || node.tree.Count == 0 && currentDimension + 1 < dimensions))
+                                      || node.Tree.Count == 0 && currentDimension + 1 < dimensions))
             tree.Delete(value[currentDimension]);
     }
 
@@ -95,16 +95,16 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public List<T[]> RangeSearch(T[] start, T[] end)
     {
-        validateDimensions(start);
-        validateDimensions(end);
+        ValidateDimensions(start);
+        ValidateDimensions(end);
 
-        return rangeSearch(tree, start, end, 0);
+        return RangeSearch(tree, start, end, 0);
     }
 
     /// <summary>
     ///     Recursively visit node and return points within given range.
     /// </summary>
-    private List<T[]> rangeSearch(
+    private List<T[]> RangeSearch(
         OneDimentionalRangeTree<T> currentTree,
         T[] start, T[] end, int dimension)
     {
@@ -129,7 +129,7 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
 
             foreach (var node in nodes)
             {
-                var nextDimResult = rangeSearch(node.tree, start, end, dimension + 1);
+                var nextDimResult = RangeSearch(node.Tree, start, end, dimension + 1);
 
                 foreach (var value in node.Values)
                 foreach (var nextResult in nextDimResult)
@@ -146,7 +146,7 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Validate dimensions for point length.
     /// </summary>
-    private void validateDimensions(T[] start)
+    private void ValidateDimensions(T[] start)
     {
         if (start == null) throw new ArgumentNullException(nameof(start));
 
@@ -160,13 +160,13 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
 /// </summary>
 internal class OneDimentionalRangeTree<T> where T : IComparable
 {
-    internal RedBlackTree<RangeTreeNode<T>> tree = new();
+    internal RedBlackTree<RangeTreeNode<T>> Tree = new();
 
-    internal int Count => tree.Count;
+    internal int Count => Tree.Count;
 
     internal RangeTreeNode<T> Find(T value)
     {
-        var result = tree.FindNode(new RangeTreeNode<T>(value));
+        var result = Tree.FindNode(new RangeTreeNode<T>(value));
         if (result == null) throw new Exception("Item not found in this tree.");
 
         return result.Value;
@@ -176,24 +176,24 @@ internal class OneDimentionalRangeTree<T> where T : IComparable
     {
         var newNode = new RangeTreeNode<T>(value);
 
-        var existing = tree.FindNode(newNode);
+        var existing = Tree.FindNode(newNode);
         if (existing != null)
         {
             existing.Value.Values.Add(value);
             return existing.Value;
         }
 
-        tree.Insert(newNode);
+        Tree.Insert(newNode);
         return newNode;
     }
 
     internal void Delete(T value)
     {
-        var existing = tree.FindNode(new RangeTreeNode<T>(value));
+        var existing = Tree.FindNode(new RangeTreeNode<T>(value));
 
         if (existing.Value.Values.Count == 1)
         {
-            tree.Delete(new RangeTreeNode<T>(value));
+            Tree.Delete(new RangeTreeNode<T>(value));
             return;
         }
 
@@ -203,12 +203,12 @@ internal class OneDimentionalRangeTree<T> where T : IComparable
 
     internal List<RangeTreeNode<T>> RangeSearch(T start, T end)
     {
-        return getInRange(new List<RangeTreeNode<T>>(),
+        return GetInRange(new List<RangeTreeNode<T>>(),
             new Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool>(),
-            tree.Root, start, end);
+            Tree.Root, start, end);
     }
 
-    private List<RangeTreeNode<T>> getInRange(List<RangeTreeNode<T>> result,
+    private List<RangeTreeNode<T>> GetInRange(List<RangeTreeNode<T>> result,
         Dictionary<RedBlackTreeNode<RangeTreeNode<T>>, bool> visited,
         RedBlackTreeNode<RangeTreeNode<T>> currentNode,
         T start, T end)
@@ -216,7 +216,7 @@ internal class OneDimentionalRangeTree<T> where T : IComparable
         if (currentNode.IsLeaf)
         {
             //start is less than current node
-            if (!inRange(currentNode, start, end)) return result;
+            if (!InRange(currentNode, start, end)) return result;
 
             result.Add(currentNode.Value);
         }
@@ -226,11 +226,11 @@ internal class OneDimentionalRangeTree<T> where T : IComparable
         {
             if (start.CompareTo(currentNode.Value.Value) <= 0)
             {
-                if (currentNode.Left != null) getInRange(result, visited, currentNode.Left, start, end);
+                if (currentNode.Left != null) GetInRange(result, visited, currentNode.Left, start, end);
 
                 //start is less than current node
                 if (!visited.ContainsKey(currentNode)
-                    && inRange(currentNode, start, end))
+                    && InRange(currentNode, start, end))
                 {
                     result.Add(currentNode.Value);
                     visited.Add(currentNode, false);
@@ -243,10 +243,10 @@ internal class OneDimentionalRangeTree<T> where T : IComparable
             if (end.CompareTo(currentNode.Value.Value) < 0) return result;
 
             {
-                if (currentNode.Right != null) getInRange(result, visited, currentNode.Right, start, end);
+                if (currentNode.Right != null) GetInRange(result, visited, currentNode.Right, start, end);
 
                 //start is less than current node
-                if (visited.ContainsKey(currentNode) || !inRange(currentNode, start, end)) return result;
+                if (visited.ContainsKey(currentNode) || !InRange(currentNode, start, end)) return result;
 
                 result.Add(currentNode.Value);
                 visited.Add(currentNode, false);
@@ -259,7 +259,7 @@ internal class OneDimentionalRangeTree<T> where T : IComparable
     /// <summary>
     ///     Checks if current node is in search range.
     /// </summary>
-    private bool inRange(RedBlackTreeNode<RangeTreeNode<T>> currentNode, T start, T end)
+    private bool InRange(RedBlackTreeNode<RangeTreeNode<T>> currentNode, T start, T end)
     {
         //start is less than current and end is greater than current
         return start.CompareTo(currentNode.Value.Value) <= 0
@@ -275,14 +275,14 @@ internal class RangeTreeNode<T> : IComparable where T : IComparable
     internal RangeTreeNode(T value)
     {
         Values = new List<T>(new[] { value });
-        tree = new OneDimentionalRangeTree<T>();
+        Tree = new OneDimentionalRangeTree<T>();
     }
 
     internal T Value => Values[0];
 
     internal List<T> Values { get; set; }
 
-    internal OneDimentionalRangeTree<T> tree { get; set; }
+    internal OneDimentionalRangeTree<T> Tree { get; set; }
 
     public int CompareTo(object obj)
     {

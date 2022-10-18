@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Geometry
 {
     [TestClass]
-    public class ClosestPointPair_Tests
+    public class ClosestPointPairTests
     {
         [TestMethod]
         public void ClosestPointPair_Smoke_Test()

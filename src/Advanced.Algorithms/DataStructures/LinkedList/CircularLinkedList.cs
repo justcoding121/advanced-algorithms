@@ -166,28 +166,28 @@ public class CircularLinkedListNode<T>
 
 internal class CircularLinkedListEnumerator<T> : IEnumerator<T>
 {
-    internal CircularLinkedListNode<T> currentNode;
-    internal CircularLinkedListNode<T> referenceNode;
+    internal CircularLinkedListNode<T> CurrentNode;
+    internal CircularLinkedListNode<T> ReferenceNode;
 
     internal CircularLinkedListEnumerator(ref CircularLinkedListNode<T> referenceNode)
     {
-        this.referenceNode = referenceNode;
+        this.ReferenceNode = referenceNode;
     }
 
     public bool MoveNext()
     {
-        if (referenceNode == null)
+        if (ReferenceNode == null)
             return false;
 
-        if (currentNode == null)
+        if (CurrentNode == null)
         {
-            currentNode = referenceNode;
+            CurrentNode = ReferenceNode;
             return true;
         }
 
-        if (currentNode.Next != null && currentNode.Next != referenceNode)
+        if (CurrentNode.Next != null && CurrentNode.Next != ReferenceNode)
         {
-            currentNode = currentNode.Next;
+            CurrentNode = CurrentNode.Next;
             return true;
         }
 
@@ -196,17 +196,17 @@ internal class CircularLinkedListEnumerator<T> : IEnumerator<T>
 
     public void Reset()
     {
-        currentNode = referenceNode;
+        CurrentNode = ReferenceNode;
     }
 
 
     object IEnumerator.Current => Current;
 
-    public T Current => currentNode.Data;
+    public T Current => CurrentNode.Data;
 
     public void Dispose()
     {
-        referenceNode = null;
-        currentNode = null;
+        ReferenceNode = null;
+        CurrentNode = null;
     }
 }

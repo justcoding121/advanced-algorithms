@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
 {
     [TestClass]
-    public class WeightedGraph_Tests
+    public class WeightedGraphTests
     {
         /// <summary>
         ///     key value dictionary tests

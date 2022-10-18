@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.DataStructures;
 /// </summary>
 public class Tree<T> : IEnumerable<T> where T : IComparable
 {
-    private TreeNode<T> root { get; set; }
+    private TreeNode<T> Root { get; set; }
 
     public int Count { get; private set; }
 
@@ -21,7 +21,7 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new TreeEnumerator<T>(root);
+        return new TreeEnumerator<T>(Root);
     }
 
     /// <summary>
@@ -29,9 +29,9 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public bool HasItem(T value)
     {
-        if (root == null) return false;
+        if (Root == null) return false;
 
-        return find(root, value) != null;
+        return Find(Root, value) != null;
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public int GetHeight()
     {
-        return getHeight(root);
+        return GetHeight(Root);
     }
 
     /// <summary>
@@ -47,18 +47,18 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Insert(T parent, T child)
     {
-        if (root == null)
+        if (Root == null)
         {
-            root = new TreeNode<T>(null, child);
+            Root = new TreeNode<T>(null, child);
             Count++;
             return;
         }
 
-        var parentNode = find(parent);
+        var parentNode = Find(parent);
 
         if (parentNode == null) throw new ArgumentNullException();
 
-        var exists = find(root, child) != null;
+        var exists = Find(Root, child) != null;
 
         if (exists) throw new ArgumentException("value already exists");
 
@@ -71,7 +71,7 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
-        delete(root.Value, value);
+        Delete(Root.Value, value);
     }
 
     /// <summary>
@@ -79,17 +79,17 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public IEnumerable<T> Children(T value)
     {
-        return find(value)?.Children.Select(x => x.Value);
+        return Find(value)?.Children.Select(x => x.Value);
     }
 
-    private TreeNode<T> find(T value)
+    private TreeNode<T> Find(T value)
     {
-        if (root == null) return null;
+        if (Root == null) return null;
 
-        return find(root, value);
+        return Find(Root, value);
     }
 
-    private int getHeight(TreeNode<T> node)
+    private int GetHeight(TreeNode<T> node)
     {
         if (node == null) return -1;
 
@@ -97,7 +97,7 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
 
         foreach (var child in node.Children)
         {
-            var childHeight = getHeight(child);
+            var childHeight = GetHeight(child);
 
             if (currentHeight < childHeight) currentHeight = childHeight;
         }
@@ -107,13 +107,13 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
         return currentHeight;
     }
 
-    private void delete(T parentValue, T value)
+    private void Delete(T parentValue, T value)
     {
-        var parent = find(parentValue);
+        var parent = Find(parentValue);
 
         if (parent == null) throw new Exception("Cannot find parent");
 
-        var itemToRemove = find(parent, value);
+        var itemToRemove = Find(parent, value);
 
         if (itemToRemove == null) throw new Exception("Cannot find item");
 
@@ -122,14 +122,14 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
         {
             if (itemToRemove.Children.Count() == 0)
             {
-                root = null;
+                Root = null;
             }
             else
             {
                 if (itemToRemove.Children.Count() == 1)
                 {
-                    root = itemToRemove.Children.DeleteFirst();
-                    root.Parent = null;
+                    Root = itemToRemove.Children.DeleteFirst();
+                    Root.Parent = null;
                 }
                 else
                 {
@@ -163,13 +163,13 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
         Count--;
     }
 
-    private TreeNode<T> find(TreeNode<T> parent, T value)
+    private TreeNode<T> Find(TreeNode<T> parent, T value)
     {
         if (parent.Value.CompareTo(value) == 0) return parent;
 
         foreach (var child in parent.Children)
         {
-            var result = find(child, value);
+            var result = Find(child, value);
 
             if (result != null) return result;
         }

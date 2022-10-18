@@ -18,13 +18,13 @@ public class CycleDetector<T>
 
         foreach (var vertex in graph.VerticesAsEnumberable)
             if (!visited.Contains(vertex.Key))
-                if (dfs(vertex, visited, visiting))
+                if (Dfs(vertex, visited, visiting))
                     return true;
 
         return false;
     }
 
-    private bool dfs(IDiGraphVertex<T> current,
+    private bool Dfs(IDiGraphVertex<T> current,
         HashSet<T> visited, HashSet<T> visiting)
     {
         visiting.Add(current.Key);
@@ -37,7 +37,7 @@ public class CycleDetector<T>
 
             if (visited.Contains(edge.TargetVertexKey)) continue;
 
-            if (dfs(edge.TargetVertex, visited, visiting)) return true;
+            if (Dfs(edge.TargetVertex, visited, visiting)) return true;
         }
 
         visiting.Remove(current.Key);

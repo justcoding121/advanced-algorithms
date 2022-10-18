@@ -9,16 +9,16 @@ namespace Advanced.Algorithms.Graph;
 /// <summary>
 ///     A Johnson's shortest path algorithm implementation.
 /// </summary>
-public class JohnsonsShortestPath<T, W> where W : IComparable
+public class JohnsonsShortestPath<T, TW> where TW : IComparable
 {
-    private readonly IJohnsonsShortestPathOperators<T, W> @operator;
+    private readonly IJohnsonsShortestPathOperators<T, TW> @operator;
 
-    public JohnsonsShortestPath(IJohnsonsShortestPathOperators<T, W> @operator)
+    public JohnsonsShortestPath(IJohnsonsShortestPathOperators<T, TW> @operator)
     {
         this.@operator = @operator;
     }
 
-    public List<AllPairShortestPathResult<T, W>>
+    public List<AllPairShortestPathResult<T, TW>>
         FindAllPairShortestPaths(IDiGraph<T> graph)
     {
         if (@operator == null)
@@ -29,7 +29,7 @@ public class JohnsonsShortestPath<T, W> where W : IComparable
                 throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
                                             "Provide an appropriate IJohnsonsShortestPathOperators<T, int> operator implementation during initialization.");
 
-        var workGraph = clone(graph);
+        var workGraph = Clone(graph);
 
         //add an extra vertex with zero weight edge to all nodes
         var randomVetex = @operator.RandomVertex();
@@ -41,8 +41,8 @@ public class JohnsonsShortestPath<T, W> where W : IComparable
         foreach (var vertex in workGraph.Vertices) workGraph.AddEdge(randomVetex, vertex.Key, @operator.DefaultValue);
 
         //now compute shortest path from random vertex to all other vertices
-        var bellmanFordSp = new BellmanFordShortestPath<T, W>(@operator);
-        var bellFordResult = new Dictionary<T, W>();
+        var bellmanFordSp = new BellmanFordShortestPath<T, TW>(@operator);
+        var bellFordResult = new Dictionary<T, TW>();
         foreach (var vertex in workGraph.Vertices)
         {
             var result = bellmanFordSp.FindShortestPath(workGraph, randomVetex, vertex.Key);
@@ -59,8 +59,8 @@ public class JohnsonsShortestPath<T, W> where W : IComparable
         workGraph.RemoveVertex(randomVetex);
         //now run dijikstra for all pairs of vertices
         //trace path
-        var dijikstras = new DijikstraShortestPath<T, W>(@operator);
-        var finalResult = new List<AllPairShortestPathResult<T, W>>();
+        var dijikstras = new DijikstraShortestPath<T, TW>(@operator);
+        var finalResult = new List<AllPairShortestPathResult<T, TW>>();
         foreach (var vertexA in workGraph.Vertices)
         foreach (var vertexB in workGraph.Vertices)
         {
@@ -74,21 +74,21 @@ public class JohnsonsShortestPath<T, W> where W : IComparable
             var distance = sp.Length;
             var path = sp.Path;
 
-            finalResult.Add(new AllPairShortestPathResult<T, W>(source, dest, distance, path));
+            finalResult.Add(new AllPairShortestPathResult<T, TW>(source, dest, distance, path));
         }
 
         return finalResult;
     }
 
-    private WeightedDiGraph<T, W> clone(IDiGraph<T> graph)
+    private WeightedDiGraph<T, TW> Clone(IDiGraph<T> graph)
     {
-        var newGraph = new WeightedDiGraph<T, W>();
+        var newGraph = new WeightedDiGraph<T, TW>();
 
         foreach (var vertex in graph.VerticesAsEnumberable) newGraph.AddVertex(vertex.Key);
 
         foreach (var vertex in graph.VerticesAsEnumberable)
         foreach (var edge in vertex.OutEdges)
-            newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<W>());
+            newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<TW>());
 
         return newGraph;
     }
@@ -97,13 +97,13 @@ public class JohnsonsShortestPath<T, W> where W : IComparable
 /// <summary>
 ///     A concrete implementation of this interface is required by Johnson's algorithm.
 /// </summary>
-public interface IJohnsonsShortestPathOperators<T, W>
-    : IShortestPathOperators<W> where W : IComparable
+public interface IJohnsonsShortestPathOperators<T, TW>
+    : IShortestPathOperators<TW> where TW : IComparable
 {
     /// <summary>
     ///     Substract a from b.
     /// </summary>
-    W Substract(W a, W b);
+    TW Substract(TW a, TW b);
 
     /// <summary>
     ///     Gives a random vertex value not in the graph.

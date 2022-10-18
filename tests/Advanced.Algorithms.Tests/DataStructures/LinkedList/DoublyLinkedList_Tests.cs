@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class DoublyLinkedList_Tests
+    public class DoublyLinkedListTests
     {
         /// <summary>
         ///     doubly linked list tests

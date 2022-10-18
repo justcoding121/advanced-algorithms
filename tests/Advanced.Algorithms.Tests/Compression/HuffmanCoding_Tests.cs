@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Compression
 {
     [TestClass]
-    public class HuffmanCoding_Tests
+    public class HuffmanCodingTests
     {
         [TestMethod]
         public void HuffmanCoding_Test()

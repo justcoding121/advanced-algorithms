@@ -8,17 +8,17 @@ namespace Advanced.Algorithms.DataStructures;
 /// <summary>
 ///     An AVL tree implementation.
 /// </summary>
-public class AVLTree<T> : IEnumerable<T> where T : IComparable
+public class AvlTree<T> : IEnumerable<T> where T : IComparable
 {
-    private readonly Dictionary<T, BSTNodeBase<T>> nodeLookUp;
+    private readonly Dictionary<T, BstNodeBase<T>> nodeLookUp;
 
     /// <param name="enableNodeLookUp">
     ///     Enabling lookup will fasten deletion/insertion/exists operations
     ///     at the cost of additional space.
     /// </param>
-    public AVLTree(bool enableNodeLookUp = false)
+    public AvlTree(bool enableNodeLookUp = false)
     {
-        if (enableNodeLookUp) nodeLookUp = new Dictionary<T, BSTNodeBase<T>>();
+        if (enableNodeLookUp) nodeLookUp = new Dictionary<T, BstNodeBase<T>>();
     }
 
     /// <summary>
@@ -30,18 +30,18 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     ///     Enabling lookup will fasten deletion/insertion/exists operations
     ///     at the cost of additional space.
     /// </param>
-    public AVLTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false)
+    public AvlTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false)
     {
-        BSTHelpers.ValidateSortedCollection(sortedCollection);
-        var nodes = sortedCollection.Select(x => new AVLTreeNode<T>(null, x)).ToArray();
-        Root = (AVLTreeNode<T>)BSTHelpers.ToBST(nodes);
-        recomputeHeight(Root);
-        BSTHelpers.AssignCount(Root);
+        BstHelpers.ValidateSortedCollection(sortedCollection);
+        var nodes = sortedCollection.Select(x => new AvlTreeNode<T>(null, x)).ToArray();
+        Root = (AvlTreeNode<T>)BstHelpers.ToBst(nodes);
+        RecomputeHeight(Root);
+        BstHelpers.AssignCount(Root);
 
-        if (enableNodeLookUp) nodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BSTNodeBase<T>);
+        if (enableNodeLookUp) nodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BstNodeBase<T>);
     }
 
-    internal AVLTreeNode<T> Root { get; set; }
+    internal AvlTreeNode<T> Root { get; set; }
 
     public int Count => Root == null ? 0 : Root.Count;
 
@@ -53,7 +53,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new BSTEnumerator<T>(Root);
+        return new BstEnumerator<T>(Root);
     }
 
 
@@ -64,7 +64,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null) return false;
 
-        return find(Root, value) != null;
+        return Find(Root, value) != null;
     }
 
     /// <summary>
@@ -85,19 +85,19 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null)
         {
-            Root = new AVLTreeNode<T>(null, value);
+            Root = new AvlTreeNode<T>(null, value);
             if (nodeLookUp != null) nodeLookUp[value] = Root;
 
             return;
         }
 
-        insert(Root, value);
+        Insert(Root, value);
     }
 
     /// <summary>
     ///     Time complexity: O(log(n))
     /// </summary>
-    private void insert(AVLTreeNode<T> node, T value)
+    private void Insert(AvlTreeNode<T> node, T value)
     {
         var compareResult = node.Value.CompareTo(value);
 
@@ -106,12 +106,12 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
         {
             if (node.Right == null)
             {
-                node.Right = new AVLTreeNode<T>(node, value);
+                node.Right = new AvlTreeNode<T>(node, value);
                 if (nodeLookUp != null) nodeLookUp[value] = node.Right;
             }
             else
             {
-                insert(node.Right, value);
+                Insert(node.Right, value);
             }
         }
         //node is greater than the value so move left for insertion
@@ -119,12 +119,12 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
         {
             if (node.Left == null)
             {
-                node.Left = new AVLTreeNode<T>(node, value);
+                node.Left = new AvlTreeNode<T>(node, value);
                 if (nodeLookUp != null) nodeLookUp[value] = node.Left;
             }
             else
             {
-                insert(node.Left, value);
+                Insert(node.Left, value);
             }
         }
         else
@@ -132,8 +132,8 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
             throw new Exception("Item exists");
         }
 
-        updateHeight(node);
-        balance(node);
+        UpdateHeight(node);
+        Balance(node);
 
         node.UpdateCounts();
     }
@@ -163,7 +163,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null) throw new Exception("Empty AVLTree");
 
-        delete(Root, value);
+        Delete(Root, value);
 
         if (nodeLookUp != null) nodeLookUp.Remove(value);
     }
@@ -175,14 +175,14 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
         if (index < 0 || index >= Count) throw new ArgumentException("index");
 
-        var nodeToDelete = Root.KthSmallest(index) as AVLTreeNode<T>;
-        var nodeToBalance = delete(nodeToDelete, nodeToDelete.Value);
+        var nodeToDelete = Root.KthSmallest(index) as AvlTreeNode<T>;
+        var nodeToBalance = Delete(nodeToDelete, nodeToDelete.Value);
 
         while (nodeToBalance != null)
         {
             nodeToBalance.UpdateCounts();
-            updateHeight(nodeToBalance);
-            balance(nodeToBalance);
+            UpdateHeight(nodeToBalance);
+            Balance(nodeToBalance);
 
             nodeToBalance = nodeToBalance.Parent;
         }
@@ -192,7 +192,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
         return nodeToDelete.Value;
     }
 
-    private AVLTreeNode<T> delete(AVLTreeNode<T> node, T value)
+    private AvlTreeNode<T> Delete(AvlTreeNode<T> node, T value)
     {
         var baseCase = false;
 
@@ -203,14 +203,14 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
         {
             if (node.Right == null) throw new Exception("Item do not exist");
 
-            delete(node.Right, value);
+            Delete(node.Right, value);
         }
         //node is less than the search value so move left to find the deletion node
         else if (compareResult > 0)
         {
             if (node.Left == null) throw new Exception("Item do not exist");
 
-            delete(node.Left, value);
+            Delete(node.Left, value);
         }
         else
         {
@@ -281,14 +281,14 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
                 //and then delete the left max node
                 else
                 {
-                    var maxLeftNode = findMax(node.Left);
+                    var maxLeftNode = FindMax(node.Left);
 
                     node.Value = maxLeftNode.Value;
 
                     if (nodeLookUp != null) nodeLookUp[node.Value] = node;
 
                     //delete left max node
-                    delete(node.Left, maxLeftNode.Value);
+                    Delete(node.Left, maxLeftNode.Value);
                 }
             }
         }
@@ -296,14 +296,14 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
         if (baseCase)
         {
             node.Parent.UpdateCounts();
-            updateHeight(node.Parent);
-            balance(node.Parent);
+            UpdateHeight(node.Parent);
+            Balance(node.Parent);
             return node.Parent;
         }
 
         node.UpdateCounts();
-        updateHeight(node);
-        balance(node);
+        UpdateHeight(node);
+        Balance(node);
         return node;
     }
 
@@ -312,10 +312,10 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T FindMax()
     {
-        return findMax(Root).Value;
+        return FindMax(Root).Value;
     }
 
-    private AVLTreeNode<T> findMax(AVLTreeNode<T> node)
+    private AvlTreeNode<T> FindMax(AvlTreeNode<T> node)
     {
         while (true)
         {
@@ -330,10 +330,10 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T FindMin()
     {
-        return findMin(Root).Value;
+        return FindMin(Root).Value;
     }
 
-    private AVLTreeNode<T> findMin(AVLTreeNode<T> node)
+    private AvlTreeNode<T> FindMin(AvlTreeNode<T> node)
     {
         while (true)
         {
@@ -350,37 +350,37 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null) return false;
 
-        return find(Root, value) != null;
+        return Find(Root, value) != null;
     }
 
 
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
-    private AVLTreeNode<T> find(T value)
+    private AvlTreeNode<T> Find(T value)
     {
-        if (nodeLookUp != null) return nodeLookUp[value] as AVLTreeNode<T>;
+        if (nodeLookUp != null) return nodeLookUp[value] as AvlTreeNode<T>;
 
-        return Root.Find(value).Item1 as AVLTreeNode<T>;
+        return Root.Find(value).Item1 as AvlTreeNode<T>;
     }
 
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
-    private AVLTreeNode<T> find(AVLTreeNode<T> parent, T value)
+    private AvlTreeNode<T> Find(AvlTreeNode<T> parent, T value)
     {
         if (parent == null) return null;
 
         if (parent.Value.CompareTo(value) == 0) return parent;
 
-        var left = find(parent.Left, value);
+        var left = Find(parent.Left, value);
 
         if (left != null) return left;
 
-        var right = find(parent.Right, value);
+        var right = Find(parent.Right, value);
 
         return right;
     }
 
-    private void balance(AVLTreeNode<T> node)
+    private void Balance(AvlTreeNode<T> node)
     {
         if (node == null)
             return;
@@ -402,13 +402,13 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
             //left child is left heavy
             if (leftHeight > rightHeight)
             {
-                rightRotate(node);
+                RightRotate(node);
             }
             //left child is right heavy
             else
             {
-                leftRotate(node.Left);
-                rightRotate(node);
+                LeftRotate(node.Left);
+                RightRotate(node);
             }
         }
         //tree is right heavy
@@ -421,18 +421,18 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
             //right child is right heavy
             if (rightHeight > leftHeight)
             {
-                leftRotate(node);
+                LeftRotate(node);
             }
             //right child is left heavy
             else
             {
-                rightRotate(node.Right);
-                leftRotate(node);
+                RightRotate(node.Right);
+                LeftRotate(node);
             }
         }
     }
 
-    private void rightRotate(AVLTreeNode<T> node)
+    private void RightRotate(AvlTreeNode<T> node)
     {
         var prevRoot = node;
         var leftRightChild = prevRoot.Left.Right;
@@ -458,7 +458,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
         newRoot.Right.Left = leftRightChild;
         if (newRoot.Right.Left != null) newRoot.Right.Left.Parent = newRoot.Right;
 
-        updateHeight(newRoot);
+        UpdateHeight(newRoot);
 
         newRoot.Left.UpdateCounts();
         newRoot.Right.UpdateCounts();
@@ -467,7 +467,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
         if (prevRoot == Root) Root = newRoot;
     }
 
-    private void leftRotate(AVLTreeNode<T> node)
+    private void LeftRotate(AvlTreeNode<T> node)
     {
         var prevRoot = node;
         var rightLeftChild = prevRoot.Right.Left;
@@ -493,7 +493,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
         newRoot.Left.Right = rightLeftChild;
         if (newRoot.Left.Right != null) newRoot.Left.Right.Parent = newRoot.Left;
 
-        updateHeight(newRoot);
+        UpdateHeight(newRoot);
 
         newRoot.Left.UpdateCounts();
         newRoot.Right.UpdateCounts();
@@ -502,7 +502,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
         if (prevRoot == Root) Root = newRoot;
     }
 
-    private void updateHeight(AVLTreeNode<T> node)
+    private void UpdateHeight(AvlTreeNode<T> node)
     {
         if (node == null) return;
 
@@ -518,14 +518,14 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
             node.Right?.Height + 1 ?? 0);
     }
 
-    private void recomputeHeight(AVLTreeNode<T> node)
+    private void RecomputeHeight(AvlTreeNode<T> node)
     {
         if (node == null) return;
 
-        recomputeHeight(node.Left);
-        recomputeHeight(node.Right);
+        RecomputeHeight(node.Left);
+        RecomputeHeight(node.Right);
 
-        updateHeight(node);
+        UpdateHeight(node);
     }
 
     /// <summary>
@@ -534,7 +534,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T NextLower(T value)
     {
-        var node = find(value);
+        var node = Find(value);
         if (node == null) return default;
 
         var next = node.NextLower();
@@ -547,7 +547,7 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T NextHigher(T value)
     {
-        var node = find(value);
+        var node = Find(value);
         if (node == null) return default;
 
         var next = node.NextHigher();
@@ -556,8 +556,8 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
 
     internal void Swap(T value1, T value2)
     {
-        var node1 = find(value1);
-        var node2 = find(value2);
+        var node1 = Find(value1);
+        var node2 = Find(value2);
 
         if (node1 == null || node2 == null) throw new Exception("Value1, Value2 or both was not found in this BST.");
 
@@ -582,34 +582,34 @@ public class AVLTree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumeratorDesc()
     {
-        return new BSTEnumerator<T>(Root, false);
+        return new BstEnumerator<T>(Root, false);
     }
 }
 
-internal class AVLTreeNode<T> : BSTNodeBase<T> where T : IComparable
+internal class AvlTreeNode<T> : BstNodeBase<T> where T : IComparable
 {
-    internal AVLTreeNode(AVLTreeNode<T> parent, T value)
+    internal AvlTreeNode(AvlTreeNode<T> parent, T value)
     {
         Parent = parent;
         Value = value;
         Height = 0;
     }
 
-    internal new AVLTreeNode<T> Parent
+    internal new AvlTreeNode<T> Parent
     {
-        get => (AVLTreeNode<T>)base.Parent;
+        get => (AvlTreeNode<T>)base.Parent;
         set => base.Parent = value;
     }
 
-    internal new AVLTreeNode<T> Left
+    internal new AvlTreeNode<T> Left
     {
-        get => (AVLTreeNode<T>)base.Left;
+        get => (AvlTreeNode<T>)base.Left;
         set => base.Left = value;
     }
 
-    internal new AVLTreeNode<T> Right
+    internal new AvlTreeNode<T> Right
     {
-        get => (AVLTreeNode<T>)base.Right;
+        get => (AvlTreeNode<T>)base.Right;
         set => base.Right = value;
     }
 

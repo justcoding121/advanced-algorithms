@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class RedBlackTree_Tests
+    public class RedBlackTreeTests
     {
         /// <summary>
         ///     Smoke test

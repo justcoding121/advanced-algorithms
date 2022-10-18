@@ -7,11 +7,11 @@ namespace Advanced.Algorithms.Graph;
 /// <summary>
 ///     A Bellman Ford algorithm implementation.
 /// </summary>
-public class BellmanFordShortestPath<T, W> where W : IComparable
+public class BellmanFordShortestPath<T, TW> where TW : IComparable
 {
-    private readonly IShortestPathOperators<W> @operator;
+    private readonly IShortestPathOperators<TW> @operator;
 
-    public BellmanFordShortestPath(IShortestPathOperators<W> @operator)
+    public BellmanFordShortestPath(IShortestPathOperators<TW> @operator)
     {
         this.@operator = @operator;
     }
@@ -19,7 +19,7 @@ public class BellmanFordShortestPath<T, W> where W : IComparable
     /// <summary>
     ///     Find shortest distance to target.
     /// </summary>
-    public ShortestPathResult<T, W> FindShortestPath(IDiGraph<T> graph,
+    public ShortestPathResult<T, TW> FindShortestPath(IDiGraph<T> graph,
         T source, T destination)
     {
         //regular argument checks
@@ -35,7 +35,7 @@ public class BellmanFordShortestPath<T, W> where W : IComparable
                 throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
                                             "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
 
-        var progress = new Dictionary<T, W>();
+        var progress = new Dictionary<T, TW>();
         var parentMap = new Dictionary<T, T>();
 
         foreach (var vertex in graph.VerticesAsEnumberable)
@@ -62,7 +62,7 @@ public class BellmanFordShortestPath<T, W> where W : IComparable
                 {
                     var currentDistance = progress[edge.TargetVertexKey];
                     var newDistance = @operator.Sum(progress[vertex.Key],
-                        vertex.GetOutEdge(edge.TargetVertex).Weight<W>());
+                        vertex.GetOutEdge(edge.TargetVertex).Weight<TW>());
 
                     if (newDistance.CompareTo(currentDistance) < 0)
                     {
@@ -78,13 +78,13 @@ public class BellmanFordShortestPath<T, W> where W : IComparable
             if (iterations < 0) throw new Exception("Negative cycle exists in this graph.");
         }
 
-        return tracePath(graph, parentMap, source, destination);
+        return TracePath(graph, parentMap, source, destination);
     }
 
     /// <summary>
     ///     Trace back path from destination to source using parent map.
     /// </summary>
-    private ShortestPathResult<T, W> tracePath(IDiGraph<T> graph,
+    private ShortestPathResult<T, TW> TracePath(IDiGraph<T> graph,
         Dictionary<T, T> parentMap, T source, T destination)
     {
         //trace the path
@@ -106,8 +106,8 @@ public class BellmanFordShortestPath<T, W> where W : IComparable
 
         for (var i = 0; i < resultPath.Count - 1; i++)
             resultLength = @operator.Sum(resultLength,
-                graph.GetVertex(resultPath[i]).GetOutEdge(graph.GetVertex(resultPath[i + 1])).Weight<W>());
+                graph.GetVertex(resultPath[i]).GetOutEdge(graph.GetVertex(resultPath[i + 1])).Weight<TW>());
 
-        return new ShortestPathResult<T, W>(resultPath, resultLength);
+        return new ShortestPathResult<T, TW>(resultPath, resultLength);
     }
 }

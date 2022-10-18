@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation;
 
 internal class SeparateChainingHashSet<T> : IHashSet<T>
 {
-    private const double tolerance = 0.1;
+    private const double Tolerance = 0.1;
     private readonly int initialBucketSize;
     private int filledBuckets;
     private DoublyLinkedList<HashSetNode<T>>[] hashArray;
@@ -17,13 +17,13 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
         hashArray = new DoublyLinkedList<HashSetNode<T>>[initialBucketSize];
     }
 
-    private int bucketSize => hashArray.Length;
+    private int BucketSize => hashArray.Length;
 
     public int Count { get; private set; }
 
     public bool Contains(T value)
     {
-        var index = Math.Abs(value.GetHashCode()) % bucketSize;
+        var index = Math.Abs(value.GetHashCode()) % BucketSize;
 
         if (hashArray[index] == null) return false;
 
@@ -41,9 +41,9 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
 
     public void Add(T value)
     {
-        grow();
+        Grow();
 
-        var index = Math.Abs(value.GetHashCode()) % bucketSize;
+        var index = Math.Abs(value.GetHashCode()) % BucketSize;
 
         if (hashArray[index] == null)
         {
@@ -70,7 +70,7 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
 
     public void Remove(T value)
     {
-        var index = Math.Abs(value.GetHashCode()) % bucketSize;
+        var index = Math.Abs(value.GetHashCode()) % BucketSize;
 
         if (hashArray[index] == null) throw new Exception("No such item for given value");
 
@@ -106,7 +106,7 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
 
         Count--;
 
-        shrink();
+        Shrink();
     }
 
     public void Clear()
@@ -123,12 +123,12 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new SeparateChainingHashSetEnumerator<T>(hashArray, bucketSize);
+        return new SeparateChainingHashSetEnumerator<T>(hashArray, BucketSize);
     }
 
-    private void setValue(T value)
+    private void SetValue(T value)
     {
-        var index = Math.Abs(value.GetHashCode()) % bucketSize;
+        var index = Math.Abs(value.GetHashCode()) % BucketSize;
 
         if (hashArray[index] == null) throw new Exception("Item not found");
 
@@ -149,17 +149,17 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
         throw new Exception("Item not found");
     }
 
-    private void grow()
+    private void Grow()
     {
-        if (filledBuckets >= bucketSize * 0.7)
+        if (filledBuckets >= BucketSize * 0.7)
         {
             filledBuckets = 0;
             //increase array size exponentially on demand
-            var newBucketSize = bucketSize * 2;
+            var newBucketSize = BucketSize * 2;
 
             var biggerArray = new DoublyLinkedList<HashSetNode<T>>[newBucketSize];
 
-            for (var i = 0; i < bucketSize; i++)
+            for (var i = 0; i < BucketSize; i++)
             {
                 var item = hashArray[i];
 
@@ -193,17 +193,17 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
         }
     }
 
-    private void shrink()
+    private void Shrink()
     {
-        if (Math.Abs(filledBuckets - bucketSize * 0.3) < tolerance && bucketSize / 2 > initialBucketSize)
+        if (Math.Abs(filledBuckets - BucketSize * 0.3) < Tolerance && BucketSize / 2 > initialBucketSize)
         {
             filledBuckets = 0;
             //reduce array by half 
-            var newBucketSize = bucketSize / 2;
+            var newBucketSize = BucketSize / 2;
 
             var smallerArray = new DoublyLinkedList<HashSetNode<T>>[newBucketSize];
 
-            for (var i = 0; i < bucketSize; i++)
+            for (var i = 0; i < BucketSize; i++)
             {
                 var item = hashArray[i];
 
@@ -240,7 +240,7 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
 internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<T>
 {
     private DoublyLinkedListNode<HashSetNode<T>> currentNode;
-    internal DoublyLinkedList<HashSetNode<T>>[] hashList;
+    internal DoublyLinkedList<HashSetNode<T>>[] HashList;
 
     private int length;
 
@@ -251,7 +251,7 @@ internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<T>
     internal SeparateChainingHashSetEnumerator(DoublyLinkedList<HashSetNode<T>>[] hashList, int length)
     {
         this.length = length;
-        this.hashList = hashList;
+        this.HashList = hashList;
     }
 
     public bool MoveNext()
@@ -268,10 +268,10 @@ internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<T>
 
             if (position < length)
             {
-                if (hashList[position] == null)
+                if (HashList[position] == null)
                     continue;
 
-                currentNode = hashList[position].Head;
+                currentNode = HashList[position].Head;
 
                 if (currentNode == null)
                     continue;
@@ -311,6 +311,6 @@ internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<T>
     public void Dispose()
     {
         length = 0;
-        hashList = null;
+        HashList = null;
     }
 }

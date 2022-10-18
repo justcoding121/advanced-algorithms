@@ -349,28 +349,28 @@ public class DoublyLinkedListNode<T>
 
 internal class DoublyLinkedListEnumerator<T> : IEnumerator<T>
 {
-    internal DoublyLinkedListNode<T> currentNode;
-    internal DoublyLinkedListNode<T> headNode;
+    internal DoublyLinkedListNode<T> CurrentNode;
+    internal DoublyLinkedListNode<T> HeadNode;
 
     internal DoublyLinkedListEnumerator(ref DoublyLinkedListNode<T> headNode)
     {
-        this.headNode = headNode;
+        this.HeadNode = headNode;
     }
 
     public bool MoveNext()
     {
-        if (headNode == null)
+        if (HeadNode == null)
             return false;
 
-        if (currentNode == null)
+        if (CurrentNode == null)
         {
-            currentNode = headNode;
+            CurrentNode = HeadNode;
             return true;
         }
 
-        if (currentNode.Next != null)
+        if (CurrentNode.Next != null)
         {
-            currentNode = currentNode.Next;
+            CurrentNode = CurrentNode.Next;
             return true;
         }
 
@@ -379,17 +379,17 @@ internal class DoublyLinkedListEnumerator<T> : IEnumerator<T>
 
     public void Reset()
     {
-        currentNode = headNode;
+        CurrentNode = HeadNode;
     }
 
 
     object IEnumerator.Current => Current;
 
-    public T Current => currentNode.Data;
+    public T Current => CurrentNode.Data;
 
     public void Dispose()
     {
-        headNode = null;
-        currentNode = null;
+        HeadNode = null;
+        CurrentNode = null;
     }
 }

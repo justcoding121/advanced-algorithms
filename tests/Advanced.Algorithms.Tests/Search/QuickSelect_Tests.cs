@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Search
 {
     [TestClass]
-    public class QuickSelect_Tests
+    public class QuickSelectTests
     {
         [TestMethod]
         public void QuickSelect_Test()

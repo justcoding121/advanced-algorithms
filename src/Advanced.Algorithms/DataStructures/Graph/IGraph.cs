@@ -34,14 +34,14 @@ public interface IEdge<T>
 {
     T TargetVertexKey { get; }
     IGraphVertex<T> TargetVertex { get; }
-    W Weight<W>() where W : IComparable;
+    TW Weight<TW>() where TW : IComparable;
 }
 
-internal class Edge<T, C> : IEdge<T> where C : IComparable
+internal class Edge<T, TC> : IEdge<T> where TC : IComparable
 {
     private readonly object weight;
 
-    internal Edge(IGraphVertex<T> target, C weight)
+    internal Edge(IGraphVertex<T> target, TC weight)
     {
         TargetVertex = target;
         this.weight = weight;
@@ -51,8 +51,8 @@ internal class Edge<T, C> : IEdge<T> where C : IComparable
 
     public IGraphVertex<T> TargetVertex { get; }
 
-    public W Weight<W>() where W : IComparable
+    public TW Weight<TW>() where TW : IComparable
     {
-        return (W)weight;
+        return (TW)weight;
     }
 }

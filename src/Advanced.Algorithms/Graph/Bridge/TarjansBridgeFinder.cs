@@ -15,7 +15,7 @@ public class TarjansBridgeFinder<T>
     public List<Bridge<T>> FindBridges(IGraph<T> graph)
     {
         var visitTime = 0;
-        return dfs(graph.ReferenceVertex, new List<Bridge<T>>(),
+        return Dfs(graph.ReferenceVertex, new List<Bridge<T>>(),
             new Dictionary<T, int>(), new Dictionary<T, int>(),
             new Dictionary<T, T>(),
             ref visitTime);
@@ -25,7 +25,7 @@ public class TarjansBridgeFinder<T>
     ///     Do a depth first search to find Bridge edges by keeping track of
     ///     discovery nodes and checking for back edges using low/discovery time maps.
     /// </summary>
-    private List<Bridge<T>> dfs(IGraphVertex<T> currentVertex,
+    private List<Bridge<T>> Dfs(IGraphVertex<T> currentVertex,
         List<Bridge<T>> result,
         Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
         Dictionary<T, T> parent, ref int discoveryTime)
@@ -40,7 +40,7 @@ public class TarjansBridgeFinder<T>
                 parent.Add(edge.TargetVertexKey, currentVertex.Key);
 
                 discoveryTime++;
-                dfs(edge.TargetVertex, result,
+                Dfs(edge.TargetVertex, result,
                     discoveryTimeMap, lowTimeMap, parent, ref discoveryTime);
 
                 //propogate lowTime index of neighbour so that ancestors can see check for back edge
@@ -76,10 +76,10 @@ public class Bridge<T>
 {
     public Bridge(T vertexA, T vertexB)
     {
-        this.vertexA = vertexA;
-        this.vertexB = vertexB;
+        this.VertexA = vertexA;
+        this.VertexB = vertexB;
     }
 
-    public T vertexA { get; }
-    public T vertexB { get; }
+    public T VertexA { get; }
+    public T VertexB { get; }
 }

@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Geometry
 {
     [TestClass]
-    public class PointInsidePolygon_Tests
+    public class PointInsidePolygonTests
     {
         [TestMethod]
         public void PointInsidePolygon_Smoke_Test()

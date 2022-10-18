@@ -15,7 +15,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         public void AVLTree_Smoke_Test()
         {
             //insert test
-            var tree = new AVLTree<int>();
+            var tree = new AvlTree<int>();
             Assert.AreEqual(-1, tree.GetHeight());
 
             tree.Insert(1);
@@ -104,7 +104,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 .OrderBy(x => rnd.Next())
                 .ToList();
 
-            var tree = new AVLTree<int>();
+            var tree = new AvlTree<int>();
 
             for (var i = 0; i < nodeCount; i++)
             {
@@ -175,7 +175,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 .OrderBy(x => rnd.Next())
                 .ToList();
 
-            var tree = new AVLTree<int>(true);
+            var tree = new AvlTree<int>(true);
 
             for (var i = 0; i < nodeCount; i++)
             {
@@ -243,7 +243,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount).ToList();
 
-            var tree = new AVLTree<int>(randomNumbers);
+            var tree = new AvlTree<int>(randomNumbers);
 
             Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
             Assert.AreEqual(tree.Count, tree.Count());
@@ -278,7 +278,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var randomNumbers = Enumerable.Range(1, nodeCount).ToList();
 
-            var tree = new AVLTree<int>(randomNumbers, true);
+            var tree = new AvlTree<int>(randomNumbers, true);
 
             Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
             Assert.AreEqual(tree.Count, tree.Count());
@@ -315,7 +315,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 .OrderBy(x => rnd.Next())
                 .ToList();
 
-            var tree = new AVLTree<int>();
+            var tree = new AvlTree<int>();
 
             for (var i = 0; i < nodeCount; i++)
             {

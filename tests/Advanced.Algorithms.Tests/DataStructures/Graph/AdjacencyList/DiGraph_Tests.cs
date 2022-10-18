@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
 {
     [TestClass]
-    public class DiGraph_Tests
+    public class DiGraphTests
     {
         /// <summary>
         ///     key value dictionary tests

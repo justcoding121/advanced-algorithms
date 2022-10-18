@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class BTree_Tests
+    public class BTreeTests
     {
         /// </summary>
         [TestMethod]

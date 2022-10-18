@@ -15,7 +15,7 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
 
     private readonly Dictionary<T, List<PairingHeapNode<T>>> heapMapping = new();
 
-    private PairingHeapNode<T> Root;
+    private PairingHeapNode<T> root;
 
     public PairingHeap(SortDirection sortDirection = SortDirection.Ascending)
     {
@@ -42,8 +42,8 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     public void Insert(T newItem)
     {
         var newNode = new PairingHeapNode<T>(newItem);
-        Root = meld(Root, newNode);
-        addMapping(newItem, newNode);
+        root = Meld(root, newNode);
+        AddMapping(newItem, newNode);
         Count++;
     }
 
@@ -52,9 +52,9 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T Extract()
     {
-        var minMax = Root;
-        removeMapping(minMax.Value, minMax);
-        meld(Root.ChildrenHead);
+        var minMax = root;
+        RemoveMapping(minMax.Value, minMax);
+        Meld(root.ChildrenHead);
         Count--;
         return minMax.Value;
     }
@@ -71,23 +71,23 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
         if (comparer.Compare(newValue, node.Value) > 0)
             throw new Exception($"New value is not {(!isMaxHeap ? "less" : "greater")} than old value.");
 
-        updateNodeValue(currentValue, newValue, node);
+        UpdateNodeValue(currentValue, newValue, node);
 
-        if (node == Root) return;
+        if (node == root) return;
 
-        deleteChild(node);
+        DeleteChild(node);
 
-        Root = meld(Root, node);
+        root = Meld(root, node);
     }
 
     /// <summary>
     ///     Merge another heap with this heap.
     ///     Time complexity: O(1).
     /// </summary>
-    public void Merge(PairingHeap<T> PairingHeap)
+    public void Merge(PairingHeap<T> pairingHeap)
     {
-        Root = meld(Root, PairingHeap.Root);
-        Count = Count + PairingHeap.Count;
+        root = Meld(root, pairingHeap.root);
+        Count = Count + pairingHeap.Count;
     }
 
     /// <summary>
@@ -95,16 +95,16 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T Peek()
     {
-        if (Root == null)
+        if (root == null)
             throw new Exception("Empty heap");
 
-        return Root.Value;
+        return root.Value;
     }
 
     /// <summary>
     ///     Time complexity: O(log(n))
     /// </summary>
-    private void meld(PairingHeapNode<T> headNode)
+    private void Meld(PairingHeapNode<T> headNode)
     {
         if (headNode == null)
             return;
@@ -129,13 +129,13 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
                 {
                     var next = current.Next;
                     var nextNext = next.Next;
-                    passOneResult.Add(meld(current, next));
+                    passOneResult.Add(Meld(current, next));
                     current = nextNext;
                 }
                 else
                 {
                     var lastInserted = passOneResult[passOneResult.Count - 1];
-                    passOneResult[passOneResult.Count - 1] = meld(lastInserted, current);
+                    passOneResult[passOneResult.Count - 1] = Meld(lastInserted, current);
                     break;
                 }
             }
@@ -145,7 +145,7 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
 
         if (passOneResult.Count == 1)
         {
-            Root = passTwoResult;
+            root = passTwoResult;
             return;
         }
 
@@ -153,16 +153,16 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
         for (var i = passOneResult.Count - 2; i >= 0; i--)
         {
             current = passOneResult[i];
-            passTwoResult = meld(passTwoResult, current);
+            passTwoResult = Meld(passTwoResult, current);
         }
 
-        Root = passTwoResult;
+        root = passTwoResult;
     }
 
     /// <summary>
     ///     makes the smaller node parent of other and returns the Parent
     /// </summary>
-    private PairingHeapNode<T> meld(PairingHeapNode<T> node1,
+    private PairingHeapNode<T> Meld(PairingHeapNode<T> node1,
         PairingHeapNode<T> node2)
     {
         if (node2 != null)
@@ -178,18 +178,18 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
 
         if (node2 != null && comparer.Compare(node1.Value, node2.Value) <= 0)
         {
-            addChild(ref node1, node2);
+            AddChild(ref node1, node2);
             return node1;
         }
 
-        addChild(ref node2, node1);
+        AddChild(ref node2, node1);
         return node2;
     }
 
     /// <summary>
     ///     Add new child to parent node
     /// </summary>
-    private void addChild(ref PairingHeapNode<T> parent, PairingHeapNode<T> child)
+    private void AddChild(ref PairingHeapNode<T> parent, PairingHeapNode<T> child)
     {
         if (parent.ChildrenHead == null)
         {
@@ -211,7 +211,7 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     delete node from parent
     /// </summary>
-    private void deleteChild(PairingHeapNode<T> node)
+    private void DeleteChild(PairingHeapNode<T> node)
     {
         //if this node is the child head pointer of parent
         if (node.IsHeadChild)
@@ -232,7 +232,7 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
         }
     }
 
-    private void addMapping(T newItem, PairingHeapNode<T> newNode)
+    private void AddMapping(T newItem, PairingHeapNode<T> newNode)
     {
         if (heapMapping.ContainsKey(newItem))
             heapMapping[newItem].Add(newNode);
@@ -240,14 +240,14 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
             heapMapping[newItem] = new List<PairingHeapNode<T>>(new[] { newNode });
     }
 
-    private void updateNodeValue(T currentValue, T newValue, PairingHeapNode<T> node)
+    private void UpdateNodeValue(T currentValue, T newValue, PairingHeapNode<T> node)
     {
-        removeMapping(currentValue, node);
+        RemoveMapping(currentValue, node);
         node.Value = newValue;
-        addMapping(newValue, node);
+        AddMapping(newValue, node);
     }
 
-    private void removeMapping(T currentValue, PairingHeapNode<T> node)
+    private void RemoveMapping(T currentValue, PairingHeapNode<T> node)
     {
         heapMapping[currentValue].Remove(node);
         if (heapMapping[currentValue].Count == 0) heapMapping.Remove(currentValue);

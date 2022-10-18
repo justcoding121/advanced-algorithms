@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class BHeap_Tests
+    public class BHeapTests
     {
         [TestMethod]
         public void Min_BHeap_Test()

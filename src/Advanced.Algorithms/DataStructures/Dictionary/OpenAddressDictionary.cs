@@ -15,21 +15,21 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
         hashArray = new DictionaryKeyValuePair<TK, TV>[initialBucketSize];
     }
 
-    private int bucketSize => hashArray.Length;
+    private int BucketSize => hashArray.Length;
 
     public int Count { get; private set; }
 
     public TV this[TK key]
     {
-        get => getValue(key);
-        set => setValue(key, value);
+        get => GetValue(key);
+        set => SetValue(key, value);
     }
 
 
     public bool ContainsKey(TK key)
     {
-        var hashCode = getHash(key);
-        var index = hashCode % bucketSize;
+        var hashCode = GetHash(key);
+        var index = hashCode % BucketSize;
 
         if (hashArray[index] == null) return false;
 
@@ -45,7 +45,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
             index++;
 
             //wrap around
-            if (index == bucketSize)
+            if (index == BucketSize)
                 index = 0;
 
             current = hashArray[index];
@@ -59,11 +59,11 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
 
     public void Add(TK key, TV value)
     {
-        grow();
+        Grow();
 
-        var hashCode = getHash(key);
+        var hashCode = GetHash(key);
 
-        var index = hashCode % bucketSize;
+        var index = hashCode % BucketSize;
 
         if (hashArray[index] == null)
         {
@@ -82,7 +82,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
                 index++;
 
                 //wrap around
-                if (index == bucketSize)
+                if (index == BucketSize)
                     index = 0;
 
                 current = hashArray[index];
@@ -98,8 +98,8 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
 
     public void Remove(TK key)
     {
-        var hashCode = getHash(key);
-        var curIndex = hashCode % bucketSize;
+        var hashCode = GetHash(key);
+        var curIndex = hashCode % BucketSize;
 
         if (hashArray[curIndex] == null) throw new Exception("No such item for given key");
 
@@ -121,7 +121,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
             curIndex++;
 
             //wrap around
-            if (curIndex == bucketSize)
+            if (curIndex == BucketSize)
                 curIndex = 0;
 
             current = hashArray[curIndex];
@@ -142,7 +142,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
         curIndex++;
 
         //wrap around
-        if (curIndex == bucketSize)
+        if (curIndex == BucketSize)
             curIndex = 0;
 
         current = hashArray[curIndex];
@@ -160,7 +160,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
             curIndex++;
 
             //wrap around
-            if (curIndex == bucketSize)
+            if (curIndex == BucketSize)
                 curIndex = 0;
 
             current = hashArray[curIndex];
@@ -168,7 +168,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
 
         Count--;
 
-        shrink();
+        Shrink();
     }
 
 
@@ -189,9 +189,9 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
     }
 
 
-    private void setValue(TK key, TV value)
+    private void SetValue(TK key, TV value)
     {
-        var index = getHash(key) % bucketSize;
+        var index = GetHash(key) % BucketSize;
 
         if (hashArray[index] == null)
         {
@@ -214,7 +214,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
                 index++;
 
                 //wrap around
-                if (index == bucketSize)
+                if (index == BucketSize)
                     index = 0;
 
                 current = hashArray[index];
@@ -227,9 +227,9 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
         throw new Exception("Item not found");
     }
 
-    private TV getValue(TK key)
+    private TV GetValue(TK key)
     {
-        var index = getHash(key) % bucketSize;
+        var index = GetHash(key) % BucketSize;
 
         if (hashArray[index] == null) throw new Exception("Item not found");
 
@@ -243,7 +243,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
             index++;
 
             //wrap around
-            if (index == bucketSize)
+            if (index == BucketSize)
                 index = 0;
 
             current = hashArray[index];
@@ -255,15 +255,15 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
         throw new Exception("Item not found");
     }
 
-    private void grow()
+    private void Grow()
     {
-        if (bucketSize * 0.7 <= Count)
+        if (BucketSize * 0.7 <= Count)
         {
-            var orgBucketSize = bucketSize;
+            var orgBucketSize = BucketSize;
             var currentArray = hashArray;
 
             //increase array size exponentially on demand
-            hashArray = new DictionaryKeyValuePair<TK, TV>[bucketSize * 2];
+            hashArray = new DictionaryKeyValuePair<TK, TV>[BucketSize * 2];
 
             for (var i = 0; i < orgBucketSize; i++)
             {
@@ -281,16 +281,16 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
     }
 
 
-    private void shrink()
+    private void Shrink()
     {
-        if (Count <= bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
+        if (Count <= BucketSize * 0.3 && BucketSize / 2 > initialBucketSize)
         {
-            var orgBucketSize = bucketSize;
+            var orgBucketSize = BucketSize;
 
             var currentArray = hashArray;
 
             //reduce array by half logarithamic
-            hashArray = new DictionaryKeyValuePair<TK, TV>[bucketSize / 2];
+            hashArray = new DictionaryKeyValuePair<TK, TV>[BucketSize / 2];
 
             for (var i = 0; i < orgBucketSize; i++)
             {
@@ -307,18 +307,18 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
         }
     }
 
-    private int getHash(TK key)
+    private int GetHash(TK key)
     {
         return Math.Abs(key.GetHashCode());
     }
 }
 
-internal class DictionaryKeyValuePair<K, V>
+internal class DictionaryKeyValuePair<TK, TV>
 {
-    internal K Key;
-    internal V Value;
+    internal TK Key;
+    internal TV Value;
 
-    internal DictionaryKeyValuePair(K key, V value)
+    internal DictionaryKeyValuePair(TK key, TV value)
     {
         Key = key;
         Value = value;

@@ -27,13 +27,13 @@ public class MergeSort<T> where T : IComparable
         PartitionMerge(array, leftIndex, middle, comparer);
         PartitionMerge(array, middle + 1, rightIndex, comparer);
 
-        merge(array, leftIndex, middle, rightIndex, comparer);
+        Merge(array, leftIndex, middle, rightIndex, comparer);
     }
 
     /// <summary>
     ///     Merge two sorted arrays.
     /// </summary>
-    private static void merge(T[] array, int leftStart, int middle, int rightEnd,
+    private static void Merge(T[] array, int leftStart, int middle, int rightEnd,
         CustomComparer<T> comparer)
     {
         var newLength = rightEnd - leftStart + 1;

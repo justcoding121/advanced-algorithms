@@ -46,11 +46,11 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
         newHeapForest.InsertFirst(newNode);
 
         //updated pointer
-        mergeSortedForests(newHeapForest);
+        MergeSortedForests(newHeapForest);
 
-        meld();
+        Meld();
 
-        addMapping(newItem, newNode);
+        AddMapping(newItem, newNode);
 
         Count++;
     }
@@ -84,11 +84,11 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
             newHeapForest.InsertLast(child);
         }
 
-        mergeSortedForests(newHeapForest);
+        MergeSortedForests(newHeapForest);
 
-        meld();
+        Meld();
 
-        removeMapping(minMaxTree.Data.Value, minMaxTree.Data);
+        RemoveMapping(minMaxTree.Data.Value, minMaxTree.Data);
 
         Count--;
 
@@ -109,7 +109,7 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
         if (comparer.Compare(newValue, node.Value) > 0)
             throw new Exception($"New value is not {(!isMaxHeap ? "less" : "greater")} than old value.");
 
-        updateNodeValue(currentValue, newValue, node);
+        UpdateNodeValue(currentValue, newValue, node);
 
         var current = node;
 
@@ -118,8 +118,8 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
         {
             //swap parent with child
             var tmp = current.Value;
-            updateNodeValue(tmp, current.Parent.Value, current);
-            updateNodeValue(current.Parent.Value, tmp, current.Parent);
+            UpdateNodeValue(tmp, current.Parent.Value, current);
+            UpdateNodeValue(current.Parent.Value, tmp, current.Parent);
 
             current = current.Parent;
         }
@@ -131,9 +131,9 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
     /// <param name="binomialHeap">The heap to union with.</param>
     public void Merge(BinomialHeap<T> binomialHeap)
     {
-        mergeSortedForests(binomialHeap.heapForest);
+        MergeSortedForests(binomialHeap.heapForest);
 
-        meld();
+        Meld();
 
         Count += binomialHeap.Count;
     }
@@ -162,7 +162,7 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Merge roots with same degrees in Forest
     /// </summary>
-    private void meld()
+    private void Meld()
     {
         if (heapForest.Head == null) return;
 
@@ -222,7 +222,7 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
     ///     Merges the given sorted forest to current sorted Forest
     ///     and returns the last inserted node (pointer required for update-key)
     /// </summary>
-    private void mergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
+    private void MergeSortedForests(DoublyLinkedList<BinomialHeapNode<T>> newHeapForest)
     {
         var @new = newHeapForest.Head;
 
@@ -261,7 +261,7 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
         }
     }
 
-    private void addMapping(T newItem, BinomialHeapNode<T> newNode)
+    private void AddMapping(T newItem, BinomialHeapNode<T> newNode)
     {
         if (heapMapping.ContainsKey(newItem))
             heapMapping[newItem].Add(newNode);
@@ -269,14 +269,14 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
             heapMapping[newItem] = new List<BinomialHeapNode<T>>(new[] { newNode });
     }
 
-    private void updateNodeValue(T currentValue, T newValue, BinomialHeapNode<T> node)
+    private void UpdateNodeValue(T currentValue, T newValue, BinomialHeapNode<T> node)
     {
-        removeMapping(currentValue, node);
+        RemoveMapping(currentValue, node);
         node.Value = newValue;
-        addMapping(newValue, node);
+        AddMapping(newValue, node);
     }
 
-    private void removeMapping(T currentValue, BinomialHeapNode<T> node)
+    private void RemoveMapping(T currentValue, BinomialHeapNode<T> node)
     {
         heapMapping[currentValue].Remove(node);
         if (heapMapping[currentValue].Count == 0) heapMapping.Remove(currentValue);

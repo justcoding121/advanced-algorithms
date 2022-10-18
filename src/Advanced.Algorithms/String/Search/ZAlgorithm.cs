@@ -12,7 +12,7 @@ public class ZAlgorithm
     /// </summary>
     public int Search(string input, string pattern)
     {
-        var z = this.z(pattern + input, pattern.Length);
+        var z = this.Z(pattern + input, pattern.Length);
 
         for (var i = pattern.Length; i < z.Length; i++)
             //if match length equals pattern Length + separator length
@@ -26,7 +26,7 @@ public class ZAlgorithm
     /// <summary>
     ///     The z function computes the length of matching prefix at each char
     ///     in given input.
-    private int[] z(string input, int patternLength)
+    private int[] Z(string input, int patternLength)
     {
         var result = new int[input.Length];
 

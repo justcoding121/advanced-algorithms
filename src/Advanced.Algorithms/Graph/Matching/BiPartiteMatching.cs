@@ -31,13 +31,13 @@ public class BiPartiteMatching<T>
 
         if (colorResult.CanColor == false) throw new Exception("Graph is not BiPartite.");
 
-        return getMaxBiPartiteMatching(graph, colorResult.Partitions);
+        return GetMaxBiPartiteMatching(graph, colorResult.Partitions);
     }
 
     /// <summary>
     ///     Get Max Match from Given BiPartitioned Graph.
     /// </summary>
-    private List<MatchEdge<T>> getMaxBiPartiteMatching(IGraph<T> graph,
+    private List<MatchEdge<T>> GetMaxBiPartiteMatching(IGraph<T> graph,
         Dictionary<int, List<T>> partitions)
     {
         //add unit edges from dymmy source to group 1 vertices
@@ -49,7 +49,7 @@ public class BiPartiteMatching<T>
         var dummySink = @operator.GetRandomUniqueVertex();
         if (graph.ContainsVertex(dummySink)) throw new Exception("Dummy vertex provided is not unique to given graph.");
 
-        var workGraph = createFlowGraph(graph, dummySource, dummySink, partitions);
+        var workGraph = CreateFlowGraph(graph, dummySource, dummySink, partitions);
 
         //run ford fulkerson using edmon karp method
         var fordFulkerson = new EdmondKarpMaxFlow<T, int>(@operator);
@@ -68,7 +68,7 @@ public class BiPartiteMatching<T>
     /// <summary>
     ///     create a directed unit weighted graph with given dummySource to Patition 1 and Patition 2 to dummy sink.
     /// </summary>
-    private static WeightedDiGraph<T, int> createFlowGraph(IGraph<T> graph,
+    private static WeightedDiGraph<T, int> CreateFlowGraph(IGraph<T> graph,
         T dummySource, T dummySink,
         Dictionary<int, List<T>> partitions)
     {

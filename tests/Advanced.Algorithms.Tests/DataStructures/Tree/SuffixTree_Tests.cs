@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class Suffix_Tests
+    public class SuffixTests
     {
         /// <summary>
         ///     A tree test

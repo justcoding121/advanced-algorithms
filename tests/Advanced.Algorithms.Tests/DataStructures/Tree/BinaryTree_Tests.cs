@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class BinaryTree_Tests
+    public class BinaryTreeTests
     {
         /// <summary>
         ///     A tree test

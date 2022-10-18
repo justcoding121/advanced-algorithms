@@ -22,7 +22,7 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     ///     Returns a reference vertex.
     ///     Time complexity: O(1).
     /// </summary>
-    private WeightedDiGraphVertex<T, TW> referenceVertex
+    private WeightedDiGraphVertex<T, TW> ReferenceVertex
     {
         get
         {
@@ -38,7 +38,7 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     public int VerticesCount => Vertices.Count;
     public bool IsWeightedGraph => true;
 
-    IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => referenceVertex;
+    IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => ReferenceVertex;
 
     /// <summary>
     ///     Do we have an edge between given source and destination?
@@ -80,7 +80,7 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
         return GetEnumerator() as IEnumerator<T>;
     }
 
-    IGraphVertex<T> IGraph<T>.ReferenceVertex => referenceVertex;
+    IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
 
     IGraphVertex<T> IGraph<T>.GetVertex(T key)
     {

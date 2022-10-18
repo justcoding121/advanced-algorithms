@@ -7,16 +7,16 @@ namespace Advanced.Algorithms.Graph;
 /// <summary>
 ///     A floyd-warshall shortest path algorithm implementation.
 /// </summary>
-public class FloydWarshallShortestPath<T, W> where W : IComparable
+public class FloydWarshallShortestPath<T, TW> where TW : IComparable
 {
-    private readonly IShortestPathOperators<W> @operator;
+    private readonly IShortestPathOperators<TW> @operator;
 
-    public FloydWarshallShortestPath(IShortestPathOperators<W> @operator)
+    public FloydWarshallShortestPath(IShortestPathOperators<TW> @operator)
     {
         this.@operator = @operator;
     }
 
-    public List<AllPairShortestPathResult<T, W>> FindAllPairShortestPaths(IGraph<T> graph)
+    public List<AllPairShortestPathResult<T, TW>> FindAllPairShortestPaths(IGraph<T> graph)
     {
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
@@ -39,7 +39,7 @@ public class FloydWarshallShortestPath<T, W> where W : IComparable
         }
 
         //init all distance to default Weight
-        var result = new W[graph.VerticesCount, graph.VerticesCount];
+        var result = new TW[graph.VerticesCount, graph.VerticesCount];
         //to trace the path
         var parent = new T[graph.VerticesCount, graph.VerticesCount];
         for (i = 0; i < graph.VerticesCount; i++)
@@ -51,10 +51,10 @@ public class FloydWarshallShortestPath<T, W> where W : IComparable
         for (i = 0; i < graph.VerticesCount; i++)
             foreach (var edge in graph.GetVertex(vertexIndex[i]).Edges)
             {
-                result[i, reverseVertexIndex[edge.TargetVertexKey]] = edge.Weight<W>();
+                result[i, reverseVertexIndex[edge.TargetVertexKey]] = edge.Weight<TW>();
                 parent[i, reverseVertexIndex[edge.TargetVertexKey]] = graph.GetVertex(vertexIndex[i]).Key;
 
-                result[reverseVertexIndex[edge.TargetVertexKey], i] = edge.Weight<W>();
+                result[reverseVertexIndex[edge.TargetVertexKey], i] = edge.Weight<TW>();
                 parent[reverseVertexIndex[edge.TargetVertexKey], i] = edge.TargetVertexKey;
             }
 
@@ -78,16 +78,16 @@ public class FloydWarshallShortestPath<T, W> where W : IComparable
         }
 
         //trace path
-        var finalResult = new List<AllPairShortestPathResult<T, W>>();
+        var finalResult = new List<AllPairShortestPathResult<T, TW>>();
         for (i = 0; i < graph.VerticesCount; i++)
         for (var j = 0; j < graph.VerticesCount; j++)
         {
             var source = vertexIndex[i];
             var dest = vertexIndex[j];
             var distance = result[i, j];
-            var path = tracePath(result, parent, i, j, vertexIndex, reverseVertexIndex);
+            var path = TracePath(result, parent, i, j, vertexIndex, reverseVertexIndex);
 
-            finalResult.Add(new AllPairShortestPathResult<T, W>(source, dest, distance, path));
+            finalResult.Add(new AllPairShortestPathResult<T, TW>(source, dest, distance, path));
         }
 
         return finalResult;
@@ -96,7 +96,7 @@ public class FloydWarshallShortestPath<T, W> where W : IComparable
     /// <summary>
     ///     Trace path from dest to source.
     /// </summary>
-    private List<T> tracePath(W[,] result, T[,] parent, int i, int j,
+    private List<T> TracePath(TW[,] result, T[,] parent, int i, int j,
         Dictionary<int, T> vertexIndex, Dictionary<T, int> reverseVertexIndex)
     {
         var pathStack = new Stack<T>();
@@ -121,10 +121,10 @@ public class FloydWarshallShortestPath<T, W> where W : IComparable
 /// <summary>
 ///     All pairs shortest path algorithm result object.
 /// </summary>
-public class AllPairShortestPathResult<T, W> where W : IComparable
+public class AllPairShortestPathResult<T, TW> where TW : IComparable
 {
     public AllPairShortestPathResult(T source, T destination,
-        W distance, List<T> path)
+        TW distance, List<T> path)
     {
         Source = source;
         Destination = destination;
@@ -135,7 +135,7 @@ public class AllPairShortestPathResult<T, W> where W : IComparable
     public T Source { get; }
     public T Destination { get; }
 
-    public W Distance { get; }
+    public TW Distance { get; }
 
     public List<T> Path { get; }
 }

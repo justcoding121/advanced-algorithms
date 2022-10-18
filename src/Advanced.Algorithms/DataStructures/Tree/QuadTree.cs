@@ -35,25 +35,25 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
     /// <param name="value">The value associated with this co-ordinate if any.</param>
     public void Insert(Point point, T value = default)
     {
-        root = insert(root, point, value);
+        root = Insert(root, point, value);
         Count++;
     }
 
-    private QuadTreeNode<T> insert(QuadTreeNode<T> current, Point point, T value)
+    private QuadTreeNode<T> Insert(QuadTreeNode<T> current, Point point, T value)
     {
         if (current == null) return new QuadTreeNode<T>(point, value);
 
         //south-west
         if (point.X < current.Point.X && point.Y < current.Point.Y)
-            current.SW = insert(current.SW, point, value);
+            current.Sw = Insert(current.Sw, point, value);
         //north-west
         else if (point.X < current.Point.X && point.Y >= current.Point.Y)
-            current.NW = insert(current.NW, point, value);
+            current.Nw = Insert(current.Nw, point, value);
         //north-east
         else if (point.X > current.Point.X && point.Y >= current.Point.Y)
-            current.NE = insert(current.NE, point, value);
+            current.Ne = Insert(current.Ne, point, value);
         //south-east
-        else if (point.X > current.Point.X && point.Y < current.Point.Y) current.SE = insert(current.SE, point, value);
+        else if (point.X > current.Point.X && point.Y < current.Point.Y) current.Se = Insert(current.Se, point, value);
 
         return current;
     }
@@ -63,10 +63,10 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
     /// </summary>
     public List<Tuple<Point, T>> RangeSearch(Rectangle searchWindow)
     {
-        return rangeSearch(root, searchWindow, new List<Tuple<Point, T>>());
+        return RangeSearch(root, searchWindow, new List<Tuple<Point, T>>());
     }
 
-    private List<Tuple<Point, T>> rangeSearch(QuadTreeNode<T> current, Rectangle searchWindow,
+    private List<Tuple<Point, T>> RangeSearch(QuadTreeNode<T> current, Rectangle searchWindow,
         List<Tuple<Point, T>> result)
     {
         if (current == null) return result;
@@ -81,16 +81,16 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
 
         //south-west
         if (searchWindow.LeftTop.X < current.Point.X && searchWindow.RightBottom.Y < current.Point.Y)
-            rangeSearch(current.SW, searchWindow, result);
+            RangeSearch(current.Sw, searchWindow, result);
         //north-west
         if (searchWindow.LeftTop.X < current.Point.X && searchWindow.LeftTop.Y >= current.Point.Y)
-            rangeSearch(current.NW, searchWindow, result);
+            RangeSearch(current.Nw, searchWindow, result);
         //north-east
         if (searchWindow.RightBottom.X > current.Point.X && searchWindow.LeftTop.Y >= current.Point.Y)
-            rangeSearch(current.NE, searchWindow, result);
+            RangeSearch(current.Ne, searchWindow, result);
         //south-east
         if (searchWindow.RightBottom.X > current.Point.X && searchWindow.RightBottom.Y < current.Point.Y)
-            rangeSearch(current.SE, searchWindow, result);
+            RangeSearch(current.Se, searchWindow, result);
 
         return result;
     }
@@ -100,7 +100,7 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
     /// </summary>
     public void Delete(Point p)
     {
-        var point = find(root, p);
+        var point = Find(root, p);
 
         if (point == null || point.IsDeleted) throw new Exception("Point not found.");
 
@@ -109,7 +109,7 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
 
         if (deletionCount == Count)
         {
-            reconstruct();
+            Reconstruct();
             deletionCount = 0;
         }
         else
@@ -118,16 +118,16 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
         }
     }
 
-    private void reconstruct()
+    private void Reconstruct()
     {
         QuadTreeNode<T> newRoot = null;
 
-        foreach (var exisiting in this) newRoot = insert(newRoot, exisiting.Item1, exisiting.Item2);
+        foreach (var exisiting in this) newRoot = Insert(newRoot, exisiting.Item1, exisiting.Item2);
 
         root = newRoot;
     }
 
-    private QuadTreeNode<T> find(QuadTreeNode<T> current, Point point)
+    private QuadTreeNode<T> Find(QuadTreeNode<T> current, Point point)
     {
         if (current == null) return null;
 
@@ -135,15 +135,15 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
 
         //south-west
         if (point.X < current.Point.X && point.Y < current.Point.Y)
-            return find(current.SW, point);
+            return Find(current.Sw, point);
         //north-west
         if (point.X < current.Point.X && point.Y >= current.Point.Y)
-            return find(current.NW, point);
+            return Find(current.Nw, point);
         //north-east
         if (point.X > current.Point.X && point.Y >= current.Point.Y)
-            return find(current.NE, point);
+            return Find(current.Ne, point);
         //south-east
-        if (point.X > current.Point.X && point.Y < current.Point.Y) return find(current.SE, point);
+        if (point.X > current.Point.X && point.Y < current.Point.Y) return Find(current.Se, point);
 
         return null;
     }
@@ -155,7 +155,7 @@ internal class QuadTreeNode<T>
     internal bool IsDeleted;
 
     //quadrants
-    internal QuadTreeNode<T> NW, NE, SE, SW;
+    internal QuadTreeNode<T> Nw, Ne, Se, Sw;
 
     //co-ordinate
     internal Point Point;
@@ -188,7 +188,7 @@ internal class QuadTreeEnumerator<T> : IEnumerator<Tuple<Point, T>>
 
         if (progress == null)
         {
-            progress = new Stack<QuadTreeNode<T>>(new[] { root.NE, root.NW, root.SE, root.SW }.Where(x => x != null));
+            progress = new Stack<QuadTreeNode<T>>(new[] { root.Ne, root.Nw, root.Se, root.Sw }.Where(x => x != null));
             current = root;
             return true;
         }
@@ -198,7 +198,7 @@ internal class QuadTreeEnumerator<T> : IEnumerator<Tuple<Point, T>>
             var next = progress.Pop();
             current = next;
 
-            foreach (var child in new[] { next.NE, next.NW, next.SE, next.SW }.Where(x => x != null))
+            foreach (var child in new[] { next.Ne, next.Nw, next.Se, next.Sw }.Where(x => x != null))
                 progress.Push(child);
 
             return true;

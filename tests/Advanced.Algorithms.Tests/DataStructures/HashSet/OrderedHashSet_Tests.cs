@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class OrderedHashSet_Tests
+    public class OrderedHashSetTests
     {
         /// <summary>
         ///     key value HashSet tests

@@ -8,9 +8,9 @@ namespace Advanced.Algorithms.DataStructures;
 /// <summary>
 ///     A binary search tree implementation.
 /// </summary>
-public class BST<T> : IEnumerable<T> where T : IComparable
+public class Bst<T> : IEnumerable<T> where T : IComparable
 {
-    public BST()
+    public Bst()
     {
     }
 
@@ -18,15 +18,15 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     ///     Initialize the BST with given sorted keys.
     ///     Time complexity: O(n).
     /// </summary>
-    public BST(IEnumerable<T> sortedCollection) : this()
+    public Bst(IEnumerable<T> sortedCollection) : this()
     {
-        BSTHelpers.ValidateSortedCollection(sortedCollection);
-        var nodes = sortedCollection.Select(x => new BSTNode<T>(null, x)).ToArray();
-        Root = (BSTNode<T>)BSTHelpers.ToBST(nodes);
-        BSTHelpers.AssignCount(Root);
+        BstHelpers.ValidateSortedCollection(sortedCollection);
+        var nodes = sortedCollection.Select(x => new BstNode<T>(null, x)).ToArray();
+        Root = (BstNode<T>)BstHelpers.ToBst(nodes);
+        BstHelpers.AssignCount(Root);
     }
 
-    internal BSTNode<T> Root { get; set; }
+    internal BstNode<T> Root { get; set; }
 
     public int Count => Root == null ? 0 : Root.Count;
 
@@ -38,7 +38,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new BSTEnumerator<T>(Root);
+        return new BstEnumerator<T>(Root);
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null) return false;
 
-        return find(Root, value) != null;
+        return Find(Root, value) != null;
     }
 
     /// <summary>
@@ -56,27 +56,27 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     internal int GetHeight()
     {
-        return getHeight(Root);
+        return GetHeight(Root);
     }
 
     //worst O(n) for unbalanced tree
-    private int getHeight(BSTNode<T> node)
+    private int GetHeight(BstNode<T> node)
     {
         if (node == null) return -1;
 
-        return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
+        return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
     }
 
 
-    internal BSTNode<T> InsertAndReturnNewNode(T value)
+    internal BstNode<T> InsertAndReturnNewNode(T value)
     {
         if (Root == null)
         {
-            Root = new BSTNode<T>(null, value);
+            Root = new BstNode<T>(null, value);
             return Root;
         }
 
-        var newNode = insert(Root, value);
+        var newNode = Insert(Root, value);
         return newNode;
     }
 
@@ -88,17 +88,17 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null)
         {
-            Root = new BSTNode<T>(null, value);
+            Root = new BstNode<T>(null, value);
             return;
         }
 
-        var newNode = insert(Root, value);
+        var newNode = Insert(Root, value);
         newNode.UpdateCounts(true);
     }
 
 
     //worst O(n) for unbalanced tree
-    private BSTNode<T> insert(BSTNode<T> currentNode, T newNodeValue)
+    private BstNode<T> Insert(BstNode<T> currentNode, T newNodeValue)
     {
         while (true)
         {
@@ -115,7 +115,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
                 }
 
                 //insert
-                currentNode.Right = new BSTNode<T>(currentNode, newNodeValue);
+                currentNode.Right = new BstNode<T>(currentNode, newNodeValue);
                 return currentNode.Right;
             }
             //current node is greater than new node
@@ -125,7 +125,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
                 if (currentNode.Left == null)
                 {
                     //insert
-                    currentNode.Left = new BSTNode<T>(currentNode, newNodeValue);
+                    currentNode.Left = new BstNode<T>(currentNode, newNodeValue);
                     return currentNode.Left;
                 }
 
@@ -164,7 +164,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null) throw new Exception("Empty BST");
 
-        var deleted = delete(Root, value);
+        var deleted = Delete(Root, value);
         deleted.UpdateCounts(true);
     }
 
@@ -175,16 +175,16 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     {
         if (index < 0 || index >= Count) throw new ArgumentException("index");
 
-        var nodeToDelete = Root.KthSmallest(index) as BSTNode<T>;
+        var nodeToDelete = Root.KthSmallest(index) as BstNode<T>;
 
-        var deleted = delete(nodeToDelete, nodeToDelete.Value);
+        var deleted = Delete(nodeToDelete, nodeToDelete.Value);
         deleted.UpdateCounts(true);
 
         return nodeToDelete.Value;
     }
 
     //worst O(n) for unbalanced tree
-    private BSTNode<T> delete(BSTNode<T> node, T value)
+    private BstNode<T> Delete(BstNode<T> node, T value)
     {
         while (true)
         {
@@ -213,21 +213,21 @@ public class BST<T> : IEnumerable<T> where T : IComparable
             //node is a leaf node
             if (node.IsLeaf)
             {
-                deleteLeaf(node);
+                DeleteLeaf(node);
                 return node;
             }
 
             //case one - right tree is null (move sub tree up)
             if (node.Left != null && node.Right == null)
             {
-                deleteLeftNode(node);
+                DeleteLeftNode(node);
                 return node;
             }
 
             //case two - left tree is null  (move sub tree up)
             if (node.Right != null && node.Left == null)
             {
-                deleteRightNode(node);
+                DeleteRightNode(node);
                 return node;
             }
 
@@ -244,7 +244,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
         }
     }
 
-    private void deleteLeaf(BSTNode<T> node)
+    private void DeleteLeaf(BstNode<T> node)
     {
         //if node is root
         if (node.Parent == null)
@@ -256,7 +256,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
             node.Parent.Right = null;
     }
 
-    private void deleteRightNode(BSTNode<T> node)
+    private void DeleteRightNode(BstNode<T> node)
     {
         //root
         if (node.Parent == null)
@@ -277,7 +277,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
         }
     }
 
-    private void deleteLeftNode(BSTNode<T> node)
+    private void DeleteLeftNode(BstNode<T> node)
     {
         //root
         if (node.Parent == null)
@@ -306,7 +306,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
         return FindMax(Root).Value;
     }
 
-    private BSTNode<T> FindMax(BSTNode<T> node)
+    private BstNode<T> FindMax(BstNode<T> node)
     {
         while (true)
         {
@@ -320,10 +320,10 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T FindMin()
     {
-        return findMin(Root).Value;
+        return FindMin(Root).Value;
     }
 
-    private BSTNode<T> findMin(BSTNode<T> node)
+    private BstNode<T> FindMin(BstNode<T> node)
     {
         while (true)
         {
@@ -335,15 +335,15 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
     //worst O(n) for unbalanced tree
-    internal BSTNode<T> FindNode(T value)
+    internal BstNode<T> FindNode(T value)
     {
-        return find(Root, value);
+        return Find(Root, value);
     }
 
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
     //worst O(n) for unbalanced tree
-    private BSTNode<T> find(BSTNode<T> parent, T value)
+    private BstNode<T> Find(BstNode<T> parent, T value)
     {
         while (true)
         {
@@ -351,7 +351,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
 
             if (parent.Value.CompareTo(value) == 0) return parent;
 
-            var left = find(parent.Left, value);
+            var left = Find(parent.Left, value);
 
             if (left != null) return left;
 
@@ -362,7 +362,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
     //O(log(n)) worst O(n) for unbalanced tree
-    private BSTNodeBase<T> find(T value)
+    private BstNodeBase<T> Find(T value)
     {
         return Root.Find(value).Item1;
     }
@@ -373,7 +373,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T NextLower(T value)
     {
-        var node = find(value);
+        var node = Find(value);
         if (node == null) return default;
 
         var next = node.NextLower();
@@ -386,7 +386,7 @@ public class BST<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T NextHigher(T value)
     {
-        var node = find(value);
+        var node = Find(value);
         if (node == null) return default;
 
         var next = node.NextHigher();
@@ -403,33 +403,33 @@ public class BST<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumeratorDesc()
     {
-        return new BSTEnumerator<T>(Root, false);
+        return new BstEnumerator<T>(Root, false);
     }
 }
 
-internal class BSTNode<T> : BSTNodeBase<T> where T : IComparable
+internal class BstNode<T> : BstNodeBase<T> where T : IComparable
 {
-    internal BSTNode(BSTNode<T> parent, T value)
+    internal BstNode(BstNode<T> parent, T value)
     {
         Parent = parent;
         Value = value;
     }
 
-    internal new BSTNode<T> Parent
+    internal new BstNode<T> Parent
     {
-        get => (BSTNode<T>)base.Parent;
+        get => (BstNode<T>)base.Parent;
         set => base.Parent = value;
     }
 
-    internal new BSTNode<T> Left
+    internal new BstNode<T> Left
     {
-        get => (BSTNode<T>)base.Left;
+        get => (BstNode<T>)base.Left;
         set => base.Left = value;
     }
 
-    internal new BSTNode<T> Right
+    internal new BstNode<T> Right
     {
-        get => (BSTNode<T>)base.Right;
+        get => (BstNode<T>)base.Right;
         set => base.Right = value;
     }
 }

@@ -12,7 +12,7 @@ namespace Advanced.Algorithms.DataStructures;
 public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
 {
     //if enabled, lookup will fasten deletion/insertion/exists operations. 
-    internal readonly Dictionary<T, BSTNodeBase<T>> NodeLookUp;
+    internal readonly Dictionary<T, BstNodeBase<T>> NodeLookUp;
 
     /// <param name="enableNodeLookUp">
     ///     Enabling lookup will fasten deletion/insertion/exists operations
@@ -30,7 +30,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
                 throw new ArgumentException(
                     "equalityComparer parameter is required when node lookup us enabled and T is not a value type.");
 
-            NodeLookUp = new Dictionary<T, BSTNodeBase<T>>(equalityComparer ?? EqualityComparer<T>.Default);
+            NodeLookUp = new Dictionary<T, BstNodeBase<T>>(equalityComparer ?? EqualityComparer<T>.Default);
         }
     }
 
@@ -50,11 +50,11 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
     public RedBlackTree(IEnumerable<T> sortedCollection, bool enableNodeLookUp = false,
         IEqualityComparer<T> equalityComparer = null)
     {
-        BSTHelpers.ValidateSortedCollection(sortedCollection);
+        BstHelpers.ValidateSortedCollection(sortedCollection);
         var nodes = sortedCollection.Select(x => new RedBlackTreeNode<T>(null, x)).ToArray();
-        Root = (RedBlackTreeNode<T>)BSTHelpers.ToBST(nodes);
-        assignColors(Root);
-        BSTHelpers.AssignCount(Root);
+        Root = (RedBlackTreeNode<T>)BstHelpers.ToBst(nodes);
+        AssignColors(Root);
+        BstHelpers.AssignCount(Root);
 
         if (enableNodeLookUp)
         {
@@ -62,7 +62,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
                 throw new ArgumentException(
                     "equalityComparer parameter is required when node lookup us enabled and T is not a value type.");
 
-            NodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BSTNodeBase<T>,
+            NodeLookUp = nodes.ToDictionary(x => x.Value, x => x as BstNodeBase<T>,
                 equalityComparer ?? EqualityComparer<T>.Default);
         }
     }
@@ -78,7 +78,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new BSTEnumerator<T>(Root);
+        return new BstEnumerator<T>(Root);
     }
 
     /// <summary>
@@ -110,7 +110,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         return max == null ? default : max.Value;
     }
 
-    private RedBlackTreeNode<T> findMax(RedBlackTreeNode<T> node)
+    private RedBlackTreeNode<T> FindMax(RedBlackTreeNode<T> node)
     {
         return node.FindMax() as RedBlackTreeNode<T>;
     }
@@ -195,7 +195,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
             return (Root, 0);
         }
 
-        var newNode = insert(Root, value);
+        var newNode = Insert(Root, value);
 
         if (NodeLookUp != null) NodeLookUp[value] = newNode.Item1;
 
@@ -203,7 +203,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
     }
 
     //O(log(n)) always
-    private (RedBlackTreeNode<T>, int) insert(RedBlackTreeNode<T> currentNode, T newNodeValue)
+    private (RedBlackTreeNode<T>, int) Insert(RedBlackTreeNode<T> currentNode, T newNodeValue)
     {
         var insertionPosition = 0;
 
@@ -221,7 +221,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
                 {
                     //insert
                     var node = currentNode.Right = new RedBlackTreeNode<T>(currentNode, newNodeValue);
-                    balanceInsertion(currentNode.Right);
+                    BalanceInsertion(currentNode.Right);
                     return (node, insertionPosition);
                 }
 
@@ -234,7 +234,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
                 {
                     //insert
                     var node = currentNode.Left = new RedBlackTreeNode<T>(currentNode, newNodeValue);
-                    balanceInsertion(currentNode.Left);
+                    BalanceInsertion(currentNode.Left);
                     return (node, insertionPosition);
                 }
 
@@ -248,7 +248,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         }
     }
 
-    private void balanceInsertion(RedBlackTreeNode<T> nodeToBalance)
+    private void BalanceInsertion(RedBlackTreeNode<T> nodeToBalance)
     {
         while (true)
         {
@@ -286,8 +286,8 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
                         if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsLeftChild)
                         {
                             var newRoot = nodeToBalance.Parent;
-                            swapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
-                            rightRotate(nodeToBalance.Parent.Parent);
+                            SwapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
+                            RightRotate(nodeToBalance.Parent.Parent);
 
                             if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
 
@@ -296,12 +296,12 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
                         }
                         else if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsRightChild)
                         {
-                            rightRotate(nodeToBalance.Parent);
+                            RightRotate(nodeToBalance.Parent);
 
                             var newRoot = nodeToBalance;
 
-                            swapColors(nodeToBalance.Parent, nodeToBalance);
-                            leftRotate(nodeToBalance.Parent);
+                            SwapColors(nodeToBalance.Parent, nodeToBalance);
+                            LeftRotate(nodeToBalance.Parent);
 
                             if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
 
@@ -311,8 +311,8 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
                         else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsRightChild)
                         {
                             var newRoot = nodeToBalance.Parent;
-                            swapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
-                            leftRotate(nodeToBalance.Parent.Parent);
+                            SwapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
+                            LeftRotate(nodeToBalance.Parent.Parent);
 
                             if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
 
@@ -321,12 +321,12 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
                         }
                         else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsLeftChild)
                         {
-                            leftRotate(nodeToBalance.Parent);
+                            LeftRotate(nodeToBalance.Parent);
 
                             var newRoot = nodeToBalance;
 
-                            swapColors(nodeToBalance.Parent, nodeToBalance);
-                            rightRotate(nodeToBalance.Parent);
+                            SwapColors(nodeToBalance.Parent, nodeToBalance);
+                            RightRotate(nodeToBalance.Parent);
 
                             if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
 
@@ -349,7 +349,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         nodeToBalance.UpdateCounts(true);
     }
 
-    private void swapColors(RedBlackTreeNode<T> node1, RedBlackTreeNode<T> node2)
+    private void SwapColors(RedBlackTreeNode<T> node1, RedBlackTreeNode<T> node2)
     {
         var tmpColor = node2.NodeColor;
         node2.NodeColor = node1.NodeColor;
@@ -371,7 +371,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
 
         var position = node.Item2;
 
-        delete(node.Item1);
+        Delete(node.Item1);
 
         if (NodeLookUp != null) NodeLookUp.Remove(value);
 
@@ -390,7 +390,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
 
         var deletedValue = node.Value;
 
-        delete(node);
+        Delete(node);
 
         if (NodeLookUp != null) NodeLookUp.Remove(deletedValue);
 
@@ -398,7 +398,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
     }
 
     //O(log(n)) always
-    private void delete(RedBlackTreeNode<T> node)
+    private void Delete(RedBlackTreeNode<T> node)
     {
         //node is a leaf node
         if (node.IsLeaf)
@@ -406,34 +406,34 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
             //if color is red, we are good; no need to balance
             if (node.NodeColor == RedBlackTreeNodeColor.Red)
             {
-                deleteLeaf(node);
+                DeleteLeaf(node);
                 node.Parent?.UpdateCounts(true);
                 return;
             }
 
-            deleteLeaf(node);
-            balanceNode(node.Parent);
+            DeleteLeaf(node);
+            BalanceNode(node.Parent);
         }
         else
         {
             //case one - right tree is null (move sub tree up)
             if (node.Left != null && node.Right == null)
             {
-                deleteLeftNode(node);
-                balanceNode(node.Left);
+                DeleteLeftNode(node);
+                BalanceNode(node.Left);
             }
             //case two - left tree is null  (move sub tree up)
             else if (node.Right != null && node.Left == null)
             {
-                deleteRightNode(node);
-                balanceNode(node.Right);
+                DeleteRightNode(node);
+                BalanceNode(node.Right);
             }
             //case three - two child trees 
             //replace the node value with maximum element of left subtree (left max node)
             //and then delete the left max node
             else
             {
-                var maxLeftNode = findMax(node.Left);
+                var maxLeftNode = FindMax(node.Left);
 
                 if (NodeLookUp != null)
                 {
@@ -444,22 +444,22 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
                 node.Value = maxLeftNode.Value;
 
                 //delete left max node
-                delete(maxLeftNode);
+                Delete(maxLeftNode);
             }
         }
     }
 
-    private void balanceNode(RedBlackTreeNode<T> nodeToBalance)
+    private void BalanceNode(RedBlackTreeNode<T> nodeToBalance)
     {
         //handle six cases
         while (nodeToBalance != null)
         {
             nodeToBalance.UpdateCounts();
-            nodeToBalance = handleDoubleBlack(nodeToBalance);
+            nodeToBalance = HandleDoubleBlack(nodeToBalance);
         }
     }
 
-    private void deleteLeaf(RedBlackTreeNode<T> node)
+    private void DeleteLeaf(RedBlackTreeNode<T> node)
     {
         //if node is root
         if (node.Parent == null)
@@ -471,7 +471,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
             node.Parent.Right = null;
     }
 
-    private void deleteRightNode(RedBlackTreeNode<T> node)
+    private void DeleteRightNode(RedBlackTreeNode<T> node)
     {
         //root
         if (node.Parent == null)
@@ -498,7 +498,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         node.Right.NodeColor = RedBlackTreeNodeColor.Black;
     }
 
-    private void deleteLeftNode(RedBlackTreeNode<T> node)
+    private void DeleteLeftNode(RedBlackTreeNode<T> node)
     {
         //root
         if (node.Parent == null)
@@ -525,7 +525,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         node.Left.NodeColor = RedBlackTreeNodeColor.Black;
     }
 
-    private void rightRotate(RedBlackTreeNode<T> node)
+    private void RightRotate(RedBlackTreeNode<T> node)
     {
         var prevRoot = node;
         var leftRightChild = prevRoot.Left.Right;
@@ -558,7 +558,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         newRoot.UpdateCounts();
     }
 
-    private void leftRotate(RedBlackTreeNode<T> node)
+    private void LeftRotate(RedBlackTreeNode<T> node)
     {
         var prevRoot = node;
         var rightLeftChild = prevRoot.Right.Left;
@@ -591,7 +591,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         newRoot.UpdateCounts();
     }
 
-    private RedBlackTreeNode<T> handleDoubleBlack(RedBlackTreeNode<T> node)
+    private RedBlackTreeNode<T> HandleDoubleBlack(RedBlackTreeNode<T> node)
     {
         //case 1
         if (node == Root)
@@ -614,9 +614,9 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
             node.Sibling.NodeColor = RedBlackTreeNodeColor.Black;
 
             if (node.Sibling.IsRightChild)
-                leftRotate(node.Parent);
+                LeftRotate(node.Parent);
             else
-                rightRotate(node.Parent);
+                RightRotate(node.Parent);
 
             return node;
         }
@@ -671,7 +671,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         {
             node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
             node.Sibling.Left.NodeColor = RedBlackTreeNodeColor.Black;
-            rightRotate(node.Sibling);
+            RightRotate(node.Sibling);
 
             return node;
         }
@@ -689,7 +689,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         {
             node.Sibling.NodeColor = RedBlackTreeNodeColor.Red;
             node.Sibling.Right.NodeColor = RedBlackTreeNodeColor.Black;
-            leftRotate(node.Sibling);
+            LeftRotate(node.Sibling);
 
             return node;
         }
@@ -707,7 +707,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
             //and mark the red right child of sibling to black 
             //to compensate the loss of Black on right side of parent
             node.Sibling.Right.NodeColor = RedBlackTreeNodeColor.Black;
-            leftRotate(node.Parent);
+            LeftRotate(node.Parent);
             node.UpdateCounts(true);
             return null;
         }
@@ -725,7 +725,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
             //and mark the red left child of sibling to black
             //to compensate the loss of Black on right side of parent
             node.Sibling.Left.NodeColor = RedBlackTreeNodeColor.Black;
-            rightRotate(node.Parent);
+            RightRotate(node.Parent);
             node.UpdateCounts(true);
             return null;
         }
@@ -735,12 +735,12 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
     }
 
     //assign valid colors assuming the given tree node and its children are in balanced state.
-    private void assignColors(RedBlackTreeNode<T> current)
+    private void AssignColors(RedBlackTreeNode<T> current)
     {
         if (current == null) return;
 
-        assignColors(current.Left);
-        assignColors(current.Right);
+        AssignColors(current.Left);
+        AssignColors(current.Right);
 
         if (current.IsLeaf)
             current.NodeColor = RedBlackTreeNodeColor.Red;
@@ -782,7 +782,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumeratorDesc()
     {
-        return new BSTEnumerator<T>(Root, false);
+        return new BstEnumerator<T>(Root, false);
     }
 }
 
@@ -795,7 +795,7 @@ internal enum RedBlackTreeNodeColor
 /// <summary>
 ///     Red black tree node
 /// </summary>
-internal class RedBlackTreeNode<T> : BSTNodeBase<T> where T : IComparable
+internal class RedBlackTreeNode<T> : BstNodeBase<T> where T : IComparable
 {
     internal RedBlackTreeNode(RedBlackTreeNode<T> parent, T value)
     {

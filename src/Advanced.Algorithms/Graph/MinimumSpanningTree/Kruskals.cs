@@ -10,30 +10,30 @@ namespace Advanced.Algorithms.Graph;
 ///     A Kruskal's alogorithm implementation
 ///     using merge sort and disjoint set.
 /// </summary>
-public class Kruskals<T, W> where W : IComparable
+public class Kruskals<T, TW> where TW : IComparable
 {
     /// <summary>
     ///     Find Minimum Spanning Tree of given weighted graph.
     /// </summary>
     /// <returns>List of MST edges</returns>
-    public List<MSTEdge<T, W>>
+    public List<MstEdge<T, TW>>
         FindMinimumSpanningTree(IGraph<T> graph)
     {
-        var edges = new List<MSTEdge<T, W>>();
+        var edges = new List<MstEdge<T, TW>>();
 
         //gather all unique edges
-        dfs(graph.ReferenceVertex, new HashSet<T>(),
+        Dfs(graph.ReferenceVertex, new HashSet<T>(),
             new Dictionary<T, HashSet<T>>(),
             edges);
 
         //quick sort preparation
-        var sortArray = new MSTEdge<T, W>[edges.Count];
+        var sortArray = new MstEdge<T, TW>[edges.Count];
         for (var i = 0; i < edges.Count; i++) sortArray[i] = edges[i];
 
         //quick sort edges
-        var sortedEdges = MergeSort<MSTEdge<T, W>>.Sort(sortArray);
+        var sortedEdges = MergeSort<MstEdge<T, TW>>.Sort(sortArray);
 
-        var result = new List<MSTEdge<T, W>>();
+        var result = new List<MstEdge<T, TW>>();
         var disJointSet = new DisJointSet<T>();
 
         //create set
@@ -65,8 +65,8 @@ public class Kruskals<T, W> where W : IComparable
     /// <summary>
     ///     Do DFS to find all unique edges.
     /// </summary>
-    private void dfs(IGraphVertex<T> currentVertex, HashSet<T> visitedVertices, Dictionary<T, HashSet<T>> visitedEdges,
-        List<MSTEdge<T, W>> result)
+    private void Dfs(IGraphVertex<T> currentVertex, HashSet<T> visitedVertices, Dictionary<T, HashSet<T>> visitedEdges,
+        List<MstEdge<T, TW>> result)
     {
         if (!visitedVertices.Contains(currentVertex.Key))
         {
@@ -77,7 +77,7 @@ public class Kruskals<T, W> where W : IComparable
                 if (!visitedEdges.ContainsKey(currentVertex.Key)
                     || !visitedEdges[currentVertex.Key].Contains(edge.TargetVertexKey))
                 {
-                    result.Add(new MSTEdge<T, W>(currentVertex.Key, edge.TargetVertexKey, edge.Weight<W>()));
+                    result.Add(new MstEdge<T, TW>(currentVertex.Key, edge.TargetVertexKey, edge.Weight<TW>()));
 
                     //update visited edge
                     if (!visitedEdges.ContainsKey(currentVertex.Key))
@@ -92,7 +92,7 @@ public class Kruskals<T, W> where W : IComparable
                     visitedEdges[edge.TargetVertexKey].Add(currentVertex.Key);
                 }
 
-                dfs(edge.TargetVertex, visitedVertices, visitedEdges, result);
+                Dfs(edge.TargetVertex, visitedVertices, visitedEdges, result);
             }
         }
     }
@@ -101,9 +101,9 @@ public class Kruskals<T, W> where W : IComparable
 /// <summary>
 ///     Minimum spanning tree edge object.
 /// </summary>
-public class MSTEdge<T, W> : IComparable where W : IComparable
+public class MstEdge<T, TW> : IComparable where TW : IComparable
 {
-    internal MSTEdge(T source, T dest, W weight)
+    internal MstEdge(T source, T dest, TW weight)
     {
         Source = source;
         Destination = dest;
@@ -112,10 +112,10 @@ public class MSTEdge<T, W> : IComparable where W : IComparable
 
     public T Source { get; }
     public T Destination { get; }
-    public W Weight { get; }
+    public TW Weight { get; }
 
     public int CompareTo(object obj)
     {
-        return Weight.CompareTo(((MSTEdge<T, W>)obj).Weight);
+        return Weight.CompareTo(((MstEdge<T, TW>)obj).Weight);
     }
 }

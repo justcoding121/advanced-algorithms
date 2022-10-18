@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class BST_Tests
+    public class BstTests
     {
         /// <summary>
         ///     A tree test
@@ -15,7 +15,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         public void BST_Test()
         {
             //insert test
-            var tree = new BST<int>();
+            var tree = new Bst<int>();
             Assert.AreEqual(tree.GetHeight(), -1);
 
             tree.Insert(11);
@@ -83,7 +83,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var rnd = new Random();
             var sortedNumbers = Enumerable.Range(1, nodeCount).ToList();
 
-            var tree = new BST<int>(sortedNumbers);
+            var tree = new Bst<int>(sortedNumbers);
 
             Assert.IsTrue(tree.Root.IsBinarySearchTree(int.MinValue, int.MaxValue));
             Assert.AreEqual(tree.Count, tree.Count());
@@ -112,7 +112,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 .OrderBy(x => rnd.Next())
                 .ToList();
 
-            var tree = new BST<int>();
+            var tree = new Bst<int>();
 
             for (var i = 0; i < nodeCount; i++)
             {
@@ -166,7 +166,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 .OrderBy(x => rnd.Next())
                 .ToList();
 
-            var tree = new BST<int>();
+            var tree = new Bst<int>();
 
             for (var i = 0; i < nodeCount; i++)
             {

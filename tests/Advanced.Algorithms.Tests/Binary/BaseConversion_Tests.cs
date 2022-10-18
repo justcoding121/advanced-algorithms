@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Binary
 {
     [TestClass]
-    public class BaseConversion_Tests
+    public class BaseConversionTests
     {
         [TestMethod]
         public void BaseConversion_Smoke_Test()

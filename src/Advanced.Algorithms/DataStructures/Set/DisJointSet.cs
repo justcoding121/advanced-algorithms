@@ -57,7 +57,7 @@ public class DisJointSet<T> : IEnumerable<T>
     {
         if (!set.ContainsKey(member)) throw new Exception("No such set with given member.");
 
-        return findSet(set[member]).Data;
+        return FindSet(set[member]).Data;
     }
 
     /// <summary>
@@ -66,14 +66,14 @@ public class DisJointSet<T> : IEnumerable<T>
     ///     Does path Compression on all visited members on way to root
     ///     by pointing their parent to Root.
     /// </summary>
-    private DisJointSetNode<T> findSet(DisJointSetNode<T> node)
+    private DisJointSetNode<T> FindSet(DisJointSetNode<T> node)
     {
         var parent = node.Parent;
 
         if (node != parent)
         {
             //compress path by setting parent to Root
-            node.Parent = findSet(node.Parent);
+            node.Parent = FindSet(node.Parent);
             return node.Parent;
         }
 

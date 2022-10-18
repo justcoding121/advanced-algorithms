@@ -4,12 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests
 {
     [TestClass]
-    public class LRUCache_Tests
+    public class LruCacheTests
     {
         [TestMethod]
         public void LRUCache_Smoke_Test()
         {
-            var cache = new LRUCache<int, int>(2);
+            var cache = new LruCache<int, int>(2);
 
             cache.Put(1, 1);
             cache.Put(2, 2);

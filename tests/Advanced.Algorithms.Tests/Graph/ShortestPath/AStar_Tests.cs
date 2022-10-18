@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class AStar_Tests
+    public class AStarTests
     {
         //test using eucledian (straight line) distance to destination as heuristic.
         [TestMethod]

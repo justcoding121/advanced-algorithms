@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class HashSet_Tests
+    public class HashSetTests
     {
         /// <summary>
         ///     key value dictionary tests

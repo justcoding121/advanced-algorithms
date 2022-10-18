@@ -15,14 +15,14 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
         hashArray = new HashSetNode<T>[initialBucketSize];
     }
 
-    private int bucketSize => hashArray.Length;
+    private int BucketSize => hashArray.Length;
 
     public int Count { get; private set; }
 
     public bool Contains(T value)
     {
-        var hashCode = getHash(value);
-        var index = hashCode % bucketSize;
+        var hashCode = GetHash(value);
+        var index = hashCode % BucketSize;
 
         if (hashArray[index] == null) return false;
 
@@ -38,7 +38,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
             index++;
 
             //wrap around
-            if (index == bucketSize)
+            if (index == BucketSize)
                 index = 0;
 
             current = hashArray[index];
@@ -52,11 +52,11 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
 
     public void Add(T value)
     {
-        grow();
+        Grow();
 
-        var hashCode = getHash(value);
+        var hashCode = GetHash(value);
 
-        var index = hashCode % bucketSize;
+        var index = hashCode % BucketSize;
 
         if (hashArray[index] == null)
         {
@@ -75,7 +75,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
                 index++;
 
                 //wrap around
-                if (index == bucketSize)
+                if (index == BucketSize)
                     index = 0;
 
                 current = hashArray[index];
@@ -91,8 +91,8 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
 
     public void Remove(T value)
     {
-        var hashCode = getHash(value);
-        var curIndex = hashCode % bucketSize;
+        var hashCode = GetHash(value);
+        var curIndex = hashCode % BucketSize;
 
         if (hashArray[curIndex] == null) throw new Exception("No such item for given value");
 
@@ -114,7 +114,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
             curIndex++;
 
             //wrap around
-            if (curIndex == bucketSize)
+            if (curIndex == BucketSize)
                 curIndex = 0;
 
             current = hashArray[curIndex];
@@ -135,7 +135,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
         curIndex++;
 
         //wrap around
-        if (curIndex == bucketSize)
+        if (curIndex == BucketSize)
             curIndex = 0;
 
         current = hashArray[curIndex];
@@ -153,7 +153,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
             curIndex++;
 
             //wrap around
-            if (curIndex == bucketSize)
+            if (curIndex == BucketSize)
                 curIndex = 0;
 
             current = hashArray[curIndex];
@@ -161,7 +161,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
 
         Count--;
 
-        shrink();
+        Shrink();
     }
 
     public void Clear()
@@ -180,15 +180,15 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
         return new OpenAddressHashSetEnumerator<T>(hashArray, hashArray.Length);
     }
 
-    private void grow()
+    private void Grow()
     {
-        if (!(bucketSize * 0.7 <= Count)) return;
+        if (!(BucketSize * 0.7 <= Count)) return;
 
-        var orgBucketSize = bucketSize;
+        var orgBucketSize = BucketSize;
         var currentArray = hashArray;
 
         //increase array size exponentially on demand
-        hashArray = new HashSetNode<T>[bucketSize * 2];
+        hashArray = new HashSetNode<T>[BucketSize * 2];
 
         for (var i = 0; i < orgBucketSize; i++)
         {
@@ -205,16 +205,16 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
     }
 
 
-    private void shrink()
+    private void Shrink()
     {
-        if (Count <= bucketSize * 0.3 && bucketSize / 2 > initialBucketSize)
+        if (Count <= BucketSize * 0.3 && BucketSize / 2 > initialBucketSize)
         {
-            var orgBucketSize = bucketSize;
+            var orgBucketSize = BucketSize;
 
             var currentArray = hashArray;
 
             //reduce array by half logarithamic
-            hashArray = new HashSetNode<T>[bucketSize / 2];
+            hashArray = new HashSetNode<T>[BucketSize / 2];
 
             for (var i = 0; i < orgBucketSize; i++)
             {
@@ -231,7 +231,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
         }
     }
 
-    private int getHash(T value)
+    private int GetHash(T value)
     {
         return Math.Abs(value.GetHashCode());
     }
@@ -247,26 +247,26 @@ internal class HashSetNode<T>
     }
 }
 
-internal class OpenAddressHashSetEnumerator<V> : IEnumerator<V>
+internal class OpenAddressHashSetEnumerator<TV> : IEnumerator<TV>
 {
-    internal HashSetNode<V>[] hashArray;
+    internal HashSetNode<TV>[] HashArray;
     private int length;
 
     // Enumerators are positioned before the first element
     // until the first MoveNext() call.
     private int position = -1;
 
-    internal OpenAddressHashSetEnumerator(HashSetNode<V>[] hashArray, int length)
+    internal OpenAddressHashSetEnumerator(HashSetNode<TV>[] hashArray, int length)
     {
         this.length = length;
-        this.hashArray = hashArray;
+        this.HashArray = hashArray;
     }
 
     public bool MoveNext()
     {
         position++;
 
-        while (position < length && hashArray[position] == null)
+        while (position < length && HashArray[position] == null)
             position++;
 
         return position < length;
@@ -279,13 +279,13 @@ internal class OpenAddressHashSetEnumerator<V> : IEnumerator<V>
 
     object IEnumerator.Current => Current;
 
-    public V Current
+    public TV Current
     {
         get
         {
             try
             {
-                return hashArray[position].Value;
+                return HashArray[position].Value;
             }
             catch (IndexOutOfRangeException)
             {
@@ -297,6 +297,6 @@ internal class OpenAddressHashSetEnumerator<V> : IEnumerator<V>
     public void Dispose()
     {
         length = 0;
-        hashArray = null;
+        HashArray = null;
     }
 }

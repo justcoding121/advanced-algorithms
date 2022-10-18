@@ -23,11 +23,11 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     /// <param name="sortedCollection">The initial sorted collection.</param>
     public TreapTree(IEnumerable<T> sortedCollection) : this()
     {
-        BSTHelpers.ValidateSortedCollection(sortedCollection);
+        BstHelpers.ValidateSortedCollection(sortedCollection);
         var nodes = sortedCollection.Select(x => new TreapTreeNode<T>(null, x, rndGenerator.Next())).ToArray();
-        Root = (TreapTreeNode<T>)BSTHelpers.ToBST(nodes);
-        BSTHelpers.AssignCount(Root);
-        heapify(Root);
+        Root = (TreapTreeNode<T>)BstHelpers.ToBst(nodes);
+        BstHelpers.AssignCount(Root);
+        Heapify(Root);
     }
 
     internal TreapTreeNode<T> Root { get; set; }
@@ -41,7 +41,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new BSTEnumerator<T>(Root);
+        return new BstEnumerator<T>(Root);
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null) return false;
 
-        return find(Root, value) != null;
+        return Find(Root, value) != null;
     }
 
     /// <summary>
@@ -59,14 +59,14 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     internal int GetHeight()
     {
-        return getHeight(Root);
+        return GetHeight(Root);
     }
 
-    private int getHeight(TreapTreeNode<T> node)
+    private int GetHeight(TreapTreeNode<T> node)
     {
         if (node == null) return -1;
 
-        return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
+        return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
     }
 
     /// <summary>
@@ -80,13 +80,13 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
             return;
         }
 
-        var newNode = insert(Root, value);
+        var newNode = Insert(Root, value);
 
-        heapify(newNode);
+        Heapify(newNode);
     }
 
     //O(log(n)) always
-    private TreapTreeNode<T> insert(TreapTreeNode<T> currentNode, T newNodeValue)
+    private TreapTreeNode<T> Insert(TreapTreeNode<T> currentNode, T newNodeValue)
     {
         while (true)
         {
@@ -149,7 +149,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null) throw new Exception("Empty TreapTree");
 
-        delete(Root, value);
+        Delete(Root, value);
     }
 
     /// <summary>
@@ -161,12 +161,12 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
 
         var nodeToDelete = Root.KthSmallest(index) as TreapTreeNode<T>;
 
-        delete(nodeToDelete, nodeToDelete.Value);
+        Delete(nodeToDelete, nodeToDelete.Value);
 
         return nodeToDelete.Value;
     }
 
-    private void delete(TreapTreeNode<T> node, T value)
+    private void Delete(TreapTreeNode<T> node, T value)
     {
         while (true)
         {
@@ -192,19 +192,19 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
             //node is a leaf node
             if (node != null && node.IsLeaf)
             {
-                deleteLeaf(node);
+                DeleteLeaf(node);
             }
             else
             {
                 //case one - right tree is null (move sub tree up)
                 if (node?.Left != null && node.Right == null)
                 {
-                    deleteLeftNode(node);
+                    DeleteLeftNode(node);
                 }
                 //case two - left tree is null  (move sub tree up)
                 else if (node?.Right != null && node.Left == null)
                 {
-                    deleteRightNode(node);
+                    DeleteRightNode(node);
                 }
                 //case three - two child trees 
                 //replace the node value with maximum element of left subtree (left max node)
@@ -213,7 +213,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
                 {
                     if (node != null)
                     {
-                        var maxLeftNode = findMax(node.Left);
+                        var maxLeftNode = FindMax(node.Left);
 
                         node.Value = maxLeftNode.Value;
 
@@ -232,7 +232,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
         node.UpdateCounts(true);
     }
 
-    private void deleteLeaf(TreapTreeNode<T> node)
+    private void DeleteLeaf(TreapTreeNode<T> node)
     {
         //if node is root
         if (node.Parent == null)
@@ -244,7 +244,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
             node.Parent.Right = null;
     }
 
-    private void deleteRightNode(TreapTreeNode<T> node)
+    private void DeleteRightNode(TreapTreeNode<T> node)
     {
         //root
         if (node.Parent == null)
@@ -264,7 +264,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
         node.Right.Parent = node.Parent;
     }
 
-    private void deleteLeftNode(TreapTreeNode<T> node)
+    private void DeleteLeftNode(TreapTreeNode<T> node)
     {
         //root
         if (node.Parent == null)
@@ -289,10 +289,10 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T FindMax()
     {
-        return findMax(Root).Value;
+        return FindMax(Root).Value;
     }
 
-    private TreapTreeNode<T> findMax(TreapTreeNode<T> node)
+    private TreapTreeNode<T> FindMax(TreapTreeNode<T> node)
     {
         while (true)
         {
@@ -306,10 +306,10 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T FindMin()
     {
-        return findMin(Root).Value;
+        return FindMin(Root).Value;
     }
 
-    private TreapTreeNode<T> findMin(TreapTreeNode<T> node)
+    private TreapTreeNode<T> FindMin(TreapTreeNode<T> node)
     {
         while (true)
         {
@@ -322,7 +322,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
 
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
-    private TreapTreeNode<T> find(TreapTreeNode<T> parent, T value)
+    private TreapTreeNode<T> Find(TreapTreeNode<T> parent, T value)
     {
         while (true)
         {
@@ -330,7 +330,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
 
             if (parent.Value.CompareTo(value) == 0) return parent;
 
-            var left = find(parent.Left, value);
+            var left = Find(parent.Left, value);
 
             if (left != null) return left;
 
@@ -339,13 +339,13 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     }
 
     //reorder the tree node so that heap property is valid
-    private void heapify(TreapTreeNode<T> node)
+    private void Heapify(TreapTreeNode<T> node)
     {
         while (node.Parent != null)
         {
             node.UpdateCounts();
             if (node.Priority < node.Parent.Priority)
-                node = node.IsLeftChild ? rightRotate(node.Parent) : leftRotate(node.Parent);
+                node = node.IsLeftChild ? RightRotate(node.Parent) : LeftRotate(node.Parent);
             else
                 break;
         }
@@ -356,7 +356,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Rotates current root right and returns the new root node
     /// </summary>
-    private TreapTreeNode<T> rightRotate(TreapTreeNode<T> currentRoot)
+    private TreapTreeNode<T> RightRotate(TreapTreeNode<T> currentRoot)
     {
         var prevRoot = currentRoot;
         var leftRightChild = prevRoot.Left.Right;
@@ -394,7 +394,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Rotates the current root left and returns new root
     /// </summary>
-    private TreapTreeNode<T> leftRotate(TreapTreeNode<T> currentRoot)
+    private TreapTreeNode<T> LeftRotate(TreapTreeNode<T> currentRoot)
     {
         var prevRoot = currentRoot;
         var rightLeftChild = prevRoot.Right.Left;
@@ -432,7 +432,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
 
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
-    private BSTNodeBase<T> find(T value)
+    private BstNodeBase<T> Find(T value)
     {
         return Root.Find(value).Item1;
     }
@@ -443,7 +443,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T NextLower(T value)
     {
-        var node = find(value);
+        var node = Find(value);
         if (node == null) return default;
 
         var next = node.NextLower();
@@ -456,7 +456,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T NextHigher(T value)
     {
-        var node = find(value);
+        var node = Find(value);
         if (node == null) return default;
 
         var next = node.NextHigher();
@@ -473,11 +473,11 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumeratorDesc()
     {
-        return new BSTEnumerator<T>(Root, false);
+        return new BstEnumerator<T>(Root, false);
     }
 }
 
-internal class TreapTreeNode<T> : BSTNodeBase<T> where T : IComparable
+internal class TreapTreeNode<T> : BstNodeBase<T> where T : IComparable
 {
     internal TreapTreeNode(TreapTreeNode<T> parent, T value, int priority)
     {

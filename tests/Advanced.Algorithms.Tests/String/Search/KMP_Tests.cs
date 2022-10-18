@@ -4,12 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.String
 {
     [TestClass]
-    public class KMP_Tests
+    public class KmpTests
     {
         [TestMethod]
         public void String_KMP_Test()
         {
-            var algorithm = new KMP();
+            var algorithm = new Kmp();
 
             var index = algorithm.Search("xabcabzabc", "abc");
 

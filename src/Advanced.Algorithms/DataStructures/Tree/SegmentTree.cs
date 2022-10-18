@@ -52,7 +52,7 @@ public class SegmentTree<T> : IEnumerable<T>
 
         length = input.Length;
 
-        construct(input, 0, input.Length - 1, 0);
+        Construct(input, 0, input.Length - 1, 0);
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -65,7 +65,7 @@ public class SegmentTree<T> : IEnumerable<T>
         return input.Select(x => x).GetEnumerator();
     }
 
-    private T construct(T[] input, int left, int right, int currentIndex)
+    private T Construct(T[] input, int left, int right, int currentIndex)
     {
         if (left == right)
         {
@@ -73,10 +73,10 @@ public class SegmentTree<T> : IEnumerable<T>
             return segmentTree[currentIndex];
         }
 
-        var midIndex = getMidIndex(left, right);
+        var midIndex = GetMidIndex(left, right);
 
-        segmentTree[currentIndex] = operation(construct(input, left, midIndex, 2 * currentIndex + 1),
-            construct(input, midIndex + 1, right, 2 * currentIndex + 2));
+        segmentTree[currentIndex] = operation(Construct(input, left, midIndex, 2 * currentIndex + 1),
+            Construct(input, midIndex + 1, right, 2 * currentIndex + 2));
 
         return segmentTree[currentIndex];
     }
@@ -91,10 +91,10 @@ public class SegmentTree<T> : IEnumerable<T>
                            || endIndex < startIndex)
             throw new ArgumentException();
 
-        return getRangeResult(startIndex, endIndex, 0, length - 1, 0);
+        return GetRangeResult(startIndex, endIndex, 0, length - 1, 0);
     }
 
-    private T getRangeResult(int start, int end, int left, int right, int currentIndex)
+    private T GetRangeResult(int start, int end, int left, int right, int currentIndex)
     {
         //total overlap so return the value
         if (left >= start && right <= end) return segmentTree[currentIndex];
@@ -103,12 +103,12 @@ public class SegmentTree<T> : IEnumerable<T>
         if (right < start || left > end) return defaultValue();
 
         //partial overlap so dig in
-        var midIndex = getMidIndex(left, right);
-        return operation(getRangeResult(start, end, left, midIndex, 2 * currentIndex + 1),
-            getRangeResult(start, end, midIndex + 1, right, 2 * currentIndex + 2));
+        var midIndex = GetMidIndex(left, right);
+        return operation(GetRangeResult(start, end, left, midIndex, 2 * currentIndex + 1),
+            GetRangeResult(start, end, midIndex + 1, right, 2 * currentIndex + 2));
     }
 
-    private int getMidIndex(int left, int right)
+    private int GetMidIndex(int left, int right)
     {
         return left + (right - left) / 2;
     }

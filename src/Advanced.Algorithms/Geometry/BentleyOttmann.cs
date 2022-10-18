@@ -33,7 +33,7 @@ public class BentleyOttmann
         Tolerance = Math.Round(Math.Pow(0.1, precision), precision);
     }
 
-    private void initialize(IEnumerable<Line> lineSegments)
+    private void Initialize(IEnumerable<Line> lineSegments)
     {
         SweepLine = new Line(new Point(0, 0), new Point(0, int.MaxValue), Tolerance);
 
@@ -66,13 +66,13 @@ public class BentleyOttmann
 
     public Dictionary<Point, List<Line>> FindIntersections(IEnumerable<Line> lineSegments)
     {
-        initialize(lineSegments);
+        Initialize(lineSegments);
 
         while (eventQueue.Count > 0)
         {
             var currentEvent = eventQueue.Extract();
             eventQueueLookUp.Remove(currentEvent);
-            sweepTo(currentEvent);
+            SweepTo(currentEvent);
 
             switch (currentEvent.Type)
             {
@@ -82,8 +82,8 @@ public class BentleyOttmann
                     if (verticalAndHorizontalLines.Count > 0)
                         foreach (var line in verticalAndHorizontalLines)
                         {
-                            var intersection = findIntersection(currentEvent, line);
-                            recordIntersection(currentEvent, line, intersection);
+                            var intersection = FindIntersection(currentEvent, line);
+                            RecordIntersection(currentEvent, line, intersection);
                         }
 
                     //special case
@@ -93,8 +93,8 @@ public class BentleyOttmann
 
                         foreach (var line in otherLines)
                         {
-                            var intersection = findIntersection(currentEvent, line);
-                            recordIntersection(currentEvent, line, intersection);
+                            var intersection = FindIntersection(currentEvent, line);
+                            RecordIntersection(currentEvent, line, intersection);
                         }
 
                         break;
@@ -107,13 +107,13 @@ public class BentleyOttmann
                     var lower = currentlyTrackedLines.NextLower(currentEvent);
                     var upper = currentlyTrackedLines.NextHigher(currentEvent);
 
-                    var lowerIntersection = findIntersection(currentEvent, lower);
-                    recordIntersection(currentEvent, lower, lowerIntersection);
-                    enqueueIntersectionEvent(currentEvent, lowerIntersection);
+                    var lowerIntersection = FindIntersection(currentEvent, lower);
+                    RecordIntersection(currentEvent, lower, lowerIntersection);
+                    EnqueueIntersectionEvent(currentEvent, lowerIntersection);
 
-                    var upperIntersection = findIntersection(currentEvent, upper);
-                    recordIntersection(currentEvent, upper, upperIntersection);
-                    enqueueIntersectionEvent(currentEvent, upperIntersection);
+                    var upperIntersection = FindIntersection(currentEvent, upper);
+                    RecordIntersection(currentEvent, upper, upperIntersection);
+                    EnqueueIntersectionEvent(currentEvent, upperIntersection);
 
                     break;
 
@@ -135,9 +135,9 @@ public class BentleyOttmann
 
                     currentlyTrackedLines.Delete(currentEvent);
 
-                    var upperLowerIntersection = findIntersection(lower, upper);
-                    recordIntersection(lower, upper, upperLowerIntersection);
-                    enqueueIntersectionEvent(currentEvent, upperLowerIntersection);
+                    var upperLowerIntersection = FindIntersection(lower, upper);
+                    RecordIntersection(lower, upper, upperLowerIntersection);
+                    EnqueueIntersectionEvent(currentEvent, upperLowerIntersection);
 
                     break;
 
@@ -153,21 +153,21 @@ public class BentleyOttmann
                                                              lines.Item2.Segment.IsVertical)
                             continue;
 
-                        swapBstNodes(currentlyTrackedLines, lines.Item1, lines.Item2);
+                        SwapBstNodes(currentlyTrackedLines, lines.Item1, lines.Item2);
 
                         var upperLine = lines.Item1;
                         var upperUpper = currentlyTrackedLines.NextHigher(upperLine);
 
-                        var newUpperIntersection = findIntersection(upperLine, upperUpper);
-                        recordIntersection(upperLine, upperUpper, newUpperIntersection);
-                        enqueueIntersectionEvent(currentEvent, newUpperIntersection);
+                        var newUpperIntersection = FindIntersection(upperLine, upperUpper);
+                        RecordIntersection(upperLine, upperUpper, newUpperIntersection);
+                        EnqueueIntersectionEvent(currentEvent, newUpperIntersection);
 
                         var lowerLine = lines.Item2;
                         var lowerLower = currentlyTrackedLines.NextLower(lowerLine);
 
-                        var newLowerIntersection = findIntersection(lowerLine, lowerLower);
-                        recordIntersection(lowerLine, lowerLower, newLowerIntersection);
-                        enqueueIntersectionEvent(currentEvent, newLowerIntersection);
+                        var newLowerIntersection = FindIntersection(lowerLine, lowerLower);
+                        RecordIntersection(lowerLine, lowerLower, newLowerIntersection);
+                        EnqueueIntersectionEvent(currentEvent, newLowerIntersection);
                     }
 
                     break;
@@ -179,12 +179,12 @@ public class BentleyOttmann
                 .Distinct().ToList());
     }
 
-    private void sweepTo(Event currentEvent)
+    private void SweepTo(Event currentEvent)
     {
         SweepLine = new Line(new Point(currentEvent.X, 0), new Point(currentEvent.X, int.MaxValue), Tolerance);
     }
 
-    internal void swapBstNodes(RedBlackTree<Event> currentlyTrackedLines, Event value1, Event value2)
+    internal void SwapBstNodes(RedBlackTree<Event> currentlyTrackedLines, Event value1, Event value2)
     {
         var node1 = currentlyTrackedLines.Find(value1).Item1;
         var node2 = currentlyTrackedLines.Find(value2).Item1;
@@ -199,7 +199,7 @@ public class BentleyOttmann
         currentlyTrackedLines.NodeLookUp[node2.Value] = node2;
     }
 
-    private void enqueueIntersectionEvent(Event currentEvent, Point intersection)
+    private void EnqueueIntersectionEvent(Event currentEvent, Point intersection)
     {
         if (intersection == null) return;
 
@@ -215,7 +215,7 @@ public class BentleyOttmann
             }
     }
 
-    private Point findIntersection(Event a, Event b)
+    private Point FindIntersection(Event a, Event b)
     {
         if (a == null || b == null
                       || a.Type == EventType.Intersection
@@ -225,7 +225,7 @@ public class BentleyOttmann
         return a.Segment.Intersection(b.Segment, Tolerance);
     }
 
-    private void recordIntersection(Event line1, Event line2, Point intersection)
+    private void RecordIntersection(Event line1, Event line2, Point intersection)
     {
         if (intersection == null) return;
 

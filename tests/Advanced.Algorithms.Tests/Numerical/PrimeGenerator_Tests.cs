@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Numerical
 {
     [TestClass]
-    public class PrimeGenerator_Tests
+    public class PrimeGeneratorTests
     {
         [TestMethod]
         public void Prime_Generation_Smoke_Test()

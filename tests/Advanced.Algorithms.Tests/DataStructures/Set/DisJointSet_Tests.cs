@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class DisJointSet_Tests
+    public class DisJointSetTests
     {
         [TestMethod]
         public void Smoke_Test_DisJointSet()

@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Distributed
 {
     [TestClass]
-    public class AsyncQueue_Tests
+    public class AsyncQueueTests
     {
         [TestMethod]
         public void AsyncQueue_Test()

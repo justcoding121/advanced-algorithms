@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class BellmanFord_Tests
+    public class BellmanFordTests
     {
         [TestMethod]
         public void BellmanFord_AdjacencyList_Smoke_Test()

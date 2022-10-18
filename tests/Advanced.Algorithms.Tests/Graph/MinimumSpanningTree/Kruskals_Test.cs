@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class Kruskals_Tests
+    public class KruskalsTests
     {
         [TestMethod]
         public void Kruskals_AdjacencyListGraph_Smoke_Test()

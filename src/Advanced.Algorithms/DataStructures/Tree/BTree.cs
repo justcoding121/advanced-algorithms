@@ -34,7 +34,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         {
             if (Root == null) return default;
 
-            var maxNode = findMaxNode(Root);
+            var maxNode = FindMaxNode(Root);
             return maxNode.Keys[maxNode.KeyCount - 1];
         }
     }
@@ -48,7 +48,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         {
             if (Root == null) return default;
 
-            var minNode = findMinNode(Root);
+            var minNode = FindMinNode(Root);
             return minNode.Keys[0];
         }
     }
@@ -68,13 +68,13 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public bool HasItem(T value)
     {
-        return find(Root, value) != null;
+        return Find(Root, value) != null;
     }
 
     /// <summary>
     ///     Find the value node under given node.
     /// </summary>
-    private BTreeNode<T> find(BTreeNode<T> node, T value)
+    private BTreeNode<T> Find(BTreeNode<T> node, T value)
     {
         //if leaf then its time to insert
         if (node.IsLeaf)
@@ -92,11 +92,11 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
 
                 //current value is less than new value
                 //drill down to left child of current value
-                if (value.CompareTo(node.Keys[i]) < 0) return find(node.Children[i], value);
+                if (value.CompareTo(node.Keys[i]) < 0) return Find(node.Children[i], value);
                 //current value is grearer than new value
                 //and current value is last element 
 
-                if (node.KeyCount == i + 1) return find(node.Children[i + 1], value);
+                if (node.KeyCount == i + 1) return Find(node.Children[i + 1], value);
             }
         }
 
@@ -116,8 +116,8 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
             return;
         }
 
-        var leafToInsert = findInsertionLeaf(Root, newValue);
-        insertAndSplit(ref leafToInsert, newValue, null, null);
+        var leafToInsert = FindInsertionLeaf(Root, newValue);
+        InsertAndSplit(ref leafToInsert, newValue, null, null);
         Count++;
     }
 
@@ -125,7 +125,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Find the leaf node to start initial insertion
     /// </summary>
-    private BTreeNode<T> findInsertionLeaf(BTreeNode<T> node, T newValue)
+    private BTreeNode<T> FindInsertionLeaf(BTreeNode<T> node, T newValue)
     {
         //if leaf then its time to insert
         if (node.IsLeaf) return node;
@@ -135,11 +135,11 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         {
             //current value is less than new value
             //drill down to left child of current value
-            if (newValue.CompareTo(node.Keys[i]) < 0) return findInsertionLeaf(node.Children[i], newValue);
+            if (newValue.CompareTo(node.Keys[i]) < 0) return FindInsertionLeaf(node.Children[i], newValue);
             //current value is grearer than new value
             //and current value is last element 
 
-            if (node.KeyCount == i + 1) return findInsertionLeaf(node.Children[i + 1], newValue);
+            if (node.KeyCount == i + 1) return FindInsertionLeaf(node.Children[i + 1], newValue);
         }
 
         return node;
@@ -148,7 +148,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Insert and split recursively up until no split is required
     /// </summary>
-    private void insertAndSplit(ref BTreeNode<T> node, T newValue,
+    private void InsertAndSplit(ref BTreeNode<T> node, T newValue,
         BTreeNode<T> newValueLeft, BTreeNode<T> newValueRight)
     {
         //add new item to current node
@@ -162,7 +162,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         //so just insert in right spot in asc order of keys
         if (node.KeyCount != maxKeysPerNode)
         {
-            insertToNotFullNode(ref node, newValue, newValueLeft, newValueRight);
+            InsertToNotFullNode(ref node, newValue, newValueLeft, newValueRight);
             return;
         }
 
@@ -207,13 +207,13 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
                     newMedian = newValue;
                     newValueInserted = true;
 
-                    if (newValueLeft != null) setChild(currentNode, currentNode.KeyCount, newValueLeft);
+                    if (newValueLeft != null) SetChild(currentNode, currentNode.KeyCount, newValueLeft);
 
                     //now fill right node
                     currentNode = right;
                     currentNodeIndex = 0;
 
-                    if (newValueRight != null) setChild(currentNode, 0, newValueRight);
+                    if (newValueRight != null) SetChild(currentNode, 0, newValueRight);
 
                     i--;
                     insertionCount++;
@@ -242,17 +242,17 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
                 //if child is set don't set again
                 //the child was already set by last newValueRight or last node
                 if (currentNode.Children[currentNodeIndex] == null)
-                    setChild(currentNode, currentNodeIndex, node.Children[i]);
+                    SetChild(currentNode, currentNodeIndex, node.Children[i]);
 
-                setChild(currentNode, currentNodeIndex + 1, node.Children[i + 1]);
+                SetChild(currentNode, currentNodeIndex + 1, node.Children[i + 1]);
             }
             else
             {
                 currentNode.Keys[currentNodeIndex] = newValue;
                 currentNode.KeyCount++;
 
-                setChild(currentNode, currentNodeIndex, newValueLeft);
-                setChild(currentNode, currentNodeIndex + 1, newValueRight);
+                SetChild(currentNode, currentNodeIndex, newValueLeft);
+                SetChild(currentNode, currentNodeIndex + 1, newValueRight);
 
                 i--;
                 newValueInserted = true;
@@ -269,19 +269,19 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
             currentNode.Keys[currentNodeIndex] = newValue;
             currentNode.KeyCount++;
 
-            setChild(currentNode, currentNodeIndex, newValueLeft);
-            setChild(currentNode, currentNodeIndex + 1, newValueRight);
+            SetChild(currentNode, currentNodeIndex, newValueLeft);
+            SetChild(currentNode, currentNodeIndex + 1, newValueRight);
         }
 
         //insert overflow element (newMedian) to parent
         var parent = node.Parent;
-        insertAndSplit(ref parent, newMedian, left, right);
+        InsertAndSplit(ref parent, newMedian, left, right);
     }
 
     /// <summary>
     ///     Insert to a node that is not full
     /// </summary>
-    private void insertToNotFullNode(ref BTreeNode<T> node, T newValue,
+    private void InsertToNotFullNode(ref BTreeNode<T> node, T newValue,
         BTreeNode<T> newValueLeft, BTreeNode<T> newValueRight)
     {
         var inserted = false;
@@ -291,12 +291,12 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         {
             if (newValue.CompareTo(node.Keys[i]) >= 0) continue;
 
-            insertAt(node.Keys, i, newValue);
+            InsertAt(node.Keys, i, newValue);
             node.KeyCount++;
 
             //Insert children if any
-            setChild(node, i, newValueLeft);
-            insertChild(node, i + 1, newValueRight);
+            SetChild(node, i, newValueLeft);
+            InsertChild(node, i + 1, newValueRight);
 
 
             inserted = true;
@@ -310,8 +310,8 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         node.Keys[node.KeyCount] = newValue;
         node.KeyCount++;
 
-        setChild(node, node.KeyCount - 1, newValueLeft);
-        setChild(node, node.KeyCount, newValueRight);
+        SetChild(node, node.KeyCount - 1, newValueLeft);
+        SetChild(node, node.KeyCount, newValueRight);
     }
 
     /// <summary>
@@ -319,7 +319,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
-        var node = findDeletionNode(Root, value);
+        var node = FindDeletionNode(Root, value);
 
         if (node == null) throw new Exception("Item do not exist in this tree.");
 
@@ -331,21 +331,21 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
             //then just remove the node
             if (node.IsLeaf)
             {
-                removeAt(node.Keys, i);
+                RemoveAt(node.Keys, i);
                 node.KeyCount--;
 
-                balance(node);
+                Balance(node);
             }
             else
             {
                 //replace with max node of left tree
-                var maxNode = findMaxNode(node.Children[i]);
+                var maxNode = FindMaxNode(node.Children[i]);
                 node.Keys[i] = maxNode.Keys[maxNode.KeyCount - 1];
 
-                removeAt(maxNode.Keys, maxNode.KeyCount - 1);
+                RemoveAt(maxNode.Keys, maxNode.KeyCount - 1);
                 maxNode.KeyCount--;
 
-                balance(maxNode);
+                Balance(maxNode);
             }
 
             Count--;
@@ -356,58 +356,58 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     return the node containing max value which will be a leaf at the right most
     /// </summary>
-    private BTreeNode<T> findMinNode(BTreeNode<T> node)
+    private BTreeNode<T> FindMinNode(BTreeNode<T> node)
     {
         //if leaf return node
-        return node.IsLeaf ? node : findMinNode(node.Children[0]);
+        return node.IsLeaf ? node : FindMinNode(node.Children[0]);
     }
 
     /// <summary>
     ///     return the node containing max value which will be a leaf at the right most
     /// </summary>
-    private BTreeNode<T> findMaxNode(BTreeNode<T> node)
+    private BTreeNode<T> FindMaxNode(BTreeNode<T> node)
     {
         //if leaf return node
-        return node.IsLeaf ? node : findMaxNode(node.Children[node.KeyCount]);
+        return node.IsLeaf ? node : FindMaxNode(node.Children[node.KeyCount]);
     }
 
     /// <summary>
     ///     Balance a node which is short of Keys by rotations or merge
     /// </summary>
-    private void balance(BTreeNode<T> node)
+    private void Balance(BTreeNode<T> node)
     {
         if (node == Root || node.KeyCount >= minKeysPerNode) return;
 
-        var rightSibling = getRightSibling(node);
+        var rightSibling = GetRightSibling(node);
 
         if (rightSibling != null
             && rightSibling.KeyCount > minKeysPerNode)
         {
-            leftRotate(node, rightSibling);
+            LeftRotate(node, rightSibling);
             return;
         }
 
-        var leftSibling = getLeftSibling(node);
+        var leftSibling = GetLeftSibling(node);
 
         if (leftSibling != null
             && leftSibling.KeyCount > minKeysPerNode)
         {
-            rightRotate(leftSibling, node);
+            RightRotate(leftSibling, node);
             return;
         }
 
         if (rightSibling != null)
-            sandwich(node, rightSibling);
+            Sandwich(node, rightSibling);
         else
-            sandwich(leftSibling, node);
+            Sandwich(leftSibling, node);
     }
 
     /// <summary>
     ///     merge two adjacent siblings to one node
     /// </summary>
-    private void sandwich(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
+    private void Sandwich(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
     {
-        var separatorIndex = getNextSeparatorIndex(leftSibling);
+        var separatorIndex = GetNextSeparatorIndex(leftSibling);
         var parent = leftSibling.Parent;
 
         var newNode = new BTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
@@ -417,16 +417,16 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         {
             newNode.Keys[newIndex] = leftSibling.Keys[i];
 
-            if (leftSibling.Children[i] != null) setChild(newNode, newIndex, leftSibling.Children[i]);
+            if (leftSibling.Children[i] != null) SetChild(newNode, newIndex, leftSibling.Children[i]);
 
-            if (leftSibling.Children[i + 1] != null) setChild(newNode, newIndex + 1, leftSibling.Children[i + 1]);
+            if (leftSibling.Children[i + 1] != null) SetChild(newNode, newIndex + 1, leftSibling.Children[i + 1]);
 
             newIndex++;
         }
 
         //special case when left sibling is empty 
         if (leftSibling.KeyCount == 0 && leftSibling.Children[0] != null)
-            setChild(newNode, newIndex, leftSibling.Children[0]);
+            SetChild(newNode, newIndex, leftSibling.Children[0]);
 
         newNode.Keys[newIndex] = parent.Keys[separatorIndex];
         newIndex++;
@@ -435,23 +435,23 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         {
             newNode.Keys[newIndex] = rightSibling.Keys[i];
 
-            if (rightSibling.Children[i] != null) setChild(newNode, newIndex, rightSibling.Children[i]);
+            if (rightSibling.Children[i] != null) SetChild(newNode, newIndex, rightSibling.Children[i]);
 
-            if (rightSibling.Children[i + 1] != null) setChild(newNode, newIndex + 1, rightSibling.Children[i + 1]);
+            if (rightSibling.Children[i + 1] != null) SetChild(newNode, newIndex + 1, rightSibling.Children[i + 1]);
 
             newIndex++;
         }
 
         //special case when left sibling is empty 
         if (rightSibling.KeyCount == 0 && rightSibling.Children[0] != null)
-            setChild(newNode, newIndex, rightSibling.Children[0]);
+            SetChild(newNode, newIndex, rightSibling.Children[0]);
 
         newNode.KeyCount = newIndex;
-        setChild(parent, separatorIndex, newNode);
-        removeAt(parent.Keys, separatorIndex);
+        SetChild(parent, separatorIndex, newNode);
+        RemoveAt(parent.Keys, separatorIndex);
         parent.KeyCount--;
 
-        removeChild(parent, separatorIndex + 1);
+        RemoveChild(parent, separatorIndex + 1);
 
 
         if (parent.KeyCount == 0
@@ -465,53 +465,53 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
             return;
         }
 
-        if (parent.KeyCount < minKeysPerNode) balance(parent);
+        if (parent.KeyCount < minKeysPerNode) Balance(parent);
     }
 
     /// <summary>
     ///     do a right rotation
     /// </summary>
-    private void rightRotate(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
+    private void RightRotate(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
     {
-        var parentIndex = getNextSeparatorIndex(leftSibling);
+        var parentIndex = GetNextSeparatorIndex(leftSibling);
 
-        insertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[parentIndex]);
+        InsertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[parentIndex]);
         rightSibling.KeyCount++;
 
-        insertChild(rightSibling, 0, leftSibling.Children[leftSibling.KeyCount]);
+        InsertChild(rightSibling, 0, leftSibling.Children[leftSibling.KeyCount]);
 
         rightSibling.Parent.Keys[parentIndex] = leftSibling.Keys[leftSibling.KeyCount - 1];
 
-        removeAt(leftSibling.Keys, leftSibling.KeyCount - 1);
+        RemoveAt(leftSibling.Keys, leftSibling.KeyCount - 1);
         leftSibling.KeyCount--;
 
-        removeChild(leftSibling, leftSibling.KeyCount + 1);
+        RemoveChild(leftSibling, leftSibling.KeyCount + 1);
     }
 
     /// <summary>
     ///     do a left rotation
     /// </summary>
-    private void leftRotate(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
+    private void LeftRotate(BTreeNode<T> leftSibling, BTreeNode<T> rightSibling)
     {
-        var parentIndex = getNextSeparatorIndex(leftSibling);
+        var parentIndex = GetNextSeparatorIndex(leftSibling);
         leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[parentIndex];
         leftSibling.KeyCount++;
 
-        setChild(leftSibling, leftSibling.KeyCount, rightSibling.Children[0]);
+        SetChild(leftSibling, leftSibling.KeyCount, rightSibling.Children[0]);
 
 
         leftSibling.Parent.Keys[parentIndex] = rightSibling.Keys[0];
 
-        removeAt(rightSibling.Keys, 0);
+        RemoveAt(rightSibling.Keys, 0);
         rightSibling.KeyCount--;
 
-        removeChild(rightSibling, 0);
+        RemoveChild(rightSibling, 0);
     }
 
     /// <summary>
     ///     Locate the node in which the item to delete exist
     /// </summary>
-    private BTreeNode<T> findDeletionNode(BTreeNode<T> node, T value)
+    private BTreeNode<T> FindDeletionNode(BTreeNode<T> node, T value)
     {
         //if leaf then its time to insert
         if (node.IsLeaf)
@@ -529,11 +529,11 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
 
                 //current value is less than new value
                 //drill down to left child of current value
-                if (value.CompareTo(node.Keys[i]) < 0) return findDeletionNode(node.Children[i], value);
+                if (value.CompareTo(node.Keys[i]) < 0) return FindDeletionNode(node.Children[i], value);
                 //current value is grearer than new value
                 //and current value is last element 
 
-                if (node.KeyCount == i + 1) return findDeletionNode(node.Children[i + 1], value);
+                if (node.KeyCount == i + 1) return FindDeletionNode(node.Children[i + 1], value);
             }
         }
 
@@ -543,7 +543,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Get next key separator index after this child Node in parent
     /// </summary>
-    private int getNextSeparatorIndex(BTreeNode<T> node)
+    private int GetNextSeparatorIndex(BTreeNode<T> node)
     {
         var parent = node.Parent;
 
@@ -557,7 +557,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     get the right sibling node
     /// </summary>
-    private BTreeNode<T> getRightSibling(BTreeNode<T> node)
+    private BTreeNode<T> GetRightSibling(BTreeNode<T> node)
     {
         var parent = node.Parent;
 
@@ -567,12 +567,12 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     get left sibling node
     /// </summary>
-    private BTreeNode<T> getLeftSibling(BTreeNode<T> node)
+    private BTreeNode<T> GetLeftSibling(BTreeNode<T> node)
     {
         return node.Index == 0 ? null : node.Parent.Children[node.Index - 1];
     }
 
-    private void setChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
+    private void SetChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
     {
         parent.Children[childIndex] = child;
 
@@ -582,9 +582,9 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         child.Index = childIndex;
     }
 
-    private void insertChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
+    private void InsertChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
     {
-        insertAt(parent.Children, childIndex, child);
+        InsertAt(parent.Children, childIndex, child);
 
         if (child != null) child.Parent = parent;
 
@@ -594,9 +594,9 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
                 parent.Children[i].Index = i;
     }
 
-    private void removeChild(BTreeNode<T> parent, int childIndex)
+    private void RemoveChild(BTreeNode<T> parent, int childIndex)
     {
-        removeAt(parent.Children, childIndex);
+        RemoveAt(parent.Children, childIndex);
 
         //update indices
         for (var i = childIndex; i <= parent.KeyCount; i++)
@@ -609,7 +609,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     ///     And then insert at index
     ///     Assumes array have atleast one empty index at end
     /// </summary>
-    private void insertAt<TS>(TS[] array, int index, TS newValue)
+    private void InsertAt<TS>(TS[] array, int index, TS newValue)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index, array, index + 1, array.Length - index - 1);
@@ -620,7 +620,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Shift array left at index
     /// </summary>
-    private void removeAt<TS>(TS[] array, int index)
+    private void RemoveAt<TS>(TS[] array, int index)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index + 1, array, index, array.Length - index - 1);

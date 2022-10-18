@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.String
 {
     [TestClass]
-    public class Manacher_Tests
+    public class ManacherTests
     {
         [TestMethod]
         public void Manacher_Palindrome_Tests()

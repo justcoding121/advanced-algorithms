@@ -33,7 +33,7 @@ public class ConsistentHash<T>
     {
         for (var i = 0; i < replicas; i++)
         {
-            var hash = getHashCode(node.GetHashCode().ToString() + i);
+            var hash = GetHashCode(node.GetHashCode().ToString() + i);
             circle[hash] = node;
         }
 
@@ -45,8 +45,8 @@ public class ConsistentHash<T>
     /// </summary>
     public T GetNode(string key)
     {
-        var hash = getHashCode(key);
-        var first = nextClockWise(circleKeys, hash);
+        var hash = GetHashCode(key);
+        var first = NextClockWise(circleKeys, hash);
         return circle[circleKeys[first]];
     }
 
@@ -57,7 +57,7 @@ public class ConsistentHash<T>
     {
         for (var i = 0; i < replicas; i++)
         {
-            var hash = getHashCode(node.GetHashCode().ToString() + i);
+            var hash = GetHashCode(node.GetHashCode().ToString() + i);
             if (!circle.Remove(hash)) throw new Exception("Cannot remove a node that was never added.");
         }
 
@@ -69,7 +69,7 @@ public class ConsistentHash<T>
     ///     Move clockwise until we find a bucket with Key >= hashCode
     /// </summary>
     /// <returns>Returns the index of bucket</returns>
-    private int nextClockWise(int[] keys, int hashCode)
+    private int NextClockWise(int[] keys, int hashCode)
     {
         var begin = 0;
         var end = keys.Length - 1;
@@ -89,7 +89,7 @@ public class ConsistentHash<T>
         return end;
     }
 
-    private static int getHashCode(string key)
+    private static int GetHashCode(string key)
     {
         return (int)MurmurHash2.Hash(Encoding.Unicode.GetBytes(key));
     }
@@ -100,8 +100,8 @@ public class ConsistentHash<T>
 /// </summary>
 internal class MurmurHash2
 {
-    private const uint m = 0x5bd1e995;
-    private const int r = 24;
+    private const uint M = 0x5bd1e995;
+    private const int R = 24;
 
     internal static uint Hash(byte[] data)
     {
@@ -121,11 +121,11 @@ internal class MurmurHash2
         while (length >= 4)
         {
             var k = hackArray[currentIndex++];
-            k *= m;
-            k ^= k >> r;
-            k *= m;
+            k *= M;
+            k ^= k >> R;
+            k *= M;
 
-            h *= m;
+            h *= M;
             h ^= k;
             length -= 4;
         }
@@ -136,15 +136,15 @@ internal class MurmurHash2
             case 3:
                 h ^= (ushort)(data[currentIndex++] | (data[currentIndex++] << 8));
                 h ^= (uint)data[currentIndex] << 16;
-                h *= m;
+                h *= M;
                 break;
             case 2:
                 h ^= (ushort)(data[currentIndex++] | (data[currentIndex] << 8));
-                h *= m;
+                h *= M;
                 break;
             case 1:
                 h ^= data[currentIndex];
-                h *= m;
+                h *= M;
                 break;
         }
 
@@ -152,7 +152,7 @@ internal class MurmurHash2
         // bytes are well-incorporated.
 
         h ^= h >> 13;
-        h *= m;
+        h *= M;
         h ^= h >> 15;
 
         return h;

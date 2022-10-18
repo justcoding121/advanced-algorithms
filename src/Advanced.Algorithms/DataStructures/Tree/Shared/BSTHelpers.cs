@@ -3,20 +3,20 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures;
 
-internal class BSTHelpers
+internal class BstHelpers
 {
     internal static void ValidateSortedCollection<T>(IEnumerable<T> sortedCollection) where T : IComparable
     {
-        if (!isSorted(sortedCollection))
+        if (!IsSorted(sortedCollection))
             throw new ArgumentException("Initial collection should have unique keys and be in sorted order.");
     }
 
-    internal static BSTNodeBase<T> ToBST<T>(BSTNodeBase<T>[] sortedNodes) where T : IComparable
+    internal static BstNodeBase<T> ToBst<T>(BstNodeBase<T>[] sortedNodes) where T : IComparable
     {
-        return toBST(sortedNodes, 0, sortedNodes.Length - 1);
+        return ToBst(sortedNodes, 0, sortedNodes.Length - 1);
     }
 
-    internal static int AssignCount<T>(BSTNodeBase<T> node) where T : IComparable
+    internal static int AssignCount<T>(BstNodeBase<T> node) where T : IComparable
     {
         if (node == null) return 0;
 
@@ -25,7 +25,7 @@ internal class BSTHelpers
         return node.Count;
     }
 
-    private static BSTNodeBase<T> toBST<T>(BSTNodeBase<T>[] sortedNodes, int start, int end) where T : IComparable
+    private static BstNodeBase<T> ToBst<T>(BstNodeBase<T>[] sortedNodes, int start, int end) where T : IComparable
     {
         if (start > end)
             return null;
@@ -33,16 +33,16 @@ internal class BSTHelpers
         var mid = (start + end) / 2;
         var root = sortedNodes[mid];
 
-        root.Left = toBST(sortedNodes, start, mid - 1);
+        root.Left = ToBst(sortedNodes, start, mid - 1);
         if (root.Left != null) root.Left.Parent = root;
 
-        root.Right = toBST(sortedNodes, mid + 1, end);
+        root.Right = ToBst(sortedNodes, mid + 1, end);
         if (root.Right != null) root.Right.Parent = root;
 
         return root;
     }
 
-    private static bool isSorted<T>(IEnumerable<T> collection) where T : IComparable
+    private static bool IsSorted<T>(IEnumerable<T> collection) where T : IComparable
     {
         var enumerator = collection.GetEnumerator();
         if (!enumerator.MoveNext()) return true;

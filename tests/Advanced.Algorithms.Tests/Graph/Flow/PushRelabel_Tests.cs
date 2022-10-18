@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class PushRelabel_Tests
+    public class PushRelabelTests
     {
         /// <summary>
         ///     PushRelabel Max Flow test
@@ -90,7 +90,7 @@ namespace Advanced.Algorithms.Tests.Graph
                 return checked(a + b);
             }
 
-            public int defaultWeight => 0;
+            public int DefaultWeight => 0;
 
             public int MaxWeight => int.MaxValue;
 

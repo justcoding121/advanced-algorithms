@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class MColoring_Tests
+    public class MColoringTests
     {
         [TestMethod]
         public void MColoring_AdjacencyListGraph_Smoke_Test()

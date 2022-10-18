@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class BloomFilter_Tests
+    public class BloomFilterTests
     {
         [TestMethod]
         public void BloomFilter_Smoke_Test()

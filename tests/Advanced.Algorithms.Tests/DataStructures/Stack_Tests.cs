@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class Stack_Tests
+    public class StackTests
     {
         [TestMethod]
         public void ArrayStack_Test()

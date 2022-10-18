@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class KosarajuStronglyConnected_Tests
+    public class KosarajuStronglyConnectedTests
     {
         [TestMethod]
         public void KosarajuStronglyConnected_AdjacenctListGraph_Smoke_Test()

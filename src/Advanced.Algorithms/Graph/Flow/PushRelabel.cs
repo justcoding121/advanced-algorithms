@@ -9,11 +9,11 @@ namespace Advanced.Algorithms.Graph;
 /// <summary>
 ///     A Push-Relabel algorithm implementation.
 /// </summary>
-public class PushRelabelMaxFlow<T, W> where W : IComparable
+public class PushRelabelMaxFlow<T, TW> where TW : IComparable
 {
-    private readonly IFlowOperators<W> @operator;
+    private readonly IFlowOperators<TW> @operator;
 
-    public PushRelabelMaxFlow(IFlowOperators<W> @operator)
+    public PushRelabelMaxFlow(IFlowOperators<TW> @operator)
     {
         this.@operator = @operator;
     }
@@ -21,19 +21,19 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
     /// <summary>
     ///     Computes Max Flow using Push-Relabel algorithm.
     /// </summary>
-    public W ComputeMaxFlow(IDiGraph<T> graph,
+    public TW ComputeMaxFlow(IDiGraph<T> graph,
         T source, T sink)
     {
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
         if (!graph.IsWeightedGraph)
-            if (@operator.defaultWeight.GetType() != typeof(int))
+            if (@operator.DefaultWeight.GetType() != typeof(int))
                 throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
                                             "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
 
         //clone to create a residual graph
-        var residualGraph = createResidualGraph(graph);
+        var residualGraph = CreateResidualGraph(graph);
 
         //init vertex Height and Overflow object (ResidualGraphVertexStatus)
         var vertexStatusMap = new Dictionary<T, ResidualGraphVertexStatus>();
@@ -43,11 +43,11 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
                 //init source height to Maximum (equal to total vertex count)
                 vertexStatusMap.Add(vertex.Value.Key,
                     new ResidualGraphVertexStatus(residualGraph.Vertices.Count,
-                        @operator.defaultWeight));
+                        @operator.DefaultWeight));
             else
                 vertexStatusMap.Add(vertex.Value.Key,
                     new ResidualGraphVertexStatus(0,
-                        @operator.defaultWeight));
+                        @operator.DefaultWeight));
 
         //init source neighbour overflow to capacity of source-neighbour edges
         foreach (var edge in residualGraph.Vertices[source].OutEdges.ToList())
@@ -60,20 +60,20 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
                 .OutEdges[residualGraph.Vertices[source]] = edge.Value;
 
             //set to minimum
-            residualGraph.Vertices[source].OutEdges[edge.Key] = @operator.defaultWeight;
+            residualGraph.Vertices[source].OutEdges[edge.Key] = @operator.DefaultWeight;
         }
 
-        var overflowVertex = findOverflowVertex(vertexStatusMap, source, sink);
+        var overflowVertex = FindOverflowVertex(vertexStatusMap, source, sink);
 
         //until there is not more overflow vertices
         while (!overflowVertex.Equals(default(T)))
         {
             //if we can't push this vertex
-            if (!push(residualGraph.Vertices[overflowVertex], vertexStatusMap))
+            if (!Push(residualGraph.Vertices[overflowVertex], vertexStatusMap))
                 //increase its height and try again
-                relabel(residualGraph.Vertices[overflowVertex], vertexStatusMap);
+                Relabel(residualGraph.Vertices[overflowVertex], vertexStatusMap);
 
-            overflowVertex = findOverflowVertex(vertexStatusMap, source, sink);
+            overflowVertex = FindOverflowVertex(vertexStatusMap, source, sink);
         }
 
         //overflow of sink will be the net flow
@@ -83,7 +83,7 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
     /// <summary>
     ///     Increases the height of a vertex by one greater than min height of neighbours.
     /// </summary>
-    private void relabel(WeightedDiGraphVertex<T, W> vertex,
+    private void Relabel(WeightedDiGraphVertex<T, TW> vertex,
         Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
     {
         var min = int.MaxValue;
@@ -91,7 +91,7 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
         foreach (var edge in vertex.OutEdges)
             //+ive out capacity  
             if (min.CompareTo(vertexStatusMap[edge.Key.Key].Height) > 0
-                && edge.Value.CompareTo(@operator.defaultWeight) > 0)
+                && edge.Value.CompareTo(@operator.DefaultWeight) > 0)
                 min = vertexStatusMap[edge.Key.Key].Height;
 
         vertexStatusMap[vertex.Key].Height = min + 1;
@@ -103,14 +103,14 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
     ///     and any of neighbour has height of current vertex
     ///     otherwise returns false.
     /// </summary>
-    private bool push(WeightedDiGraphVertex<T, W> overflowVertex,
+    private bool Push(WeightedDiGraphVertex<T, TW> overflowVertex,
         Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap)
     {
         var overflow = vertexStatusMap[overflowVertex.Key].Overflow;
 
         foreach (var edge in overflowVertex.OutEdges)
             //if out edge has +ive weight and neighbour height is less then flow is possible
-            if (edge.Value.CompareTo(@operator.defaultWeight) > 0
+            if (edge.Value.CompareTo(@operator.DefaultWeight) > 0
                 && vertexStatusMap[edge.Key.Key].Height
                 < vertexStatusMap[overflowVertex.Key].Height)
             {
@@ -141,13 +141,13 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
     /// <summary>
     ///     Returns a vertex with an overflow.
     /// </summary>
-    private T findOverflowVertex(Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap,
+    private T FindOverflowVertex(Dictionary<T, ResidualGraphVertexStatus> vertexStatusMap,
         T source, T sink)
     {
         foreach (var vertexStatus in vertexStatusMap)
             //ignore source and sink (which can have non-zero overflow)
             if (!vertexStatus.Key.Equals(source) && !vertexStatus.Key.Equals(sink) &&
-                vertexStatus.Value.Overflow.CompareTo(@operator.defaultWeight) > 0)
+                vertexStatus.Value.Overflow.CompareTo(@operator.DefaultWeight) > 0)
                 return vertexStatus.Key;
 
         return default;
@@ -156,9 +156,9 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
     /// <summary>
     ///     Clones this graph and creates a residual graph.
     /// </summary>
-    private WeightedDiGraph<T, W> createResidualGraph(IDiGraph<T> graph)
+    private WeightedDiGraph<T, TW> CreateResidualGraph(IDiGraph<T> graph)
     {
-        var newGraph = new WeightedDiGraph<T, W>();
+        var newGraph = new WeightedDiGraph<T, TW>();
 
         //clone graph vertices
         foreach (var vertex in graph.VerticesAsEnumberable) newGraph.AddVertex(vertex.Key);
@@ -170,7 +170,7 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
         foreach (var edge in vertex.OutEdges)
         {
             //original edge
-            newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<W>());
+            newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<TW>());
             //add a backward edge for residual graph with edge value as default(W)
             newGraph.AddEdge(edge.TargetVertexKey, vertex.Key, default);
         }
@@ -183,7 +183,7 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
     /// </summary>
     internal class ResidualGraphVertexStatus
     {
-        public ResidualGraphVertexStatus(int height, W overflow)
+        public ResidualGraphVertexStatus(int height, TW overflow)
         {
             Height = height;
             Overflow = overflow;
@@ -192,7 +192,7 @@ public class PushRelabelMaxFlow<T, W> where W : IComparable
         /// <summary>
         ///     Current overflow in this vertex.
         /// </summary>
-        public W Overflow { get; set; }
+        public TW Overflow { get; set; }
 
         /// <summary>
         ///     Current height of the vertex.

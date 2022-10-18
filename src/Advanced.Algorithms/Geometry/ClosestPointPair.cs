@@ -20,7 +20,7 @@ public class ClosestPointPair
 
     public static double Find(List<Point> points, int left, int right)
     {
-        if (right - left <= 3) return bruteForce(points, left, right);
+        if (right - left <= 3) return BruteForce(points, left, right);
 
         var mid = (left + right) / 2;
 
@@ -42,24 +42,24 @@ public class ClosestPointPair
         for (var i = 0; i < strips.Count; i++)
         for (var j = i + 1; j < strips.Count && Math.Abs(strips[i].Y - strips[j].Y) < min; j++)
             //check for radius 
-            min = Math.Min(min, getDistance(strips[i], strips[j]));
+            min = Math.Min(min, GetDistance(strips[i], strips[j]));
 
         return min;
     }
 
-    private static double bruteForce(IList<Point> points, int left, int right)
+    private static double BruteForce(IList<Point> points, int left, int right)
     {
         var min = double.MaxValue;
         for (var i = left; i < right; i++)
         for (var j = left + 1; j <= right; j++)
-            min = Math.Min(min, getDistance(points[i], points[j]));
+            min = Math.Min(min, GetDistance(points[i], points[j]));
         return min;
     }
 
     /// <summary>
     ///     Eucledian distance.
     /// </summary>
-    private static double getDistance(Point point1, Point point2)
+    private static double GetDistance(Point point1, Point point2)
     {
         return Math.Sqrt(Math.Pow(Math.Abs(point1.X - point2.X), 2)
                          + Math.Pow(Math.Abs(point1.Y - point2.Y), 2));

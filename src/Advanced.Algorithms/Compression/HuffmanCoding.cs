@@ -14,7 +14,7 @@ public class HuffmanCoding<T>
     /// </summary>
     public Dictionary<T, byte[]> Compress(T[] input)
     {
-        var frequencies = computeFrequency(input);
+        var frequencies = ComputeFrequency(input);
 
         var minHeap = new BHeap<FrequencyWrap>();
 
@@ -40,7 +40,7 @@ public class HuffmanCoding<T>
 
         var result = new Dictionary<T, byte[]>();
 
-        dfs(root, new List<byte>(), result);
+        Dfs(root, new List<byte>(), result);
 
         return result;
     }
@@ -48,7 +48,7 @@ public class HuffmanCoding<T>
     /// <summary>
     ///     Now gather the codes.
     /// </summary>
-    private void dfs(FrequencyWrap currentNode, List<byte> pathStack, Dictionary<T, byte[]> result)
+    private void Dfs(FrequencyWrap currentNode, List<byte> pathStack, Dictionary<T, byte[]> result)
     {
         if (currentNode.IsLeaf)
         {
@@ -59,14 +59,14 @@ public class HuffmanCoding<T>
         if (currentNode.Left != null)
         {
             pathStack.Add(0);
-            dfs(currentNode.Left, pathStack, result);
+            Dfs(currentNode.Left, pathStack, result);
             pathStack.RemoveAt(pathStack.Count - 1);
         }
 
         if (currentNode.Right != null)
         {
             pathStack.Add(1);
-            dfs(currentNode.Right, pathStack, result);
+            Dfs(currentNode.Right, pathStack, result);
             pathStack.RemoveAt(pathStack.Count - 1);
         }
     }
@@ -74,7 +74,7 @@ public class HuffmanCoding<T>
     /// <summary>
     ///     Computes frequencies of each of T in given input.
     /// </summary>
-    private Dictionary<T, int> computeFrequency(T[] input)
+    private Dictionary<T, int> ComputeFrequency(T[] input)
     {
         var result = new Dictionary<T, int>();
 

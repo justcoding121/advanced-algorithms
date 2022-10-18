@@ -19,7 +19,7 @@ public class DepthFirstTopSort<T>
         //we need a loop so that we can reach all vertices
         foreach (var vertex in graph.VerticesAsEnumberable)
             if (!visited.Contains(vertex.Key))
-                dfs(vertex, visited, pathStack);
+                Dfs(vertex, visited, pathStack);
 
         //now just pop the stack to result
         var result = new List<T>();
@@ -31,14 +31,14 @@ public class DepthFirstTopSort<T>
     /// <summary>
     ///     Do a depth first search.
     /// </summary>
-    private void dfs(IDiGraphVertex<T> vertex,
+    private void Dfs(IDiGraphVertex<T> vertex,
         HashSet<T> visited, Stack<T> pathStack)
     {
         visited.Add(vertex.Key);
 
         foreach (var edge in vertex.OutEdges)
             if (!visited.Contains(edge.TargetVertexKey))
-                dfs(edge.TargetVertex, visited, pathStack);
+                Dfs(edge.TargetVertex, visited, pathStack);
 
         //add vertex to stack after all edges are visited
         pathStack.Push(vertex.Key);

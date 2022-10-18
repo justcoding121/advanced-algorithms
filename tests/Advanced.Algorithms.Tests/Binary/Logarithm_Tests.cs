@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Binary
 {
     [TestClass]
-    public class Logarithm_Tests
+    public class LogarithmTests
     {
         [TestMethod]
         public void Logarithm_Smoke_Test()

@@ -2,12 +2,12 @@
 
 namespace Advanced.Algorithms.DataStructures;
 
-internal static class BSTExtensions
+internal static class BstExtensions
 {
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
     //O(log(n)) worst O(n) for unbalanced tree
-    internal static (BSTNodeBase<T>, int) Find<T>(this BSTNodeBase<T> current, T value) where T : IComparable
+    internal static (BstNodeBase<T>, int) Find<T>(this BstNodeBase<T> current, T value) where T : IComparable
     {
         var position = 0;
 
@@ -35,7 +35,7 @@ internal static class BSTExtensions
         }
     }
 
-    internal static BSTNodeBase<T> FindMax<T>(this BSTNodeBase<T> node) where T : IComparable
+    internal static BstNodeBase<T> FindMax<T>(this BstNodeBase<T> node) where T : IComparable
     {
         if (node == null) return null;
 
@@ -46,7 +46,7 @@ internal static class BSTExtensions
         }
     }
 
-    internal static BSTNodeBase<T> FindMin<T>(this BSTNodeBase<T> node) where T : IComparable
+    internal static BstNodeBase<T> FindMin<T>(this BstNodeBase<T> node) where T : IComparable
     {
         if (node == null) return null;
 
@@ -57,7 +57,7 @@ internal static class BSTExtensions
         }
     }
 
-    internal static BSTNodeBase<T> NextLower<T>(this BSTNodeBase<T> node) where T : IComparable
+    internal static BstNodeBase<T> NextLower<T>(this BstNodeBase<T> node) where T : IComparable
     {
         //root or left child
         if (node.Parent == null || node.IsLeftChild)
@@ -89,7 +89,7 @@ internal static class BSTExtensions
         return node.Parent;
     }
 
-    internal static BSTNodeBase<T> NextHigher<T>(this BSTNodeBase<T> node) where T : IComparable
+    internal static BstNodeBase<T> NextHigher<T>(this BstNodeBase<T> node) where T : IComparable
     {
         //root or left child
         if (node.Parent == null || node.IsLeftChild)
@@ -121,7 +121,7 @@ internal static class BSTExtensions
         return node?.Parent;
     }
 
-    internal static void UpdateCounts<T>(this BSTNodeBase<T> node, bool spiralUp = false) where T : IComparable
+    internal static void UpdateCounts<T>(this BstNodeBase<T> node, bool spiralUp = false) where T : IComparable
     {
         while (node != null)
         {
@@ -137,7 +137,7 @@ internal static class BSTExtensions
     }
 
     //get the kth smallest element under given node
-    internal static BSTNodeBase<T> KthSmallest<T>(this BSTNodeBase<T> node, int k) where T : IComparable
+    internal static BstNodeBase<T> KthSmallest<T>(this BstNodeBase<T> node, int k) where T : IComparable
     {
         var leftCount = node.Left != null ? node.Left.Count : 0;
 
@@ -149,7 +149,7 @@ internal static class BSTExtensions
     }
 
     //get the sorted order position of given item under given node
-    internal static int Position<T>(this BSTNodeBase<T> node, T item) where T : IComparable
+    internal static int Position<T>(this BstNodeBase<T> node, T item) where T : IComparable
     {
         if (node == null) return -1;
 

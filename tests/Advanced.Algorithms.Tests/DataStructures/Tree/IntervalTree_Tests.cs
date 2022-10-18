@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class IntervalTree_Tests
+    public class IntervalTreeTests
     {
         /// </summary>
         [TestMethod]
@@ -75,8 +75,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
             {
                 Assert.IsTrue(tree.DoOverlap(interval.Item1,
                     interval.Item2));
-                var testStart = cloneArray(interval.Item1);
-                var testEnd = cloneArray(interval.Item2);
+                var testStart = CloneArray(interval.Item1);
+                var testEnd = CloneArray(interval.Item2);
 
                 testStart[0] = testStart[0] - rnd.Next(1, 5);
                 testEnd[0] = testEnd[0] + rnd.Next(1, 5);
@@ -99,8 +99,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
                 foreach (var existingInterval in notDeleted)
                 {
-                    var testStart = cloneArray(existingInterval.Item1);
-                    var testEnd = cloneArray(existingInterval.Item2);
+                    var testStart = CloneArray(existingInterval.Item1);
+                    var testEnd = CloneArray(existingInterval.Item2);
 
                     Assert.IsTrue(tree.DoOverlap(testStart, testEnd));
                 }
@@ -138,8 +138,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(tree.DoOverlap(interval.Item1,
                     interval.Item2));
 
-                var testStart = cloneArray(interval.Item1);
-                var testEnd = cloneArray(interval.Item2);
+                var testStart = CloneArray(interval.Item1);
+                var testEnd = CloneArray(interval.Item2);
 
                 testStart[0] = testStart[0] - rnd.Next(1, 5);
                 testStart[1] = testStart[1] - rnd.Next(1, 5);
@@ -161,15 +161,15 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
                 foreach (var existingInterval in notDeleted)
                 {
-                    var testStart = cloneArray(existingInterval.Item1);
-                    var testEnd = cloneArray(existingInterval.Item2);
+                    var testStart = CloneArray(existingInterval.Item1);
+                    var testEnd = CloneArray(existingInterval.Item2);
 
                     Assert.IsTrue(tree.DoOverlap(testStart, testEnd));
                 }
             }
         }
 
-        private int[] cloneArray(int[] array)
+        private int[] CloneArray(int[] array)
         {
             var newArray = new int[array.Length];
 
@@ -179,7 +179,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         }
 
 
-        private int[][] cloneArray(int[][] array)
+        private int[][] CloneArray(int[][] array)
         {
             var newArray = new int[array.Length][];
 

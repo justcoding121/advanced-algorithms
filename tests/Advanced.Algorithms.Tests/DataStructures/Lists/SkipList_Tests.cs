@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class SkipList_Tests
+    public class SkipListTests
     {
         [TestMethod]
         public void SkipList_Test()

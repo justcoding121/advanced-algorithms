@@ -21,7 +21,7 @@ public class QuickSelect<T> where T : IComparable
 
         while (left <= right)
         {
-            var median = medianOfMedian(inputArray, left, right);
+            var median = MedianOfMedian(inputArray, left, right);
 
             var pivot = 0;
 
@@ -32,7 +32,7 @@ public class QuickSelect<T> where T : IComparable
                     break;
                 }
 
-            var newPivot = partition(inputArray, left, right, pivot);
+            var newPivot = Partition(inputArray, left, right, pivot);
 
             if (newPivot == k - 1)
                 return inputArray[newPivot];
@@ -45,7 +45,7 @@ public class QuickSelect<T> where T : IComparable
         return default;
     }
 
-    private static T medianOfMedian(T[] input, int left, int right)
+    private static T MedianOfMedian(T[] input, int left, int right)
     {
         if (left.CompareTo(right) == 0) return input[left];
 
@@ -62,13 +62,13 @@ public class QuickSelect<T> where T : IComparable
 
             if (currentRight <= right)
             {
-                sort(input, currentLeft, currentRight, comparer);
-                medians[++medianIndex] = median(input, currentLeft, currentRight);
+                Sort(input, currentLeft, currentRight, comparer);
+                medians[++medianIndex] = Median(input, currentLeft, currentRight);
             }
             else
             {
-                sort(input, currentLeft, right, comparer);
-                medians[++medianIndex] = median(input, currentLeft, right);
+                Sort(input, currentLeft, right, comparer);
+                medians[++medianIndex] = Median(input, currentLeft, right);
             }
 
             currentLeft = currentRight + 1;
@@ -76,42 +76,42 @@ public class QuickSelect<T> where T : IComparable
 
         if (medians.Length == 1) return medians[0];
 
-        return medianOfMedian(medians, 0, medians.Length - 1);
+        return MedianOfMedian(medians, 0, medians.Length - 1);
     }
 
     //partition using pivot
-    private static int partition(T[] input, int left, int right, int pivot)
+    private static int Partition(T[] input, int left, int right, int pivot)
     {
         var pivotValue = input[pivot];
         var newPivot = left;
 
         //prevent comparing pivot against itself
-        swap(input, pivot, right);
+        Swap(input, pivot, right);
 
         for (var i = left; i < right; i++)
             if (input[i].CompareTo(pivotValue) < 0)
             {
-                swap(input, i, newPivot);
+                Swap(input, i, newPivot);
                 newPivot++;
             }
 
         //move pivot back to middle
-        swap(input, newPivot, right);
+        Swap(input, newPivot, right);
 
         return newPivot;
     }
 
-    private static void sort(T[] input, int left, int right, CustomComparer<T> comparer)
+    private static void Sort(T[] input, int left, int right, CustomComparer<T> comparer)
     {
         MergeSort<T>.PartitionMerge(input, left, right, comparer);
     }
 
-    private static T median(T[] input, int left, int right)
+    private static T Median(T[] input, int left, int right)
     {
         return input[left + (right - left) / 2];
     }
 
-    private static void swap(T[] input, int i, int j)
+    private static void Swap(T[] input, int i, int j)
     {
         if (i != j)
         {

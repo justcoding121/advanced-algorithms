@@ -11,12 +11,12 @@ public class Permutation
     {
         var result = new List<List<T>>();
 
-        recurse(n, r, withRepetition, new List<T>(), new HashSet<int>(), result);
+        Recurse(n, r, withRepetition, new List<T>(), new HashSet<int>(), result);
 
         return result;
     }
 
-    private static void recurse<T>(List<T> n, int r, bool withRepetition,
+    private static void Recurse<T>(List<T> n, int r, bool withRepetition,
         List<T> prefix, HashSet<int> prefixIndices,
         List<List<T>> result)
     {
@@ -33,7 +33,7 @@ public class Permutation
             prefix.Add(n[j]);
             prefixIndices.Add(j);
 
-            recurse(n, r, withRepetition, prefix, prefixIndices, result);
+            Recurse(n, r, withRepetition, prefix, prefixIndices, result);
 
             prefix.RemoveAt(prefix.Count - 1);
             prefixIndices.Remove(j);

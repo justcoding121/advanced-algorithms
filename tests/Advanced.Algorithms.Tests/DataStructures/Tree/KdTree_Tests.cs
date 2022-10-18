@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class KdTree_Tests
+    public class KdTreeTests
     {
         /// <summary>
         ///     A tree test
@@ -24,7 +24,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 new int[2] { 2, 7 }, new int[2] { 10, 19 }
             };
 
-            var tree = new KDTree<int>(2);
+            var tree = new KdTree<int>(2);
 
             foreach (var pt in testPts) tree.Insert(pt);
 
@@ -70,7 +70,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 testPts.Add(new[] { start, end });
             }
 
-            var tree = new KDTree<int>(2);
+            var tree = new KdTree<int>(2);
 
             foreach (var pt in testPts) tree.Insert(pt);
 
@@ -111,7 +111,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 new int[2] { 2, 7 }, new int[2] { 20, 19 }
             };
 
-            var tree = new KDTree<int>(2);
+            var tree = new KdTree<int>(2);
 
             foreach (var pt in testPts) tree.Insert(pt);
 
@@ -143,7 +143,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 testPts.Add(new[] { start, end });
             }
 
-            var tree = new KDTree<int>(2);
+            var tree = new KdTree<int>(2);
 
             foreach (var pt in testPts) tree.Insert(pt);
 

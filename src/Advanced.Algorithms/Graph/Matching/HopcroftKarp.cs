@@ -20,13 +20,13 @@ public class HopcroftKarpMatching<T>
 
         if (colorResult.CanColor == false) throw new Exception("Graph is not BiPartite.");
 
-        return getMaxBiPartiteMatching(graph, colorResult.Partitions);
+        return GetMaxBiPartiteMatching(graph, colorResult.Partitions);
     }
 
     /// <summary>
     ///     Get Max Match from Given BiPartitioned Graph.
     /// </summary>
-    private HashSet<MatchEdge<T>> getMaxBiPartiteMatching(IGraph<T> graph,
+    private HashSet<MatchEdge<T>> GetMaxBiPartiteMatching(IGraph<T> graph,
         Dictionary<int, List<T>> partitions)
     {
         var matches = new HashSet<MatchEdge<T>>();
@@ -34,7 +34,7 @@ public class HopcroftKarpMatching<T>
         var leftToRightMatchEdges = new Dictionary<T, T>();
         var rightToLeftMatchEdges = new Dictionary<T, T>();
 
-        var freeVerticesOnRight = bfs(graph, partitions, leftToRightMatchEdges, rightToLeftMatchEdges);
+        var freeVerticesOnRight = Bfs(graph, partitions, leftToRightMatchEdges, rightToLeftMatchEdges);
         //while there is an augmenting Path
         while (freeVerticesOnRight.Count > 0)
         {
@@ -43,15 +43,15 @@ public class HopcroftKarpMatching<T>
 
             foreach (var vertex in freeVerticesOnRight)
             {
-                var currentPath = dfs(graph,
+                var currentPath = Dfs(graph,
                     leftToRightMatchEdges, rightToLeftMatchEdges, vertex, default, visited, true);
 
-                if (currentPath != null) union(path, currentPath);
+                if (currentPath != null) Union(path, currentPath);
             }
 
-            xor(matches, path, leftToRightMatchEdges, rightToLeftMatchEdges);
+            Xor(matches, path, leftToRightMatchEdges, rightToLeftMatchEdges);
 
-            freeVerticesOnRight = bfs(graph, partitions, leftToRightMatchEdges, rightToLeftMatchEdges);
+            freeVerticesOnRight = Bfs(graph, partitions, leftToRightMatchEdges, rightToLeftMatchEdges);
         }
 
         return matches;
@@ -62,7 +62,7 @@ public class HopcroftKarpMatching<T>
     ///     An augmenting path is a path which starts from a free vertex
     ///     and ends at a free vertex via UnMatched (left -> right) and Matched (right -> left) edges alternatively.
     /// </summary>
-    private List<T> bfs(IGraph<T> graph,
+    private List<T> Bfs(IGraph<T> graph,
         Dictionary<int, List<T>> partitions,
         Dictionary<T, T> leftToRightMatchEdges, Dictionary<T, T> rightToLeftMatchEdges)
     {
@@ -110,7 +110,7 @@ public class HopcroftKarpMatching<T>
     ///     at a free vertex on left, via Matched (right -> left) and UnMatched (left -> right) edges alternatively.
     ///     Return the matching edges along that path.
     /// </summary>
-    private HashSet<MatchEdge<T>> dfs(IGraph<T> graph,
+    private HashSet<MatchEdge<T>> Dfs(IGraph<T> graph,
         Dictionary<T, T> leftToRightMatchEdges,
         Dictionary<T, T> rightToLeftMatchEdges,
         T current,
@@ -133,7 +133,7 @@ public class HopcroftKarpMatching<T>
         if (currentIsRight && !rightToLeftMatchEdges.ContainsKey(current))
             foreach (var edge in graph.GetVertex(current).Edges)
             {
-                var result = dfs(graph, leftToRightMatchEdges, rightToLeftMatchEdges, edge.TargetVertexKey, current,
+                var result = Dfs(graph, leftToRightMatchEdges, rightToLeftMatchEdges, edge.TargetVertexKey, current,
                     visited, !currentIsRight);
                 if (result != null)
                 {
@@ -147,7 +147,7 @@ public class HopcroftKarpMatching<T>
         if (currentIsLeft && leftToRightMatchEdges.ContainsKey(current))
             foreach (var edge in graph.GetVertex(current).Edges)
             {
-                var result = dfs(graph, leftToRightMatchEdges, rightToLeftMatchEdges, edge.TargetVertexKey, current,
+                var result = Dfs(graph, leftToRightMatchEdges, rightToLeftMatchEdges, edge.TargetVertexKey, current,
                     visited, !currentIsRight);
                 if (result != null)
                 {
@@ -160,14 +160,14 @@ public class HopcroftKarpMatching<T>
         return null;
     }
 
-    private void union(HashSet<MatchEdge<T>> paths, HashSet<MatchEdge<T>> path)
+    private void Union(HashSet<MatchEdge<T>> paths, HashSet<MatchEdge<T>> path)
     {
         foreach (var item in path)
             if (!paths.Contains(item))
                 paths.Add(item);
     }
 
-    private void xor(HashSet<MatchEdge<T>> matches, HashSet<MatchEdge<T>> paths,
+    private void Xor(HashSet<MatchEdge<T>> matches, HashSet<MatchEdge<T>> paths,
         Dictionary<T, T> leftToRightMatchEdges, Dictionary<T, T> rightToLeftMatchEdges)
     {
         foreach (var item in paths)

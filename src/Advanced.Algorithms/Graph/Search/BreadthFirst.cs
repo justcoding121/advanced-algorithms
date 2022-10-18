@@ -13,13 +13,13 @@ public class BreadthFirst<T>
     /// </summary>
     public bool Find(IGraph<T> graph, T vertex)
     {
-        return bfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
+        return Bfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
     }
 
     /// <summary>
     ///     BFS implementation.
     /// </summary>
-    private bool bfs(IGraphVertex<T> referenceVertex,
+    private bool Bfs(IGraphVertex<T> referenceVertex,
         HashSet<T> visited, T searchVertex)
     {
         var bfsQueue = new Queue<IGraphVertex<T>>();

@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Search
 {
     [TestClass]
-    public class BinarySearch_Tests
+    public class BinarySearchTests
     {
         [TestMethod]
         public void Search_Smoke_Test()

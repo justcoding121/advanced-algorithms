@@ -17,12 +17,12 @@ public class QuickSort<T> where T : IComparable
 
         var comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
 
-        sort(array, 0, array.Length - 1, comparer);
+        Sort(array, 0, array.Length - 1, comparer);
 
         return array;
     }
 
-    private static void sort(T[] array, int startIndex, int endIndex, CustomComparer<T> comparer)
+    private static void Sort(T[] array, int startIndex, int endIndex, CustomComparer<T> comparer)
     {
         while (true)
         {
@@ -49,7 +49,7 @@ public class QuickSort<T> where T : IComparable
             }
 
             //sort left
-            sort(array, startIndex, wall - 2, comparer);
+            Sort(array, startIndex, wall - 2, comparer);
             //sort right
             startIndex = wall;
         }

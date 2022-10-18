@@ -7,9 +7,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class TernarySearchTree_Tests
+    public class TernarySearchTreeTests
     {
-        private static readonly Random random = new Random();
+        private static readonly Random Random = new Random();
 
         [TestMethod]
         public void TernarySearchTree_Smoke_Test()
@@ -123,7 +123,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             while (testCount > 0)
             {
-                var testString = randomString(3);
+                var testString = RandomString(3);
                 testStrings.Add(testString);
                 testCount--;
             }
@@ -146,11 +146,11 @@ namespace Advanced.Algorithms.Tests.DataStructures
             foreach (var testString in testStrings) tree.Delete(testString.ToArray());
         }
 
-        public static string randomString(int length)
+        public static string RandomString(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
-                .Select(s => s[random.Next(s.Length)]).ToArray());
+                .Select(s => s[Random.Next(s.Length)]).ToArray());
         }
     }
 }

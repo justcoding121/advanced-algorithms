@@ -10,7 +10,7 @@ namespace Advanced.Algorithms.DataStructures;
 /// </summary>
 public class BinaryTree<T> : IEnumerable<T> where T : IComparable
 {
-    private BinaryTreeNode<T> root { get; set; }
+    private BinaryTreeNode<T> Root { get; set; }
 
     public int Count { get; private set; }
 
@@ -21,7 +21,7 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new BinaryTreeEnumerator<T>(root);
+        return new BinaryTreeEnumerator<T>(Root);
     }
 
     /// <summary>
@@ -29,9 +29,9 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public bool HasItem(T value)
     {
-        if (root == null) return false;
+        if (Root == null) return false;
 
-        return find(root, value) != null;
+        return Find(Root, value) != null;
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public int GetHeight()
     {
-        return getHeight(root);
+        return GetHeight(Root);
     }
 
     /// <summary>
@@ -49,18 +49,18 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     public void Insert(T parent, T child)
     {
-        if (root == null)
+        if (Root == null)
         {
-            root = new BinaryTreeNode<T>(null, child);
+            Root = new BinaryTreeNode<T>(null, child);
             Count++;
             return;
         }
 
-        var parentNode = find(parent);
+        var parentNode = Find(parent);
 
         if (parentNode == null) throw new Exception("Cannot find parent node");
 
-        var exists = find(root, child) != null;
+        var exists = Find(Root, child) != null;
 
         if (exists) throw new ArgumentNullException("value already exists");
 
@@ -90,7 +90,7 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
-        var node = find(value);
+        var node = Find(value);
 
         if (node == null) throw new Exception("Cannot find node");
 
@@ -99,7 +99,7 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
             case null when node.Right == null:
                 if (node.Parent == null)
                 {
-                    root = null;
+                    Root = null;
                 }
                 else
                 {
@@ -145,26 +145,26 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public IEnumerable<T> Children(T value)
     {
-        var node = find(value);
+        var node = Find(value);
 
         if (node != null) return new[] { node.Left, node.Right }.Where(x => x != null).Select(x => x.Value);
 
         return null;
     }
 
-    private int getHeight(BinaryTreeNode<T> node)
+    private int GetHeight(BinaryTreeNode<T> node)
     {
         if (node == null) return -1;
 
-        return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
+        return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
     }
 
-    private BinaryTreeNode<T> find(T value)
+    private BinaryTreeNode<T> Find(T value)
     {
-        return root == null ? null : find(root, value);
+        return Root == null ? null : Find(Root, value);
     }
 
-    private BinaryTreeNode<T> find(BinaryTreeNode<T> parent, T value)
+    private BinaryTreeNode<T> Find(BinaryTreeNode<T> parent, T value)
     {
         while (true)
         {
@@ -172,7 +172,7 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
 
             if (parent.Value.CompareTo(value) == 0) return parent;
 
-            var left = find(parent.Left, value);
+            var left = Find(parent.Left, value);
 
             if (left != null) return left;
 

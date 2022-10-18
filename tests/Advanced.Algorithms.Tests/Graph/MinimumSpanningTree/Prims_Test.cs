@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class Prims_Tests
+    public class PrimsTests
     {
         [TestMethod]
         public void Prims_AdjacencyListGraph_Smoke_Test()

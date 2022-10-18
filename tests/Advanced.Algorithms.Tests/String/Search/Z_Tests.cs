@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.String
 {
     [TestClass]
-    public class Z_Tests
+    public class ZTests
     {
         [TestMethod]
         public void String_Z_Test()

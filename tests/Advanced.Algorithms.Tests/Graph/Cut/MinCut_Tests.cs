@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class MinCut_Tests
+    public class MinCutTests
     {
         /// <summary>
         ///     Min Cut test
@@ -184,7 +184,7 @@ namespace Advanced.Algorithms.Tests.Graph
                 return checked(a + b);
             }
 
-            public int defaultWeight => 0;
+            public int DefaultWeight => 0;
 
             public int MaxWeight => int.MaxValue;
 

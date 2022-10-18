@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Combinatorics
 {
     [TestClass]
-    public class Subset_Tests
+    public class SubsetTests
     {
         [TestMethod]
         public void Subset_Smoke_Test()

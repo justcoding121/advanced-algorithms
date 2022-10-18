@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class MinVertexCover_Tests
+    public class MinVertexCoverTests
     {
         [TestMethod]
         public void MinVertexCover_AdjacencyListGraph_Smoke_Test()

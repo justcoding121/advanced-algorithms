@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class BinomialHeap_Tests
+    public class BinomialHeapTests
     {
         [TestMethod]
         public void Min_BinomialHeap_Test()

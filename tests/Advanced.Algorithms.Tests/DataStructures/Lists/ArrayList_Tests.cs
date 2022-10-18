@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class ArrayList_Tests
+    public class ArrayListTests
     {
         [TestMethod]
         public void ArrayList_Test()

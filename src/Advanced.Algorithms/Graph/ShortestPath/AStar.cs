@@ -9,12 +9,12 @@ namespace Advanced.Algorithms.Graph;
 /// <summary>
 ///     A* algorithm implementation using Fibonacci Heap.
 /// </summary>
-public class AStarShortestPath<T, W> where W : IComparable
+public class AStarShortestPath<T, TW> where TW : IComparable
 {
-    private readonly IAStarHeuristic<T, W> heuristic;
-    private readonly IShortestPathOperators<W> @operator;
+    private readonly IAStarHeuristic<T, TW> heuristic;
+    private readonly IShortestPathOperators<TW> @operator;
 
-    public AStarShortestPath(IShortestPathOperators<W> @operator, IAStarHeuristic<T, W> heuristic)
+    public AStarShortestPath(IShortestPathOperators<TW> @operator, IAStarHeuristic<T, TW> heuristic)
     {
         this.@operator = @operator;
         this.heuristic = heuristic;
@@ -23,7 +23,7 @@ public class AStarShortestPath<T, W> where W : IComparable
     /// <summary>
     ///     Search path to target using the heuristic.
     /// </summary>
-    public ShortestPathResult<T, W> FindShortestPath(IGraph<T> graph, T source, T destination)
+    public ShortestPathResult<T, TW> FindShortestPath(IGraph<T> graph, T source, T destination)
     {
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
@@ -37,15 +37,15 @@ public class AStarShortestPath<T, W> where W : IComparable
         if (graph?.GetVertex(source) == null || graph.GetVertex(destination) == null) throw new ArgumentException();
 
         //track progress for distance to each Vertex from source
-        var progress = new Dictionary<T, W>();
+        var progress = new Dictionary<T, TW>();
 
         //trace our current path by mapping current vertex to its Parent
         var parentMap = new Dictionary<T, T>();
 
         //min heap to pick next closest vertex 
-        var minHeap = new FibonacciHeap<AStarWrap<T, W>>();
+        var minHeap = new FibonacciHeap<AStarWrap<T, TW>>();
         //keep references of heap Node for decrement key operation
-        var heapMapping = new Dictionary<T, AStarWrap<T, W>>();
+        var heapMapping = new Dictionary<T, AStarWrap<T, TW>>();
 
         //add vertices to min heap and progress map
         foreach (var vertex in graph.VerticesAsEnumberable)
@@ -60,7 +60,7 @@ public class AStarShortestPath<T, W> where W : IComparable
         }
 
         //start from source vertex as current 
-        var current = new AStarWrap<T, W>(heuristic, destination)
+        var current = new AStarWrap<T, TW>(heuristic, destination)
         {
             Distance = @operator.DefaultValue,
             Vertex = source
@@ -79,7 +79,7 @@ public class AStarShortestPath<T, W> where W : IComparable
 
             //no path exists, so return max value
             if (current.Distance.Equals(@operator.MaxValue))
-                return new ShortestPathResult<T, W>(null, @operator.MaxValue);
+                return new ShortestPathResult<T, TW>(null, @operator.MaxValue);
 
             //visit neighbours of current
             foreach (var neighbour in graph.GetVertex(current.Vertex).Edges
@@ -87,7 +87,7 @@ public class AStarShortestPath<T, W> where W : IComparable
             {
                 //new distance to neighbour
                 var newDistance = @operator.Sum(current.Distance,
-                    graph.GetVertex(current.Vertex).GetEdge(neighbour.TargetVertex).Weight<W>());
+                    graph.GetVertex(current.Vertex).GetEdge(neighbour.TargetVertex).Weight<TW>());
 
                 //current distance to neighbour
                 var existingDistance = progress[neighbour.TargetVertexKey];
@@ -100,7 +100,7 @@ public class AStarShortestPath<T, W> where W : IComparable
                     if (heapMapping.ContainsKey(neighbour.TargetVertexKey))
                     {
                         //decrement distance to neighbour in heap
-                        var decremented = new AStarWrap<T, W>(heuristic, destination)
+                        var decremented = new AStarWrap<T, TW>(heuristic, destination)
                         {
                             Distance = newDistance,
                             Vertex = neighbour.TargetVertexKey
@@ -112,7 +112,7 @@ public class AStarShortestPath<T, W> where W : IComparable
                     else
                     {
                         //insert neighbour in heap
-                        var discovered = new AStarWrap<T, W>(heuristic, destination)
+                        var discovered = new AStarWrap<T, TW>(heuristic, destination)
                         {
                             Distance = newDistance,
                             Vertex = neighbour.TargetVertexKey
@@ -128,13 +128,13 @@ public class AStarShortestPath<T, W> where W : IComparable
             }
         }
 
-        return tracePath(graph, parentMap, source, destination);
+        return TracePath(graph, parentMap, source, destination);
     }
 
     /// <summary>
     ///     Trace back path from destination to source using parent map.
     /// </summary>
-    private ShortestPathResult<T, W> tracePath(IGraph<T> graph, Dictionary<T, T> parentMap, T source, T destination)
+    private ShortestPathResult<T, TW> TracePath(IGraph<T> graph, Dictionary<T, T> parentMap, T source, T destination)
     {
         //trace the path
         var pathStack = new Stack<T>();
@@ -155,37 +155,37 @@ public class AStarShortestPath<T, W> where W : IComparable
 
         for (var i = 0; i < resultPath.Count - 1; i++)
             resultLength = @operator.Sum(resultLength,
-                graph.GetVertex(resultPath[i]).GetEdge(graph.GetVertex(resultPath[i + 1])).Weight<W>());
+                graph.GetVertex(resultPath[i]).GetEdge(graph.GetVertex(resultPath[i + 1])).Weight<TW>());
 
-        return new ShortestPathResult<T, W>(resultPath, resultLength);
+        return new ShortestPathResult<T, TW>(resultPath, resultLength);
     }
 }
 
 /// <summary>
 ///     Search heuristic used by A* search algorithm.
 /// </summary>
-public interface IAStarHeuristic<T, W> where W : IComparable
+public interface IAStarHeuristic<T, TW> where TW : IComparable
 {
     /// <summary>
     ///     Return the distance to target for given sourcevertex as computed by the hueristic used for A* search.
     /// </summary>
-    W HueristicDistanceToTarget(T sourceVertex, T targetVertex);
+    TW HueristicDistanceToTarget(T sourceVertex, T targetVertex);
 }
 
 //Node for our Fibonacci heap
-internal class AStarWrap<T, W> : IComparable where W : IComparable
+internal class AStarWrap<T, TW> : IComparable where TW : IComparable
 {
     private readonly T destinationVertex;
-    private readonly IAStarHeuristic<T, W> heuristic;
+    private readonly IAStarHeuristic<T, TW> heuristic;
 
-    internal AStarWrap(IAStarHeuristic<T, W> heuristic, T destinationVertex)
+    internal AStarWrap(IAStarHeuristic<T, TW> heuristic, T destinationVertex)
     {
         this.heuristic = heuristic;
         this.destinationVertex = destinationVertex;
     }
 
     internal T Vertex { get; set; }
-    internal W Distance { get; set; }
+    internal TW Distance { get; set; }
 
     //compare distance to target using the heuristic provided
     public int CompareTo(object obj)
@@ -193,7 +193,7 @@ internal class AStarWrap<T, W> : IComparable where W : IComparable
         if (this == obj) return 0;
 
         var result1 = heuristic.HueristicDistanceToTarget(Vertex, destinationVertex);
-        var result2 = heuristic.HueristicDistanceToTarget((obj as AStarWrap<T, W>).Vertex, destinationVertex);
+        var result2 = heuristic.HueristicDistanceToTarget((obj as AStarWrap<T, TW>).Vertex, destinationVertex);
 
         return result1.CompareTo(result2);
     }

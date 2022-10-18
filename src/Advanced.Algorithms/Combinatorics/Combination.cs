@@ -11,12 +11,12 @@ public class Combination
     {
         var result = new List<List<T>>();
 
-        recurse(n, r, withRepetition, 0, new List<T>(), new HashSet<int>(), result);
+        Recurse(n, r, withRepetition, 0, new List<T>(), new HashSet<int>(), result);
 
         return result;
     }
 
-    private static void recurse<T>(List<T> n, int r, bool withRepetition,
+    private static void Recurse<T>(List<T> n, int r, bool withRepetition,
         int k, List<T> prefix, HashSet<int> prefixIndices,
         List<List<T>> result)
     {
@@ -33,7 +33,7 @@ public class Combination
             prefix.Add(n[j]);
             prefixIndices.Add(j);
 
-            recurse(n, r, withRepetition, j, prefix, prefixIndices, result);
+            Recurse(n, r, withRepetition, j, prefix, prefixIndices, result);
 
             prefix.RemoveAt(prefix.Count - 1);
             prefixIndices.Remove(j);

@@ -11,12 +11,12 @@ public class Subset
     {
         var result = new List<List<T>>();
 
-        recurse(input, 0, new List<T>(), new HashSet<int>(), result);
+        Recurse(input, 0, new List<T>(), new HashSet<int>(), result);
 
         return result;
     }
 
-    private static void recurse<T>(List<T> input,
+    private static void Recurse<T>(List<T> input,
         int k, List<T> prefix, HashSet<int> prefixIndices,
         List<List<T>> result)
     {
@@ -29,7 +29,7 @@ public class Subset
             prefix.Add(input[j]);
             prefixIndices.Add(j);
 
-            recurse(input, j + 1, prefix, prefixIndices, result);
+            Recurse(input, j + 1, prefix, prefixIndices, result);
 
             prefix.RemoveAt(prefix.Count - 1);
             prefixIndices.Remove(j);

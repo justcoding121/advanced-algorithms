@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class SinglyLinkedList_Tests
+    public class SinglyLinkedListTests
     {
         /// <summary>
         ///     singly linked list tests

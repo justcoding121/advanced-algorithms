@@ -2,7 +2,7 @@
 
 namespace Advanced.Algorithms.DataStructures;
 
-internal static class IEnumerableExtensions
+internal static class EnumerableExtensions
 {
     internal static IEnumerable<T> AsEnumerable<T>(this IEnumerator<T> e)
     {

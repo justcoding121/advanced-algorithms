@@ -25,7 +25,7 @@ public class SkipList<T> : IEnumerable<T> where T : IComparable
         {
             Prev = null,
             Next = new SkipListNode<T>[maxHeight],
-            value = default
+            Value = default
         };
     }
 
@@ -61,11 +61,11 @@ public class SkipList<T> : IEnumerable<T> where T : IComparable
             while (true)
             {
                 if (current.Next[i] != null
-                    && current.Next[i].value.CompareTo(value) == 0)
-                    return current.Next[i].value;
+                    && current.Next[i].Value.CompareTo(value) == 0)
+                    return current.Next[i].Value;
 
                 if (current.Next[i] == null
-                    || current.Next[i].value.CompareTo(value) > 0)
+                    || current.Next[i].Value.CompareTo(value) > 0)
                     break;
 
                 //update current
@@ -96,7 +96,7 @@ public class SkipList<T> : IEnumerable<T> where T : IComparable
 
         var newNode = new SkipListNode<T>
         {
-            value = value,
+            Value = value,
             //only level + 1 number of links (level is zero index based)
             Next = new SkipListNode<T>[level + 1]
         };
@@ -112,7 +112,7 @@ public class SkipList<T> : IEnumerable<T> where T : IComparable
             while (true)
             {
                 if (current.Next[i] == null
-                    || current.Next[i].value.CompareTo(value) > 0)
+                    || current.Next[i].Value.CompareTo(value) > 0)
                     break;
 
                 current = current.Next[i];
@@ -153,18 +153,18 @@ public class SkipList<T> : IEnumerable<T> where T : IComparable
             while (true)
             {
                 if (current.Next[i] == null
-                    || current.Next[i].value.CompareTo(value) >= 0)
+                    || current.Next[i].Value.CompareTo(value) >= 0)
                     break;
 
                 current = current.Next[i];
             }
 
             //item not found
-            if (i == 0 && current.Next[i].value.CompareTo(value) != 0)
+            if (i == 0 && current.Next[i].Value.CompareTo(value) != 0)
                 throw new Exception("Item to delete was not found in this skip list.");
 
             if (current.Next[i] != null
-                && current.Next[i].value.CompareTo(value) == 0)
+                && current.Next[i].Value.CompareTo(value) == 0)
             {
                 //for base level set previous node
                 if (i == 0 && current.Next[i].Next[i] != null) current.Next[i].Next[i].Prev = current;
@@ -183,7 +183,7 @@ internal class SkipListNode<T> where T : IComparable
     internal SkipListNode<T> Prev { get; set; }
     internal SkipListNode<T>[] Next { get; set; }
 
-    internal T value { get; set; }
+    internal T Value { get; set; }
 }
 
 internal class SkipListEnumerator<T> : IEnumerator<T> where T : IComparable
@@ -217,7 +217,7 @@ internal class SkipListEnumerator<T> : IEnumerator<T> where T : IComparable
 
     object IEnumerator.Current => Current;
 
-    public T Current => current.value;
+    public T Current => current.Value;
 
     public void Dispose()
     {

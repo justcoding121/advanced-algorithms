@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Geometry
 {
     [TestClass]
-    public class PointRotation_Tests
+    public class PointRotationTests
     {
         [TestMethod]
         public void PointRotation_Smoke_Test()

@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class TarjansStronglyConnected_Tests
+    public class TarjansStronglyConnectedTests
     {
         [TestMethod]
         public void TarjanStronglyConnected_AdjancencyListGraph_Smoke_Test()

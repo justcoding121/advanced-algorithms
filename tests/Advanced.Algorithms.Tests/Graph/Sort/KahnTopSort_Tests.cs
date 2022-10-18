@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class KahnsTopSort_Tests
+    public class KahnsTopSortTests
     {
         [TestMethod]
         public void Kahns_Topological_Sort_AdjancencyListGraph_Smoke_Test()

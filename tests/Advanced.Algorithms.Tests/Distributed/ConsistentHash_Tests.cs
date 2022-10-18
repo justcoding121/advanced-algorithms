@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests
 {
     [TestClass]
-    public class ConsistentHash_Tests
+    public class ConsistentHashTests
     {
         [TestMethod]
         public void ConsistantHash_Smoke_Test()

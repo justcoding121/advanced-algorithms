@@ -8,15 +8,15 @@ namespace Advanced.Algorithms.Distributed;
 /// <summary>
 ///     A least recently used cache implemetation.
 /// </summary>
-public class LRUCache<K, V>
+public class LruCache<TK, TV>
 {
     private readonly int capacity;
 
-    private readonly DoublyLinkedList<Tuple<K, V>> dll = new();
+    private readonly DoublyLinkedList<Tuple<TK, TV>> dll = new();
 
-    private readonly Dictionary<K, DoublyLinkedListNode<Tuple<K, V>>> lookUp = new();
+    private readonly Dictionary<TK, DoublyLinkedListNode<Tuple<TK, TV>>> lookUp = new();
 
-    public LRUCache(int capacity)
+    public LruCache(int capacity)
     {
         if (capacity <= 0) throw new Exception("Capacity must be a positive integer.");
         this.capacity = capacity;
@@ -25,7 +25,7 @@ public class LRUCache<K, V>
     /// <summary>
     ///     Time complexity: O(1).
     /// </summary>
-    public V Get(K key)
+    public TV Get(TK key)
     {
         if (!lookUp.ContainsKey(key))
             return default;
@@ -43,7 +43,7 @@ public class LRUCache<K, V>
     /// <summary>
     ///     Time complexity: O(1).
     /// </summary>
-    public void Put(K key, V value)
+    public void Put(TK key, TV value)
     {
         //evict last node of ddl if capacity overflows
         if (lookUp.Count == capacity)
@@ -54,7 +54,7 @@ public class LRUCache<K, V>
         }
 
         //insert
-        var newNode = dll.InsertFirst(new Tuple<K, V>(key, value));
+        var newNode = dll.InsertFirst(new Tuple<TK, TV>(key, value));
         lookUp.Add(key, newNode);
     }
 }

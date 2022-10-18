@@ -7,10 +7,10 @@ public class BinarySearch
 {
     public static int Search(int[] input, int element)
     {
-        return search(input, 0, input.Length - 1, element);
+        return Search(input, 0, input.Length - 1, element);
     }
 
-    private static int search(int[] input, int i, int j, int element)
+    private static int Search(int[] input, int i, int j, int element)
     {
         while (true)
         {

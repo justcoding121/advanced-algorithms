@@ -5,14 +5,14 @@ using System.Collections.Generic;
 namespace Advanced.Algorithms.DataStructures;
 
 //  implement IEnumerator.
-internal class BSTEnumerator<T> : IEnumerator<T> where T : IComparable
+internal class BstEnumerator<T> : IEnumerator<T> where T : IComparable
 {
     private readonly bool asc;
 
-    private readonly BSTNodeBase<T> root;
-    private BSTNodeBase<T> current;
+    private readonly BstNodeBase<T> root;
+    private BstNodeBase<T> current;
 
-    internal BSTEnumerator(BSTNodeBase<T> root, bool asc = true)
+    internal BstEnumerator(BstNodeBase<T> root, bool asc = true)
     {
         this.root = root;
         this.asc = asc;

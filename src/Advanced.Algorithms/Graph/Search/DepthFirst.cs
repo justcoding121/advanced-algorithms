@@ -13,13 +13,13 @@ public class DepthFirst<T>
     /// </summary>
     public bool Find(IGraph<T> graph, T vertex)
     {
-        return dfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
+        return Dfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
     }
 
     /// <summary>
     ///     Recursive DFS.
     /// </summary>
-    private bool dfs(IGraphVertex<T> current,
+    private bool Dfs(IGraphVertex<T> current,
         HashSet<T> visited, T searchVetex)
     {
         visited.Add(current.Key);
@@ -30,7 +30,7 @@ public class DepthFirst<T>
         {
             if (visited.Contains(edge.TargetVertexKey)) continue;
 
-            if (dfs(edge.TargetVertex, visited, searchVetex)) return true;
+            if (Dfs(edge.TargetVertex, visited, searchVetex)) return true;
         }
 
         return false;

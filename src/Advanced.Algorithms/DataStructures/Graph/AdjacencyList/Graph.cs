@@ -13,20 +13,20 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 {
     public Graph()
     {
-        vertices = new Dictionary<T, GraphVertex<T>>();
+        Vertices = new Dictionary<T, GraphVertex<T>>();
     }
 
-    private Dictionary<T, GraphVertex<T>> vertices { get; }
+    private Dictionary<T, GraphVertex<T>> Vertices { get; }
 
     /// <summary>
     ///     Returns a reference vertex.
     ///     Time complexity: O(1).
     /// </summary>
-    private GraphVertex<T> referenceVertex
+    private GraphVertex<T> ReferenceVertex
     {
         get
         {
-            using (var enumerator = vertices.GetEnumerator())
+            using (var enumerator = Vertices.GetEnumerator())
             {
                 if (enumerator.MoveNext()) return enumerator.Current.Value;
             }
@@ -37,7 +37,7 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
     public IEnumerator GetEnumerator()
     {
-        return vertices.Select(x => x.Key).GetEnumerator();
+        return Vertices.Select(x => x.Key).GetEnumerator();
     }
 
     IEnumerator<T> IEnumerable<T>.GetEnumerator()
@@ -45,10 +45,10 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         return GetEnumerator() as IEnumerator<T>;
     }
 
-    public int VerticesCount => vertices.Count;
+    public int VerticesCount => Vertices.Count;
     public bool IsWeightedGraph => false;
 
-    IGraphVertex<T> IGraph<T>.ReferenceVertex => referenceVertex;
+    IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
 
     /// <summary>
     ///     Do we have an edge between given source and destination?
@@ -56,21 +56,21 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     /// </summary>
     public bool HasEdge(T source, T dest)
     {
-        if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             throw new ArgumentException("source or destination is not in this graph.");
 
-        return vertices[source].Edges.Contains(vertices[dest])
-               && vertices[dest].Edges.Contains(vertices[source]);
+        return Vertices[source].Edges.Contains(Vertices[dest])
+               && Vertices[dest].Edges.Contains(Vertices[source]);
     }
 
     public bool ContainsVertex(T value)
     {
-        return vertices.ContainsKey(value);
+        return Vertices.ContainsKey(value);
     }
 
     public IGraphVertex<T> GetVertex(T value)
     {
-        return vertices[value];
+        return Vertices[value];
     }
 
     IGraph<T> IGraph<T>.Clone()
@@ -78,7 +78,7 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         return Clone();
     }
 
-    public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => vertices.Select(x => x.Value);
+    public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => Vertices.Select(x => x.Value);
 
 
     /// <summary>
@@ -91,7 +91,7 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
         var newVertex = new GraphVertex<T>(value);
 
-        vertices.Add(value, newVertex);
+        Vertices.Add(value, newVertex);
     }
 
     /// <summary>
@@ -102,11 +102,11 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     {
         if (vertex == null) throw new ArgumentNullException();
 
-        if (!vertices.ContainsKey(vertex)) throw new Exception("Vertex not in this graph.");
+        if (!Vertices.ContainsKey(vertex)) throw new Exception("Vertex not in this graph.");
 
-        foreach (var v in vertices[vertex].Edges) v.Edges.Remove(vertices[vertex]);
+        foreach (var v in Vertices[vertex].Edges) v.Edges.Remove(Vertices[vertex]);
 
-        vertices.Remove(vertex);
+        Vertices.Remove(vertex);
     }
 
     /// <summary>
@@ -117,15 +117,15 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     {
         if (source == null || dest == null) throw new ArgumentException();
 
-        if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             throw new Exception("Source or Destination Vertex is not in this graph.");
 
-        if (vertices[source].Edges.Contains(vertices[dest])
-            || vertices[dest].Edges.Contains(vertices[source]))
+        if (Vertices[source].Edges.Contains(Vertices[dest])
+            || Vertices[dest].Edges.Contains(Vertices[source]))
             throw new Exception("Edge already exists.");
 
-        vertices[source].Edges.Add(vertices[dest]);
-        vertices[dest].Edges.Add(vertices[source]);
+        Vertices[source].Edges.Add(Vertices[dest]);
+        Vertices[dest].Edges.Add(Vertices[source]);
     }
 
     /// <summary>
@@ -136,22 +136,22 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     {
         if (source == null || dest == null) throw new ArgumentException();
 
-        if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             throw new Exception("Source or Destination Vertex is not in this graph.");
 
-        if (!vertices[source].Edges.Contains(vertices[dest])
-            || !vertices[dest].Edges.Contains(vertices[source]))
+        if (!Vertices[source].Edges.Contains(Vertices[dest])
+            || !Vertices[dest].Edges.Contains(Vertices[source]))
             throw new Exception("Edge do not exists.");
 
-        vertices[source].Edges.Remove(vertices[dest]);
-        vertices[dest].Edges.Remove(vertices[source]);
+        Vertices[source].Edges.Remove(Vertices[dest]);
+        Vertices[dest].Edges.Remove(Vertices[source]);
     }
 
     public IEnumerable<T> Edges(T vertex)
     {
-        if (!vertices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!Vertices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
 
-        return vertices[vertex].Edges.Select(x => x.Key);
+        return Vertices[vertex].Edges.Select(x => x.Key);
     }
 
     /// <summary>
@@ -161,9 +161,9 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     {
         var newGraph = new Graph<T>();
 
-        foreach (var vertex in vertices) newGraph.AddVertex(vertex.Key);
+        foreach (var vertex in Vertices) newGraph.AddVertex(vertex.Key);
 
-        foreach (var vertex in vertices)
+        foreach (var vertex in Vertices)
         foreach (var edge in vertex.Value.Edges)
             newGraph.AddEdge(vertex.Value.Key, edge.Key);
 

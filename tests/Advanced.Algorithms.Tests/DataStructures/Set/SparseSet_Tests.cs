@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class SparseSet_Tests
+    public class SparseSetTests
     {
         [TestMethod]
         public void SparseSet_Smoke_Test()

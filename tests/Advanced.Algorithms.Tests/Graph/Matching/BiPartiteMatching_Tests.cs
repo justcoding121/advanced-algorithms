@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class BiPartititeMatch_Tests
+    public class BiPartititeMatchTests
     {
         /// <summary>
         ///     Test Max BiParitite Edges using Ford-Fukerson algorithm
@@ -209,7 +209,7 @@ namespace Advanced.Algorithms.Tests.Graph
             private int currentIndex;
             private readonly char[] randomVertices = { '#', '*' };
 
-            public int defaultWeight => 0;
+            public int DefaultWeight => 0;
 
             public int MaxWeight => int.MaxValue;
 

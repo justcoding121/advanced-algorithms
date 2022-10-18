@@ -77,13 +77,13 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public bool HasItem(T value)
     {
-        return find(Root, value) != null;
+        return Find(Root, value) != null;
     }
 
     /// <summary>
     ///     Find the given value node under given node
     /// </summary>
-    private BpTreeNode<T> find(BpTreeNode<T> node, T value)
+    private BpTreeNode<T> Find(BpTreeNode<T> node, T value)
     {
         //if leaf then its time to insert
         if (node.IsLeaf)
@@ -99,11 +99,11 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
             {
                 //current value is less than new value
                 //drill down to left child of current value
-                if (value.CompareTo(node.Keys[i]) < 0) return find(node.Children[i], value);
+                if (value.CompareTo(node.Keys[i]) < 0) return Find(node.Children[i], value);
                 //current value is grearer than new value
                 //and current value is last element 
 
-                if (node.KeyCount == i + 1) return find(node.Children[i + 1], value);
+                if (node.KeyCount == i + 1) return Find(node.Children[i + 1], value);
             }
         }
 
@@ -125,16 +125,16 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
             return;
         }
 
-        var leafToInsert = findInsertionLeaf(Root, newValue);
+        var leafToInsert = FindInsertionLeaf(Root, newValue);
 
-        insertAndSplit(ref leafToInsert, newValue, null, null);
+        InsertAndSplit(ref leafToInsert, newValue, null, null);
         Count++;
     }
 
     /// <summary>
     ///     Find the leaf node to start initial insertion.
     /// </summary>
-    private BpTreeNode<T> findInsertionLeaf(BpTreeNode<T> node, T newValue)
+    private BpTreeNode<T> FindInsertionLeaf(BpTreeNode<T> node, T newValue)
     {
         //if leaf then its time to insert
         if (node.IsLeaf) return node;
@@ -144,11 +144,11 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         {
             //current value is less than new value
             //drill down to left child of current value
-            if (newValue.CompareTo(node.Keys[i]) < 0) return findInsertionLeaf(node.Children[i], newValue);
+            if (newValue.CompareTo(node.Keys[i]) < 0) return FindInsertionLeaf(node.Children[i], newValue);
             //current value is grearer than new value
             //and current value is last element 
 
-            if (node.KeyCount == i + 1) return findInsertionLeaf(node.Children[i + 1], newValue);
+            if (node.KeyCount == i + 1) return FindInsertionLeaf(node.Children[i + 1], newValue);
         }
 
         return node;
@@ -157,7 +157,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Insert and split recursively up until no split is required
     /// </summary>
-    private void insertAndSplit(ref BpTreeNode<T> node, T newValue,
+    private void InsertAndSplit(ref BpTreeNode<T> node, T newValue,
         BpTreeNode<T> newValueLeft, BpTreeNode<T> newValueRight)
     {
         //add new item to current node
@@ -172,7 +172,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         //so just insert in right spot in asc order of keys
         if (node.KeyCount != maxKeysPerNode)
         {
-            insertToNotFullNode(ref node, newValue, newValueLeft, newValueRight);
+            InsertToNotFullNode(ref node, newValue, newValueLeft, newValueRight);
             return;
         }
 
@@ -184,7 +184,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         var right = new BpTreeNode<T>(maxKeysPerNode, null);
 
         //connect leaves via linked list for faster enumeration
-        if (node.IsLeaf) connectLeaves(node, left, right);
+        if (node.IsLeaf) ConnectLeaves(node, left, right);
 
         //median of current Node
         var currentMedianIndex = node.GetMedianIndex();
@@ -220,13 +220,13 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
                     newMedian = newValue;
                     newValueInserted = true;
 
-                    if (newValueLeft != null) setChild(currentNode, currentNode.KeyCount, newValueLeft);
+                    if (newValueLeft != null) SetChild(currentNode, currentNode.KeyCount, newValueLeft);
 
                     //now fill right node
                     currentNode = right;
                     currentNodeIndex = 0;
 
-                    if (newValueRight != null) setChild(currentNode, 0, newValueRight);
+                    if (newValueRight != null) SetChild(currentNode, 0, newValueRight);
 
                     i--;
                     insertionCount++;
@@ -255,17 +255,17 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
                 //if child is set don't set again
                 //the child was already set by last newValueRight or last node
                 if (currentNode.Children[currentNodeIndex] == null)
-                    setChild(currentNode, currentNodeIndex, node.Children[i]);
+                    SetChild(currentNode, currentNodeIndex, node.Children[i]);
 
-                setChild(currentNode, currentNodeIndex + 1, node.Children[i + 1]);
+                SetChild(currentNode, currentNodeIndex + 1, node.Children[i + 1]);
             }
             else
             {
                 currentNode.Keys[currentNodeIndex] = newValue;
                 currentNode.KeyCount++;
 
-                setChild(currentNode, currentNodeIndex, newValueLeft);
-                setChild(currentNode, currentNodeIndex + 1, newValueRight);
+                SetChild(currentNode, currentNodeIndex, newValueLeft);
+                SetChild(currentNode, currentNodeIndex + 1, newValueRight);
 
                 i--;
                 newValueInserted = true;
@@ -282,25 +282,25 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
             currentNode.Keys[currentNodeIndex] = newValue;
             currentNode.KeyCount++;
 
-            setChild(currentNode, currentNodeIndex, newValueLeft);
-            setChild(currentNode, currentNodeIndex + 1, newValueRight);
+            SetChild(currentNode, currentNodeIndex, newValueLeft);
+            SetChild(currentNode, currentNodeIndex + 1, newValueRight);
         }
 
         if (node.IsLeaf)
         {
-            insertAt(right.Keys, 0, newMedian);
+            InsertAt(right.Keys, 0, newMedian);
             right.KeyCount++;
         }
 
         //insert overflow element (newMedian) to parent
         var parent = node.Parent;
-        insertAndSplit(ref parent, newMedian, left, right);
+        InsertAndSplit(ref parent, newMedian, left, right);
     }
 
     /// <summary>
     ///     Insert to a node that is not full.
     /// </summary>
-    private void insertToNotFullNode(ref BpTreeNode<T> node, T newValue,
+    private void InsertToNotFullNode(ref BpTreeNode<T> node, T newValue,
         BpTreeNode<T> newValueLeft, BpTreeNode<T> newValueRight)
     {
         var inserted = false;
@@ -318,12 +318,12 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         {
             if (newValue.CompareTo(node.Keys[i]) >= 0) continue;
 
-            insertAt(node.Keys, i, newValue);
+            InsertAt(node.Keys, i, newValue);
             node.KeyCount++;
 
             //Insert children if any
-            setChild(node, i, newValueLeft);
-            insertChild(node, i + 1, newValueRight);
+            SetChild(node, i, newValueLeft);
+            InsertChild(node, i + 1, newValueRight);
 
             inserted = true;
             break;
@@ -336,12 +336,12 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         node.Keys[node.KeyCount] = newValue;
         node.KeyCount++;
 
-        setChild(node, node.KeyCount - 1, newValueLeft);
-        setChild(node, node.KeyCount, newValueRight);
+        SetChild(node, node.KeyCount - 1, newValueLeft);
+        SetChild(node, node.KeyCount, newValueRight);
     }
 
 
-    private void connectLeaves(BpTreeNode<T> node, BpTreeNode<T> left, BpTreeNode<T> right)
+    private void ConnectLeaves(BpTreeNode<T> node, BpTreeNode<T> left, BpTreeNode<T> right)
     {
         left.Next = right;
         right.Prev = left;
@@ -374,7 +374,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
-        var node = findDeletionNode(Root, value);
+        var node = FindDeletionNode(Root, value);
 
         if (node == null) throw new Exception("Item do not exist in this tree.");
 
@@ -382,16 +382,16 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         {
             if (value.CompareTo(node.Keys[i]) != 0) continue;
 
-            removeAt(node.Keys, i);
+            RemoveAt(node.Keys, i);
             node.KeyCount--;
 
             if (node.Parent != null && node != node.Parent.Children[0] && node.KeyCount > 0)
             {
-                var separatorIndex = getPrevSeparatorIndex(node);
+                var separatorIndex = GetPrevSeparatorIndex(node);
                 node.Parent.Keys[separatorIndex] = node.Keys[0];
             }
 
-            balance(node, value);
+            Balance(node, value);
 
             Count--;
             return;
@@ -401,7 +401,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     return the node containing min value which will be a leaf at the left most
     /// </summary>
-    private BpTreeNode<T> findMinNode(BpTreeNode<T> node)
+    private BpTreeNode<T> FindMinNode(BpTreeNode<T> node)
     {
         while (true)
         {
@@ -414,7 +414,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     return the node containing max value which will be a leaf at the right most
     /// </summary>
-    private BpTreeNode<T> findMaxNode(BpTreeNode<T> node)
+    private BpTreeNode<T> FindMaxNode(BpTreeNode<T> node)
     {
         while (true)
         {
@@ -427,48 +427,48 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Balance a node which is short of Keys by rotations or merge
     /// </summary>
-    private void balance(BpTreeNode<T> node, T deleteKey)
+    private void Balance(BpTreeNode<T> node, T deleteKey)
     {
         if (node == Root) return;
 
         if (node.KeyCount >= minKeysPerNode)
         {
-            updateIndex(node, deleteKey, true);
+            UpdateIndex(node, deleteKey, true);
             return;
         }
 
-        var rightSibling = getRightSibling(node);
+        var rightSibling = GetRightSibling(node);
 
         if (rightSibling != null
             && rightSibling.KeyCount > minKeysPerNode)
         {
-            leftRotate(node, rightSibling);
-            findMinNode(node);
-            updateIndex(node, deleteKey, true);
+            LeftRotate(node, rightSibling);
+            FindMinNode(node);
+            UpdateIndex(node, deleteKey, true);
             return;
         }
 
-        var leftSibling = getLeftSibling(node);
+        var leftSibling = GetLeftSibling(node);
 
         if (leftSibling != null
             && leftSibling.KeyCount > minKeysPerNode)
         {
-            rightRotate(leftSibling, node);
-            updateIndex(node, deleteKey, true);
+            RightRotate(leftSibling, node);
+            UpdateIndex(node, deleteKey, true);
             return;
         }
 
         if (rightSibling != null)
-            sandwich(node, rightSibling, deleteKey);
+            Sandwich(node, rightSibling, deleteKey);
         else
-            sandwich(leftSibling, node, deleteKey);
+            Sandwich(leftSibling, node, deleteKey);
     }
 
     /// <summary>
     ///     optionally recursively update outdated index with new min of right node
     ///     after deletion of a value
     /// </summary>
-    private void updateIndex(BpTreeNode<T> node, T deleteKey, bool spiralUp)
+    private void UpdateIndex(BpTreeNode<T> node, T deleteKey, bool spiralUp)
     {
         while (true)
         {
@@ -482,7 +482,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
 
             for (var i = 0; i < node.KeyCount; i++)
                 if (node.Keys[i].CompareTo(deleteKey) == 0)
-                    node.Keys[i] = findMinNode(node.Children[i + 1]).Keys[0];
+                    node.Keys[i] = FindMinNode(node.Children[i + 1]).Keys[0];
 
             if (spiralUp)
             {
@@ -497,31 +497,31 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     merge two adjacent siblings to one node
     /// </summary>
-    private void sandwich(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling, T deleteKey)
+    private void Sandwich(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling, T deleteKey)
     {
-        var separatorIndex = getNextSeparatorIndex(leftSibling);
+        var separatorIndex = GetNextSeparatorIndex(leftSibling);
         var parent = leftSibling.Parent;
 
         var newNode = new BpTreeNode<T>(maxKeysPerNode, leftSibling.Parent);
 
         //if leaves are merged then update the Next and Prev pointers
-        if (leftSibling.IsLeaf) mergeLeaves(newNode, leftSibling, rightSibling);
+        if (leftSibling.IsLeaf) MergeLeaves(newNode, leftSibling, rightSibling);
 
         var newIndex = 0;
         for (var i = 0; i < leftSibling.KeyCount; i++)
         {
             newNode.Keys[newIndex] = leftSibling.Keys[i];
 
-            if (leftSibling.Children[i] != null) setChild(newNode, newIndex, leftSibling.Children[i]);
+            if (leftSibling.Children[i] != null) SetChild(newNode, newIndex, leftSibling.Children[i]);
 
-            if (leftSibling.Children[i + 1] != null) setChild(newNode, newIndex + 1, leftSibling.Children[i + 1]);
+            if (leftSibling.Children[i + 1] != null) SetChild(newNode, newIndex + 1, leftSibling.Children[i + 1]);
 
             newIndex++;
         }
 
         //special case when left sibling is empty 
         if (leftSibling.KeyCount == 0 && leftSibling.Children[0] != null)
-            setChild(newNode, newIndex, leftSibling.Children[0]);
+            SetChild(newNode, newIndex, leftSibling.Children[0]);
 
         if (!rightSibling.IsLeaf)
         {
@@ -535,19 +535,19 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
 
             if (rightSibling.Children[i] != null)
             {
-                setChild(newNode, newIndex, rightSibling.Children[i]);
+                SetChild(newNode, newIndex, rightSibling.Children[i]);
 
                 //when a left leaf is added as right leaf
                 //we need to push parent key as first node of new leaf
                 if (i == 0 && rightSibling.Children[i].IsLeaf
                            && rightSibling.Children[i].Keys[0].CompareTo(newNode.Keys[newIndex - 1]) != 0)
                 {
-                    insertAt(rightSibling.Children[i].Keys, 0, newNode.Keys[newIndex - 1]);
+                    InsertAt(rightSibling.Children[i].Keys, 0, newNode.Keys[newIndex - 1]);
                     rightSibling.Children[i].KeyCount++;
                 }
             }
 
-            if (rightSibling.Children[i + 1] != null) setChild(newNode, newIndex + 1, rightSibling.Children[i + 1]);
+            if (rightSibling.Children[i + 1] != null) SetChild(newNode, newIndex + 1, rightSibling.Children[i + 1]);
 
             newIndex++;
         }
@@ -555,27 +555,27 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         //special case when left sibling is empty 
         if (rightSibling.KeyCount == 0 && rightSibling.Children[0] != null)
         {
-            setChild(newNode, newIndex, rightSibling.Children[0]);
+            SetChild(newNode, newIndex, rightSibling.Children[0]);
 
             if (newNode.Children[newIndex].IsLeaf) newNode.Keys[newIndex - 1] = newNode.Children[newIndex].Keys[0];
         }
 
         newNode.KeyCount = newIndex;
 
-        setChild(parent, separatorIndex, newNode);
+        SetChild(parent, separatorIndex, newNode);
 
-        removeAt(parent.Keys, separatorIndex);
+        RemoveAt(parent.Keys, separatorIndex);
         parent.KeyCount--;
 
-        removeChild(parent, separatorIndex + 1);
+        RemoveChild(parent, separatorIndex + 1);
 
         if (newNode.IsLeaf && newNode.Parent.Children[0] != newNode)
         {
-            separatorIndex = getPrevSeparatorIndex(newNode);
+            separatorIndex = GetPrevSeparatorIndex(newNode);
             newNode.Parent.Keys[separatorIndex] = newNode.Keys[0];
         }
 
-        updateIndex(newNode, deleteKey, false);
+        UpdateIndex(newNode, deleteKey, false);
 
         if (parent.KeyCount == 0
             && parent == Root)
@@ -587,23 +587,23 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
             return;
         }
 
-        if (parent.KeyCount < minKeysPerNode) balance(parent, deleteKey);
+        if (parent.KeyCount < minKeysPerNode) Balance(parent, deleteKey);
 
-        updateIndex(newNode, deleteKey, true);
+        UpdateIndex(newNode, deleteKey, true);
     }
 
     /// <summary>
     ///     do a right rotation
     /// </summary>
-    private void rightRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
+    private void RightRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
     {
-        var parentIndex = getNextSeparatorIndex(leftSibling);
+        var parentIndex = GetNextSeparatorIndex(leftSibling);
 
         //move parent value to right
-        insertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[parentIndex]);
+        InsertAt(rightSibling.Keys, 0, rightSibling.Parent.Keys[parentIndex]);
         rightSibling.KeyCount++;
 
-        insertChild(rightSibling, 0, leftSibling.Children[leftSibling.KeyCount]);
+        InsertChild(rightSibling, 0, leftSibling.Children[leftSibling.KeyCount]);
 
         if (rightSibling.Children[1] != null
             && rightSibling.Children[1].IsLeaf)
@@ -614,10 +614,10 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         rightSibling.Parent.Keys[parentIndex] = leftSibling.Keys[leftSibling.KeyCount - 1];
 
         //remove rightmost element of left sibling
-        removeAt(leftSibling.Keys, leftSibling.KeyCount - 1);
+        RemoveAt(leftSibling.Keys, leftSibling.KeyCount - 1);
         leftSibling.KeyCount--;
 
-        removeChild(leftSibling, leftSibling.KeyCount + 1);
+        RemoveChild(leftSibling, leftSibling.KeyCount + 1);
 
         if (rightSibling.IsLeaf) rightSibling.Keys[0] = rightSibling.Parent.Keys[parentIndex];
     }
@@ -625,15 +625,15 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     do a left rotation
     /// </summary>
-    private void leftRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
+    private void LeftRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
     {
-        var parentIndex = getNextSeparatorIndex(leftSibling);
+        var parentIndex = GetNextSeparatorIndex(leftSibling);
 
         //move root to left
         leftSibling.Keys[leftSibling.KeyCount] = leftSibling.Parent.Keys[parentIndex];
         leftSibling.KeyCount++;
 
-        setChild(leftSibling, leftSibling.KeyCount, rightSibling.Children[0]);
+        SetChild(leftSibling, leftSibling.KeyCount, rightSibling.Children[0]);
 
         if (leftSibling.Children[leftSibling.KeyCount] != null
             && leftSibling.Children[leftSibling.KeyCount].IsLeaf)
@@ -642,21 +642,21 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         //move right to parent
         leftSibling.Parent.Keys[parentIndex] = rightSibling.Keys[0];
         //remove right
-        removeAt(rightSibling.Keys, 0);
+        RemoveAt(rightSibling.Keys, 0);
         rightSibling.KeyCount--;
 
-        removeChild(rightSibling, 0);
+        RemoveChild(rightSibling, 0);
 
         if (rightSibling.IsLeaf) rightSibling.Parent.Keys[parentIndex] = rightSibling.Keys[0];
 
         if (leftSibling.IsLeaf && leftSibling.Parent.Children[0] != leftSibling)
         {
-            parentIndex = getPrevSeparatorIndex(leftSibling);
+            parentIndex = GetPrevSeparatorIndex(leftSibling);
             leftSibling.Parent.Keys[parentIndex] = leftSibling.Keys[0];
         }
     }
 
-    private void mergeLeaves(BpTreeNode<T> newNode, BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
+    private void MergeLeaves(BpTreeNode<T> newNode, BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
     {
         if (leftSibling.Prev != null)
         {
@@ -682,7 +682,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Locate the node in which the item to delete exist
     /// </summary>
-    private BpTreeNode<T> findDeletionNode(BpTreeNode<T> node, T value)
+    private BpTreeNode<T> FindDeletionNode(BpTreeNode<T> node, T value)
     {
         //if leaf then its time to insert
         if (node.IsLeaf)
@@ -698,11 +698,11 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
             {
                 //current value is less than new value
                 //drill down to left child of current value
-                if (value.CompareTo(node.Keys[i]) < 0) return findDeletionNode(node.Children[i], value);
+                if (value.CompareTo(node.Keys[i]) < 0) return FindDeletionNode(node.Children[i], value);
                 //current value is grearer than new value
                 //and current value is last element 
 
-                if (node.KeyCount == i + 1) return findDeletionNode(node.Children[i + 1], value);
+                if (node.KeyCount == i + 1) return FindDeletionNode(node.Children[i + 1], value);
             }
         }
 
@@ -712,7 +712,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Get prev separator key of this child Node in parent
     /// </summary>
-    private int getPrevSeparatorIndex(BpTreeNode<T> node)
+    private int GetPrevSeparatorIndex(BpTreeNode<T> node)
     {
         var parent = node.Parent;
 
@@ -726,7 +726,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Get next separator key of this child Node in parent
     /// </summary>
-    private int getNextSeparatorIndex(BpTreeNode<T> node)
+    private int GetNextSeparatorIndex(BpTreeNode<T> node)
     {
         var parent = node.Parent;
 
@@ -740,7 +740,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     get the right sibling node
     /// </summary>
-    private BpTreeNode<T> getRightSibling(BpTreeNode<T> node)
+    private BpTreeNode<T> GetRightSibling(BpTreeNode<T> node)
     {
         var parent = node.Parent;
         return node.Index == parent.KeyCount ? null : parent.Children[node.Index + 1];
@@ -749,12 +749,12 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     get left sibling node
     /// </summary>
-    private BpTreeNode<T> getLeftSibling(BpTreeNode<T> node)
+    private BpTreeNode<T> GetLeftSibling(BpTreeNode<T> node)
     {
         return node.Index == 0 ? null : node.Parent.Children[node.Index - 1];
     }
 
-    private void setChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
+    private void SetChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
     {
         parent.Children[childIndex] = child;
 
@@ -764,9 +764,9 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         child.Index = childIndex;
     }
 
-    private void insertChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
+    private void InsertChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
     {
-        insertAt(parent.Children, childIndex, child);
+        InsertAt(parent.Children, childIndex, child);
 
         if (child != null) child.Parent = parent;
 
@@ -776,9 +776,9 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
                 parent.Children[i].Index = i;
     }
 
-    private void removeChild(BpTreeNode<T> parent, int childIndex)
+    private void RemoveChild(BpTreeNode<T> parent, int childIndex)
     {
-        removeAt(parent.Children, childIndex);
+        RemoveAt(parent.Children, childIndex);
 
         //update indices
         for (var i = childIndex; i <= parent.KeyCount; i++)
@@ -791,7 +791,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     ///     And then insert at index
     ///     Assumes array have atleast one empty index at end
     /// </summary>
-    private void insertAt<TS>(TS[] array, int index, TS newValue)
+    private void InsertAt<TS>(TS[] array, int index, TS newValue)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index, array, index + 1, array.Length - index - 1);
@@ -802,7 +802,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Shift array left at index
     /// </summary>
-    private void removeAt<TS>(TS[] array, int index)
+    private void RemoveAt<TS>(TS[] array, int index)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index + 1, array, index, array.Length - index - 1);

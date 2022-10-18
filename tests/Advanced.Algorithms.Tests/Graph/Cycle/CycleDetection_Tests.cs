@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class CycleDetection_Tests
+    public class CycleDetectionTests
     {
         [TestMethod]
         public void Graph_Cycle_Detection_AdjancencyListGraph_Tests()

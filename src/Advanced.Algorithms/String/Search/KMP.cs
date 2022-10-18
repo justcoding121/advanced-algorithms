@@ -3,7 +3,7 @@
 /// <summary>
 ///     Knuth–Morris–Pratt(KMP) string search implementation.
 /// </summary>
-public class KMP
+public class Kmp
 {
     /// <summary>
     ///     Returns the start index of first appearance

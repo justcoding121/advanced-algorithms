@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Geometry
 {
     [TestClass]
-    public class RectangleIntersection_Tests
+    public class RectangleIntersectionTests
     {
         [TestMethod]
         public void RectIntersection_Smoke_Test()

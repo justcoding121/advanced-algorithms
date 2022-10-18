@@ -30,10 +30,10 @@ public class FenwickTree<T> : IEnumerable<T>
         this.input = input.Clone() as T[];
 
         this.sumOperation = sumOperation;
-        construct(input);
+        Construct(input);
     }
 
-    private int length => tree.Length - 1;
+    private int Length => tree.Length - 1;
 
     IEnumerator IEnumerable.GetEnumerator()
     {
@@ -48,7 +48,7 @@ public class FenwickTree<T> : IEnumerable<T>
     /// <summary>
     ///     Construct Fenwick tree from input array.
     /// </summary>
-    private void construct(T[] input)
+    private void Construct(T[] input)
     {
         tree = new T[input.Length + 1];
 
@@ -58,7 +58,7 @@ public class FenwickTree<T> : IEnumerable<T>
             while (j < input.Length)
             {
                 tree[j] = sumOperation(tree[j], input[i]);
-                j = getNextIndex(j);
+                j = GetNextIndex(j);
             }
         }
     }
@@ -69,7 +69,7 @@ public class FenwickTree<T> : IEnumerable<T>
     /// </summary>
     public T PrefixSum(int endIndex)
     {
-        if (endIndex < 0 || endIndex > length - 1) throw new ArgumentException();
+        if (endIndex < 0 || endIndex > Length - 1) throw new ArgumentException();
 
         var sum = default(T);
 
@@ -78,7 +78,7 @@ public class FenwickTree<T> : IEnumerable<T>
         while (currentIndex > 0)
         {
             sum = sumOperation(sum, tree[currentIndex]);
-            currentIndex = getParentIndex(currentIndex);
+            currentIndex = GetParentIndex(currentIndex);
         }
 
         return sum;
@@ -87,7 +87,7 @@ public class FenwickTree<T> : IEnumerable<T>
     /// <summary>
     ///     Get index of next sibling .
     /// </summary>
-    private int getNextIndex(int currentIndex)
+    private int GetNextIndex(int currentIndex)
     {
         //add current index with
         //twos complimant of currentIndex AND with currentIndex
@@ -97,7 +97,7 @@ public class FenwickTree<T> : IEnumerable<T>
     /// <summary>
     ///     Get parent node index.
     /// </summary>
-    private int getParentIndex(int currentIndex)
+    private int GetParentIndex(int currentIndex)
     {
         //substract current index with
         //twos complimant of currentIndex AND with currentIndex

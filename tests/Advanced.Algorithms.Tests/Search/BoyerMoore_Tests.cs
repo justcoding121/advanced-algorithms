@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Search
 {
     [TestClass]
-    public class BoyerMoore_Tests
+    public class BoyerMooreTests
     {
         [TestMethod]
         public void BoyerMoore_Majority_Finder_Test()

@@ -9,11 +9,11 @@ namespace Advanced.Algorithms.Graph;
 ///     A ford-fulkerson max flox implementation on weighted directed graph using
 ///     adjacency list representation of graph and residual graph.
 /// </summary>
-public class FordFulkersonMaxFlow<T, W> where W : IComparable
+public class FordFulkersonMaxFlow<T, TW> where TW : IComparable
 {
-    private readonly IFlowOperators<W> @operator;
+    private readonly IFlowOperators<TW> @operator;
 
-    public FordFulkersonMaxFlow(IFlowOperators<W> @operator)
+    public FordFulkersonMaxFlow(IFlowOperators<TW> @operator)
     {
         this.@operator = @operator;
     }
@@ -23,21 +23,21 @@ public class FordFulkersonMaxFlow<T, W> where W : IComparable
     ///     and then augmenting the residual graph until
     ///     no more path exists in residual graph with possible flow.
     /// </summary>
-    public W ComputeMaxFlow(IDiGraph<T> graph,
+    public TW ComputeMaxFlow(IDiGraph<T> graph,
         T source, T sink)
     {
-        validateOperator(graph);
+        ValidateOperator(graph);
 
-        var residualGraph = createResidualGraph(graph);
+        var residualGraph = CreateResidualGraph(graph);
 
-        var path = DFS(residualGraph, source, sink);
+        var path = Dfs(residualGraph, source, sink);
 
-        var result = @operator.defaultWeight;
+        var result = @operator.DefaultWeight;
 
         while (path != null)
         {
-            result = @operator.AddWeights(result, augmentResidualGraph(residualGraph, path));
-            path = DFS(residualGraph, source, sink);
+            result = @operator.AddWeights(result, AugmentResidualGraph(residualGraph, path));
+            path = Dfs(residualGraph, source, sink);
         }
 
         return result;
@@ -50,32 +50,32 @@ public class FordFulkersonMaxFlow<T, W> where W : IComparable
     public List<List<T>> ComputeMaxFlowAndReturnFlowPath(IDiGraph<T> graph,
         T source, T sink)
     {
-        validateOperator(graph);
+        ValidateOperator(graph);
 
-        var residualGraph = createResidualGraph(graph);
+        var residualGraph = CreateResidualGraph(graph);
 
-        var path = DFS(residualGraph, source, sink);
+        var path = Dfs(residualGraph, source, sink);
 
-        var flow = @operator.defaultWeight;
+        var flow = @operator.DefaultWeight;
 
         var result = new List<List<T>>();
         while (path != null)
         {
             result.Add(path);
-            flow = @operator.AddWeights(flow, augmentResidualGraph(residualGraph, path));
-            path = DFS(residualGraph, source, sink);
+            flow = @operator.AddWeights(flow, AugmentResidualGraph(residualGraph, path));
+            path = Dfs(residualGraph, source, sink);
         }
 
         return result;
     }
 
-    private void validateOperator(IDiGraph<T> graph)
+    private void ValidateOperator(IDiGraph<T> graph)
     {
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
         if (!graph.IsWeightedGraph)
-            if (@operator.defaultWeight.GetType() != typeof(int))
+            if (@operator.DefaultWeight.GetType() != typeof(int))
                 throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
                                             "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
     }
@@ -83,16 +83,16 @@ public class FordFulkersonMaxFlow<T, W> where W : IComparable
     /// <summary>
     ///     Augment current Path to residual Graph.
     /// </summary>
-    private W augmentResidualGraph(WeightedDiGraph<T, W> residualGraph, List<T> path)
+    private TW AugmentResidualGraph(WeightedDiGraph<T, TW> residualGraph, List<T> path)
     {
         var min = @operator.MaxWeight;
 
         for (var i = 0; i < path.Count - 1; i++)
         {
-            var vertex_1 = residualGraph.FindVertex(path[i]);
-            var vertex_2 = residualGraph.FindVertex(path[i + 1]);
+            var vertex1 = residualGraph.FindVertex(path[i]);
+            var vertex2 = residualGraph.FindVertex(path[i + 1]);
 
-            var edgeValue = vertex_1.OutEdges[vertex_2];
+            var edgeValue = vertex1.OutEdges[vertex2];
 
             if (min.CompareTo(edgeValue) > 0) min = edgeValue;
         }
@@ -100,14 +100,14 @@ public class FordFulkersonMaxFlow<T, W> where W : IComparable
         //augment path
         for (var i = 0; i < path.Count - 1; i++)
         {
-            var vertex_1 = residualGraph.FindVertex(path[i]);
-            var vertex_2 = residualGraph.FindVertex(path[i + 1]);
+            var vertex1 = residualGraph.FindVertex(path[i]);
+            var vertex2 = residualGraph.FindVertex(path[i + 1]);
 
             //substract from forward paths
-            vertex_1.OutEdges[vertex_2] = @operator.SubstractWeights(vertex_1.OutEdges[vertex_2], min);
+            vertex1.OutEdges[vertex2] = @operator.SubstractWeights(vertex1.OutEdges[vertex2], min);
 
             //add for backward paths
-            vertex_2.OutEdges[vertex_1] = @operator.AddWeights(vertex_2.OutEdges[vertex_1], min);
+            vertex2.OutEdges[vertex1] = @operator.AddWeights(vertex2.OutEdges[vertex1], min);
         }
 
         return min;
@@ -116,19 +116,19 @@ public class FordFulkersonMaxFlow<T, W> where W : IComparable
     /// <summary>
     ///     Depth first search to find a path to sink in residual graph from source.
     /// </summary>
-    private List<T> DFS(WeightedDiGraph<T, W> residualGraph, T source, T sink)
+    private List<T> Dfs(WeightedDiGraph<T, TW> residualGraph, T source, T sink)
     {
         //init parent lookup table to trace path
-        var parentLookUp = new Dictionary<WeightedDiGraphVertex<T, W>, WeightedDiGraphVertex<T, W>>();
+        var parentLookUp = new Dictionary<WeightedDiGraphVertex<T, TW>, WeightedDiGraphVertex<T, TW>>();
         foreach (var vertex in residualGraph.Vertices) parentLookUp.Add(vertex.Value, null);
 
         //regular DFS stuff
-        var stack = new Stack<WeightedDiGraphVertex<T, W>>();
-        var visited = new HashSet<WeightedDiGraphVertex<T, W>>();
+        var stack = new Stack<WeightedDiGraphVertex<T, TW>>();
+        var visited = new HashSet<WeightedDiGraphVertex<T, TW>>();
         stack.Push(residualGraph.Vertices[source]);
         visited.Add(residualGraph.Vertices[source]);
 
-        WeightedDiGraphVertex<T, W> currentVertex = null;
+        WeightedDiGraphVertex<T, TW> currentVertex = null;
 
         while (stack.Count > 0)
         {
@@ -140,7 +140,7 @@ public class FordFulkersonMaxFlow<T, W> where W : IComparable
             foreach (var edge in currentVertex.OutEdges)
                 //visit only if edge have available flow
                 if (!visited.Contains(edge.Key)
-                    && edge.Value.CompareTo(@operator.defaultWeight) > 0)
+                    && edge.Value.CompareTo(@operator.DefaultWeight) > 0)
                 {
                     //keep track of this to trace out path once sink is found
                     parentLookUp[edge.Key] = currentVertex;
@@ -174,9 +174,9 @@ public class FordFulkersonMaxFlow<T, W> where W : IComparable
     /// <summary>
     ///     Clones this graph and creates a residual graph.
     /// </summary>
-    private WeightedDiGraph<T, W> createResidualGraph(IDiGraph<T> graph)
+    private WeightedDiGraph<T, TW> CreateResidualGraph(IDiGraph<T> graph)
     {
-        var newGraph = new WeightedDiGraph<T, W>();
+        var newGraph = new WeightedDiGraph<T, TW>();
 
         //clone graph vertices
         foreach (var vertex in graph.VerticesAsEnumberable) newGraph.AddVertex(vertex.Key);
@@ -188,7 +188,7 @@ public class FordFulkersonMaxFlow<T, W> where W : IComparable
         foreach (var edge in vertex.OutEdges)
         {
             //original edge
-            newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<W>());
+            newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<TW>());
             //add a backward edge for residual graph with edge value as default(W)
             newGraph.AddEdge(edge.TargetVertexKey, vertex.Key, default);
         }
@@ -201,25 +201,25 @@ public class FordFulkersonMaxFlow<T, W> where W : IComparable
 ///     Operators to deal with generic Add, Substract etc on edge weights for flow algorithms such as ford-fulkerson
 ///     algorithm.
 /// </summary>
-public interface IFlowOperators<W> where W : IComparable
+public interface IFlowOperators<TW> where TW : IComparable
 {
     /// <summary>
     ///     default value for this type W.
     /// </summary>
-    W defaultWeight { get; }
+    TW DefaultWeight { get; }
 
     /// <summary>
     ///     returns the max for this type W.
     /// </summary>
-    W MaxWeight { get; }
+    TW MaxWeight { get; }
 
     /// <summary>
     ///     add two weights.
     /// </summary>
-    W AddWeights(W a, W b);
+    TW AddWeights(TW a, TW b);
 
     /// <summary>
     ///     substract b from a.
     /// </summary>
-    W SubstractWeights(W a, W b);
+    TW SubstractWeights(TW a, TW b);
 }

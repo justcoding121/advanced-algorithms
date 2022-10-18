@@ -10,7 +10,7 @@ public class MinVertexCover<T>
 {
     public List<IGraphVertex<T>> GetMinVertexCover(IGraph<T> graph)
     {
-        return getMinVertexCover(graph.ReferenceVertex, new HashSet<IGraphVertex<T>>(),
+        return GetMinVertexCover(graph.ReferenceVertex, new HashSet<IGraphVertex<T>>(),
             new List<IGraphVertex<T>>());
     }
 
@@ -18,7 +18,7 @@ public class MinVertexCover<T>
     ///     An approximation algorithm for NP complete vertex cover problem.
     ///     Add a random edge vertices until done visiting all edges.
     /// </summary>
-    private List<IGraphVertex<T>> getMinVertexCover(IGraphVertex<T> vertex,
+    private List<IGraphVertex<T>> GetMinVertexCover(IGraphVertex<T> vertex,
         HashSet<IGraphVertex<T>> visited, List<IGraphVertex<T>> cover)
     {
         visited.Add(vertex);
@@ -31,7 +31,7 @@ public class MinVertexCover<T>
                 cover.Add(edge.TargetVertex);
             }
 
-            if (!visited.Contains(edge.TargetVertex)) getMinVertexCover(edge.TargetVertex, visited, cover);
+            if (!visited.Contains(edge.TargetVertex)) GetMinVertexCover(edge.TargetVertex, visited, cover);
         }
 
         return cover;

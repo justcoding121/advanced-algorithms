@@ -55,7 +55,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
                 i++;
             }
 
-            bulkInit(initArray);
+            BulkInit(initArray);
             Count = initArray.Length;
         }
         else
@@ -76,20 +76,20 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
         return heapArray.Take(Count).GetEnumerator();
     }
 
-    private void bulkInit(T[] initial)
+    private void BulkInit(T[] initial)
     {
         var i = (initial.Length - 1) / 2;
 
         while (i >= 0)
         {
-            bulkInitRecursive(i, initial);
+            BulkInitRecursive(i, initial);
             i--;
         }
 
         heapArray = initial;
     }
 
-    private void bulkInitRecursive(int i, T[] initial)
+    private void BulkInitRecursive(int i, T[] initial)
     {
         var parent = i;
 
@@ -111,7 +111,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
             initial[parent] = temp;
 
             //if min is child then drill down child
-            bulkInitRecursive(minMax, initial);
+            BulkInitRecursive(minMax, initial);
         }
     }
 
@@ -120,7 +120,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Insert(T newItem)
     {
-        if (Count == heapArray.Length) doubleArray();
+        if (Count == heapArray.Length) DoubleArray();
 
         heapArray[Count] = newItem;
 
@@ -148,7 +148,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
 
         var minMax = heapArray[0];
 
-        delete(0);
+        Delete(0);
 
         return minMax;
     }
@@ -168,11 +168,11 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
-        var index = findIndex(value);
+        var index = FindIndex(value);
 
         if (index != -1)
         {
-            delete(index);
+            Delete(index);
             return;
         }
 
@@ -184,10 +184,10 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public bool Exists(T value)
     {
-        return findIndex(value) != -1;
+        return FindIndex(value) != -1;
     }
 
-    private void delete(int parentIndex)
+    private void Delete(int parentIndex)
     {
         heapArray[parentIndex] = heapArray[Count - 1];
         Count--;
@@ -263,11 +263,11 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
             }
         }
 
-        if (heapArray.Length / 2 == Count && heapArray.Length > 2) halfArray();
+        if (heapArray.Length / 2 == Count && heapArray.Length > 2) HalfArray();
     }
 
 
-    private int findIndex(T value)
+    private int FindIndex(T value)
     {
         for (var i = 0; i < Count; i++)
             if (heapArray[i].Equals(value))
@@ -275,7 +275,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
         return -1;
     }
 
-    private void halfArray()
+    private void HalfArray()
     {
         var smallerArray = new T[heapArray.Length / 2];
 
@@ -284,7 +284,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
         heapArray = smallerArray;
     }
 
-    private void doubleArray()
+    private void DoubleArray()
     {
         var biggerArray = new T[heapArray.Length * 2];
 

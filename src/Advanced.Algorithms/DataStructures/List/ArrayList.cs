@@ -51,8 +51,8 @@ public class ArrayList<T> : IEnumerable<T>
     /// <param name="index">The index to write or read.</param>
     public T this[int index]
     {
-        get => itemAt(index);
-        set => setItem(index, value);
+        get => ItemAt(index);
+        set => SetItem(index, value);
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -65,7 +65,7 @@ public class ArrayList<T> : IEnumerable<T>
         return array.Take(Length).GetEnumerator();
     }
 
-    private T itemAt(int i)
+    private T ItemAt(int i)
     {
         if (i >= Length)
             throw new Exception("Index exeeds array size");
@@ -79,7 +79,7 @@ public class ArrayList<T> : IEnumerable<T>
     /// </summary>
     public void Add(T item)
     {
-        grow();
+        Grow();
 
         array[Length] = item;
         Length++;
@@ -95,9 +95,9 @@ public class ArrayList<T> : IEnumerable<T>
     ///         <param name="item">The item to insert.</param>
     public void InsertAt(int index, T item)
     {
-        grow();
+        Grow();
 
-        shift(index);
+        Shift(index);
 
         array[index] = item;
         Length++;
@@ -107,7 +107,7 @@ public class ArrayList<T> : IEnumerable<T>
     ///     Shift the position of elements right by one starting at this index.
     ///     Creates a blank field at index.
     /// </summary>
-    private void shift(int index)
+    private void Shift(int index)
     {
         Array.Copy(array, index, array, index + 1, Length - index);
     }
@@ -123,7 +123,7 @@ public class ArrayList<T> : IEnumerable<T>
         Length = 0;
     }
 
-    private void setItem(int i, T item)
+    private void SetItem(int i, T item)
     {
         if (i >= Length)
             throw new Exception("Index exeeds array size");
@@ -146,10 +146,10 @@ public class ArrayList<T> : IEnumerable<T>
 
         Length--;
 
-        shrink();
+        Shrink();
     }
 
-    private void grow()
+    private void Grow()
     {
         if (Length != arraySize) return;
 
@@ -161,7 +161,7 @@ public class ArrayList<T> : IEnumerable<T>
         array = biggerArray;
     }
 
-    private void shrink()
+    private void Shrink()
     {
         if (Length != arraySize / 2 || arraySize == initialArraySize) return;
 

@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class PairingHeap_Tests
+    public class PairingHeapTests
     {
         [TestMethod]
         public void Min_PairingHeap_Test()

@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class HopcroftKarp_Tests
+    public class HopcroftKarpTests
     {
         [TestMethod]
         public void HopcroftKarp_AdjacencyListGraph_Smoke_Test()

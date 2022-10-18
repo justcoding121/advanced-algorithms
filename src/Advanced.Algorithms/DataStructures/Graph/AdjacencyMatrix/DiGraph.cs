@@ -25,18 +25,18 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         matrix = new BitArray[1];
         vertexObjects = new Dictionary<T, DiGraphVertex<T>>();
 
-        for (var i = 0; i < maxSize; i++) matrix[i] = new BitArray(maxSize);
+        for (var i = 0; i < MaxSize; i++) matrix[i] = new BitArray(MaxSize);
     }
 
-    private int maxSize => matrix.Length;
-    IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => getReferenceVertex();
+    private int MaxSize => matrix.Length;
+    IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => GetReferenceVertex();
 
     IDiGraphVertex<T> IDiGraph<T>.GetVertex(T key)
     {
         return vertexObjects[key];
     }
 
-    public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable => getVerticesAsEnumerable();
+    public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable => GetVerticesAsEnumerable();
 
     IDiGraph<T> IDiGraph<T>.Clone()
     {
@@ -57,7 +57,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
     public bool IsWeightedGraph => false;
 
-    public IGraphVertex<T> ReferenceVertex => getReferenceVertex();
+    public IGraphVertex<T> ReferenceVertex => GetReferenceVertex();
 
     public bool ContainsVertex(T key)
     {
@@ -86,14 +86,14 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         return matrix[sourceIndex].Get(destIndex);
     }
 
-    IEnumerable<IGraphVertex<T>> IGraph<T>.VerticesAsEnumberable => getVerticesAsEnumerable();
+    IEnumerable<IGraphVertex<T>> IGraph<T>.VerticesAsEnumberable => GetVerticesAsEnumerable();
 
     IGraph<T> IGraph<T>.Clone()
     {
         return Clone();
     }
 
-    private DiGraphVertex<T> getReferenceVertex()
+    private DiGraphVertex<T> GetReferenceVertex()
     {
         if (VerticesCount == 0) throw new Exception("Empty graph.");
 
@@ -110,9 +110,9 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         if (vertexIndices.ContainsKey(value)) throw new Exception("Vertex exists.");
 
-        if (VerticesCount < maxSize / 2) halfMatrixSize();
+        if (VerticesCount < MaxSize / 2) HalfMatrixSize();
 
-        if (nextAvailableIndex == maxSize) doubleMatrixSize();
+        if (nextAvailableIndex == MaxSize) DoubleMatrixSize();
 
         vertexIndices.Add(value, nextAvailableIndex);
         reverseVertexIndices.Add(nextAvailableIndex, value);
@@ -132,12 +132,12 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         if (!vertexIndices.ContainsKey(value)) throw new Exception("Vertex does'nt exist.");
 
-        if (VerticesCount <= maxSize / 2) halfMatrixSize();
+        if (VerticesCount <= MaxSize / 2) HalfMatrixSize();
 
         var index = vertexIndices[value];
 
         //clear edges
-        for (var i = 0; i < maxSize; i++)
+        for (var i = 0; i < MaxSize; i++)
         {
             matrix[i].Set(index, false);
             matrix[index].Set(i, false);
@@ -194,7 +194,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         var result = new List<T>();
 
-        for (var i = 0; i < maxSize; i++)
+        for (var i = 0; i < MaxSize; i++)
             if (matrix[index].Get(i))
                 yield return reverseVertexIndices[i];
     }
@@ -207,7 +207,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         var count = 0;
 
-        for (var i = 0; i < maxSize; i++)
+        for (var i = 0; i < MaxSize; i++)
             if (matrix[index].Get(i))
                 count++;
 
@@ -222,7 +222,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         var result = new List<T>();
 
-        for (var i = 0; i < maxSize; i++)
+        for (var i = 0; i < MaxSize; i++)
             if (matrix[i].Get(index))
                 yield return reverseVertexIndices[i];
     }
@@ -235,17 +235,17 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         var count = 0;
 
-        for (var i = 0; i < maxSize; i++)
+        for (var i = 0; i < MaxSize; i++)
             if (matrix[i].Get(index))
                 count++;
 
         return count;
     }
 
-    private void doubleMatrixSize()
+    private void DoubleMatrixSize()
     {
-        var newMatrix = new BitArray[maxSize * 2];
-        for (var i = 0; i < maxSize * 2; i++) newMatrix[i] = new BitArray(maxSize * 2);
+        var newMatrix = new BitArray[MaxSize * 2];
+        for (var i = 0; i < MaxSize * 2; i++) newMatrix[i] = new BitArray(MaxSize * 2);
 
         var newVertexIndices = new Dictionary<T, int>();
         var newReverseIndices = new Dictionary<int, T>();
@@ -260,10 +260,10 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         nextAvailableIndex = k;
 
-        for (var i = 0; i < maxSize; i++)
+        for (var i = 0; i < MaxSize; i++)
         {
-            newMatrix[i] = new BitArray(maxSize * 2);
-            for (var j = 0; j < maxSize; j++)
+            newMatrix[i] = new BitArray(MaxSize * 2);
+            for (var j = 0; j < MaxSize; j++)
             {
                 if (!matrix[i].Get(j) || !reverseVertexIndices.ContainsKey(i) ||
                     !reverseVertexIndices.ContainsKey(j))
@@ -281,10 +281,10 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         reverseVertexIndices = newReverseIndices;
     }
 
-    private void halfMatrixSize()
+    private void HalfMatrixSize()
     {
-        var newMatrix = new BitArray[maxSize / 2];
-        for (var i = 0; i < maxSize / 2; i++) newMatrix[i] = new BitArray(maxSize / 2);
+        var newMatrix = new BitArray[MaxSize / 2];
+        for (var i = 0; i < MaxSize / 2; i++) newMatrix[i] = new BitArray(MaxSize / 2);
 
         var newVertexIndices = new Dictionary<T, int>();
         var newReverseIndices = new Dictionary<int, T>();
@@ -299,8 +299,8 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         nextAvailableIndex = k;
 
-        for (var i = 0; i < maxSize; i++)
-        for (var j = 0; j < maxSize; j++)
+        for (var i = 0; i < MaxSize; i++)
+        for (var j = 0; j < MaxSize; j++)
         {
             if (!matrix[i].Get(j) || !reverseVertexIndices.ContainsKey(i) ||
                 !reverseVertexIndices.ContainsKey(j))
@@ -317,7 +317,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         reverseVertexIndices = newReverseIndices;
     }
 
-    private IEnumerable<DiGraphVertex<T>> getVerticesAsEnumerable()
+    private IEnumerable<DiGraphVertex<T>> GetVerticesAsEnumerable()
     {
         return this.Select(x => vertexObjects[x]);
     }
@@ -350,11 +350,11 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
             vertexIndex = graph.vertexIndices[vertexKey];
         }
 
-        private int maxSize => graph.maxSize;
-        private BitArray[] matrix => graph.matrix;
+        private int MaxSize => graph.MaxSize;
+        private BitArray[] Matrix => graph.matrix;
 
-        private Dictionary<T, int> vertexIndices => graph.vertexIndices;
-        private Dictionary<int, T> reverseVertexIndices => graph.reverseVertexIndices;
+        private Dictionary<T, int> VertexIndices => graph.vertexIndices;
+        private Dictionary<int, T> ReverseVertexIndices => graph.reverseVertexIndices;
 
         public T Key { get; }
 
@@ -369,10 +369,10 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         public IDiEdge<T> GetOutEdge(IDiGraphVertex<T> targetVertex)
         {
-            if (!vertexIndices.ContainsKey(targetVertex.Key))
+            if (!VertexIndices.ContainsKey(targetVertex.Key))
                 throw new ArgumentException("vertex is not in this graph.");
 
-            var index = vertexIndices[targetVertex.Key];
+            var index = VertexIndices[targetVertex.Key];
             var key = targetVertex as DiGraphVertex<T>;
             return new DiEdge<T, int>(targetVertex, 1);
         }
@@ -382,10 +382,10 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
         {
-            if (!vertexIndices.ContainsKey(targetVertex.Key))
+            if (!VertexIndices.ContainsKey(targetVertex.Key))
                 throw new ArgumentException("vertex is not in this graph.");
 
-            var index = vertexIndices[targetVertex.Key];
+            var index = VertexIndices[targetVertex.Key];
             var key = targetVertex as DiGraphVertex<T>;
             return new Edge<T, int>(targetVertex, 1);
         }

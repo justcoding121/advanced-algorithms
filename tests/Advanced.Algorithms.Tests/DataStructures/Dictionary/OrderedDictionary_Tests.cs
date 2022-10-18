@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class OrderedDictionary_Tests
+    public class OrderedDictionaryTests
     {
         /// <summary>
         ///     key value dictionary tests

@@ -13,20 +13,20 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
 {
     public WeightedGraph()
     {
-        vertices = new Dictionary<T, WeightedGraphVertex<T, TW>>();
+        Vertices = new Dictionary<T, WeightedGraphVertex<T, TW>>();
     }
 
-    private Dictionary<T, WeightedGraphVertex<T, TW>> vertices { get; }
+    private Dictionary<T, WeightedGraphVertex<T, TW>> Vertices { get; }
 
     /// <summary>
     ///     Returns a reference vertex.
     ///     Time complexity: O(1).
     /// </summary>
-    private WeightedGraphVertex<T, TW> referenceVertex
+    private WeightedGraphVertex<T, TW> ReferenceVertex
     {
         get
         {
-            using (var enumerator = vertices.GetEnumerator())
+            using (var enumerator = Vertices.GetEnumerator())
             {
                 if (enumerator.MoveNext()) return enumerator.Current.Value;
             }
@@ -37,7 +37,7 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
 
     public IEnumerator GetEnumerator()
     {
-        return vertices.Select(x => x.Key).GetEnumerator();
+        return Vertices.Select(x => x.Key).GetEnumerator();
     }
 
     IEnumerator<T> IEnumerable<T>.GetEnumerator()
@@ -45,10 +45,10 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
         return GetEnumerator() as IEnumerator<T>;
     }
 
-    public int VerticesCount => vertices.Count;
+    public int VerticesCount => Vertices.Count;
     public bool IsWeightedGraph => true;
 
-    IGraphVertex<T> IGraph<T>.ReferenceVertex => referenceVertex;
+    IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
 
     /// <summary>
     ///     Do we have an edge between given source and destination?
@@ -56,21 +56,21 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     /// </summary>
     public bool HasEdge(T source, T dest)
     {
-        if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             throw new ArgumentException("source or destination is not in this graph.");
 
-        return vertices[source].Edges.ContainsKey(vertices[dest])
-               && vertices[dest].Edges.ContainsKey(vertices[source]);
+        return Vertices[source].Edges.ContainsKey(Vertices[dest])
+               && Vertices[dest].Edges.ContainsKey(Vertices[source]);
     }
 
     public bool ContainsVertex(T value)
     {
-        return vertices.ContainsKey(value);
+        return Vertices.ContainsKey(value);
     }
 
     public IGraphVertex<T> GetVertex(T value)
     {
-        return vertices[value];
+        return Vertices[value];
     }
 
     IGraph<T> IGraph<T>.Clone()
@@ -78,7 +78,7 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
         return Clone();
     }
 
-    public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => vertices.Select(x => x.Value);
+    public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => Vertices.Select(x => x.Value);
 
 
     /// <summary>
@@ -91,7 +91,7 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
 
         var newVertex = new WeightedGraphVertex<T, TW>(value);
 
-        vertices.Add(value, newVertex);
+        Vertices.Add(value, newVertex);
     }
 
     /// <summary>
@@ -102,12 +102,12 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     {
         if (value == null) throw new ArgumentNullException();
 
-        if (!vertices.ContainsKey(value)) throw new Exception("Vertex not in this graph.");
+        if (!Vertices.ContainsKey(value)) throw new Exception("Vertex not in this graph.");
 
 
-        foreach (var vertex in vertices[value].Edges) vertex.Key.Edges.Remove(vertices[value]);
+        foreach (var vertex in Vertices[value].Edges) vertex.Key.Edges.Remove(Vertices[value]);
 
-        vertices.Remove(value);
+        Vertices.Remove(value);
     }
 
     /// <summary>
@@ -119,12 +119,12 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     {
         if (source == null || dest == null) throw new ArgumentException();
 
-        if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             throw new Exception("Source or Destination Vertex is not in this graph.");
 
 
-        vertices[source].Edges.Add(vertices[dest], weight);
-        vertices[dest].Edges.Add(vertices[source], weight);
+        Vertices[source].Edges.Add(Vertices[dest], weight);
+        Vertices[dest].Edges.Add(Vertices[source], weight);
     }
 
     /// <summary>
@@ -135,22 +135,22 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     {
         if (source == null || dest == null) throw new ArgumentException();
 
-        if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             throw new Exception("Source or Destination Vertex is not in this graph.");
 
-        if (!vertices[source].Edges.ContainsKey(vertices[dest])
-            || !vertices[dest].Edges.ContainsKey(vertices[source]))
+        if (!Vertices[source].Edges.ContainsKey(Vertices[dest])
+            || !Vertices[dest].Edges.ContainsKey(Vertices[source]))
             throw new Exception("Edge do not exists.");
 
-        vertices[source].Edges.Remove(vertices[dest]);
-        vertices[dest].Edges.Remove(vertices[source]);
+        Vertices[source].Edges.Remove(Vertices[dest]);
+        Vertices[dest].Edges.Remove(Vertices[source]);
     }
 
     public List<Tuple<T, TW>> GetAllEdges(T vertex)
     {
-        if (!vertices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!Vertices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
 
-        return vertices[vertex].Edges.Select(x => new Tuple<T, TW>(x.Key.Key, x.Value)).ToList();
+        return Vertices[vertex].Edges.Select(x => new Tuple<T, TW>(x.Key.Key, x.Value)).ToList();
     }
 
     /// <summary>
@@ -160,9 +160,9 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     {
         var newGraph = new WeightedGraph<T, TW>();
 
-        foreach (var vertex in vertices) newGraph.AddVertex(vertex.Key);
+        foreach (var vertex in Vertices) newGraph.AddVertex(vertex.Key);
 
-        foreach (var vertex in vertices)
+        foreach (var vertex in Vertices)
         foreach (var edge in vertex.Value.Edges)
             newGraph.AddEdge(vertex.Value.Key, edge.Key.Key, edge.Value);
 

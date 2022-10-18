@@ -46,7 +46,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
         var newNode = new FibonacciHeapNode<T>(newItem);
 
         //return pointer to new Node
-        mergeForests(newNode);
+        MergeForests(newNode);
 
         if (minMaxNode == null)
         {
@@ -57,7 +57,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
             if (comparer.Compare(minMaxNode.Value, newNode.Value) > 0) minMaxNode = newNode;
         }
 
-        addMapping(newItem, newNode);
+        AddMapping(newItem, newNode);
 
         Count++;
     }
@@ -71,13 +71,13 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
 
         var minMaxValue = minMaxNode.Value;
 
-        removeMapping(minMaxValue, minMaxNode);
+        RemoveMapping(minMaxValue, minMaxNode);
 
         //remove tree root
-        deleteNode(ref heapForestHead, minMaxNode);
+        DeleteNode(ref heapForestHead, minMaxNode);
 
-        mergeForests(minMaxNode.ChildrenHead);
-        meld();
+        MergeForests(minMaxNode.ChildrenHead);
+        Meld();
 
         Count--;
 
@@ -98,7 +98,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
         if (comparer.Compare(newValue, node.Value) > 0)
             throw new Exception($"New value is not {(!isMaxHeap ? "less" : "greater")} than old value.");
 
-        updateNodeValue(currentValue, newValue, node);
+        UpdateNodeValue(currentValue, newValue, node);
 
         if (node.Parent == null
             && comparer.Compare(minMaxNode.Value, node.Value) > 0)
@@ -121,12 +121,12 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
             //mark grand parent
             if (grandParent == null) return;
 
-            cut(parent);
-            cut(current);
+            Cut(parent);
+            Cut(current);
         }
         else
         {
-            cut(current);
+            Cut(current);
         }
     }
 
@@ -134,10 +134,10 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     ///     Unions this heap with another.
     ///     Time complexity: O(1).
     /// </summary>
-    public void Merge(FibonacciHeap<T> FibonacciHeap)
+    public void Merge(FibonacciHeap<T> fibonacciHeap)
     {
-        mergeForests(FibonacciHeap.heapForestHead);
-        Count = Count + FibonacciHeap.Count;
+        MergeForests(fibonacciHeap.heapForestHead);
+        Count = Count + fibonacciHeap.Count;
     }
 
     /// <summary>
@@ -153,7 +153,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Merge roots with same degrees in Forest.
     /// </summary>
-    private void meld()
+    private void Meld()
     {
         if (heapForestHead == null)
         {
@@ -178,7 +178,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
 
                 if (minMaxNode == current) minMaxNode = null;
 
-                deleteNode(ref heapForestHead, current);
+                DeleteNode(ref heapForestHead, current);
 
                 current = next;
             }
@@ -193,15 +193,15 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
                 {
                     current.Parent = existing;
 
-                    deleteNode(ref heapForestHead, current);
+                    DeleteNode(ref heapForestHead, current);
 
                     var childHead = existing.ChildrenHead;
-                    insertNode(ref childHead, current);
+                    InsertNode(ref childHead, current);
                     existing.ChildrenHead = childHead;
 
                     existing.Degree++;
 
-                    insertNode(ref heapForestHead, existing);
+                    InsertNode(ref heapForestHead, existing);
                     current = existing;
                     current.Next = next;
                 }
@@ -210,7 +210,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
                     existing.Parent = current;
 
                     var childHead = current.ChildrenHead;
-                    insertNode(ref childHead, existing);
+                    InsertNode(ref childHead, existing);
                     current.ChildrenHead = childHead;
 
                     current.Degree++;
@@ -230,7 +230,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
         {
             foreach (var node in mergeDictionary)
             {
-                insertNode(ref heapForestHead, node.Value);
+                InsertNode(ref heapForestHead, node.Value);
 
                 if (minMaxNode == null
                     || comparer.Compare(minMaxNode.Value, node.Value.Value) > 0)
@@ -244,14 +244,14 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Delete this node from Heap Tree and adds it to forest as a new tree
     /// </summary>
-    private void cut(FibonacciHeapNode<T> node)
+    private void Cut(FibonacciHeapNode<T> node)
     {
         var parent = node.Parent;
 
         //cut child and attach to heap Forest
         //and mark parent for lost child
         var childHead = node.Parent.ChildrenHead;
-        deleteNode(ref childHead, node);
+        DeleteNode(ref childHead, node);
         node.Parent.ChildrenHead = childHead;
 
         node.Parent.Degree--;
@@ -259,7 +259,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
         node.LostChild = false;
         node.Parent = null;
 
-        insertNode(ref heapForestHead, node);
+        InsertNode(ref heapForestHead, node);
 
         //update 
         if (comparer.Compare(minMaxNode.Value, node.Value) > 0) minMaxNode = node;
@@ -268,18 +268,18 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Merges the given fibornacci node list to current Forest
     /// </summary>
-    private void mergeForests(FibonacciHeapNode<T> headPointer)
+    private void MergeForests(FibonacciHeapNode<T> headPointer)
     {
         var current = headPointer;
         while (current != null)
         {
             var next = current.Next;
-            insertNode(ref heapForestHead, current);
+            InsertNode(ref heapForestHead, current);
             current = next;
         }
     }
 
-    private void insertNode(ref FibonacciHeapNode<T> head, FibonacciHeapNode<T> newNode)
+    private void InsertNode(ref FibonacciHeapNode<T> head, FibonacciHeapNode<T> newNode)
     {
         newNode.Next = newNode.Previous = null;
 
@@ -295,7 +295,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
         head = newNode;
     }
 
-    private void deleteNode(ref FibonacciHeapNode<T> heapForestHead, FibonacciHeapNode<T> deletionNode)
+    private void DeleteNode(ref FibonacciHeapNode<T> heapForestHead, FibonacciHeapNode<T> deletionNode)
     {
         if (deletionNode == heapForestHead)
         {
@@ -315,7 +315,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
         deletionNode.Previous = null;
     }
 
-    private void addMapping(T newItem, FibonacciHeapNode<T> newNode)
+    private void AddMapping(T newItem, FibonacciHeapNode<T> newNode)
     {
         if (heapMapping.ContainsKey(newItem))
             heapMapping[newItem].Add(newNode);
@@ -323,14 +323,14 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
             heapMapping[newItem] = new List<FibonacciHeapNode<T>>(new[] { newNode });
     }
 
-    private void updateNodeValue(T currentValue, T newValue, FibonacciHeapNode<T> node)
+    private void UpdateNodeValue(T currentValue, T newValue, FibonacciHeapNode<T> node)
     {
-        removeMapping(currentValue, node);
+        RemoveMapping(currentValue, node);
         node.Value = newValue;
-        addMapping(newValue, node);
+        AddMapping(newValue, node);
     }
 
-    private void removeMapping(T currentValue, FibonacciHeapNode<T> node)
+    private void RemoveMapping(T currentValue, FibonacciHeapNode<T> node)
     {
         heapMapping[currentValue].Remove(node);
         if (heapMapping[currentValue].Count == 0) heapMapping.Remove(currentValue);

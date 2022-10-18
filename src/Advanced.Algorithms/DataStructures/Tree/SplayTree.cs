@@ -21,10 +21,10 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     /// <param name="sortedCollection">The sorted collection.</param>
     public SplayTree(IEnumerable<T> sortedCollection) : this()
     {
-        BSTHelpers.ValidateSortedCollection(sortedCollection);
+        BstHelpers.ValidateSortedCollection(sortedCollection);
         var nodes = sortedCollection.Select(x => new SplayTreeNode<T>(null, x)).ToArray();
-        Root = (SplayTreeNode<T>)BSTHelpers.ToBST(nodes);
-        BSTHelpers.AssignCount(Root);
+        Root = (SplayTreeNode<T>)BstHelpers.ToBst(nodes);
+        BstHelpers.AssignCount(Root);
     }
 
     internal SplayTreeNode<T> Root { get; set; }
@@ -38,7 +38,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new BSTEnumerator<T>(Root);
+        return new BstEnumerator<T>(Root);
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null) return false;
 
-        return find(Root, value) != null;
+        return Find(Root, value) != null;
     }
 
     /// <summary>
@@ -56,14 +56,14 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     internal int GetHeight()
     {
-        return getHeight(Root);
+        return GetHeight(Root);
     }
 
-    private int getHeight(SplayTreeNode<T> node)
+    private int GetHeight(SplayTreeNode<T> node)
     {
         if (node == null) return -1;
 
-        return Math.Max(getHeight(node.Left), getHeight(node.Right)) + 1;
+        return Math.Max(GetHeight(node.Left), GetHeight(node.Right)) + 1;
     }
 
     /// <summary>
@@ -77,12 +77,12 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
             return;
         }
 
-        var newNode = insert(Root, value);
-        splay(newNode);
+        var newNode = Insert(Root, value);
+        Splay(newNode);
     }
 
     //O(log(n)) always
-    private SplayTreeNode<T> insert(SplayTreeNode<T> currentNode, T newNodeValue)
+    private SplayTreeNode<T> Insert(SplayTreeNode<T> currentNode, T newNodeValue)
     {
         while (true)
         {
@@ -145,7 +145,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     {
         if (Root == null) throw new Exception("Empty SplayTree");
 
-        delete(Root, value);
+        Delete(Root, value);
     }
 
     /// <summary>
@@ -157,12 +157,12 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
 
         var nodeToDelete = Root.KthSmallest(index) as SplayTreeNode<T>;
 
-        delete(nodeToDelete, nodeToDelete.Value);
+        Delete(nodeToDelete, nodeToDelete.Value);
 
         return nodeToDelete.Value;
     }
 
-    private void delete(SplayTreeNode<T> node, T value)
+    private void Delete(SplayTreeNode<T> node, T value)
     {
         while (true)
         {
@@ -186,41 +186,41 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
             //node is a leaf node
             if (node.IsLeaf)
             {
-                deleteLeaf(node);
+                DeleteLeaf(node);
             }
             else
             {
                 //case one - right tree is null (move sub tree up)
                 if (node.Left != null && node.Right == null)
                 {
-                    deleteLeftNode(node);
+                    DeleteLeftNode(node);
                 }
                 //case two - left tree is null  (move sub tree up)
                 else if (node.Right != null && node.Left == null)
                 {
-                    deleteRightNode(node);
+                    DeleteRightNode(node);
                 }
                 //case three - two child trees 
                 //replace the node value with maximum element of left subtree (left max node)
                 //and then delete the left max node
                 else
                 {
-                    var maxLeftNode = findMax(node.Left);
+                    var maxLeftNode = FindMax(node.Left);
 
                     node.Value = maxLeftNode.Value;
 
                     //delete left max node
-                    delete(node.Left, maxLeftNode.Value);
+                    Delete(node.Left, maxLeftNode.Value);
                 }
             }
 
-            if (parent != null) splay(parent);
+            if (parent != null) Splay(parent);
 
             break;
         }
     }
 
-    private void deleteLeaf(SplayTreeNode<T> node)
+    private void DeleteLeaf(SplayTreeNode<T> node)
     {
         //if node is root
         if (node.Parent == null)
@@ -232,7 +232,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
             node.Parent.Right = null;
     }
 
-    private void deleteRightNode(SplayTreeNode<T> node)
+    private void DeleteRightNode(SplayTreeNode<T> node)
     {
         //root
         if (node.Parent == null)
@@ -252,7 +252,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
         node.Right.Parent = node.Parent;
     }
 
-    private void deleteLeftNode(SplayTreeNode<T> node)
+    private void DeleteLeftNode(SplayTreeNode<T> node)
     {
         //root
         if (node.Parent == null)
@@ -277,10 +277,10 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T FindMax()
     {
-        return findMax(Root).Value;
+        return FindMax(Root).Value;
     }
 
-    private SplayTreeNode<T> findMax(SplayTreeNode<T> node)
+    private SplayTreeNode<T> FindMax(SplayTreeNode<T> node)
     {
         while (true)
         {
@@ -308,7 +308,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
 
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
-    private SplayTreeNode<T> find(SplayTreeNode<T> parent, T value)
+    private SplayTreeNode<T> Find(SplayTreeNode<T> parent, T value)
     {
         while (true)
         {
@@ -316,14 +316,14 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
 
             if (parent.Value.CompareTo(value) == 0) return parent;
 
-            var left = find(parent.Left, value);
+            var left = Find(parent.Left, value);
 
             if (left != null) return left;
             parent = parent.Right;
         }
     }
 
-    private void splay(SplayTreeNode<T> x)
+    private void Splay(SplayTreeNode<T> x)
     {
         x.UpdateCounts();
 
@@ -332,32 +332,32 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
             if (x.Parent.Parent == null)
             {
                 //zig step
-                x = x.IsLeftChild ? rightRotate(x.Parent) : leftRotate(x.Parent);
+                x = x.IsLeftChild ? RightRotate(x.Parent) : LeftRotate(x.Parent);
             }
             //zig-zig step
             else if (x.IsLeftChild && x.Parent.IsLeftChild)
 
             {
-                rightRotate(x.Parent.Parent);
-                x = rightRotate(x.Parent);
+                RightRotate(x.Parent.Parent);
+                x = RightRotate(x.Parent);
             }
             //zig-zig step mirror
             else if (x.IsRightChild && x.Parent.IsRightChild)
             {
-                leftRotate(x.Parent.Parent);
-                x = leftRotate(x.Parent);
+                LeftRotate(x.Parent.Parent);
+                x = LeftRotate(x.Parent);
             }
             //zig-zag step
             else if (x.IsLeftChild && x.Parent.IsRightChild)
             {
-                rightRotate(x.Parent);
-                x = leftRotate(x.Parent);
+                RightRotate(x.Parent);
+                x = LeftRotate(x.Parent);
             }
             //zig-zag step mirror
             else //if (x.IsRightChild && x.Parent.IsLeftChild)
             {
-                leftRotate(x.Parent);
-                x = rightRotate(x.Parent);
+                LeftRotate(x.Parent);
+                x = RightRotate(x.Parent);
             }
 
             x.UpdateCounts();
@@ -367,7 +367,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Rotates current root right and returns the new root node
     /// </summary>
-    private SplayTreeNode<T> rightRotate(SplayTreeNode<T> currentRoot)
+    private SplayTreeNode<T> RightRotate(SplayTreeNode<T> currentRoot)
     {
         var prevRoot = currentRoot;
         var leftRightChild = prevRoot.Left.Right;
@@ -405,7 +405,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Rotates the current root left and returns new root
     /// </summary>
-    private SplayTreeNode<T> leftRotate(SplayTreeNode<T> currentRoot)
+    private SplayTreeNode<T> LeftRotate(SplayTreeNode<T> currentRoot)
     {
         var prevRoot = currentRoot;
         var rightLeftChild = prevRoot.Right.Left;
@@ -443,7 +443,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
 
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
-    private BSTNodeBase<T> find(T value)
+    private BstNodeBase<T> Find(T value)
     {
         return Root.Find(value).Item1;
     }
@@ -454,7 +454,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T NextLower(T value)
     {
-        var node = find(value);
+        var node = Find(value);
         if (node == null) return default;
 
         var next = node.NextLower();
@@ -467,7 +467,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T NextHigher(T value)
     {
-        var node = find(value);
+        var node = Find(value);
         if (node == null) return default;
 
         var next = node.NextHigher();
@@ -484,11 +484,11 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumeratorDesc()
     {
-        return new BSTEnumerator<T>(Root, false);
+        return new BstEnumerator<T>(Root, false);
     }
 }
 
-internal class SplayTreeNode<T> : BSTNodeBase<T> where T : IComparable
+internal class SplayTreeNode<T> : BstNodeBase<T> where T : IComparable
 {
     internal SplayTreeNode(SplayTreeNode<T> parent, T value)
     {

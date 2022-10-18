@@ -38,14 +38,14 @@ public interface IDiEdge<T>
 {
     T TargetVertexKey { get; }
     IDiGraphVertex<T> TargetVertex { get; }
-    W Weight<W>() where W : IComparable;
+    TW Weight<TW>() where TW : IComparable;
 }
 
-internal class DiEdge<T, C> : IDiEdge<T> where C : IComparable
+internal class DiEdge<T, TC> : IDiEdge<T> where TC : IComparable
 {
     private readonly object weight;
 
-    internal DiEdge(IDiGraphVertex<T> target, C weight)
+    internal DiEdge(IDiGraphVertex<T> target, TC weight)
     {
         TargetVertex = target;
         this.weight = weight;
@@ -55,8 +55,8 @@ internal class DiEdge<T, C> : IDiEdge<T> where C : IComparable
 
     public IDiGraphVertex<T> TargetVertex { get; }
 
-    public W Weight<W>() where W : IComparable
+    public TW Weight<TW>() where TW : IComparable
     {
-        return (W)weight;
+        return (TW)weight;
     }
 }

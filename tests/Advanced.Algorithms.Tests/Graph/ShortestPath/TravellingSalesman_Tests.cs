@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.Tests.Graph
     ///     https://en.wikipedia.org/wiki/Travelling_salesman_problem
     /// </summary>
     [TestClass]
-    public class TravellingSalesman_Tests
+    public class TravellingSalesmanTests
     {
         [TestMethod]
         public void TravellingSalesman_AdjacencyListGraph_Smoke_Test()
@@ -38,7 +38,7 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge(3, 2, 8);
 
             var tsp = new TravellingSalesman<int, int>();
-            Assert.AreEqual(21, tsp.FindMinWeight(graph, new TSPShortestPathOperators()));
+            Assert.AreEqual(21, tsp.FindMinWeight(graph, new TspShortestPathOperators()));
         }
 
         [TestMethod]
@@ -68,14 +68,14 @@ namespace Advanced.Algorithms.Tests.Graph
             graph.AddEdge(3, 2, 8);
 
             var tsp = new TravellingSalesman<int, int>();
-            Assert.AreEqual(21, tsp.FindMinWeight(graph, new TSPShortestPathOperators()));
+            Assert.AreEqual(21, tsp.FindMinWeight(graph, new TspShortestPathOperators()));
         }
     }
 
     /// <summary>
     ///     generic operations for int type
     /// </summary>
-    public class TSPShortestPathOperators : IShortestPathOperators<int>
+    public class TspShortestPathOperators : IShortestPathOperators<int>
     {
         public int DefaultValue => 0;
 

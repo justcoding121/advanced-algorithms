@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class FibonacciHeap_Tests
+    public class FibonacciHeapTests
     {
         [TestMethod]
         public void Min_FibonacciHeap_Test()

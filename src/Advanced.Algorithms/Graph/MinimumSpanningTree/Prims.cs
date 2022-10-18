@@ -8,20 +8,20 @@ namespace Advanced.Algorithms.Graph;
 /// <summary>
 ///     A Prims algorithm implementation.
 /// </summary>
-public class Prims<T, W> where W : IComparable
+public class Prims<T, TW> where TW : IComparable
 {
     /// <summary>
     ///     Find Minimum Spanning Tree of given undirected graph.
     /// </summary>
     /// <returns>List of MST edges</returns>
-    public List<MSTEdge<T, W>>
+    public List<MstEdge<T, TW>>
         FindMinimumSpanningTree(IGraph<T> graph)
     {
-        var edges = new List<MSTEdge<T, W>>();
+        var edges = new List<MstEdge<T, TW>>();
 
         //gather all unique edges
-        dfs(graph, graph.ReferenceVertex,
-            new BHeap<MSTEdge<T, W>>(),
+        Dfs(graph, graph.ReferenceVertex,
+            new BHeap<MstEdge<T, TW>>(),
             new HashSet<T>(),
             edges);
 
@@ -34,16 +34,16 @@ public class Prims<T, W> where W : IComparable
     /// </summary>
     /// <param name="spanTreeNeighbours"> Use Fibonacci Min Heap to pick smallest edge neighbour </param>
     /// <param name="spanTreeEdges">result MST edges</param>
-    private void dfs(IGraph<T> graph, IGraphVertex<T> currentVertex,
-        BHeap<MSTEdge<T, W>> spanTreeNeighbours, HashSet<T> spanTreeVertices,
-        List<MSTEdge<T, W>> spanTreeEdges)
+    private void Dfs(IGraph<T> graph, IGraphVertex<T> currentVertex,
+        BHeap<MstEdge<T, TW>> spanTreeNeighbours, HashSet<T> spanTreeVertices,
+        List<MstEdge<T, TW>> spanTreeEdges)
     {
         while (true)
         {
             //add all edges to Fibonacci Heap
             //So that we can pick the min edge in next step
             foreach (var edge in currentVertex.Edges)
-                spanTreeNeighbours.Insert(new MSTEdge<T, W>(currentVertex.Key, edge.TargetVertexKey, edge.Weight<W>()));
+                spanTreeNeighbours.Insert(new MstEdge<T, TW>(currentVertex.Key, edge.TargetVertexKey, edge.Weight<TW>()));
 
             //pick min edge
             var minNeighbourEdge = spanTreeNeighbours.Extract();

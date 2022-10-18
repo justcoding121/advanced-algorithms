@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class PriorityQueue_Tests
+    public class PriorityQueueTests
     {
         [TestMethod]
         public void Min_PriorityQueue_Test()

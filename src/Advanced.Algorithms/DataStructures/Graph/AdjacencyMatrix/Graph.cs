@@ -26,10 +26,10 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
         matrix = new BitArray[1];
 
-        for (var i = 0; i < maxSize; i++) matrix[i] = new BitArray(maxSize);
+        for (var i = 0; i < MaxSize; i++) matrix[i] = new BitArray(MaxSize);
     }
 
-    private int maxSize => matrix.Length;
+    private int MaxSize => matrix.Length;
 
     IEnumerator IEnumerable.GetEnumerator()
     {
@@ -45,7 +45,7 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
     public bool IsWeightedGraph => false;
 
-    public IGraphVertex<T> ReferenceVertex => getReferenceVertex();
+    public IGraphVertex<T> ReferenceVertex => GetReferenceVertex();
 
     /// <summary>
     ///     Do we have an edge between the given source and destination?
@@ -82,7 +82,7 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         return Clone();
     }
 
-    private GraphVertex<T> getReferenceVertex()
+    private GraphVertex<T> GetReferenceVertex()
     {
         if (VerticesCount == 0) throw new Exception("Empty graph.");
 
@@ -99,9 +99,9 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
         if (vertexIndices.ContainsKey(value)) throw new Exception("Vertex exists.");
 
-        if (VerticesCount < maxSize / 2) halfMatrixSize();
+        if (VerticesCount < MaxSize / 2) HalfMatrixSize();
 
-        if (nextAvailableIndex == maxSize) doubleMatrixSize();
+        if (nextAvailableIndex == MaxSize) DoubleMatrixSize();
 
         vertexIndices.Add(value, nextAvailableIndex);
         reverseVertexIndices.Add(nextAvailableIndex, value);
@@ -122,12 +122,12 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
         if (!vertexIndices.ContainsKey(value)) throw new Exception("Vertex does'nt exist.");
 
-        if (VerticesCount <= maxSize / 2) halfMatrixSize();
+        if (VerticesCount <= MaxSize / 2) HalfMatrixSize();
 
         var index = vertexIndices[value];
 
         //clear edges
-        for (var i = 0; i < maxSize; i++)
+        for (var i = 0; i < MaxSize; i++)
         {
             matrix[i].Set(index, false);
             matrix[index].Set(i, false);
@@ -187,7 +187,7 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
         var index = vertexIndices[vertex];
 
-        for (var i = 0; i < maxSize; i++)
+        for (var i = 0; i < MaxSize; i++)
             if (matrix[i].Get(index))
                 yield return reverseVertexIndices[i];
     }
@@ -199,7 +199,7 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         var count = 0;
         var index = vertexIndices[vertex];
 
-        for (var i = 0; i < maxSize; i++)
+        for (var i = 0; i < MaxSize; i++)
             if (matrix[i].Get(index))
                 count++;
 
@@ -207,10 +207,10 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     }
 
 
-    private void doubleMatrixSize()
+    private void DoubleMatrixSize()
     {
-        var newMatrix = new BitArray[maxSize * 2];
-        for (var i = 0; i < maxSize * 2; i++) newMatrix[i] = new BitArray(maxSize * 2);
+        var newMatrix = new BitArray[MaxSize * 2];
+        for (var i = 0; i < MaxSize * 2; i++) newMatrix[i] = new BitArray(MaxSize * 2);
 
         var newVertexIndices = new Dictionary<T, int>();
         var newReverseIndices = new Dictionary<int, T>();
@@ -225,8 +225,8 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
         nextAvailableIndex = k;
 
-        for (var i = 0; i < maxSize; i++)
-        for (var j = i; j < maxSize; j++)
+        for (var i = 0; i < MaxSize; i++)
+        for (var j = i; j < MaxSize; j++)
             if (matrix[i].Get(j) && matrix[j].Get(i)
                                  && reverseVertexIndices.ContainsKey(i)
                                  && reverseVertexIndices.ContainsKey(j))
@@ -243,10 +243,10 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         reverseVertexIndices = newReverseIndices;
     }
 
-    private void halfMatrixSize()
+    private void HalfMatrixSize()
     {
-        var newMatrix = new BitArray[maxSize / 2];
-        for (var i = 0; i < maxSize / 2; i++) newMatrix[i] = new BitArray(maxSize / 2);
+        var newMatrix = new BitArray[MaxSize / 2];
+        for (var i = 0; i < MaxSize / 2; i++) newMatrix[i] = new BitArray(MaxSize / 2);
 
         var newVertexIndices = new Dictionary<T, int>();
         var newReverseIndices = new Dictionary<int, T>();
@@ -261,8 +261,8 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
         nextAvailableIndex = k;
 
-        for (var i = 0; i < maxSize; i++)
-        for (var j = i; j < maxSize; j++)
+        for (var i = 0; i < MaxSize; i++)
+        for (var j = i; j < MaxSize; j++)
             if (matrix[i].Get(j) && matrix[j].Get(i)
                                  && reverseVertexIndices.ContainsKey(i)
                                  && reverseVertexIndices.ContainsKey(j))
@@ -307,11 +307,11 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
             vertexIndex = graph.vertexIndices[vertexKey];
         }
 
-        private int maxSize => graph.maxSize;
-        private BitArray[] matrix => graph.matrix;
+        private int MaxSize => graph.MaxSize;
+        private BitArray[] Matrix => graph.matrix;
 
-        private Dictionary<T, int> vertexIndices => graph.vertexIndices;
-        private Dictionary<int, T> reverseVertexIndices => graph.reverseVertexIndices;
+        private Dictionary<T, int> VertexIndices => graph.vertexIndices;
+        private Dictionary<int, T> ReverseVertexIndices => graph.reverseVertexIndices;
 
         public T Key { get; }
 
@@ -321,20 +321,20 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
         public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
         {
-            if (!vertexIndices.ContainsKey(targetVertex.Key))
+            if (!VertexIndices.ContainsKey(targetVertex.Key))
                 throw new ArgumentException("vertex is not in this graph.");
 
-            var index = vertexIndices[targetVertex.Key];
+            var index = VertexIndices[targetVertex.Key];
             var key = targetVertex as GraphVertex<T>;
             return new Edge<T, int>(targetVertex, 1);
         }
 
         public IEdge<T> GetOutEdge(IGraphVertex<T> targetVertex)
         {
-            if (!vertexIndices.ContainsKey(targetVertex.Key))
+            if (!VertexIndices.ContainsKey(targetVertex.Key))
                 throw new ArgumentException("vertex is not in this graph.");
 
-            var index = vertexIndices[targetVertex.Key];
+            var index = VertexIndices[targetVertex.Key];
             var key = targetVertex as GraphVertex<T>;
             return new Edge<T, int>(targetVertex, 1);
         }

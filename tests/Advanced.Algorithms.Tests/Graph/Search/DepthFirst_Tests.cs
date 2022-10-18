@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class DepthFirst_Tests
+    public class DepthFirstTests
     {
         [TestMethod]
         public void DepthFirst_AdjacencyListGraph_Smoke_Test()

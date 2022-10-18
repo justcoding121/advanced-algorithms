@@ -4,34 +4,34 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Foundation;
 
-internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
+internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
 {
-    private const double tolerance = 0.1;
+    private const double Tolerance = 0.1;
     private readonly int initialBucketSize;
     private int filledBuckets;
 
-    private DoublyLinkedList<KeyValuePair<K, V>>[] hashArray;
+    private DoublyLinkedList<KeyValuePair<TK, TV>>[] hashArray;
 
 
     public SeparateChainingDictionary(int initialBucketSize = 3)
     {
         this.initialBucketSize = initialBucketSize;
-        hashArray = new DoublyLinkedList<KeyValuePair<K, V>>[initialBucketSize];
+        hashArray = new DoublyLinkedList<KeyValuePair<TK, TV>>[initialBucketSize];
     }
 
-    private int bucketSize => hashArray.Length;
+    private int BucketSize => hashArray.Length;
 
     public int Count { get; private set; }
 
-    public V this[K key]
+    public TV this[TK key]
     {
-        get => getValue(key);
-        set => setValue(key, value);
+        get => GetValue(key);
+        set => SetValue(key, value);
     }
 
-    public bool ContainsKey(K key)
+    public bool ContainsKey(TK key)
     {
-        var index = Math.Abs(key.GetHashCode()) % bucketSize;
+        var index = Math.Abs(key.GetHashCode()) % BucketSize;
 
         if (hashArray[index] == null) return false;
 
@@ -47,16 +47,16 @@ internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
         return false;
     }
 
-    public void Add(K key, V value)
+    public void Add(TK key, TV value)
     {
-        grow();
+        Grow();
 
-        var index = Math.Abs(key.GetHashCode()) % bucketSize;
+        var index = Math.Abs(key.GetHashCode()) % BucketSize;
 
         if (hashArray[index] == null)
         {
-            hashArray[index] = new DoublyLinkedList<KeyValuePair<K, V>>();
-            hashArray[index].InsertFirst(new KeyValuePair<K, V>(key, value));
+            hashArray[index] = new DoublyLinkedList<KeyValuePair<TK, TV>>();
+            hashArray[index].InsertFirst(new KeyValuePair<TK, TV>(key, value));
             filledBuckets++;
         }
         else
@@ -70,22 +70,22 @@ internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
                 current = current.Next;
             }
 
-            hashArray[index].InsertFirst(new KeyValuePair<K, V>(key, value));
+            hashArray[index].InsertFirst(new KeyValuePair<TK, TV>(key, value));
         }
 
         Count++;
     }
 
-    public void Remove(K key)
+    public void Remove(TK key)
     {
-        var index = Math.Abs(key.GetHashCode()) % bucketSize;
+        var index = Math.Abs(key.GetHashCode()) % BucketSize;
 
         if (hashArray[index] == null) throw new Exception("No such item for given key");
 
         var current = hashArray[index].Head;
 
         //TODO merge both search and remove to a single loop here!
-        DoublyLinkedListNode<KeyValuePair<K, V>> item = null;
+        DoublyLinkedListNode<KeyValuePair<TK, TV>> item = null;
         while (current != null)
         {
             if (current.Data.Key.Equals(key))
@@ -114,12 +114,12 @@ internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
 
         Count--;
 
-        shrink();
+        Shrink();
     }
 
     public void Clear()
     {
-        hashArray = new DoublyLinkedList<KeyValuePair<K, V>>[initialBucketSize];
+        hashArray = new DoublyLinkedList<KeyValuePair<TK, TV>>[initialBucketSize];
         Count = 0;
         filledBuckets = 0;
     }
@@ -129,14 +129,14 @@ internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
         return GetEnumerator();
     }
 
-    public IEnumerator<KeyValuePair<K, V>> GetEnumerator()
+    public IEnumerator<KeyValuePair<TK, TV>> GetEnumerator()
     {
-        return new SeparateChainingDictionaryEnumerator<K, V>(hashArray, bucketSize);
+        return new SeparateChainingDictionaryEnumerator<TK, TV>(hashArray, BucketSize);
     }
 
-    private void setValue(K key, V value)
+    private void SetValue(TK key, TV value)
     {
-        var index = Math.Abs(key.GetHashCode()) % bucketSize;
+        var index = Math.Abs(key.GetHashCode()) % BucketSize;
 
         if (hashArray[index] == null)
         {
@@ -162,9 +162,9 @@ internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
         throw new Exception("Item not found");
     }
 
-    private V getValue(K key)
+    private TV GetValue(TK key)
     {
-        var index = Math.Abs(key.GetHashCode()) % bucketSize;
+        var index = Math.Abs(key.GetHashCode()) % BucketSize;
 
         if (hashArray[index] == null) throw new Exception("Item not found");
 
@@ -180,17 +180,17 @@ internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
         throw new Exception("Item not found");
     }
 
-    private void grow()
+    private void Grow()
     {
-        if (filledBuckets >= bucketSize * 0.7)
+        if (filledBuckets >= BucketSize * 0.7)
         {
             filledBuckets = 0;
             //increase array size exponentially on demand
-            var newBucketSize = bucketSize * 2;
+            var newBucketSize = BucketSize * 2;
 
-            var biggerArray = new DoublyLinkedList<KeyValuePair<K, V>>[newBucketSize];
+            var biggerArray = new DoublyLinkedList<KeyValuePair<TK, TV>>[newBucketSize];
 
-            for (var i = 0; i < bucketSize; i++)
+            for (var i = 0; i < BucketSize; i++)
             {
                 var item = hashArray[i];
 
@@ -210,7 +210,7 @@ internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
                             if (biggerArray[newIndex] == null)
                             {
                                 filledBuckets++;
-                                biggerArray[newIndex] = new DoublyLinkedList<KeyValuePair<K, V>>();
+                                biggerArray[newIndex] = new DoublyLinkedList<KeyValuePair<TK, TV>>();
                             }
 
                             biggerArray[newIndex].InsertFirst(current);
@@ -224,17 +224,17 @@ internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
         }
     }
 
-    private void shrink()
+    private void Shrink()
     {
-        if (Math.Abs(filledBuckets - bucketSize * 0.3) < tolerance && bucketSize / 2 > initialBucketSize)
+        if (Math.Abs(filledBuckets - BucketSize * 0.3) < Tolerance && BucketSize / 2 > initialBucketSize)
         {
             filledBuckets = 0;
             //reduce array by half 
-            var newBucketSize = bucketSize / 2;
+            var newBucketSize = BucketSize / 2;
 
-            var smallerArray = new DoublyLinkedList<KeyValuePair<K, V>>[newBucketSize];
+            var smallerArray = new DoublyLinkedList<KeyValuePair<TK, TV>>[newBucketSize];
 
-            for (var i = 0; i < bucketSize; i++)
+            for (var i = 0; i < BucketSize; i++)
             {
                 var item = hashArray[i];
 
@@ -253,7 +253,7 @@ internal class SeparateChainingDictionary<K, V> : IDictionary<K, V>
                         if (smallerArray[newIndex] == null)
                         {
                             filledBuckets++;
-                            smallerArray[newIndex] = new DoublyLinkedList<KeyValuePair<K, V>>();
+                            smallerArray[newIndex] = new DoublyLinkedList<KeyValuePair<TK, TV>>();
                         }
 
                         smallerArray[newIndex].InsertFirst(current);

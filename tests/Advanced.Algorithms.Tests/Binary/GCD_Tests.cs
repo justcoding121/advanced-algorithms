@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Binary
 {
     [TestClass]
-    public class GCD_Tests
+    public class GcdTests
     {
         [TestMethod]
         public void GCD_Smoke_Test()

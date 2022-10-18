@@ -8,9 +8,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class RTree_Tests
+    public class RTreeTests
     {
-        private static readonly Random random = new Random();
+        private static readonly Random Random = new Random();
 
         /// </summary>
         [TestMethod]
@@ -18,7 +18,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var nodeCount = 1000;
             var randomPolygons = new HashSet<Polygon>();
-            for (var i = 0; i < nodeCount; i++) randomPolygons.Add(getRandomPointOrPolygon());
+            for (var i = 0; i < nodeCount; i++) randomPolygons.Add(GetRandomPointOrPolygon());
             var order = 5;
             var tree = new RTree(order);
 
@@ -35,7 +35,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                     Math.Ceiling(Math.Log((j + 2) / 2, (int)Math.Ceiling((double)order / 2))) + 1;
 
                 var actualMaxHeight = tree.Root.Height;
-                Assert.AreEqual(verifyHeightUniformityAndReturnHeight(tree.Root, order), actualMaxHeight);
+                Assert.AreEqual(VerifyHeightUniformityAndReturnHeight(tree.Root, order), actualMaxHeight);
                 Assert.IsTrue(actualMaxHeight <= theoreticalMaxHeight);
                 j++;
 
@@ -51,7 +51,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var nodeCount = 1000;
             var randomPolygons = new HashSet<Polygon>();
-            for (var i = 0; i < nodeCount; i++) randomPolygons.Add(getRandomPointOrPolygon());
+            for (var i = 0; i < nodeCount; i++) randomPolygons.Add(GetRandomPointOrPolygon());
             var order = 5;
             var tree = new RTree(order);
 
@@ -60,7 +60,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable test
             Assert.AreEqual(tree.Count, tree.Count());
 
-            var searchRectangle = getRandomPointOrPolygon().GetContainingRectangle();
+            var searchRectangle = GetRandomPointOrPolygon().GetContainingRectangle();
 
             var expectedIntersections = randomPolygons.Where(x =>
                 RectangleIntersection.FindIntersection(searchRectangle, x.GetContainingRectangle()) != null).ToList();
@@ -75,7 +75,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var nodeCount = 1000;
             var randomPolygons = new HashSet<Polygon>();
-            for (var i = 0; i < nodeCount; i++) randomPolygons.Add(getRandomPointOrPolygon());
+            for (var i = 0; i < nodeCount; i++) randomPolygons.Add(GetRandomPointOrPolygon());
             var order = 5;
             var tree = new RTree(order);
 
@@ -95,7 +95,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 if (j > 0)
                 {
                     var actualMaxHeight = tree.Root.Height;
-                    Assert.AreEqual(verifyHeightUniformityAndReturnHeight(tree.Root, order), actualMaxHeight);
+                    Assert.AreEqual(VerifyHeightUniformityAndReturnHeight(tree.Root, order), actualMaxHeight);
                     Assert.AreEqual(j, tree.Count);
                 }
             }
@@ -106,7 +106,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
         {
             var nodeCount = 10000;
             var randomPolygons = new HashSet<Polygon>();
-            for (var i = 0; i < nodeCount; i++) randomPolygons.Add(getRandomPointOrPolygon());
+            for (var i = 0; i < nodeCount; i++) randomPolygons.Add(GetRandomPointOrPolygon());
 
             var order = 5;
             var tree = new RTree(order);
@@ -123,13 +123,13 @@ namespace Advanced.Algorithms.Tests.DataStructures
         ///     Verifies that all children have same height.
         /// </summary>
         /// <returns>Returns the height of given node.</returns>
-        private int verifyHeightUniformityAndReturnHeight(RTreeNode node, int order)
+        private int VerifyHeightUniformityAndReturnHeight(RTreeNode node, int order)
         {
             if (!node.IsLeaf) Assert.IsTrue(node.KeyCount >= order / 2);
 
             var heights = new List<int>();
             foreach (var child in node.Children.Take(node.KeyCount))
-                heights.Add(verifyHeightUniformityAndReturnHeight(child, order) + 1);
+                heights.Add(VerifyHeightUniformityAndReturnHeight(child, order) + 1);
 
             if (node.KeyCount > 0)
             {
@@ -141,17 +141,17 @@ namespace Advanced.Algorithms.Tests.DataStructures
             return 0;
         }
 
-        private static Polygon getRandomPointOrPolygon()
+        private static Polygon GetRandomPointOrPolygon()
         {
             //if edge length is one we create a point otherwise we create a polygon
-            var edgeLength = random.Next(1, 5);
+            var edgeLength = Random.Next(1, 5);
 
             var edgePoints = new List<Point>();
 
             while (edgeLength > 0)
             {
-                edgePoints.Add(new Point(random.Next(0, 100) * random.NextDouble(),
-                    random.Next(0, 100) * random.NextDouble()));
+                edgePoints.Add(new Point(Random.Next(0, 100) * Random.NextDouble(),
+                    Random.Next(0, 100) * Random.NextDouble()));
                 edgeLength--;
             }
 

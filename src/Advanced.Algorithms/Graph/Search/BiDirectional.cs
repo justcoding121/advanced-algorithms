@@ -13,14 +13,14 @@ public class BiDirectional<T>
     /// </summary>
     public bool PathExists(IGraph<T> graph, T source, T destination)
     {
-        return bfs(graph, source, destination);
+        return Bfs(graph, source, destination);
     }
 
     /// <summary>
     ///     Use breadth First Search from Source and Target until they meet.
     ///     If they could'nt find the element before they meet return false.
     /// </summary>
-    private bool bfs(IGraph<T> graph, T source, T destination)
+    private bool Bfs(IGraph<T> graph, T source, T destination)
     {
         var visitedA = new HashSet<T>();
         var visitedB = new HashSet<T>();

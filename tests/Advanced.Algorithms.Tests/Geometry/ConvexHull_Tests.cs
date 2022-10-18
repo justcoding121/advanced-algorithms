@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Geometry
 {
     [TestClass]
-    public class ConvexHull_Tests
+    public class ConvexHullTests
     {
         [TestMethod]
         public void ConvexHull_Smoke_Test()

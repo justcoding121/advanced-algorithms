@@ -12,11 +12,11 @@ public class Trie<T> : IEnumerable<T[]>
 {
     public Trie()
     {
-        root = new TrieNode<T>(null, default);
+        Root = new TrieNode<T>(null, default);
         Count = 0;
     }
 
-    private TrieNode<T> root { get; }
+    private TrieNode<T> Root { get; }
 
     public int Count { get; private set; }
 
@@ -27,7 +27,7 @@ public class Trie<T> : IEnumerable<T[]>
 
     public IEnumerator<T[]> GetEnumerator()
     {
-        return new TrieEnumerator<T>(root);
+        return new TrieEnumerator<T>(Root);
     }
 
     /// <summary>
@@ -36,14 +36,14 @@ public class Trie<T> : IEnumerable<T[]>
     /// </summary>
     public void Insert(T[] entry)
     {
-        insert(root, entry, 0);
+        Insert(Root, entry, 0);
         Count++;
     }
 
     /// <summary>
     ///     Insert a new record to this trie after finding the end recursively.
     /// </summary>
-    private void insert(TrieNode<T> currentNode, T[] entry, int currentIndex)
+    private void Insert(TrieNode<T> currentNode, T[] entry, int currentIndex)
     {
         while (true)
         {
@@ -74,14 +74,14 @@ public class Trie<T> : IEnumerable<T[]>
     /// </summary>
     public void Delete(T[] entry)
     {
-        delete(root, entry, 0);
+        Delete(Root, entry, 0);
         Count--;
     }
 
     /// <summary>
     ///     Deletes a record from this trie after finding it recursively.
     /// </summary>
-    private void delete(TrieNode<T> currentNode, T[] entry, int currentIndex)
+    private void Delete(TrieNode<T> currentNode, T[] entry, int currentIndex)
     {
         if (currentIndex == entry.Length)
         {
@@ -93,7 +93,7 @@ public class Trie<T> : IEnumerable<T[]>
 
         if (currentNode.Children.ContainsKey(entry[currentIndex]) == false) throw new Exception("Item not in trie.");
 
-        delete(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
+        Delete(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
 
         if (currentNode.Children[entry[currentIndex]].IsEmpty
             && !currentNode.IsEnd)
@@ -106,14 +106,14 @@ public class Trie<T> : IEnumerable<T[]>
     /// </summary>
     public List<T[]> StartsWith(T[] prefix)
     {
-        return startsWith(root, prefix, 0);
+        return StartsWith(Root, prefix, 0);
     }
 
     /// <summary>
     ///     Recursively visit until end of prefix
     ///     and then gather all sub entries under it.
     /// </summary>
-    private List<T[]> startsWith(TrieNode<T> currentNode, T[] searchPrefix, int currentIndex)
+    private List<T[]> StartsWith(TrieNode<T> currentNode, T[] searchPrefix, int currentIndex)
     {
         while (true)
         {
@@ -122,7 +122,7 @@ public class Trie<T> : IEnumerable<T[]>
                 var result = new List<T[]>();
 
                 //gather sub entries and prefix them with search entry prefix
-                gatherStartsWith(result, searchPrefix, new List<T>(), currentNode);
+                GatherStartsWith(result, searchPrefix, new List<T>(), currentNode);
 
                 return result;
             }
@@ -137,7 +137,7 @@ public class Trie<T> : IEnumerable<T[]>
     /// <summary>
     ///     Gathers all suffixes under this node appending with the given prefix.
     /// </summary>
-    private void gatherStartsWith(List<T[]> result, T[] searchPrefix, List<T> suffix,
+    private void GatherStartsWith(List<T[]> result, T[] searchPrefix, List<T> suffix,
         TrieNode<T> node)
     {
         //end of word
@@ -154,7 +154,7 @@ public class Trie<T> : IEnumerable<T[]>
         {
             //append to end of prefix for new prefix
             suffix.Add(child.Key);
-            gatherStartsWith(result, searchPrefix, suffix, child.Value);
+            GatherStartsWith(result, searchPrefix, suffix, child.Value);
             suffix.RemoveAt(suffix.Count - 1);
         }
     }
@@ -165,7 +165,7 @@ public class Trie<T> : IEnumerable<T[]>
     /// </summary>
     public bool Contains(T[] entry)
     {
-        return contains(root, entry, 0, false);
+        return Contains(Root, entry, 0, false);
     }
 
     /// <summary>
@@ -174,13 +174,13 @@ public class Trie<T> : IEnumerable<T[]>
     /// </summary>
     public bool ContainsPrefix(T[] prefix)
     {
-        return contains(root, prefix, 0, true);
+        return Contains(Root, prefix, 0, true);
     }
 
     /// <summary>
     ///     Find if the record exist recursively.
     /// </summary>
-    private bool contains(TrieNode<T> currentNode, T[] entry, int currentIndex, bool isPrefixSearch)
+    private bool Contains(TrieNode<T> currentNode, T[] entry, int currentIndex, bool isPrefixSearch)
     {
         while (true)
         {
@@ -234,7 +234,7 @@ internal class TrieEnumerator<T> : IEnumerator<T[]>
 
             if (next.IsEnd)
             {
-                Current = getValue(next);
+                Current = GetValue(next);
                 return true;
             }
         }
@@ -257,7 +257,7 @@ internal class TrieEnumerator<T> : IEnumerator<T[]>
         progress = null;
     }
 
-    private T[] getValue(TrieNode<T> next)
+    private T[] GetValue(TrieNode<T> next)
     {
         var result = new Stack<T>();
         result.Push(next.Value);

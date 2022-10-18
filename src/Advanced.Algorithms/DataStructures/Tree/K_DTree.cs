@@ -8,12 +8,12 @@ namespace Advanced.Algorithms.DataStructures;
 /// <summary>
 ///     A multiDimensional k-d tree implementation (Unbalanced).
 /// </summary>
-public class KDTree<T> : IEnumerable<T[]> where T : IComparable
+public class KdTree<T> : IEnumerable<T[]> where T : IComparable
 {
     private readonly int dimensions;
-    private KDTreeNode<T> root;
+    private KdTreeNode<T> root;
 
-    public KDTree(int dimensions)
+    public KdTree(int dimensions)
     {
         this.dimensions = dimensions;
         if (dimensions <= 0) throw new Exception("Dimension should be greater than 0.");
@@ -28,7 +28,7 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
 
     public IEnumerator<T[]> GetEnumerator()
     {
-        return new KDTreeEnumerator<T>(root);
+        return new KdTreeEnumerator<T>(root);
     }
 
     /// <summary>
@@ -39,14 +39,14 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     {
         if (root == null)
         {
-            root = new KDTreeNode<T>(dimensions, null);
+            root = new KdTreeNode<T>(dimensions, null);
             root.Points = new T[dimensions];
-            copyPoints(root.Points, point);
+            CopyPoints(root.Points, point);
             Count++;
             return;
         }
 
-        insert(root, point, 0);
+        Insert(root, point, 0);
         Count++;
     }
 
@@ -54,7 +54,7 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     ///     Recursively find leaf node to insert
     ///     at each level comparing against the next dimension.
     /// </summary>
-    private void insert(KDTreeNode<T> currentNode, T[] point, int depth)
+    private void Insert(KdTreeNode<T> currentNode, T[] point, int depth)
     {
         var currentDimension = depth % dimensions;
 
@@ -62,25 +62,25 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
         {
             if (currentNode.Left == null)
             {
-                currentNode.Left = new KDTreeNode<T>(dimensions, currentNode);
+                currentNode.Left = new KdTreeNode<T>(dimensions, currentNode);
                 currentNode.Left.Points = new T[dimensions];
-                copyPoints(currentNode.Left.Points, point);
+                CopyPoints(currentNode.Left.Points, point);
                 return;
             }
 
-            insert(currentNode.Left, point, depth + 1);
+            Insert(currentNode.Left, point, depth + 1);
         }
         else if (point[currentDimension].CompareTo(currentNode.Points[currentDimension]) >= 0)
         {
             if (currentNode.Right == null)
             {
-                currentNode.Right = new KDTreeNode<T>(dimensions, currentNode);
+                currentNode.Right = new KdTreeNode<T>(dimensions, currentNode);
                 currentNode.Right.Points = new T[dimensions];
-                copyPoints(currentNode.Right.Points, point);
+                CopyPoints(currentNode.Right.Points, point);
                 return;
             }
 
-            insert(currentNode.Right, point, depth + 1);
+            Insert(currentNode.Right, point, depth + 1);
         }
     }
 
@@ -92,14 +92,14 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     {
         if (root == null) throw new Exception("Empty tree");
 
-        delete(root, point, 0);
+        Delete(root, point, 0);
         Count--;
     }
 
     /// <summary>
     ///     Delete point by locating it recursively.
     /// </summary>
-    private void delete(KDTreeNode<T> currentNode, T[] point, int depth)
+    private void Delete(KdTreeNode<T> currentNode, T[] point, int depth)
     {
         if (currentNode == null) throw new Exception("Given deletion point do not exist in this kd tree.");
 
@@ -107,20 +107,20 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
 
         if (DoMatch(currentNode.Points, point))
         {
-            handleDeleteCases(currentNode, point, depth);
+            HandleDeleteCases(currentNode, point, depth);
             return;
         }
 
         if (point[currentDimension].CompareTo(currentNode.Points[currentDimension]) < 0)
-            delete(currentNode.Left, point, depth + 1);
+            Delete(currentNode.Left, point, depth + 1);
         else if (point[currentDimension].CompareTo(currentNode.Points[currentDimension]) >= 0)
-            delete(currentNode.Right, point, depth + 1);
+            Delete(currentNode.Right, point, depth + 1);
     }
 
     /// <summary>
     ///     Handle the three cases for deletion.
     /// </summary>
-    private void handleDeleteCases(KDTreeNode<T> currentNode, T[] point, int depth)
+    private void HandleDeleteCases(KdTreeNode<T> currentNode, T[] point, int depth)
     {
         //case one node is leaf
         if (currentNode.IsLeaf)
@@ -143,18 +143,18 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
         //case 2 right subtree is not null
         if (currentNode.Right != null)
         {
-            var minNode = findMin(currentNode.Right, depth % dimensions, depth + 1);
-            copyPoints(currentNode.Points, minNode.Points);
+            var minNode = FindMin(currentNode.Right, depth % dimensions, depth + 1);
+            CopyPoints(currentNode.Points, minNode.Points);
 
-            delete(currentNode.Right, minNode.Points, depth + 1);
+            Delete(currentNode.Right, minNode.Points, depth + 1);
         }
         //case 3 left subtree is not null
         else if (currentNode.Left != null)
         {
-            var minNode = findMin(currentNode.Left, depth % dimensions, depth + 1);
-            copyPoints(currentNode.Points, minNode.Points);
+            var minNode = FindMin(currentNode.Left, depth % dimensions, depth + 1);
+            CopyPoints(currentNode.Points, minNode.Points);
 
-            delete(currentNode.Left, minNode.Points, depth + 1);
+            Delete(currentNode.Left, minNode.Points, depth + 1);
 
             //now move to right
             currentNode.Right = currentNode.Left;
@@ -165,7 +165,7 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Copy points2 to point1.
     /// </summary>
-    private void copyPoints(T[] points1, T[] points2)
+    private void CopyPoints(T[] points1, T[] points2)
     {
         for (var i = 0; i < points1.Length; i++) points1[i] = points2[i];
     }
@@ -173,7 +173,7 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Find min value under this dimension.
     /// </summary>
-    private KDTreeNode<T> findMin(KDTreeNode<T> node, int searchdimension, int depth)
+    private KdTreeNode<T> FindMin(KdTreeNode<T> node, int searchdimension, int depth)
     {
         var currentDimension = depth % dimensions;
 
@@ -181,23 +181,23 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
         {
             if (node.Left == null) return node;
 
-            return findMin(node.Left, searchdimension, depth + 1);
+            return FindMin(node.Left, searchdimension, depth + 1);
         }
 
-        KDTreeNode<T> leftMin = null;
-        if (node.Left != null) leftMin = findMin(node.Left, searchdimension, depth + 1);
+        KdTreeNode<T> leftMin = null;
+        if (node.Left != null) leftMin = FindMin(node.Left, searchdimension, depth + 1);
 
-        KDTreeNode<T> rightMin = null;
-        if (node.Right != null) rightMin = findMin(node.Right, searchdimension, depth + 1);
+        KdTreeNode<T> rightMin = null;
+        if (node.Right != null) rightMin = FindMin(node.Right, searchdimension, depth + 1);
 
-        return min(node, leftMin, rightMin, searchdimension);
+        return Min(node, leftMin, rightMin, searchdimension);
     }
 
     /// <summary>
     ///     Returns min of given three nodes on search dimension.
     /// </summary>
-    private KDTreeNode<T> min(KDTreeNode<T> node,
-        KDTreeNode<T> leftMin, KDTreeNode<T> rightMin,
+    private KdTreeNode<T> Min(KdTreeNode<T> node,
+        KdTreeNode<T> leftMin, KdTreeNode<T> rightMin,
         int searchdimension)
     {
         var min = node;
@@ -233,19 +233,19 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     {
         if (root == null) throw new Exception("Empty tree");
 
-        return findNearestNeighbour(root, point, 0, distanceCalculator).Points;
+        return FindNearestNeighbour(root, point, 0, distanceCalculator).Points;
     }
 
     /// <summary>
     ///     Recursively find leaf node to insert
     ///     at each level comparing against the next dimension.
     /// </summary>
-    private KDTreeNode<T> findNearestNeighbour(KDTreeNode<T> currentNode,
+    private KdTreeNode<T> FindNearestNeighbour(KdTreeNode<T> currentNode,
         T[] searchPoint, int depth,
         IDistanceCalculator<T> distanceCalculator)
     {
         var currentDimension = depth % dimensions;
-        KDTreeNode<T> currentBest = null;
+        KdTreeNode<T> currentBest = null;
 
         var compareResult = searchPoint[currentDimension]
             .CompareTo(currentNode.Points[currentDimension]);
@@ -254,7 +254,7 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
         if (compareResult < 0)
         {
             if (currentNode.Left != null)
-                currentBest = findNearestNeighbour(currentNode.Left,
+                currentBest = FindNearestNeighbour(currentNode.Left,
                     searchPoint, depth + 1, distanceCalculator);
             else
                 currentBest = currentNode;
@@ -268,20 +268,20 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
                  || currentNode.Right.Points[currentDimension]
                      .CompareTo(currentNode.Points[currentDimension]) == 0))
             {
-                var rightBest = findNearestNeighbour(currentNode.Right,
+                var rightBest = FindNearestNeighbour(currentNode.Right,
                     searchPoint, depth + 1,
                     distanceCalculator);
 
-                currentBest = getClosestToPoint(distanceCalculator, currentBest, rightBest, searchPoint);
+                currentBest = GetClosestToPoint(distanceCalculator, currentBest, rightBest, searchPoint);
             }
 
             //now recurse up from leaf updating current Best
-            currentBest = getClosestToPoint(distanceCalculator, currentBest, currentNode, searchPoint);
+            currentBest = GetClosestToPoint(distanceCalculator, currentBest, currentNode, searchPoint);
         }
         else if (compareResult >= 0)
         {
             if (currentNode.Right != null)
-                currentBest = findNearestNeighbour(currentNode.Right,
+                currentBest = FindNearestNeighbour(currentNode.Right,
                     searchPoint, depth + 1, distanceCalculator);
             else
                 currentBest = currentNode;
@@ -293,15 +293,15 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
                 && (distanceCalculator.Compare(currentNode.Points[currentDimension], searchPoint[currentDimension],
                     searchPoint, currentBest.Points) < 0 || compareResult == 0))
             {
-                var leftBest = findNearestNeighbour(currentNode.Left,
+                var leftBest = FindNearestNeighbour(currentNode.Left,
                     searchPoint, depth + 1,
                     distanceCalculator);
 
-                currentBest = getClosestToPoint(distanceCalculator, currentBest, leftBest, searchPoint);
+                currentBest = GetClosestToPoint(distanceCalculator, currentBest, leftBest, searchPoint);
             }
 
             //now recurse up from leaf updating current Best
-            currentBest = getClosestToPoint(distanceCalculator, currentBest, currentNode, searchPoint);
+            currentBest = GetClosestToPoint(distanceCalculator, currentBest, currentNode, searchPoint);
         }
 
 
@@ -311,8 +311,8 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Returns the closest node between currentBest and CurrentNode to point
     /// </summary>
-    private KDTreeNode<T> getClosestToPoint(IDistanceCalculator<T> distanceCalculator,
-        KDTreeNode<T> currentBest, KDTreeNode<T> currentNode, T[] point)
+    private KdTreeNode<T> GetClosestToPoint(IDistanceCalculator<T> distanceCalculator,
+        KdTreeNode<T> currentBest, KdTreeNode<T> currentNode, T[] point)
     {
         if (distanceCalculator.Compare(currentBest.Points,
                 currentNode.Points, point) < 0)
@@ -327,7 +327,7 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public List<T[]> RangeSearch(T[] start, T[] end)
     {
-        var result = rangeSearch(new List<T[]>(), root,
+        var result = RangeSearch(new List<T[]>(), root,
             start, end, 0);
 
         return result;
@@ -336,8 +336,8 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Recursively find points in given range.
     /// </summary>
-    private List<T[]> rangeSearch(List<T[]> result,
-        KDTreeNode<T> currentNode,
+    private List<T[]> RangeSearch(List<T[]> result,
+        KdTreeNode<T> currentNode,
         T[] start, T[] end, int depth)
     {
         if (currentNode == null) return result;
@@ -347,22 +347,22 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
         if (currentNode.IsLeaf)
         {
             //start is less than current node
-            if (inRange(currentNode, start, end)) result.Add(currentNode.Points);
+            if (InRange(currentNode, start, end)) result.Add(currentNode.Points);
         }
         //if start is less than current
         //move left
         else
         {
             if (start[currentDimension].CompareTo(currentNode.Points[currentDimension]) < 0)
-                rangeSearch(result, currentNode.Left, start, end, depth + 1);
+                RangeSearch(result, currentNode.Left, start, end, depth + 1);
             //if start is greater than current
             //and end is greater than current
             //move right
             if (end[currentDimension].CompareTo(currentNode.Points[currentDimension]) > 0)
-                rangeSearch(result, currentNode.Right, start, end, depth + 1);
+                RangeSearch(result, currentNode.Right, start, end, depth + 1);
 
             //start is less than current node
-            if (inRange(currentNode, start, end)) result.Add(currentNode.Points);
+            if (InRange(currentNode, start, end)) result.Add(currentNode.Points);
         }
 
         return result;
@@ -371,7 +371,7 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Is the point in node is within start and end points.
     /// </summary>
-    private bool inRange(KDTreeNode<T> node, T[] start, T[] end)
+    private bool InRange(KdTreeNode<T> node, T[] start, T[] end)
     {
         for (var i = 0; i < node.Points.Length; i++)
             //if not (start is less than node && end is greater than node)
@@ -386,9 +386,9 @@ public class KDTree<T> : IEnumerable<T[]> where T : IComparable
 /// <summary>
 ///     k-d tree node.
 /// </summary>
-internal class KDTreeNode<T> where T : IComparable
+internal class KdTreeNode<T> where T : IComparable
 {
-    internal KDTreeNode(int dimensions, KDTreeNode<T> parent)
+    internal KdTreeNode(int dimensions, KdTreeNode<T> parent)
     {
         Points = new T[dimensions];
         Parent = parent;
@@ -396,11 +396,11 @@ internal class KDTreeNode<T> where T : IComparable
 
     internal T[] Points { get; set; }
 
-    internal KDTreeNode<T> Left { get; set; }
-    internal KDTreeNode<T> Right { get; set; }
+    internal KdTreeNode<T> Left { get; set; }
+    internal KdTreeNode<T> Right { get; set; }
     internal bool IsLeaf => Left == null && Right == null;
 
-    internal KDTreeNode<T> Parent { get; set; }
+    internal KdTreeNode<T> Parent { get; set; }
     internal bool IsLeftChild => Parent.Left == this;
 }
 
@@ -425,12 +425,12 @@ public interface IDistanceCalculator<T> where T : IComparable
     int Compare(T a, T b, T[] start, T[] end);
 }
 
-internal class KDTreeEnumerator<T> : IEnumerator<T[]> where T : IComparable
+internal class KdTreeEnumerator<T> : IEnumerator<T[]> where T : IComparable
 {
-    private readonly KDTreeNode<T> root;
-    private Stack<KDTreeNode<T>> progress;
+    private readonly KdTreeNode<T> root;
+    private Stack<KdTreeNode<T>> progress;
 
-    internal KDTreeEnumerator(KDTreeNode<T> root)
+    internal KdTreeEnumerator(KdTreeNode<T> root)
     {
         this.root = root;
     }
@@ -441,7 +441,7 @@ internal class KDTreeEnumerator<T> : IEnumerator<T[]> where T : IComparable
 
         if (progress == null)
         {
-            progress = new Stack<KDTreeNode<T>>(new[] { root.Left, root.Right }.Where(x => x != null));
+            progress = new Stack<KdTreeNode<T>>(new[] { root.Left, root.Right }.Where(x => x != null));
             Current = root.Points;
             return true;
         }

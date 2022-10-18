@@ -28,7 +28,7 @@ public class ManachersPalindrome
 
         modifiedInput.Append("$");
 
-        var result = findLongestPalindromeR(modifiedInput.ToString());
+        var result = FindLongestPalindromeR(modifiedInput.ToString());
 
         //remove length of $ sentinel
         return result / 2;
@@ -37,7 +37,7 @@ public class ManachersPalindrome
     /// <summary>
     ///     Find the longest palindrome in linear time.
     /// </summary>
-    private int findLongestPalindromeR(string input)
+    private int FindLongestPalindromeR(string input)
     {
         var palindromeLengths = new int[input.Length];
 
@@ -138,13 +138,13 @@ public class ManachersPalindrome
             i++;
         }
 
-        return findMax(palindromeLengths);
+        return FindMax(palindromeLengths);
     }
 
     /// <summary>
     ///     Returns the max index in given int[] array.
     /// </summary>
-    private int findMax(int[] palindromeLengths)
+    private int FindMax(int[] palindromeLengths)
     {
         return palindromeLengths.Concat(new[] { int.MinValue }).Max();
     }

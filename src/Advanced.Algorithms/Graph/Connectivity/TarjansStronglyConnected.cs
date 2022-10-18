@@ -23,7 +23,7 @@ public class TarjansStronglyConnected<T>
         var discoveryTime = 0;
         foreach (var vertex in graph.VerticesAsEnumberable)
             if (!discoveryTimeMap.ContainsKey(vertex.Key))
-                DFS(vertex,
+                Dfs(vertex,
                     result,
                     discoveryTimeMap, lowTimeMap,
                     pathStack, pathStackMap, ref discoveryTime);
@@ -35,7 +35,7 @@ public class TarjansStronglyConnected<T>
     ///     Do a depth first search to find Strongly Connected by keeping track of
     ///     discovery nodes and checking for back edges using low/discovery time maps.
     /// </summary>
-    private void DFS(IDiGraphVertex<T> currentVertex,
+    private void Dfs(IDiGraphVertex<T> currentVertex,
         List<List<T>> result,
         Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
         Stack<T> pathStack,
@@ -50,7 +50,7 @@ public class TarjansStronglyConnected<T>
             if (!discoveryTimeMap.ContainsKey(edge.TargetVertexKey))
             {
                 discoveryTime++;
-                DFS(edge.TargetVertex, result, discoveryTimeMap, lowTimeMap,
+                Dfs(edge.TargetVertex, result, discoveryTimeMap, lowTimeMap,
                     pathStack, pathStackMap, ref discoveryTime);
 
                 //propogate lowTime index of neighbour so that ancestors can see it in DFS

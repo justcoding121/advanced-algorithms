@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class Trie_Tests
+    public class TrieTests
     {
         [TestMethod]
         public void Trie_Smoke_Test_Banana()

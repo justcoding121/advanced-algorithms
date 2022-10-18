@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.DataStructures
 {
     [TestClass]
-    public class TreapTree_Tests
+    public class TreapTreeTests
     {
         /// <summary>
         ///     A tree test

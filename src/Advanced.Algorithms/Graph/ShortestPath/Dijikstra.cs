@@ -9,11 +9,11 @@ namespace Advanced.Algorithms.Graph;
 /// <summary>
 ///     A dijikstra algorithm implementation using Fibonacci Heap.
 /// </summary>
-public class DijikstraShortestPath<T, W> where W : IComparable
+public class DijikstraShortestPath<T, TW> where TW : IComparable
 {
-    private readonly IShortestPathOperators<W> @operator;
+    private readonly IShortestPathOperators<TW> @operator;
 
-    public DijikstraShortestPath(IShortestPathOperators<W> @operator)
+    public DijikstraShortestPath(IShortestPathOperators<TW> @operator)
     {
         this.@operator = @operator;
     }
@@ -21,7 +21,7 @@ public class DijikstraShortestPath<T, W> where W : IComparable
     /// <summary>
     ///     Get shortest distance to target.
     /// </summary>
-    public ShortestPathResult<T, W> FindShortestPath(IGraph<T> graph, T source, T destination)
+    public ShortestPathResult<T, TW> FindShortestPath(IGraph<T> graph, T source, T destination)
     {
         //regular argument checks
         if (graph?.GetVertex(source) == null || graph.GetVertex(destination) == null) throw new ArgumentException();
@@ -35,15 +35,15 @@ public class DijikstraShortestPath<T, W> where W : IComparable
                                             "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
 
         //track progress for distance to each Vertex from source
-        var progress = new Dictionary<T, W>();
+        var progress = new Dictionary<T, TW>();
 
         //trace our current path by mapping current vertex to its Parent
         var parentMap = new Dictionary<T, T>();
 
         //min heap to pick next closest vertex 
-        var minHeap = new FibonacciHeap<MinHeapWrap<T, W>>();
+        var minHeap = new FibonacciHeap<MinHeapWrap<T, TW>>();
         //keep references of heap Node for decrement key operation
-        var heapMapping = new Dictionary<T, MinHeapWrap<T, W>>();
+        var heapMapping = new Dictionary<T, MinHeapWrap<T, TW>>();
 
         //add vertices to min heap and progress map
         foreach (var vertex in graph.VerticesAsEnumberable)
@@ -58,7 +58,7 @@ public class DijikstraShortestPath<T, W> where W : IComparable
         }
 
         //start from source vertex as current 
-        var current = new MinHeapWrap<T, W>
+        var current = new MinHeapWrap<T, TW>
         {
             Distance = @operator.DefaultValue,
             Vertex = source
@@ -76,7 +76,7 @@ public class DijikstraShortestPath<T, W> where W : IComparable
 
             //no path exists, so return max value
             if (current.Distance.Equals(@operator.MaxValue))
-                return new ShortestPathResult<T, W>(null, @operator.MaxValue);
+                return new ShortestPathResult<T, TW>(null, @operator.MaxValue);
 
             //visit neighbours of current
             foreach (var neighbour in graph.GetVertex(current.Vertex).Edges
@@ -84,7 +84,7 @@ public class DijikstraShortestPath<T, W> where W : IComparable
             {
                 //new distance to neighbour
                 var newDistance = @operator.Sum(current.Distance,
-                    graph.GetVertex(current.Vertex).GetEdge(neighbour.TargetVertex).Weight<W>());
+                    graph.GetVertex(current.Vertex).GetEdge(neighbour.TargetVertex).Weight<TW>());
 
                 //current distance to neighbour
                 var existingDistance = progress[neighbour.TargetVertexKey];
@@ -96,14 +96,14 @@ public class DijikstraShortestPath<T, W> where W : IComparable
 
                     if (!heapMapping.ContainsKey(neighbour.TargetVertexKey))
                     {
-                        var wrap = new MinHeapWrap<T, W> { Distance = newDistance, Vertex = neighbour.TargetVertexKey };
+                        var wrap = new MinHeapWrap<T, TW> { Distance = newDistance, Vertex = neighbour.TargetVertexKey };
                         minHeap.Insert(wrap);
                         heapMapping.Add(neighbour.TargetVertexKey, wrap);
                     }
                     else
                     {
                         //decrement distance to neighbour in heap
-                        var decremented = new MinHeapWrap<T, W>
+                        var decremented = new MinHeapWrap<T, TW>
                             { Distance = newDistance, Vertex = neighbour.TargetVertexKey };
                         minHeap.UpdateKey(heapMapping[neighbour.TargetVertexKey], decremented);
                         heapMapping[neighbour.TargetVertexKey] = decremented;
@@ -115,13 +115,13 @@ public class DijikstraShortestPath<T, W> where W : IComparable
             }
         }
 
-        return tracePath(graph, parentMap, source, destination);
+        return TracePath(graph, parentMap, source, destination);
     }
 
     /// <summary>
     ///     Trace back path from destination to source using parent map.
     /// </summary>
-    private ShortestPathResult<T, W> tracePath(IGraph<T> graph, Dictionary<T, T> parentMap, T source, T destination)
+    private ShortestPathResult<T, TW> TracePath(IGraph<T> graph, Dictionary<T, T> parentMap, T source, T destination)
     {
         //trace the path
         var pathStack = new Stack<T>();
@@ -142,47 +142,47 @@ public class DijikstraShortestPath<T, W> where W : IComparable
 
         for (var i = 0; i < resultPath.Count - 1; i++)
             resultLength = @operator.Sum(resultLength,
-                graph.GetVertex(resultPath[i]).GetEdge(graph.GetVertex(resultPath[i + 1])).Weight<W>());
+                graph.GetVertex(resultPath[i]).GetEdge(graph.GetVertex(resultPath[i + 1])).Weight<TW>());
 
-        return new ShortestPathResult<T, W>(resultPath, resultLength);
+        return new ShortestPathResult<T, TW>(resultPath, resultLength);
     }
 }
 
 /// <summary>
 ///     Generic operators interface required by shorted path algorithms.
 /// </summary>
-public interface IShortestPathOperators<W> where W : IComparable
+public interface IShortestPathOperators<TW> where TW : IComparable
 {
-    W DefaultValue { get; }
-    W MaxValue { get; }
-    W Sum(W a, W b);
+    TW DefaultValue { get; }
+    TW MaxValue { get; }
+    TW Sum(TW a, TW b);
 }
 
 /// <summary>
 ///     Shortest path result object.
 /// </summary>
-public class ShortestPathResult<T, W> where W : IComparable
+public class ShortestPathResult<T, TW> where TW : IComparable
 {
-    public ShortestPathResult(List<T> path, W length)
+    public ShortestPathResult(List<T> path, TW length)
     {
         Length = length;
         Path = path;
     }
 
-    public W Length { get; internal set; }
+    public TW Length { get; internal set; }
     public List<T> Path { get; }
 }
 
 /// <summary>
 ///     For fibornacci heap node.
 /// </summary>
-internal class MinHeapWrap<T, W> : IComparable where W : IComparable
+internal class MinHeapWrap<T, TW> : IComparable where TW : IComparable
 {
     internal T Vertex { get; set; }
-    internal W Distance { get; set; }
+    internal TW Distance { get; set; }
 
     public int CompareTo(object obj)
     {
-        return Distance.CompareTo((obj as MinHeapWrap<T, W>).Distance);
+        return Distance.CompareTo((obj as MinHeapWrap<T, TW>).Distance);
     }
 }

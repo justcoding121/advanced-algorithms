@@ -13,20 +13,20 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 {
     public DiGraph()
     {
-        vertices = new Dictionary<T, DiGraphVertex<T>>();
+        Vertices = new Dictionary<T, DiGraphVertex<T>>();
     }
 
-    private Dictionary<T, DiGraphVertex<T>> vertices { get; }
+    private Dictionary<T, DiGraphVertex<T>> Vertices { get; }
 
     /// <summary>
     ///     Return a reference vertex to start traversing Vertices
     ///     Time complexity: O(1).
     /// </summary>
-    private DiGraphVertex<T> referenceVertex
+    private DiGraphVertex<T> ReferenceVertex
     {
         get
         {
-            using (var enumerator = vertices.GetEnumerator())
+            using (var enumerator = Vertices.GetEnumerator())
             {
                 if (enumerator.MoveNext()) return enumerator.Current.Value;
             }
@@ -35,11 +35,11 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         }
     }
 
-    IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => referenceVertex;
+    IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => ReferenceVertex;
 
     public IDiGraphVertex<T> GetVertex(T value)
     {
-        return vertices[value];
+        return Vertices[value];
     }
 
     IDiGraph<T> IDiGraph<T>.Clone()
@@ -47,11 +47,11 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         return Clone();
     }
 
-    IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumberable => vertices.Select(x => x.Value);
+    IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumberable => Vertices.Select(x => x.Value);
 
     public IEnumerator GetEnumerator()
     {
-        return vertices.Select(x => x.Key).GetEnumerator();
+        return Vertices.Select(x => x.Key).GetEnumerator();
     }
 
     IEnumerator<T> IEnumerable<T>.GetEnumerator()
@@ -59,9 +59,9 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         return GetEnumerator() as IEnumerator<T>;
     }
 
-    public int VerticesCount => vertices.Count;
+    public int VerticesCount => Vertices.Count;
     public bool IsWeightedGraph => false;
-    IGraphVertex<T> IGraph<T>.ReferenceVertex => referenceVertex;
+    IGraphVertex<T> IGraph<T>.ReferenceVertex => ReferenceVertex;
 
     /// <summary>
     ///     Do we have an edge between the given source and destination?
@@ -69,21 +69,21 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public bool HasEdge(T source, T dest)
     {
-        if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             throw new ArgumentException("source or destination is not in this graph.");
 
-        return vertices[source].OutEdges.Contains(vertices[dest])
-               && vertices[dest].InEdges.Contains(vertices[source]);
+        return Vertices[source].OutEdges.Contains(Vertices[dest])
+               && Vertices[dest].InEdges.Contains(Vertices[source]);
     }
 
     public bool ContainsVertex(T value)
     {
-        return vertices.ContainsKey(value);
+        return Vertices.ContainsKey(value);
     }
 
     IGraphVertex<T> IGraph<T>.GetVertex(T key)
     {
-        return vertices[key];
+        return Vertices[key];
     }
 
     IGraph<T> IGraph<T>.Clone()
@@ -91,7 +91,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         return Clone();
     }
 
-    public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => vertices.Select(x => x.Value);
+    public IEnumerable<IGraphVertex<T>> VerticesAsEnumberable => Vertices.Select(x => x.Value);
 
 
     /// <summary>
@@ -104,7 +104,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
         var newVertex = new DiGraphVertex<T>(value);
 
-        vertices.Add(value, newVertex);
+        Vertices.Add(value, newVertex);
     }
 
     /// <summary>
@@ -115,13 +115,13 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     {
         if (value == null) throw new ArgumentNullException();
 
-        if (!vertices.ContainsKey(value)) throw new Exception("Vertex not in this graph.");
+        if (!Vertices.ContainsKey(value)) throw new Exception("Vertex not in this graph.");
 
-        foreach (var vertex in vertices[value].InEdges) vertex.OutEdges.Remove(vertices[value]);
+        foreach (var vertex in Vertices[value].InEdges) vertex.OutEdges.Remove(Vertices[value]);
 
-        foreach (var vertex in vertices[value].OutEdges) vertex.InEdges.Remove(vertices[value]);
+        foreach (var vertex in Vertices[value].OutEdges) vertex.InEdges.Remove(Vertices[value]);
 
-        vertices.Remove(value);
+        Vertices.Remove(value);
     }
 
     /// <summary>
@@ -132,14 +132,14 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     {
         if (source == null || dest == null) throw new ArgumentException();
 
-        if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             throw new Exception("Source or Destination Vertex is not in this graph.");
 
-        if (vertices[source].OutEdges.Contains(vertices[dest]) || vertices[dest].InEdges.Contains(vertices[source]))
+        if (Vertices[source].OutEdges.Contains(Vertices[dest]) || Vertices[dest].InEdges.Contains(Vertices[source]))
             throw new Exception("Edge already exists.");
 
-        vertices[source].OutEdges.Add(vertices[dest]);
-        vertices[dest].InEdges.Add(vertices[source]);
+        Vertices[source].OutEdges.Add(Vertices[dest]);
+        Vertices[dest].InEdges.Add(Vertices[source]);
     }
 
     /// <summary>
@@ -150,29 +150,29 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     {
         if (source == null || dest == null) throw new ArgumentException();
 
-        if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
             throw new Exception("Source or Destination Vertex is not in this graph.");
 
-        if (!vertices[source].OutEdges.Contains(vertices[dest])
-            || !vertices[dest].InEdges.Contains(vertices[source]))
+        if (!Vertices[source].OutEdges.Contains(Vertices[dest])
+            || !Vertices[dest].InEdges.Contains(Vertices[source]))
             throw new Exception("Edge do not exists.");
 
-        vertices[source].OutEdges.Remove(vertices[dest]);
-        vertices[dest].InEdges.Remove(vertices[source]);
+        Vertices[source].OutEdges.Remove(Vertices[dest]);
+        Vertices[dest].InEdges.Remove(Vertices[source]);
     }
 
     public IEnumerable<T> OutEdges(T vertex)
     {
-        if (!vertices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!Vertices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
 
-        return vertices[vertex].OutEdges.Select(x => x.Key);
+        return Vertices[vertex].OutEdges.Select(x => x.Key);
     }
 
     public IEnumerable<T> InEdges(T vertex)
     {
-        if (!vertices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!Vertices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
 
-        return vertices[vertex].InEdges.Select(x => x.Key);
+        return Vertices[vertex].InEdges.Select(x => x.Key);
     }
 
     /// <summary>
@@ -182,9 +182,9 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     {
         var newGraph = new DiGraph<T>();
 
-        foreach (var vertex in vertices) newGraph.AddVertex(vertex.Key);
+        foreach (var vertex in Vertices) newGraph.AddVertex(vertex.Key);
 
-        foreach (var vertex in vertices)
+        foreach (var vertex in Vertices)
         foreach (var edge in vertex.Value.OutEdges)
             newGraph.AddEdge(vertex.Value.Key, edge.Key);
 

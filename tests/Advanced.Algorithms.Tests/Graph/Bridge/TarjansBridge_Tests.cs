@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class TarjansBridge_Tests
+    public class TarjansBridgeTests
     {
         [TestMethod]
         public void TarjanBridge_AdjacencyListGraph_Smoke_Test()
@@ -51,8 +51,8 @@ namespace Advanced.Algorithms.Tests.Graph
             };
 
             foreach (var bridge in result)
-                Assert.IsTrue(expected.Any(x => bridge.vertexA == x[0]
-                                                && bridge.vertexB == x[1]));
+                Assert.IsTrue(expected.Any(x => bridge.VertexA == x[0]
+                                                && bridge.VertexB == x[1]));
         }
 
         [TestMethod]
@@ -97,8 +97,8 @@ namespace Advanced.Algorithms.Tests.Graph
             };
 
             foreach (var bridge in result)
-                Assert.IsTrue(expected.Any(x => bridge.vertexA == x[0]
-                                                && bridge.vertexB == x[1]));
+                Assert.IsTrue(expected.Any(x => bridge.VertexA == x[0]
+                                                && bridge.VertexB == x[1]));
         }
     }
 }

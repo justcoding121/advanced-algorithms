@@ -11,7 +11,7 @@ public class Line
 
     private Line()
     {
-        slope = new Lazy<double>(() => calcSlope());
+        slope = new Lazy<double>(() => CalcSlope());
     }
 
     internal Line(Point start, Point end, double tolerance)
@@ -56,7 +56,7 @@ public class Line
 
     public double Slope => slope.Value;
 
-    private double calcSlope()
+    private double CalcSlope()
     {
         Point left = Left, right = Right;
 

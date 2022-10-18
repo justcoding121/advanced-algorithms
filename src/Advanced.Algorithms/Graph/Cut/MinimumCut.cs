@@ -9,11 +9,11 @@ namespace Advanced.Algorithms.Graph;
 ///     Compute minimum cut edges of given graph
 ///     using Edmond-Karps improved Ford-Fulkerson Max Flow Algorithm.
 /// </summary>
-public class MinCut<T, W> where W : IComparable
+public class MinCut<T, TW> where TW : IComparable
 {
-    private readonly IFlowOperators<W> @operator;
+    private readonly IFlowOperators<TW> @operator;
 
-    public MinCut(IFlowOperators<W> @operator)
+    public MinCut(IFlowOperators<TW> @operator)
     {
         this.@operator = @operator;
     }
@@ -25,20 +25,20 @@ public class MinCut<T, W> where W : IComparable
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
         if (!graph.IsWeightedGraph)
-            if (@operator.defaultWeight.GetType() != typeof(int))
+            if (@operator.DefaultWeight.GetType() != typeof(int))
                 throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
                                             "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
 
-        var edmondsKarpMaxFlow = new EdmondKarpMaxFlow<T, W>(@operator);
+        var edmondsKarpMaxFlow = new EdmondKarpMaxFlow<T, TW>(@operator);
 
         var maxFlowResidualGraph = edmondsKarpMaxFlow
-            .computeMaxFlowAndReturnResidualGraph(graph, source, sink);
+            .ComputeMaxFlowAndReturnResidualGraph(graph, source, sink);
 
         //according to Min Max theory
         //the Min Cut can be obtained by Finding edges 
         //from Reachable Vertices from Source
         //to unreachable vertices in residual graph
-        var reachableVertices = getReachable(maxFlowResidualGraph, source);
+        var reachableVertices = GetReachable(maxFlowResidualGraph, source);
 
         var result = new List<MinCutEdge<T>>();
 
@@ -54,12 +54,12 @@ public class MinCut<T, W> where W : IComparable
     /// <summary>
     ///     Gets a list of reachable vertices in residual graph from source.
     /// </summary>
-    private HashSet<T> getReachable(WeightedDiGraph<T, W> residualGraph,
+    private HashSet<T> GetReachable(WeightedDiGraph<T, TW> residualGraph,
         T source)
     {
         var visited = new HashSet<T>();
 
-        dfs(residualGraph.Vertices[source], visited);
+        Dfs(residualGraph.Vertices[source], visited);
 
         return visited;
     }
@@ -67,7 +67,7 @@ public class MinCut<T, W> where W : IComparable
     /// <summary>
     ///     Recursive DFS.
     /// </summary>
-    private void dfs(WeightedDiGraphVertex<T, W> currentResidualGraphVertex,
+    private void Dfs(WeightedDiGraphVertex<T, TW> currentResidualGraphVertex,
         HashSet<T> visited)
     {
         visited.Add(currentResidualGraphVertex.Key);
@@ -77,7 +77,7 @@ public class MinCut<T, W> where W : IComparable
             if (visited.Contains(edge.Key.Key)) continue;
 
             //reachable only if +ive weight (unsaturated edge)
-            if (edge.Value.CompareTo(@operator.defaultWeight) != 0) dfs(edge.Key, visited);
+            if (edge.Value.CompareTo(@operator.DefaultWeight) != 0) Dfs(edge.Key, visited);
         }
     }
 }

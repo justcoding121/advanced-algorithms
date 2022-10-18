@@ -13,7 +13,7 @@ public class CountingSort
     /// </summary>
     public static int[] Sort(IEnumerable<int> enumerable, SortDirection sortDirection = SortDirection.Ascending)
     {
-        var lengthAndMax = getLengthAndMax(enumerable);
+        var lengthAndMax = GetLengthAndMax(enumerable);
 
         var length = lengthAndMax.Item1;
         var max = lengthAndMax.Item2;
@@ -53,7 +53,7 @@ public class CountingSort
     /// <summary>
     ///     Get Max of given array.
     /// </summary>
-    private static Tuple<int, int> getLengthAndMax(IEnumerable<int> array)
+    private static Tuple<int, int> GetLengthAndMax(IEnumerable<int> array)
     {
         var length = 0;
         var max = int.MinValue;

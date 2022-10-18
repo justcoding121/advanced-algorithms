@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.String
 {
     [TestClass]
-    public class RabinKarp_Tests
+    public class RabinKarpTests
     {
         [TestMethod]
         public void String_RabinKarp_Test()

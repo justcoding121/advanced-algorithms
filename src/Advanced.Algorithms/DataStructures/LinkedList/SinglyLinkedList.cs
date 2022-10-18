@@ -172,28 +172,28 @@ public class SinglyLinkedListNode<T>
 
 internal class SinglyLinkedListEnumerator<T> : IEnumerator<T>
 {
-    internal SinglyLinkedListNode<T> currentNode;
-    internal SinglyLinkedListNode<T> headNode;
+    internal SinglyLinkedListNode<T> CurrentNode;
+    internal SinglyLinkedListNode<T> HeadNode;
 
     internal SinglyLinkedListEnumerator(ref SinglyLinkedListNode<T> headNode)
     {
-        this.headNode = headNode;
+        this.HeadNode = headNode;
     }
 
     public bool MoveNext()
     {
-        if (headNode == null)
+        if (HeadNode == null)
             return false;
 
-        if (currentNode == null)
+        if (CurrentNode == null)
         {
-            currentNode = headNode;
+            CurrentNode = HeadNode;
             return true;
         }
 
-        if (currentNode.Next != null)
+        if (CurrentNode.Next != null)
         {
-            currentNode = currentNode.Next;
+            CurrentNode = CurrentNode.Next;
             return true;
         }
 
@@ -202,17 +202,17 @@ internal class SinglyLinkedListEnumerator<T> : IEnumerator<T>
 
     public void Reset()
     {
-        currentNode = headNode;
+        CurrentNode = HeadNode;
     }
 
 
     object IEnumerator.Current => Current;
 
-    public T Current => currentNode.Data;
+    public T Current => CurrentNode.Data;
 
     public void Dispose()
     {
-        headNode = null;
-        currentNode = null;
+        HeadNode = null;
+        CurrentNode = null;
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class TarjansBiConnected_Tests
+    public class TarjansBiConnectedTests
     {
         [TestMethod]
         public void TarjanIsBiConnected_AdjacencyListGraph_Smoke_Test()

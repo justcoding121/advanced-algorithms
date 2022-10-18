@@ -9,7 +9,7 @@ public class ConvexHull
 {
     public static List<int[]> Find(List<int[]> points)
     {
-        var currentPointIndex = findLeftMostPoint(points);
+        var currentPointIndex = FindLeftMostPoint(points);
         var startingPointIndex = currentPointIndex;
 
         var result = new List<int[]>();
@@ -25,7 +25,7 @@ public class ConvexHull
             {
                 if (i == nextPointIndex) continue;
 
-                var orientation = getOrientation(points[currentPointIndex],
+                var orientation = GetOrientation(points[currentPointIndex],
                     points[i], points[nextPointIndex]);
 
                 if (orientation == Orientation.ClockWise) nextPointIndex = i;
@@ -40,7 +40,7 @@ public class ConvexHull
     /// <summary>
     ///     Compute the orientation of the lines formed by points p, q and r
     /// </summary>
-    private static Orientation getOrientation(int[] p, int[] q, int[] r)
+    private static Orientation GetOrientation(int[] p, int[] q, int[] r)
     {
         int x1 = p[0], y1 = p[1];
         int x2 = q[0], y2 = q[1];
@@ -57,7 +57,7 @@ public class ConvexHull
     }
 
 
-    private static int findLeftMostPoint(List<int[]> points)
+    private static int FindLeftMostPoint(List<int[]> points)
     {
         var left = 0;
 

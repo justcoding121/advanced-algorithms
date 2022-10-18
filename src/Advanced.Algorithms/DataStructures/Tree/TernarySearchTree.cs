@@ -34,14 +34,14 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public void Insert(T[] entry)
     {
-        insert(ref root, null, entry, 0);
+        Insert(ref root, null, entry, 0);
         Count++;
     }
 
     /// <summary>
     ///     Insert a new record to this ternary search tree after finding the end recursively.
     /// </summary>
-    private void insert(ref TernarySearchTreeNode<T> currentNode,
+    private void Insert(ref TernarySearchTreeNode<T> currentNode,
         TernarySearchTreeNode<T> parent,
         T[] entry, int currentIndex)
     {
@@ -56,14 +56,14 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
         {
             //move left
             var left = currentNode.Left;
-            insert(ref left, parent, entry, currentIndex);
+            Insert(ref left, parent, entry, currentIndex);
             currentNode.Left = left;
         }
         else if (compareResult < 0)
         {
             //move right
             var right = currentNode.Right;
-            insert(ref right, parent, entry, currentIndex);
+            Insert(ref right, parent, entry, currentIndex);
             currentNode.Right = right;
         }
         else
@@ -72,7 +72,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
             {
                 //if equal we just skip to next element
                 var middle = currentNode.Middle;
-                insert(ref middle, currentNode, entry, currentIndex + 1);
+                Insert(ref middle, currentNode, entry, currentIndex + 1);
                 currentNode.Middle = middle;
             }
             //end of word
@@ -91,14 +91,14 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public void Delete(T[] entry)
     {
-        delete(root, entry, 0);
+        Delete(root, entry, 0);
         Count--;
     }
 
     /// <summary>
     ///     Deletes a record from this TernarySearchTree after finding it recursively.
     /// </summary>
-    private void delete(TernarySearchTreeNode<T> currentNode,
+    private void Delete(TernarySearchTreeNode<T> currentNode,
         T[] entry, int currentIndex)
     {
         //empty node
@@ -113,7 +113,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
             //move left
             child = currentNode.Left;
 
-            delete(child, entry, currentIndex);
+            Delete(child, entry, currentIndex);
             //delete if middle is not end
             //and we if have'nt deleted the node yet
             if (child.HasChildren == false
@@ -124,7 +124,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
         {
             //move right
             child = currentNode.Right;
-            delete(child, entry, currentIndex);
+            Delete(child, entry, currentIndex);
             //delete if middle is not end
             //and we if have'nt deleted the node yet
             if (child.HasChildren == false
@@ -137,7 +137,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
             {
                 //if equal we just skip to next element
                 child = currentNode.Middle;
-                delete(child, entry, currentIndex + 1);
+                Delete(child, entry, currentIndex + 1);
                 //delete if middle is not end
                 //and we if have'nt deleted the node yet
                 if (child.HasChildren == false
@@ -161,13 +161,13 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public List<T[]> StartsWith(T[] prefix)
     {
-        return startsWith(root, prefix, 0);
+        return StartsWith(root, prefix, 0);
     }
 
     /// <summary>
     ///     Recursively visit until end of prefix and then gather all suffixes under it.
     /// </summary>
-    private List<T[]> startsWith(TernarySearchTreeNode<T> currentNode, T[] searchPrefix, int currentIndex)
+    private List<T[]> StartsWith(TernarySearchTreeNode<T> currentNode, T[] searchPrefix, int currentIndex)
     {
         while (true)
         {
@@ -200,7 +200,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
 
             var result = new List<T[]>();
 
-            gatherStartsWith(result, searchPrefix.ToList(), currentNode.Middle);
+            GatherStartsWith(result, searchPrefix.ToList(), currentNode.Middle);
 
             return result;
         }
@@ -209,7 +209,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Gathers all suffixes under this node appending with the given prefix
     /// </summary>
-    private void gatherStartsWith(List<T[]> result, List<T> prefix, TernarySearchTreeNode<T> node)
+    private void GatherStartsWith(List<T[]> result, List<T> prefix, TernarySearchTreeNode<T> node)
     {
         while (true)
         {
@@ -224,13 +224,13 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
                 //append to end of prefix for new prefix
                 result.Add(prefix.Concat(new[] { node.Value }).ToArray());
 
-            if (node.Left != null) gatherStartsWith(result, prefix, node.Left);
+            if (node.Left != null) GatherStartsWith(result, prefix, node.Left);
 
             if (node.Middle != null)
             {
                 //append to end of prefix for new prefix
                 prefix.Add(node.Value);
-                gatherStartsWith(result, prefix, node.Middle);
+                GatherStartsWith(result, prefix, node.Middle);
                 prefix.RemoveAt(prefix.Count - 1);
             }
 
@@ -250,7 +250,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public bool Contains(T[] entry)
     {
-        return search(root, entry, 0, false);
+        return Search(root, entry, 0, false);
     }
 
 
@@ -260,13 +260,13 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public bool ContainsPrefix(T[] entry)
     {
-        return search(root, entry, 0, true);
+        return Search(root, entry, 0, true);
     }
 
     /// <summary>
     ///     Find if the record exist recursively.
     /// </summary>
-    private bool search(TernarySearchTreeNode<T> currentNode, T[] searchEntry, int currentIndex, bool isPrefixSearch)
+    private bool Search(TernarySearchTreeNode<T> currentNode, T[] searchEntry, int currentIndex, bool isPrefixSearch)
     {
         while (true)
         {
@@ -344,7 +344,7 @@ internal class TernarySearchTreeEnumerator<T> : IEnumerator<T[]> where T : IComp
 
             if (next.IsEnd)
             {
-                Current = getValue(next);
+                Current = GetValue(next);
                 return true;
             }
         }
@@ -367,7 +367,7 @@ internal class TernarySearchTreeEnumerator<T> : IEnumerator<T[]> where T : IComp
         progress = null;
     }
 
-    private T[] getValue(TernarySearchTreeNode<T> next)
+    private T[] GetValue(TernarySearchTreeNode<T> next)
     {
         var result = new Stack<T>();
         result.Push(next.Value);

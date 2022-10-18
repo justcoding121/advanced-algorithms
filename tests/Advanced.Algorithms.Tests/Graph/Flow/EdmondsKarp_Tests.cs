@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Graph
 {
     [TestClass]
-    public class EdmondKarp_Tests
+    public class EdmondKarpTests
     {
         /// <summary>
         ///     EdmondKarp Max Flow test
@@ -90,7 +90,7 @@ namespace Advanced.Algorithms.Tests.Graph
                 return checked(a + b);
             }
 
-            public int defaultWeight => 0;
+            public int DefaultWeight => 0;
 
             public int MaxWeight => int.MaxValue;
 

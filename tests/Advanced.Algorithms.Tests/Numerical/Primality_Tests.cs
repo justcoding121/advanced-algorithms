@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Advanced.Algorithms.Tests.Numerical
 {
     [TestClass]
-    public class Primality_Tests
+    public class PrimalityTests
     {
         [TestMethod]
         public void Prime_Smoke_Test()
