@@ -32,7 +32,7 @@ jobs:
     - name: Update Documentation
       if: github.ref == 'refs/heads/develop'
       run: |
-        docfx .build/docfx.json
+        docfx .github/docfx.json
     - name: Publish Documentation
       if: github.ref == 'refs/heads/develop'
       uses: EndBug/add-and-commit@v9
