@@ -43,7 +43,7 @@ jobs:
         message: Update documentation
         committer_name: GitHub Actions
         committer_email: actions@github.com
-    - name: Public Beta
+    - name: Publish Beta
       if: github.ref == 'refs/heads/beta'
       run: |
        dotnet pack src/Advanced.Algorithms/Advanced.Algorithms.csproj --version-suffix "beta"
