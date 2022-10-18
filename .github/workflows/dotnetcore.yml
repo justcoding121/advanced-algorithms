@@ -1,0 +1,55 @@
+name: .NET Core
+
+on:
+  push:
+    branches:
+        - develop
+        - beta
+        - stable
+  pull_request:
+    branches:
+        - develop
+        - beta
+        - stable
+      
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+        NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'
+    - name: Install DocFX
+      run: choco install docfx -y
+    - name: Build 
+      run: |
+        dotnet build src/Advanced.Algorithms.sln
+    - name: Test 
+      run: |
+        dotnet test src/Advanced.Algorithms.sln
+    - name: Document
+      if: github.ref == 'refs/heads/develop'
+      run: |
+        docfx .build/docfx.json
+    - name: Update Documentation
+      if: github.ref == 'refs/heads/develop'
+      uses: EndBug/add-and-commit@v9
+      with:
+        default_author: github_actions
+        message: Update documentation
+        committer_name: GitHub Actions
+        committer_email: actions@github.com
+    - name: Public Beta
+      if: github.ref == 'refs/heads/beta'
+      run: |
+       dotnet pack src/Advanced.Algorithms/Advanced.Algorithms.csproj --version-suffix "beta"
+       dotnet nuget push **\*.nupkg -s "nuget" -k $NUGET_TOKEN
+    - name: Publish Stable
+      if: github.ref == 'refs/heads/stable'
+      run: |
+       dotnet pack src/Advanced.Algorithms/Advanced.Algorithms.csproj
+       dotnet nuget push **\*.nupkg -s "nuget" -k $NUGET_TOKEN
