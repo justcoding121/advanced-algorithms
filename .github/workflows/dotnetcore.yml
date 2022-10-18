@@ -31,11 +31,11 @@ jobs:
     - name: Test 
       run: |
         dotnet test src/Advanced.Algorithms.sln
-    - name: Document
+    - name: Update Documentation
       if: github.ref == 'refs/heads/develop'
       run: |
         docfx .build/docfx.json
-    - name: Update Documentation
+    - name: Publish Documentation
       if: github.ref == 'refs/heads/develop'
       uses: EndBug/add-and-commit@v9
       with:
