@@ -17,15 +17,21 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
+
     - name: Install DocFX
+      if: github.ref == 'refs/heads/develop'
       run: choco install docfx -y
+
     - name: Build 
       run: dotnet build src/Advanced.Algorithms.sln
+
     - name: Test 
       run: dotnet test src/Advanced.Algorithms.sln
+
     - name: Update Documentation
       if: github.ref == 'refs/heads/develop'
       run: docfx .github/docfx.json
+
     - name: Publish Documentation
       if: github.ref == 'refs/heads/develop'
       uses: EndBug/add-and-commit@v9
@@ -34,11 +40,13 @@ jobs:
         message: Update documentation
         committer_name: GitHub Actions
         committer_email: actions@github.com
+
     - name: Publish Beta
       if: github.ref == 'refs/heads/beta'
       run: |
        dotnet pack src/Advanced.Algorithms/Advanced.Algorithms.csproj --version-suffix "beta"
        dotnet nuget push **\*.nupkg -s "nuget" -k "${{ secrets.NUGET_TOKEN }}"
+
     - name: Publish Stable
       if: github.ref == 'refs/heads/stable'
       run: |
