@@ -6,7 +6,7 @@ Please don't take effort to create pull requests for new algorithms or data stru
 
 Various important computer science algorithms generically implemented in C#.
 
-<a href="https://ci.appveyor.com/project/justcoding121/advanced-algorithms">![Build Status](https://ci.appveyor.com/api/projects/status/9xpcp4m87max2066?svg=true)</a>
+[![.NET Core](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml/badge.svg?branch=develop)](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml)
 
 Install by [nuget](https://www.nuget.org/packages/Advanced.Algorithms)
 

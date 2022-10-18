@@ -20,15 +20,12 @@ jobs:
     - name: Install DocFX
       run: choco install docfx -y
     - name: Build 
-      run: |
-        dotnet build src/Advanced.Algorithms.sln
+      run: dotnet build src/Advanced.Algorithms.sln
     - name: Test 
-      run: |
-        dotnet test src/Advanced.Algorithms.sln
+      run: dotnet test src/Advanced.Algorithms.sln
     - name: Update Documentation
       if: github.ref == 'refs/heads/develop'
-      run: |
-        docfx .github/docfx.json
+      run: docfx .github/docfx.json
     - name: Publish Documentation
       if: github.ref == 'refs/heads/develop'
       uses: EndBug/add-and-commit@v9
