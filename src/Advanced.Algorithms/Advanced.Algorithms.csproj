@@ -9,7 +9,7 @@
     <DelaySign>False</DelaySign>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <VersionPrefix>0.0.504</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>
