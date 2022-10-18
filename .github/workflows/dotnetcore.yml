@@ -15,8 +15,6 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    env:
-        NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -47,9 +45,9 @@ jobs:
       if: github.ref == 'refs/heads/beta'
       run: |
        dotnet pack src/Advanced.Algorithms/Advanced.Algorithms.csproj --version-suffix "beta"
-       dotnet nuget push **\*.nupkg -s "nuget" -k %NUGET_TOKEN%
+       dotnet nuget push **\*.nupkg -s "nuget" -k "${{ secrets.NUGET_TOKEN }}"
     - name: Publish Stable
       if: github.ref == 'refs/heads/stable'
       run: |
        dotnet pack src/Advanced.Algorithms/Advanced.Algorithms.csproj
-       dotnet nuget push **\*.nupkg -s "nuget" -k %NUGET_TOKEN%
+       dotnet nuget push **\*.nupkg -s "nuget" -k "${{ secrets.NUGET_TOKEN }}"
