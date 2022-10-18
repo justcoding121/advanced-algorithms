@@ -14,7 +14,9 @@ For beta releases on [beta branch](https://github.com/justcoding121/Advanced-Alg
 
     Install-Package Advanced.Algorithms -Pre
 
-Not a stable release yet.
+For stable releases on [stable branch](https://github.com/justcoding121/Advanced-Algorithms/tree/stable)
+
+    Install-Package Advanced.Algorithms
 
 * [API documentation](https://justcoding121.github.io/advanced-algorithms/docs/api/Advanced.Algorithms.DataStructures.html)
 
