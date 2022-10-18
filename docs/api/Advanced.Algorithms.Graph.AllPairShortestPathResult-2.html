@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AllPairShortestPathResult&lt;T, W&gt;
+    <title>Class AllPairShortestPathResult&lt;T, TW&gt;
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AllPairShortestPathResult&lt;T, W&gt;
+    <meta name="title" content="Class AllPairShortestPathResult&lt;T, TW&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.55.0.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -81,46 +81,46 @@
             <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2">
   
   
-  <h1 id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2" class="text-break">Class AllPairShortestPathResult&lt;T, W&gt;
+  <h1 id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2" class="text-break">Class AllPairShortestPathResult&lt;T, TW&gt;
   </h1>
   <div class="markdown level0 summary"><p>All pairs shortest path algorithm result object.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">AllPairShortestPathResult&lt;T, W&gt;</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">AllPairShortestPathResult&lt;T, TW&gt;</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.Graph.html">Advanced.Algorithms.Graph</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
   <h5 id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AllPairShortestPathResult&lt;T, W&gt;
-    where W : IComparable</code></pre>
+    <pre><code class="lang-csharp hljs">public class AllPairShortestPathResult&lt;T, TW&gt;
+    where TW : IComparable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,22 +136,27 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="parametername">W</span></td>
+        <td><span class="parametername">TW</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="constructors">Constructors
   </h3>
-  
-  
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Graph_AllPairShortestPathResult_2__ctor__0__0__1_System_Collections_Generic_List__0__.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Graph.AllPairShortestPathResult%602.%23ctor(%600%2C%600%2C%601%2CSystem.Collections.Generic.List%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Graph/ShortestPath/Floyd-Warshall.cs/#L126">View Source</a>
+  </span>
   <a id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2__ctor_" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor*"></a>
-  <h4 id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2__ctor__0__0__1_System_Collections_Generic_List__0__" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor(`0,`0,`1,System.Collections.Generic.List{`0})">AllPairShortestPathResult(T, T, W, List&lt;T&gt;)</h4>
+  <h4 id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2__ctor__0__0__1_System_Collections_Generic_List__0__" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.#ctor(`0,`0,`1,System.Collections.Generic.List{`0})">AllPairShortestPathResult(T, T, TW, List&lt;T&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AllPairShortestPathResult(T source, T destination, W distance, List&lt;T&gt; path)</code></pre>
+    <pre><code class="lang-csharp hljs">public AllPairShortestPathResult(T source, T destination, TW distance, List&lt;T&gt; path)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -174,12 +179,12 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">W</span></td>
+        <td><span class="xref">TW</span></td>
         <td><span class="parametername">distance</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</td>
         <td><span class="parametername">path</span></td>
         <td></td>
       </tr>
@@ -187,8 +192,13 @@
   </table>
   <h3 id="properties">Properties
   </h3>
-  
-  
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Destination.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Graph.AllPairShortestPathResult%602.Destination%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Graph/ShortestPath/Floyd-Warshall.cs/#L136">View Source</a>
+  </span>
   <a id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Destination_" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Destination*"></a>
   <h4 id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Destination" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Destination">Destination</h4>
   <div class="markdown level1 summary"></div>
@@ -212,15 +222,20 @@
       </tr>
     </tbody>
   </table>
-  
-  
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Distance.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Graph.AllPairShortestPathResult%602.Distance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Graph/ShortestPath/Floyd-Warshall.cs/#L138">View Source</a>
+  </span>
   <a id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Distance_" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Distance*"></a>
   <h4 id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Distance" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Distance">Distance</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public W Distance { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public TW Distance { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -232,13 +247,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">W</span></td>
+        <td><span class="xref">TW</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Path.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Graph.AllPairShortestPathResult%602.Path%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Graph/ShortestPath/Floyd-Warshall.cs/#L140">View Source</a>
+  </span>
   <a id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Path_" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Path*"></a>
   <h4 id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Path" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Path">Path</h4>
   <div class="markdown level1 summary"></div>
@@ -257,13 +277,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Source.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Graph.AllPairShortestPathResult%602.Source%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Graph/ShortestPath/Floyd-Warshall.cs/#L135">View Source</a>
+  </span>
   <a id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Source_" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Source*"></a>
   <h4 id="Advanced_Algorithms_Graph_AllPairShortestPathResult_2_Source" data-uid="Advanced.Algorithms.Graph.AllPairShortestPathResult`2.Source">Source</h4>
   <div class="markdown level1 summary"></div>
@@ -294,10 +319,17 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Graph_AllPairShortestPathResult_2.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Graph.AllPairShortestPathResult%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Graph/ShortestPath/Floyd-Warshall.cs/#L124" class="contribution-link">View Source</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

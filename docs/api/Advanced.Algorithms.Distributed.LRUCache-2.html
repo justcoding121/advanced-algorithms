@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class LRUCache&lt;K, V&gt;
+    <title>Class LruCache&lt;TK, TV&gt;
    | Advanced Algorithms </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class LRUCache&lt;K, V&gt;
+    <meta name="title" content="Class LruCache&lt;TK, TV&gt;
    | Advanced Algorithms ">
-    <meta name="generator" content="docfx 2.55.0.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -78,48 +78,48 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Distributed.LRUCache`2">
+            <article class="content wrap" id="_content" data-uid="Advanced.Algorithms.Distributed.LruCache`2">
   
   
-  <h1 id="Advanced_Algorithms_Distributed_LRUCache_2" data-uid="Advanced.Algorithms.Distributed.LRUCache`2" class="text-break">Class LRUCache&lt;K, V&gt;
+  <h1 id="Advanced_Algorithms_Distributed_LruCache_2" data-uid="Advanced.Algorithms.Distributed.LruCache`2" class="text-break">Class LruCache&lt;TK, TV&gt;
   </h1>
   <div class="markdown level0 summary"><p>A least recently used cache implemetation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">LRUCache&lt;K, V&gt;</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">LruCache&lt;TK, TV&gt;</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Advanced.Algorithms.Distributed.html">Advanced.Algorithms.Distributed</a></h6>
   <h6><strong>Assembly</strong>: Advanced.Algorithms.dll</h6>
-  <h5 id="Advanced_Algorithms_Distributed_LRUCache_2_syntax">Syntax</h5>
+  <h5 id="Advanced_Algorithms_Distributed_LruCache_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LRUCache&lt;K, V&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class LruCache&lt;TK, TV&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -131,26 +131,31 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">K</span></td>
+        <td><span class="parametername">TK</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="parametername">V</span></td>
+        <td><span class="parametername">TV</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="constructors">Constructors
   </h3>
-  
-  
-  <a id="Advanced_Algorithms_Distributed_LRUCache_2__ctor_" data-uid="Advanced.Algorithms.Distributed.LRUCache`2.#ctor*"></a>
-  <h4 id="Advanced_Algorithms_Distributed_LRUCache_2__ctor_System_Int32_" data-uid="Advanced.Algorithms.Distributed.LRUCache`2.#ctor(System.Int32)">LRUCache(Int32)</h4>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Distributed_LruCache_2__ctor_System_Int32_.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Distributed.LruCache%602.%23ctor(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Distributed/LRUCache.cs/#L19">View Source</a>
+  </span>
+  <a id="Advanced_Algorithms_Distributed_LruCache_2__ctor_" data-uid="Advanced.Algorithms.Distributed.LruCache`2.#ctor*"></a>
+  <h4 id="Advanced_Algorithms_Distributed_LruCache_2__ctor_System_Int32_" data-uid="Advanced.Algorithms.Distributed.LruCache`2.#ctor(System.Int32)">LruCache(Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LRUCache(int capacity)</code></pre>
+    <pre><code class="lang-csharp hljs">public LruCache(int capacity)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -163,7 +168,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">capacity</span></td>
         <td></td>
       </tr>
@@ -171,16 +176,21 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  
-  <a id="Advanced_Algorithms_Distributed_LRUCache_2_Get_" data-uid="Advanced.Algorithms.Distributed.LRUCache`2.Get*"></a>
-  <h4 id="Advanced_Algorithms_Distributed_LRUCache_2_Get__0_" data-uid="Advanced.Algorithms.Distributed.LRUCache`2.Get(`0)">Get(K)</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(1). </p>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Distributed_LruCache_2_Get__0_.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Distributed.LruCache%602.Get(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Distributed/LRUCache.cs/#L28">View Source</a>
+  </span>
+  <a id="Advanced_Algorithms_Distributed_LruCache_2_Get_" data-uid="Advanced.Algorithms.Distributed.LruCache`2.Get*"></a>
+  <h4 id="Advanced_Algorithms_Distributed_LruCache_2_Get__0_" data-uid="Advanced.Algorithms.Distributed.LruCache`2.Get(`0)">Get(TK)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public V Get(K key)</code></pre>
+    <pre><code class="lang-csharp hljs">public TV Get(TK key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -193,7 +203,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">K</span></td>
+        <td><span class="xref">TK</span></td>
         <td><span class="parametername">key</span></td>
         <td></td>
       </tr>
@@ -209,21 +219,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">V</span></td>
+        <td><span class="xref">TV</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Advanced_Algorithms_Distributed_LRUCache_2_Put_" data-uid="Advanced.Algorithms.Distributed.LRUCache`2.Put*"></a>
-  <h4 id="Advanced_Algorithms_Distributed_LRUCache_2_Put__0__1_" data-uid="Advanced.Algorithms.Distributed.LRUCache`2.Put(`0,`1)">Put(K, V)</h4>
-  <div class="markdown level1 summary"><p>Time complexity: O(1). </p>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Distributed_LruCache_2_Put__0__1_.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Distributed.LruCache%602.Put(%600%2C%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Distributed/LRUCache.cs/#L46">View Source</a>
+  </span>
+  <a id="Advanced_Algorithms_Distributed_LruCache_2_Put_" data-uid="Advanced.Algorithms.Distributed.LruCache`2.Put*"></a>
+  <h4 id="Advanced_Algorithms_Distributed_LruCache_2_Put__0__1_" data-uid="Advanced.Algorithms.Distributed.LruCache`2.Put(`0,`1)">Put(TK, TV)</h4>
+  <div class="markdown level1 summary"><p>Time complexity: O(1).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Put(K key, V value)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Put(TK key, TV value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -236,12 +251,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">K</span></td>
+        <td><span class="xref">TK</span></td>
         <td><span class="parametername">key</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">V</span></td>
+        <td><span class="xref">TV</span></td>
         <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
@@ -254,10 +269,17 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/justcoding121/advanced-algorithms/new/develop/apiSpec/new?filename=Advanced_Algorithms_Distributed_LruCache_2.md&amp;value=---%0Auid%3A%20Advanced.Algorithms.Distributed.LruCache%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/justcoding121/advanced-algorithms/blob/develop/src/Advanced.Algorithms/Distributed/LRUCache.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
