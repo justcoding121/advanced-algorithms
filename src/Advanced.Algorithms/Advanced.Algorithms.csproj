@@ -9,7 +9,7 @@
     <DelaySign>False</DelaySign>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
-    <VersionPrefix>0.0.505</VersionPrefix>
+    <VersionPrefix>1.0.0.0</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>
