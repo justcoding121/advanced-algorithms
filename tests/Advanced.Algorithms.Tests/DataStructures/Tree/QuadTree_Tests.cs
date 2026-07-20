@@ -100,6 +100,42 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.ThrowsException<Exception>(() => tree.Delete(new Point(1, 1)));
                 Assert.ThrowsException<Exception>(() => tree.Delete(new Point(9, 9)));
             }
+
+            [TestMethod]
+            public void QuadTree_Delete_Uses_Tolerant_Float_Equality()
+            {
+                var tree = new QuadTree<object>();
+
+                tree.Insert(new Point(0.1 + 0.2, 1.0));
+                Assert.AreEqual(1, tree.Count);
+
+                // 0.1 + 0.2 is not exactly 0.3; tolerant Find should still match.
+                tree.Delete(new Point(0.3, 1.0));
+                Assert.AreEqual(0, tree.Count);
+                Assert.AreEqual(0, tree.Count());
+            }
+
+            [TestMethod]
+            public void QuadTree_Delete_With_Fresh_Point_Instance()
+            {
+                var tree = new QuadTree<object>();
+
+                tree.Insert(new Point(1.5, 2.5));
+                tree.Delete(new Point(1.5, 2.5));
+
+                Assert.AreEqual(0, tree.Count);
+            }
+
+            [TestMethod]
+            public void QuadTree_Insert_Duplicate_Within_Tolerance_Throws()
+            {
+                var tree = new QuadTree<object>();
+
+                tree.Insert(new Point(0.1 + 0.2, 1.0));
+
+                Assert.ThrowsException<Exception>(() => tree.Insert(new Point(0.3, 1.0)));
+                Assert.AreEqual(1, tree.Count);
+            }
         }
     }
 }

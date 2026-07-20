@@ -4,6 +4,11 @@ namespace Advanced.Algorithms.Geometry;
 
 internal static class DoubleExtensions
 {
+    internal static bool IsEqual(this double a, double b, double tolerance)
+    {
+        return Math.Abs(a - b) < tolerance;
+    }
+
     internal static bool IsLessThan(this double a, double b, double tolerance)
     {
         return a - b < -tolerance;

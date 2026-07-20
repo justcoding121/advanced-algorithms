@@ -15,6 +15,12 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
     private int deletionCount;
 
     private QuadTreeNode<T> root;
+    private readonly double tolerance;
+
+    public QuadTree(int precision = 5)
+    {
+        tolerance = Math.Round(Math.Pow(0.1, precision), precision);
+    }
 
     public int Count { get; private set; }
 
@@ -43,17 +49,26 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
     {
         if (current == null) return new QuadTreeNode<T>(point, value);
 
-        //south-west
-        if (point.X < current.Point.X && point.Y < current.Point.Y)
-            current.Sw = Insert(current.Sw, point, value);
-        //north-west
-        else if (point.X < current.Point.X && point.Y >= current.Point.Y)
-            current.Nw = Insert(current.Nw, point, value);
-        //north-east
-        else if (point.X > current.Point.X && point.Y >= current.Point.Y)
+        if (current.Point.X.IsEqual(point.X, tolerance) && current.Point.Y.IsEqual(point.Y, tolerance))
+            throw new Exception("Point already exists.");
+
+        //south-west / north-west
+        if (point.X.IsLessThan(current.Point.X, tolerance))
+        {
+            if (point.Y.IsLessThan(current.Point.Y, tolerance))
+                current.Sw = Insert(current.Sw, point, value);
+            else
+                current.Nw = Insert(current.Nw, point, value);
+        }
+        //south-east / north-east
+        else if (point.Y.IsLessThan(current.Point.Y, tolerance))
+        {
+            current.Se = Insert(current.Se, point, value);
+        }
+        else
+        {
             current.Ne = Insert(current.Ne, point, value);
-        //south-east
-        else if (point.X > current.Point.X && point.Y < current.Point.Y) current.Se = Insert(current.Se, point, value);
+        }
 
         return current;
     }
@@ -128,21 +143,21 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
     {
         if (current == null) return null;
 
-        if (current.Point.X == point.X && current.Point.Y == point.Y) return current;
+        if (current.Point.X.IsEqual(point.X, tolerance) && current.Point.Y.IsEqual(point.Y, tolerance))
+            return current;
 
-        //south-west
-        if (point.X < current.Point.X && point.Y < current.Point.Y)
-            return Find(current.Sw, point);
-        //north-west
-        if (point.X < current.Point.X && point.Y >= current.Point.Y)
+        //south-west / north-west
+        if (point.X.IsLessThan(current.Point.X, tolerance))
+        {
+            if (point.Y.IsLessThan(current.Point.Y, tolerance))
+                return Find(current.Sw, point);
             return Find(current.Nw, point);
-        //north-east
-        if (point.X > current.Point.X && point.Y >= current.Point.Y)
-            return Find(current.Ne, point);
-        //south-east
-        if (point.X > current.Point.X && point.Y < current.Point.Y) return Find(current.Se, point);
+        }
 
-        return null;
+        //south-east / north-east
+        if (point.Y.IsLessThan(current.Point.Y, tolerance))
+            return Find(current.Se, point);
+        return Find(current.Ne, point);
     }
 }
 
