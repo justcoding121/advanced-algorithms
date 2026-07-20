@@ -106,15 +106,12 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
 
         point.IsDeleted = true;
         Count--;
+        deletionCount++;
 
-        if (deletionCount == Count)
+        if (deletionCount >= Count)
         {
             Reconstruct();
             deletionCount = 0;
-        }
-        else
-        {
-            deletionCount++;
         }
     }
 
@@ -190,17 +187,22 @@ internal class QuadTreeEnumerator<T> : IEnumerator<Tuple<Point, T>>
         {
             progress = new Stack<QuadTreeNode<T>>(new[] { root.Ne, root.Nw, root.Se, root.Sw }.Where(x => x != null));
             current = root;
-            return true;
+
+            if (!current.IsDeleted) return true;
+
+            return MoveNext();
         }
 
-        if (progress.Count > 0)
+        while (progress.Count > 0)
         {
             var next = progress.Pop();
-            current = next;
 
             foreach (var child in new[] { next.Ne, next.Nw, next.Se, next.Sw }.Where(x => x != null))
                 progress.Push(child);
 
+            if (next.IsDeleted) continue;
+
+            current = next;
             return true;
         }
 
