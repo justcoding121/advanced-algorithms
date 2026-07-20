@@ -16,7 +16,12 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
 
     - name: Install DocFX
       if: github.ref == 'refs/heads/develop'
@@ -45,10 +50,10 @@ jobs:
       if: github.ref == 'refs/heads/beta'
       run: |
        dotnet pack src/Advanced.Algorithms/Advanced.Algorithms.csproj --version-suffix "beta"
-       dotnet nuget push **\*.nupkg -s "nuget" -k "${{ secrets.NUGET_TOKEN }}"
+       dotnet nuget push **/*.nupkg -s "nuget" -k "${{ secrets.NUGET_TOKEN }}"
 
     - name: Publish Stable
       if: github.ref == 'refs/heads/stable'
       run: |
        dotnet pack src/Advanced.Algorithms/Advanced.Algorithms.csproj
-       dotnet nuget push **\*.nupkg -s "nuget" -k "${{ secrets.NUGET_TOKEN }}"
+       dotnet nuget push **/*.nupkg -s "nuget" -k "${{ secrets.NUGET_TOKEN }}"

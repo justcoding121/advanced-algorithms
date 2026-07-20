@@ -22,22 +22,13 @@ For stable releases on [stable branch](https://github.com/justcoding121/Advanced
 
 Supports
 
- * .Net Standard 1.0 or above
- * .Net Framework 4.0 or above
+ * .NET Standard 2.0 (covers .NET Framework 4.6.1+ and all modern .NET)
 
 ### Development environment
 
-#### Windows
-* Visual Studio Code as IDE for .NET core
-* Visual Studio 2017 as IDE for .NET framework/.NET core
+Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
-#### Mac OS
-* Visual Studio Code as IDE for .NET core
-* Visual Studio 2017 as IDE for Mono
-
-#### Linux
-* Visual Studio Code as IDE for .NET core
-* Mono develop as IDE for Mono
+* Visual Studio 2022+ or JetBrains Rider
 
 ## Data structures
 

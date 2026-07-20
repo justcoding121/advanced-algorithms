@@ -19,13 +19,7 @@ public class IntervalTree<T> : IEnumerable<Tuple<T[], T[]>> where T : IComparabl
     {
         var s = typeof(T);
 
-        bool isValueType;
-
-#if NET40
-            isValueType = s.IsValueType;
-#else
-        isValueType = s.GetTypeInfo().IsValueType;
-#endif
+        var isValueType = s.GetTypeInfo().IsValueType;
 
         if (isValueType) return (T)Convert.ChangeType(int.MinValue, s);
 

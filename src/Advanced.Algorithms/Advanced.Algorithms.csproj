@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net451;netstandard1.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Advanced.Algorithms</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <SignAssembly>True</SignAssembly>
@@ -12,10 +12,6 @@
     <VersionPrefix>1.0.0.0</VersionPrefix>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-  </ItemGroup>
-  
   <ItemGroup>
     <Compile Remove="Binary\**" />
     <Compile Remove="DynamicProgramming\**" />
