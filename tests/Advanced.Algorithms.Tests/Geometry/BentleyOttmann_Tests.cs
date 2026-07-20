@@ -168,6 +168,33 @@ namespace Advanced.Algorithms.Tests.Geometry
             Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
         }
 
+        /// <summary>
+        ///     Regression for https://github.com/justcoding121/advanced-algorithms/issues/45
+        /// </summary>
+        [TestMethod]
+        public void BentleyOttmann_Issue45_All_Intersections_Reported()
+        {
+            var lines = new List<Line>
+            {
+                new Line(new Point(0.307769600445297, 0.496908523373729),
+                    new Point(0.752325133305194, 0.247345594804429)),
+                new Line(new Point(0.59643911784349, 0.212231021938953),
+                    new Point(0.936056684207198, 0.558365820701404)),
+                new Line(new Point(0.362570754886871, 0.145859633640321),
+                    new Point(0.837961102294718, 0.571770970510212)),
+                new Line(new Point(0.415960443865489, 0.216604132306112),
+                    new Point(0.746803699409032, 0.5559045125525))
+            };
+
+            var expectedIntersections = GetExpectedIntersections(lines);
+
+            var bentleyOttmannAlgorithm = new BentleyOttmann(7);
+            var actualIntersections = bentleyOttmannAlgorithm.FindIntersections(lines);
+
+            Assert.AreEqual(3, expectedIntersections.Count);
+            Assert.AreEqual(expectedIntersections.Count, actualIntersections.Count);
+        }
+
         [TestMethod]
         public void BentleyOttmann_Stress_Test()
         {

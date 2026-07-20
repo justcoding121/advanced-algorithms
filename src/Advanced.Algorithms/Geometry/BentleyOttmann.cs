@@ -370,6 +370,11 @@ internal class Event : Point, IComparable
 
     public override int GetHashCode()
     {
+        // Intersection events are compared by point location (see Equals),
+        // so the hash must match. Start/End events use reference equality.
+        if (Type == EventType.Intersection)
+            return pointComparer.GetHashCode(this);
+
         return base.GetHashCode();
     }
 }
