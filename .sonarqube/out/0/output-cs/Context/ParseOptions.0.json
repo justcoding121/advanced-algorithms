@@ -1,0 +1,22 @@
+{
+  "documentationMode": "None",
+  "features": [
+
+  ],
+  "kind": "Regular",
+  "languageVersion": "CSharp14",
+  "preprocessorSymbols": [
+    { "key": "TRACE", "value": null },
+    { "key": "DEBUG", "value": null },
+    { "key": "NETSTANDARD", "value": null },
+    { "key": "NETSTANDARD2_0", "value": null },
+    { "key": "NETSTANDARD1_0_OR_GREATER", "value": null },
+    { "key": "NETSTANDARD1_1_OR_GREATER", "value": null },
+    { "key": "NETSTANDARD1_2_OR_GREATER", "value": null },
+    { "key": "NETSTANDARD1_3_OR_GREATER", "value": null },
+    { "key": "NETSTANDARD1_4_OR_GREATER", "value": null },
+    { "key": "NETSTANDARD1_5_OR_GREATER", "value": null },
+    { "key": "NETSTANDARD1_6_OR_GREATER", "value": null },
+    { "key": "NETSTANDARD2_0_OR_GREATER", "value": null }
+  ]
+}

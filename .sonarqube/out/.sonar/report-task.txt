@@ -1,0 +1,7 @@
+organization=justcoding121
+projectKey=justcoding121_advanced-algorithms
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.97804
+dashboardUrl=https://sonarcloud.io/dashboard?id=justcoding121_advanced-algorithms&branch=develop
+ceTaskId=AZ-GjiPtGjY9rbGDgeh1
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZ-GjiPtGjY9rbGDgeh1

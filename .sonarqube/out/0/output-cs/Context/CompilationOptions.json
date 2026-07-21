@@ -1,0 +1,14 @@
+{
+  "allowUnsafe": true,
+  "checkOverflow": false,
+  "mainTypeName": null,
+  "outputKind": "DynamicallyLinkedLibrary",
+  "scriptClassName": "Script",
+  "usings": [],
+  "moduleName": "Advanced.Algorithms.dll",
+  "optionCompareText": false,
+  "optionExplicit": false,
+  "optionInfer": false,
+  "optionStrict": null,
+  "rootNamespace": null
+}
