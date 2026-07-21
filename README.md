@@ -1,12 +1,15 @@
 ### Note: 
 
-Please don't take effort to create pull requests for new algorithms or data structures. This is just a curiosity-driven personal hobby and [was originally not intended to be a library](https://github.com/justcoding121/Advanced-Algorithms/issues/2). Feel free fork and modify to fit your need if that's what you are looking for. You can however open issues or fix bugs with pull requests, I would be happy to take a look when I get time
+This is a maintained, curiosity-driven personal project that [was originally not intended to be a library](https://github.com/justcoding121/Advanced-Algorithms/issues/2). Issues and pull requests for bug fixes, new algorithms, and data structures are welcome. Feel free to fork and modify the project to fit your needs.
 
 ## Advanced Algorithms
 
 Various important computer science algorithms generically implemented in C#.
 
-[![.NET Core](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml/badge.svg?branch=develop)](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml)
+[![Build](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml/badge.svg?branch=develop)](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml)
+[![NuGet](https://img.shields.io/nuget/v/Advanced.Algorithms.svg)](https://www.nuget.org/packages/Advanced.Algorithms)
+[![NuGet downloads](https://img.shields.io/nuget/dt/Advanced.Algorithms.svg)](https://www.nuget.org/packages/Advanced.Algorithms)
+[![License](https://img.shields.io/github/license/justcoding121/Advanced-Algorithms.svg)](LICENSE)
 
 Install by [nuget](https://www.nuget.org/packages/Advanced.Algorithms)
 
