@@ -6,10 +6,28 @@ This is a maintained, curiosity-driven personal project that [was originally not
 
 Various important computer science algorithms generically implemented in C#.
 
+## CI/CD Status
+
+### Build and package
+
 [![Build](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml/badge.svg?branch=develop)](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml)
 [![NuGet](https://img.shields.io/nuget/v/Advanced.Algorithms.svg)](https://www.nuget.org/packages/Advanced.Algorithms)
 [![NuGet downloads](https://img.shields.io/nuget/dt/Advanced.Algorithms.svg)](https://www.nuget.org/packages/Advanced.Algorithms)
 [![License](https://img.shields.io/github/license/justcoding121/Advanced-Algorithms.svg)](LICENSE)
+
+## Code Quality
+
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=alert_status)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=coverage)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=ncloc)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=bugs)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=vulnerabilities)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=code_smells)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=security_rating)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=reliability_rating)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Duplicated Lines](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=duplicated_lines_density)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=justcoding121_advanced-algorithms&metric=sqale_index)](https://sonarcloud.io/summary/overall?id=justcoding121_advanced-algorithms&branch=develop)
 
 Install by [nuget](https://www.nuget.org/packages/Advanced.Algorithms)
 

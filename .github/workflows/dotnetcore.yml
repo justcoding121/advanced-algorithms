@@ -15,8 +15,12 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -27,11 +31,40 @@ jobs:
       if: github.ref == 'refs/heads/develop'
       run: choco install docfx -y
 
+    - name: Install SonarCloud scanner
+      if: env.SONAR_TOKEN != '' && ((github.event_name == 'push' && github.ref == 'refs/heads/develop') || (github.event_name == 'pull_request' && github.base_ref == 'develop' && github.event.pull_request.head.repo.full_name == github.repository))
+      run: dotnet tool install --global dotnet-sonarscanner
+
+    - name: Begin SonarCloud analysis
+      if: env.SONAR_TOKEN != '' && ((github.event_name == 'push' && github.ref == 'refs/heads/develop') || (github.event_name == 'pull_request' && github.base_ref == 'develop' && github.event.pull_request.head.repo.full_name == github.repository))
+      run: |
+        dotnet sonarscanner begin `
+          /k:"justcoding121_advanced-algorithms" `
+          /o:"justcoding121" `
+          /d:sonar.token="$env:SONAR_TOKEN" `
+          /d:sonar.host.url="https://sonarcloud.io" `
+          /d:sonar.dotnet.excludeTestProjects=true `
+          /d:sonar.cs.opencover.reportsPaths="artifacts/test-results/**/coverage.opencover.xml" `
+          /d:sonar.cs.vstest.reportsPaths="artifacts/test-results/*.trx"
+
     - name: Build 
       run: dotnet build src/Advanced.Algorithms.sln
 
-    - name: Test 
-      run: dotnet test src/Advanced.Algorithms.sln
+    - name: Test with coverage
+      run: dotnet test src/Advanced.Algorithms.sln --no-build --logger "trx;LogFileName=test-results.trx" --results-directory artifacts/test-results --collect:"XPlat Code Coverage;Format=opencover,cobertura"
+
+    - name: End SonarCloud analysis
+      if: env.SONAR_TOKEN != '' && ((github.event_name == 'push' && github.ref == 'refs/heads/develop') || (github.event_name == 'pull_request' && github.base_ref == 'develop' && github.event.pull_request.head.repo.full_name == github.repository))
+      run: dotnet sonarscanner end /d:sonar.token="$env:SONAR_TOKEN"
+
+    - name: Upload test and coverage results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-and-coverage-results
+        path: artifacts/test-results
+        if-no-files-found: warn
+        retention-days: 7
 
     - name: Update Documentation
       if: github.ref == 'refs/heads/develop'
