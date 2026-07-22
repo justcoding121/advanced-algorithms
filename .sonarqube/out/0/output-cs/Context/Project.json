@@ -1,7 +1,0 @@
-{
-  "language": "C#",
-  "targetFramework": "netstandard2.0",
-  "assemblyName": "Advanced.Algorithms",
-  "projectType": "Product",
-  "projectPath": "D:\\a\\advanced-algorithms\\advanced-algorithms\\src\\Advanced.Algorithms\\Advanced.Algorithms.csproj"
-}

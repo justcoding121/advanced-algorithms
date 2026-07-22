@@ -1,1 +1,0 @@
-Roslyn version: 5.6.0.0Language version: CSharp14!Concurrent execution: enabledµ°File 'D:\a\advanced-algorithms\advanced-algorithms\src\Advanced.Algorithms\obj\Debug\netstandard2.0\.NETStandard,Version=v2.0.AssemblyAttributes.cs' was recognized as generated
