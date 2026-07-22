@@ -86,7 +86,7 @@ jobs:
     runs-on: windows-latest
     environment: nuget-publish
     permissions:
-      contents: read
+      contents: write
       id-token: write
     steps:
     - uses: actions/checkout@v4
@@ -104,6 +104,21 @@ jobs:
       if: github.ref == 'refs/heads/stable'
       run: dotnet pack src/Advanced.Algorithms/Advanced.Algorithms.csproj --output artifacts
 
+    - name: Resolve package version
+      id: package
+      run: |
+        $package = Get-ChildItem artifacts -Filter *.nupkg | Select-Object -First 1
+        if (-not $package) { throw "No NuGet package was produced." }
+        if ($package.BaseName -notmatch '^Advanced\.Algorithms\.(.+)$') {
+          throw "Unexpected package name: $($package.Name)"
+        }
+        $version = $Matches[1]
+        "name=$($package.Name)" >> $env:GITHUB_OUTPUT
+        "path=$($package.FullName)" >> $env:GITHUB_OUTPUT
+        "version=$version" >> $env:GITHUB_OUTPUT
+        "tag=$version" >> $env:GITHUB_OUTPUT
+        "prerelease=$(if ($version -match '-beta$') { 'true' } else { 'false' })" >> $env:GITHUB_OUTPUT
+
     - name: NuGet login
       id: login
       uses: NuGet/login@v1
@@ -112,6 +127,29 @@ jobs:
 
     - name: Publish package
       run: |
-        $package = Get-ChildItem artifacts -Filter *.nupkg | Select-Object -First 1
-        if (-not $package) { throw "No NuGet package was produced." }
-        dotnet nuget push $package.FullName --source "nuget" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}"
+        dotnet nuget push "${{ steps.package.outputs.path }}" --source "nuget" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}"
+
+    - name: Create GitHub release
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        $tag = "${{ steps.package.outputs.tag }}"
+        $version = "${{ steps.package.outputs.version }}"
+        $package = "${{ steps.package.outputs.path }}"
+        $prerelease = "${{ steps.package.outputs.prerelease }}" -eq "true"
+
+        if (gh release view $tag 2>$null) {
+          Write-Host "Release $tag already exists; uploading package asset if missing."
+          gh release upload $tag $package --clobber
+        }
+        else {
+          $args = @(
+            "release", "create", $tag,
+            $package,
+            "--title", $version,
+            "--generate-notes",
+            "--target", $env:GITHUB_SHA
+          )
+          if ($prerelease) { $args += "--prerelease" }
+          gh @args
+        }
