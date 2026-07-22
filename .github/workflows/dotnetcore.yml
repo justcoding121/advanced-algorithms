@@ -78,6 +78,8 @@ jobs:
         message: Update documentation
         committer_name: GitHub Actions
         committer_email: actions@github.com
+        # Only commit DocFX output — never Sonar/coverage/tool install artifacts
+        add: 'docs'
 
   publish:
     name: Publish NuGet package
