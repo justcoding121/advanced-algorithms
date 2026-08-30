@@ -92,6 +92,8 @@ jobs:
       id-token: write
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -139,6 +141,7 @@ jobs:
         $version = "${{ steps.package.outputs.version }}"
         $package = "${{ steps.package.outputs.path }}"
         $prerelease = "${{ steps.package.outputs.prerelease }}" -eq "true"
+        $repo = $env:GITHUB_REPOSITORY
 
         if (gh release view $tag 2>$null) {
           Write-Host "Release $tag already exists; uploading package asset if missing."
@@ -154,4 +157,52 @@ jobs:
           )
           if ($prerelease) { $args += "--prerelease" }
           gh @args
+
+          # --generate-notes often emits only a compare link when there were no PR merges.
+          # Fall back to commit-subject bullets from the previous different-SHA release tag.
+          $body = (gh release view $tag --json body | ConvertFrom-Json).body
+          if ($null -eq $body) { $body = "" }
+          if ($body -notmatch "(?m)^## What's Changed") {
+            Write-Host "Generated notes lack What's Changed; falling back to commit subjects."
+            git fetch --tags --force 2>$null | Out-Null
+
+            $currSha = git rev-parse "$tag^{commit}"
+            $prevTag = $null
+            $releases = gh api "repos/$repo/releases" --paginate | ConvertFrom-Json
+            $sorted = @($releases | Sort-Object { [datetime]$_.published_at })
+            $idx = 0
+            for ($i = 0; $i -lt $sorted.Count; $i++) {
+              if ($sorted[$i].tag_name -eq $tag) { $idx = $i; break }
+            }
+            for ($j = $idx - 1; $j -ge 0; $j--) {
+              $candidate = $sorted[$j].tag_name
+              $candSha = git rev-parse "$candidate^{commit}" 2>$null
+              if ($candSha -and $candSha -ne $currSha) {
+                $prevTag = $candidate
+                break
+              }
+            }
+
+            $notesPath = Join-Path $env:RUNNER_TEMP "release-notes-$tag.md"
+            $lines = New-Object System.Collections.Generic.List[string]
+            [void]$lines.Add("## What's Changed")
+            if ($prevTag) {
+              $subjects = git log --no-merges --pretty=format:'* %s' "${prevTag}..${tag}"
+              if ($subjects) {
+                foreach ($s in @($subjects -split "`n")) {
+                  if ($s.Trim()) { [void]$lines.Add($s) }
+                }
+              }
+              [void]$lines.Add("")
+              [void]$lines.Add("**Full Changelog**: https://github.com/$repo/compare/$prevTag...$tag")
+            }
+            else {
+              [void]$lines.Add("* Initial release")
+              [void]$lines.Add("")
+              [void]$lines.Add("**Full Changelog**: https://github.com/$repo/commits/$tag")
+            }
+            $utf8 = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText($notesPath, ($lines -join "`n") + "`n", $utf8)
+            gh release edit $tag --notes-file $notesPath
+          }
         }
