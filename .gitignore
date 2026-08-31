@@ -25,6 +25,13 @@ bld/
 # Visual Studio 2015 cache/options directory
 .vs/
 
+# VS Code / OmniSharp / JetBrains / Cursor local tooling
+.vscode/
+omnisharp.json
+.idea/
+.cursor/
+*.DotSettings
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
