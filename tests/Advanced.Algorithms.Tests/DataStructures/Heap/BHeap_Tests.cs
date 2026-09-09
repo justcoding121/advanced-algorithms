@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
@@ -113,6 +113,20 @@ namespace Advanced.Algorithms.Tests.DataStructures
             maxHeap.Delete(4);
             Assert.AreEqual(2, maxHeap.Extract());
             Assert.AreEqual(1, maxHeap.Extract());
+        }
+        [TestMethod]
+        public void BHeap_Extract_Order_Oracle()
+        {
+            var rnd = new Random(11);
+            for (var trial = 0; trial < 30; trial++)
+            {
+                var items = Enumerable.Range(0, rnd.Next(1, 60)).Select(_ => rnd.Next(-500, 500)).ToList();
+                var heap = new BHeap<int>();
+                foreach (var x in items) heap.Insert(x);
+                foreach (var expected in items.OrderBy(x => x))
+                    Assert.AreEqual(expected, heap.Extract());
+                Assert.AreEqual(0, heap.Count);
+            }
         }
     }
 }
