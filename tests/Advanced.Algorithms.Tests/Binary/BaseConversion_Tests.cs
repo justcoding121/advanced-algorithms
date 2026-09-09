@@ -82,5 +82,37 @@ namespace Advanced.Algorithms.Tests.Binary
             Assert.ThrowsException<ArgumentException>(() =>
                 BaseConversion.Convert("0.1", "01", "0"));
         }
+
+        [TestMethod]
+        public void BaseConversion_Oracle_RoundTrip()
+        {
+            const string dec = "0123456789";
+            const string bin = "01";
+            const string hex = "0123456789abcdef";
+            const string base3 = "012";
+
+            var values = new[] { "0", "1", "2", "7", "10", "42", "255", "1024", "65535", "1000000" };
+
+            foreach (var value in values)
+            {
+                var asBin = BaseConversion.Convert(value, dec, bin);
+                Assert.AreEqual(value, BaseConversion.Convert(asBin, bin, dec),
+                    $"dec->bin->dec failed for {value}");
+
+                var asHex = BaseConversion.Convert(value, dec, hex);
+                Assert.AreEqual(value, BaseConversion.Convert(asHex, hex, dec),
+                    $"dec->hex->dec failed for {value}");
+
+                var as3 = BaseConversion.Convert(value, dec, base3);
+                Assert.AreEqual(value, BaseConversion.Convert(as3, base3, dec),
+                    $"dec->base3->dec failed for {value}");
+            }
+
+            // known literals
+            Assert.AreEqual("11111111", BaseConversion.Convert("255", dec, bin));
+            Assert.AreEqual("ff", BaseConversion.Convert("255", dec, hex));
+            Assert.AreEqual("11", BaseConversion.Convert("4", dec, base3));
+            Assert.AreEqual("0.5", BaseConversion.Convert("0.1", bin, dec));
+        }
     }
 }
