@@ -29,7 +29,7 @@ public class BiPartiteMatching<T>
         var mColorer = new MColorer<T, int>();
         var colorResult = mColorer.Color(graph, new[] { 1, 2 });
 
-        if (colorResult.CanColor == false) throw new Exception("Graph is not BiPartite.");
+        if (!colorResult.CanColor) throw new ArgumentException("Graph is not BiPartite.");
 
         return GetMaxBiPartiteMatching(graph, colorResult.Partitions);
     }
@@ -43,11 +43,12 @@ public class BiPartiteMatching<T>
         //add unit edges from dymmy source to group 1 vertices
         var dummySource = @operator.GetRandomUniqueVertex();
         if (graph.ContainsVertex(dummySource))
-            throw new Exception("Dummy vertex provided is not unique to given graph.");
+            throw new ArgumentException("Dummy vertex provided is not unique to given graph.");
 
         //add unit edges from group 2 vertices to sink
         var dummySink = @operator.GetRandomUniqueVertex();
-        if (graph.ContainsVertex(dummySink)) throw new Exception("Dummy vertex provided is not unique to given graph.");
+        if (graph.ContainsVertex(dummySink))
+            throw new ArgumentException("Dummy vertex provided is not unique to given graph.");
 
         var workGraph = CreateFlowGraph(graph, dummySource, dummySink, partitions);
 
@@ -91,8 +92,10 @@ public class BiPartiteMatching<T>
 
         //now add directed edges from group 1 vertices to group 2 vertices
         foreach (var group1Vertex in partitions[1])
-        foreach (var edge in graph.GetVertex(group1Vertex).Edges)
-            workGraph.AddEdge(group1Vertex, edge.TargetVertexKey, 1);
+        {
+            foreach (var edge in graph.GetVertex(group1Vertex).Edges)
+                workGraph.AddEdge(group1Vertex, edge.TargetVertexKey, 1);
+        }
 
         return workGraph;
     }
