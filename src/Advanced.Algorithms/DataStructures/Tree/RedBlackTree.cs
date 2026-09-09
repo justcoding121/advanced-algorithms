@@ -110,7 +110,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         return max == null ? default : max.Value;
     }
 
-    private RedBlackTreeNode<T> FindMax(RedBlackTreeNode<T> node)
+    private static RedBlackTreeNode<T> FindMax(RedBlackTreeNode<T> node)
     {
         return node.FindMax() as RedBlackTreeNode<T>;
     }
@@ -243,7 +243,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
             else
             {
                 //duplicate
-                throw new Exception("Item with same key exists");
+                throw new ArgumentException("Item with same key exists");
             }
         }
     }
@@ -259,82 +259,81 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
             }
 
             //if node to balance is red
-            if (nodeToBalance.NodeColor == RedBlackTreeNodeColor.Red)
-                //red-red relation; fix it!
-                if (nodeToBalance.Parent.NodeColor == RedBlackTreeNodeColor.Red)
+            if (nodeToBalance.NodeColor == RedBlackTreeNodeColor.Red
+                && nodeToBalance.Parent.NodeColor == RedBlackTreeNodeColor.Red)
+            {
+                //red sibling
+                if (nodeToBalance.Parent.Sibling != null &&
+                    nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Red)
                 {
-                    //red sibling
-                    if (nodeToBalance.Parent.Sibling != null &&
-                        nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Red)
-                    {
-                        //mark both children of parent as black and move up balancing 
-                        nodeToBalance.Parent.Sibling.NodeColor = RedBlackTreeNodeColor.Black;
-                        nodeToBalance.Parent.NodeColor = RedBlackTreeNodeColor.Black;
+                    //mark both children of parent as black and move up balancing 
+                    nodeToBalance.Parent.Sibling.NodeColor = RedBlackTreeNodeColor.Black;
+                    nodeToBalance.Parent.NodeColor = RedBlackTreeNodeColor.Black;
 
-                        //root is always black
-                        if (nodeToBalance.Parent.Parent != Root)
-                            nodeToBalance.Parent.Parent.NodeColor = RedBlackTreeNodeColor.Red;
+                    //root is always black
+                    if (nodeToBalance.Parent.Parent != Root)
+                        nodeToBalance.Parent.Parent.NodeColor = RedBlackTreeNodeColor.Red;
+
+                    nodeToBalance.UpdateCounts();
+                    nodeToBalance.Parent.UpdateCounts();
+                    nodeToBalance = nodeToBalance.Parent.Parent;
+                }
+                //absent sibling or black sibling
+                else if (nodeToBalance.Parent.Sibling == null ||
+                         nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Black)
+                {
+                    if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsLeftChild)
+                    {
+                        var newRoot = nodeToBalance.Parent;
+                        SwapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
+                        RightRotate(nodeToBalance.Parent.Parent);
+
+                        if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
 
                         nodeToBalance.UpdateCounts();
-                        nodeToBalance.Parent.UpdateCounts();
-                        nodeToBalance = nodeToBalance.Parent.Parent;
+                        nodeToBalance = newRoot;
                     }
-                    //absent sibling or black sibling
-                    else if (nodeToBalance.Parent.Sibling == null ||
-                             nodeToBalance.Parent.Sibling.NodeColor == RedBlackTreeNodeColor.Black)
+                    else if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsRightChild)
                     {
-                        if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsLeftChild)
-                        {
-                            var newRoot = nodeToBalance.Parent;
-                            SwapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
-                            RightRotate(nodeToBalance.Parent.Parent);
+                        RightRotate(nodeToBalance.Parent);
 
-                            if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
+                        var newRoot = nodeToBalance;
 
-                            nodeToBalance.UpdateCounts();
-                            nodeToBalance = newRoot;
-                        }
-                        else if (nodeToBalance.IsLeftChild && nodeToBalance.Parent.IsRightChild)
-                        {
-                            RightRotate(nodeToBalance.Parent);
+                        SwapColors(nodeToBalance.Parent, nodeToBalance);
+                        LeftRotate(nodeToBalance.Parent);
 
-                            var newRoot = nodeToBalance;
+                        if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
 
-                            SwapColors(nodeToBalance.Parent, nodeToBalance);
-                            LeftRotate(nodeToBalance.Parent);
+                        nodeToBalance.UpdateCounts();
+                        nodeToBalance = newRoot;
+                    }
+                    else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsRightChild)
+                    {
+                        var newRoot = nodeToBalance.Parent;
+                        SwapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
+                        LeftRotate(nodeToBalance.Parent.Parent);
 
-                            if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
+                        if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
 
-                            nodeToBalance.UpdateCounts();
-                            nodeToBalance = newRoot;
-                        }
-                        else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsRightChild)
-                        {
-                            var newRoot = nodeToBalance.Parent;
-                            SwapColors(nodeToBalance.Parent, nodeToBalance.Parent.Parent);
-                            LeftRotate(nodeToBalance.Parent.Parent);
+                        nodeToBalance.UpdateCounts();
+                        nodeToBalance = newRoot;
+                    }
+                    else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsLeftChild)
+                    {
+                        LeftRotate(nodeToBalance.Parent);
 
-                            if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
+                        var newRoot = nodeToBalance;
 
-                            nodeToBalance.UpdateCounts();
-                            nodeToBalance = newRoot;
-                        }
-                        else if (nodeToBalance.IsRightChild && nodeToBalance.Parent.IsLeftChild)
-                        {
-                            LeftRotate(nodeToBalance.Parent);
+                        SwapColors(nodeToBalance.Parent, nodeToBalance);
+                        RightRotate(nodeToBalance.Parent);
 
-                            var newRoot = nodeToBalance;
+                        if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
 
-                            SwapColors(nodeToBalance.Parent, nodeToBalance);
-                            RightRotate(nodeToBalance.Parent);
-
-                            if (newRoot == Root) Root.NodeColor = RedBlackTreeNodeColor.Black;
-
-                            nodeToBalance.UpdateCounts();
-                            nodeToBalance = newRoot;
-                        }
+                        nodeToBalance.UpdateCounts();
+                        nodeToBalance = newRoot;
                     }
                 }
+            }
 
             if (nodeToBalance.Parent != null)
             {
@@ -349,7 +348,7 @@ public class RedBlackTree<T> : IEnumerable<T> where T : IComparable
         nodeToBalance.UpdateCounts(true);
     }
 
-    private void SwapColors(RedBlackTreeNode<T> node1, RedBlackTreeNode<T> node2)
+    private static void SwapColors(RedBlackTreeNode<T> node1, RedBlackTreeNode<T> node2)
     {
         var tmpColor = node2.NodeColor;
         node2.NodeColor = node1.NodeColor;
