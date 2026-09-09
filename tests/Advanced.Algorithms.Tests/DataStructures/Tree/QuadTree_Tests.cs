@@ -71,7 +71,7 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(0, tree.Count());
                 Assert.AreEqual(0, tree.RangeSearch(new Rectangle(new Point(-10, 10), new Point(10, -10))).Count);
 
-                Assert.ThrowsException<Exception>(() => tree.Delete(new Point(0, 0)));
+                Assert.ThrowsException<ArgumentException>(() => tree.Delete(new Point(0, 0)));
             }
 
             [TestMethod]
@@ -97,8 +97,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.IsTrue(rangeResult.Any(x => x.Item1.X == 3 && x.Item1.Y == 3));
 
                 // Already-deleted / missing points should throw.
-                Assert.ThrowsException<Exception>(() => tree.Delete(new Point(1, 1)));
-                Assert.ThrowsException<Exception>(() => tree.Delete(new Point(9, 9)));
+                Assert.ThrowsException<ArgumentException>(() => tree.Delete(new Point(1, 1)));
+                Assert.ThrowsException<ArgumentException>(() => tree.Delete(new Point(9, 9)));
             }
 
             [TestMethod]
@@ -133,8 +133,19 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
                 tree.Insert(new Point(0.1 + 0.2, 1.0));
 
-                Assert.ThrowsException<Exception>(() => tree.Insert(new Point(0.3, 1.0)));
+                Assert.ThrowsException<ArgumentException>(() => tree.Insert(new Point(0.3, 1.0)));
                 Assert.AreEqual(1, tree.Count);
+            }
+
+            [TestMethod]
+            public void QuadTree_Empty_Range_And_Missing_Delete()
+            {
+                var tree = new QuadTree<object>();
+
+                Assert.AreEqual(0, tree.Count);
+                Assert.AreEqual(0, tree.Count());
+                Assert.AreEqual(0, tree.RangeSearch(new Rectangle(new Point(0, 1), new Point(1, 0))).Count);
+                Assert.ThrowsException<ArgumentException>(() => tree.Delete(new Point(0, 0)));
             }
         }
     }

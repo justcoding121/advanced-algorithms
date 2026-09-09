@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +50,7 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
         if (current == null) return new QuadTreeNode<T>(point, value);
 
         if (current.Point.X.IsEqual(point.X, tolerance) && current.Point.Y.IsEqual(point.Y, tolerance))
-            throw new Exception("Point already exists.");
+            throw new ArgumentException("Point already exists.");
 
         //south-west / north-west
         if (point.X.IsLessThan(current.Point.X, tolerance))
@@ -117,7 +117,7 @@ public class QuadTree<T> : IEnumerable<Tuple<Point, T>>
     {
         var point = Find(root, p);
 
-        if (point == null || point.IsDeleted) throw new Exception("Point not found.");
+        if (point == null || point.IsDeleted) throw new ArgumentException("Point not found.");
 
         point.IsDeleted = true;
         Count--;
@@ -187,6 +187,7 @@ internal class QuadTreeEnumerator<T> : IEnumerator<Tuple<Point, T>>
     private readonly QuadTreeNode<T> root;
 
     private QuadTreeNode<T> current;
+    private bool disposedValue;
     private Stack<QuadTreeNode<T>> progress;
 
     internal QuadTreeEnumerator(QuadTreeNode<T> root)
@@ -234,8 +235,24 @@ internal class QuadTreeEnumerator<T> : IEnumerator<Tuple<Point, T>>
 
     public Tuple<Point, T> Current => new(current.Point, current.Value);
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            progress = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        progress = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
