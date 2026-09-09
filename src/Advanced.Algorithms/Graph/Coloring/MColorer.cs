@@ -39,7 +39,7 @@ public class MColorer<T, TC>
     /// <summary>
     ///     Assign color to each new node.
     /// </summary>
-    private Dictionary<IGraphVertex<T>, TC> ColorRecursively(IGraphVertex<T> vertex, TC[] colors,
+    private void ColorRecursively(IGraphVertex<T> vertex, TC[] colors,
         Dictionary<IGraphVertex<T>, TC> progress, HashSet<IGraphVertex<T>> visited)
     {
         foreach (var item in colors)
@@ -50,7 +50,7 @@ public class MColorer<T, TC>
             break;
         }
 
-        if (visited.Contains(vertex) == false)
+        if (!visited.Contains(vertex))
         {
             visited.Add(vertex);
 
@@ -61,14 +61,12 @@ public class MColorer<T, TC>
                 ColorRecursively(edge.TargetVertex, colors, progress, visited);
             }
         }
-
-        return progress;
     }
 
     /// <summary>
     ///     Is it safe to assign this color to this vertex?
     /// </summary>
-    private bool IsSafe(Dictionary<IGraphVertex<T>, TC> progress,
+    private static bool IsSafe(Dictionary<IGraphVertex<T>, TC> progress,
         IGraphVertex<T> vertex, TC color)
     {
         foreach (var edge in vertex.Edges)
