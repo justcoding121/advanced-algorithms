@@ -231,7 +231,9 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var fresh = new CollisionKey(3, 1);
 
             dictionary.Add(a, 10);
-            Assert.ThrowsException<ArgumentException>(() => { dictionary[collidingMissing] = 30; });
+            dictionary[collidingMissing] = 30;
+            Assert.AreEqual(30, dictionary[collidingMissing]);
+            Assert.IsTrue(dictionary.ContainsKey(collidingMissing));
 
             dictionary.Add(fresh, 20);
             Assert.AreEqual(20, dictionary[fresh]);
@@ -261,6 +263,73 @@ namespace Advanced.Algorithms.Tests.DataStructures
             }
 
             Assert.IsTrue(dictionary.Count <= 4);
+        }
+
+        [TestMethod]
+        public void Dictionary_Oracle_Vs_SystemDictionary()
+        {
+            foreach (var type in new[] { DictionaryType.SeparateChaining, DictionaryType.OpenAddressing })
+            {
+                var aa = new Dictionary<int, int>(type);
+                var oracle = new System.Collections.Generic.Dictionary<int, int>();
+                var rnd = new Random(99);
+
+                for (var t = 0; t < 4000; t++)
+                {
+                    var k = rnd.Next(-150, 150);
+                    var v = rnd.Next(10000);
+                    var op = rnd.Next(5);
+                    if (op == 0)
+                    {
+                        if (oracle.ContainsKey(k))
+                            Assert.ThrowsException<ArgumentException>(() => aa.Add(k, v));
+                        else
+                        {
+                            aa.Add(k, v);
+                            oracle.Add(k, v);
+                        }
+                    }
+                    else if (op == 1)
+                    {
+                        if (!oracle.ContainsKey(k))
+                            Assert.ThrowsException<ArgumentException>(() => aa.Remove(k));
+                        else
+                        {
+                            aa.Remove(k);
+                            oracle.Remove(k);
+                        }
+                    }
+                    else if (op == 2)
+                    {
+                        Assert.AreEqual(oracle.ContainsKey(k), aa.ContainsKey(k));
+                    }
+                    else if (op == 3)
+                    {
+                        aa[k] = v;
+                        oracle[k] = v;
+                    }
+                    else if (oracle.ContainsKey(k))
+                    {
+                        Assert.AreEqual(oracle[k], aa[k]);
+                    }
+
+                    Assert.AreEqual(oracle.Count, aa.Count);
+                }
+            }
+        }
+
+        [TestMethod]
+        public void Dictionary_IntMinValue_Key_DoesNotThrow()
+        {
+            foreach (var type in new[] { DictionaryType.SeparateChaining, DictionaryType.OpenAddressing })
+            {
+                var d = new Dictionary<int, int>(type);
+                d.Add(int.MinValue, 1);
+                Assert.IsTrue(d.ContainsKey(int.MinValue));
+                Assert.AreEqual(1, d[int.MinValue]);
+                d.Remove(int.MinValue);
+                Assert.IsFalse(d.ContainsKey(int.MinValue));
+            }
         }
 
         private sealed class CollisionKey

@@ -29,9 +29,15 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
         set => SetValue(key, value);
     }
 
+    private static int Hash(TK key)
+    {
+        // & int.MaxValue avoids OverflowException on int.MinValue from Math.Abs
+        return key.GetHashCode() & int.MaxValue;
+    }
+
     public bool ContainsKey(TK key)
     {
-        var index = Math.Abs(key.GetHashCode()) % BucketSize;
+        var index = Hash(key) % BucketSize;
 
         if (hashArray[index] == null) return false;
 
@@ -51,7 +57,7 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
     {
         Grow();
 
-        var index = Math.Abs(key.GetHashCode()) % BucketSize;
+        var index = Hash(key) % BucketSize;
 
         if (hashArray[index] == null)
         {
@@ -78,7 +84,7 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
 
     public void Remove(TK key)
     {
-        var index = Math.Abs(key.GetHashCode()) % BucketSize;
+        var index = Hash(key) % BucketSize;
 
         if (hashArray[index] == null) throw new ArgumentException("No such item for given key");
 
@@ -135,35 +141,34 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
 
     private void SetValue(TK key, TV value)
     {
-        var index = Math.Abs(key.GetHashCode()) % BucketSize;
+        var index = Hash(key) % BucketSize;
 
         if (hashArray[index] == null)
         {
             Add(key, value);
+            return;
         }
-        else
+
+        var current = hashArray[index].Head;
+
+        while (current != null)
         {
-            var current = hashArray[index].Head;
-
-            while (current != null)
+            if (current.Data.Key.Equals(key))
             {
-                if (current.Data.Key.Equals(key))
-                {
-                    Remove(key);
-                    Add(key, value);
-                    return;
-                }
-
-                current = current.Next;
+                Remove(key);
+                Add(key, value);
+                return;
             }
+
+            current = current.Next;
         }
 
-        throw new ArgumentException("Item not found");
+        Add(key, value);
     }
 
     private TV GetValue(TK key)
     {
-        var index = Math.Abs(key.GetHashCode()) % BucketSize;
+        var index = Hash(key) % BucketSize;
 
         if (hashArray[index] == null) throw new ArgumentException("Item not found");
 
@@ -203,7 +208,7 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
                     {
                         var next = current.Next;
 
-                        var newIndex = Math.Abs(current.Data.Key.GetHashCode()) % newBucketSize;
+                        var newIndex = Hash(current.Data.Key) % newBucketSize;
 
                         if (biggerArray[newIndex] == null)
                         {
@@ -246,7 +251,7 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
                     {
                         var next = current.Next;
 
-                        var newIndex = Math.Abs(current.Data.Key.GetHashCode()) % newBucketSize;
+                        var newIndex = Hash(current.Data.Key) % newBucketSize;
 
                         if (smallerArray[newIndex] == null)
                         {

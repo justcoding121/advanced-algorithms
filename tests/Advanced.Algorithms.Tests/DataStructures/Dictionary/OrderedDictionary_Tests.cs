@@ -108,5 +108,55 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var desc = fromSorted.AsEnumerableDesc().Select(x => x.Key).ToList();
             CollectionAssert.AreEqual(new System.Collections.Generic.List<int> { 3, 1 }, desc);
         }
+
+        [TestMethod]
+        public void OrderedDictionary_Oracle_Vs_SortedDictionary()
+        {
+            var aa = new OrderedDictionary<int, int>();
+            var oracle = new System.Collections.Generic.SortedDictionary<int, int>();
+            var rnd = new Random(3);
+
+            for (var t = 0; t < 2000; t++)
+            {
+                var k = rnd.Next(-80, 80);
+                var v = rnd.Next(1000);
+                var op = rnd.Next(4);
+                if (op == 0)
+                {
+                    if (oracle.ContainsKey(k))
+                        Assert.ThrowsException<ArgumentException>(() => aa.Add(k, v));
+                    else
+                    {
+                        aa.Add(k, v);
+                        oracle.Add(k, v);
+                    }
+                }
+                else if (op == 1)
+                {
+                    if (oracle.ContainsKey(k))
+                    {
+                        aa.Remove(k);
+                        oracle.Remove(k);
+                    }
+                    else
+                    {
+                        Assert.AreEqual(-1, aa.Remove(k));
+                    }
+                }
+                else if (op == 2)
+                {
+                    aa[k] = v;
+                    oracle[k] = v;
+                }
+                else
+                {
+                    Assert.AreEqual(oracle.ContainsKey(k), aa.ContainsKey(k));
+                }
+
+                Assert.AreEqual(oracle.Count, aa.Count);
+            }
+
+            CollectionAssert.AreEqual(oracle.Keys.ToList(), aa.Select(x => x.Key).ToList());
+        }
     }
 }

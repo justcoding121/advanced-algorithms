@@ -197,35 +197,38 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
         if (hashArray[index] == null)
         {
             Add(key, value);
+            return;
         }
-        else
+
+        var current = hashArray[index];
+        var hitKey = current.Key;
+
+        while (current != null)
         {
-            var current = hashArray[index];
-            var hitKey = current.Key;
-
-            while (current != null)
+            if (current.Key.Equals(key))
             {
-                if (current.Key.Equals(key))
-                {
-                    Remove(key);
-                    Add(key, value);
-                    return;
-                }
+                Remove(key);
+                Add(key, value);
+                return;
+            }
 
-                index++;
+            index++;
 
-                //wrap around
-                if (index == BucketSize)
-                    index = 0;
+            //wrap around
+            if (index == BucketSize)
+                index = 0;
 
-                current = hashArray[index];
+            current = hashArray[index];
 
-                //reached original hit again
-                if (current != null && current.Key.Equals(hitKey)) throw new ArgumentException(ItemNotFound);
+            //reached original hit again — key not present
+            if (current != null && current.Key.Equals(hitKey))
+            {
+                Add(key, value);
+                return;
             }
         }
 
-        throw new ArgumentException(ItemNotFound);
+        Add(key, value);
     }
 
     private TV GetValue(TK key)
@@ -306,7 +309,8 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
 
     private static int GetHash(TK key)
     {
-        return Math.Abs(key.GetHashCode());
+        // & int.MaxValue avoids OverflowException on int.MinValue from Math.Abs
+        return key.GetHashCode() & int.MaxValue;
     }
 }
 
