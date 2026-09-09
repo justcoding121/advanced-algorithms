@@ -128,6 +128,21 @@ public static class LineIntersection
             var m2 = (y4 - y3) / (x4 - x3);
             var c2 = -m2 * x3 + y3;
 
+            //parallel lines (same slope): intersect only if collinear and segments overlap
+            if (Math.Abs(m1 - m2) < tolerance)
+            {
+                if (Math.Abs(-m1 * x3 + y3 - c1) < tolerance)
+                {
+                    var firstIntersection = new Point(x3, y3);
+
+                    if (IsInsideLine(lineA, firstIntersection, tolerance) &&
+                        IsInsideLine(lineB, firstIntersection, tolerance))
+                        return firstIntersection;
+                }
+
+                return null;
+            }
+
             //solving equations (3) and (4) => x = (c1-c2)/(m2-m1)
             //plugging x value in equation (4) => y = c2 + m2 * x
             x = (c1 - c2) / (m2 - m1);

@@ -88,5 +88,37 @@ namespace Advanced.Algorithms.Tests.Geometry
             Assert.IsTrue(horizontalA.Intersects(verticalA));
             Assert.IsTrue(pointComparer.Equals(new Point(2, 3), horizontalA.Intersection(verticalA)));
         }
+
+        /// <summary>
+        /// Oracle: hand-computed crossings, T-junction, endpoint touch, diagonal overlap.
+        /// </summary>
+        [TestMethod]
+        public void LineIntersection_Oracle_HandCases_Test()
+        {
+            var pointComparer = new PointComparer();
+
+            Assert.IsTrue(pointComparer.Equals(new Point(5, 5),
+                LineIntersection.Find(
+                    new Line(new Point(0, 0), new Point(10, 10)),
+                    new Line(new Point(0, 10), new Point(10, 0)))));
+
+            Assert.IsTrue(pointComparer.Equals(new Point(5, 5),
+                LineIntersection.Find(
+                    new Line(new Point(0, 5), new Point(10, 5)),
+                    new Line(new Point(5, 5), new Point(5, 0)))));
+
+            Assert.IsNull(LineIntersection.Find(
+                new Line(new Point(0, 0), new Point(1, 1)),
+                new Line(new Point(0, 1), new Point(1, 2))));
+
+            Assert.IsTrue(pointComparer.Equals(new Point(2, 2),
+                LineIntersection.Find(
+                    new Line(new Point(0, 0), new Point(4, 4)),
+                    new Line(new Point(2, 2), new Point(6, 6)))));
+
+            Assert.IsNull(LineIntersection.Find(
+                new Line(new Point(0, 0), new Point(1, 1)),
+                new Line(new Point(3, 3), new Point(5, 5))));
+        }
     }
 }
