@@ -70,5 +70,34 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable test using linq count()
             Assert.AreEqual(tree.Count, tree.Count());
         }
+
+        [TestMethod]
+        public void BinaryTree_Empty_SingleNode_DeleteRoot_Enumerate()
+        {
+            var tree = new BinaryTree<int>();
+
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+            Assert.IsFalse(tree.HasItem(1));
+            Assert.AreEqual(0, tree.Children(1).Count());
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete(1));
+
+            tree.Insert(0, 1);
+            Assert.AreEqual(1, tree.Count);
+            Assert.IsTrue(tree.HasItem(1));
+            CollectionAssert.AreEqual(new[] { 1 }, tree.ToList());
+
+            tree.Delete(1);
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+
+            tree.Insert(0, 1);
+            tree.Insert(1, 2);
+            tree.Delete(1);
+            Assert.AreEqual(1, tree.Count);
+            Assert.IsTrue(tree.HasItem(2));
+            Assert.IsFalse(tree.HasItem(1));
+            CollectionAssert.AreEqual(new[] { 2 }, tree.ToList());
+        }
     }
 }

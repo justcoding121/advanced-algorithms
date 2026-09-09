@@ -58,11 +58,11 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
 
         var parentNode = Find(parent);
 
-        if (parentNode == null) throw new Exception("Cannot find parent node");
+        if (parentNode == null) throw new ArgumentException("Cannot find parent node");
 
         var exists = Find(Root, child) != null;
 
-        if (exists) throw new ArgumentNullException("value already exists");
+        if (exists) throw new ArgumentException("value already exists");
 
         switch (parentNode.Left)
         {
@@ -76,7 +76,7 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
                 if (parentNode.Right == null)
                     parentNode.Right = new BinaryTreeNode<T>(parentNode, child);
                 else
-                    throw new Exception("Cannot insert to a parent with two child node unambiguosly");
+                    throw new InvalidOperationException("Cannot insert to a parent with two child node unambiguosly");
 
                 break;
         }
@@ -92,7 +92,7 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
     {
         var node = Find(value);
 
-        if (node == null) throw new Exception("Cannot find node");
+        if (node == null) throw new ArgumentException("Cannot find node");
 
         switch (node.Left)
         {
@@ -113,10 +113,18 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
             case null when node.Right != null:
                 node.Right.Parent = node.Parent;
 
-                if (node.Parent.Left == node)
+                if (node.Parent == null)
+                {
+                    Root = node.Right;
+                }
+                else if (node.Parent.Left == node)
+                {
                     node.Parent.Left = node.Right;
+                }
                 else
+                {
                     node.Parent.Right = node.Right;
+                }
 
                 break;
             default:
@@ -124,14 +132,22 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
                 {
                     node.Left.Parent = node.Parent;
 
-                    if (node.Parent.Left == node)
+                    if (node.Parent == null)
+                    {
+                        Root = node.Left;
+                    }
+                    else if (node.Parent.Left == node)
+                    {
                         node.Parent.Left = node.Left;
+                    }
                     else
+                    {
                         node.Parent.Right = node.Left;
+                    }
                 }
                 else
                 {
-                    throw new Exception("Cannot delete two child node unambiguosly");
+                    throw new InvalidOperationException("Cannot delete two child node unambiguosly");
                 }
 
                 break;
@@ -149,7 +165,7 @@ public class BinaryTree<T> : IEnumerable<T> where T : IComparable
 
         if (node != null) return new[] { node.Left, node.Right }.Where(x => x != null).Select(x => x.Value);
 
-        return null;
+        return Array.Empty<T>();
     }
 
     private int GetHeight(BinaryTreeNode<T> node)
@@ -208,6 +224,7 @@ internal class BinaryTreeEnumerator<T> : IEnumerator<T> where T : IComparable
 {
     private readonly BinaryTreeNode<T> root;
     private Stack<BinaryTreeNode<T>> progress;
+    private bool disposedValue;
 
     internal BinaryTreeEnumerator(BinaryTreeNode<T> root)
     {
@@ -248,8 +265,24 @@ internal class BinaryTreeEnumerator<T> : IEnumerator<T> where T : IComparable
 
     object IEnumerator.Current => Current;
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            progress = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        progress = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
