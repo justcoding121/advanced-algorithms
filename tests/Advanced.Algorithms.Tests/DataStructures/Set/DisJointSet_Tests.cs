@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -38,6 +39,49 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test
             Assert.AreEqual(disjointSet.Count, disjointSet.Count());
+        }
+
+        [TestMethod]
+        public void DisJointSet_Connectivity_Oracle()
+        {
+            var ds = new DisJointSet<int>();
+            var parent = new System.Collections.Generic.Dictionary<int, int>();
+
+            int Find(int x)
+            {
+                while (parent[x] != x) x = parent[x];
+                return x;
+            }
+
+            void Union(int a, int b)
+            {
+                a = Find(a);
+                b = Find(b);
+                if (a != b) parent[b] = a;
+            }
+
+            for (var i = 0; i < 50; i++)
+            {
+                ds.MakeSet(i);
+                parent[i] = i;
+            }
+
+            var rnd = new Random(1);
+            for (var t = 0; t < 200; t++)
+            {
+                var a = rnd.Next(50);
+                var b = rnd.Next(50);
+                ds.Union(a, b);
+                Union(a, b);
+            }
+
+            for (var i = 0; i < 50; i++)
+            for (var j = 0; j < 50; j++)
+            {
+                var sameAa = ds.FindSet(i).Equals(ds.FindSet(j));
+                var sameOr = Find(i) == Find(j);
+                Assert.AreEqual(sameOr, sameAa);
+            }
         }
     }
 }
