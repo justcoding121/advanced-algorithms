@@ -34,7 +34,7 @@ public class Prims<T, TW> where TW : IComparable
     /// </summary>
     /// <param name="spanTreeNeighbours"> Use Fibonacci Min Heap to pick smallest edge neighbour </param>
     /// <param name="spanTreeEdges">result MST edges</param>
-    private void Dfs(IGraph<T> graph, IGraphVertex<T> currentVertex,
+    private static void Dfs(IGraph<T> graph, IGraphVertex<T> currentVertex,
         BHeap<MstEdge<T, TW>> spanTreeNeighbours, HashSet<T> spanTreeVertices,
         List<MstEdge<T, TW>> spanTreeEdges)
     {
