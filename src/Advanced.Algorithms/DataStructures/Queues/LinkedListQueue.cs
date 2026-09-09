@@ -18,7 +18,7 @@ internal class LinkedListQueue<T> : IQueue<T>
 
     public T Dequeue()
     {
-        if (list.Head == null) throw new Exception("Empty Queue");
+        if (list.Head == null) throw new InvalidOperationException("Empty Queue");
 
         var result = list.DeleteLast();
         Count--;
@@ -27,7 +27,7 @@ internal class LinkedListQueue<T> : IQueue<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return list.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

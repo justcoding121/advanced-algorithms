@@ -26,7 +26,7 @@ public class Queue<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return queue.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

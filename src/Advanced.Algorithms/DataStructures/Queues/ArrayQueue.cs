@@ -18,7 +18,7 @@ internal class ArrayQueue<T> : IQueue<T>
 
     public T Dequeue()
     {
-        if (list.Count == 0) throw new Exception("Empty Queue");
+        if (list.Count == 0) throw new InvalidOperationException("Empty Queue");
 
         var result = list[list.Count - 1];
         list.RemoveAt(list.Count - 1);
@@ -28,7 +28,7 @@ internal class ArrayQueue<T> : IQueue<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return list.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
