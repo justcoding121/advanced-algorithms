@@ -79,3 +79,27 @@
 | tests/Advanced.Algorithms.Tests/Geometry/PointRotation_Tests.cs | pass | cardinal-angle oracle |
 | src/Advanced.Algorithms/Geometry/BentleyOttmann.cs | fixed | Event.CompareTo NRE via segment vs finite sweepline; use Y-at-sweep-X |
 | tests/Advanced.Algorithms.Tests/Geometry/BentleyOttmann_Tests.cs | pass | pairwise LineIntersection oracle + shared-endpoint crash regression |
+| src/Advanced.Algorithms/Graph/MinimumSpanningTree/Kruskals.cs | ok | MST weight matches Prim on shared graph; no code change |
+| tests/Advanced.Algorithms.Tests/Graph/MinimumSpanningTree/Kruskals_Test.cs | pass | Prim weight cross-oracle (=15) |
+| src/Advanced.Algorithms/Graph/MinimumSpanningTree/Prims.cs | ok | MST weight matches Kruskal; no code change |
+| tests/Advanced.Algorithms.Tests/Graph/MinimumSpanningTree/Prims_Test.cs | pass | Kruskal weight cross-oracle |
+| src/Advanced.Algorithms/Graph/ShortestPath/Bellman-Ford.cs | fixed | neg-cycle check was dead (`iterations < 0`); TracePath hung on cycles; extra relax pass throws |
+| tests/Advanced.Algorithms.Tests/Graph/ShortestPath/BellmanFord_Tests.cs | pass | Dijkstra oracle + neg-cycle throws |
+| src/Advanced.Algorithms/Graph/ShortestPath/Dijikstra.cs | ok | lengths match BF/Floyd on non-neg shared digraph/undirected; no code change |
+| tests/Advanced.Algorithms.Tests/Graph/ShortestPath/Dijikstras_Tests.cs | pass | BF + Floyd cross-oracle S→T=15 |
+| src/Advanced.Algorithms/Graph/ShortestPath/Floyd-Warshall.cs | ok | all-pairs match Dijkstra on undirected; no code change |
+| tests/Advanced.Algorithms.Tests/Graph/ShortestPath/FloydWarshall_Tests.cs | pass | Dijkstra all-pairs oracle |
+| src/Advanced.Algorithms/Graph/ShortestPath/Johnsons.cs | fixed | returned reweighted d' not d'+h(v)-h(u); skip unreachable fake paths |
+| tests/Advanced.Algorithms.Tests/Graph/ShortestPath/Johnson_Tests.cs | pass | Bellman-Ford reachable-pair oracle |
+| src/Advanced.Algorithms/Graph/ShortestPath/AStar.cs | fixed | heap CompareTo used h only; now f=g+h |
+| tests/Advanced.Algorithms.Tests/Graph/ShortestPath/AStar_Tests.cs | pass | zero-h + admissible-h Dijkstra oracles |
+| src/Advanced.Algorithms/Graph/ShortestPath/TravellingSalesman.cs | fixed | DP cache key omitted visited set → wrong tours |
+| tests/Advanced.Algorithms.Tests/Graph/ShortestPath/TravellingSalesman_Tests.cs | pass | brute-force oracle n=5 × 30 trials |
+| src/Advanced.Algorithms/Graph/Flow/FordFulkerson.cs | fixed | residual CreateResidualGraph threw on antiparallel edges |
+| tests/Advanced.Algorithms.Tests/Graph/Flow/FordFulkerson_Tests.cs | pass | EK/PR cross-oracle + antiparallel |
+| src/Advanced.Algorithms/Graph/Flow/EdmondsKarp.cs | fixed | same residual antiparallel fix |
+| tests/Advanced.Algorithms.Tests/Graph/Flow/EdmondsKarp_Tests.cs | pass | FF/PR cross-oracle + antiparallel |
+| src/Advanced.Algorithms/Graph/Flow/PushRelabel.cs | fixed | same residual antiparallel fix |
+| tests/Advanced.Algorithms.Tests/Graph/Flow/PushRelabel_Tests.cs | pass | FF/EK cross-oracle + antiparallel |
+| src/Advanced.Algorithms/Graph/Cut/MinimumCut.cs | ok | cut capacity = max flow; uses Edmonds residual (inherits fix); no code change |
+| tests/Advanced.Algorithms.Tests/Graph/Cut/MinCut_Tests.cs | pass | cut capacity vs Edmonds-Karp max-flow oracle |
