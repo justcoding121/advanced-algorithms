@@ -164,5 +164,44 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
             Assert.AreEqual(0, graph.VerticesCount);
             Assert.AreEqual(0, graph.Clone().VerticesCount);
         }
+
+        [TestMethod]
+        public void WeightedGraph_Adversarial_Vertex0_Resize_Clone_Oracle()
+        {
+            var graph = new WeightedGraph<int, int>();
+            for (var i = 0; i < 5; i++)
+            {
+                graph.AddVertex(i);
+            }
+
+            graph.AddEdge(0, 1, 5);
+            graph.AddEdge(3, 4, 11);
+            graph.AddEdge(0, 0, 3);
+
+            Assert.IsTrue(graph.ContainsVertex(0));
+            CollectionAssert.AreEquivalent(new[] { 0, 1, 2, 3, 4 }, graph.ToList());
+            Assert.AreEqual(3, graph.Edges(0).Single(e => e.Key.Equals(0)).Value);
+
+            // shrink remaps matrix indices; GetEdge must follow live indices
+            var v3 = graph.GetVertex(3);
+            var v4 = graph.GetVertex(4);
+            graph.RemoveVertex(0);
+            graph.RemoveVertex(1);
+            Assert.AreEqual(11, v3.GetEdge(v4).Weight<int>());
+            Assert.AreEqual(11, graph.GetVertex(3).GetEdge(graph.GetVertex(4)).Weight<int>());
+            Assert.IsTrue(graph.HasEdge(3, 4));
+
+            var g2 = new WeightedGraph<int, int>();
+            g2.AddVertex(0);
+            g2.AddVertex(1);
+            g2.AddEdge(0, 1, 5);
+            g2.AddEdge(0, 0, 3);
+            var clone = g2.Clone();
+            Assert.IsTrue(clone.HasEdge(0, 1));
+            Assert.IsTrue(clone.HasEdge(1, 0));
+            Assert.IsTrue(clone.HasEdge(0, 0));
+            Assert.AreEqual(5, clone.Edges(0).Single(e => e.Key.Equals(1)).Value);
+            Assert.ThrowsException<ArgumentException>(() => g2.HasEdge(9, 1));
+        }
     }
 }

@@ -315,7 +315,11 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
         foreach (var vertex in this)
         {
             foreach (var edge in Edges(vertex))
-                graph.AddEdge(vertex, edge.Key, edge.Value);
+            {
+                // undirected edges are stored twice; add once
+                if (!graph.HasEdge(vertex, edge.Key))
+                    graph.AddEdge(vertex, edge.Key, edge.Value);
+            }
         }
 
         return graph;
@@ -324,7 +328,6 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     private sealed class WeightedGraphVertex : IGraphVertex<T>
     {
         private readonly WeightedGraph<T, TW> graph;
-        private readonly int vertexIndex;
 
         internal WeightedGraphVertex(WeightedGraph<T, TW> graph, T vertexKey)
         {
@@ -333,7 +336,6 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
 
             this.graph = graph;
             Key = vertexKey;
-            vertexIndex = graph.vertexIndices[vertexKey];
         }
 
         private TW[,] Matrix => graph.matrix;
@@ -351,8 +353,9 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
             if (!VertexIndices.ContainsKey(targetVertex.Key))
                 throw new ArgumentException(VertexNotInGraph);
 
+            var sourceIndex = VertexIndices[Key];
             var index = VertexIndices[targetVertex.Key];
-            return new Edge<T, TW>(targetVertex, Matrix[vertexIndex, index]);
+            return new Edge<T, TW>(targetVertex, Matrix[sourceIndex, index]);
         }
     }
 }
