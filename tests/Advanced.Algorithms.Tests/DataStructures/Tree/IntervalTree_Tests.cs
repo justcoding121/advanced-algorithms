@@ -335,5 +335,30 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsFalse(tree.DoOverlap(new[] { 12 }, new[] { 14 }));
             Assert.AreEqual(4, tree.Count);
         }
+
+        [TestMethod]
+        public void IntervalTree_Brute_Overlap_Oracle()
+        {
+            var tree = new IntervalTree<int>(1);
+            var intervals = new List<(int s, int e)>
+            {
+                (1, 5), (3, 7), (10, 15), (0, 1), (20, 25), (8, 9)
+            };
+
+            foreach (var (s, e) in intervals)
+                tree.Insert(new[] { s }, new[] { e });
+
+            for (var q = -1; q <= 26; q++)
+            {
+                var expected = intervals.Any(x => x.s <= q && q <= x.e);
+                Assert.AreEqual(expected, tree.DoOverlap(new[] { q }, new[] { q }), "q=" + q);
+            }
+
+            tree.Delete(new[] { 3 }, new[] { 7 });
+            intervals.Remove((3, 7));
+            Assert.AreEqual(intervals.Count, tree.Count);
+            Assert.IsFalse(tree.DoOverlap(new[] { 6 }, new[] { 6 }));
+            Assert.IsTrue(tree.DoOverlap(new[] { 4 }, new[] { 4 }));
+        }
     }
 }
