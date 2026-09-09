@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -63,6 +64,33 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
             graph.RemoveVertex(5);
 
             Assert.AreEqual(0, graph.VerticesCount);
+        }
+
+        [TestMethod]
+        public void Graph_Empty_Missing_SelfLoop_Enumeration()
+        {
+            var graph = new Graph<int>();
+
+            Assert.AreEqual(0, graph.VerticesCount);
+            Assert.AreEqual(0, graph.Count());
+            Assert.ThrowsException<InvalidOperationException>(() => { var _ = graph.ReferenceVertex; });
+            Assert.IsFalse(graph.ContainsVertex(1));
+            Assert.ThrowsException<ArgumentException>(() => graph.HasEdge(1, 2));
+            Assert.ThrowsException<ArgumentException>(() => graph.Edges(1).ToList());
+            Assert.ThrowsException<ArgumentException>(() => graph.RemoveVertex(1));
+
+            graph.AddVertex(1);
+            Assert.AreEqual(1, graph.Count());
+            Assert.AreEqual(1, graph.ReferenceVertex.Key);
+            Assert.AreEqual(0, graph.Edges(1).Count());
+
+            graph.AddEdge(1, 1);
+            Assert.IsTrue(graph.HasEdge(1, 1));
+            Assert.AreEqual(1, graph.Edges(1).Count());
+            Assert.ThrowsException<InvalidOperationException>(() => graph.AddEdge(1, 1));
+
+            graph.RemoveEdge(1, 1);
+            Assert.IsFalse(graph.HasEdge(1, 1));
         }
     }
 }

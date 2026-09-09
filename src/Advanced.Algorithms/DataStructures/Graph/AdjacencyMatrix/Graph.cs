@@ -11,18 +11,20 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix;
 /// </summary>
 public class Graph<T> : IGraph<T>, IEnumerable<T>
 {
+    private const string VertexNotInGraph = "vertex is not in this graph.";
+
     private BitArray[] matrix;
     private int nextAvailableIndex;
     private Dictionary<int, T> reverseVertexIndices;
 
     private Dictionary<T, int> vertexIndices;
-    private readonly Dictionary<T, GraphVertex<T>> vertexObjects;
+    private readonly Dictionary<T, GraphVertex> vertexObjects;
 
     public Graph()
     {
         vertexIndices = new Dictionary<T, int>();
         reverseVertexIndices = new Dictionary<int, T>();
-        vertexObjects = new Dictionary<T, GraphVertex<T>>();
+        vertexObjects = new Dictionary<T, GraphVertex>();
 
         matrix = new BitArray[1];
 
@@ -51,15 +53,16 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     ///     Do we have an edge between the given source and destination?
     ///     Time complexity: O(1).
     /// </summary>
-    public bool HasEdge(T source, T dest)
+    public bool HasEdge(T source, T destination)
     {
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(destination, default))
+            throw new ArgumentException("source or destination is null.");
 
-        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
-            throw new Exception("Source or destination vertex does'nt exist.");
+        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(destination))
+            throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
-        var destIndex = vertexIndices[dest];
+        var destIndex = vertexIndices[destination];
         if (matrix[sourceIndex].Get(destIndex) && matrix[destIndex].Get(sourceIndex)) return true;
 
         return false;
@@ -82,9 +85,9 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         return Clone();
     }
 
-    private GraphVertex<T> GetReferenceVertex()
+    private GraphVertex GetReferenceVertex()
     {
-        if (VerticesCount == 0) throw new Exception("Empty graph.");
+        if (VerticesCount == 0) throw new InvalidOperationException("Empty graph.");
 
         return vertexObjects[this.First()];
     }
@@ -95,9 +98,9 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     /// </summary>
     public void AddVertex(T value)
     {
-        if (value == null) throw new ArgumentNullException();
+        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
 
-        if (vertexIndices.ContainsKey(value)) throw new Exception("Vertex exists.");
+        if (vertexIndices.ContainsKey(value)) throw new ArgumentException("Vertex exists.");
 
         if (VerticesCount < MaxSize / 2) HalfMatrixSize();
 
@@ -105,7 +108,7 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
         vertexIndices.Add(value, nextAvailableIndex);
         reverseVertexIndices.Add(nextAvailableIndex, value);
-        vertexObjects.Add(value, new GraphVertex<T>(this, value));
+        vertexObjects.Add(value, new GraphVertex(this, value));
 
         nextAvailableIndex++;
         VerticesCount++;
@@ -118,9 +121,9 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     /// </summary>
     public void RemoveVertex(T value)
     {
-        if (value == null) throw new ArgumentNullException();
+        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
 
-        if (!vertexIndices.ContainsKey(value)) throw new Exception("Vertex does'nt exist.");
+        if (!vertexIndices.ContainsKey(value)) throw new ArgumentException("Vertex does'nt exist.");
 
         if (VerticesCount <= MaxSize / 2) HalfMatrixSize();
 
@@ -146,15 +149,16 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     /// </summary>
     public void AddEdge(T source, T dest)
     {
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+            throw new ArgumentException("source or destination is null.");
 
         if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
-            throw new Exception("Source or destination vertex does'nt exist.");
+            throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
         var destIndex = vertexIndices[dest];
         if (matrix[sourceIndex].Get(destIndex) && matrix[destIndex].Get(sourceIndex))
-            throw new Exception("Edge already exists.");
+            throw new InvalidOperationException("Edge already exists.");
 
         matrix[sourceIndex].Set(destIndex, true);
         matrix[destIndex].Set(sourceIndex, true);
@@ -166,15 +170,16 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     /// </summary>
     public void RemoveEdge(T source, T dest)
     {
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+            throw new ArgumentException("source or destination is null.");
 
         if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
-            throw new Exception("Source or destination vertex does'nt exist.");
+            throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
         var destIndex = vertexIndices[dest];
         if (!matrix[sourceIndex].Get(destIndex) || !matrix[destIndex].Get(sourceIndex))
-            throw new Exception("Edge do not exists.");
+            throw new InvalidOperationException("Edge do not exists.");
 
         matrix[sourceIndex].Set(destIndex, false);
         matrix[destIndex].Set(sourceIndex, false);
@@ -183,25 +188,34 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
 
     public IEnumerable<T> Edges(T vertex)
     {
-        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException(VertexNotInGraph);
 
+        return EdgesIterator(vertex);
+    }
+
+    private IEnumerable<T> EdgesIterator(T vertex)
+    {
         var index = vertexIndices[vertex];
 
         for (var i = 0; i < MaxSize; i++)
+        {
             if (matrix[i].Get(index))
                 yield return reverseVertexIndices[i];
+        }
     }
 
     public int EdgesCount(T vertex)
     {
-        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException(VertexNotInGraph);
 
         var count = 0;
         var index = vertexIndices[vertex];
 
         for (var i = 0; i < MaxSize; i++)
+        {
             if (matrix[i].Get(index))
                 count++;
+        }
 
         return count;
     }
@@ -226,17 +240,21 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         nextAvailableIndex = k;
 
         for (var i = 0; i < MaxSize; i++)
-        for (var j = i; j < MaxSize; j++)
-            if (matrix[i].Get(j) && matrix[j].Get(i)
-                                 && reverseVertexIndices.ContainsKey(i)
-                                 && reverseVertexIndices.ContainsKey(j))
+        {
+            for (var j = i; j < MaxSize; j++)
             {
-                var newI = newVertexIndices[reverseVertexIndices[i]];
-                var newJ = newVertexIndices[reverseVertexIndices[j]];
+                if (matrix[i].Get(j) && matrix[j].Get(i)
+                                     && reverseVertexIndices.ContainsKey(i)
+                                     && reverseVertexIndices.ContainsKey(j))
+                {
+                    var newI = newVertexIndices[reverseVertexIndices[i]];
+                    var newJ = newVertexIndices[reverseVertexIndices[j]];
 
-                newMatrix[newI].Set(newJ, true);
-                newMatrix[newJ].Set(newI, true);
+                    newMatrix[newI].Set(newJ, true);
+                    newMatrix[newJ].Set(newI, true);
+                }
             }
+        }
 
         matrix = newMatrix;
         vertexIndices = newVertexIndices;
@@ -262,17 +280,21 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         nextAvailableIndex = k;
 
         for (var i = 0; i < MaxSize; i++)
-        for (var j = i; j < MaxSize; j++)
-            if (matrix[i].Get(j) && matrix[j].Get(i)
-                                 && reverseVertexIndices.ContainsKey(i)
-                                 && reverseVertexIndices.ContainsKey(j))
+        {
+            for (var j = i; j < MaxSize; j++)
             {
-                var newI = newVertexIndices[reverseVertexIndices[i]];
-                var newJ = newVertexIndices[reverseVertexIndices[j]];
+                if (matrix[i].Get(j) && matrix[j].Get(i)
+                                     && reverseVertexIndices.ContainsKey(i)
+                                     && reverseVertexIndices.ContainsKey(j))
+                {
+                    var newI = newVertexIndices[reverseVertexIndices[i]];
+                    var newJ = newVertexIndices[reverseVertexIndices[j]];
 
-                newMatrix[newI].Set(newJ, true);
-                newMatrix[newJ].Set(newI, true);
+                    newMatrix[newI].Set(newJ, true);
+                    newMatrix[newJ].Set(newI, true);
+                }
             }
+        }
 
         matrix = newMatrix;
         vertexIndices = newVertexIndices;
@@ -283,35 +305,34 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     {
         var graph = new Graph<T>();
 
-        foreach (var vertex in this) graph.AddVertex(vertex);
+        foreach (var vertex in this)
+        {
+            graph.AddVertex(vertex);
+        }
 
         foreach (var vertex in this)
-        foreach (var edge in Edges(vertex))
-            graph.AddEdge(vertex, edge);
+        {
+            foreach (var edge in Edges(vertex))
+                graph.AddEdge(vertex, edge);
+        }
 
         return graph;
     }
 
-    private class GraphVertex<T> : IGraphVertex<T>
+    private sealed class GraphVertex : IGraphVertex<T>
     {
         private readonly Graph<T> graph;
-        private int vertexIndex;
 
         internal GraphVertex(Graph<T> graph, T vertexKey)
         {
             if (!graph.vertexIndices.ContainsKey(vertexKey))
-                throw new ArgumentException("vertex is not in this graph.");
+                throw new ArgumentException(VertexNotInGraph);
 
             this.graph = graph;
             Key = vertexKey;
-            vertexIndex = graph.vertexIndices[vertexKey];
         }
 
-        private int MaxSize => graph.MaxSize;
-        private BitArray[] Matrix => graph.matrix;
-
         private Dictionary<T, int> VertexIndices => graph.vertexIndices;
-        private Dictionary<int, T> ReverseVertexIndices => graph.reverseVertexIndices;
 
         public T Key { get; }
 
@@ -322,20 +343,8 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
         {
             if (!VertexIndices.ContainsKey(targetVertex.Key))
-                throw new ArgumentException("vertex is not in this graph.");
+                throw new ArgumentException(VertexNotInGraph);
 
-            var index = VertexIndices[targetVertex.Key];
-            var key = targetVertex as GraphVertex<T>;
-            return new Edge<T, int>(targetVertex, 1);
-        }
-
-        public IEdge<T> GetOutEdge(IGraphVertex<T> targetVertex)
-        {
-            if (!VertexIndices.ContainsKey(targetVertex.Key))
-                throw new ArgumentException("vertex is not in this graph.");
-
-            var index = VertexIndices[targetVertex.Key];
-            var key = targetVertex as GraphVertex<T>;
             return new Edge<T, int>(targetVertex, 1);
         }
     }
