@@ -56,7 +56,7 @@ public class FenwickTree<T> : IEnumerable<T>
         for (var i = 0; i < input.Length; i++)
         {
             var j = i + 1;
-            while (j < input.Length)
+            while (j < tree.Length)
             {
                 tree[j] = sumOperation(tree[j], input[i]);
                 j = GetNextIndex(j);
