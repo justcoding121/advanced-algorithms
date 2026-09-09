@@ -2,7 +2,7 @@
 
 namespace Advanced.Algorithms.DataStructures;
 
-internal class FibonacciHeapNode<T> : IComparable where T : IComparable
+internal class FibonacciHeapNode<T> where T : IComparable
 {
     internal int Degree;
     internal FibonacciHeapNode<T> Next;
@@ -19,9 +19,4 @@ internal class FibonacciHeapNode<T> : IComparable where T : IComparable
 
     internal FibonacciHeapNode<T> Parent { get; set; }
     internal bool LostChild { get; set; }
-
-    public int CompareTo(object obj)
-    {
-        return Value.CompareTo(((FibonacciHeapNode<T>)obj).Value);
-    }
 }
