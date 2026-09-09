@@ -80,7 +80,7 @@ public class HopcroftKarpMatching<T>
                 while (queue.Count > 0)
                 {
                     var current = queue.Dequeue();
-                    visited.Add(vertex);
+                    visited.Add(current);
 
                     //unmatched edges left to right
                     foreach (var leftToRightEdge in graph.GetVertex(current).Edges)
@@ -89,13 +89,16 @@ public class HopcroftKarpMatching<T>
 
                         //checking if this right vertex is free
                         if (!rightToLeftMatchEdges.ContainsKey(leftToRightEdge.TargetVertex.Key))
+                        {
                             freeVerticesOnRight.Add(leftToRightEdge.TargetVertex.Key);
+                        }
                         else
-                            foreach (var rightToLeftEdge in leftToRightEdge.TargetVertex.Edges)
-                                //matched edge right to left
-                                if (leftToRightMatchEdges.ContainsKey(rightToLeftEdge.TargetVertexKey)
-                                    && !visited.Contains(rightToLeftEdge.TargetVertexKey))
-                                    queue.Enqueue(rightToLeftEdge.TargetVertexKey);
+                        {
+                            // follow only the matched edge right -> left
+                            var matchedLeft = rightToLeftMatchEdges[leftToRightEdge.TargetVertex.Key];
+                            if (!visited.Contains(matchedLeft))
+                                queue.Enqueue(matchedLeft);
+                        }
 
                         visited.Add(leftToRightEdge.TargetVertexKey);
                     }
@@ -145,17 +148,17 @@ public class HopcroftKarpMatching<T>
 
         //left to right should be matched edges
         if (currentIsLeft && leftToRightMatchEdges.ContainsKey(current))
-            foreach (var edge in graph.GetVertex(current).Edges)
+        {
+            var matchedRight = leftToRightMatchEdges[current];
+            var result = Dfs(graph, leftToRightMatchEdges, rightToLeftMatchEdges, matchedRight, current,
+                visited, !currentIsRight);
+            if (result.Count > 0)
             {
-                var result = Dfs(graph, leftToRightMatchEdges, rightToLeftMatchEdges, edge.TargetVertexKey, current,
-                    visited, !currentIsRight);
-                if (result.Count > 0)
-                {
-                    result.Add(new MatchEdge<T>(current, edge.TargetVertexKey));
-                    visited.Add(current);
-                    return result;
-                }
+                result.Add(new MatchEdge<T>(current, matchedRight));
+                visited.Add(current);
+                return result;
             }
+        }
 
         return new HashSet<MatchEdge<T>>();
     }

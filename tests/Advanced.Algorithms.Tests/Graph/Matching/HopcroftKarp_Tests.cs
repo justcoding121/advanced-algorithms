@@ -146,5 +146,18 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(result.Count, 3);
         }
+
+        [TestMethod]
+        public void HopcroftKarp_Known_Size_Augmenting_Path()
+        {
+            var graph = new Graph<char>();
+            foreach (var c in "ABXY") graph.AddVertex(c);
+            graph.AddEdge('A', 'X');
+            graph.AddEdge('B', 'X');
+            graph.AddEdge('B', 'Y');
+
+            var result = new HopcroftKarpMatching<char>().GetMaxBiPartiteMatching(graph);
+            Assert.AreEqual(2, result.Count);
+        }
     }
 }

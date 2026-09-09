@@ -65,3 +65,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Cover/MinVertexCover.cs | pass | disconnected two-edge cover oracle |
 | src/Advanced.Algorithms/Graph/Matching/BiPartiteMatching.cs | ok | max matching size matches known fixtures; no code change |
 | tests/Advanced.Algorithms.Tests/Graph/Matching/BiPartiteMatching_Tests.cs | pass | augmenting-path size=2 oracle |
+| src/Advanced.Algorithms/Graph/Matching/HopcroftKarp.cs | fixed | BFS marked wrong vertex visited; followed non-matched edges; mark current + matched-only |
+| tests/Advanced.Algorithms.Tests/Graph/Matching/HopcroftKarp_Tests.cs | pass | known matching size oracles |
