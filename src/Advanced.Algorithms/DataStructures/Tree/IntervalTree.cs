@@ -388,15 +388,17 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
         b.MatchingEndIndex = -1;
 
         for (var i = 0; i < a.End.Count; i++)
-        for (var j = 0; j < b.End.Count; j++)
         {
-            //a.Start less than b.End and a.End greater than b.Start
-            if (a.Start.CompareTo(b.End[j]) > 0 || a.End[i].CompareTo(b.Start) < 0) continue;
+            for (var j = 0; j < b.End.Count; j++)
+            {
+                //a.Start less than b.End and a.End greater than b.Start
+                if (a.Start.CompareTo(b.End[j]) > 0 || a.End[i].CompareTo(b.Start) < 0) continue;
 
-            a.MatchingEndIndex = i;
-            b.MatchingEndIndex = j;
+                a.MatchingEndIndex = i;
+                b.MatchingEndIndex = j;
 
-            return true;
+                return true;
+            }
         }
 
         return false;
@@ -425,9 +427,9 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
                 //then update current Max
                 if (currentMax.CompareTo(node.Left.Value.MaxEnd) < 0) currentMax = node.Left.Value.MaxEnd;
             }
-            else if (node.Right != null)
+            else if (node.Right != null && currentMax.CompareTo(node.Right.Value.MaxEnd) < 0)
             {
-                if (currentMax.CompareTo(node.Right.Value.MaxEnd) < 0) currentMax = node.Right.Value.MaxEnd;
+                currentMax = node.Right.Value.MaxEnd;
             }
 
             foreach (var v in node.Value.End)
@@ -515,6 +517,50 @@ internal class OneDimentionalInterval<T> : IComparable where T : IComparable
     public int CompareTo(object obj)
     {
         return Start.CompareTo(((OneDimentionalInterval<T>)obj).Start);
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is OneDimentionalInterval<T> other)
+            return CompareTo(other) == 0;
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return Start == null ? 0 : Start.GetHashCode();
+    }
+
+    public static bool operator ==(OneDimentionalInterval<T> left, OneDimentionalInterval<T> right)
+    {
+        if (ReferenceEquals(left, right)) return true;
+        if (left is null || right is null) return false;
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(OneDimentionalInterval<T> left, OneDimentionalInterval<T> right)
+    {
+        return !(left == right);
+    }
+
+    public static bool operator <(OneDimentionalInterval<T> left, OneDimentionalInterval<T> right)
+    {
+        return left.CompareTo(right) < 0;
+    }
+
+    public static bool operator >(OneDimentionalInterval<T> left, OneDimentionalInterval<T> right)
+    {
+        return left.CompareTo(right) > 0;
+    }
+
+    public static bool operator <=(OneDimentionalInterval<T> left, OneDimentionalInterval<T> right)
+    {
+        return left.CompareTo(right) <= 0;
+    }
+
+    public static bool operator >=(OneDimentionalInterval<T> left, OneDimentionalInterval<T> right)
+    {
+        return left.CompareTo(right) >= 0;
     }
 }
 
