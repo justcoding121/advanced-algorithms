@@ -30,10 +30,9 @@ public class BellmanFordShortestPath<T, TW> where TW : IComparable
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
-        if (!graph.IsWeightedGraph)
-            if (@operator.DefaultValue.GetType() != typeof(int))
-                throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
-                                            "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
+        if (!graph.IsWeightedGraph && @operator.DefaultValue is not int)
+            throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                                        "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
 
         var progress = new Dictionary<T, TW>();
         var parentMap = new Dictionary<T, T>();
@@ -75,17 +74,17 @@ public class BellmanFordShortestPath<T, TW> where TW : IComparable
 
             iterations--;
 
-            if (iterations < 0) throw new Exception("Negative cycle exists in this graph.");
+            if (iterations < 0) throw new InvalidOperationException("Negative cycle exists in this graph.");
         }
 
-        return TracePath(graph, parentMap, source, destination);
+        return TracePath(graph, parentMap, destination);
     }
 
     /// <summary>
     ///     Trace back path from destination to source using parent map.
     /// </summary>
     private ShortestPathResult<T, TW> TracePath(IDiGraph<T> graph,
-        Dictionary<T, T> parentMap, T source, T destination)
+        Dictionary<T, T> parentMap, T destination)
     {
         //trace the path
         var pathStack = new Stack<T>();

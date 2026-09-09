@@ -24,10 +24,9 @@ public class JohnsonsShortestPath<T, TW> where TW : IComparable
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
-        if (!graph.IsWeightedGraph)
-            if (@operator.DefaultValue.GetType() != typeof(int))
-                throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
-                                            "Provide an appropriate IJohnsonsShortestPathOperators<T, int> operator implementation during initialization.");
+        if (!graph.IsWeightedGraph && @operator.DefaultValue is not int)
+            throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                                        "Provide an appropriate IJohnsonsShortestPathOperators<T, int> operator implementation during initialization.");
 
         var workGraph = Clone(graph);
 
@@ -35,7 +34,7 @@ public class JohnsonsShortestPath<T, TW> where TW : IComparable
         var randomVetex = @operator.RandomVertex();
 
         if (workGraph.Vertices.ContainsKey(randomVetex))
-            throw new Exception("Random Vertex is not unique for given graph.");
+            throw new ArgumentException("Random Vertex is not unique for given graph.");
         workGraph.AddVertex(randomVetex);
 
         foreach (var vertex in workGraph.Vertices) workGraph.AddEdge(randomVetex, vertex.Key, @operator.DefaultValue);
@@ -51,10 +50,12 @@ public class JohnsonsShortestPath<T, TW> where TW : IComparable
 
         //adjust edges so that all edge values are now +ive
         foreach (var vertex in workGraph.Vertices)
-        foreach (var edge in vertex.Value.OutEdges.ToList())
-            vertex.Value.OutEdges[edge.Key] = @operator.Substract(
-                @operator.Sum(bellFordResult[vertex.Key], edge.Value),
-                bellFordResult[edge.Key.Key]);
+        {
+            foreach (var edge in vertex.Value.OutEdges.ToList())
+                vertex.Value.OutEdges[edge.Key] = @operator.Substract(
+                    @operator.Sum(bellFordResult[vertex.Key], edge.Value),
+                    bellFordResult[edge.Key.Key]);
+        }
 
         workGraph.RemoveVertex(randomVetex);
         //now run dijikstra for all pairs of vertices
@@ -62,33 +63,37 @@ public class JohnsonsShortestPath<T, TW> where TW : IComparable
         var dijikstras = new DijikstraShortestPath<T, TW>(@operator);
         var finalResult = new List<AllPairShortestPathResult<T, TW>>();
         foreach (var vertexA in workGraph.Vertices)
-        foreach (var vertexB in workGraph.Vertices)
         {
-            var source = vertexA.Key;
-            var dest = vertexB.Key;
-            var sp = dijikstras.FindShortestPath(workGraph, source, dest);
+            foreach (var vertexB in workGraph.Vertices)
+            {
+                var source = vertexA.Key;
+                var dest = vertexB.Key;
+                var sp = dijikstras.FindShortestPath(workGraph, source, dest);
 
-            //no path exists
-            if (sp.Length.Equals(@operator.MaxValue)) continue;
+                //no path exists
+                if (sp.Length.Equals(@operator.MaxValue)) continue;
 
-            var distance = sp.Length;
-            var path = sp.Path;
+                var distance = sp.Length;
+                var path = sp.Path;
 
-            finalResult.Add(new AllPairShortestPathResult<T, TW>(source, dest, distance, path));
+                finalResult.Add(new AllPairShortestPathResult<T, TW>(source, dest, distance, path));
+            }
         }
 
         return finalResult;
     }
 
-    private WeightedDiGraph<T, TW> Clone(IDiGraph<T> graph)
+    private static WeightedDiGraph<T, TW> Clone(IDiGraph<T> graph)
     {
         var newGraph = new WeightedDiGraph<T, TW>();
 
         foreach (var vertex in graph.VerticesAsEnumberable) newGraph.AddVertex(vertex.Key);
 
         foreach (var vertex in graph.VerticesAsEnumberable)
-        foreach (var edge in vertex.OutEdges)
-            newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<TW>());
+        {
+            foreach (var edge in vertex.OutEdges)
+                newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<TW>());
+        }
 
         return newGraph;
     }

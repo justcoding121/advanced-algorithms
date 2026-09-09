@@ -19,10 +19,9 @@ public class TravellingSalesman<T, TW> where TW : IComparable
         if (this.@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
-        if (!graph.IsWeightedGraph)
-            if (this.@operator.DefaultValue.GetType() != typeof(int))
-                throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
-                                            "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
+        if (!graph.IsWeightedGraph && this.@operator.DefaultValue is not int)
+            throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                                        "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
 
         return FindMinWeight(graph.ReferenceVertex, graph.ReferenceVertex,
             graph.VerticesCount,
