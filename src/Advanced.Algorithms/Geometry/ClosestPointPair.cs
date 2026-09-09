@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.Geometry;
 /// <summary>
 ///     Closest-point pair finder.
 /// </summary>
-public class ClosestPointPair
+public static class ClosestPointPair
 {
     public static double Find(List<int[]> points)
     {
@@ -24,7 +24,7 @@ public class ClosestPointPair
 
         var mid = (left + right) / 2;
 
-        var leftMin = Find(points, 0, mid);
+        var leftMin = Find(points, left, mid);
         var rightMin = Find(points, mid + 1, right);
 
         var min = Math.Min(leftMin, rightMin);
@@ -40,9 +40,13 @@ public class ClosestPointPair
         strips = strips.OrderBy(p => p.Y).ToList();
 
         for (var i = 0; i < strips.Count; i++)
-        for (var j = i + 1; j < strips.Count && Math.Abs(strips[i].Y - strips[j].Y) < min; j++)
-            //check for radius 
-            min = Math.Min(min, GetDistance(strips[i], strips[j]));
+        {
+            for (var j = i + 1; j < strips.Count && Math.Abs(strips[i].Y - strips[j].Y) < min; j++)
+            {
+                //check for radius 
+                min = Math.Min(min, GetDistance(strips[i], strips[j]));
+            }
+        }
 
         return min;
     }
@@ -51,8 +55,13 @@ public class ClosestPointPair
     {
         var min = double.MaxValue;
         for (var i = left; i < right; i++)
-        for (var j = left + 1; j <= right; j++)
-            min = Math.Min(min, GetDistance(points[i], points[j]));
+        {
+            for (var j = i + 1; j <= right; j++)
+            {
+                min = Math.Min(min, GetDistance(points[i], points[j]));
+            }
+        }
+
         return min;
     }
 
