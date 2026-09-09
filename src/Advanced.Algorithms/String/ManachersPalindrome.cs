@@ -13,7 +13,7 @@ public class ManachersPalindrome
     {
         if (input.Length <= 1) throw new ArgumentException("Invalid input");
 
-        if (input.Contains("$")) throw new Exception("Input contain sentinel character $.");
+        if (input.Contains("$")) throw new ArgumentException("Input contain sentinel character $.");
 
         //for even length palindrome
         //we need to do this hack with $
@@ -144,7 +144,7 @@ public class ManachersPalindrome
     /// <summary>
     ///     Returns the max index in given int[] array.
     /// </summary>
-    private int FindMax(int[] palindromeLengths)
+    private static int FindMax(int[] palindromeLengths)
     {
         return palindromeLengths.Concat(new[] { int.MinValue }).Max();
     }

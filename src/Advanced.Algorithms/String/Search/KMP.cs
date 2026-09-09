@@ -3,14 +3,14 @@
 /// <summary>
 ///     Knuth–Morris–Pratt(KMP) string search implementation.
 /// </summary>
-public class Kmp
+public static class Kmp
 {
     /// <summary>
     ///     Returns the start index of first appearance
     ///     of pattern in input string.
     ///     Returns -1 if no match.
     /// </summary>
-    public int Search(string input, string pattern)
+    public static int Search(string input, string pattern)
     {
         var matchingInProgress = false;
         var matchIndex = new int[pattern.Length];

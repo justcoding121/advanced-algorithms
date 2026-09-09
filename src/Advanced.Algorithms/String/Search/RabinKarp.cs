@@ -45,7 +45,7 @@ public class RabinKarp
     /// <summary>
     ///     Returns true if matched hash string is same as the pattern.
     /// </summary>
-    private bool Valid(string pattern, string match)
+    private static bool Valid(string pattern, string match)
     {
         return pattern.Equals(match);
     }
@@ -53,7 +53,7 @@ public class RabinKarp
     /// <summary>
     ///     Compute hash given a string.
     /// </summary>
-    private double ComputeHash(string input)
+    private static double ComputeHash(string input)
     {
         double result = 0;
         for (var i = 0; i < input.Length; i++) result += input[i] * Math.Pow(PrimeNumber, i);
@@ -64,7 +64,7 @@ public class RabinKarp
     /// <summary>
     ///     Compute hash given a newChar and last hash.
     /// </summary>
-    private double ComputeHash(double lastHash, int patternLength,
+    private static double ComputeHash(double lastHash, int patternLength,
         char removedChar, char newChar)
     {
         lastHash -= removedChar;

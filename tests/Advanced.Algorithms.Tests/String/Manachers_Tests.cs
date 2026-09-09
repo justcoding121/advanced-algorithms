@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.String;
+﻿using System;
+using Advanced.Algorithms.String;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.String
@@ -28,6 +29,25 @@ namespace Advanced.Algorithms.Tests.String
 
             length = manacher.FindLongestPalindrome("abaxabaxabbaxabyb");
             Assert.IsTrue(length == 10);
+        }
+
+        [TestMethod]
+        public void Manacher_Invalid_Input_Throws()
+        {
+            var manacher = new ManachersPalindrome();
+
+            Assert.ThrowsException<ArgumentException>(() => manacher.FindLongestPalindrome(""));
+            Assert.ThrowsException<ArgumentException>(() => manacher.FindLongestPalindrome("a"));
+            Assert.ThrowsException<ArgumentException>(() => manacher.FindLongestPalindrome("a$b"));
+        }
+
+        [TestMethod]
+        public void Manacher_Two_Chars()
+        {
+            var manacher = new ManachersPalindrome();
+
+            Assert.AreEqual(2, manacher.FindLongestPalindrome("aa"));
+            Assert.AreEqual(1, manacher.FindLongestPalindrome("ab"));
         }
     }
 }

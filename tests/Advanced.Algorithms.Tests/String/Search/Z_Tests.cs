@@ -35,5 +35,15 @@ namespace Advanced.Algorithms.Tests.String
 
             Assert.AreEqual(0, index);
         }
+
+        [TestMethod]
+        public void String_Z_No_Match_And_Corners()
+        {
+            var algorithm = new ZAlgorithm();
+
+            Assert.AreEqual(-1, algorithm.Search("abcdef", "xyz"));
+            Assert.AreEqual(5, algorithm.Search("abcdef", "f"));
+            Assert.AreEqual(0, algorithm.Search("a", "a"));
+        }
     }
 }
