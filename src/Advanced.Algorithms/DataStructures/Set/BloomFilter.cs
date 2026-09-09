@@ -40,7 +40,7 @@ public class BloomFilter<T>
     public bool KeyExists(T key)
     {
         foreach (var hash in GetHashes(key))
-            if (filter[hash % filter.Length] == false)
+            if (!filter[hash % filter.Length])
                 return false;
 
         return true;

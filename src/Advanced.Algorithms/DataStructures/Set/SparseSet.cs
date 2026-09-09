@@ -56,7 +56,7 @@ public class SparseSet : IEnumerable<int>
 
         if (value >= sparse.Length) throw new ArgumentException("Item is greater than max value.");
 
-        if (HasItem(value) == false) throw new ArgumentException("Item do not exist.");
+        if (!HasItem(value)) throw new ArgumentException("Item do not exist.");
 
         //find element
         var index = sparse[value];
