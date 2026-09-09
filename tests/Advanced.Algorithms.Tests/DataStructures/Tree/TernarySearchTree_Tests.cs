@@ -172,5 +172,26 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(0, tree.Count);
             Assert.AreEqual(0, tree.Count());
         }
+
+        [TestMethod]
+        public void TernarySearchTree_Contains_Sibling_LastChar()
+        {
+            var tree = new TernarySearchTree<char>();
+            tree.Insert("cat".ToCharArray());
+
+            Assert.IsTrue(tree.Contains("cat".ToCharArray()));
+            Assert.IsFalse(tree.Contains("car".ToCharArray()));
+            Assert.IsFalse(tree.Contains("cap".ToCharArray()));
+            Assert.IsFalse(tree.ContainsPrefix("car".ToCharArray()));
+
+            tree.Insert("car".ToCharArray());
+            Assert.IsTrue(tree.Contains("car".ToCharArray()));
+            Assert.IsTrue(tree.Contains("cat".ToCharArray()));
+
+            tree.Delete("car".ToCharArray());
+            Assert.IsFalse(tree.Contains("car".ToCharArray()));
+            Assert.IsTrue(tree.Contains("cat".ToCharArray()));
+            Assert.AreEqual(1, tree.Count);
+        }
     }
 }

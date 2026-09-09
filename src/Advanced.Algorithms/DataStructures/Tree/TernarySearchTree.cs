@@ -270,11 +270,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     {
         while (true)
         {
-            //create new node if empty
             if (currentNode == null) return false;
-
-            //end of word, so return
-            if (currentIndex == searchEntry.Length - 1) return isPrefixSearch || currentNode.IsEnd;
 
             var compareResult = currentNode.Value.CompareTo(searchEntry[currentIndex]);
             //current is greater? move left, move right otherwise
@@ -293,7 +289,10 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
                 continue;
             }
 
-            //if equal we just skip to next element
+            //matched this character; finish if last, else descend middle
+            if (currentIndex == searchEntry.Length - 1)
+                return isPrefixSearch || currentNode.IsEnd;
+
             currentNode = currentNode.Middle;
             currentIndex = currentIndex + 1;
         }
