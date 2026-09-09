@@ -58,7 +58,7 @@ public class ConsistentHash<T>
         for (var i = 0; i < replicas; i++)
         {
             var hash = GetHashCode(node.GetHashCode().ToString() + i);
-            if (!circle.Remove(hash)) throw new Exception("Cannot remove a node that was never added.");
+            if (!circle.Remove(hash)) throw new ArgumentException("Cannot remove a node that was never added.");
         }
 
         circleKeys = circle.Keys.ToArray();
@@ -69,7 +69,7 @@ public class ConsistentHash<T>
     ///     Move clockwise until we find a bucket with Key >= hashCode
     /// </summary>
     /// <returns>Returns the index of bucket</returns>
-    private int NextClockWise(int[] keys, int hashCode)
+    private static int NextClockWise(int[] keys, int hashCode)
     {
         var begin = 0;
         var end = keys.Length - 1;

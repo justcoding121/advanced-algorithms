@@ -33,5 +33,20 @@ namespace Advanced.Algorithms.Tests
                 Assert.IsTrue(t >= 200 && t < 300);
             }
         }
+
+        [TestMethod]
+        public void ConsistentHash_Single_Node_And_Remove_Unknown()
+        {
+            var hash = new ConsistentHash<string>(new[] { "a" }, 10);
+
+            Assert.AreEqual("a", hash.GetNode("any-key"));
+            Assert.AreEqual("a", hash.GetNode("another"));
+
+            Assert.ThrowsException<ArgumentException>(() => hash.RemoveNode("missing"));
+
+            hash.AddNode("b");
+            hash.RemoveNode("a");
+            Assert.AreEqual("b", hash.GetNode("any-key"));
+        }
     }
 }
