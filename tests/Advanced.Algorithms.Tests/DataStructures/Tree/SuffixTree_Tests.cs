@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -35,6 +36,26 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test
             Assert.AreEqual(tree.Count, tree.Count());
+        }
+
+        [TestMethod]
+        public void Suffix_Corner_Cases()
+        {
+            var tree = new SuffixTree<char>();
+
+            Assert.ThrowsException<ArgumentNullException>(() => tree.Insert(null));
+            Assert.ThrowsException<ArgumentNullException>(() => tree.Delete(null));
+
+            tree.Insert("ab".ToCharArray());
+            Assert.ThrowsException<ArgumentException>(() => tree.Insert("ab".ToCharArray()));
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete("zz".ToCharArray()));
+
+            Assert.IsTrue(tree.Contains("b".ToCharArray()));
+            Assert.AreEqual(0, tree.StartsWith("z".ToCharArray()).Count);
+
+            tree.Delete("ab".ToCharArray());
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
         }
     }
 }

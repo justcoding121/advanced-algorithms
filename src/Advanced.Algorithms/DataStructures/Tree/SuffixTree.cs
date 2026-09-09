@@ -36,9 +36,9 @@ public class SuffixTree<T> : IEnumerable<T[]>
     /// </summary>
     public void Insert(T[] entry)
     {
-        if (entry == null) throw new ArgumentException();
+        if (entry == null) throw new ArgumentNullException(nameof(entry));
 
-        if (items.Contains(entry)) throw new Exception("Item exists.");
+        if (items.Contains(entry)) throw new ArgumentException("Item exists.");
 
         for (var i = 0; i < entry.Length; i++)
         {
@@ -59,9 +59,9 @@ public class SuffixTree<T> : IEnumerable<T[]>
     /// </summary>
     public void Delete(T[] entry)
     {
-        if (entry == null) throw new ArgumentException();
+        if (entry == null) throw new ArgumentNullException(nameof(entry));
 
-        if (!items.Contains(entry)) throw new Exception("Item does'nt exist.");
+        if (!items.Contains(entry)) throw new ArgumentException("Item does'nt exist.");
 
         for (var i = 0; i < entry.Length; i++)
         {
