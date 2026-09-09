@@ -123,9 +123,13 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
         if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(destination))
             throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
+        if (Vertices[source].Edges.ContainsKey(Vertices[destination])
+            || Vertices[destination].Edges.ContainsKey(Vertices[source]))
+            throw new InvalidOperationException("Edge already exists.");
 
         Vertices[source].Edges.Add(Vertices[destination], weight);
-        Vertices[destination].Edges.Add(Vertices[source], weight);
+        if (!EqualityComparer<T>.Default.Equals(source, destination))
+            Vertices[destination].Edges.Add(Vertices[source], weight);
     }
 
     /// <summary>
@@ -170,7 +174,11 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
         foreach (var vertex in Vertices)
         {
             foreach (var edge in vertex.Value.Edges)
-                newGraph.AddEdge(vertex.Value.Key, edge.Key.Key, edge.Value);
+            {
+                // undirected edges are stored twice; add once
+                if (!newGraph.HasEdge(vertex.Value.Key, edge.Key.Key))
+                    newGraph.AddEdge(vertex.Value.Key, edge.Key.Key, edge.Value);
+            }
         }
 
         return newGraph;

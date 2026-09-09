@@ -130,5 +130,38 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
             Assert.IsTrue(graph.HasEdge(1, 2));
             Assert.AreEqual(2, graph.VerticesCount);
         }
+
+        [TestMethod]
+        public void WeightedGraph_Adversarial_Vertex0_SelfLoop_Clone_Oracle()
+        {
+            var graph = new WeightedGraph<int, int>();
+            graph.AddVertex(0);
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            graph.AddEdge(0, 1, 5);
+            graph.AddEdge(1, 2, 7);
+            graph.AddEdge(0, 0, 3);
+
+            Assert.IsTrue(graph.ContainsVertex(0));
+            CollectionAssert.AreEquivalent(new[] { 0, 1, 2 }, graph.ToList());
+            Assert.AreEqual(2, graph.GetAllEdges(0).Count);
+            Assert.AreEqual(3, graph.GetAllEdges(0).Single(e => e.Item1.Equals(0)).Item2);
+            Assert.ThrowsException<InvalidOperationException>(() => graph.AddEdge(0, 1, 9));
+
+            var clone = graph.Clone();
+            Assert.AreEqual(3, clone.VerticesCount);
+            Assert.IsTrue(clone.HasEdge(0, 1));
+            Assert.IsTrue(clone.HasEdge(1, 0));
+            Assert.IsTrue(clone.HasEdge(0, 0));
+            Assert.AreEqual(5, clone.GetAllEdges(0).Single(e => e.Item1.Equals(1)).Item2);
+            Assert.AreEqual(3, clone.GetAllEdges(0).Single(e => e.Item1.Equals(0)).Item2);
+
+            graph.RemoveEdge(0, 0);
+            Assert.IsFalse(graph.HasEdge(0, 0));
+            Assert.IsTrue(clone.HasEdge(0, 0));
+            graph.RemoveVertex(0);
+            Assert.ThrowsException<ArgumentException>(() => graph.GetAllEdges(0));
+            Assert.IsTrue(clone.ContainsVertex(0));
+        }
     }
 }
