@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +44,7 @@ public class OrderedDictionary<TK, TV> : IEnumerable<KeyValuePair<TK, TV>> where
         get
         {
             var node = binarySearchTree.FindNode(new OrderedKeyValuePair<TK, TV>(key, default));
-            if (node == null) throw new Exception("Key not found.");
+            if (node == null) throw new ArgumentException("Key not found.");
 
             return node.Value.Value;
         }
@@ -229,18 +229,44 @@ internal struct OrderedKeyValuePair<TK, TV> : IComparable
     {
         return Key.GetHashCode();
     }
+
+    public static bool operator ==(OrderedKeyValuePair<TK, TV> left, OrderedKeyValuePair<TK, TV> right)
+    {
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(OrderedKeyValuePair<TK, TV> left, OrderedKeyValuePair<TK, TV> right)
+    {
+        return !(left == right);
+    }
+
+    public static bool operator <(OrderedKeyValuePair<TK, TV> left, OrderedKeyValuePair<TK, TV> right)
+    {
+        return left.CompareTo(right) < 0;
+    }
+
+    public static bool operator >(OrderedKeyValuePair<TK, TV> left, OrderedKeyValuePair<TK, TV> right)
+    {
+        return left.CompareTo(right) > 0;
+    }
+
+    public static bool operator <=(OrderedKeyValuePair<TK, TV> left, OrderedKeyValuePair<TK, TV> right)
+    {
+        return left.CompareTo(right) <= 0;
+    }
+
+    public static bool operator >=(OrderedKeyValuePair<TK, TV> left, OrderedKeyValuePair<TK, TV> right)
+    {
+        return left.CompareTo(right) >= 0;
+    }
 }
 
 internal class SortedDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK, TV>> where TK : IComparable
 {
-    private bool asc;
-
-    private RedBlackTree<OrderedKeyValuePair<TK, TV>> bst;
     private IEnumerator<OrderedKeyValuePair<TK, TV>> enumerator;
 
     internal SortedDictionaryEnumerator(RedBlackTree<OrderedKeyValuePair<TK, TV>> bst, bool asc = true)
     {
-        this.bst = bst;
         enumerator = asc ? bst.GetEnumerator() : bst.GetEnumeratorDesc();
     }
 
@@ -260,7 +286,16 @@ internal class SortedDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePair<TK,
 
     public void Dispose()
     {
-        bst = null;
-        enumerator = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            enumerator?.Dispose();
+            enumerator = null;
+        }
     }
 }
