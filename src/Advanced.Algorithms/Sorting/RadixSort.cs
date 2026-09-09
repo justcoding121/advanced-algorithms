@@ -11,6 +11,8 @@ public static class RadixSort
 {
     public static int[] Sort(int[] array, SortDirection sortDirection = SortDirection.Ascending)
     {
+        if (array.Length == 0) return array;
+
         int i;
         for (i = 0; i < array.Length; i++)
         {
