@@ -14,7 +14,8 @@ public static class BucketSort
     /// </summary>
     public static int[] Sort(int[] array, int bucketSize, SortDirection sortDirection = SortDirection.Ascending)
     {
-        if (bucketSize < 0 || bucketSize > array.Length) throw new ArgumentException("Invalid bucket size.", nameof(bucketSize));
+        if (bucketSize < 0 || bucketSize > array.Length || (bucketSize == 0 && array.Length > 0))
+            throw new ArgumentException("Invalid bucket size.", nameof(bucketSize));
 
         var buckets = new Dictionary<int, List<int>>();
 
