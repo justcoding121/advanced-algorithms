@@ -52,9 +52,13 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T Extract()
     {
+        if (root == null) throw new InvalidOperationException("Empty heap");
+
         var minMax = root;
         RemoveMapping(minMax.Value, minMax);
-        Meld(root.ChildrenHead);
+        var children = root.ChildrenHead;
+        root = null;
+        Meld(children);
         Count--;
         return minMax.Value;
     }
@@ -87,6 +91,13 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     public void Merge(PairingHeap<T> pairingHeap)
     {
         root = Meld(root, pairingHeap.root);
+
+        foreach (var kv in pairingHeap.heapMapping)
+            if (heapMapping.ContainsKey(kv.Key))
+                heapMapping[kv.Key].AddRange(kv.Value);
+            else
+                heapMapping[kv.Key] = new List<PairingHeapNode<T>>(kv.Value);
+
         Count = Count + pairingHeap.Count;
     }
 
@@ -107,7 +118,10 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     private void Meld(PairingHeapNode<T> headNode)
     {
         if (headNode == null)
+        {
+            root = null;
             return;
+        }
 
         var passOneResult = new List<PairingHeapNode<T>>();
 

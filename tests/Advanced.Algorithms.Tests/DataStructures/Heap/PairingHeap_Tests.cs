@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -96,6 +96,31 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable tests.
             Assert.AreEqual(maxHeap.Count, maxHeap.Count());
+        }
+        [TestMethod]
+        public void PairingHeap_Extract_Order_Merge_And_Empty()
+        {
+            Assert.ThrowsException<InvalidOperationException>(() => new PairingHeap<int>().Extract());
+
+            var rnd = new Random(11);
+            for (var trial = 0; trial < 20; trial++)
+            {
+                var items = Enumerable.Range(0, rnd.Next(1, 40)).Select(_ => rnd.Next(-200, 200)).ToList();
+                var heap = new PairingHeap<int>();
+                foreach (var x in items) heap.Insert(x);
+                foreach (var expected in items.OrderBy(x => x))
+                    Assert.AreEqual(expected, heap.Extract());
+                Assert.AreEqual(0, heap.Count);
+                Assert.ThrowsException<InvalidOperationException>(() => heap.Extract());
+            }
+
+            var a = new PairingHeap<int>();
+            var b = new PairingHeap<int>();
+            a.Insert(1); a.Insert(5);
+            b.Insert(2); b.Insert(3);
+            a.Merge(b);
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 5 },
+                new[] { a.Extract(), a.Extract(), a.Extract(), a.Extract() });
         }
     }
 }
