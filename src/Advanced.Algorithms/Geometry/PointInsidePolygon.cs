@@ -3,7 +3,7 @@
 /// <summary>
 ///     Check whether a given point is inside given polygon.
 /// </summary>
-public class PointInsidePolygon
+public static class PointInsidePolygon
 {
     public static bool IsInside(Polygon polygon, Point point)
     {
