@@ -210,7 +210,7 @@ internal class SinglyLinkedListEnumerator<T> : IEnumerator<T>
 
     public void Reset()
     {
-        CurrentNode = HeadNode;
+        CurrentNode = null;
     }
 
 
