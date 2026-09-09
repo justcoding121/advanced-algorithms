@@ -23,5 +23,23 @@ namespace Advanced.Algorithms.Tests.Combinatorics
             subsets = Subset.Find(input);
             Assert.AreEqual(Math.Pow(2, input.Count), subsets.Count);
         }
+
+        [TestMethod]
+        public void Subset_Corner_Cases()
+        {
+            var input = "a".ToCharArray().ToList();
+            var subsets = Subset.Find(input);
+            Assert.AreEqual(2, subsets.Count);
+            Assert.AreEqual(0, subsets[0].Count);
+            CollectionAssert.AreEqual(new[] { 'a' }, subsets[1]);
+
+            input = "ab".ToCharArray().ToList();
+            subsets = Subset.Find(input);
+            Assert.AreEqual(4, subsets.Count);
+            Assert.AreEqual(0, subsets[0].Count);
+            CollectionAssert.AreEqual(new[] { 'a' }, subsets[1]);
+            CollectionAssert.AreEqual(new[] { 'a', 'b' }, subsets[2]);
+            CollectionAssert.AreEqual(new[] { 'b' }, subsets[3]);
+        }
     }
 }

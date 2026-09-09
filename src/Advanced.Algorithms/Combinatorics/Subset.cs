@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.Combinatorics;
 /// <summary>
 ///     Subset generator.
 /// </summary>
-public class Subset
+public static class Subset
 {
     public static List<List<T>> Find<T>(List<T> input)
     {

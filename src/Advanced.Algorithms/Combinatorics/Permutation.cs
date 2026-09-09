@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.Combinatorics;
 /// <summary>
 ///     Permutation generator (nPr).
 /// </summary>
-public class Permutation
+public static class Permutation
 {
     public static List<List<T>> Find<T>(List<T> n, int r, bool withRepetition = false)
     {

@@ -64,5 +64,40 @@ namespace Advanced.Algorithms.Tests.Combinatorics
             combinations = Algorithms.Combinatorics.Combination.Find<char>(input, input.Count, true);
             Assert.AreEqual(Combination(input.Count + input.Count - 1, input.Count), combinations.Count);
         }
+
+        [TestMethod]
+        public void Combination_Without_Repetitions_Corner_Cases()
+        {
+            var input = "a".ToCharArray().ToList();
+            var combinations = Algorithms.Combinatorics.Combination.Find(input, 1, false);
+            Assert.AreEqual(1, combinations.Count);
+            CollectionAssert.AreEqual(new[] { 'a' }, combinations[0]);
+
+            combinations = Algorithms.Combinatorics.Combination.Find(input, 0, false);
+            Assert.AreEqual(1, combinations.Count);
+            Assert.AreEqual(0, combinations[0].Count);
+
+            combinations = Algorithms.Combinatorics.Combination.Find(input, 2, false);
+            Assert.AreEqual(0, combinations.Count);
+
+            input = "ab".ToCharArray().ToList();
+            combinations = Algorithms.Combinatorics.Combination.Find(input, 1, false);
+            Assert.AreEqual(2, combinations.Count);
+            CollectionAssert.AreEqual(new[] { 'a' }, combinations[0]);
+            CollectionAssert.AreEqual(new[] { 'b' }, combinations[1]);
+        }
+
+        [TestMethod]
+        public void Combination_With_Repetitions_Corner_Cases()
+        {
+            var input = "a".ToCharArray().ToList();
+            var combinations = Algorithms.Combinatorics.Combination.Find(input, 2, true);
+            Assert.AreEqual(1, combinations.Count);
+            CollectionAssert.AreEqual(new[] { 'a', 'a' }, combinations[0]);
+
+            combinations = Algorithms.Combinatorics.Combination.Find(input, 0, true);
+            Assert.AreEqual(1, combinations.Count);
+            Assert.AreEqual(0, combinations[0].Count);
+        }
     }
 }

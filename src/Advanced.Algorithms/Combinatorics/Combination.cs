@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.Combinatorics;
 /// <summary>
 ///     Combination generator (nCr).
 /// </summary>
-public class Combination
+public static class Combination
 {
     public static List<List<T>> Find<T>(List<T> n, int r, bool withRepetition = false)
     {
