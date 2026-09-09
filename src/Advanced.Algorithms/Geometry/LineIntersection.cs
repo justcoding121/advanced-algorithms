@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.Geometry;
 /// <summary>
 ///     Line intersection computer.
 /// </summary>
-public class LineIntersection
+public static class LineIntersection
 {
     /// <summary>
     ///     Returns Point of intersection if do intersect otherwise default Point (null).
@@ -20,7 +20,7 @@ public class LineIntersection
 
     internal static Point FindIntersection(Line lineA, Line lineB, double tolerance)
     {
-        if (lineA == lineB) throw new Exception("Both lines are the same.");
+        if (lineA == lineB) throw new ArgumentException("Both lines are the same.");
 
         //make lineA as left
         if (lineA.Left.X.CompareTo(lineB.Left.X) > 0)
@@ -29,14 +29,12 @@ public class LineIntersection
             lineA = lineB;
             lineB = tmp;
         }
-        else if (lineA.Left.X.CompareTo(lineB.Left.X) == 0)
+        else if (lineA.Left.X.CompareTo(lineB.Left.X) == 0
+                 && lineA.Left.Y.CompareTo(lineB.Left.Y) > 0)
         {
-            if (lineA.Left.Y.CompareTo(lineB.Left.Y) > 0)
-            {
-                var tmp = lineA;
-                lineA = lineB;
-                lineB = tmp;
-            }
+            var tmp = lineA;
+            lineA = lineB;
+            lineB = tmp;
         }
 
         double x1 = lineA.Left.X, y1 = lineA.Left.Y;
@@ -47,7 +45,7 @@ public class LineIntersection
 
 
         //equations of the form x=c (two vertical overlapping lines)
-        if (x1 == x2 && x3 == x4 && x1 == x3)
+        if (x1.IsEqual(x2, tolerance) && x3.IsEqual(x4, tolerance) && x1.IsEqual(x3, tolerance))
         {
             //get the first intersection in vertical sorted order of lines
             var firstIntersection = new Point(x3, y3);
@@ -60,7 +58,7 @@ public class LineIntersection
         }
 
         //equations of the form y=c (two overlapping horizontal lines)
-        if (y1 == y2 && y3 == y4 && y1 == y3)
+        if (y1.IsEqual(y2, tolerance) && y3.IsEqual(y4, tolerance) && y1.IsEqual(y3, tolerance))
         {
             //get the first intersection in horizontal sorted order of lines
             var firstIntersection = new Point(x3, y3);
@@ -74,10 +72,10 @@ public class LineIntersection
         }
 
         //equations of the form x=c (two vertical lines)
-        if (x1 == x2 && x3 == x4) return null;
+        if (x1.IsEqual(x2, tolerance) && x3.IsEqual(x4, tolerance)) return null;
 
         //equations of the form y=c (two horizontal lines)
-        if (y1 == y2 && y3 == y4) return null;
+        if (y1.IsEqual(y2, tolerance) && y3.IsEqual(y4, tolerance)) return null;
 
         //general equation of line is y = mx + c where m is the slope
         //assume equation of line 1 as y1 = m1x1 + c1 
