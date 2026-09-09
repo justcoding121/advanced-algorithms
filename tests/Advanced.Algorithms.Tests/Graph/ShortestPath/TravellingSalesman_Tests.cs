@@ -70,6 +70,49 @@ namespace Advanced.Algorithms.Tests.Graph
             var tsp = new TravellingSalesman<int, int>();
             Assert.AreEqual(21, tsp.FindMinWeight(graph, new TspShortestPathOperators()));
         }
+        [TestMethod]
+        public void TravellingSalesman_Oracle_Matches_BruteForce()
+        {
+            var rng = new System.Random(42);
+            for (var trial = 0; trial < 30; trial++)
+            {
+                const int n = 5;
+                var graph = new WeightedDiGraph<int, int>();
+                for (var i = 0; i < n; i++) graph.AddVertex(i);
+                var w = new int[n, n];
+                for (var i = 0; i < n; i++)
+                for (var j = 0; j < n; j++)
+                {
+                    if (i == j) continue;
+                    w[i, j] = rng.Next(1, 20);
+                    graph.AddEdge(i, j, w[i, j]);
+                }
+
+                var algo = new TravellingSalesman<int, int>().FindMinWeight(graph, new TspShortestPathOperators());
+                var best = int.MaxValue;
+                void Rec(int cur, bool[] vis, int count, int cost)
+                {
+                    if (count == n)
+                    {
+                        best = System.Math.Min(best, cost + w[cur, 0]);
+                        return;
+                    }
+
+                    for (var nxt = 0; nxt < n; nxt++)
+                    {
+                        if (vis[nxt]) continue;
+                        vis[nxt] = true;
+                        Rec(nxt, vis, count + 1, cost + w[cur, nxt]);
+                        vis[nxt] = false;
+                    }
+                }
+
+                var visited = new bool[n];
+                visited[0] = true;
+                Rec(0, visited, 1, 0);
+                Assert.AreEqual(best, algo, $"trial {trial}");
+            }
+        }
     }
 
     /// <summary>

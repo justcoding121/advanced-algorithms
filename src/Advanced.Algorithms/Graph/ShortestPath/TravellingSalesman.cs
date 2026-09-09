@@ -35,7 +35,9 @@ public class TravellingSalesman<T, TW> where TW : IComparable
         HashSet<IGraphVertex<T>> visited,
         Dictionary<string, TW> cache)
     {
-        var cacheKey = $"{sourceVertex.Key}-{remainingVertexCount}";
+        // Include visited set so states with same (vertex, remaining) but different covers are distinct.
+        var visitedKey = string.Join(",", visited.Select(v => v.Key?.ToString()).OrderBy(s => s));
+        var cacheKey = $"{sourceVertex.Key}-{remainingVertexCount}-{visitedKey}";
 
         if (cache.ContainsKey(cacheKey)) return cache[cacheKey];
 
