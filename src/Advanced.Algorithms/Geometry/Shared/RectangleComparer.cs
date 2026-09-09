@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Geometry;
 
@@ -7,6 +8,8 @@ namespace Advanced.Algorithms.Geometry;
 /// </summary>
 public class RectangleComparer : IEqualityComparer<Rectangle>
 {
+    private static readonly double Tolerance = Math.Round(Math.Pow(0.1, 5), 5);
+
     public bool Equals(Rectangle x, Rectangle y)
     {
         if (x == null && y == null) return true;
@@ -14,10 +17,10 @@ public class RectangleComparer : IEqualityComparer<Rectangle>
         // Check for null values 
         if (x == null || y == null) return false;
 
-        return x.LeftTop.X == y.LeftTop.X
-               && x.LeftTop.Y == y.LeftTop.Y
-               && x.RightBottom.X == y.RightBottom.X
-               && x.RightBottom.Y == y.RightBottom.Y;
+        return x.LeftTop.X.IsEqual(y.LeftTop.X, Tolerance)
+               && x.LeftTop.Y.IsEqual(y.LeftTop.Y, Tolerance)
+               && x.RightBottom.X.IsEqual(y.RightBottom.X, Tolerance)
+               && x.RightBottom.Y.IsEqual(y.RightBottom.Y, Tolerance);
     }
 
     public int GetHashCode(Rectangle rectangle)

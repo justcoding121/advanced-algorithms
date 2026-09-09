@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Advanced.Algorithms.Geometry;
 
@@ -7,6 +8,8 @@ namespace Advanced.Algorithms.Geometry;
 /// </summary>
 public class PointComparer : IEqualityComparer<Point>
 {
+    private static readonly double Tolerance = Math.Round(Math.Pow(0.1, 5), 5);
+
     public bool Equals(Point x, Point y)
     {
         if (x == null && y == null) return true;
@@ -16,7 +19,7 @@ public class PointComparer : IEqualityComparer<Point>
 
         if (x == y) return true;
 
-        return x.X == y.X && x.Y == y.Y;
+        return x.X.IsEqual(y.X, Tolerance) && x.Y.IsEqual(y.Y, Tolerance);
     }
 
     public int GetHashCode(Point point)
