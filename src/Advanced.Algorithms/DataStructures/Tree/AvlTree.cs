@@ -129,7 +129,7 @@ public class AvlTree<T> : IEnumerable<T> where T : IComparable
         }
         else
         {
-            throw new Exception("Item exists");
+            throw new ArgumentException("Item exists");
         }
 
         UpdateHeight(node);
@@ -161,7 +161,7 @@ public class AvlTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
-        if (Root == null) throw new Exception("Empty AVLTree");
+        if (Root == null) throw new InvalidOperationException("Empty AVLTree");
 
         Delete(Root, value);
 
@@ -201,14 +201,14 @@ public class AvlTree<T> : IEnumerable<T> where T : IComparable
         //node is less than the search value so move right to find the deletion node
         if (compareResult < 0)
         {
-            if (node.Right == null) throw new Exception("Item do not exist");
+            if (node.Right == null) throw new ArgumentException("Item do not exist");
 
             Delete(node.Right, value);
         }
         //node is less than the search value so move left to find the deletion node
         else if (compareResult > 0)
         {
-            if (node.Left == null) throw new Exception("Item do not exist");
+            if (node.Left == null) throw new ArgumentException("Item do not exist");
 
             Delete(node.Left, value);
         }
@@ -315,7 +315,7 @@ public class AvlTree<T> : IEnumerable<T> where T : IComparable
         return FindMax(Root).Value;
     }
 
-    private AvlTreeNode<T> FindMax(AvlTreeNode<T> node)
+    private static AvlTreeNode<T> FindMax(AvlTreeNode<T> node)
     {
         while (true)
         {
@@ -333,7 +333,7 @@ public class AvlTree<T> : IEnumerable<T> where T : IComparable
         return FindMin(Root).Value;
     }
 
-    private AvlTreeNode<T> FindMin(AvlTreeNode<T> node)
+    private static AvlTreeNode<T> FindMin(AvlTreeNode<T> node)
     {
         while (true)
         {
@@ -348,9 +348,7 @@ public class AvlTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public bool Contains(T value)
     {
-        if (Root == null) return false;
-
-        return Find(Root, value) != null;
+        return HasItem(value);
     }
 
 
@@ -502,7 +500,7 @@ public class AvlTree<T> : IEnumerable<T> where T : IComparable
         if (prevRoot == Root) Root = newRoot;
     }
 
-    private void UpdateHeight(AvlTreeNode<T> node)
+    private static void UpdateHeight(AvlTreeNode<T> node)
     {
         if (node == null) return;
 
@@ -559,7 +557,7 @@ public class AvlTree<T> : IEnumerable<T> where T : IComparable
         var node1 = Find(value1);
         var node2 = Find(value2);
 
-        if (node1 == null || node2 == null) throw new Exception("Value1, Value2 or both was not found in this BST.");
+        if (node1 == null || node2 == null) throw new ArgumentException("Value1, Value2 or both was not found in this BST.");
 
         var tmp = node1.Value;
         node1.Value = node2.Value;
