@@ -10,7 +10,7 @@ public class ZAlgorithm
     ///     of pattern in input string.
     ///     returns -1 if no match.
     /// </summary>
-    public int Search(string input, string pattern)
+    public static int Search(string input, string pattern)
     {
         var z = Z(pattern + input, pattern.Length);
 

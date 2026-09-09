@@ -584,7 +584,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
         child.Index = childIndex;
     }
 
-    private void InsertChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
+    private static void InsertChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
     {
         InsertAt(parent.Children, childIndex, child);
 
@@ -596,7 +596,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
                 parent.Children[i].Index = i;
     }
 
-    private void RemoveChild(BTreeNode<T> parent, int childIndex)
+    private static void RemoveChild(BTreeNode<T> parent, int childIndex)
     {
         RemoveAt(parent.Children, childIndex);
 

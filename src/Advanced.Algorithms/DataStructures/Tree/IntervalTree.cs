@@ -332,7 +332,7 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
     /// <summary>
     ///     Returns an interval that overlaps with this interval
     /// </summary>
-    private OneDimentionalInterval<T> GetOverlap(RedBlackTreeNode<OneDimentionalInterval<T>> current,
+    private static OneDimentionalInterval<T> GetOverlap(RedBlackTreeNode<OneDimentionalInterval<T>> current,
         OneDimentionalInterval<T> searchInterval)
     {
         while (true)
@@ -528,7 +528,7 @@ internal class OneDimentionalInterval<T> : IComparable where T : IComparable
 
     public override int GetHashCode()
     {
-        return Start == null ? 0 : Start.GetHashCode();
+        return Start is null ? 0 : Start.GetHashCode();
     }
 
     public static bool operator ==(OneDimentionalInterval<T> left, OneDimentionalInterval<T> right)

@@ -37,7 +37,7 @@ public class ManachersPalindrome
     /// <summary>
     ///     Find the longest palindrome in linear time.
     /// </summary>
-    private int FindLongestPalindromeR(string input)
+    private static int FindLongestPalindromeR(string input)
     {
         var palindromeLengths = new int[input.Length];
 

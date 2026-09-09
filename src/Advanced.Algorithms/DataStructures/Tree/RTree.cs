@@ -303,7 +303,7 @@ public class RTree : IEnumerable<Polygon>
         if (Count == 0) Root = null;
     }
 
-    private void DeleteNode(RTreeNode nodeToDelete)
+    private static void DeleteNode(RTreeNode nodeToDelete)
     {
         RemoveAt(nodeToDelete.Parent.Children, nodeToDelete.Index);
         nodeToDelete.Parent.KeyCount--;

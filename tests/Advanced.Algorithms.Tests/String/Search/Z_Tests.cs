@@ -9,29 +9,27 @@ namespace Advanced.Algorithms.Tests.String
         [TestMethod]
         public void String_Z_Test()
         {
-            var algorithm = new ZAlgorithm();
-
-            var index = algorithm.Search("xabcabzabc", "abc");
+            var index = ZAlgorithm.Search("xabcabzabc", "abc");
 
             Assert.AreEqual(1, index);
 
-            index = algorithm.Search("abdcdaabxaabxcaabxaabxay", "aabxaabxcaabxaabxay");
+            index = ZAlgorithm.Search("abdcdaabxaabxcaabxaabxay", "aabxaabxcaabxaabxay");
 
             Assert.AreEqual(5, index);
 
-            index = algorithm.Search("aaaabaaaaaaa", "aaaa");
+            index = ZAlgorithm.Search("aaaabaaaaaaa", "aaaa");
 
             Assert.AreEqual(0, index);
 
-            index = algorithm.Search("abcabababdefgabcd", "fga");
+            index = ZAlgorithm.Search("abcabababdefgabcd", "fga");
 
             Assert.AreEqual(11, index);
 
-            index = algorithm.Search("abxabcabcaby", "abcaby");
+            index = ZAlgorithm.Search("abxabcabcaby", "abcaby");
 
             Assert.AreEqual(6, index);
 
-            index = algorithm.Search("abxabcabcaby", "abx");
+            index = ZAlgorithm.Search("abxabcabcaby", "abx");
 
             Assert.AreEqual(0, index);
         }
@@ -39,11 +37,9 @@ namespace Advanced.Algorithms.Tests.String
         [TestMethod]
         public void String_Z_No_Match_And_Corners()
         {
-            var algorithm = new ZAlgorithm();
-
-            Assert.AreEqual(-1, algorithm.Search("abcdef", "xyz"));
-            Assert.AreEqual(5, algorithm.Search("abcdef", "f"));
-            Assert.AreEqual(0, algorithm.Search("a", "a"));
+            Assert.AreEqual(-1, ZAlgorithm.Search("abcdef", "xyz"));
+            Assert.AreEqual(5, ZAlgorithm.Search("abcdef", "f"));
+            Assert.AreEqual(0, ZAlgorithm.Search("a", "a"));
         }
     }
 }

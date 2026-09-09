@@ -302,7 +302,7 @@ internal class RangeTreeNode<T> : IComparable where T : IComparable
 
     public override int GetHashCode()
     {
-        return Value == null ? 0 : Value.GetHashCode();
+        return Value is null ? 0 : Value.GetHashCode();
     }
 
     public static bool operator ==(RangeTreeNode<T> left, RangeTreeNode<T> right)

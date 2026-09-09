@@ -457,7 +457,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     ///     optionally recursively update outdated index with new min of right node
     ///     after deletion of a value
     /// </summary>
-    private void UpdateIndex(BpTreeNode<T> node, T deleteKey, bool spiralUp)
+    private static void UpdateIndex(BpTreeNode<T> node, T deleteKey, bool spiralUp)
     {
         while (true)
         {
@@ -753,7 +753,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
         child.Index = childIndex;
     }
 
-    private void InsertChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
+    private static void InsertChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
     {
         InsertAt(parent.Children, childIndex, child);
 
@@ -765,7 +765,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
                 parent.Children[i].Index = i;
     }
 
-    private void RemoveChild(BpTreeNode<T> parent, int childIndex)
+    private static void RemoveChild(BpTreeNode<T> parent, int childIndex)
     {
         RemoveAt(parent.Children, childIndex);
 
@@ -869,7 +869,12 @@ internal class BpTreeEnumerator<T> : IEnumerator<T> where T : IComparable
         startNode = asc ? tree.BottomLeftNode : tree.BottomRightNode;
         current = startNode;
 
-        index = asc ? -1 : (current == null ? 0 : current.KeyCount);
+        if (asc)
+            index = -1;
+        else if (current == null)
+            index = 0;
+        else
+            index = current.KeyCount;
     }
 
     public bool MoveNext()
@@ -904,7 +909,12 @@ internal class BpTreeEnumerator<T> : IEnumerator<T> where T : IComparable
     public void Reset()
     {
         current = startNode;
-        index = asc ? -1 : (current == null ? 0 : current.KeyCount);
+        if (asc)
+            index = -1;
+        else if (current == null)
+            index = 0;
+        else
+            index = current.KeyCount;
     }
 
     object IEnumerator.Current => Current;
