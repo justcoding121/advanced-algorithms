@@ -2,6 +2,7 @@
 using System.Linq;
 using Advanced.Algorithms.DataStructures.Foundation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SysStack = System.Collections.Generic.Stack<int>;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -109,6 +110,44 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual("only", stack.Peek());
             Assert.AreEqual("only", stack.Pop());
             Assert.AreEqual(0, stack.Count);
+        }
+
+        /// <summary>
+        ///     Push/Pop/Peek oracle vs System.Collections.Generic.Stack for both backends.
+        /// </summary>
+        [TestMethod]
+        public void Stack_SystemStackOracle_RandomOps()
+        {
+            foreach (StackType type in new[] { StackType.Array, StackType.LinkedList })
+            {
+                var rng = new Random(23 + (int)type);
+                var ours = new Stack<int>(type);
+                var oracle = new SysStack();
+
+                for (var step = 0; step < 500; step++)
+                {
+                    var op = rng.Next(3);
+
+                    if (op == 0 || oracle.Count == 0)
+                    {
+                        var v = rng.Next(1000);
+                        ours.Push(v);
+                        oracle.Push(v);
+                    }
+                    else if (op == 1)
+                    {
+                        Assert.AreEqual(oracle.Pop(), ours.Pop());
+                    }
+                    else
+                    {
+                        Assert.AreEqual(oracle.Peek(), ours.Peek());
+                    }
+
+                    Assert.AreEqual(oracle.Count, ours.Count);
+                    if (oracle.Count > 0)
+                        Assert.AreEqual(oracle.Peek(), ours.Peek());
+                }
+            }
         }
     }
 }
