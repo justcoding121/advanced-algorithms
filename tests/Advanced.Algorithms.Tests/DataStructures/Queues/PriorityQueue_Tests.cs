@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -62,6 +64,46 @@ namespace Advanced.Algorithms.Tests.DataStructures
             queue.Enqueue(2);
             Assert.AreEqual(2, queue.Peek());
             Assert.AreEqual(2, queue.Dequeue());
+        }
+
+        /// <summary>
+        ///     Extract order oracle vs sorted List (min and max heaps).
+        /// </summary>
+        [TestMethod]
+        public void PriorityQueue_SortedListOracle_RandomOps()
+        {
+            foreach (var descending in new[] { false, true })
+            {
+                var rng = new Random(31 + (descending ? 1 : 0));
+                var ours = new PriorityQueue<int>(descending
+                    ? SortDirection.Descending
+                    : SortDirection.Ascending);
+                var oracle = new List<int>();
+
+                for (var step = 0; step < 400; step++)
+                {
+                    if (oracle.Count == 0 || rng.Next(2) == 0)
+                    {
+                        var v = rng.Next(200);
+                        ours.Enqueue(v);
+                        oracle.Add(v);
+                    }
+                    else
+                    {
+                        oracle.Sort();
+                        if (descending) oracle.Reverse();
+                        Assert.AreEqual(oracle[0], ours.Peek());
+                        Assert.AreEqual(oracle[0], ours.Dequeue());
+                        oracle.RemoveAt(0);
+                    }
+                }
+
+                // drain
+                oracle.Sort();
+                if (descending) oracle.Reverse();
+                foreach (var expected in oracle)
+                    Assert.AreEqual(expected, ours.Dequeue());
+            }
         }
     }
 }
