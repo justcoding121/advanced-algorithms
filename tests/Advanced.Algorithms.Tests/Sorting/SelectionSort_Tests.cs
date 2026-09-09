@@ -54,5 +54,15 @@ namespace Advanced.Algorithms.Tests.Sorting
 
             for (var i = 0; i < nodeCount; i++) Assert.AreEqual(randomNumbers.Count - i, result[i]);
         }
+
+        [TestMethod]
+        public void SelectionSort_Corner_Cases()
+        {
+            CollectionAssert.AreEqual(new int[0], SelectionSort<int>.Sort(new int[0]));
+            CollectionAssert.AreEqual(new[] { 7 }, SelectionSort<int>.Sort(new[] { 7 }));
+            CollectionAssert.AreEqual(new[] { 1, 2, 2, 3 }, SelectionSort<int>.Sort(new[] { 3, 1, 2, 2 }));
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, SelectionSort<int>.Sort(new[] { 1, 2, 3, 4 }));
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, SelectionSort<int>.Sort(new[] { 4, 3, 2, 1 }));
+        }
     }
 }

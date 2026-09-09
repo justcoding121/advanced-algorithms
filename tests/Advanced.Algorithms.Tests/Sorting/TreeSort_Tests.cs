@@ -54,5 +54,14 @@ namespace Advanced.Algorithms.Tests.Sorting
 
             for (var i = 0; i < nodeCount; i++) Assert.AreEqual(randomNumbers.Count - i, result[i]);
         }
+
+        [TestMethod]
+        public void TreeSort_Corner_Cases()
+        {
+            CollectionAssert.AreEqual(new int[0], TreeSort<int>.Sort(new int[0]).ToArray());
+            CollectionAssert.AreEqual(new[] { 7 }, TreeSort<int>.Sort(new[] { 7 }).ToArray());
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, TreeSort<int>.Sort(new[] { 1, 2, 3, 4 }).ToArray());
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, TreeSort<int>.Sort(new[] { 4, 3, 2, 1 }).ToArray());
+        }
     }
 }

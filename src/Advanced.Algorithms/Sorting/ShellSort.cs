@@ -8,6 +8,10 @@ namespace Advanced.Algorithms.Sorting;
 /// </summary>
 public class ShellSort<T> where T : IComparable
 {
+    private ShellSort()
+    {
+    }
+
     public static T[] Sort(T[] array, SortDirection sortDirection = SortDirection.Ascending)
     {
         var comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
@@ -17,16 +21,22 @@ public class ShellSort<T> where T : IComparable
 
         while (k >= 1)
         {
-            for (var i = k; i < array.Length; i = i + k, j = j + k)
+            var i = k;
+            while (i < array.Length)
             {
-                if (comparer.Compare(array[i], array[j]) >= 0) continue;
+                if (comparer.Compare(array[i], array[j]) < 0)
+                {
+                    Swap(array, i, j);
 
-                Swap(array, i, j);
+                    if (i > k)
+                    {
+                        i -= k * 2;
+                        j -= k * 2;
+                    }
+                }
 
-                if (i <= k) continue;
-
-                i -= k * 2;
-                j -= k * 2;
+                i = i + k;
+                j = j + k;
             }
 
             j = 0;

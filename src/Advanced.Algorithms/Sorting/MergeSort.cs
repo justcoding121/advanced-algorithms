@@ -8,6 +8,10 @@ namespace Advanced.Algorithms.Sorting;
 /// </summary>
 public class MergeSort<T> where T : IComparable
 {
+    private MergeSort()
+    {
+    }
+
     /// <summary>
     ///     Time complexity: O(nlog(n)).
     /// </summary>

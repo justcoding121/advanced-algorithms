@@ -54,5 +54,20 @@ namespace Advanced.Algorithms.Tests.Sorting
 
             for (var i = 0; i < nodeCount; i++) Assert.AreEqual(randomNumbers.Count - i, result[i]);
         }
+
+        [TestMethod]
+        public void RadixSort_Corner_Cases()
+        {
+            CollectionAssert.AreEqual(new[] { 7 }, RadixSort.Sort(new[] { 7 }));
+            CollectionAssert.AreEqual(new[] { 1, 2, 2, 3 }, RadixSort.Sort(new[] { 3, 1, 2, 2 }));
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, RadixSort.Sort(new[] { 1, 2, 3, 4 }));
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, RadixSort.Sort(new[] { 4, 3, 2, 1 }));
+        }
+
+        [TestMethod]
+        public void RadixSort_Negative_Throws()
+        {
+            Assert.ThrowsException<ArgumentException>(() => RadixSort.Sort(new[] { 1, -1, 2 }));
+        }
     }
 }

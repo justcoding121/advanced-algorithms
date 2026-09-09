@@ -54,5 +54,20 @@ namespace Advanced.Algorithms.Tests.Sorting
 
             for (var i = 0; i < nodeCount; i++) Assert.AreEqual(randomNumbers.Count - i, result[i]);
         }
+
+        [TestMethod]
+        public void CountingSort_Corner_Cases()
+        {
+            CollectionAssert.AreEqual(new[] { 7 }, CountingSort.Sort(new[] { 7 }));
+            CollectionAssert.AreEqual(new[] { 1, 2, 2, 3 }, CountingSort.Sort(new[] { 3, 1, 2, 2 }));
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, CountingSort.Sort(new[] { 1, 2, 3, 4 }));
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, CountingSort.Sort(new[] { 4, 3, 2, 1 }));
+        }
+
+        [TestMethod]
+        public void CountingSort_Negative_Throws()
+        {
+            Assert.ThrowsException<ArgumentException>(() => CountingSort.Sort(new[] { 1, -1, 2 }));
+        }
     }
 }

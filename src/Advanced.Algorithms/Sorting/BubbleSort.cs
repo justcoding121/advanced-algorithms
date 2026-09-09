@@ -8,6 +8,10 @@ namespace Advanced.Algorithms.Sorting;
 /// </summary>
 public class BubbleSort<T> where T : IComparable
 {
+    private BubbleSort()
+    {
+    }
+
     /// <summary>
     ///     Time complexity: O(n^2).
     /// </summary>

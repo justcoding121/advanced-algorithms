@@ -8,6 +8,10 @@ namespace Advanced.Algorithms.Sorting;
 /// </summary>
 public class QuickSort<T> where T : IComparable
 {
+    private QuickSort()
+    {
+    }
+
     /// <summary>
     ///     Time complexity: O(n^2)
     /// </summary>

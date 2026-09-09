@@ -7,14 +7,16 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A radix sort implementation.
 /// </summary>
-public class RadixSort
+public static class RadixSort
 {
     public static int[] Sort(int[] array, SortDirection sortDirection = SortDirection.Ascending)
     {
         int i;
         for (i = 0; i < array.Length; i++)
+        {
             if (array[i] < 0)
-                throw new Exception("Negative numbers not supported.");
+                throw new ArgumentException("Negative numbers not supported.");
+        }
 
         var @base = 1;
         var max = array.Max();
@@ -39,10 +41,12 @@ public class RadixSort
 
             i = 0;
             foreach (var bucket in orderedBuckets.Where(x => x != null))
-            foreach (var item in bucket)
             {
-                array[i] = item;
-                i++;
+                foreach (var item in bucket)
+                {
+                    array[i] = item;
+                    i++;
+                }
             }
 
             @base *= 10;

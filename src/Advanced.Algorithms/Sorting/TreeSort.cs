@@ -10,6 +10,10 @@ namespace Advanced.Algorithms.Sorting;
 /// </summary>
 public class TreeSort<T> where T : IComparable
 {
+    private TreeSort()
+    {
+    }
+
     /// <summary>
     ///     Time complexity: O(nlog(n)).
     /// </summary>

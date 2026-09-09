@@ -8,6 +8,10 @@ namespace Advanced.Algorithms.Sorting;
 /// </summary>
 public class InsertionSort<T> where T : IComparable
 {
+    private InsertionSort()
+    {
+    }
+
     /// <summary>
     ///     Time complexity: O(n^2).
     /// </summary>
@@ -16,17 +20,21 @@ public class InsertionSort<T> where T : IComparable
         var comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
 
         for (var i = 0; i < array.Length - 1; i++)
-        for (var j = i + 1; j > 0; j--)
-            if (comparer.Compare(array[j], array[j - 1]) < 0)
+        {
+            for (var j = i + 1; j > 0; j--)
             {
-                var temp = array[j - 1];
-                array[j - 1] = array[j];
-                array[j] = temp;
+                if (comparer.Compare(array[j], array[j - 1]) < 0)
+                {
+                    var temp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
+                else
+                {
+                    break;
+                }
             }
-            else
-            {
-                break;
-            }
+        }
 
         return array;
     }

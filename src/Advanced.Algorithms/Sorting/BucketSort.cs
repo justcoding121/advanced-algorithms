@@ -7,14 +7,14 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A bucket sort implementation.
 /// </summary>
-public class BucketSort
+public static class BucketSort
 {
     /// <summary>
     ///     Sort given integers using bucket sort with merge sort as sub sort.
     /// </summary>
     public static int[] Sort(int[] array, int bucketSize, SortDirection sortDirection = SortDirection.Ascending)
     {
-        if (bucketSize < 0 || bucketSize > array.Length) throw new Exception("Invalid bucket size.");
+        if (bucketSize < 0 || bucketSize > array.Length) throw new ArgumentException("Invalid bucket size.", nameof(bucketSize));
 
         var buckets = new Dictionary<int, List<int>>();
 

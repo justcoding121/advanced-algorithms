@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A counting sort implementation.
 /// </summary>
-public class CountingSort
+public static class CountingSort
 {
     /// <summary>
     ///     Sort given integers.
@@ -24,7 +24,7 @@ public class CountingSort
         //count the appearances of elements
         foreach (var item in enumerable)
         {
-            if (item < 0) throw new Exception("Negative numbers not supported.");
+            if (item < 0) throw new ArgumentException("Negative numbers not supported.");
 
             countArray[item]++;
         }

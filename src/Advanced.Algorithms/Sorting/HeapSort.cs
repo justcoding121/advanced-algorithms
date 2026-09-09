@@ -1,21 +1,6 @@
-﻿/* Unmerged change from project 'Advanced.Algorithms (netstandard1.0)'
-Before:
-using System;
-After:
-using Advanced.Algorithms.DataStructures;
-using System;
-*/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Advanced.Algorithms.DataStructures;
-/* Unmerged change from project 'Advanced.Algorithms (netstandard1.0)'
-Before:
-using System.Linq;
-using Advanced.Algorithms.DataStructures;
-After:
-using System.Linq;
-*/
 
 namespace Advanced.Algorithms.Sorting;
 
@@ -24,6 +9,10 @@ namespace Advanced.Algorithms.Sorting;
 /// </summary>
 public class HeapSort<T> where T : IComparable
 {
+    private HeapSort()
+    {
+    }
+
     /// <summary>
     ///     Time complexity: O(nlog(n)).
     /// </summary>
