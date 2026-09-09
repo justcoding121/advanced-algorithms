@@ -61,3 +61,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Connectivity/TarjansBiConnected_Tests.cs | pass | two triangles adversarial |
 | src/Advanced.Algorithms/Graph/Coloring/MColorer.cs | fixed | re-entry threw on already-colored vertices; shared visited + skip if colored; greedy (may false-negative) |
 | tests/Advanced.Algorithms.Tests/Graph/Coloring/MColoring_Tests.cs | pass | odd-cycle 2/3-color + uncolorable no-throw; proper-coloring check |
+| src/Advanced.Algorithms/Graph/Cover/MinVertexCover.cs | fixed | only covered reference component; iterate all vertices (approx) |
+| tests/Advanced.Algorithms.Tests/Graph/Cover/MinVertexCover.cs | pass | disconnected two-edge cover oracle |

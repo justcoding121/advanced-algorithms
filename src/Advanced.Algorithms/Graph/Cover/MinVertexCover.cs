@@ -10,8 +10,14 @@ public class MinVertexCover<T>
 {
     public List<IGraphVertex<T>> GetMinVertexCover(IGraph<T> graph)
     {
-        return GetMinVertexCover(graph.ReferenceVertex, new HashSet<IGraphVertex<T>>(),
-            new List<IGraphVertex<T>>());
+        var visited = new HashSet<IGraphVertex<T>>();
+        var cover = new List<IGraphVertex<T>>();
+
+        foreach (var vertex in graph.VerticesAsEnumberable)
+            if (!visited.Contains(vertex))
+                GetMinVertexCover(vertex, visited, cover);
+
+        return cover;
     }
 
     /// <summary>

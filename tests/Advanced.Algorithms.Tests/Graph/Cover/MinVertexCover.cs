@@ -67,5 +67,23 @@ namespace Advanced.Algorithms.Tests.Graph
             result = algorithm.GetMinVertexCover(graph);
             Assert.IsTrue(result.Count() <= 4);
         }
+
+        [TestMethod]
+        public void MinVertexCover_Covers_Disconnected_Edges()
+        {
+            var graph = new Graph<int>();
+            graph.AddVertex(0);
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            graph.AddVertex(3);
+            graph.AddEdge(0, 1);
+            graph.AddEdge(2, 3);
+
+            var cover = new MinVertexCover<int>().GetMinVertexCover(graph)
+                .Select(v => v.Key).ToHashSet();
+
+            Assert.IsTrue(cover.Contains(0) || cover.Contains(1));
+            Assert.IsTrue(cover.Contains(2) || cover.Contains(3));
+        }
     }
 }
