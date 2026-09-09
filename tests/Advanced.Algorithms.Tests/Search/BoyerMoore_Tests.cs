@@ -49,5 +49,41 @@ namespace Advanced.Algorithms.Tests.Search
         {
             Assert.AreEqual(9, BoyerMoore<int>.FindMajority(new[] { 9 }));
         }
+
+        [TestMethod]
+        public void BoyerMoore_Oracle_Against_Count()
+        {
+            var rnd = new Random(19);
+            var fixtures = new[]
+            {
+                new[] { 1, 2, 1, 1, 3, 1, 1 },
+                new[] { 1, 2, 1, 2, 3 },
+                new[] { 1, 1, 2, 2 },
+                new[] { 7 },
+                new[] { 4, 4, 4, 1, 2 },
+                new[] { 9, 8, 9, 8, 9, 8, 9 }
+            };
+
+            foreach (var input in fixtures) AssertMajorityMatchesCount(input);
+
+            for (var t = 0; t < 40; t++)
+            {
+                var n = rnd.Next(1, 40);
+                var input = Enumerable.Range(0, n).Select(_ => rnd.Next(0, 5)).ToArray();
+                AssertMajorityMatchesCount(input);
+            }
+        }
+
+        private static void AssertMajorityMatchesCount(int[] input)
+        {
+            var actual = BoyerMoore<int>.FindMajority(input);
+            var majority = input
+                .GroupBy(x => x)
+                .Where(g => g.Count() > input.Length / 2)
+                .Select(g => (int?)g.Key)
+                .FirstOrDefault();
+
+            Assert.AreEqual(majority ?? 0, actual);
+        }
     }
 }
