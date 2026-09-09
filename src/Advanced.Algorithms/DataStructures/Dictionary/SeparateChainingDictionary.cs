@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -65,7 +65,7 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
 
             while (current != null)
             {
-                if (current.Data.Key.Equals(key)) throw new Exception("Duplicate key");
+                if (current.Data.Key.Equals(key)) throw new ArgumentException("Duplicate key");
 
                 current = current.Next;
             }
@@ -80,11 +80,10 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
     {
         var index = Math.Abs(key.GetHashCode()) % BucketSize;
 
-        if (hashArray[index] == null) throw new Exception("No such item for given key");
+        if (hashArray[index] == null) throw new ArgumentException("No such item for given key");
 
         var current = hashArray[index].Head;
 
-        //TODO merge both search and remove to a single loop here!
         DoublyLinkedListNode<KeyValuePair<TK, TV>> item = null;
         while (current != null)
         {
@@ -100,7 +99,7 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
         //remove
         if (item == null)
         {
-            throw new Exception("No such item for given key");
+            throw new ArgumentException("No such item for given key");
         }
 
         hashArray[index].Delete(item);
@@ -159,14 +158,14 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
             }
         }
 
-        throw new Exception("Item not found");
+        throw new ArgumentException("Item not found");
     }
 
     private TV GetValue(TK key)
     {
         var index = Math.Abs(key.GetHashCode()) % BucketSize;
 
-        if (hashArray[index] == null) throw new Exception("Item not found");
+        if (hashArray[index] == null) throw new ArgumentException("Item not found");
 
         var current = hashArray[index].Head;
 
@@ -177,7 +176,7 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
             current = current.Next;
         }
 
-        throw new Exception("Item not found");
+        throw new ArgumentException("Item not found");
     }
 
     private void Grow()
@@ -195,29 +194,28 @@ internal class SeparateChainingDictionary<TK, TV> : IDictionary<TK, TV>
                 var item = hashArray[i];
 
                 //hashcode changes when bucket size changes
-                if (item != null)
-                    if (item.Head != null)
+                if (item != null && item.Head != null)
+                {
+                    var current = item.Head;
+
+                    //find new location for each item
+                    while (current != null)
                     {
-                        var current = item.Head;
+                        var next = current.Next;
 
-                        //find new location for each item
-                        while (current != null)
+                        var newIndex = Math.Abs(current.Data.Key.GetHashCode()) % newBucketSize;
+
+                        if (biggerArray[newIndex] == null)
                         {
-                            var next = current.Next;
-
-                            var newIndex = Math.Abs(current.Data.Key.GetHashCode()) % newBucketSize;
-
-                            if (biggerArray[newIndex] == null)
-                            {
-                                filledBuckets++;
-                                biggerArray[newIndex] = new DoublyLinkedList<KeyValuePair<TK, TV>>();
-                            }
-
-                            biggerArray[newIndex].InsertFirst(current);
-
-                            current = next;
+                            filledBuckets++;
+                            biggerArray[newIndex] = new DoublyLinkedList<KeyValuePair<TK, TV>>();
                         }
+
+                        biggerArray[newIndex].InsertFirst(current);
+
+                        current = next;
                     }
+                }
             }
 
             hashArray = biggerArray;
@@ -341,6 +339,15 @@ internal class SeparateChainingDictionaryEnumerator<TK, TV> : IEnumerator<KeyVal
 
     public void Dispose()
     {
-        HashList = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            HashList = null;
+        }
     }
 }
