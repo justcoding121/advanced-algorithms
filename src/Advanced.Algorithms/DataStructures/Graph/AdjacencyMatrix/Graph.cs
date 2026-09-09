@@ -313,7 +313,11 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         foreach (var vertex in this)
         {
             foreach (var edge in Edges(vertex))
-                graph.AddEdge(vertex, edge);
+            {
+                // undirected edges are stored twice; add once
+                if (!graph.HasEdge(vertex, edge))
+                    graph.AddEdge(vertex, edge);
+            }
         }
 
         return graph;

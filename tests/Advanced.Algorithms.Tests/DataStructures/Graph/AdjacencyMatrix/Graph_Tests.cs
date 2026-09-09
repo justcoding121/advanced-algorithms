@@ -166,5 +166,34 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
             Assert.AreEqual(0, graph.VerticesCount);
             Assert.AreEqual(0, graph.Clone().VerticesCount);
         }
+
+        [TestMethod]
+        public void Graph_Adversarial_Vertex0_Clone_Oracle()
+        {
+            var graph = new Graph<int>();
+            graph.AddVertex(0);
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(0, 0);
+
+            Assert.IsTrue(graph.ContainsVertex(0));
+            CollectionAssert.AreEquivalent(new[] { 0, 1, 2 }, graph.ToList());
+            CollectionAssert.AreEquivalent(new[] { 0, 1 }, graph.Edges(0).ToList());
+
+            var clone = graph.Clone();
+            Assert.AreEqual(3, clone.VerticesCount);
+            Assert.IsTrue(clone.HasEdge(0, 1));
+            Assert.IsTrue(clone.HasEdge(1, 0));
+            Assert.IsTrue(clone.HasEdge(0, 0));
+            Assert.AreEqual(2, clone.Edges(0).Count());
+
+            graph.RemoveEdge(0, 0);
+            graph.RemoveVertex(0);
+            Assert.ThrowsException<ArgumentException>(() => graph.HasEdge(0, 1));
+            Assert.IsTrue(clone.HasEdge(0, 1));
+            Assert.IsTrue(clone.ContainsVertex(0));
+        }
     }
 }
