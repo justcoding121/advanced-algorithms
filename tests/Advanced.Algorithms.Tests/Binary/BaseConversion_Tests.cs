@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.Binary;
+﻿using System;
+using Advanced.Algorithms.Binary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Binary
@@ -43,6 +44,43 @@ namespace Advanced.Algorithms.Tests.Binary
             Assert.AreEqual("5.05619",
                 BaseConversion.Convert("5.0e631f8a0902de00d1b71758e219652b", "0123456789abcdef",
                     "0123456789", 5));
+        }
+
+        [TestMethod]
+        public void BaseConversion_Edge_Cases()
+        {
+            Assert.AreEqual("0",
+                BaseConversion.Convert("0", "0123456789", "0123456789"));
+
+            Assert.AreEqual("0",
+                BaseConversion.Convert("0", "0123456789", "01"));
+
+            Assert.AreEqual("1",
+                BaseConversion.Convert("1", "01", "0123456789"));
+
+            Assert.AreEqual("",
+                BaseConversion.Convert("", "0123456789", "01"));
+
+            Assert.AreEqual(".5",
+                BaseConversion.Convert(".1", "01", "0123456789"));
+
+            Assert.AreEqual("0.1",
+                BaseConversion.Convert("0.5", "0123456789", "01"));
+
+            Assert.AreEqual("10.",
+                BaseConversion.Convert("2.", "0123456789", "01"));
+
+            Assert.ThrowsException<ArgumentException>(() =>
+                BaseConversion.Convert("1", "0", "01"));
+
+            Assert.ThrowsException<ArgumentException>(() =>
+                BaseConversion.Convert("1", "01", "0"));
+
+            Assert.ThrowsException<ArgumentException>(() =>
+                BaseConversion.Convert("0.1", "0", "01"));
+
+            Assert.ThrowsException<ArgumentException>(() =>
+                BaseConversion.Convert("0.1", "01", "0"));
         }
     }
 }

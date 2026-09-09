@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Binary;
 /// <summary>
 ///     Base conversion implementation.
 /// </summary>
-public class BaseConversion
+public static class BaseConversion
 {
     /// <summary>
     ///     Converts base of given number to the target base.
@@ -46,9 +46,9 @@ public class BaseConversion
         var srcBase = srcBaseChars.Length;
         var dstBase = dstBaseChars.Length;
 
-        if (srcBase <= 1) throw new Exception("Invalid source base length.");
+        if (srcBase <= 1) throw new ArgumentException("Invalid source base length.", nameof(srcBaseChars));
 
-        if (dstBase <= 1) throw new Exception("Invalid destination base length.");
+        if (dstBase <= 1) throw new ArgumentException("Invalid destination base length.", nameof(dstBaseChars));
 
         long base10Result = 0;
         var j = 0;
@@ -71,6 +71,8 @@ public class BaseConversion
             base10Result = base10Result / dstBase;
         }
 
+        if (result.Length == 0) result.Append(dstBaseChars[0]);
+
         return result.ToString();
     }
 
@@ -86,9 +88,9 @@ public class BaseConversion
         var srcBase = srcBaseChars.Length;
         var dstBase = dstBaseChars.Length;
 
-        if (srcBase <= 1) throw new Exception("Invalid source base length.");
+        if (srcBase <= 1) throw new ArgumentException("Invalid source base length.", nameof(srcBaseChars));
 
-        if (dstBase <= 1) throw new Exception("Invalid destination base length.");
+        if (dstBase <= 1) throw new ArgumentException("Invalid destination base length.", nameof(dstBaseChars));
 
         decimal base10Result = 0;
         //convert to base 10

@@ -3,7 +3,7 @@
 /// <summary>
 ///     GCD without division or mod operators but using substraction.
 /// </summary>
-public class Gcd
+public static class Gcd
 {
     public static int Find(int a, int b)
     {
