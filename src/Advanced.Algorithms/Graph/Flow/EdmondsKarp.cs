@@ -212,10 +212,22 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
             //here we use OutEdges
             foreach (var edge in vertex.OutEdges)
             {
-                //original edge
-                newGraph.AddEdge(vertex.Key, edge.TargetVertex.Key, edge.Weight<TW>());
-                //add a backward edge for residual graph with edge value as default(W)
-                newGraph.AddEdge(edge.TargetVertex.Key, vertex.Key, default);
+                var u = vertex.Key;
+                var v = edge.TargetVertex.Key;
+                var w = edge.Weight<TW>();
+
+                if (!newGraph.HasEdge(u, v))
+                    newGraph.AddEdge(u, v, w);
+                else
+                {
+                    var uVertex = newGraph.FindVertex(u);
+                    var vVertex = newGraph.FindVertex(v);
+                    uVertex.OutEdges[vVertex] = w;
+                    vVertex.InEdges[uVertex] = w;
+                }
+
+                if (!newGraph.HasEdge(v, u))
+                    newGraph.AddEdge(v, u, default);
             }
         }
 

@@ -79,6 +79,43 @@ namespace Advanced.Algorithms.Tests.Graph
             Assert.AreEqual(result, 19);
         }
 
+        [TestMethod]
+        public void EdmondKarp_Oracle_Matches_FordFulkerson_And_PushRelabel()
+        {
+            var graph = new WeightedDiGraph<char, int>();
+            foreach (var v in "SABCDT") graph.AddVertex(v);
+            graph.AddEdge('S', 'A', 10);
+            graph.AddEdge('S', 'C', 10);
+            graph.AddEdge('A', 'B', 4);
+            graph.AddEdge('A', 'C', 2);
+            graph.AddEdge('A', 'D', 8);
+            graph.AddEdge('B', 'T', 10);
+            graph.AddEdge('C', 'D', 9);
+            graph.AddEdge('D', 'B', 6);
+            graph.AddEdge('D', 'T', 10);
+
+            var op = new EdmondKarpOperators();
+            var ek = new EdmondKarpMaxFlow<char, int>(op).ComputeMaxFlow(graph, 'S', 'T');
+            var ff = new FordFulkersonMaxFlow<char, int>(op).ComputeMaxFlow(graph, 'S', 'T');
+            var pr = new PushRelabelMaxFlow<char, int>(op).ComputeMaxFlow(graph, 'S', 'T');
+            Assert.AreEqual(19, ek);
+            Assert.AreEqual(ek, ff);
+            Assert.AreEqual(ek, pr);
+        }
+
+        [TestMethod]
+        public void EdmondKarp_Antiparallel_Edges()
+        {
+            var graph = new WeightedDiGraph<char, int>();
+            graph.AddVertex('S');
+            graph.AddVertex('T');
+            graph.AddEdge('S', 'T', 5);
+            graph.AddEdge('T', 'S', 3);
+
+            Assert.AreEqual(5, new EdmondKarpMaxFlow<char, int>(new EdmondKarpOperators())
+                .ComputeMaxFlow(graph, 'S', 'T'));
+        }
+
         /// <summary>
         ///     operators for generics
         ///     implemented for int type for edge weights
