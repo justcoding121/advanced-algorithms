@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -87,12 +88,66 @@ namespace Advanced.Algorithms.Tests.DataStructures
             using (var enumerator = list.GetEnumerator())
             {
                 Assert.IsTrue(enumerator.MoveNext());
+                Assert.AreEqual("a", enumerator.Current);
                 enumerator.Reset();
                 Assert.IsTrue(enumerator.MoveNext());
+                Assert.AreEqual("a", enumerator.Current);
             }
 
             list.Clear();
             Assert.IsTrue(list.IsEmpty());
+        }
+
+        /// <summary>
+        ///     Adversarial ops oracle vs List&lt;T&gt;.
+        /// </summary>
+        [TestMethod]
+        public void DoublyLinkedList_ListOracle_RandomOps()
+        {
+            var rng = new Random(13);
+            var list = new DoublyLinkedList<int>();
+            var oracle = new List<int>();
+
+            for (var step = 0; step < 500; step++)
+            {
+                var op = rng.Next(5);
+
+                if (op == 0 || oracle.Count == 0)
+                {
+                    var v = rng.Next(100);
+                    list.InsertFirst(v);
+                    oracle.Insert(0, v);
+                }
+                else if (op == 1)
+                {
+                    var v = rng.Next(100);
+                    list.InsertLast(v);
+                    oracle.Add(v);
+                }
+                else if (op == 2)
+                {
+                    Assert.AreEqual(oracle[0], list.DeleteFirst());
+                    oracle.RemoveAt(0);
+                }
+                else if (op == 3)
+                {
+                    Assert.AreEqual(oracle[oracle.Count - 1], list.DeleteLast());
+                    oracle.RemoveAt(oracle.Count - 1);
+                }
+                else
+                {
+                    var v = oracle[rng.Next(oracle.Count)];
+                    list.Delete(v);
+                    oracle.Remove(v);
+                }
+
+                CollectionAssert.AreEqual(oracle, list.ToList());
+                if (oracle.Count > 0)
+                {
+                    Assert.AreEqual(oracle[0], list.Head.Data);
+                    Assert.AreEqual(oracle[oracle.Count - 1], list.Tail.Data);
+                }
+            }
         }
     }
 }

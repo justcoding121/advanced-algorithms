@@ -382,7 +382,7 @@ internal class DoublyLinkedListEnumerator<T> : IEnumerator<T>
 
     public void Reset()
     {
-        CurrentNode = HeadNode;
+        CurrentNode = null;
     }
 
 
