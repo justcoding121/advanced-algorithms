@@ -8,6 +8,7 @@ namespace Advanced.Algorithms.Geometry;
 public class Line
 {
     private readonly Lazy<double> slope;
+    private readonly double tolerance;
 
     private Line()
     {
@@ -17,29 +18,18 @@ public class Line
     internal Line(Point start, Point end, double tolerance)
         : this()
     {
-        if (start.X < end.X)
+        this.tolerance = tolerance;
+
+        if (start.X.IsLessThan(end.X, tolerance)
+            || (start.X.IsEqual(end.X, tolerance) && start.Y.IsLessThan(end.Y, tolerance)))
         {
             Left = start;
             Right = end;
         }
-        else if (start.X > end.X)
+        else
         {
             Left = end;
             Right = start;
-        }
-        else
-        {
-            //use Y
-            if (start.Y < end.Y)
-            {
-                Left = start;
-                Right = end;
-            }
-            else
-            {
-                Left = end;
-                Right = start;
-            }
         }
     }
 
@@ -51,8 +41,8 @@ public class Line
     public Point Left { get; }
     public Point Right { get; }
 
-    public bool IsVertical => Left.X == Right.X;
-    public bool IsHorizontal => Left.Y == Right.Y;
+    public bool IsVertical => Left.X.IsEqual(Right.X, tolerance);
+    public bool IsHorizontal => Left.Y.IsEqual(Right.Y, tolerance);
 
     public double Slope => slope.Value;
 
@@ -61,7 +51,7 @@ public class Line
         Point left = Left, right = Right;
 
         //vertical line has infinite slope
-        if (left.Y == right.Y) return double.MaxValue;
+        if (left.X.IsEqual(right.X, tolerance)) return double.MaxValue;
 
         return (right.Y - left.Y) / (right.X - left.X);
     }
