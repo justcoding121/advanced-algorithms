@@ -9,11 +9,22 @@ namespace Advanced.Algorithms.Graph;
 public class BreadthFirst<T>
 {
     /// <summary>
-    ///     Returns true if item exists.
+    ///     Returns true if item exists (searches all connected components).
     /// </summary>
     public bool Find(IGraph<T> graph, T vertex)
     {
-        return Bfs(graph.ReferenceVertex, new HashSet<T>(), vertex);
+        if (graph.VerticesCount == 0) return false;
+
+        var visited = new HashSet<T>();
+
+        foreach (var start in graph.VerticesAsEnumberable)
+        {
+            if (visited.Contains(start.Key)) continue;
+
+            if (Bfs(start, visited, vertex)) return true;
+        }
+
+        return false;
     }
 
     /// <summary>

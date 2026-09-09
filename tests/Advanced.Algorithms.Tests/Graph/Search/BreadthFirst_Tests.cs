@@ -70,5 +70,21 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.IsFalse(algorithm.Find(graph, 'M'));
         }
+
+        [TestMethod]
+        public void BreadthFirst_Finds_Vertex_In_Disconnected_Component()
+        {
+            var graph = new Graph<char>();
+            graph.AddVertex('A');
+            graph.AddVertex('B');
+            graph.AddVertex('C');
+            graph.AddEdge('A', 'B');
+
+            var algorithm = new BreadthFirst<char>();
+
+            Assert.IsTrue(algorithm.Find(graph, 'A'));
+            Assert.IsTrue(algorithm.Find(graph, 'C'));
+            Assert.IsFalse(algorithm.Find(graph, 'Z'));
+        }
     }
 }
