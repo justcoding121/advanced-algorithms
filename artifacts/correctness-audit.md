@@ -57,3 +57,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Connectivity/KosarajuStronglyConnected_Tests.cs | pass | {A,B}/{C} hand fixture |
 | src/Advanced.Algorithms/Graph/Connectivity/TarjansStronglyConnected.cs | ok | matches Kosaraju on hand fixture; no code change |
 | tests/Advanced.Algorithms.Tests/Graph/Connectivity/TarjansStronglyConnected_Tests.cs | pass | SCC set equality vs Kosaraju |
+| src/Advanced.Algorithms/Graph/Connectivity/TarjansBiConnected.cs | fixed | disconnected graphs with no APs reported bi-connected; require connectivity |
+| tests/Advanced.Algorithms.Tests/Graph/Connectivity/TarjansBiConnected_Tests.cs | pass | two triangles adversarial |

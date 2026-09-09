@@ -84,5 +84,20 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void TarjanIsBiConnected_Rejects_Disconnected()
+        {
+            var graph = new Graph<char>();
+            foreach (var c in "ABCDEF") graph.AddVertex(c);
+            graph.AddEdge('A', 'B');
+            graph.AddEdge('B', 'C');
+            graph.AddEdge('C', 'A');
+            graph.AddEdge('D', 'E');
+            graph.AddEdge('E', 'F');
+            graph.AddEdge('F', 'D');
+
+            Assert.IsFalse(new TarjansBiConnected<char>().IsBiConnected(graph));
+        }
     }
 }
