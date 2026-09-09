@@ -51,7 +51,7 @@ public class BloomFilter<T>
         for (var i = 1; i <= numberOfHashFunctions; i++)
         {
             var obj = new { Key = key, InitialValue = i };
-            yield return Math.Abs(obj.GetHashCode());
+            yield return obj.GetHashCode() & int.MaxValue;
         }
     }
 }

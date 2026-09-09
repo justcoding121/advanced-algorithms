@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.DataStructures;
+﻿using System.Linq;
+using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
@@ -43,6 +44,18 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             Assert.IsTrue(bloomFilter.KeyExists("orange"));
             Assert.IsFalse(bloomFilter.KeyExists("orangew"));
+        }
+
+        [TestMethod]
+        public void BloomFilter_No_False_Negatives_Oracle()
+        {
+            var bloomFilter = new BloomFilter<string>(5000, 4);
+            var inserted = Enumerable.Range(0, 200).Select(i => "key-" + i).ToList();
+            foreach (var key in inserted)
+                bloomFilter.AddKey(key);
+
+            foreach (var key in inserted)
+                Assert.IsTrue(bloomFilter.KeyExists(key));
         }
     }
 }
