@@ -73,9 +73,24 @@ public class BellmanFordShortestPath<T, TW> where TW : IComparable
             }
 
             iterations--;
-
-            if (iterations < 0) throw new InvalidOperationException("Negative cycle exists in this graph.");
         }
+
+        // After |V|-1 rounds, any further improvement implies a negative cycle.
+        if (updated)
+            foreach (var vertex in graph.VerticesAsEnumberable)
+            {
+                if (progress[vertex.Key].Equals(@operator.MaxValue)) continue;
+
+                foreach (var edge in vertex.OutEdges)
+                {
+                    var currentDistance = progress[edge.TargetVertexKey];
+                    var newDistance = @operator.Sum(progress[vertex.Key],
+                        vertex.GetOutEdge(edge.TargetVertex).Weight<TW>());
+
+                    if (newDistance.CompareTo(currentDistance) < 0)
+                        throw new InvalidOperationException("Negative cycle exists in this graph.");
+                }
+            }
 
         return TracePath(graph, parentMap, destination);
     }

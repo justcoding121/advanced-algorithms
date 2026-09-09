@@ -79,6 +79,48 @@ namespace Advanced.Algorithms.Tests.Graph
             for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], result.Path[i]);
         }
 
+        [TestMethod]
+        public void BellmanFord_Oracle_Matches_Dijkstra_On_NonNegative()
+        {
+            var graph = new WeightedDiGraph<char, int>();
+            foreach (var v in "SABCDT") graph.AddVertex(v);
+            graph.AddEdge('S', 'A', 8);
+            graph.AddEdge('S', 'C', 10);
+            graph.AddEdge('A', 'B', 10);
+            graph.AddEdge('A', 'C', 1);
+            graph.AddEdge('A', 'D', 8);
+            graph.AddEdge('B', 'T', 4);
+            graph.AddEdge('C', 'D', 1);
+            graph.AddEdge('D', 'B', 1);
+            graph.AddEdge('D', 'T', 10);
+
+            var op = new BellmanFordShortestPathOperators();
+            var bf = new BellmanFordShortestPath<char, int>(op);
+            var di = new DijikstraShortestPath<char, int>(op);
+
+            foreach (var s in "SABCDT")
+            foreach (var t in "SABCDT")
+            {
+                var a = bf.FindShortestPath(graph, s, t);
+                var b = di.FindShortestPath(graph, s, t);
+                Assert.AreEqual(b.Length, a.Length, $"{s}->{t}");
+            }
+        }
+
+        [TestMethod]
+        public void BellmanFord_NegativeCycle_Throws()
+        {
+            var graph = new WeightedDiGraph<char, int>();
+            foreach (var v in "ABC") graph.AddVertex(v);
+            graph.AddEdge('A', 'B', 1);
+            graph.AddEdge('B', 'C', 1);
+            graph.AddEdge('C', 'A', -3);
+
+            Assert.ThrowsException<System.InvalidOperationException>(() =>
+                new BellmanFordShortestPath<char, int>(new BellmanFordShortestPathOperators())
+                    .FindShortestPath(graph, 'A', 'C'));
+        }
+
         /// <summary>
         ///     generic operations for int type
         /// </summary>
