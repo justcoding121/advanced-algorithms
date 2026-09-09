@@ -149,3 +149,20 @@
 | tests/Advanced.Algorithms.Tests/DataStructures/Heap/FibonacciHeap_Tests.cs | pass | extract-order + Merge oracles |
 | src/Advanced.Algorithms/DataStructures/Heap/PairingHeap.cs | fixed | empty Extract NRE; Merge mapping; root not cleared |
 | tests/Advanced.Algorithms.Tests/DataStructures/Heap/PairingHeap_Tests.cs | pass | extract-order + Merge + empty Extract oracles |
+
+| src/Advanced.Algorithms/DataStructures/Graph/AdjacencyList/Graph.cs | fixed | undirected Clone double-added edges; skip if HasEdge |
+| tests/Advanced.Algorithms.Tests/DataStructures/Graph/AdjacencyList/Graph_Tests.cs | pass | vertex-0 clone/enumerate/self-loop oracle |
+| src/Advanced.Algorithms/DataStructures/Graph/AdjacencyList/DiGraph.cs | ok | directed Clone copies out-edges once; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Graph/AdjacencyList/DiGraph_Tests.cs | pass | vertex-0 directed clone/in-out oracle |
+| src/Advanced.Algorithms/DataStructures/Graph/AdjacencyList/WeightedGraph.cs | fixed | self-loop Dictionary.Add twice; Clone double-add; dup → InvalidOperationException |
+| tests/Advanced.Algorithms.Tests/DataStructures/Graph/AdjacencyList/WeightedGraph_Tests.cs | pass | vertex-0 self-loop weight clone oracle |
+| src/Advanced.Algorithms/DataStructures/Graph/AdjacencyList/WeightedDiGraph.cs | ok | directed weighted Clone correct; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Graph/AdjacencyList/WeightedDiGraph_Tests.cs | pass | vertex-0 weight clone oracle |
+| src/Advanced.Algorithms/DataStructures/Graph/AdjacencyMatrix/Graph.cs | fixed | undirected Clone double-added edges; skip if HasEdge |
+| tests/Advanced.Algorithms.Tests/DataStructures/Graph/AdjacencyMatrix/Graph_Tests.cs | pass | vertex-0 clone/enumerate/self-loop oracle |
+| src/Advanced.Algorithms/DataStructures/Graph/AdjacencyMatrix/DiGraph.cs | ok | directed Clone copies out-edges once; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Graph/AdjacencyMatrix/DiGraph_Tests.cs | pass | vertex-0 directed clone/in-out oracle |
+| src/Advanced.Algorithms/DataStructures/Graph/AdjacencyMatrix/WeightedGraph.cs | fixed | Clone double-add; cached vertexIndex stale after resize → GetEdge weight 0 |
+| tests/Advanced.Algorithms.Tests/DataStructures/Graph/AdjacencyMatrix/WeightedGraph_Tests.cs | pass | resize GetEdge + vertex-0 clone oracle |
+| src/Advanced.Algorithms/DataStructures/Graph/AdjacencyMatrix/WeightedDiGraph.cs | fixed | cached vertexIndex stale after resize → GetOutEdge weight 0 |
+| tests/Advanced.Algorithms.Tests/DataStructures/Graph/AdjacencyMatrix/WeightedDiGraph_Tests.cs | pass | resize GetOutEdge + vertex-0 clone oracle |
