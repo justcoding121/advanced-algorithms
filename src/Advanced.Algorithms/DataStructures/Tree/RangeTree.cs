@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
 
     public RangeTree(int dimensions)
     {
-        if (dimensions <= 0) throw new Exception("Dimension should be greater than 0.");
+        if (dimensions <= 0) throw new ArgumentException("Dimension should be greater than 0.");
 
         this.dimensions = dimensions;
     }
@@ -41,7 +41,7 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     {
         ValidateDimensions(value);
 
-        if (items.Contains(value)) throw new Exception("value exists.");
+        if (items.Contains(value)) throw new ArgumentException("value exists.");
         var currentTree = tree;
         //get all overlaps
         //and insert next dimension value to each overlapping node
@@ -58,7 +58,7 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     {
         ValidateDimensions(value);
 
-        if (!items.Contains(value)) throw new Exception("Item not found.");
+        if (!items.Contains(value)) throw new ArgumentException("Item not found.");
 
         var found = false;
         DeleteRecursive(tree, value, 0, ref found);
@@ -132,10 +132,12 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
                 var nextDimResult = RangeSearch(node.Tree, start, end, dimension + 1);
 
                 foreach (var value in node.Values)
-                foreach (var nextResult in nextDimResult)
                 {
-                    nextResult[dimension] = value;
-                    result.Add(nextResult);
+                    foreach (var nextResult in nextDimResult)
+                    {
+                        nextResult[dimension] = value;
+                        result.Add(nextResult);
+                    }
                 }
             }
 
@@ -150,7 +152,7 @@ public class RangeTree<T> : IEnumerable<T[]> where T : IComparable
     {
         if (start == null) throw new ArgumentNullException(nameof(start));
 
-        if (start.Length != dimensions) throw new Exception($"Expecting {dimensions} points.");
+        if (start.Length != dimensions) throw new ArgumentException($"Expecting {dimensions} points.");
     }
 }
 
@@ -167,7 +169,7 @@ internal class OneDimentionalRangeTree<T> where T : IComparable
     internal RangeTreeNode<T> Find(T value)
     {
         var result = Tree.FindNode(new RangeTreeNode<T>(value));
-        if (result == null) throw new Exception("Item not found in this tree.");
+        if (result == null) throw new ArgumentException("Item not found in this tree.");
 
         return result.Value;
     }
@@ -213,6 +215,8 @@ internal class OneDimentionalRangeTree<T> where T : IComparable
         RedBlackTreeNode<RangeTreeNode<T>> currentNode,
         T start, T end)
     {
+        if (currentNode == null) return result;
+
         if (currentNode.IsLeaf)
         {
             //start is less than current node
@@ -259,7 +263,7 @@ internal class OneDimentionalRangeTree<T> where T : IComparable
     /// <summary>
     ///     Checks if current node is in search range.
     /// </summary>
-    private bool InRange(RedBlackTreeNode<RangeTreeNode<T>> currentNode, T start, T end)
+    private static bool InRange(RedBlackTreeNode<RangeTreeNode<T>> currentNode, T start, T end)
     {
         //start is less than current and end is greater than current
         return start.CompareTo(currentNode.Value.Value) <= 0
@@ -287,5 +291,49 @@ internal class RangeTreeNode<T> : IComparable where T : IComparable
     public int CompareTo(object obj)
     {
         return Value.CompareTo(((RangeTreeNode<T>)obj).Value);
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is RangeTreeNode<T> other)
+            return CompareTo(other) == 0;
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return Value == null ? 0 : Value.GetHashCode();
+    }
+
+    public static bool operator ==(RangeTreeNode<T> left, RangeTreeNode<T> right)
+    {
+        if (ReferenceEquals(left, right)) return true;
+        if (left is null || right is null) return false;
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(RangeTreeNode<T> left, RangeTreeNode<T> right)
+    {
+        return !(left == right);
+    }
+
+    public static bool operator <(RangeTreeNode<T> left, RangeTreeNode<T> right)
+    {
+        return left.CompareTo(right) < 0;
+    }
+
+    public static bool operator >(RangeTreeNode<T> left, RangeTreeNode<T> right)
+    {
+        return left.CompareTo(right) > 0;
+    }
+
+    public static bool operator <=(RangeTreeNode<T> left, RangeTreeNode<T> right)
+    {
+        return left.CompareTo(right) <= 0;
+    }
+
+    public static bool operator >=(RangeTreeNode<T> left, RangeTreeNode<T> right)
+    {
+        return left.CompareTo(right) >= 0;
     }
 }

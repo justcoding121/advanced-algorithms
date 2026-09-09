@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -88,6 +89,28 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test
             Assert.AreEqual(tree.Count, tree.Count());
+        }
+
+        [TestMethod]
+        public void RangeTree_Corner_Cases()
+        {
+            Assert.ThrowsException<ArgumentException>(() => new RangeTree<int>(0));
+
+            var tree = new RangeTree<int>(1);
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+
+            Assert.ThrowsException<ArgumentNullException>(() => tree.Insert(null));
+            Assert.ThrowsException<ArgumentException>(() => tree.Insert(new[] { 1, 2 }));
+
+            tree.Insert(new[] { 1 });
+            Assert.ThrowsException<ArgumentException>(() => tree.Insert(new[] { 1 }));
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete(new[] { 9 }));
+
+            Assert.AreEqual(1, tree.RangeSearch(new[] { 1 }, new[] { 1 }).Count);
+            tree.Delete(new[] { 1 });
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.RangeSearch(new[] { 0 }, new[] { 10 }).Count);
         }
     }
 }
