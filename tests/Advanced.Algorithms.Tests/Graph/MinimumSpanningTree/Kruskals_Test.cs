@@ -70,5 +70,32 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.AreEqual(graph.VerticesCount - 1, result.Count);
         }
+
+        [TestMethod]
+        public void Kruskals_Oracle_Matches_Prims_Weight()
+        {
+            var graph = new WeightedGraph<char, int>();
+            foreach (var v in "SABCDT") graph.AddVertex(v);
+            graph.AddEdge('S', 'A', 8);
+            graph.AddEdge('S', 'C', 10);
+            graph.AddEdge('A', 'B', 10);
+            graph.AddEdge('A', 'C', 1);
+            graph.AddEdge('A', 'D', 8);
+            graph.AddEdge('B', 'T', 4);
+            graph.AddEdge('C', 'D', 1);
+            graph.AddEdge('D', 'B', 1);
+            graph.AddEdge('D', 'T', 10);
+
+            var k = new Kruskals<char, int>().FindMinimumSpanningTree(graph);
+            var p = new Prims<char, int>().FindMinimumSpanningTree(graph);
+            Assert.AreEqual(graph.VerticesCount - 1, k.Count);
+            Assert.AreEqual(p.Count, k.Count);
+            var kw = 0;
+            foreach (var e in k) kw += e.Weight;
+            var pw = 0;
+            foreach (var e in p) pw += e.Weight;
+            Assert.AreEqual(15, kw);
+            Assert.AreEqual(pw, kw);
+        }
     }
 }
