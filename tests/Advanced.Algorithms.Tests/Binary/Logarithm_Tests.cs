@@ -1,4 +1,5 @@
-﻿using Advanced.Algorithms.Binary;
+﻿using System;
+using Advanced.Algorithms.Binary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Binary
@@ -32,6 +33,30 @@ namespace Advanced.Algorithms.Tests.Binary
             Assert.AreEqual(1, Logarithm.CalcBase10LogFloor(31));
             Assert.AreEqual(2, Logarithm.CalcBase10LogFloor(100));
             Assert.AreEqual(3, Logarithm.CalcBase10LogFloor(1024));
+        }
+
+        [TestMethod]
+        public void Logarithm_Oracle_Vs_Math()
+        {
+            // values near powers of ten expose floor(log2(x))/floor(log2(10)) errors
+            var samples = new[]
+            {
+                1, 2, 3, 8, 9, 10, 31, 32, 99, 100, 999, 1000, 1024, 9999, 10000, int.MaxValue
+            };
+
+            foreach (var x in samples)
+            {
+                Assert.AreEqual((int)Math.Floor(Math.Log(x, 2)), Logarithm.CalcBase2LogFloor(x),
+                    $"base-2 floor log mismatch for {x}");
+                Assert.AreEqual((int)Math.Floor(Math.Log10(x)), Logarithm.CalcBase10LogFloor(x),
+                    $"base-10 floor log mismatch for {x}");
+            }
+
+            for (var x = 1; x <= 2000; x++)
+            {
+                Assert.AreEqual((int)Math.Floor(Math.Log(x, 2)), Logarithm.CalcBase2LogFloor(x));
+                Assert.AreEqual((int)Math.Floor(Math.Log10(x)), Logarithm.CalcBase10LogFloor(x));
+            }
         }
     }
 }

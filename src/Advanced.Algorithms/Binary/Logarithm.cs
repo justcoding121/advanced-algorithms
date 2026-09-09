@@ -1,4 +1,6 @@
-﻿namespace Advanced.Algorithms.Binary;
+﻿using System;
+
+namespace Advanced.Algorithms.Binary;
 
 /// <summary>
 ///     Logarithm calculator.
@@ -44,9 +46,10 @@ public static class Logarithm
     {
         //using the below relation
         //log(x) base b = (log(x) base a) / (log(b) base a)
-        var n = CalcBase2LogFloor(x);
-        var d = CalcBase2LogFloor(10);
+        //continuous logs (not floored bit-counts); tiny epsilon guards FP near powers of 10
+        var n = Math.Log(x, 2);
+        var d = Math.Log(10, 2);
 
-        return n / d;
+        return (int)(n / d + 1e-10);
     }
 }
