@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -25,7 +25,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
 
     public BpTree(int maxKeysPerNode = 3)
     {
-        if (maxKeysPerNode < 3) throw new Exception("Max keys per node should be atleast 3.");
+        if (maxKeysPerNode < 3) throw new ArgumentException("Max keys per node should be atleast 3.");
 
         this.maxKeysPerNode = maxKeysPerNode;
         minKeysPerNode = maxKeysPerNode / 2;
@@ -77,6 +77,8 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public bool HasItem(T value)
     {
+        if (Root == null) return false;
+
         return Find(Root, value) != null;
     }
 
@@ -376,7 +378,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     {
         var node = FindDeletionNode(Root, value);
 
-        if (node == null) throw new Exception("Item do not exist in this tree.");
+        if (node == null) throw new ArgumentException("Item do not exist in this tree.");
 
         for (var i = 0; i < node.KeyCount; i++)
         {
@@ -401,26 +403,13 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     return the node containing min value which will be a leaf at the left most
     /// </summary>
-    private BpTreeNode<T> FindMinNode(BpTreeNode<T> node)
+    private static BpTreeNode<T> FindMinNode(BpTreeNode<T> node)
     {
         while (true)
         {
             //if leaf return node
             if (node.IsLeaf) return node;
             node = node.Children[0];
-        }
-    }
-
-    /// <summary>
-    ///     return the node containing max value which will be a leaf at the right most
-    /// </summary>
-    private BpTreeNode<T> FindMaxNode(BpTreeNode<T> node)
-    {
-        while (true)
-        {
-            //if leaf return node
-            if (node.IsLeaf) return node;
-            node = node.Children[node.KeyCount];
         }
     }
 
@@ -712,7 +701,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Get prev separator key of this child Node in parent
     /// </summary>
-    private int GetPrevSeparatorIndex(BpTreeNode<T> node)
+    private static int GetPrevSeparatorIndex(BpTreeNode<T> node)
     {
         var parent = node.Parent;
 
@@ -726,7 +715,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Get next separator key of this child Node in parent
     /// </summary>
-    private int GetNextSeparatorIndex(BpTreeNode<T> node)
+    private static int GetNextSeparatorIndex(BpTreeNode<T> node)
     {
         var parent = node.Parent;
 
@@ -740,7 +729,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     get the right sibling node
     /// </summary>
-    private BpTreeNode<T> GetRightSibling(BpTreeNode<T> node)
+    private static BpTreeNode<T> GetRightSibling(BpTreeNode<T> node)
     {
         var parent = node.Parent;
         return node.Index == parent.KeyCount ? null : parent.Children[node.Index + 1];
@@ -749,12 +738,12 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     get left sibling node
     /// </summary>
-    private BpTreeNode<T> GetLeftSibling(BpTreeNode<T> node)
+    private static BpTreeNode<T> GetLeftSibling(BpTreeNode<T> node)
     {
         return node.Index == 0 ? null : node.Parent.Children[node.Index - 1];
     }
 
-    private void SetChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
+    private static void SetChild(BpTreeNode<T> parent, int childIndex, BpTreeNode<T> child)
     {
         parent.Children[childIndex] = child;
 
@@ -791,7 +780,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     ///     And then insert at index
     ///     Assumes array have atleast one empty index at end
     /// </summary>
-    private void InsertAt<TS>(TS[] array, int index, TS newValue)
+    private static void InsertAt<TS>(TS[] array, int index, TS newValue)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index, array, index + 1, array.Length - index - 1);
@@ -802,7 +791,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Shift array left at index
     /// </summary>
-    private void RemoveAt<TS>(TS[] array, int index)
+    private static void RemoveAt<TS>(TS[] array, int index)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index + 1, array, index, array.Length - index - 1);
@@ -867,6 +856,7 @@ internal class BpTreeEnumerator<T> : IEnumerator<T> where T : IComparable
 {
     private readonly bool asc;
     private BpTreeNode<T> current;
+    private bool disposedValue;
 
     private int index;
 
@@ -879,7 +869,7 @@ internal class BpTreeEnumerator<T> : IEnumerator<T> where T : IComparable
         startNode = asc ? tree.BottomLeftNode : tree.BottomRightNode;
         current = startNode;
 
-        index = asc ? -1 : current.KeyCount;
+        index = asc ? -1 : (current == null ? 0 : current.KeyCount);
     }
 
     public bool MoveNext()
@@ -914,16 +904,32 @@ internal class BpTreeEnumerator<T> : IEnumerator<T> where T : IComparable
     public void Reset()
     {
         current = startNode;
-        index = asc ? -1 : current.KeyCount;
+        index = asc ? -1 : (current == null ? 0 : current.KeyCount);
     }
 
     object IEnumerator.Current => Current;
 
     public T Current => current.Keys[index];
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            current = null;
+            startNode = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        current = null;
-        startNode = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
