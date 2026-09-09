@@ -11,7 +11,7 @@ internal class ArrayStack<T> : IStack<T>
 
     public T Pop()
     {
-        if (Count == 0) throw new Exception("Empty stack");
+        if (Count == 0) throw new InvalidOperationException("Empty stack");
 
         var result = list[list.Count - 1];
         list.RemoveAt(list.Count - 1);
@@ -34,7 +34,7 @@ internal class ArrayStack<T> : IStack<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return list.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

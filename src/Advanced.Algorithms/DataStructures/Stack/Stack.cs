@@ -26,7 +26,7 @@ public class Stack<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return stack.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

@@ -11,7 +11,7 @@ internal class LinkedListStack<T> : IStack<T>
 
     public T Pop()
     {
-        if (Count == 0) throw new Exception("Empty stack");
+        if (Count == 0) throw new InvalidOperationException("Empty stack");
 
         var result = list.DeleteFirst();
         Count--;
@@ -31,7 +31,7 @@ internal class LinkedListStack<T> : IStack<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return list.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
