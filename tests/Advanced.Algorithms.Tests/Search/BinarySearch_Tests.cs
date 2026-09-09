@@ -1,4 +1,6 @@
-﻿using Advanced.Algorithms.Search;
+﻿using System;
+using System.Linq;
+using Advanced.Algorithms.Search;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.Search
@@ -34,6 +36,37 @@ namespace Advanced.Algorithms.Tests.Search
             Assert.AreEqual(0, BinarySearch.Search(test, 1));
             Assert.AreEqual(4, BinarySearch.Search(test, 9));
             Assert.AreEqual(-1, BinarySearch.Search(test, 4));
+        }
+
+        [TestMethod]
+        public void Search_Empty_Returns_Minus_One()
+        {
+            Assert.AreEqual(-1, BinarySearch.Search(Array.Empty<int>(), 1));
+        }
+
+        [TestMethod]
+        public void Search_Oracle_Against_Known_Indices()
+        {
+            var rnd = new Random(11);
+
+            for (var t = 0; t < 50; t++)
+            {
+                var sorted = Enumerable.Range(0, rnd.Next(1, 40))
+                    .Select(_ => rnd.Next(0, 100))
+                    .Distinct()
+                    .OrderBy(x => x)
+                    .ToArray();
+
+                foreach (var value in sorted)
+                {
+                    var index = BinarySearch.Search(sorted, value);
+                    Assert.IsTrue(index >= 0);
+                    Assert.AreEqual(value, sorted[index]);
+                }
+
+                Assert.AreEqual(-1, BinarySearch.Search(sorted, -1));
+                Assert.AreEqual(-1, BinarySearch.Search(sorted, 101));
+            }
         }
     }
 }

@@ -14,6 +14,8 @@ public static class BinarySearch
     {
         while (true)
         {
+            if (i > j) return -1;
+
             if (i == j)
             {
                 if (input[i] == element) return i;
