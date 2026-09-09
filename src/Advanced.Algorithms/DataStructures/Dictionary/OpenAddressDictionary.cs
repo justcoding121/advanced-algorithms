@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,6 +6,7 @@ namespace Advanced.Algorithms.DataStructures.Foundation;
 
 internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
 {
+    private const string ItemNotFound = "Item not found";
     private readonly int initialBucketSize;
     private DictionaryKeyValuePair<TK, TV>[] hashArray;
 
@@ -77,7 +78,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
 
             while (current != null)
             {
-                if (current.Key.Equals(key)) throw new Exception("Duplicate key");
+                if (current.Key.Equals(key)) throw new ArgumentException("Duplicate key");
 
                 index++;
 
@@ -87,7 +88,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
 
                 current = hashArray[index];
 
-                if (current != null && current.Key.Equals(hitKey)) throw new Exception("Dictionary is full");
+                if (current != null && current.Key.Equals(hitKey)) throw new InvalidOperationException("Dictionary is full");
             }
 
             hashArray[index] = new DictionaryKeyValuePair<TK, TV>(key, value);
@@ -101,7 +102,7 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
         var hashCode = GetHash(key);
         var curIndex = hashCode % BucketSize;
 
-        if (hashArray[curIndex] == null) throw new Exception("No such item for given key");
+        if (hashArray[curIndex] == null) throw new ArgumentException("No such item for given key");
 
         var current = hashArray[curIndex];
 
@@ -126,13 +127,13 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
 
             current = hashArray[curIndex];
 
-            if (current != null && current.Key.Equals(hitKey)) throw new Exception("No such item for given key");
+            if (current != null && current.Key.Equals(hitKey)) throw new ArgumentException("No such item for given key");
         }
 
         //remove
         if (target == null)
         {
-            throw new Exception("No such item for given key");
+            throw new ArgumentException("No such item for given key");
         }
 
         //delete this element
@@ -220,18 +221,18 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
                 current = hashArray[index];
 
                 //reached original hit again
-                if (current != null && current.Key.Equals(hitKey)) throw new Exception("Item not found");
+                if (current != null && current.Key.Equals(hitKey)) throw new ArgumentException(ItemNotFound);
             }
         }
 
-        throw new Exception("Item not found");
+        throw new ArgumentException(ItemNotFound);
     }
 
     private TV GetValue(TK key)
     {
         var index = GetHash(key) % BucketSize;
 
-        if (hashArray[index] == null) throw new Exception("Item not found");
+        if (hashArray[index] == null) throw new ArgumentException(ItemNotFound);
 
         var current = hashArray[index];
         var hitKey = current.Key;
@@ -249,10 +250,10 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
             current = hashArray[index];
 
             //reached original hit again
-            if (current != null && current.Key.Equals(hitKey)) throw new Exception("Item not found");
+            if (current != null && current.Key.Equals(hitKey)) throw new ArgumentException(ItemNotFound);
         }
 
-        throw new Exception("Item not found");
+        throw new ArgumentException(ItemNotFound);
     }
 
     private void Grow()
@@ -275,8 +276,6 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
                     Count--;
                 }
             }
-
-            currentArray = null;
         }
     }
 
@@ -302,12 +301,10 @@ internal class OpenAddressDictionary<TK, TV> : IDictionary<TK, TV>
                     Count--;
                 }
             }
-
-            currentArray = null;
         }
     }
 
-    private int GetHash(TK key)
+    private static int GetHash(TK key)
     {
         return Math.Abs(key.GetHashCode());
     }
@@ -374,6 +371,15 @@ internal class OpenAddressDictionaryEnumerator<TK, TV> : IEnumerator<KeyValuePai
 
     public void Dispose()
     {
-        HashArray = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            HashArray = null;
+        }
     }
 }
