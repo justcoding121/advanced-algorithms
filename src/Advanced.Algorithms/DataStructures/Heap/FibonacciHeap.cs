@@ -67,7 +67,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T Extract()
     {
-        if (heapForestHead == null) throw new Exception("Empty heap");
+        if (heapForestHead == null) throw new InvalidOperationException("Empty heap");
 
         var minMaxValue = minMaxNode.Value;
 
@@ -93,10 +93,10 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     {
         var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
 
-        if (node == null) throw new Exception("Current value is not present in this heap.");
+        if (node == null) throw new ArgumentException("Current value is not present in this heap.");
 
         if (comparer.Compare(newValue, node.Value) > 0)
-            throw new Exception($"New value is not {(!isMaxHeap ? "less" : "greater")} than old value.");
+            throw new ArgumentException($"New value is not {(!isMaxHeap ? "less" : "greater")} than old value.");
 
         UpdateNodeValue(currentValue, newValue, node);
 
@@ -145,7 +145,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T Peek()
     {
-        if (heapForestHead == null) throw new Exception("Empty heap");
+        if (heapForestHead == null) throw new InvalidOperationException("Empty heap");
 
         return minMaxNode.Value;
     }

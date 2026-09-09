@@ -33,7 +33,7 @@ public class DisJointSet<T> : IEnumerable<T>
     /// </summary>
     public void MakeSet(T member)
     {
-        if (set.ContainsKey(member)) throw new Exception("A set with given member already exists.");
+        if (set.ContainsKey(member)) throw new ArgumentException("A set with given member already exists.");
 
         var newSet = new DisJointSetNode<T>
         {
@@ -55,7 +55,7 @@ public class DisJointSet<T> : IEnumerable<T>
     /// </summary>
     public T FindSet(T member)
     {
-        if (!set.ContainsKey(member)) throw new Exception("No such set with given member.");
+        if (!set.ContainsKey(member)) throw new ArgumentException("No such set with given member.");
 
         return FindSet(set[member]).Data;
     }

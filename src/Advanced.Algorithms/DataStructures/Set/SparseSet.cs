@@ -36,11 +36,11 @@ public class SparseSet : IEnumerable<int>
     /// </summary>
     public void Add(int value)
     {
-        if (value < 0) throw new Exception("Negative values not supported.");
+        if (value < 0) throw new ArgumentException("Negative values not supported.");
 
-        if (value >= sparse.Length) throw new Exception("Item is greater than max value.");
+        if (value >= sparse.Length) throw new ArgumentException("Item is greater than max value.");
 
-        if (Count >= dense.Length) throw new Exception("Set reached its capacity.");
+        if (Count >= dense.Length) throw new InvalidOperationException("Set reached its capacity.");
 
         sparse[value] = Count;
         dense[Count] = value;
@@ -52,11 +52,11 @@ public class SparseSet : IEnumerable<int>
     /// </summary>
     public void Remove(int value)
     {
-        if (value < 0) throw new Exception("Negative values not supported.");
+        if (value < 0) throw new ArgumentException("Negative values not supported.");
 
-        if (value >= sparse.Length) throw new Exception("Item is greater than max value.");
+        if (value >= sparse.Length) throw new ArgumentException("Item is greater than max value.");
 
-        if (HasItem(value) == false) throw new Exception("Item do not exist.");
+        if (HasItem(value) == false) throw new ArgumentException("Item do not exist.");
 
         //find element
         var index = sparse[value];

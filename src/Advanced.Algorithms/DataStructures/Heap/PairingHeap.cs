@@ -66,10 +66,10 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     {
         var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
 
-        if (node == null) throw new Exception("Current value is not present in this heap.");
+        if (node == null) throw new ArgumentException("Current value is not present in this heap.");
 
         if (comparer.Compare(newValue, node.Value) > 0)
-            throw new Exception($"New value is not {(!isMaxHeap ? "less" : "greater")} than old value.");
+            throw new ArgumentException($"New value is not {(!isMaxHeap ? "less" : "greater")} than old value.");
 
         UpdateNodeValue(currentValue, newValue, node);
 
@@ -96,7 +96,7 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     public T Peek()
     {
         if (root == null)
-            throw new Exception("Empty heap");
+            throw new InvalidOperationException("Empty heap");
 
         return root.Value;
     }

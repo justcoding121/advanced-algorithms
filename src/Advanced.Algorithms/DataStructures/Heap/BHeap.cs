@@ -144,7 +144,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T Extract()
     {
-        if (Count == 0) throw new Exception("Empty heap");
+        if (Count == 0) throw new InvalidOperationException("Empty heap");
 
         var minMax = heapArray[0];
 
@@ -158,7 +158,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T Peek()
     {
-        if (Count == 0) throw new Exception("Empty heap");
+        if (Count == 0) throw new InvalidOperationException("Empty heap");
 
         return heapArray[0];
     }
@@ -176,7 +176,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
             return;
         }
 
-        throw new Exception("Item not found.");
+        throw new ArgumentException("Item not found.");
     }
 
     /// <summary>

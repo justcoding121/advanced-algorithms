@@ -27,7 +27,7 @@ public class DaryHeap<T> : IEnumerable<T> where T : IComparable
         isMaxHeap = sortDirection == SortDirection.Descending;
         comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
 
-        if (k <= 2) throw new Exception("Number of nodes k must be greater than 2.");
+        if (k <= 2) throw new ArgumentException("Number of nodes k must be greater than 2.");
 
         this.k = k;
 
@@ -128,7 +128,7 @@ public class DaryHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T Extract()
     {
-        if (Count == 0) throw new Exception("Empty heap");
+        if (Count == 0) throw new InvalidOperationException("Empty heap");
         var minMax = heapArray[0];
 
         //move last element to top
@@ -192,7 +192,7 @@ public class DaryHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public T Peek()
     {
-        if (Count == 0) throw new Exception("Empty heap");
+        if (Count == 0) throw new InvalidOperationException("Empty heap");
 
         return heapArray[0];
     }
