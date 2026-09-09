@@ -17,7 +17,7 @@ public class Dictionary<TK, TV> : IEnumerable<KeyValuePair<TK, TV>>
     /// <param name="initialBucketSize">The larger the bucket size lesser the collision, but memory matters!</param>
     public Dictionary(DictionaryType type = DictionaryType.SeparateChaining, int initialBucketSize = 2)
     {
-        if (initialBucketSize < 2) throw new Exception("Bucket Size must be greater than 2.");
+        if (initialBucketSize < 2) throw new ArgumentException("Bucket Size must be greater than 2.");
 
         if (type == DictionaryType.SeparateChaining)
             dictionary = new SeparateChainingDictionary<TK, TV>(initialBucketSize);
