@@ -57,5 +57,22 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(0, tree.Count);
             Assert.AreEqual(0, tree.Count());
         }
+
+        [TestMethod]
+        public void Suffix_Shared_Delete_Oracle()
+        {
+            var tree = new SuffixTree<char>();
+            tree.Insert("banana".ToCharArray());
+            tree.Insert("bandana".ToCharArray());
+
+            Assert.IsTrue(tree.Contains("ana".ToCharArray()));
+            Assert.AreEqual(2, tree.Count);
+
+            tree.Delete("banana".ToCharArray());
+            Assert.AreEqual(1, tree.Count);
+            Assert.IsTrue(tree.Contains("bandana".ToCharArray()));
+            Assert.IsTrue(tree.Contains("ana".ToCharArray()));
+            Assert.IsFalse(tree.Contains("banana".ToCharArray()));
+        }
     }
 }
