@@ -59,7 +59,7 @@ public class TarjansBridgeFinder<T>
                 //check if this edge target vertex is not in the current DFS path
                 //even if edge target vertex was already visisted
                 //update discovery so that ancestors can see it
-                if (parent.ContainsKey(currentVertex.Key) == false
+                if (!parent.ContainsKey(currentVertex.Key)
                     || !edge.TargetVertexKey.Equals(parent[currentVertex.Key]))
                     lowTimeMap[currentVertex.Key] =
                         Math.Min(lowTimeMap[currentVertex.Key], discoveryTimeMap[edge.TargetVertexKey]);
