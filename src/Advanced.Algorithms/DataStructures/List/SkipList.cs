@@ -77,6 +77,30 @@ public class SkipList<T> : IEnumerable<T> where T : IComparable
     }
 
     /// <summary>
+    ///     True if value is present. Unlike Find, works for default(T).
+    ///     Time complexity: O(log(n)).
+    /// </summary>
+    private bool Exists(T value)
+    {
+        var current = Head;
+        for (var i = MaxHeight - 1; i >= 0; i--)
+            while (true)
+            {
+                if (current.Next[i] != null
+                    && current.Next[i].Value.CompareTo(value) == 0)
+                    return true;
+
+                if (current.Next[i] == null
+                    || current.Next[i].Value.CompareTo(value) > 0)
+                    break;
+
+                current = current.Next[i];
+            }
+
+        return false;
+    }
+
+    /// <summary>
     ///     Inserts the given value to this skip list.
     ///     Will throw exception if the value already exists.
     ///     Time complexity: O(log(n))
@@ -84,7 +108,8 @@ public class SkipList<T> : IEnumerable<T> where T : IComparable
     /// <param name="value">The value to insert.</param>
     public void Insert(T value)
     {
-        if (!Find(value).Equals(default(T))) throw new ArgumentException("Cannot insert duplicate values.");
+        // Find(value).Equals(default) fails when value is default(T)
+        if (Exists(value)) throw new ArgumentException("Cannot insert duplicate values.");
 
         //find the random level up to which we link the new node
         var level = 0;
