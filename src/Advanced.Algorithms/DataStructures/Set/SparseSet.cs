@@ -40,6 +40,8 @@ public class SparseSet : IEnumerable<int>
 
         if (value >= sparse.Length) throw new ArgumentException("Item is greater than max value.");
 
+        if (HasItem(value)) throw new ArgumentException("Item already exists.");
+
         if (Count >= dense.Length) throw new InvalidOperationException("Set reached its capacity.");
 
         sparse[value] = Count;
@@ -78,15 +80,23 @@ public class SparseSet : IEnumerable<int>
     /// </summary>
     public bool HasItem(int value)
     {
+        if (value < 0 || value >= sparse.Length) return false;
+
         var index = sparse[value];
-        return index != -1 && dense[index] == value;
+        return index != -1 && index < Count && dense[index] == value;
     }
 
     /// <summary>
-    ///     Time complexity: O(1).
+    ///     Time complexity: O(n) where n is the number of items currently in the set.
     /// </summary>
     public void Clear()
     {
+        for (var i = 0; i < Count; i++)
+        {
+            sparse[dense[i]] = -1;
+            dense[i] = -1;
+        }
+
         Count = 0;
     }
 }
