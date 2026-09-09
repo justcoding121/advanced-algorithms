@@ -43,7 +43,7 @@ public class Trie<T> : IEnumerable<T[]>
     /// <summary>
     ///     Insert a new record to this trie after finding the end recursively.
     /// </summary>
-    private void Insert(TrieNode<T> currentNode, T[] entry, int currentIndex)
+    private static void Insert(TrieNode<T> currentNode, T[] entry, int currentIndex)
     {
         while (true)
         {
@@ -53,7 +53,7 @@ public class Trie<T> : IEnumerable<T[]>
                 return;
             }
 
-            if (currentNode.Children.ContainsKey(entry[currentIndex]) == false)
+            if (!currentNode.Children.ContainsKey(entry[currentIndex]))
             {
                 var newNode = new TrieNode<T>(currentNode, entry[currentIndex]);
                 currentNode.Children.Add(entry[currentIndex], newNode);
@@ -85,13 +85,13 @@ public class Trie<T> : IEnumerable<T[]>
     {
         if (currentIndex == entry.Length)
         {
-            if (!currentNode.IsEnd) throw new Exception("Item not in trie.");
+            if (!currentNode.IsEnd) throw new ArgumentException("Item not in trie.");
 
             currentNode.IsEnd = false;
             return;
         }
 
-        if (currentNode.Children.ContainsKey(entry[currentIndex]) == false) throw new Exception("Item not in trie.");
+        if (!currentNode.Children.ContainsKey(entry[currentIndex])) throw new ArgumentException("Item not in trie.");
 
         Delete(currentNode.Children[entry[currentIndex]], entry, currentIndex + 1);
 
@@ -127,7 +127,7 @@ public class Trie<T> : IEnumerable<T[]>
                 return result;
             }
 
-            if (currentNode.Children.ContainsKey(searchPrefix[currentIndex]) == false) return new List<T[]>();
+            if (!currentNode.Children.ContainsKey(searchPrefix[currentIndex])) return new List<T[]>();
 
             currentNode = currentNode.Children[searchPrefix[currentIndex]];
             currentIndex = currentIndex + 1;
@@ -142,12 +142,7 @@ public class Trie<T> : IEnumerable<T[]>
     {
         //end of word
         if (node.IsEnd)
-        {
-            if (suffix != null)
-                result.Add(searchPrefix.Concat(suffix).ToArray());
-            else
-                result.Add(searchPrefix);
-        }
+            result.Add(searchPrefix.Concat(suffix).ToArray());
 
         //visit all children
         foreach (var child in node.Children)
@@ -180,13 +175,13 @@ public class Trie<T> : IEnumerable<T[]>
     /// <summary>
     ///     Find if the record exist recursively.
     /// </summary>
-    private bool Contains(TrieNode<T> currentNode, T[] entry, int currentIndex, bool isPrefixSearch)
+    private static bool Contains(TrieNode<T> currentNode, T[] entry, int currentIndex, bool isPrefixSearch)
     {
         while (true)
         {
             if (currentIndex == entry.Length) return isPrefixSearch || currentNode.IsEnd;
 
-            if (currentNode.Children.ContainsKey(entry[currentIndex]) == false) return false;
+            if (!currentNode.Children.ContainsKey(entry[currentIndex])) return false;
 
             currentNode = currentNode.Children[entry[currentIndex]];
             currentIndex = currentIndex + 1;
@@ -213,6 +208,7 @@ internal class TrieNode<T>
 internal class TrieEnumerator<T> : IEnumerator<T[]>
 {
     private readonly TrieNode<T> root;
+    private bool disposedValue;
     private Stack<TrieNode<T>> progress;
 
     internal TrieEnumerator(TrieNode<T> root)
@@ -252,17 +248,33 @@ internal class TrieEnumerator<T> : IEnumerator<T[]>
 
     object IEnumerator.Current => Current;
 
-    public void Dispose()
+    protected virtual void Dispose(bool disposing)
     {
-        progress = null;
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            progress = null;
+        }
+
+        disposedValue = true;
     }
 
-    private T[] GetValue(TrieNode<T> next)
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    private static T[] GetValue(TrieNode<T> next)
     {
         var result = new Stack<T>();
         result.Push(next.Value);
 
-        while (next.Parent != null && !next.Parent.Value.Equals(default(T)))
+        while (next.Parent != null && !EqualityComparer<T>.Default.Equals(next.Parent.Value, default))
         {
             next = next.Parent;
             result.Push(next.Value);

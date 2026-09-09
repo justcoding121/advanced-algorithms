@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -101,6 +102,30 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable test
             Assert.AreEqual(trie.Count, trie.Count());
+        }
+
+        [TestMethod]
+        public void Trie_Corner_Cases()
+        {
+            var trie = new Trie<char>();
+
+            Assert.AreEqual(0, trie.Count);
+            Assert.AreEqual(0, trie.Count());
+            Assert.IsFalse(trie.Contains("a".ToCharArray()));
+            Assert.AreEqual(0, trie.StartsWith("a".ToCharArray()).Count);
+
+            trie.Insert("a".ToCharArray());
+            trie.Insert("ab".ToCharArray());
+            Assert.AreEqual(2, trie.StartsWith("a".ToCharArray()).Count);
+            Assert.IsTrue(trie.ContainsPrefix("a".ToCharArray()));
+
+            Assert.ThrowsException<ArgumentException>(() => trie.Delete("abc".ToCharArray()));
+            Assert.ThrowsException<ArgumentException>(() => trie.Delete("z".ToCharArray()));
+
+            trie.Delete("a".ToCharArray());
+            Assert.IsFalse(trie.Contains("a".ToCharArray()));
+            Assert.IsTrue(trie.Contains("ab".ToCharArray()));
+            Assert.AreEqual(1, trie.StartsWith("a".ToCharArray()).Count);
         }
     }
 }
