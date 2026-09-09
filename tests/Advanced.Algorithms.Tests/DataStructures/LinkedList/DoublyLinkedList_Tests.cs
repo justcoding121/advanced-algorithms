@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -50,6 +51,21 @@ namespace Advanced.Algorithms.Tests.DataStructures
             list.Delete("a");
             list.Delete("a");
             Assert.AreEqual(list.Count(), 0);
+        }
+
+        [TestMethod]
+        public void DoublyLinkedList_Empty_And_Null_Node_Throws()
+        {
+            var list = new DoublyLinkedList<string>();
+
+            Assert.ThrowsException<InvalidOperationException>(() => list.DeleteFirst());
+            Assert.ThrowsException<InvalidOperationException>(() => list.DeleteLast());
+            Assert.ThrowsException<InvalidOperationException>(() => list.Delete("x"));
+            Assert.ThrowsException<InvalidOperationException>(() => list.Clear());
+            Assert.ThrowsException<ArgumentException>(() =>
+                list.InsertAfter(null, new DoublyLinkedListNode<string>("a")));
+            Assert.ThrowsException<ArgumentException>(() =>
+                list.InsertBefore(null, new DoublyLinkedListNode<string>("a")));
         }
     }
 }

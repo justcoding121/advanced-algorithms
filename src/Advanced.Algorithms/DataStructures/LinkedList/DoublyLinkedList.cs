@@ -9,8 +9,10 @@ namespace Advanced.Algorithms.DataStructures;
 /// </summary>
 public class DoublyLinkedList<T> : IEnumerable<T>
 {
-    public DoublyLinkedListNode<T> Head;
-    public DoublyLinkedListNode<T> Tail;
+    private const string EmptyListMessage = "Empty list";
+
+    public DoublyLinkedListNode<T> Head { get; set; }
+    public DoublyLinkedListNode<T> Tail { get; set; }
 
     IEnumerator IEnumerable.GetEnumerator()
     {
@@ -19,7 +21,7 @@ public class DoublyLinkedList<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new DoublyLinkedListEnumerator<T>(ref Head);
+        return new DoublyLinkedListEnumerator<T>(Head);
     }
 
     /// <summary>
@@ -62,7 +64,7 @@ public class DoublyLinkedList<T> : IEnumerable<T>
     public DoublyLinkedListNode<T> InsertAfter(DoublyLinkedListNode<T> node, DoublyLinkedListNode<T> data)
     {
         if (node == null)
-            throw new Exception("Empty reference node");
+            throw new ArgumentException("Empty reference node");
 
         if (node == Head && node == Tail)
         {
@@ -105,7 +107,7 @@ public class DoublyLinkedList<T> : IEnumerable<T>
     public DoublyLinkedListNode<T> InsertBefore(DoublyLinkedListNode<T> node, DoublyLinkedListNode<T> data)
     {
         if (node == null)
-            throw new Exception("Empty node");
+            throw new ArgumentException("Empty node");
 
         if (node == Head && node == Tail)
         {
@@ -165,7 +167,7 @@ public class DoublyLinkedList<T> : IEnumerable<T>
     /// </summary>
     public T DeleteFirst()
     {
-        if (Head == null) throw new Exception("Empty list");
+        if (Head == null) throw new InvalidOperationException(EmptyListMessage);
 
         var headData = Head.Data;
 
@@ -189,7 +191,7 @@ public class DoublyLinkedList<T> : IEnumerable<T>
     /// </summary>
     public T DeleteLast()
     {
-        if (Tail == null) throw new Exception("Empty list");
+        if (Tail == null) throw new InvalidOperationException(EmptyListMessage);
 
         var tailData = Tail.Data;
 
@@ -212,7 +214,7 @@ public class DoublyLinkedList<T> : IEnumerable<T>
     /// </summary>
     public void Delete(T data)
     {
-        if (Head == null) throw new Exception("Empty list");
+        if (Head == null) throw new InvalidOperationException(EmptyListMessage);
 
         //eliminate single element list possibility
         if (Head == Tail)
@@ -261,7 +263,7 @@ public class DoublyLinkedList<T> : IEnumerable<T>
     /// </summary>
     public void Delete(DoublyLinkedListNode<T> node)
     {
-        if (Head == null) throw new Exception("Empty list");
+        if (Head == null) throw new InvalidOperationException(EmptyListMessage);
 
         //only one element
         if (node == Head && node == Tail)
@@ -325,7 +327,7 @@ public class DoublyLinkedList<T> : IEnumerable<T>
     /// </summary>
     public void Clear()
     {
-        if (Head == null) throw new Exception("Empty list");
+        if (Head == null) throw new InvalidOperationException(EmptyListMessage);
 
         Head = null;
         Tail = null;
@@ -337,9 +339,9 @@ public class DoublyLinkedList<T> : IEnumerable<T>
 /// </summary>
 public class DoublyLinkedListNode<T>
 {
-    public T Data;
-    public DoublyLinkedListNode<T> Next;
-    public DoublyLinkedListNode<T> Previous;
+    public T Data { get; set; }
+    public DoublyLinkedListNode<T> Next { get; set; }
+    public DoublyLinkedListNode<T> Previous { get; set; }
 
     public DoublyLinkedListNode(T data)
     {
@@ -349,12 +351,13 @@ public class DoublyLinkedListNode<T>
 
 internal class DoublyLinkedListEnumerator<T> : IEnumerator<T>
 {
+    private bool disposedValue;
     internal DoublyLinkedListNode<T> CurrentNode;
     internal DoublyLinkedListNode<T> HeadNode;
 
-    internal DoublyLinkedListEnumerator(ref DoublyLinkedListNode<T> headNode)
+    internal DoublyLinkedListEnumerator(DoublyLinkedListNode<T> headNode)
     {
-        this.HeadNode = headNode;
+        HeadNode = headNode;
     }
 
     public bool MoveNext()
@@ -387,9 +390,25 @@ internal class DoublyLinkedListEnumerator<T> : IEnumerator<T>
 
     public T Current => CurrentNode.Data;
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            HeadNode = null;
+            CurrentNode = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        HeadNode = null;
-        CurrentNode = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
