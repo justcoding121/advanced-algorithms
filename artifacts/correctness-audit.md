@@ -1,4 +1,4 @@
-﻿# Correctness audit log
+# Correctness audit log
 | path | status | note |
 |------|--------|------|
 | src/Advanced.Algorithms/Search/BinarySearch.cs | fixed | empty input indexed `input[0]`; guard `i > j` → `-1`; oracle vs known indices |
@@ -67,3 +67,15 @@
 | tests/Advanced.Algorithms.Tests/Graph/Matching/BiPartiteMatching_Tests.cs | pass | augmenting-path size=2 oracle |
 | src/Advanced.Algorithms/Graph/Matching/HopcroftKarp.cs | fixed | BFS marked wrong vertex visited; followed non-matched edges; mark current + matched-only |
 | tests/Advanced.Algorithms.Tests/Graph/Matching/HopcroftKarp_Tests.cs | pass | known matching size oracles |
+| src/Advanced.Algorithms/Geometry/ConvexHull.cs | fixed | empty guard; Jarvis prefers farthest collinear (drop edge midpoints) |
+| tests/Advanced.Algorithms.Tests/Geometry/ConvexHull_Tests.cs | pass | oracle vs square/triangle/grid/collinear endpoints |
+| src/Advanced.Algorithms/Geometry/LineIntersection.cs | fixed | parallel diagonal collinear overlap returned null; mirror V/H overlap |
+| tests/Advanced.Algorithms.Tests/Geometry/LineIntersection_Tests.cs | pass | hand-case oracle cross/T/parallel/diagonal overlap |
+| src/Advanced.Algorithms/Geometry/ClosestPointPair.cs | ok | matches O(n^2) brute on n<=40; no code change |
+| tests/Advanced.Algorithms.Tests/Geometry/ClosestPointPair_Tests.cs | pass | brute-force oracle + duplicate distance 0 |
+| src/Advanced.Algorithms/Geometry/RectangleIntersection.cs | ok | overlap/contain/disjoint/touch match hand cases; no code change |
+| tests/Advanced.Algorithms.Tests/Geometry/RectangleIntersection_Tests.cs | pass | hand-case oracle |
+| src/Advanced.Algorithms/Geometry/PointRotation.cs | ok | 90/180/270 match analytic; no code change |
+| tests/Advanced.Algorithms.Tests/Geometry/PointRotation_Tests.cs | pass | cardinal-angle oracle |
+| src/Advanced.Algorithms/Geometry/BentleyOttmann.cs | fixed | Event.CompareTo NRE via segment vs finite sweepline; use Y-at-sweep-X |
+| tests/Advanced.Algorithms.Tests/Geometry/BentleyOttmann_Tests.cs | pass | pairwise LineIntersection oracle + shared-endpoint crash regression |
