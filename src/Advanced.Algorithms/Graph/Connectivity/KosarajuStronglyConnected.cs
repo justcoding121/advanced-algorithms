@@ -80,16 +80,20 @@ public class KosarajuStronglyConnected<T>
     /// <summary>
     ///     Create a clone graph with reverse edge directions.
     /// </summary>
-    private IDiGraph<T> ReverseEdges(IDiGraph<T> graph)
+    private static IDiGraph<T> ReverseEdges(IDiGraph<T> graph)
     {
         var newGraph = new DiGraph<T>();
 
         foreach (var vertex in graph.VerticesAsEnumberable) newGraph.AddVertex(vertex.Key);
 
         foreach (var vertex in graph.VerticesAsEnumberable)
-        foreach (var edge in vertex.OutEdges)
-            //reverse edge
-            newGraph.AddEdge(edge.TargetVertexKey, vertex.Key);
+        {
+            foreach (var edge in vertex.OutEdges)
+            {
+                //reverse edge
+                newGraph.AddEdge(edge.TargetVertexKey, vertex.Key);
+            }
+        }
 
         return newGraph;
     }
