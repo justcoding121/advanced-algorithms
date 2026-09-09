@@ -107,6 +107,44 @@ namespace Advanced.Algorithms.Tests.Graph
             Assert.AreEqual(0, algorithm.ComputeMaxFlowAndReturnFlowPath(disconnected, 'S', 'T').Count);
         }
 
+        [TestMethod]
+        public void FordFulkerson_Oracle_Matches_EdmondKarp_And_PushRelabel()
+        {
+            var graph = new WeightedDiGraph<char, int>();
+            foreach (var v in "SABCDT") graph.AddVertex(v);
+            graph.AddEdge('S', 'A', 10);
+            graph.AddEdge('S', 'C', 10);
+            graph.AddEdge('A', 'B', 4);
+            graph.AddEdge('A', 'C', 2);
+            graph.AddEdge('A', 'D', 8);
+            graph.AddEdge('B', 'T', 10);
+            graph.AddEdge('C', 'D', 9);
+            graph.AddEdge('D', 'B', 6);
+            graph.AddEdge('D', 'T', 10);
+
+            var op = new FordFulkersonOperators();
+            var ff = new FordFulkersonMaxFlow<char, int>(op).ComputeMaxFlow(graph, 'S', 'T');
+            var ek = new EdmondKarpMaxFlow<char, int>(op).ComputeMaxFlow(graph, 'S', 'T');
+            var pr = new PushRelabelMaxFlow<char, int>(op).ComputeMaxFlow(graph, 'S', 'T');
+            Assert.AreEqual(19, ff);
+            Assert.AreEqual(ff, ek);
+            Assert.AreEqual(ff, pr);
+        }
+
+        [TestMethod]
+        public void FordFulkerson_Antiparallel_Edges()
+        {
+            var graph = new WeightedDiGraph<char, int>();
+            graph.AddVertex('S');
+            graph.AddVertex('T');
+            graph.AddEdge('S', 'T', 5);
+            graph.AddEdge('T', 'S', 3);
+
+            var flow = new FordFulkersonMaxFlow<char, int>(new FordFulkersonOperators())
+                .ComputeMaxFlow(graph, 'S', 'T');
+            Assert.AreEqual(5, flow);
+        }
+
         /// <summary>
         ///     operators for generics
         ///     implemented for int type for edge weights

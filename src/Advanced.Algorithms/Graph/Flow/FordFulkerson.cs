@@ -189,10 +189,24 @@ public class FordFulkersonMaxFlow<T, TW> where TW : IComparable
             //here we use OutEdges
             foreach (var edge in vertex.OutEdges)
             {
-                //original edge
-                newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<TW>());
-                //add a backward edge for residual graph with edge value as default(W)
-                newGraph.AddEdge(edge.TargetVertexKey, vertex.Key, default);
+                var u = vertex.Key;
+                var v = edge.TargetVertexKey;
+                var w = edge.Weight<TW>();
+
+                // original forward capacity (update if antiparallel residual stub already exists)
+                if (!newGraph.HasEdge(u, v))
+                    newGraph.AddEdge(u, v, w);
+                else
+                {
+                    var uVertex = newGraph.FindVertex(u);
+                    var vVertex = newGraph.FindVertex(v);
+                    uVertex.OutEdges[vVertex] = w;
+                    vVertex.InEdges[uVertex] = w;
+                }
+
+                // residual reverse edge with zero capacity if missing
+                if (!newGraph.HasEdge(v, u))
+                    newGraph.AddEdge(v, u, default);
             }
         }
 
