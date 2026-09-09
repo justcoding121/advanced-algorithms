@@ -18,7 +18,7 @@ public class LruCache<TK, TV>
 
     public LruCache(int capacity)
     {
-        if (capacity <= 0) throw new Exception("Capacity must be a positive integer.");
+        if (capacity <= 0) throw new ArgumentException("Capacity must be a positive integer.", nameof(capacity));
         this.capacity = capacity;
     }
 
