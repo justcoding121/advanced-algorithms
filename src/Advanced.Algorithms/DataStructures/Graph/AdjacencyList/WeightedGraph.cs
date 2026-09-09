@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,7 +87,7 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     /// </summary>
     public void AddVertex(T value)
     {
-        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
+        if (value is null) throw new ArgumentNullException(nameof(value));
 
         var newVertex = new WeightedGraphVertex<T, TW>(value);
 
@@ -100,7 +100,7 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     /// </summary>
     public void RemoveVertex(T value)
     {
-        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
+        if (value is null) throw new ArgumentNullException(nameof(value));
 
         if (!Vertices.ContainsKey(value)) throw new ArgumentException("Vertex not in this graph.");
 
@@ -117,7 +117,7 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     /// </summary>
     public void AddEdge(T source, T dest, TW weight)
     {
-        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+        if (source is null || dest is null)
             throw new ArgumentException("source or destination is null.");
 
         if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
@@ -134,7 +134,7 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     /// </summary>
     public void RemoveEdge(T source, T dest)
     {
-        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+        if (source is null || dest is null)
             throw new ArgumentException("source or destination is null.");
 
         if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))

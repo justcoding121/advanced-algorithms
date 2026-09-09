@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,7 +100,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void AddVertex(T value)
     {
-        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
+        if (value is null) throw new ArgumentNullException(nameof(value));
 
         var newVertex = new DiGraphVertex<T>(value);
 
@@ -113,7 +113,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void RemoveVertex(T value)
     {
-        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
+        if (value is null) throw new ArgumentNullException(nameof(value));
 
         if (!Vertices.ContainsKey(value)) throw new ArgumentException("Vertex not in this graph.");
 
@@ -130,7 +130,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void AddEdge(T source, T dest)
     {
-        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+        if (source is null || dest is null)
             throw new ArgumentException("source or destination is null.");
 
         if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
@@ -149,7 +149,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void RemoveEdge(T source, T dest)
     {
-        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+        if (source is null || dest is null)
             throw new ArgumentException("source or destination is null.");
 
         if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))

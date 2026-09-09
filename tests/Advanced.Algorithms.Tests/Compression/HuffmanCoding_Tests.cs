@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Advanced.Algorithms.Compression;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -55,7 +55,7 @@ namespace Advanced.Algorithms.Tests.Compression
         {
             var encoder = new HuffmanCoding<char>();
 
-            Assert.ThrowsException<Exception>(
+            Assert.ThrowsException<InvalidOperationException>(
                 () => encoder.Compress(Array.Empty<char>()));
         }
     }

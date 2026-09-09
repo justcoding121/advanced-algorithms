@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,7 +77,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public bool HasEdge(T source, T destination)
     {
-        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(destination, default))
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
         if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(destination))
@@ -109,7 +109,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void AddVertex(T value)
     {
-        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
+        if (value is null) throw new ArgumentNullException(nameof(value));
 
         if (vertexIndices.ContainsKey(value)) throw new ArgumentException("Vertex exists.");
 
@@ -131,7 +131,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void RemoveVertex(T value)
     {
-        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
+        if (value is null) throw new ArgumentNullException(nameof(value));
 
         if (!vertexIndices.ContainsKey(value)) throw new ArgumentException("Vertex does'nt exist.");
 
@@ -159,7 +159,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void AddEdge(T source, T dest)
     {
-        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+        if (source is null || dest is null)
             throw new ArgumentException("source or destination is null.");
 
         if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
@@ -178,7 +178,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void RemoveEdge(T source, T dest)
     {
-        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+        if (source is null || dest is null)
             throw new ArgumentException("source or destination is null.");
 
         if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
