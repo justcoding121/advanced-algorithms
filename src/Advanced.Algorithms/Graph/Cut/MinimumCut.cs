@@ -24,10 +24,9 @@ public class MinCut<T, TW> where TW : IComparable
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
-        if (!graph.IsWeightedGraph)
-            if (@operator.DefaultWeight.GetType() != typeof(int))
-                throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
-                                            "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
+        if (!graph.IsWeightedGraph && @operator.DefaultWeight is not int)
+            throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                                        "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
 
         var edmondsKarpMaxFlow = new EdmondKarpMaxFlow<T, TW>(@operator);
 
@@ -43,10 +42,14 @@ public class MinCut<T, TW> where TW : IComparable
         var result = new List<MinCutEdge<T>>();
 
         foreach (var vertex in reachableVertices)
-        foreach (var edge in graph.GetVertex(vertex).OutEdges)
-            //if unreachable
-            if (!reachableVertices.Contains(edge.TargetVertexKey))
-                result.Add(new MinCutEdge<T>(vertex, edge.TargetVertexKey));
+        {
+            foreach (var edge in graph.GetVertex(vertex).OutEdges)
+            {
+                //if unreachable
+                if (!reachableVertices.Contains(edge.TargetVertexKey))
+                    result.Add(new MinCutEdge<T>(vertex, edge.TargetVertexKey));
+            }
+        }
 
         return result;
     }
