@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -64,6 +65,19 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             list.Delete("c");
             Assert.AreEqual(list.Count(), 0);
+        }
+
+        [TestMethod]
+        public void CircularLinkedList_Empty_And_NotFound_Throws()
+        {
+            var list = new CircularLinkedList<string>();
+
+            Assert.ThrowsException<InvalidOperationException>(() => list.Delete("x"));
+            Assert.ThrowsException<InvalidOperationException>(() => list.Clear());
+
+            list.Insert("a");
+            Assert.ThrowsException<ArgumentException>(() => list.Delete("missing"));
+            Assert.AreEqual(1, list.Count());
         }
     }
 }

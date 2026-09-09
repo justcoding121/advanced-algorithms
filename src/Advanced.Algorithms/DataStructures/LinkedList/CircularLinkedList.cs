@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.DataStructures;
 /// </summary>
 public class CircularLinkedList<T> : IEnumerable<T>
 {
-    public CircularLinkedListNode<T> ReferenceNode;
+    public CircularLinkedListNode<T> ReferenceNode { get; set; }
 
     IEnumerator IEnumerable.GetEnumerator()
     {
@@ -18,7 +18,7 @@ public class CircularLinkedList<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new CircularLinkedListEnumerator<T>(ref ReferenceNode);
+        return new CircularLinkedListEnumerator<T>(ReferenceNode);
     }
 
     /// <summary>
@@ -59,7 +59,7 @@ public class CircularLinkedList<T> : IEnumerable<T>
     {
         if (ReferenceNode.Next == ReferenceNode)
         {
-            if (ReferenceNode != current) throw new Exception("Not found");
+            if (ReferenceNode != current) throw new ArgumentException("Not found");
 
             ReferenceNode = null;
             return;
@@ -78,7 +78,7 @@ public class CircularLinkedList<T> : IEnumerable<T>
     /// </summary>
     public void Delete(T data)
     {
-        if (ReferenceNode == null) throw new Exception("Empty list");
+        if (ReferenceNode == null) throw new InvalidOperationException("Empty list");
 
         //only one element on list
         if (ReferenceNode.Next == ReferenceNode)
@@ -89,7 +89,7 @@ public class CircularLinkedList<T> : IEnumerable<T>
                 return;
             }
 
-            throw new Exception("Not found");
+            throw new ArgumentException("Not found");
         }
 
         //atleast two elements from here
@@ -115,7 +115,7 @@ public class CircularLinkedList<T> : IEnumerable<T>
             current = current.Next;
         }
 
-        if (found == false) throw new Exception("Not found");
+        if (!found) throw new ArgumentException("Not found");
     }
 
     /// <summary>
@@ -131,7 +131,7 @@ public class CircularLinkedList<T> : IEnumerable<T>
     /// </summary>
     public void Clear()
     {
-        if (ReferenceNode == null) throw new Exception("Empty list");
+        if (ReferenceNode == null) throw new InvalidOperationException("Empty list");
 
         ReferenceNode = null;
     }
@@ -154,9 +154,9 @@ public class CircularLinkedList<T> : IEnumerable<T>
 /// </summary>
 public class CircularLinkedListNode<T>
 {
-    public T Data;
-    public CircularLinkedListNode<T> Next;
-    public CircularLinkedListNode<T> Previous;
+    public T Data { get; set; }
+    public CircularLinkedListNode<T> Next { get; set; }
+    public CircularLinkedListNode<T> Previous { get; set; }
 
     public CircularLinkedListNode(T data)
     {
@@ -166,12 +166,13 @@ public class CircularLinkedListNode<T>
 
 internal class CircularLinkedListEnumerator<T> : IEnumerator<T>
 {
+    private bool disposedValue;
     internal CircularLinkedListNode<T> CurrentNode;
     internal CircularLinkedListNode<T> ReferenceNode;
 
-    internal CircularLinkedListEnumerator(ref CircularLinkedListNode<T> referenceNode)
+    internal CircularLinkedListEnumerator(CircularLinkedListNode<T> referenceNode)
     {
-        this.ReferenceNode = referenceNode;
+        ReferenceNode = referenceNode;
     }
 
     public bool MoveNext()
@@ -204,9 +205,25 @@ internal class CircularLinkedListEnumerator<T> : IEnumerator<T>
 
     public T Current => CurrentNode.Data;
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            ReferenceNode = null;
+            CurrentNode = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        ReferenceNode = null;
-        CurrentNode = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
