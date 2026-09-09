@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
@@ -138,6 +138,27 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(5, maxHeap.Peek());
             Assert.AreEqual(5, maxHeap.Extract());
             Assert.AreEqual(3, maxHeap.Extract());
+        }
+        [TestMethod]
+        public void FibonacciHeap_Extract_Order_And_Merge_Oracle()
+        {
+            var rnd = new Random(11);
+            for (var trial = 0; trial < 20; trial++)
+            {
+                var items = Enumerable.Range(0, rnd.Next(1, 40)).Select(_ => rnd.Next(-200, 200)).ToList();
+                var heap = new FibonacciHeap<int>();
+                foreach (var x in items) heap.Insert(x);
+                foreach (var expected in items.OrderBy(x => x))
+                    Assert.AreEqual(expected, heap.Extract());
+            }
+
+            var a = new FibonacciHeap<int>();
+            var b = new FibonacciHeap<int>();
+            a.Insert(1); a.Insert(5);
+            b.Insert(2); b.Insert(3);
+            a.Merge(b);
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 5 },
+                new[] { a.Extract(), a.Extract(), a.Extract(), a.Extract() });
         }
     }
 }

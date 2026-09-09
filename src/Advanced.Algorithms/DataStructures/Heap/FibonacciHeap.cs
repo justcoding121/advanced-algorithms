@@ -137,6 +137,23 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     public void Merge(FibonacciHeap<T> fibonacciHeap)
     {
         MergeForests(fibonacciHeap.heapForestHead);
+
+        foreach (var kv in fibonacciHeap.heapMapping)
+            if (heapMapping.ContainsKey(kv.Key))
+                heapMapping[kv.Key].AddRange(kv.Value);
+            else
+                heapMapping[kv.Key] = new List<FibonacciHeapNode<T>>(kv.Value);
+
+        if (minMaxNode == null)
+        {
+            minMaxNode = fibonacciHeap.minMaxNode;
+        }
+        else if (fibonacciHeap.minMaxNode != null
+                 && comparer.Compare(minMaxNode.Value, fibonacciHeap.minMaxNode.Value) > 0)
+        {
+            minMaxNode = fibonacciHeap.minMaxNode;
+        }
+
         Count = Count + fibonacciHeap.Count;
     }
 
