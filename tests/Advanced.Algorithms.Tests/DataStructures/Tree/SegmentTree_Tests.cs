@@ -40,6 +40,33 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(1, tree.RangeResult(0, 0));
             Assert.AreEqual(9, tree.RangeResult(0, 2));
             Assert.AreEqual(3, tree.Count());
+
+            var empty = new SegmentTree<int>(Array.Empty<int>(), (x, y) => x + y, () => 0);
+            Assert.AreEqual(0, empty.Count());
+            Assert.ThrowsException<ArgumentException>(() => empty.RangeResult(0, 0));
+        }
+
+        [TestMethod]
+        public void SegmentTree_Range_Oracle()
+        {
+            var input = new[] { 1, 3, 5, 7, 9, 11 };
+            var sumTree = new SegmentTree<int>(input, (x, y) => x + y, () => 0);
+            var minTree = new SegmentTree<int>(input, Math.Min, () => int.MaxValue);
+
+            for (var i = 0; i < input.Length; i++)
+            for (var j = i; j < input.Length; j++)
+            {
+                var sum = 0;
+                var min = int.MaxValue;
+                for (var k = i; k <= j; k++)
+                {
+                    sum += input[k];
+                    min = Math.Min(min, input[k]);
+                }
+
+                Assert.AreEqual(sum, sumTree.RangeResult(i, j));
+                Assert.AreEqual(min, minTree.RangeResult(i, j));
+            }
         }
     }
 }

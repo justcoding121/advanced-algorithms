@@ -45,14 +45,19 @@ public class SegmentTree<T> : IEnumerable<T>
         if (defaultValue == null) throw new ArgumentNullException(nameof(defaultValue));
 
         this.input = input.Clone() as T[];
+        this.operation = operation;
+        this.defaultValue = defaultValue;
+        length = input.Length;
+
+        if (input.Length == 0)
+        {
+            segmentTree = Array.Empty<T>();
+            return;
+        }
 
         var maxHeight = Math.Ceiling(Math.Log(input.Length, 2));
         var maxTreeNodes = 2 * (int)Math.Pow(2, maxHeight) - 1;
         segmentTree = new T[maxTreeNodes];
-        this.operation = operation;
-        this.defaultValue = defaultValue;
-
-        length = input.Length;
 
         Construct(input, 0, input.Length - 1, 0);
     }
