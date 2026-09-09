@@ -74,7 +74,7 @@ public class HuffmanCoding<T>
     /// <summary>
     ///     Computes frequencies of each of T in given input.
     /// </summary>
-    private Dictionary<T, int> ComputeFrequency(T[] input)
+    private static Dictionary<T, int> ComputeFrequency(T[] input)
     {
         var result = new Dictionary<T, int>();
 
