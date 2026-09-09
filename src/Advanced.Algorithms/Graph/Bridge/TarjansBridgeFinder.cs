@@ -15,10 +15,19 @@ public class TarjansBridgeFinder<T>
     public List<Bridge<T>> FindBridges(IGraph<T> graph)
     {
         var visitTime = 0;
-        return Dfs(graph.ReferenceVertex, new List<Bridge<T>>(),
-            new Dictionary<T, int>(), new Dictionary<T, int>(),
-            new Dictionary<T, T>(),
-            ref visitTime);
+        var result = new List<Bridge<T>>();
+        var discoveryTimeMap = new Dictionary<T, int>();
+        var lowTimeMap = new Dictionary<T, int>();
+        var parent = new Dictionary<T, T>();
+
+        foreach (var vertex in graph.VerticesAsEnumberable)
+            if (!discoveryTimeMap.ContainsKey(vertex.Key))
+            {
+                visitTime++;
+                Dfs(vertex, result, discoveryTimeMap, lowTimeMap, parent, ref visitTime);
+            }
+
+        return result;
     }
 
     /// <summary>

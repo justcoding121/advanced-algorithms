@@ -100,5 +100,21 @@ namespace Advanced.Algorithms.Tests.Graph
                 Assert.IsTrue(expected.Any(x => bridge.VertexA == x[0]
                                                 && bridge.VertexB == x[1]));
         }
+
+        [TestMethod]
+        public void TarjanBridge_Disconnected_Components()
+        {
+            var graph = new Graph<char>();
+            foreach (var c in "ABCDE") graph.AddVertex(c);
+            graph.AddEdge('A', 'B');
+            graph.AddEdge('B', 'C');
+            graph.AddEdge('C', 'A');
+            graph.AddEdge('D', 'E');
+
+            var result = new TarjansBridgeFinder<char>().FindBridges(graph);
+            Assert.AreEqual(1, result.Count);
+            Assert.IsTrue((result[0].VertexA == 'D' && result[0].VertexB == 'E')
+                          || (result[0].VertexA == 'E' && result[0].VertexB == 'D'));
+        }
     }
 }

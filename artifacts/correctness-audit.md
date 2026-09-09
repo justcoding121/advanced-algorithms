@@ -51,3 +51,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Cycle/CycleDetection_Tests.cs | pass | self-loop + DAG adversarial |
 | src/Advanced.Algorithms/Graph/ArticulationPoint/TarjansArticulationFinder.cs | fixed | only scanned reference component; iterate all DFS roots |
 | tests/Advanced.Algorithms.Tests/Graph/ArticulationPoints/TarjansArticulation_Tests.cs | pass | disconnected triangle+path AP oracle |
+| src/Advanced.Algorithms/Graph/Bridge/TarjansBridgeFinder.cs | fixed | only scanned reference component; iterate all DFS roots |
+| tests/Advanced.Algorithms.Tests/Graph/Bridge/TarjansBridge_Tests.cs | pass | disconnected triangle+edge bridge oracle |
