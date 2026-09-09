@@ -360,7 +360,6 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     private sealed class WeightedDiGraphVertex : IDiGraphVertex<T>, IGraphVertex<T>
     {
         private readonly WeightedDiGraph<T, TW> graph;
-        private readonly int vertexIndex;
 
         internal WeightedDiGraphVertex(WeightedDiGraph<T, TW> graph, T vertexKey)
         {
@@ -369,7 +368,6 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
 
             this.graph = graph;
             Key = vertexKey;
-            vertexIndex = graph.vertexIndices[vertexKey];
         }
 
         private TW[,] Matrix => graph.matrix;
@@ -392,8 +390,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
             if (!VertexIndices.ContainsKey(targetVertex.Key))
                 throw new ArgumentException(VertexNotInGraph);
 
+            var sourceIndex = VertexIndices[Key];
             var index = VertexIndices[targetVertex.Key];
-            return new DiEdge<T, TW>(targetVertex, Matrix[vertexIndex, index]);
+            return new DiEdge<T, TW>(targetVertex, Matrix[sourceIndex, index]);
         }
 
         IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => graph.OutEdges(Key)
@@ -404,8 +403,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
             if (!VertexIndices.ContainsKey(targetVertex.Key))
                 throw new ArgumentException(VertexNotInGraph);
 
+            var sourceIndex = VertexIndices[Key];
             var index = VertexIndices[targetVertex.Key];
-            return new Edge<T, TW>(targetVertex, Matrix[vertexIndex, index]);
+            return new Edge<T, TW>(targetVertex, Matrix[sourceIndex, index]);
         }
     }
 }
