@@ -82,7 +82,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     }
 
     //O(log(n)) always
-    private SplayTreeNode<T> Insert(SplayTreeNode<T> currentNode, T newNodeValue)
+    private static SplayTreeNode<T> Insert(SplayTreeNode<T> currentNode, T newNodeValue)
     {
         while (true)
         {
@@ -115,7 +115,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
             }
             else
             {
-                throw new Exception("Item exists");
+                throw new ArgumentException("Item exists");
             }
         }
     }
@@ -143,7 +143,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
-        if (Root == null) throw new Exception("Empty SplayTree");
+        if (Root == null) throw new InvalidOperationException("Empty SplayTree");
 
         Delete(Root, value);
     }
@@ -171,14 +171,14 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
             //node is less than the search value so move right to find the deletion node
             if (compareResult < 0)
             {
-                node = node.Right ?? throw new Exception("Item do not exist");
+                node = node.Right ?? throw new ArgumentException("Item do not exist");
                 continue;
             }
             //node is less than the search value so move left to find the deletion node
 
             if (compareResult > 0)
             {
-                node = node.Left ?? throw new Exception("Item do not exist");
+                node = node.Left ?? throw new ArgumentException("Item do not exist");
                 continue;
             }
 
@@ -280,7 +280,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
         return FindMax(Root).Value;
     }
 
-    private SplayTreeNode<T> FindMax(SplayTreeNode<T> node)
+    private static SplayTreeNode<T> FindMax(SplayTreeNode<T> node)
     {
         while (true)
         {
@@ -297,13 +297,20 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
         return FindMin(Root).Value;
     }
 
-    private SplayTreeNode<T> FindMin(SplayTreeNode<T> node)
+    private static SplayTreeNode<T> FindMin(SplayTreeNode<T> node)
     {
         while (true)
         {
             if (node.Left == null) return node;
             node = node.Left;
         }
+    }
+
+    //find the node with the given identifier among descendants of parent and parent
+    //uses pre-order traversal
+    private BstNodeBase<T> Find(T value)
+    {
+        return Root.Find(value).Item1;
     }
 
     //find the node with the given identifier among descendants of parent and parent
@@ -438,14 +445,6 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
         if (prevRoot == Root) Root = newRoot;
 
         return newRoot;
-    }
-
-
-    //find the node with the given identifier among descendants of parent and parent
-    //uses pre-order traversal
-    private BstNodeBase<T> Find(T value)
-    {
-        return Root.Find(value).Item1;
     }
 
     /// <summary>
