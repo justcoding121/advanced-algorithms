@@ -37,9 +37,9 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
 
     IDiGraphVertex<T> IDiGraph<T>.ReferenceVertex => ReferenceVertex;
 
-    public IDiGraphVertex<T> GetVertex(T value)
+    public IDiGraphVertex<T> GetVertex(T key)
     {
-        return Vertices[value];
+        return Vertices[key];
     }
 
     IDiGraph<T> IDiGraph<T>.Clone()
@@ -67,13 +67,13 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     ///     Do we have an edge between the given source and destination?
     ///     Time complexity: O(1).
     /// </summary>
-    public bool HasEdge(T source, T dest)
+    public bool HasEdge(T source, T destination)
     {
-        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(destination))
             throw new ArgumentException("source or destination is not in this graph.");
 
-        return Vertices[source].OutEdges.Contains(Vertices[dest])
-               && Vertices[dest].InEdges.Contains(Vertices[source]);
+        return Vertices[source].OutEdges.Contains(Vertices[destination])
+               && Vertices[destination].InEdges.Contains(Vertices[source]);
     }
 
     public bool ContainsVertex(T value)
@@ -100,7 +100,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void AddVertex(T value)
     {
-        if (value == null) throw new ArgumentNullException();
+        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
 
         var newVertex = new DiGraphVertex<T>(value);
 
@@ -113,9 +113,9 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void RemoveVertex(T value)
     {
-        if (value == null) throw new ArgumentNullException();
+        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
 
-        if (!Vertices.ContainsKey(value)) throw new Exception("Vertex not in this graph.");
+        if (!Vertices.ContainsKey(value)) throw new ArgumentException("Vertex not in this graph.");
 
         foreach (var vertex in Vertices[value].InEdges) vertex.OutEdges.Remove(Vertices[value]);
 
@@ -130,13 +130,14 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void AddEdge(T source, T dest)
     {
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+            throw new ArgumentException("source or destination is null.");
 
         if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
-            throw new Exception("Source or Destination Vertex is not in this graph.");
+            throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
         if (Vertices[source].OutEdges.Contains(Vertices[dest]) || Vertices[dest].InEdges.Contains(Vertices[source]))
-            throw new Exception("Edge already exists.");
+            throw new InvalidOperationException("Edge already exists.");
 
         Vertices[source].OutEdges.Add(Vertices[dest]);
         Vertices[dest].InEdges.Add(Vertices[source]);
@@ -148,14 +149,15 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     /// </summary>
     public void RemoveEdge(T source, T dest)
     {
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+            throw new ArgumentException("source or destination is null.");
 
         if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
-            throw new Exception("Source or Destination Vertex is not in this graph.");
+            throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
         if (!Vertices[source].OutEdges.Contains(Vertices[dest])
             || !Vertices[dest].InEdges.Contains(Vertices[source]))
-            throw new Exception("Edge do not exists.");
+            throw new InvalidOperationException("Edge do not exists.");
 
         Vertices[source].OutEdges.Remove(Vertices[dest]);
         Vertices[dest].InEdges.Remove(Vertices[source]);
@@ -182,11 +184,16 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     {
         var newGraph = new DiGraph<T>();
 
-        foreach (var vertex in Vertices) newGraph.AddVertex(vertex.Key);
+        foreach (var vertex in Vertices)
+        {
+            newGraph.AddVertex(vertex.Key);
+        }
 
         foreach (var vertex in Vertices)
-        foreach (var edge in vertex.Value.OutEdges)
-            newGraph.AddEdge(vertex.Value.Key, edge.Key);
+        {
+            foreach (var edge in vertex.Value.OutEdges)
+                newGraph.AddEdge(vertex.Value.Key, edge.Key);
+        }
 
         return newGraph;
     }
