@@ -22,7 +22,8 @@ public class ArrayList<T> : IEnumerable<T>
     /// <param name="initial">Initial values if any.</param>
     public ArrayList(int initalArraySize = 2, IEnumerable<T> initial = null)
     {
-        if (initalArraySize < 2) throw new Exception("Initial array size must be greater than 1");
+        if (initalArraySize < 2)
+            throw new ArgumentException("Initial array size must be greater than 1");
 
         initialArraySize = initalArraySize;
         arraySize = initalArraySize;
@@ -68,7 +69,7 @@ public class ArrayList<T> : IEnumerable<T>
     private T ItemAt(int i)
     {
         if (i >= Length)
-            throw new Exception("Index exeeds array size");
+            throw new ArgumentException("Index exeeds array size");
 
         return array[i];
     }
@@ -126,7 +127,7 @@ public class ArrayList<T> : IEnumerable<T>
     private void SetItem(int i, T item)
     {
         if (i >= Length)
-            throw new Exception("Index exeeds array size");
+            throw new ArgumentException("Index exeeds array size");
 
         array[i] = item;
     }
@@ -139,7 +140,7 @@ public class ArrayList<T> : IEnumerable<T>
     public void RemoveAt(int i)
     {
         if (i >= Length)
-            throw new Exception("Index exeeds array size");
+            throw new ArgumentException("Index exeeds array size");
 
         //shift elements
         for (var j = i; j < arraySize - 1; j++) array[j] = array[j + 1];

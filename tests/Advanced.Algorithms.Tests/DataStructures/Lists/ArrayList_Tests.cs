@@ -61,5 +61,19 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(true, arrayList.Contains(50000));
             Assert.AreEqual(nodeCount + 2, arrayList.Length);
         }
+
+        [TestMethod]
+        public void ArrayList_Invalid_Size_And_Index_Throws()
+        {
+            Assert.ThrowsException<ArgumentException>(() => new ArrayList<int>(1));
+            Assert.ThrowsException<ArgumentException>(() => new ArrayList<int>(0));
+
+            var arrayList = new ArrayList<int>();
+            arrayList.Add(1);
+
+            Assert.ThrowsException<ArgumentException>(() => { var _ = arrayList[1]; });
+            Assert.ThrowsException<ArgumentException>(() => arrayList[1] = 2);
+            Assert.ThrowsException<ArgumentException>(() => arrayList.RemoveAt(1));
+        }
     }
 }
