@@ -11,6 +11,7 @@ internal class BstEnumerator<T> : IEnumerator<T> where T : IComparable
 
     private readonly BstNodeBase<T> root;
     private BstNodeBase<T> current;
+    private bool disposedValue;
 
     internal BstEnumerator(BstNodeBase<T> root, bool asc = true)
     {
@@ -47,8 +48,24 @@ internal class BstEnumerator<T> : IEnumerator<T> where T : IComparable
 
     object IEnumerator.Current => Current;
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            current = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        current = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }

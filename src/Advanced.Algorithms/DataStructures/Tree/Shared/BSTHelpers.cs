@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures;
 
-internal class BstHelpers
+internal static class BstHelpers
 {
     internal static void ValidateSortedCollection<T>(IEnumerable<T> sortedCollection) where T : IComparable
     {

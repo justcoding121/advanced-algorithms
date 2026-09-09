@@ -73,7 +73,7 @@ internal static class BstExtensions
 
             while (node.Parent != null && node.IsLeftChild) node = node.Parent;
 
-            return node?.Parent;
+            return node.Parent;
         }
         //right child
 
@@ -103,7 +103,7 @@ internal static class BstExtensions
                 return node;
             }
 
-            return node?.Parent;
+            return node.Parent;
         }
         //right child
 
@@ -118,7 +118,7 @@ internal static class BstExtensions
 
         while (node.Parent != null && node.IsRightChild) node = node.Parent;
 
-        return node?.Parent;
+        return node.Parent;
     }
 
     internal static void UpdateCounts<T>(this BstNodeBase<T> node, bool spiralUp = false) where T : IComparable
