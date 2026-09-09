@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -70,7 +70,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
 
             while (current != null)
             {
-                if (current.Value.Equals(value)) throw new Exception("Duplicate value");
+                if (current.Value.Equals(value)) throw new ArgumentException("Duplicate value");
 
                 index++;
 
@@ -80,7 +80,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
 
                 current = hashArray[index];
 
-                if (current != null && current.Value.Equals(hitKey)) throw new Exception("HashSet is full");
+                if (current != null && current.Value.Equals(hitKey)) throw new InvalidOperationException("HashSet is full");
             }
 
             hashArray[index] = new HashSetNode<T>(value);
@@ -89,12 +89,12 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
         Count++;
     }
 
-    public void Remove(T value)
+    public void Remove(T key)
     {
-        var hashCode = GetHash(value);
+        var hashCode = GetHash(key);
         var curIndex = hashCode % BucketSize;
 
-        if (hashArray[curIndex] == null) throw new Exception("No such item for given value");
+        if (hashArray[curIndex] == null) throw new ArgumentException("No such item for given value");
 
         var current = hashArray[curIndex];
 
@@ -105,7 +105,7 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
 
         while (current != null)
         {
-            if (current.Value.Equals(value))
+            if (current.Value.Equals(key))
             {
                 target = current;
                 break;
@@ -119,13 +119,13 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
 
             current = hashArray[curIndex];
 
-            if (current != null && current.Value.Equals(hitKey)) throw new Exception("No such item for given value");
+            if (current != null && current.Value.Equals(hitKey)) throw new ArgumentException("No such item for given value");
         }
 
         //remove
         if (target == null)
         {
-            throw new Exception("No such item for given value");
+            throw new ArgumentException("No such item for given value");
         }
 
         //delete this element
@@ -200,8 +200,6 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
                 Count--;
             }
         }
-
-        currentArray = null;
     }
 
 
@@ -226,12 +224,10 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
                     Count--;
                 }
             }
-
-            currentArray = null;
         }
     }
 
-    private int GetHash(T value)
+    private static int GetHash(T value)
     {
         return Math.Abs(value.GetHashCode());
     }
@@ -296,7 +292,16 @@ internal class OpenAddressHashSetEnumerator<TV> : IEnumerator<TV>
 
     public void Dispose()
     {
-        length = 0;
-        HashArray = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            length = 0;
+            HashArray = null;
+        }
     }
 }
