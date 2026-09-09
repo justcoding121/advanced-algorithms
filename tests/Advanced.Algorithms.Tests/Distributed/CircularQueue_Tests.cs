@@ -80,5 +80,33 @@ namespace Advanced.Algorithms.Tests
             Assert.AreEqual(1, queue.Count);
             Assert.AreEqual(4, queue.Dequeue());
         }
+
+        [TestMethod]
+        public void CircularQueue_Adversarial_Wrap_Full_Empty()
+        {
+            var queue = new CircularQueue<int>(3);
+
+            for (var i = 1; i <= 10; i++) queue.Enqueue(i);
+
+            Assert.AreEqual(3, queue.Count);
+            Assert.AreEqual(8, queue.Dequeue());
+            Assert.AreEqual(9, queue.Dequeue());
+            Assert.AreEqual(10, queue.Dequeue());
+            Assert.AreEqual(0, queue.Count);
+            Assert.ThrowsException<InvalidOperationException>(() => queue.Dequeue());
+
+            var sizeOne = new CircularQueue<int>(1);
+            Assert.AreEqual(0, sizeOne.Enqueue(1));
+            Assert.AreEqual(1, sizeOne.Enqueue(2));
+            Assert.AreEqual(1, sizeOne.Count);
+            Assert.AreEqual(2, sizeOne.Dequeue());
+            Assert.AreEqual(0, sizeOne.Count);
+
+            //overwrite of default(T)=0 must be reported by bulk enqueue
+            var withZero = new CircularQueue<int>(2);
+            var overwrittenZeros = withZero.Enqueue(new[] { 0, 1, 2 }).ToList();
+            CollectionAssert.AreEqual(new[] { 0 }, overwrittenZeros);
+            CollectionAssert.AreEqual(new[] { 1, 2 }, withZero.Dequeue(2).ToList());
+        }
     }
 }

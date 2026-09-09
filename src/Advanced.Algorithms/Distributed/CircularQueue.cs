@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Advanced.Algorithms.Distributed;
 
@@ -32,28 +31,16 @@ public class CircularQueue<T>
         var deleted = default(T);
 
         //wrap around removing oldest element
-        if (end > queue.Length - 1)
-        {
-            end = 0;
-
-            if (start == 0)
-            {
-                deleted = queue[start];
-                start++;
-            }
-        }
-
-        //when end meets start after wraping around
-        if (end == start && Count > 1)
+        if (Count == queue.Length)
         {
             deleted = queue[start];
-            start++;
+            start = (start + 1) % queue.Length;
+            Count--;
         }
 
         queue[end] = data;
-        end++;
-
-        if (Count < queue.Length) Count++;
+        end = (end + 1) % queue.Length;
+        Count++;
 
         return deleted;
     }
@@ -64,8 +51,18 @@ public class CircularQueue<T>
     /// <returns>Deleted items.</returns>
     public IEnumerable<T> Enqueue(T[] bulk)
     {
-        return bulk.Select(item => Enqueue(item))
-            .Where(deleted => !deleted.Equals(default(T))).ToList();
+        var deletedList = new List<T>();
+
+        foreach (var item in bulk)
+        {
+            var wasFull = Count == queue.Length;
+            var deleted = Enqueue(item);
+
+            //include default(T) when it was a real overwrite
+            if (wasFull) deletedList.Add(deleted);
+        }
+
+        return deletedList;
     }
 
     /// <summary>
@@ -76,19 +73,8 @@ public class CircularQueue<T>
         if (Count == 0) throw new InvalidOperationException("Empty queue.");
 
         var element = queue[start];
-        start++;
-
-        //wrap around 
-        if (start > queue.Length - 1)
-        {
-            start = 0;
-
-            if (end == 0) end++;
-        }
-
+        start = (start + 1) % queue.Length;
         Count--;
-
-        if (start == end && Count > 1) end++;
 
         //reset
         if (Count == 0) start = end = 0;
@@ -104,10 +90,7 @@ public class CircularQueue<T>
         var deletedList = new List<T>();
         while (bulkNumber > 0 && Count > 0)
         {
-            var deleted = Dequeue();
-
-            if (!deleted.Equals(default(T))) deletedList.Add(deleted);
-
+            deletedList.Add(Dequeue());
             bulkNumber--;
         }
 
