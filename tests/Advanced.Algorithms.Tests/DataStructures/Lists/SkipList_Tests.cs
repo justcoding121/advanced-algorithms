@@ -27,23 +27,8 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             for (var i = 1; i < 50; i++) skipList.Insert(i);
 
-            try
-            {
-                skipList.Insert(25);
-                Assert.Fail("Duplicate insertion allowed.");
-            }
-            catch (Exception)
-            {
-            }
-
-            try
-            {
-                skipList.Delete(52);
-                Assert.Fail("Deletion of item not in skip list did'nt throw exception.");
-            }
-            catch (Exception)
-            {
-            }
+            Assert.ThrowsException<ArgumentException>(() => skipList.Insert(25));
+            Assert.ThrowsException<ArgumentException>(() => skipList.Delete(52));
 
             //IEnumerable test using linq
             Assert.AreEqual(skipList.Count, skipList.Count());
@@ -55,6 +40,17 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 skipList.Delete(i);
                 Assert.AreEqual(0, skipList.Find(i));
             }
+        }
+
+        [TestMethod]
+        public void SkipList_Duplicate_And_Missing_Throws()
+        {
+            var skipList = new SkipList<int>();
+            skipList.Insert(1);
+
+            Assert.ThrowsException<ArgumentException>(() => skipList.Insert(1));
+            Assert.ThrowsException<ArgumentException>(() => skipList.Delete(2));
+            Assert.AreEqual(1, skipList.Find(1));
         }
     }
 }

@@ -84,7 +84,7 @@ public class SkipList<T> : IEnumerable<T> where T : IComparable
     /// <param name="value">The value to insert.</param>
     public void Insert(T value)
     {
-        if (!Find(value).Equals(default(T))) throw new Exception("Cannot insert duplicate values.");
+        if (!Find(value).Equals(default(T))) throw new ArgumentException("Cannot insert duplicate values.");
 
         //find the random level up to which we link the new node
         var level = 0;
@@ -160,8 +160,8 @@ public class SkipList<T> : IEnumerable<T> where T : IComparable
             }
 
             //item not found
-            if (i == 0 && current.Next[i].Value.CompareTo(value) != 0)
-                throw new Exception("Item to delete was not found in this skip list.");
+            if (i == 0 && (current.Next[i] == null || current.Next[i].Value.CompareTo(value) != 0))
+                throw new ArgumentException("Item to delete was not found in this skip list.");
 
             if (current.Next[i] != null
                 && current.Next[i].Value.CompareTo(value) == 0)
@@ -192,6 +192,7 @@ internal class SkipListEnumerator<T> : IEnumerator<T> where T : IComparable
     // until the first MoveNext() call.
     private SkipListNode<T> current;
     private SkipListNode<T> head;
+    private bool disposedValue;
 
     internal SkipListEnumerator(SkipListNode<T> head)
     {
@@ -219,9 +220,25 @@ internal class SkipListEnumerator<T> : IEnumerator<T> where T : IComparable
 
     public T Current => current.Value;
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            head = null;
+            current = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        head = null;
-        current = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
