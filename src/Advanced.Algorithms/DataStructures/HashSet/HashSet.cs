@@ -16,7 +16,7 @@ public class HashSet<T> : IEnumerable<T>
     /// <param name="initialBucketSize"> The larger the bucket size lesser the collision, but memory matters!</param>
     public HashSet(HashSetType type = HashSetType.SeparateChaining, int initialBucketSize = 2)
     {
-        if (initialBucketSize < 2) throw new Exception("Bucket Size must be greater than 2.");
+        if (initialBucketSize < 2) throw new ArgumentException("Bucket Size must be greater than 2.");
         if (type == HashSetType.SeparateChaining)
             hashSet = new SeparateChainingHashSet<T>(initialBucketSize);
         else
