@@ -8,36 +8,47 @@ namespace Advanced.Algorithms.Tests.Combinatorics
     [TestClass]
     public class CombinationTests
     {
-        //for verification
-        static readonly Func<int, int> Factorial = n =>
-            n == 0 ? 1 : Enumerable.Range(1, n).Aggregate((acc, x) => acc * x);
+        // multiplicative C(n,r) avoids factorial overflow for oracle checks
+        static int CombinationCount(int n, int r)
+        {
+            if (r < 0 || r > n) return 0;
+            if (r == 0 || r == n) return 1;
+            long result = 1;
+            for (var i = 1; i <= r; i++)
+                result = result * (n - r + i) / i;
+            return (int)result;
+        }
 
-        //for verification
-        static readonly Func<int, int, int> Combination = (int n, int r)
-            => n == 0 ? 0 : Factorial(n) / (Factorial(r) * Factorial(n - r));
+        // combinations with repetition: C(n+r-1, r)
+        static int CombinationWithRepCount(int n, int r)
+        {
+            if (r == 0) return 1;
+            if (n == 0) return 0;
+            return CombinationCount(n + r - 1, r);
+        }
 
         [TestMethod]
         public void Combination_Without_Repetitions_Smoke_Test()
         {
             var input = "".ToCharArray().ToList();
             var combinations = Algorithms.Combinatorics.Combination.Find<char>(input, 2, false);
-            Assert.AreEqual(Combination(input.Count, 2), combinations.Count);
+            Assert.AreEqual(CombinationCount(input.Count, 2), combinations.Count);
 
             input = "cookie".ToCharArray().ToList();
             combinations = Algorithms.Combinatorics.Combination.Find<char>(input, 3, false);
-            Assert.AreEqual(Combination(input.Count, 3), combinations.Count);
+            Assert.AreEqual(CombinationCount(input.Count, 3), combinations.Count);
 
             input = "monster".ToCharArray().ToList();
             combinations = Algorithms.Combinatorics.Combination.Find<char>(input, 4, false);
-            Assert.AreEqual(Combination(input.Count, 4), combinations.Count);
+            Assert.AreEqual(CombinationCount(input.Count, 4), combinations.Count);
 
             input = "pen".ToCharArray().ToList();
             combinations = Algorithms.Combinatorics.Combination.Find<char>(input, 0, false);
-            Assert.AreEqual(Combination(input.Count, 0), combinations.Count);
+            Assert.AreEqual(CombinationCount(input.Count, 0), combinations.Count);
 
             input = "pen".ToCharArray().ToList();
             combinations = Algorithms.Combinatorics.Combination.Find<char>(input, input.Count, false);
-            Assert.AreEqual(Combination(input.Count, input.Count), combinations.Count);
+            Assert.AreEqual(CombinationCount(input.Count, input.Count), combinations.Count);
         }
 
 
@@ -50,19 +61,19 @@ namespace Advanced.Algorithms.Tests.Combinatorics
 
             input = "pen".ToCharArray().ToList();
             combinations = Algorithms.Combinatorics.Combination.Find<char>(input, 2, true);
-            Assert.AreEqual(Combination(input.Count + 2 - 1, 2), combinations.Count);
+            Assert.AreEqual(CombinationWithRepCount(input.Count, 2), combinations.Count);
 
             input = "scan".ToCharArray().ToList();
             combinations = Algorithms.Combinatorics.Combination.Find<char>(input, 3, true);
-            Assert.AreEqual(Combination(input.Count + 3 - 1, 3), combinations.Count);
+            Assert.AreEqual(CombinationWithRepCount(input.Count, 3), combinations.Count);
 
             input = "scan".ToCharArray().ToList();
             combinations = Algorithms.Combinatorics.Combination.Find<char>(input, 0, true);
-            Assert.AreEqual(Combination(input.Count + 0 - 1, 0), combinations.Count);
+            Assert.AreEqual(CombinationWithRepCount(input.Count, 0), combinations.Count);
 
             input = "scan".ToCharArray().ToList();
             combinations = Algorithms.Combinatorics.Combination.Find<char>(input, input.Count, true);
-            Assert.AreEqual(Combination(input.Count + input.Count - 1, input.Count), combinations.Count);
+            Assert.AreEqual(CombinationWithRepCount(input.Count, input.Count), combinations.Count);
         }
 
         [TestMethod]
@@ -98,6 +109,29 @@ namespace Advanced.Algorithms.Tests.Combinatorics
             combinations = Algorithms.Combinatorics.Combination.Find(input, 0, true);
             Assert.AreEqual(1, combinations.Count);
             Assert.AreEqual(0, combinations[0].Count);
+        }
+
+        [TestMethod]
+        public void Combination_Oracle_Count_Formula()
+        {
+            for (var n = 0; n <= 7; n++)
+            {
+                var input = Enumerable.Range(0, n).ToList();
+                for (var r = 0; r <= n + 1; r++)
+                {
+                    Assert.AreEqual(CombinationCount(n, r),
+                        Algorithms.Combinatorics.Combination.Find(input, r, false).Count,
+                        $"C({n},{r})");
+                    Assert.AreEqual(CombinationWithRepCount(n, r),
+                        Algorithms.Combinatorics.Combination.Find(input, r, true).Count,
+                        $"Crep({n},{r})");
+                }
+            }
+
+            // empty n, r=0 => one empty combination
+            var empty = Algorithms.Combinatorics.Combination.Find("".ToCharArray().ToList(), 0, false);
+            Assert.AreEqual(1, empty.Count);
+            Assert.AreEqual(0, empty[0].Count);
         }
     }
 }
