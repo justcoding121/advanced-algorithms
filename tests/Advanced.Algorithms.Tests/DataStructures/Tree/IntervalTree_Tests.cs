@@ -307,5 +307,33 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(0, comparer.GetHashCode(null));
             Assert.AreEqual(comparer.GetHashCode(t1), comparer.GetHashCode(t2));
         }
+
+        [TestMethod]
+        public void IntervalTree_MultiEnd_MaxEnd_Search()
+        {
+            var tree = new IntervalTree<int>(1);
+
+            // force both left/right children and MaxEnd updates during insert/delete
+            tree.Insert(new[] { 50 }, new[] { 55 });
+            tree.Insert(new[] { 10 }, new[] { 40 });
+            tree.Insert(new[] { 70 }, new[] { 80 });
+            tree.Insert(new[] { 20 }, new[] { 25 });
+            tree.Insert(new[] { 60 }, new[] { 65 });
+            tree.Insert(new[] { 10 }, new[] { 15 });
+
+            Assert.IsTrue(tree.DoOverlap(new[] { 22 }, new[] { 23 }));
+            Assert.IsTrue(tree.DoOverlap(new[] { 12 }, new[] { 14 }));
+            Assert.IsFalse(tree.DoOverlap(new[] { 90 }, new[] { 95 }));
+
+            // search that must consult left MaxEnd before finding an overlap
+            Assert.IsTrue(tree.DoOverlap(new[] { 35 }, new[] { 36 }));
+
+            tree.Delete(new[] { 10 }, new[] { 40 });
+            Assert.IsFalse(tree.DoOverlap(new[] { 35 }, new[] { 36 }));
+            Assert.IsTrue(tree.DoOverlap(new[] { 12 }, new[] { 14 }));
+            tree.Delete(new[] { 10 }, new[] { 15 });
+            Assert.IsFalse(tree.DoOverlap(new[] { 12 }, new[] { 14 }));
+            Assert.AreEqual(4, tree.Count);
+        }
     }
 }

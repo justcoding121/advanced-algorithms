@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -100,6 +101,50 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
             Assert.IsTrue(clone.HasEdge(1, 1));
             Assert.IsTrue(clone.HasEdge(1, 2));
             Assert.IsFalse(clone.HasEdge(2, 1));
+        }
+
+        [TestMethod]
+        public void DiGraph_Clone_And_VertexApi()
+        {
+            var graph = new DiGraph<int>();
+
+            Assert.IsFalse(graph.IsWeightedGraph);
+            Assert.ThrowsException<ArgumentException>(() => graph.RemoveEdge(1, 2));
+            Assert.ThrowsException<ArgumentException>(() => graph.AddEdge(1, 2));
+
+            var stringGraph = new DiGraph<string>();
+            Assert.ThrowsException<ArgumentNullException>(() => stringGraph.AddVertex(null));
+            Assert.ThrowsException<ArgumentException>(() => stringGraph.AddEdge(null, "a"));
+            Assert.ThrowsException<ArgumentException>(() => stringGraph.RemoveEdge(null, "a"));
+            Assert.ThrowsException<ArgumentNullException>(() => stringGraph.RemoveVertex(null));
+
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            graph.AddVertex(3);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(3, 1);
+
+            Assert.ThrowsException<InvalidOperationException>(() => graph.AddEdge(1, 2));
+            Assert.ThrowsException<InvalidOperationException>(() => graph.RemoveEdge(2, 1));
+            Assert.ThrowsException<ArgumentException>(() => graph.RemoveEdge(1, 99));
+
+            var vertex = graph.GetVertex(2);
+            Assert.AreEqual(2, vertex.Key);
+            Assert.AreEqual(1, vertex.OutEdgeCount);
+            Assert.AreEqual(1, vertex.InEdgeCount);
+            Assert.AreEqual(1, vertex.GetOutEdge(graph.GetVertex(3)).Weight<int>());
+            Assert.AreEqual(1, vertex.OutEdges.Count());
+            Assert.AreEqual(1, vertex.InEdges.Count());
+            Assert.AreEqual(1, vertex.OutEdgeCount);
+            Assert.AreEqual(1, ((IEnumerable<int>)vertex).Count());
+            Assert.AreEqual(3, graph.VerticesAsEnumberable.Count());
+
+            graph.RemoveVertex(3);
+            Assert.IsFalse(graph.ContainsVertex(3));
+            Assert.IsTrue(graph.HasEdge(1, 2));
+            Assert.AreEqual(2, graph.VerticesCount);
+            Assert.AreEqual(0, new DiGraph<int>().Clone().VerticesCount);
         }
     }
 }

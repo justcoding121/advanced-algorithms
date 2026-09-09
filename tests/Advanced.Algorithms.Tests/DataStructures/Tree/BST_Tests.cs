@@ -253,5 +253,61 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(1, fromSorted.FindMin());
             Assert.AreEqual(4, fromSorted.FindMax());
         }
+
+        [TestMethod]
+        public void BST_Delete_OneChild_Cases()
+        {
+            // root with only left child
+            var leftRoot = new Bst<int>();
+            leftRoot.Insert(2);
+            leftRoot.Insert(1);
+            leftRoot.Delete(2);
+            Assert.AreEqual(1, leftRoot.Count);
+            Assert.AreEqual(1, leftRoot.FindMin());
+
+            // root with only right child
+            var rightRoot = new Bst<int>();
+            rightRoot.Insert(1);
+            rightRoot.Insert(2);
+            rightRoot.Delete(1);
+            Assert.AreEqual(1, rightRoot.Count);
+            Assert.AreEqual(2, rightRoot.FindMax());
+
+            // non-root left child with only left subtree
+            var leftChild = new Bst<int>();
+            leftChild.Insert(3);
+            leftChild.Insert(2);
+            leftChild.Insert(1);
+            leftChild.Delete(2);
+            Assert.IsFalse(leftChild.HasItem(2));
+            Assert.IsTrue(leftChild.HasItem(1));
+
+            // non-root right child with only left subtree
+            var rightAsLeft = new Bst<int>();
+            rightAsLeft.Insert(1);
+            rightAsLeft.Insert(3);
+            rightAsLeft.Insert(2);
+            rightAsLeft.Delete(3);
+            Assert.IsFalse(rightAsLeft.HasItem(3));
+            Assert.IsTrue(rightAsLeft.HasItem(2));
+
+            // non-root left child with only right subtree
+            var leftAsRight = new Bst<int>();
+            leftAsRight.Insert(3);
+            leftAsRight.Insert(1);
+            leftAsRight.Insert(2);
+            leftAsRight.Delete(1);
+            Assert.IsFalse(leftAsRight.HasItem(1));
+            Assert.IsTrue(leftAsRight.HasItem(2));
+
+            // non-root right child with only right subtree
+            var rightChild = new Bst<int>();
+            rightChild.Insert(1);
+            rightChild.Insert(2);
+            rightChild.Insert(3);
+            rightChild.Delete(2);
+            Assert.IsFalse(rightChild.HasItem(2));
+            Assert.IsTrue(rightChild.HasItem(3));
+        }
     }
 }

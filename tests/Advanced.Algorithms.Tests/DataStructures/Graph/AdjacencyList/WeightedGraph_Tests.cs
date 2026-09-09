@@ -85,5 +85,50 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyList
             Assert.IsFalse(graph.HasEdge(1, 2));
             Assert.ThrowsException<InvalidOperationException>(() => graph.RemoveEdge(1, 2));
         }
+
+        [TestMethod]
+        public void WeightedGraph_Clone_And_VertexApi()
+        {
+            var graph = new WeightedGraph<int, int>();
+
+            Assert.IsTrue(graph.IsWeightedGraph);
+            Assert.ThrowsException<ArgumentException>(() => graph.RemoveEdge(1, 2));
+            Assert.ThrowsException<ArgumentException>(() => graph.AddEdge(1, 2, 1));
+
+            var stringGraph = new WeightedGraph<string, int>();
+            Assert.ThrowsException<ArgumentNullException>(() => stringGraph.AddVertex(null));
+            Assert.ThrowsException<ArgumentException>(() => stringGraph.AddEdge(null, "a", 1));
+            Assert.ThrowsException<ArgumentException>(() => stringGraph.RemoveEdge(null, "a"));
+            Assert.ThrowsException<ArgumentNullException>(() => stringGraph.RemoveVertex(null));
+
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            graph.AddVertex(3);
+            graph.AddEdge(1, 2, 5);
+            graph.AddEdge(2, 3, 7);
+
+            Assert.ThrowsException<InvalidOperationException>(() => graph.RemoveEdge(1, 3));
+            Assert.ThrowsException<ArgumentException>(() => graph.RemoveEdge(1, 99));
+
+            var vertex = graph.GetVertex(2);
+            Assert.AreEqual(2, vertex.Key);
+            Assert.AreEqual(5, vertex.GetEdge(graph.GetVertex(1)).Weight<int>());
+            Assert.AreEqual(2, vertex.Edges.Count());
+            Assert.AreEqual(3, graph.VerticesAsEnumberable.Count());
+            Assert.AreEqual(2, graph.GetAllEdges(2).Count);
+
+            // vertices-only clone avoids undirected double-add of edges
+            var vertexOnly = new WeightedGraph<int, int>();
+            vertexOnly.AddVertex(1);
+            vertexOnly.AddVertex(2);
+            var vertexClone = vertexOnly.Clone();
+            Assert.AreEqual(2, vertexClone.VerticesCount);
+            Assert.IsFalse(vertexClone.HasEdge(1, 2));
+            Assert.AreEqual(0, new WeightedGraph<int, int>().Clone().VerticesCount);
+
+            graph.RemoveVertex(3);
+            Assert.IsTrue(graph.HasEdge(1, 2));
+            Assert.AreEqual(2, graph.VerticesCount);
+        }
     }
 }

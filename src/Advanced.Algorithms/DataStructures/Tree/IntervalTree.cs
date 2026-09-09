@@ -274,7 +274,11 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
         var existing = redBlackTree.FindNode(interval);
         if (existing != null && existing.Value.End.Count > 1)
         {
-            existing.Value.End.RemoveAt(existing.Value.End.Count - 1);
+            var endIndex = existing.Value.End.IndexOf(interval.End[0]);
+            if (endIndex < 0)
+                throw new ArgumentException("Interval not found in this interval tree.");
+
+            existing.Value.End.RemoveAt(endIndex);
             UpdateMax(existing);
         }
         else if (existing != null)
