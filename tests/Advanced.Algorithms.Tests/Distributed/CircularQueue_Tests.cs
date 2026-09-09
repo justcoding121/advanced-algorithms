@@ -1,4 +1,6 @@
-﻿using Advanced.Algorithms.Distributed;
+﻿using System;
+using System.Linq;
+using Advanced.Algorithms.Distributed;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests
@@ -53,6 +55,30 @@ namespace Advanced.Algorithms.Tests
 
             Assert.AreEqual(queue.Count, 1);
             Assert.AreEqual(queue.Dequeue(), 2);
+        }
+
+        [TestMethod]
+        public void CircularQueue_Empty_Dequeue_Throws()
+        {
+            var queue = new CircularQueue<int>(3);
+
+            Assert.ThrowsException<InvalidOperationException>(() => queue.Dequeue());
+        }
+
+        [TestMethod]
+        public void CircularQueue_Bulk_Enqueue_Dequeue()
+        {
+            var queue = new CircularQueue<int>(3);
+
+            var overwritten = queue.Enqueue(new[] { 1, 2, 3, 4 }).ToList();
+            Assert.AreEqual(1, overwritten.Count);
+            Assert.AreEqual(1, overwritten[0]);
+            Assert.AreEqual(3, queue.Count);
+
+            var deleted = queue.Dequeue(2).ToList();
+            CollectionAssert.AreEqual(new[] { 2, 3 }, deleted);
+            Assert.AreEqual(1, queue.Count);
+            Assert.AreEqual(4, queue.Dequeue());
         }
     }
 }

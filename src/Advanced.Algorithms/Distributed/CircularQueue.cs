@@ -73,7 +73,7 @@ public class CircularQueue<T>
     /// </summary>
     public T Dequeue()
     {
-        if (Count == 0) throw new Exception("Empty queue.");
+        if (Count == 0) throw new InvalidOperationException("Empty queue.");
 
         var element = queue[start];
         start++;
