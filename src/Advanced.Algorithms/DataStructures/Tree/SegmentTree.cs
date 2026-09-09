@@ -40,7 +40,9 @@ public class SegmentTree<T> : IEnumerable<T>
     /// </summary>
     public SegmentTree(T[] input, Func<T, T, T> operation, Func<T> defaultValue)
     {
-        if (input == null || operation == null) throw new ArgumentNullException();
+        if (input == null) throw new ArgumentNullException(nameof(input));
+        if (operation == null) throw new ArgumentNullException(nameof(operation));
+        if (defaultValue == null) throw new ArgumentNullException(nameof(defaultValue));
 
         this.input = input.Clone() as T[];
 
@@ -89,7 +91,7 @@ public class SegmentTree<T> : IEnumerable<T>
     {
         if (startIndex < 0 || endIndex > length - 1
                            || endIndex < startIndex)
-            throw new ArgumentException();
+            throw new ArgumentException("Invalid range.", nameof(startIndex));
 
         return GetRangeResult(startIndex, endIndex, 0, length - 1, 0);
     }
@@ -108,7 +110,7 @@ public class SegmentTree<T> : IEnumerable<T>
             GetRangeResult(start, end, midIndex + 1, right, 2 * currentIndex + 2));
     }
 
-    private int GetMidIndex(int left, int right)
+    private static int GetMidIndex(int left, int right)
     {
         return left + (right - left) / 2;
     }

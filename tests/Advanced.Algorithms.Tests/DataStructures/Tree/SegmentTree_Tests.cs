@@ -1,4 +1,6 @@
-﻿using Advanced.Algorithms.DataStructures;
+﻿using System;
+using System.Linq;
+using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Advanced.Algorithms.Tests.DataStructures
@@ -22,6 +24,22 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var sum = tree.RangeResult(1, 3);
 
             Assert.AreEqual(15, sum);
+        }
+
+        [TestMethod]
+        public void SegmentTree_Corner_Cases()
+        {
+            Assert.ThrowsException<ArgumentNullException>(() => new SegmentTree<int>(null, (x, y) => x + y, () => 0));
+            Assert.ThrowsException<ArgumentNullException>(() => new SegmentTree<int>(new[] { 1 }, null, () => 0));
+            Assert.ThrowsException<ArgumentNullException>(() => new SegmentTree<int>(new[] { 1 }, (x, y) => x + y, null));
+
+            var tree = new SegmentTree<int>(new[] { 1, 3, 5 }, (x, y) => x + y, () => 0);
+            Assert.ThrowsException<ArgumentException>(() => tree.RangeResult(-1, 1));
+            Assert.ThrowsException<ArgumentException>(() => tree.RangeResult(0, 3));
+            Assert.ThrowsException<ArgumentException>(() => tree.RangeResult(2, 1));
+            Assert.AreEqual(1, tree.RangeResult(0, 0));
+            Assert.AreEqual(9, tree.RangeResult(0, 2));
+            Assert.AreEqual(3, tree.Count());
         }
     }
 }
