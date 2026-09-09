@@ -189,5 +189,27 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             return newArray;
         }
+
+        [TestMethod]
+        public void IntervalTree_Corner_Cases()
+        {
+            Assert.ThrowsException<ArgumentException>(() => new IntervalTree<int>(0));
+
+            var tree = new IntervalTree<int>(1);
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+
+            Assert.ThrowsException<ArgumentNullException>(() => tree.Insert(null, new[] { 1 }));
+            Assert.ThrowsException<ArgumentNullException>(() => tree.Insert(new[] { 1 }, null));
+            Assert.ThrowsException<ArgumentException>(() => tree.Insert(new[] { 1, 2 }, new[] { 3 }));
+
+            tree.Insert(new[] { 1 }, new[] { 2 });
+            Assert.ThrowsException<ArgumentException>(() => tree.Insert(new[] { 1 }, new[] { 2 }));
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete(new[] { 9 }, new[] { 10 }));
+
+            Assert.IsTrue(tree.DoOverlap(new[] { 1 }, new[] { 2 }));
+            tree.Delete(new[] { 1 }, new[] { 2 });
+            Assert.AreEqual(0, tree.Count);
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +33,7 @@ public class IntervalTree<T> : IEnumerable<Tuple<T[], T[]>> where T : IComparabl
 
     public IntervalTree(int dimension)
     {
-        if (dimension <= 0) throw new Exception("Dimension should be greater than 0.");
+        if (dimension <= 0) throw new ArgumentException("Dimension should be greater than 0.");
 
         dimensions = dimension;
         tree = new OneDimentionalIntervalTree<T>(defaultValue);
@@ -60,7 +60,7 @@ public class IntervalTree<T> : IEnumerable<Tuple<T[], T[]>> where T : IComparabl
     {
         ValidateDimensions(start, end);
 
-        if (items.Contains(new Tuple<T[], T[]>(start, end))) throw new Exception("Inteval exists.");
+        if (items.Contains(new Tuple<T[], T[]>(start, end))) throw new ArgumentException("Inteval exists.");
 
         var currentTrees = new List<OneDimentionalIntervalTree<T>> { tree };
 
@@ -68,14 +68,14 @@ public class IntervalTree<T> : IEnumerable<Tuple<T[], T[]>> where T : IComparabl
         {
             var allOverlaps = new List<OneDimentionalIntervalTree<T>>();
 
-            foreach (var tree in currentTrees)
+            foreach (var dimTree in currentTrees)
             {
                 //insert in current dimension
-                tree.Insert(new OneDimentionalInterval<T>(start[i], end[i], defaultValue));
+                dimTree.Insert(new OneDimentionalInterval<T>(start[i], end[i], defaultValue));
 
                 //get all overlaps
                 //and insert next dimension value to each overlapping node
-                var overlaps = tree.GetOverlaps(new OneDimentionalInterval<T>(start[i], end[i], defaultValue));
+                var overlaps = dimTree.GetOverlaps(new OneDimentionalInterval<T>(start[i], end[i], defaultValue));
                 foreach (var overlap in overlaps) allOverlaps.Add(overlap.NextDimensionIntervals);
             }
 
@@ -94,7 +94,7 @@ public class IntervalTree<T> : IEnumerable<Tuple<T[], T[]>> where T : IComparabl
     /// </summary>
     public void Delete(T[] start, T[] end)
     {
-        if (!items.Contains(new Tuple<T[], T[]>(start, end))) throw new Exception("Inteval does'nt exist.");
+        if (!items.Contains(new Tuple<T[], T[]>(start, end))) throw new ArgumentException("Inteval does'nt exist.");
 
         ValidateDimensions(start, end);
 
@@ -121,9 +121,9 @@ public class IntervalTree<T> : IEnumerable<Tuple<T[], T[]>> where T : IComparabl
 
         var allOverlaps = new List<OneDimentionalIntervalTree<T>>();
 
-        foreach (var tree in currentTrees)
+        foreach (var dimTree in currentTrees)
         {
-            var overlaps = tree.GetOverlaps(new OneDimentionalInterval<T>(start[index], end[index], defaultValue));
+            var overlaps = dimTree.GetOverlaps(new OneDimentionalInterval<T>(start[index], end[index], defaultValue));
 
             foreach (var overlap in overlaps) allOverlaps.Add(overlap.NextDimensionIntervals);
         }
@@ -134,9 +134,9 @@ public class IntervalTree<T> : IEnumerable<Tuple<T[], T[]>> where T : IComparabl
         index--;
 
         //now delete
-        foreach (var tree in allOverlaps)
-            if (tree.Count > 0)
-                tree.Delete(new OneDimentionalInterval<T>(start[index], end[index], defaultValue));
+        foreach (var dimTree in allOverlaps)
+            if (dimTree.Count > 0)
+                dimTree.Delete(new OneDimentionalInterval<T>(start[index], end[index], defaultValue));
     }
 
     /// <summary>
@@ -220,11 +220,11 @@ public class IntervalTree<T> : IEnumerable<Tuple<T[], T[]>> where T : IComparabl
         if (end == null) throw new ArgumentNullException(nameof(end));
 
         if (start.Length != dimensions || start.Length != end.Length)
-            throw new Exception($"Expecting {dimensions} points in start and end values for this interval.");
+            throw new ArgumentException($"Expecting {dimensions} points in start and end values for this interval.");
 
         if (start.Where((t, i) => t.Equals(defaultValue.Value)
                                   || end[i].Equals(defaultValue.Value)).Any())
-            throw new Exception("Points cannot contain Minimum Value or Null values");
+            throw new ArgumentException("Points cannot contain Minimum Value or Null values");
     }
 }
 
@@ -284,7 +284,7 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
         }
         else
         {
-            throw new Exception("Interval not found in this interval tree.");
+            throw new ArgumentException("Interval not found in this interval tree.");
         }
 
         Count--;
@@ -320,7 +320,7 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
     /// <summary>
     ///     Swap intervals so that start always appear before end.
     /// </summary>
-    private void SortInterval(OneDimentionalInterval<T> value)
+    private static void SortInterval(OneDimentionalInterval<T> value)
     {
         if (value.Start.CompareTo(value.End[0]) <= 0) return;
 
@@ -381,7 +381,7 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
     /// <summary>
     ///     Does this interval a overlap with b.
     /// </summary>
-    private bool DoOverlap(OneDimentionalInterval<T> a, OneDimentionalInterval<T> b)
+    private static bool DoOverlap(OneDimentionalInterval<T> a, OneDimentionalInterval<T> b)
     {
         //lazy reset
         a.MatchingEndIndex = -1;
@@ -405,7 +405,7 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
     /// <summary>
     ///     update max end value under each node in red-black tree recursively.
     /// </summary>
-    private void UpdateMax(RedBlackTreeNode<OneDimentionalInterval<T>> node, T currentMax, bool recurseUp = true)
+    private static void UpdateMax(RedBlackTreeNode<OneDimentionalInterval<T>> node, T currentMax, bool recurseUp = true)
     {
         while (true)
         {
