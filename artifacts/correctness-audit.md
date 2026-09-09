@@ -63,3 +63,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Coloring/MColoring_Tests.cs | pass | odd-cycle 2/3-color + uncolorable no-throw; proper-coloring check |
 | src/Advanced.Algorithms/Graph/Cover/MinVertexCover.cs | fixed | only covered reference component; iterate all vertices (approx) |
 | tests/Advanced.Algorithms.Tests/Graph/Cover/MinVertexCover.cs | pass | disconnected two-edge cover oracle |
+| src/Advanced.Algorithms/Graph/Matching/BiPartiteMatching.cs | ok | max matching size matches known fixtures; no code change |
+| tests/Advanced.Algorithms.Tests/Graph/Matching/BiPartiteMatching_Tests.cs | pass | augmenting-path size=2 oracle |

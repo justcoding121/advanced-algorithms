@@ -200,6 +200,21 @@ namespace Advanced.Algorithms.Tests.Graph
             Assert.AreEqual(result.Count, 3);
         }
 
+        [TestMethod]
+        public void MaxBiPartiteMatch_Known_Size_Augmenting_Path()
+        {
+            var graph = new Graph<char>();
+            foreach (var c in "ABXY") graph.AddVertex(c);
+            graph.AddEdge('A', 'X');
+            graph.AddEdge('B', 'X');
+            graph.AddEdge('B', 'Y');
+
+            var result = new BiPartiteMatching<char>(new BiPartiteMatchOperators())
+                .GetMaxBiPartiteMatching(graph);
+
+            Assert.AreEqual(2, result.Count);
+        }
+
         /// <summary>
         ///     operators for generics
         ///     implemented for int type for edge weights
