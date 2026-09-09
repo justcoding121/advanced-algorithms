@@ -152,5 +152,25 @@ namespace Advanced.Algorithms.Tests.DataStructures
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[Random.Next(s.Length)]).ToArray());
         }
+
+        [TestMethod]
+        public void TernarySearchTree_Corner_Cases()
+        {
+            var tree = new TernarySearchTree<char>();
+
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+            Assert.IsFalse(tree.Contains("a".ToCharArray()));
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete("a".ToCharArray()));
+
+            tree.Insert("cat".ToCharArray());
+            Assert.ThrowsException<ArgumentException>(() => tree.Insert("cat".ToCharArray()));
+            Assert.IsTrue(tree.ContainsPrefix("ca".ToCharArray()));
+            Assert.IsFalse(tree.Contains("ca".ToCharArray()));
+
+            tree.Delete("cat".ToCharArray());
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+        }
     }
 }

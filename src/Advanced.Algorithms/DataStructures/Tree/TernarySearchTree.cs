@@ -78,7 +78,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
             //end of word
             else
             {
-                if (currentNode.IsEnd) throw new Exception("Item exists.");
+                if (currentNode.IsEnd) throw new ArgumentException("Item exists.");
 
                 currentNode.IsEnd = true;
             }
@@ -102,7 +102,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
         T[] entry, int currentIndex)
     {
         //empty node
-        if (currentNode == null) throw new Exception("Item not found.");
+        if (currentNode == null) throw new ArgumentException("Item not found.");
 
         var compareResult = currentNode.Value.CompareTo(entry[currentIndex]);
         TernarySearchTreeNode<T> child;
@@ -116,7 +116,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
             Delete(child, entry, currentIndex);
             //delete if middle is not end
             //and we if have'nt deleted the node yet
-            if (child.HasChildren == false
+            if (!child.HasChildren
                 && !child.IsEnd)
                 currentNode.Left = null;
         }
@@ -127,7 +127,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
             Delete(child, entry, currentIndex);
             //delete if middle is not end
             //and we if have'nt deleted the node yet
-            if (child.HasChildren == false
+            if (!child.HasChildren
                 && !child.IsEnd)
                 currentNode.Right = null;
         }
@@ -140,14 +140,14 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
                 Delete(child, entry, currentIndex + 1);
                 //delete if middle is not end
                 //and we if have'nt deleted the node yet
-                if (child.HasChildren == false
+                if (!child.HasChildren
                     && !child.IsEnd)
                     currentNode.Middle = null;
             }
             //end of word
             else
             {
-                if (!currentNode.IsEnd) throw new Exception("Item not found.");
+                if (!currentNode.IsEnd) throw new ArgumentException("Item not found.");
 
                 //remove this end flag
                 currentNode.IsEnd = false;
@@ -266,7 +266,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Find if the record exist recursively.
     /// </summary>
-    private bool Search(TernarySearchTreeNode<T> currentNode, T[] searchEntry, int currentIndex, bool isPrefixSearch)
+    private static bool Search(TernarySearchTreeNode<T> currentNode, T[] searchEntry, int currentIndex, bool isPrefixSearch)
     {
         while (true)
         {
@@ -322,6 +322,7 @@ internal class TernarySearchTreeNode<T> where T : IComparable
 internal class TernarySearchTreeEnumerator<T> : IEnumerator<T[]> where T : IComparable
 {
     private readonly TernarySearchTreeNode<T> root;
+    private bool disposedValue;
     private Stack<TernarySearchTreeNode<T>> progress;
 
     internal TernarySearchTreeEnumerator(TernarySearchTreeNode<T> root)
@@ -362,17 +363,33 @@ internal class TernarySearchTreeEnumerator<T> : IEnumerator<T[]> where T : IComp
 
     object IEnumerator.Current => Current;
 
-    public void Dispose()
+    protected virtual void Dispose(bool disposing)
     {
-        progress = null;
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            progress = null;
+        }
+
+        disposedValue = true;
     }
 
-    private T[] GetValue(TernarySearchTreeNode<T> next)
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    private static T[] GetValue(TernarySearchTreeNode<T> next)
     {
         var result = new Stack<T>();
         result.Push(next.Value);
 
-        while (next.Parent != null && !next.Parent.Value.Equals(default(T)))
+        while (next.Parent != null && !EqualityComparer<T>.Default.Equals(next.Parent.Value, default))
         {
             next = next.Parent;
             result.Push(next.Value);
