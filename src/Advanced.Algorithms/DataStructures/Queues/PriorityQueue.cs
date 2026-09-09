@@ -18,7 +18,7 @@ public class PriorityQueue<T> : IEnumerable<T> where T : IComparable
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return heap.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
