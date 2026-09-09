@@ -17,9 +17,8 @@ public class CycleDetector<T>
         var visited = new HashSet<T>();
 
         foreach (var vertex in graph.VerticesAsEnumberable)
-            if (!visited.Contains(vertex.Key))
-                if (Dfs(vertex, visited, visiting))
-                    return true;
+            if (!visited.Contains(vertex.Key) && Dfs(vertex, visited, visiting))
+                return true;
 
         return false;
     }
