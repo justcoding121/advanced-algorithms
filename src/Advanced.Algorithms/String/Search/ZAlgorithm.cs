@@ -12,13 +12,15 @@ public static class ZAlgorithm
     /// </summary>
     public static int Search(string input, string pattern)
     {
-        var z = Z(pattern + input, pattern.Length);
+        //separator prevents false matches across the pattern/input boundary
+        const char separator = '\0';
+        var z = Z(pattern + separator + input, pattern.Length);
 
-        for (var i = pattern.Length; i < z.Length; i++)
-            //if match length equals pattern Length + separator length
+        for (var i = pattern.Length + 1; i < z.Length; i++)
+            //if match length equals pattern length
             if (z[i] == pattern.Length)
                 //substract pattern length and separator length
-                return i - pattern.Length;
+                return i - pattern.Length - 1;
 
         return -1;
     }
