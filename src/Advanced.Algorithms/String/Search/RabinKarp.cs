@@ -17,6 +17,8 @@ public class RabinKarp
 
     public int Search(string input, string pattern)
     {
+        if (pattern.Length > input.Length) return -1;
+
         var patternHash = ComputeHash(pattern);
         var hash = ComputeHash(input.Substring(0, pattern.Length));
 
