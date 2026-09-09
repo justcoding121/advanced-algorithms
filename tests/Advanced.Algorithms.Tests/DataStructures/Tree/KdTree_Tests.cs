@@ -195,6 +195,30 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(0, tree.Count());
         }
 
+        [TestMethod]
+        public void KdTree_Insert_Delete_Enumerate_Oracle()
+        {
+            var tree = new KdTree<int>(2);
+            var pts = new List<int[]>
+            {
+                new[] { 1, 2 }, new[] { 3, 4 }, new[] { 5, 1 }, new[] { 2, 8 }, new[] { 7, 7 }
+            };
+
+            foreach (var p in pts) tree.Insert(p);
+            Assert.AreEqual(pts.Count, tree.Count);
+            Assert.AreEqual(pts.Count, tree.Count());
+
+            var start = new[] { 0, 0 };
+            var end = new[] { 4, 5 };
+            var expected = pts.Count(p => p[0] >= 0 && p[0] <= 4 && p[1] >= 0 && p[1] <= 5);
+            Assert.AreEqual(expected, tree.RangeSearch(start, end).Count);
+
+            tree.Delete(new[] { 3, 4 });
+            Assert.AreEqual(4, tree.Count);
+            Assert.AreEqual(1, tree.RangeSearch(start, end).Count);
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete(new[] { 3, 4 }));
+        }
+
         /// <summary>
         ///     gets the actual nearest neighbour by brute force search
         /// </summary>
