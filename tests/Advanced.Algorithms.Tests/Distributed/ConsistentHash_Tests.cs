@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Advanced.Algorithms.Distributed;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -47,6 +48,34 @@ namespace Advanced.Algorithms.Tests
             hash.AddNode("b");
             hash.RemoveNode("a");
             Assert.AreEqual("b", hash.GetNode("any-key"));
+        }
+
+        [TestMethod]
+        public void ConsistentHash_Adversarial_Minimal_Remap_On_Add_Remove()
+        {
+            var hash = new ConsistentHash<string>(new[] { "n1", "n2", "n3" }, 50);
+            var before = new Dictionary<string, string>();
+            for (var i = 0; i < 300; i++)
+            {
+                var key = "k" + i;
+                before[key] = hash.GetNode(key);
+            }
+
+            hash.AddNode("n4");
+            for (var i = 0; i < 300; i++)
+            {
+                var key = "k" + i;
+                var after = hash.GetNode(key);
+                //keys may only move to the newly added node
+                Assert.IsTrue(after == before[key] || after == "n4", key);
+            }
+
+            hash.RemoveNode("n4");
+            for (var i = 0; i < 300; i++)
+            {
+                var key = "k" + i;
+                Assert.AreEqual(before[key], hash.GetNode(key), key);
+            }
         }
     }
 }
