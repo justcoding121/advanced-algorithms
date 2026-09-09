@@ -114,5 +114,29 @@ namespace Advanced.Algorithms.Tests.Graph
                 foreach (var vertex in expectation) Assert.IsTrue(actual.Contains(vertex));
             }
         }
+
+        [TestMethod]
+        public void Tarjan_Hand_Fixture_Components()
+        {
+            var graph = new DiGraph<char>();
+            graph.AddVertex('A');
+            graph.AddVertex('B');
+            graph.AddVertex('C');
+            graph.AddEdge('A', 'B');
+            graph.AddEdge('B', 'A');
+            graph.AddEdge('B', 'C');
+
+            var tarjan = new TarjansStronglyConnected<char>().FindStronglyConnectedComponents(graph);
+            var kosaraju = new KosarajuStronglyConnected<char>().FindStronglyConnectedComponents(graph);
+
+            Assert.AreEqual(2, tarjan.Count);
+            Assert.AreEqual(kosaraju.Count, tarjan.Count);
+
+            var tarjanSets = tarjan.Select(c => new HashSet<char>(c)).ToList();
+            var kosarajuSets = kosaraju.Select(c => new HashSet<char>(c)).ToList();
+
+            foreach (var s in tarjanSets)
+                Assert.IsTrue(kosarajuSets.Any(k => k.SetEquals(s)));
+        }
     }
 }

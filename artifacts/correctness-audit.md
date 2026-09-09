@@ -55,3 +55,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Bridge/TarjansBridge_Tests.cs | pass | disconnected triangle+edge bridge oracle |
 | src/Advanced.Algorithms/Graph/Connectivity/KosarajuStronglyConnected.cs | ok | hand fixture SCCs match; no code change |
 | tests/Advanced.Algorithms.Tests/Graph/Connectivity/KosarajuStronglyConnected_Tests.cs | pass | {A,B}/{C} hand fixture |
+| src/Advanced.Algorithms/Graph/Connectivity/TarjansStronglyConnected.cs | ok | matches Kosaraju on hand fixture; no code change |
+| tests/Advanced.Algorithms.Tests/Graph/Connectivity/TarjansStronglyConnected_Tests.cs | pass | SCC set equality vs Kosaraju |
