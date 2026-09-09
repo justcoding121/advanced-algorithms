@@ -2,6 +2,7 @@
 using System.Linq;
 using Advanced.Algorithms.DataStructures.Foundation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SysQueue = System.Collections.Generic.Queue<int>;
 
 namespace Advanced.Algorithms.Tests.DataStructures
 {
@@ -106,6 +107,38 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(1, queue.Count);
             Assert.AreEqual("only", queue.Dequeue());
             Assert.AreEqual(0, queue.Count);
+        }
+
+        /// <summary>
+        ///     Enqueue/Dequeue oracle vs System.Collections.Generic.Queue for both backends.
+        /// </summary>
+        [TestMethod]
+        public void Queue_SystemQueueOracle_RandomOps()
+        {
+            foreach (QueueType type in new[] { QueueType.Array, QueueType.LinkedList })
+            {
+                var rng = new Random(29 + (int)type);
+                var ours = new Queue<int>(type);
+                var oracle = new SysQueue();
+
+                for (var step = 0; step < 500; step++)
+                {
+                    var op = rng.Next(2);
+
+                    if (op == 0 || oracle.Count == 0)
+                    {
+                        var v = rng.Next(1000);
+                        ours.Enqueue(v);
+                        oracle.Enqueue(v);
+                    }
+                    else
+                    {
+                        Assert.AreEqual(oracle.Dequeue(), ours.Dequeue());
+                    }
+
+                    Assert.AreEqual(oracle.Count, ours.Count);
+                }
+            }
         }
     }
 }
