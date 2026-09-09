@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -39,6 +40,22 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             list.Delete("b");
             Assert.AreEqual(list.Count(), 0);
+        }
+
+        [TestMethod]
+        public void SinglyLinkedList_DeleteLast_Single_And_Empty_Throws()
+        {
+            var list = new SinglyLinkedList<string>();
+            list.InsertFirst("only");
+
+            Assert.AreEqual("only", list.DeleteLast());
+            Assert.AreEqual(0, list.Count());
+            Assert.IsTrue(list.IsEmpty());
+
+            Assert.ThrowsException<InvalidOperationException>(() => list.DeleteLast());
+            Assert.ThrowsException<InvalidOperationException>(() => list.DeleteFirst());
+            Assert.ThrowsException<InvalidOperationException>(() => list.Delete("x"));
+            Assert.ThrowsException<InvalidOperationException>(() => list.Clear());
         }
     }
 }

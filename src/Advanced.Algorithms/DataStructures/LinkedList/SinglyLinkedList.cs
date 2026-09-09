@@ -9,7 +9,7 @@ namespace Advanced.Algorithms.DataStructures;
 /// </summary>
 public class SinglyLinkedList<T> : IEnumerable<T>
 {
-    public SinglyLinkedListNode<T> Head;
+    public SinglyLinkedListNode<T> Head { get; set; }
 
     IEnumerator IEnumerable.GetEnumerator()
     {
@@ -18,7 +18,7 @@ public class SinglyLinkedList<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return new SinglyLinkedListEnumerator<T>(ref Head);
+        return new SinglyLinkedListEnumerator<T>(Head);
     }
 
     /// <summary>
@@ -31,6 +31,16 @@ public class SinglyLinkedList<T> : IEnumerable<T>
         newNode.Next = Head;
 
         Head = newNode;
+    }
+
+    /// <summary>
+    ///     Inserts this element to the begining.
+    ///     Time complexity: O(1).
+    /// </summary>
+    public void InsertFirst(SinglyLinkedListNode<T> current)
+    {
+        current.Next = Head;
+        Head = current;
     }
 
     /// <summary>
@@ -59,7 +69,7 @@ public class SinglyLinkedList<T> : IEnumerable<T>
     /// </summary>
     public T DeleteFirst()
     {
-        if (Head == null) throw new Exception("Nothing to remove");
+        if (Head == null) throw new InvalidOperationException("Nothing to remove");
 
         var firstData = Head.Data;
 
@@ -73,7 +83,7 @@ public class SinglyLinkedList<T> : IEnumerable<T>
     /// </summary>
     public T DeleteLast()
     {
-        if (Head == null) throw new Exception("Nothing to remove");
+        if (Head == null) throw new InvalidOperationException("Nothing to remove");
 
         var current = Head;
         SinglyLinkedListNode<T> prev = null;
@@ -81,6 +91,13 @@ public class SinglyLinkedList<T> : IEnumerable<T>
         {
             prev = current;
             current = current.Next;
+        }
+
+        if (prev == null)
+        {
+            var onlyData = Head.Data;
+            Head = null;
+            return onlyData;
         }
 
         var lastData = prev.Next.Data;
@@ -94,7 +111,7 @@ public class SinglyLinkedList<T> : IEnumerable<T>
     /// </summary>
     public void Delete(T element)
     {
-        if (Head == null) throw new Exception("Empty list");
+        if (Head == null) throw new InvalidOperationException("Empty list");
 
         var current = Head;
         SinglyLinkedListNode<T> prev = null;
@@ -140,19 +157,9 @@ public class SinglyLinkedList<T> : IEnumerable<T>
     // Time complexity: O(1).
     public void Clear()
     {
-        if (Head == null) throw new Exception("Empty list");
+        if (Head == null) throw new InvalidOperationException("Empty list");
 
         Head = null;
-    }
-
-    /// <summary>
-    ///     Inserts this element to the begining.
-    ///     Time complexity: O(1).
-    /// </summary>
-    public void InsertFirst(SinglyLinkedListNode<T> current)
-    {
-        current.Next = Head;
-        Head = current;
     }
 }
 
@@ -161,8 +168,8 @@ public class SinglyLinkedList<T> : IEnumerable<T>
 /// </summary>
 public class SinglyLinkedListNode<T>
 {
-    public T Data;
-    public SinglyLinkedListNode<T> Next;
+    public T Data { get; set; }
+    public SinglyLinkedListNode<T> Next { get; set; }
 
     public SinglyLinkedListNode(T data)
     {
@@ -172,12 +179,13 @@ public class SinglyLinkedListNode<T>
 
 internal class SinglyLinkedListEnumerator<T> : IEnumerator<T>
 {
+    private bool disposedValue;
     internal SinglyLinkedListNode<T> CurrentNode;
     internal SinglyLinkedListNode<T> HeadNode;
 
-    internal SinglyLinkedListEnumerator(ref SinglyLinkedListNode<T> headNode)
+    internal SinglyLinkedListEnumerator(SinglyLinkedListNode<T> headNode)
     {
-        this.HeadNode = headNode;
+        HeadNode = headNode;
     }
 
     public bool MoveNext()
@@ -210,9 +218,25 @@ internal class SinglyLinkedListEnumerator<T> : IEnumerator<T>
 
     public T Current => CurrentNode.Data;
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            HeadNode = null;
+            CurrentNode = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        HeadNode = null;
-        CurrentNode = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
