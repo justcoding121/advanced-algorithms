@@ -156,5 +156,27 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             Assert.IsTrue(tree.Count == 0);
         }
+
+        [TestMethod]
+        public void BTree_Corner_Cases()
+        {
+            Assert.ThrowsException<ArgumentException>(() => new BTree<int>(2));
+
+            var tree = new BTree<int>(3);
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+            Assert.IsFalse(tree.HasItem(1));
+            Assert.AreEqual(0, tree.Min);
+            Assert.AreEqual(0, tree.Max);
+
+            tree.Insert(1);
+            Assert.AreEqual(1, tree.Min);
+            Assert.AreEqual(1, tree.Max);
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete(99));
+
+            tree.Delete(1);
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
 
     public BTree(int maxKeysPerNode)
     {
-        if (maxKeysPerNode < 3) throw new Exception("Max keys per node should be atleast 3.");
+        if (maxKeysPerNode < 3) throw new ArgumentException("Max keys per node should be atleast 3.");
 
         this.maxKeysPerNode = maxKeysPerNode;
         minKeysPerNode = maxKeysPerNode / 2;
@@ -68,6 +68,8 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public bool HasItem(T value)
     {
+        if (Root == null) return false;
+
         return Find(Root, value) != null;
     }
 
@@ -321,7 +323,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     {
         var node = FindDeletionNode(Root, value);
 
-        if (node == null) throw new Exception("Item do not exist in this tree.");
+        if (node == null) throw new ArgumentException("Item do not exist in this tree.");
 
         for (var i = 0; i < node.KeyCount; i++)
         {
@@ -543,7 +545,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Get next key separator index after this child Node in parent
     /// </summary>
-    private int GetNextSeparatorIndex(BTreeNode<T> node)
+    private static int GetNextSeparatorIndex(BTreeNode<T> node)
     {
         var parent = node.Parent;
 
@@ -557,7 +559,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     get the right sibling node
     /// </summary>
-    private BTreeNode<T> GetRightSibling(BTreeNode<T> node)
+    private static BTreeNode<T> GetRightSibling(BTreeNode<T> node)
     {
         var parent = node.Parent;
 
@@ -567,12 +569,12 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     get left sibling node
     /// </summary>
-    private BTreeNode<T> GetLeftSibling(BTreeNode<T> node)
+    private static BTreeNode<T> GetLeftSibling(BTreeNode<T> node)
     {
         return node.Index == 0 ? null : node.Parent.Children[node.Index - 1];
     }
 
-    private void SetChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
+    private static void SetChild(BTreeNode<T> parent, int childIndex, BTreeNode<T> child)
     {
         parent.Children[childIndex] = child;
 
@@ -609,7 +611,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     ///     And then insert at index
     ///     Assumes array have atleast one empty index at end
     /// </summary>
-    private void InsertAt<TS>(TS[] array, int index, TS newValue)
+    private static void InsertAt<TS>(TS[] array, int index, TS newValue)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index, array, index + 1, array.Length - index - 1);
@@ -620,7 +622,7 @@ public class BTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Shift array left at index
     /// </summary>
-    private void RemoveAt<TS>(TS[] array, int index)
+    private static void RemoveAt<TS>(TS[] array, int index)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index + 1, array, index, array.Length - index - 1);
@@ -640,7 +642,7 @@ internal abstract class BNode<T> where T : IComparable
 
     internal int KeyCount;
 
-    internal BNode(int maxKeysPerNode)
+    private protected BNode(int maxKeysPerNode)
     {
         Keys = new T[maxKeysPerNode];
     }
@@ -693,6 +695,7 @@ internal class BTreeEnumerator<T> : IEnumerator<T> where T : IComparable
     private readonly BTreeNode<T> root;
 
     private BTreeNode<T> current;
+    private bool disposedValue;
     private int index;
     private Stack<BTreeNode<T>> progress;
 
@@ -744,8 +747,24 @@ internal class BTreeEnumerator<T> : IEnumerator<T> where T : IComparable
 
     public T Current => current.Keys[index];
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            progress = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        progress = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
