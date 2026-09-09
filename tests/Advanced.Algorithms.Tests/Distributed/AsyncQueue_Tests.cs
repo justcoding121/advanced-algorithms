@@ -58,5 +58,35 @@ namespace Advanced.Algorithms.Tests.Distributed
 
             CollectionAssert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public async Task AsyncQueue_Fifo_And_Count()
+        {
+            var queue = new AsyncQueue<int>();
+
+            Assert.AreEqual(0, queue.Count);
+
+            await queue.EnqueueAsync(1);
+            await queue.EnqueueAsync(2);
+            Assert.AreEqual(2, queue.Count);
+
+            Assert.AreEqual(1, await queue.DequeueAsync());
+            Assert.AreEqual(1, queue.Count);
+            Assert.AreEqual(2, await queue.DequeueAsync());
+            Assert.AreEqual(0, queue.Count);
+        }
+
+        [TestMethod]
+        public async Task AsyncQueue_Dequeue_Cancellation()
+        {
+            var queue = new AsyncQueue<int>();
+            using var cts = new CancellationTokenSource();
+
+            var dequeueTask = queue.DequeueAsync(taskCancellationToken: cts.Token);
+            await Task.Delay(50);
+            cts.Cancel();
+
+            await Assert.ThrowsExceptionAsync<TaskCanceledException>(async () => await dequeueTask);
+        }
     }
 }
