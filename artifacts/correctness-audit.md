@@ -120,3 +120,32 @@
 | tests/Advanced.Algorithms.Tests/DataStructures/Queues/Queue_Tests.cs | pass | System.Collections.Generic.Queue enqueue/dequeue oracle |
 | src/Advanced.Algorithms/DataStructures/Queues/PriorityQueue.cs | ok | min/max extract order matches sorted List; no code change |
 | tests/Advanced.Algorithms.Tests/DataStructures/Queues/PriorityQueue_Tests.cs | pass | sorted-List extract-order oracle (asc+desc) |
+
+| src/Advanced.Algorithms/DataStructures/HashSet/HashSet.cs | ok | facade; SC/OA backends covered below |
+| src/Advanced.Algorithms/DataStructures/HashSet/SeparateChainingHashSet.cs | fixed | Math.Abs(int.MinValue) overflow; use hash & int.MaxValue |
+| src/Advanced.Algorithms/DataStructures/HashSet/OpenAddressHashSet.cs | fixed | same int.MinValue Abs overflow |
+| src/Advanced.Algorithms/DataStructures/HashSet/OrderedHashSet.cs | ok | matches SortedSet order/membership; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/HashSet/HashSet_Tests.cs | pass | System.HashSet oracle + int.MinValue |
+| tests/Advanced.Algorithms.Tests/DataStructures/HashSet/OrderedHashSet_Tests.cs | pass | SortedSet oracle |
+| src/Advanced.Algorithms/DataStructures/Dictionary/Dictionary.cs | ok | facade; SC/OA backends covered below |
+| src/Advanced.Algorithms/DataStructures/Dictionary/SeparateChainingDictionary.cs | fixed | indexer set threw when bucket occupied; Abs(int.MinValue) |
+| src/Advanced.Algorithms/DataStructures/Dictionary/OpenAddressDictionary.cs | fixed | indexer set threw on missing key; Abs(int.MinValue) |
+| src/Advanced.Algorithms/DataStructures/Dictionary/OrderedDictionary.cs | ok | matches SortedDictionary; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Dictionary/Dictionary_Tests.cs | pass | System.Dictionary oracle + indexer insert + int.MinValue |
+| tests/Advanced.Algorithms.Tests/DataStructures/Dictionary/OrderedDictionary_Tests.cs | pass | SortedDictionary oracle |
+| src/Advanced.Algorithms/DataStructures/Set/DisJointSet.cs | ok | connectivity matches parent-pointer UF; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Set/DisJointSet_Tests.cs | pass | connectivity oracle 50 elems |
+| src/Advanced.Algorithms/DataStructures/Set/SparseSet.cs | fixed | Clear left HasItem true; duplicate Add corrupted dense |
+| tests/Advanced.Algorithms.Tests/DataStructures/Set/SparseSet_Tests.cs | pass | HashSet oracle + Clear/dup regression |
+| src/Advanced.Algorithms/DataStructures/Set/BloomFilter.cs | fixed | Abs(int.MinValue) on hash; no false negatives on inserted keys |
+| tests/Advanced.Algorithms.Tests/DataStructures/Set/BloomFilter_Tests.cs | pass | no-false-negative oracle |
+| src/Advanced.Algorithms/DataStructures/Heap/BHeap.cs | ok | extract order matches sorted; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Heap/BHeap_Tests.cs | pass | extract-order oracle |
+| src/Advanced.Algorithms/DataStructures/Heap/d-aryHeap.cs | ok | extract order matches sorted; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Heap/D-aryHeap_Tests.cs | pass | extract-order oracle |
+| src/Advanced.Algorithms/DataStructures/Heap/BinomialHeap.cs | fixed | Merge omitted heapMapping → Extract KeyNotFound |
+| tests/Advanced.Algorithms.Tests/DataStructures/Heap/BinomialHeap_Tests.cs | pass | extract-order + Merge oracles |
+| src/Advanced.Algorithms/DataStructures/Heap/FibonacciHeap.cs | fixed | Merge omitted heapMapping + minMax update |
+| tests/Advanced.Algorithms.Tests/DataStructures/Heap/FibonacciHeap_Tests.cs | pass | extract-order + Merge oracles |
+| src/Advanced.Algorithms/DataStructures/Heap/PairingHeap.cs | fixed | empty Extract NRE; Merge mapping; root not cleared |
+| tests/Advanced.Algorithms.Tests/DataStructures/Heap/PairingHeap_Tests.cs | pass | extract-order + Merge + empty Extract oracles |
