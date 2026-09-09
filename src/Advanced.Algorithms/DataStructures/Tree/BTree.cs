@@ -694,10 +694,8 @@ internal class BTreeEnumerator<T> : IEnumerator<T> where T : IComparable
 {
     private readonly BTreeNode<T> root;
 
-    private BTreeNode<T> current;
     private bool disposedValue;
-    private int index;
-    private Stack<BTreeNode<T>> progress;
+    private Stack<Tuple<BTreeNode<T>, int>> progress;
 
     internal BTreeEnumerator(BTreeNode<T> root)
     {
@@ -706,46 +704,55 @@ internal class BTreeEnumerator<T> : IEnumerator<T> where T : IComparable
 
     public bool MoveNext()
     {
-        if (root == null) return false;
+        if (root == null || root.KeyCount == 0) return false;
 
         if (progress == null)
         {
-            current = root;
-            progress = new Stack<BTreeNode<T>>(root.Children.Take(root.KeyCount + 1).Where(x => x != null));
-            return current.KeyCount > 0;
+            progress = new Stack<Tuple<BTreeNode<T>, int>>();
+            PushLeftPath(root);
         }
 
-        if (current != null && index + 1 < current.KeyCount)
+        if (progress.Count == 0) return false;
+
+        var top = progress.Pop();
+        var node = top.Item1;
+        var index = top.Item2;
+
+        Current = node.Keys[index];
+
+        // after key[index], visit child[index+1] (stack top) then remaining keys on this node
+        if (!node.IsLeaf && node.Children[index + 1] != null)
         {
-            index++;
-            return true;
-        }
+            if (index + 1 < node.KeyCount) progress.Push(new Tuple<BTreeNode<T>, int>(node, index + 1));
 
-        if (progress.Count > 0)
+            PushLeftPath(node.Children[index + 1]);
+        }
+        else if (index + 1 < node.KeyCount)
         {
-            index = 0;
-
-            current = progress.Pop();
-
-            foreach (var child in current.Children.Take(current.KeyCount + 1).Where(x => x != null))
-                progress.Push(child);
-
-            return true;
+            progress.Push(new Tuple<BTreeNode<T>, int>(node, index + 1));
         }
 
-        return false;
+        return true;
+    }
+
+    private void PushLeftPath(BTreeNode<T> node)
+    {
+        while (node != null && node.KeyCount > 0)
+        {
+            progress.Push(new Tuple<BTreeNode<T>, int>(node, 0));
+            node = node.IsLeaf ? null : node.Children[0];
+        }
     }
 
     public void Reset()
     {
         progress = null;
-        current = null;
-        index = 0;
+        Current = default;
     }
 
     object IEnumerator.Current => Current;
 
-    public T Current => current.Keys[index];
+    public T Current { get; private set; }
 
     protected virtual void Dispose(bool disposing)
     {

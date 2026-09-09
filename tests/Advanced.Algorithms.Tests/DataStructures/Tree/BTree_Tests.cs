@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -177,6 +178,38 @@ namespace Advanced.Algorithms.Tests.DataStructures
             tree.Delete(1);
             Assert.AreEqual(0, tree.Count);
             Assert.AreEqual(0, tree.Count());
+        }
+
+        [TestMethod]
+        public void BTree_SortedSet_Oracle()
+        {
+            var rnd = new Random(17);
+            var tree = new BTree<int>(3);
+            var set = new SortedSet<int>();
+
+            for (var t = 0; t < 500; t++)
+            {
+                var v = rnd.Next(0, 200);
+                if (set.Contains(v))
+                {
+                    tree.Delete(v);
+                    set.Remove(v);
+                }
+                else
+                {
+                    tree.Insert(v);
+                    set.Add(v);
+                }
+
+                Assert.AreEqual(set.Count, tree.Count);
+                Assert.IsTrue(set.All(tree.HasItem));
+                CollectionAssert.AreEqual(set.ToList(), tree.ToList());
+
+                if (tree.Root != null)
+                {
+                    Assert.AreEqual(BTreeTester.GetMaxHeight(tree.Root), BTreeTester.GetMinHeight(tree.Root));
+                }
+            }
         }
     }
 }
