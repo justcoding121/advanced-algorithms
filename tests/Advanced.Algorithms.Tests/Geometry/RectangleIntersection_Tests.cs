@@ -41,5 +41,35 @@ namespace Advanced.Algorithms.Tests.Geometry
 
             Assert.IsTrue(rectangleComparer.Equals(result, null));
         }
+
+        [TestMethod]
+        public void RectIntersection_Corner_Cases_Test()
+        {
+            var a = new Rectangle
+            {
+                LeftTop = new Point(0, 10),
+                RightBottom = new Point(10, 0)
+            };
+            var touching = new Rectangle
+            {
+                LeftTop = new Point(10, 5),
+                RightBottom = new Point(20, 0)
+            };
+
+            Assert.IsTrue(RectangleIntersection.DoIntersect(a, touching));
+
+            var above = new Rectangle
+            {
+                LeftTop = new Point(0, 20),
+                RightBottom = new Point(10, 11)
+            };
+            Assert.IsFalse(RectangleIntersection.DoIntersect(a, above));
+            Assert.IsNull(RectangleIntersection.FindIntersection(a, above));
+
+            Assert.ThrowsException<System.ArgumentException>(() =>
+                new Rectangle(new Point(0, 0), new Point(10, 10)));
+            Assert.ThrowsException<System.ArgumentException>(() =>
+                new Rectangle(new Point(10, 10), new Point(0, 0)));
+        }
     }
 }

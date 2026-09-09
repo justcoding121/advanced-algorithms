@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.Geometry;
 /// <summary>
 ///     Rectangle intersection finder.
 /// </summary>
-public class RectangleIntersection
+public static class RectangleIntersection
 {
     /// <summary>
     ///     Returns the rectangle formed by the intersection if do intersect.
