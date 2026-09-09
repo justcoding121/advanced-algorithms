@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,6 @@ namespace Advanced.Algorithms.DataStructures;
 public class BHeap<T> : IEnumerable<T> where T : IComparable
 {
     private readonly IComparer<T> comparer;
-    private readonly bool isMaxHeap;
 
     private T[] heapArray;
 
@@ -36,8 +35,6 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
     /// <param name="initial">The initial items in the heap.</param>
     public BHeap(SortDirection sortDirection, IEnumerable<T> initial, IComparer<T> comparer)
     {
-        isMaxHeap = sortDirection == SortDirection.Descending;
-
         if (comparer != null)
             this.comparer = new CustomComparer<T>(sortDirection, comparer);
         else
@@ -96,13 +93,15 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
         var left = 2 * i + 1;
         var right = 2 * i + 2;
 
-        var minMax = left < initial.Length && right < initial.Length
-            ? comparer.Compare(initial[left], initial[right]) < 0 ? left : right
-            : left < initial.Length
-                ? left
-                : right < initial.Length
-                    ? right
-                    : -1;
+        int minMax;
+        if (left < initial.Length && right < initial.Length)
+            minMax = comparer.Compare(initial[left], initial[right]) < 0 ? left : right;
+        else if (left < initial.Length)
+            minMax = left;
+        else if (right < initial.Length)
+            minMax = right;
+        else
+            minMax = -1;
 
         if (minMax != -1 && comparer.Compare(initial[minMax], initial[parent]) < 0)
         {

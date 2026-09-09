@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms;
@@ -16,6 +16,13 @@ internal class CustomComparer<T> : IComparer<T> where T : IComparable
 
     public int Compare(T x, T y)
     {
-        return !isMax ? comparer.Compare(x, y) : comparer.Compare(y, x);
+        if (isMax)
+        {
+            var tmp = x;
+            x = y;
+            y = tmp;
+        }
+
+        return comparer.Compare(x, y);
     }
 }

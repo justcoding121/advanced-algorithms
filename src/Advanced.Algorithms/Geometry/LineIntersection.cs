@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Advanced.Algorithms.Geometry;
 
@@ -23,14 +23,9 @@ public static class LineIntersection
         if (lineA == lineB) throw new ArgumentException("Both lines are the same.");
 
         //make lineA as left
-        if (lineA.Left.X.CompareTo(lineB.Left.X) > 0)
-        {
-            var tmp = lineA;
-            lineA = lineB;
-            lineB = tmp;
-        }
-        else if (lineA.Left.X.CompareTo(lineB.Left.X) == 0
-                 && lineA.Left.Y.CompareTo(lineB.Left.Y) > 0)
+        if (lineA.Left.X.CompareTo(lineB.Left.X) > 0
+            || (lineA.Left.X.CompareTo(lineB.Left.X) == 0
+                && lineA.Left.Y.CompareTo(lineB.Left.Y) > 0))
         {
             var tmp = lineA;
             lineA = lineB;

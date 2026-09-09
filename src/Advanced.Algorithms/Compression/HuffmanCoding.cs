@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Advanced.Algorithms.DataStructures;
 
@@ -92,7 +92,7 @@ public class HuffmanCoding<T>
         return result;
     }
 
-    private class FrequencyWrap : IComparable
+    private sealed class FrequencyWrap : IComparable
     {
         public FrequencyWrap(T item, int frequency)
         {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +11,7 @@ namespace Advanced.Algorithms.DataStructures;
 public class DaryHeap<T> : IEnumerable<T> where T : IComparable
 {
     private readonly IComparer<T> comparer;
-    private readonly bool isMaxHeap;
-    public int Count;
+    public int Count { get; private set; }
 
     private T[] heapArray;
     private readonly int k;
@@ -24,7 +23,6 @@ public class DaryHeap<T> : IEnumerable<T> where T : IComparable
     /// <param name="initial">The initial items if any.</param>
     public DaryHeap(int k, SortDirection sortDirection = SortDirection.Ascending, IEnumerable<T> initial = null)
     {
-        isMaxHeap = sortDirection == SortDirection.Descending;
         comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
 
         if (k <= 2) throw new ArgumentException("Number of nodes k must be greater than 2.");

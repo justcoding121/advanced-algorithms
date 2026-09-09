@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,7 +91,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void UpdateKey(T currentValue, T newValue)
     {
-        var node = heapMapping[currentValue]?.Where(x => x.Value.Equals(currentValue)).FirstOrDefault();
+        var node = heapMapping[currentValue]?.FirstOrDefault(x => x.Value.Equals(currentValue));
 
         if (node == null) throw new ArgumentException("Current value is not present in this heap.");
 

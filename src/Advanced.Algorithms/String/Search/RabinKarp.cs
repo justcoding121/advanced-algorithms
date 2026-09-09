@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Advanced.Algorithms.String;
 
@@ -20,9 +20,9 @@ public class RabinKarp
         var patternHash = ComputeHash(pattern);
         var hash = ComputeHash(input.Substring(0, pattern.Length));
 
-        if (Math.Abs(hash - patternHash) < tolerance)
-            if (Valid(pattern, input.Substring(0, pattern.Length)))
-                return 0;
+        if (Math.Abs(hash - patternHash) < tolerance
+            && Valid(pattern, input.Substring(0, pattern.Length)))
+            return 0;
 
         var lashHash = hash;
 
@@ -31,9 +31,9 @@ public class RabinKarp
             var newHash = ComputeHash(lashHash, pattern.Length, input[i - 1],
                 input[i + pattern.Length - 1]);
 
-            if (Math.Abs(newHash - patternHash) < tolerance)
-                if (Valid(pattern, input.Substring(i, pattern.Length)))
-                    return i;
+            if (Math.Abs(newHash - patternHash) < tolerance
+                && Valid(pattern, input.Substring(i, pattern.Length)))
+                return i;
 
             lashHash = newHash;
         }
