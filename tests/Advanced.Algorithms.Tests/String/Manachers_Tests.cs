@@ -43,5 +43,45 @@ namespace Advanced.Algorithms.Tests.String
             Assert.AreEqual(2, ManachersPalindrome.FindLongestPalindrome("aa"));
             Assert.AreEqual(1, ManachersPalindrome.FindLongestPalindrome("ab"));
         }
+
+        [TestMethod]
+        public void Manacher_Adversarial_Vs_BruteForce()
+        {
+            Assert.AreEqual(5, ManachersPalindrome.FindLongestPalindrome("ddddbddaca"));
+            Assert.AreEqual(5, ManachersPalindrome.FindLongestPalindrome("adddbddc"));
+            Assert.AreEqual(5, ManachersPalindrome.FindLongestPalindrome("dddbddbc"));
+
+            var rnd = new Random(42);
+            for (var n = 0; n < 400; n++)
+            {
+                var len = rnd.Next(2, 14);
+                var chars = new char[len];
+                for (var i = 0; i < len; i++) chars[i] = (char)('a' + rnd.Next(4));
+                var s = new string(chars);
+                if (s.IndexOf('$') >= 0) continue;
+
+                Assert.AreEqual(BruteLongestPalindrome(s), ManachersPalindrome.FindLongestPalindrome(s), s);
+            }
+        }
+
+        private static int BruteLongestPalindrome(string s)
+        {
+            var best = 1;
+            for (var i = 0; i < s.Length; i++)
+            for (var j = i; j < s.Length; j++)
+            {
+                var ok = true;
+                for (int l = i, r = j; l < r; l++, r--)
+                    if (s[l] != s[r])
+                    {
+                        ok = false;
+                        break;
+                    }
+
+                if (ok) best = Math.Max(best, j - i + 1);
+            }
+
+            return best;
+        }
     }
 }

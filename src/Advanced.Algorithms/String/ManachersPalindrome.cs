@@ -39,106 +39,33 @@ public static class ManachersPalindrome
     /// </summary>
     private static int FindLongestPalindromeR(string input)
     {
-        var palindromeLengths = new int[input.Length];
+        var n = input.Length;
+        var palindromeLengths = new int[n];
+        var center = 0;
+        var right = 0;
 
-        int left = -1, right = 1;
-        var length = 1;
-
-        var i = 0;
-        //loop through each char
-        while (i < input.Length)
+        for (var i = 0; i < n; i++)
         {
-            //terminate if end of input
-            while (left >= 0 && right < input.Length)
-                if (input[left] == input[right])
-                {
-                    left--;
-                    right++;
-                    length += 2;
-                }
-                else
-                {
-                    //end of current palindrome
-                    break;
-                }
+            var mirror = 2 * center - i;
 
-            var @continue = false;
+            if (i < right) palindromeLengths[i] = Math.Min(right - i, palindromeLengths[mirror]);
 
-            //set length of current palindrome
-            palindromeLengths[i] = length;
+            //expand around center i
+            while (i - palindromeLengths[i] - 1 >= 0
+                   && i + palindromeLengths[i] + 1 < n
+                   && input[i - palindromeLengths[i] - 1] == input[i + palindromeLengths[i] + 1])
+                palindromeLengths[i]++;
 
-            //use mirror values on left side of palindrome
-            //to fill palindrome lengths on right side of palindrome
-            //so that we can save computations
-            if (right > i + 2)
+            //update current palindrome window
+            if (i + palindromeLengths[i] > right)
             {
-                var l = i - 1;
-                var r = i + 1;
-
-                //start from current palindrome center
-                //all the way to right end of current palindrome
-                while (r < right)
-                {
-                    //find mirror char palindrome length
-                    var mirrorLength = palindromeLengths[l];
-
-                    //mirror palindrome left end exceeds
-                    //current palindrom left end
-                    if (l - mirrorLength / 2 < left + 1)
-                    {
-                        //set length equals to maximum
-                        //we can reach and then continue exploring
-                        palindromeLengths[r] = 2 * (l - (left + 1)) + 1;
-                        r++;
-                        l--;
-                    }
-                    //mirror palindrome is totally contained
-                    //in our current palindrome
-                    else if (l - mirrorLength / 2 > left + 1
-                             && r + mirrorLength / 2 < right - 1)
-                    {
-                        //so just set the value and continue exploring
-                        palindromeLengths[r] = palindromeLengths[l];
-                        r++;
-                        l--;
-                    }
-                    //mirror palindrome exactly fits inside right side
-                    //of current palindrome
-                    else
-                    {
-                        //set length equals to maximum
-                        //and then continue exploring in main loop
-                        length = palindromeLengths[l];
-
-                        //continue to main loop
-                        //update state values to skip
-                        //already computed values
-                        i = r;
-                        left = i - length / 2 - 1;
-                        right = i + length / 2 + 1;
-
-                        @continue = true;
-                        break;
-                    }
-                }
-
-                //already computed until i-1 by now
-                i = r;
+                center = i;
+                right = i + palindromeLengths[i];
             }
-
-            //continue to main loop
-            //states values are already set
-            if (@continue) continue;
-
-            //reset as usual
-            left = i;
-            right = i + 2;
-            length = 1;
-
-            i++;
         }
 
-        return FindMax(palindromeLengths);
+        //palindromeLengths stores radius; full length in modified string is 2*radius+1
+        return FindMax(palindromeLengths.Select(radius => 2 * radius + 1).ToArray());
     }
 
     /// <summary>
