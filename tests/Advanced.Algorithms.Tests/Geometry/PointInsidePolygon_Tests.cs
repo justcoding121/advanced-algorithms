@@ -40,5 +40,30 @@ namespace Advanced.Algorithms.Tests.Geometry
             Assert.IsFalse(PointInsidePolygon.IsInside(square, new Point(20, 5)));
             Assert.IsFalse(PointInsidePolygon.IsInside(square, new Point(5, 20)));
         }
+
+        /// <summary>
+        /// Oracle: axis-aligned square from consecutive vertices; known inside/outside samples.
+        /// Regression: loop must visit every edge (was Count-1 and misclassified left-outside).
+        /// </summary>
+        [TestMethod]
+        public void PointInsidePolygon_Oracle_Square_Test()
+        {
+            var square = new Polygon(new List<Point>
+            {
+                new Point(0, 0),
+                new Point(10, 0),
+                new Point(10, 10),
+                new Point(0, 10)
+            });
+
+            Assert.AreEqual(4, square.Edges.Count);
+            Assert.IsTrue(PointInsidePolygon.IsInside(square, new Point(5, 5)));
+            Assert.IsTrue(PointInsidePolygon.IsInside(square, new Point(1, 1)));
+            Assert.IsFalse(PointInsidePolygon.IsInside(square, new Point(-1, 5)));
+            Assert.IsFalse(PointInsidePolygon.IsInside(square, new Point(15, 5)));
+            Assert.IsFalse(PointInsidePolygon.IsInside(square, new Point(5, -1)));
+            Assert.IsFalse(PointInsidePolygon.IsInside(square, new Point(5, 11)));
+            Assert.IsFalse(PointInsidePolygon.IsInside(square, new Point(-5, -5)));
+        }
     }
 }

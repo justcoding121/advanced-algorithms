@@ -11,7 +11,7 @@ public static class PointInsidePolygon
         var rayLine = new Line(point, new Point(double.MaxValue, point.Y));
 
         var intersectionCount = 0;
-        for (var i = 0; i < polygon.Edges.Count - 1; i++)
+        for (var i = 0; i < polygon.Edges.Count; i++)
         {
             var edgeLine = polygon.Edges[i];
 
