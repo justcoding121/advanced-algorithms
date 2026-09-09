@@ -194,22 +194,118 @@ namespace Advanced.Algorithms.Tests.DataStructures
         public void IntervalTree_Corner_Cases()
         {
             Assert.ThrowsException<ArgumentException>(() => new IntervalTree<int>(0));
+            Assert.ThrowsException<ArgumentException>(() => new IntervalTree<int>(-1));
 
             var tree = new IntervalTree<int>(1);
             Assert.AreEqual(0, tree.Count);
             Assert.AreEqual(0, tree.Count());
+            Assert.IsFalse(tree.DoOverlap(new[] { 1 }, new[] { 2 }));
+            Assert.AreEqual(0, tree.GetOverlaps(new[] { 1 }, new[] { 2 }).Count);
 
             Assert.ThrowsException<ArgumentNullException>(() => tree.Insert(null, new[] { 1 }));
             Assert.ThrowsException<ArgumentNullException>(() => tree.Insert(new[] { 1 }, null));
             Assert.ThrowsException<ArgumentException>(() => tree.Insert(new[] { 1, 2 }, new[] { 3 }));
+            Assert.ThrowsException<ArgumentException>(() => tree.Insert(new[] { int.MinValue }, new[] { 1 }));
+            Assert.ThrowsException<ArgumentException>(() => tree.Insert(new[] { 1 }, new[] { int.MinValue }));
+
+            // reverse endpoints are sorted internally
+            tree.Insert(new[] { 5 }, new[] { 3 });
+            Assert.IsTrue(tree.DoOverlap(new[] { 3 }, new[] { 5 }));
+            Assert.AreEqual(1, tree.GetOverlaps(new[] { 4 }, new[] { 4 }).Count);
+            tree.Delete(new[] { 5 }, new[] { 3 });
+            Assert.AreEqual(0, tree.Count);
 
             tree.Insert(new[] { 1 }, new[] { 2 });
             Assert.ThrowsException<ArgumentException>(() => tree.Insert(new[] { 1 }, new[] { 2 }));
             Assert.ThrowsException<ArgumentException>(() => tree.Delete(new[] { 9 }, new[] { 10 }));
 
-            Assert.IsTrue(tree.DoOverlap(new[] { 1 }, new[] { 2 }));
+            // same start, different ends shares a node
+            tree.Insert(new[] { 1 }, new[] { 4 });
+            Assert.IsTrue(tree.DoOverlap(new[] { 3 }, new[] { 3 }));
+            Assert.IsFalse(tree.DoOverlap(new[] { 10 }, new[] { 12 }));
+
+            var overlaps = tree.GetOverlaps(new[] { 1 }, new[] { 4 });
+            Assert.IsTrue(overlaps.Count >= 1);
+
             tree.Delete(new[] { 1 }, new[] { 2 });
+            tree.Delete(new[] { 1 }, new[] { 4 });
             Assert.AreEqual(0, tree.Count);
+        }
+
+        [TestMethod]
+        public void IntervalTree_2D_Overlap_Delete_Empty()
+        {
+            var tree = new IntervalTree<int>(2);
+
+            tree.Insert(new[] { 1, 1 }, new[] { 3, 3 });
+            tree.Insert(new[] { 5, 5 }, new[] { 7, 7 });
+
+            Assert.IsTrue(tree.DoOverlap(new[] { 2, 2 }, new[] { 2, 2 }));
+            Assert.IsFalse(tree.DoOverlap(new[] { 10, 10 }, new[] { 11, 11 }));
+
+            var hits = tree.GetOverlaps(new[] { 2, 2 }, new[] { 6, 6 });
+            Assert.IsTrue(hits.Count >= 1);
+
+            Assert.AreEqual(2, tree.Count());
+            tree.Delete(new[] { 1, 1 }, new[] { 3, 3 });
+            Assert.AreEqual(1, tree.Count);
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete(new[] { 1, 1 }, new[] { 3, 3 }));
+
+            tree.Delete(new[] { 5, 5 }, new[] { 7, 7 });
+            Assert.AreEqual(0, tree.Count);
+            Assert.IsFalse(tree.DoOverlap(new[] { 2, 2 }, new[] { 2, 2 }));
+        }
+
+        [TestMethod]
+        public void IntervalTree_OneDimensional_Helpers_And_Comparer()
+        {
+            var defaultValue = new Lazy<int>(() => int.MinValue);
+            var oneD = new OneDimentionalIntervalTree<int>(defaultValue);
+
+            Assert.IsFalse(oneD.DoOverlap(new OneDimentionalInterval<int>(1, 2, defaultValue)));
+            Assert.IsNull(oneD.GetOverlap(new OneDimentionalInterval<int>(1, 2, defaultValue)));
+
+            oneD.Insert(new OneDimentionalInterval<int>(10, 20, defaultValue));
+            oneD.Insert(new OneDimentionalInterval<int>(15, 25, defaultValue));
+            oneD.Insert(new OneDimentionalInterval<int>(30, 40, defaultValue));
+            oneD.Insert(new OneDimentionalInterval<int>(10, 12, defaultValue));
+
+            Assert.IsTrue(oneD.DoOverlap(new OneDimentionalInterval<int>(18, 19, defaultValue)));
+            Assert.IsNotNull(oneD.GetOverlap(new OneDimentionalInterval<int>(18, 19, defaultValue)));
+            Assert.IsFalse(oneD.DoOverlap(new OneDimentionalInterval<int>(100, 110, defaultValue)));
+            Assert.AreEqual(2, oneD.GetOverlaps(new OneDimentionalInterval<int>(10, 22, defaultValue)).Count);
+
+            oneD.Delete(new OneDimentionalInterval<int>(10, 12, defaultValue));
+            oneD.Delete(new OneDimentionalInterval<int>(10, 20, defaultValue));
+            Assert.ThrowsException<ArgumentException>(() =>
+                oneD.Delete(new OneDimentionalInterval<int>(99, 100, defaultValue)));
+
+            var a = new OneDimentionalInterval<int>(1, 2, defaultValue);
+            var b = new OneDimentionalInterval<int>(1, 3, defaultValue);
+            var c = new OneDimentionalInterval<int>(2, 3, defaultValue);
+
+            Assert.IsTrue(a == b);
+            Assert.IsFalse(a != b);
+            Assert.IsTrue(a < c);
+            Assert.IsTrue(c > a);
+            Assert.IsTrue(a <= b);
+            Assert.IsTrue(c >= a);
+            Assert.IsTrue(a.Equals(b));
+            Assert.IsFalse(a.Equals("x"));
+            Assert.AreEqual(a.GetHashCode(), b.GetHashCode());
+            Assert.IsFalse(a == null);
+            Assert.IsFalse(null == a);
+            Assert.IsTrue((OneDimentionalInterval<int>)null == null);
+
+            var comparer = new IntervalComparer<int>();
+            var t1 = Tuple.Create(new[] { 1 }, new[] { 2 });
+            var t2 = Tuple.Create(new[] { 1 }, new[] { 2 });
+            var t3 = Tuple.Create(new[] { 1 }, new[] { 3 });
+            Assert.IsTrue(comparer.Equals(t1, t1));
+            Assert.IsTrue(comparer.Equals(t1, t2));
+            Assert.IsFalse(comparer.Equals(t1, t3));
+            Assert.AreEqual(0, comparer.GetHashCode(null));
+            Assert.AreEqual(comparer.GetHashCode(t1), comparer.GetHashCode(t2));
         }
     }
 }
