@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Advanced.Algorithms.Sorting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -62,6 +62,47 @@ namespace Advanced.Algorithms.Tests.Sorting
             CollectionAssert.AreEqual(new[] { 7 }, TreeSort<int>.Sort(new[] { 7 }).ToArray());
             CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, TreeSort<int>.Sort(new[] { 1, 2, 3, 4 }).ToArray());
             CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, TreeSort<int>.Sort(new[] { 4, 3, 2, 1 }).ToArray());
+        }
+
+        [TestMethod]
+        public void TreeSort_Oracle_Against_Array_Sort()
+        {
+            var rnd = new Random(42);
+            var fixtures = new[]
+            {
+                Array.Empty<int>(),
+                new[] { 7 },
+                new[] { 1, 2, 3, 4 },
+                new[] { 4, 3, 2, 1 },
+                new[] { 2, 1 },
+                new[] { 0 }
+            };
+
+            foreach (var fixture in fixtures) AssertMatchesArraySort(fixture);
+
+            for (var t = 0; t < 40; t++)
+            {
+                var n = rnd.Next(0, 35);
+                var input = Enumerable.Range(0, n).Select(_ => rnd.Next(-30, 30)).Distinct().ToArray();
+                AssertMatchesArraySort(input);
+            }
+        }
+
+        [TestMethod]
+        public void TreeSort_Duplicates_Throw()
+        {
+            Assert.ThrowsException<ArgumentException>(() => TreeSort<int>.Sort(new[] { 1, 2, 2, 3 }).ToArray());
+        }
+
+        private static void AssertMatchesArraySort(int[] input)
+        {
+            var expectedAsc = (int[])input.Clone();
+            Array.Sort(expectedAsc);
+            CollectionAssert.AreEqual(expectedAsc, TreeSort<int>.Sort(input).ToArray());
+
+            var expectedDesc = (int[])expectedAsc.Clone();
+            Array.Reverse(expectedDesc);
+            CollectionAssert.AreEqual(expectedDesc, TreeSort<int>.Sort(input, SortDirection.Descending).ToArray());
         }
     }
 }
