@@ -44,13 +44,13 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     ///     Do we have an edge between given source and destination?
     ///     Time complexity: O(1).
     /// </summary>
-    public bool HasEdge(T source, T dest)
+    public bool HasEdge(T source, T destination)
     {
-        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(destination))
             throw new ArgumentException("source or destination is not in this graph.");
 
-        return Vertices[source].OutEdges.ContainsKey(Vertices[dest])
-               && Vertices[dest].InEdges.ContainsKey(Vertices[source]);
+        return Vertices[source].OutEdges.ContainsKey(Vertices[destination])
+               && Vertices[destination].InEdges.ContainsKey(Vertices[source]);
     }
 
     public bool ContainsVertex(T value)
@@ -100,7 +100,7 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     /// </summary>
     public void AddVertex(T value)
     {
-        if (value == null) throw new ArgumentNullException();
+        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
 
         var newVertex = new WeightedDiGraphVertex<T, TW>(value);
 
@@ -113,9 +113,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     /// </summary>
     public void RemoveVertex(T value)
     {
-        if (value == null) throw new ArgumentNullException();
+        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
 
-        if (!Vertices.ContainsKey(value)) throw new Exception("Vertex not in this graph.");
+        if (!Vertices.ContainsKey(value)) throw new ArgumentException("Vertex not in this graph.");
 
         foreach (var vertex in Vertices[value].InEdges) vertex.Key.OutEdges.Remove(Vertices[value]);
 
@@ -130,15 +130,16 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     /// </summary>
     public void AddEdge(T source, T dest, TW weight)
     {
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+            throw new ArgumentException("source or destination is null.");
 
         if (!Vertices.ContainsKey(source)
             || !Vertices.ContainsKey(dest))
-            throw new Exception("Source or Destination Vertex is not in this graph.");
+            throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
         if (Vertices[source].OutEdges.ContainsKey(Vertices[dest])
             || Vertices[dest].InEdges.ContainsKey(Vertices[source]))
-            throw new Exception("Edge already exists.");
+            throw new InvalidOperationException("Edge already exists.");
 
         Vertices[source].OutEdges.Add(Vertices[dest], weight);
         Vertices[dest].InEdges.Add(Vertices[source], weight);
@@ -150,14 +151,15 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     /// </summary>
     public void RemoveEdge(T source, T dest)
     {
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+            throw new ArgumentException("source or destination is null.");
 
         if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
-            throw new Exception("Source or Destination Vertex is not in this graph.");
+            throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
         if (!Vertices[source].OutEdges.ContainsKey(Vertices[dest])
             || !Vertices[dest].InEdges.ContainsKey(Vertices[source]))
-            throw new Exception("Edge do not exist.");
+            throw new InvalidOperationException("Edge do not exist.");
 
         Vertices[source].OutEdges.Remove(Vertices[dest]);
         Vertices[dest].InEdges.Remove(Vertices[source]);
@@ -195,11 +197,16 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     {
         var newGraph = new WeightedDiGraph<T, TW>();
 
-        foreach (var vertex in Vertices) newGraph.AddVertex(vertex.Key);
+        foreach (var vertex in Vertices)
+        {
+            newGraph.AddVertex(vertex.Key);
+        }
 
         foreach (var vertex in Vertices)
-        foreach (var edge in vertex.Value.OutEdges)
-            newGraph.AddEdge(vertex.Value.Key, edge.Key.Key, edge.Value);
+        {
+            foreach (var edge in vertex.Value.OutEdges)
+                newGraph.AddEdge(vertex.Value.Key, edge.Key.Key, edge.Value);
+        }
 
         return newGraph;
     }
