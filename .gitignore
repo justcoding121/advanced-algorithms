@@ -45,7 +45,7 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
-# DNX
+# DNX / local analysis outputs (correctness audits, probes — keep on this PC)
 project.lock.json
 artifacts/
 
@@ -220,3 +220,6 @@ docs/manifest.json
 .sonarqube/
 .coverage/
 coverage/
+
+# Local correctness-audit notes and probe projects (keep on this PC only)
+artifacts/
