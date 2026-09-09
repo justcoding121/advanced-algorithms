@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -67,6 +68,38 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
 
 
             Assert.AreEqual(0, graph.VerticesCount);
+        }
+
+        [TestMethod]
+        public void DiGraph_Empty_Missing_SelfLoop_Enumeration()
+        {
+            var graph = new DiGraph<int>();
+
+            Assert.AreEqual(0, graph.VerticesCount);
+            Assert.AreEqual(0, graph.Count());
+            Assert.ThrowsException<InvalidOperationException>(() => { var _ = graph.ReferenceVertex; });
+            Assert.IsFalse(graph.ContainsVertex(1));
+            Assert.ThrowsException<ArgumentException>(() => graph.HasEdge(1, 2));
+            Assert.ThrowsException<ArgumentException>(() => graph.OutEdges(1).ToList());
+            Assert.ThrowsException<ArgumentException>(() => graph.InEdges(1).ToList());
+
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            Assert.AreEqual(2, graph.Count());
+            Assert.AreEqual(1, graph.GetVertex(1).Key);
+
+            graph.AddEdge(1, 1);
+            Assert.IsTrue(graph.HasEdge(1, 1));
+            Assert.AreEqual(1, graph.OutEdges(1).Count());
+            Assert.AreEqual(1, graph.InEdges(1).Count());
+            Assert.ThrowsException<InvalidOperationException>(() => graph.AddEdge(1, 1));
+
+            graph.AddEdge(1, 2);
+            var clone = graph.Clone();
+            Assert.AreEqual(2, clone.VerticesCount);
+            Assert.IsTrue(clone.HasEdge(1, 1));
+            Assert.IsTrue(clone.HasEdge(1, 2));
+            Assert.IsFalse(clone.HasEdge(2, 1));
         }
     }
 }
