@@ -265,6 +265,64 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(0, hashSet.Count);
         }
 
+        [TestMethod]
+        public void HashSet_Oracle_Vs_SystemHashSet()
+        {
+            foreach (var type in new[] { HashSetType.SeparateChaining, HashSetType.OpenAddressing })
+            {
+                var aa = new HashSet<int>(type);
+                var oracle = new System.Collections.Generic.HashSet<int>();
+                var rnd = new Random(42);
+
+                for (var t = 0; t < 4000; t++)
+                {
+                    var v = rnd.Next(-200, 200);
+                    var op = rnd.Next(3);
+                    if (op == 0)
+                    {
+                        if (oracle.Contains(v))
+                            Assert.ThrowsException<ArgumentException>(() => aa.Add(v));
+                        else
+                        {
+                            aa.Add(v);
+                            oracle.Add(v);
+                        }
+                    }
+                    else if (op == 1)
+                    {
+                        if (!oracle.Contains(v))
+                            Assert.ThrowsException<ArgumentException>(() => aa.Remove(v));
+                        else
+                        {
+                            aa.Remove(v);
+                            oracle.Remove(v);
+                        }
+                    }
+                    else
+                    {
+                        Assert.AreEqual(oracle.Contains(v), aa.Contains(v));
+                    }
+
+                    Assert.AreEqual(oracle.Count, aa.Count);
+                }
+
+                Assert.IsTrue(oracle.SetEquals(aa));
+            }
+        }
+
+        [TestMethod]
+        public void HashSet_IntMinValue_Hash_DoesNotThrow()
+        {
+            foreach (var type in new[] { HashSetType.SeparateChaining, HashSetType.OpenAddressing })
+            {
+                var set = new HashSet<int>(type);
+                set.Add(int.MinValue);
+                Assert.IsTrue(set.Contains(int.MinValue));
+                set.Remove(int.MinValue);
+                Assert.IsFalse(set.Contains(int.MinValue));
+            }
+        }
+
         private sealed class CollisionItem
         {
             private readonly int hash;

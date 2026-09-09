@@ -21,9 +21,15 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
 
     public int Count { get; private set; }
 
+    private static int Hash(T value)
+    {
+        // & int.MaxValue avoids OverflowException on int.MinValue from Math.Abs
+        return value.GetHashCode() & int.MaxValue;
+    }
+
     public bool Contains(T value)
     {
-        var index = Math.Abs(value.GetHashCode()) % BucketSize;
+        var index = Hash(value) % BucketSize;
 
         if (hashArray[index] == null) return false;
 
@@ -43,7 +49,7 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
     {
         Grow();
 
-        var index = Math.Abs(value.GetHashCode()) % BucketSize;
+        var index = Hash(value) % BucketSize;
 
         if (hashArray[index] == null)
         {
@@ -70,7 +76,7 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
 
     public void Remove(T key)
     {
-        var index = Math.Abs(key.GetHashCode()) % BucketSize;
+        var index = Hash(key) % BucketSize;
 
         if (hashArray[index] == null) throw new ArgumentException("No such item for given value");
 
@@ -149,7 +155,7 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
                     {
                         var next = current.Next;
 
-                        var newIndex = Math.Abs(current.Data.Value.GetHashCode()) % newBucketSize;
+                        var newIndex = Hash(current.Data.Value) % newBucketSize;
 
                         if (biggerArray[newIndex] == null)
                         {
@@ -192,7 +198,7 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
                     {
                         var next = current.Next;
 
-                        var newIndex = Math.Abs(current.Data.Value.GetHashCode()) % newBucketSize;
+                        var newIndex = Hash(current.Data.Value) % newBucketSize;
 
                         if (smallerArray[newIndex] == null)
                         {

@@ -229,7 +229,8 @@ internal class OpenAddressHashSet<T> : IHashSet<T>
 
     private static int GetHash(T value)
     {
-        return Math.Abs(value.GetHashCode());
+        // & int.MaxValue avoids OverflowException on int.MinValue from Math.Abs
+        return value.GetHashCode() & int.MaxValue;
     }
 }
 

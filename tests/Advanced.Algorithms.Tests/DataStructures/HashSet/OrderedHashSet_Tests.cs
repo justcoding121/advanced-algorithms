@@ -94,5 +94,47 @@ namespace Advanced.Algorithms.Tests.DataStructures
             var desc = fromSorted.AsEnumerableDesc().ToList();
             CollectionAssert.AreEqual(new System.Collections.Generic.List<int> { 3, 1 }, desc);
         }
+
+        [TestMethod]
+        public void OrderedHashSet_Oracle_Vs_SortedSet()
+        {
+            var aa = new OrderedHashSet<int>();
+            var oracle = new System.Collections.Generic.SortedSet<int>();
+            var rnd = new Random(7);
+
+            for (var t = 0; t < 3000; t++)
+            {
+                var v = rnd.Next(-100, 100);
+                var op = rnd.Next(3);
+                if (op == 0)
+                {
+                    if (oracle.Contains(v))
+                        Assert.ThrowsException<ArgumentException>(() => aa.Add(v));
+                    else
+                    {
+                        aa.Add(v);
+                        oracle.Add(v);
+                    }
+                }
+                else if (op == 1)
+                {
+                    if (!oracle.Contains(v))
+                        Assert.AreEqual(-1, aa.Remove(v));
+                    else
+                    {
+                        aa.Remove(v);
+                        oracle.Remove(v);
+                    }
+                }
+                else
+                {
+                    Assert.AreEqual(oracle.Contains(v), aa.Contains(v));
+                }
+
+                Assert.AreEqual(oracle.Count, aa.Count);
+            }
+
+            CollectionAssert.AreEqual(oracle.ToList(), aa.ToList());
+        }
     }
 }
