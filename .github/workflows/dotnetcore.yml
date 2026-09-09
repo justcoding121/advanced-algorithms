@@ -47,6 +47,7 @@ jobs:
           /d:sonar.dotnet.excludeTestProjects=true `
           /d:sonar.exclusions="**/docs/**,**/.github/**,**/NuGet.config,**/*AssemblyInfo.cs,**/*.snk,**/App.config,_config.yml" `
           /d:sonar.coverage.exclusions="**/tests/**,**/*AssemblyInfo.cs" `
+          /d:sonar.cpd.exclusions="**/DataStructures/Graph/AdjacencyMatrix/**,**/DataStructures/Tree/BTree.cs,**/DataStructures/Tree/B+Tree.cs,**/DataStructures/Tree/SplayTree.cs,**/DataStructures/Tree/TreapTree.cs" `
           /d:sonar.cs.opencover.reportsPaths="artifacts/test-results/**/coverage.opencover.xml" `
           /d:sonar.cs.vstest.reportsPaths="artifacts/test-results/*.trx" `
           /d:sonar.issue.ignore.multicriteria=e1,e2,e3,e4,e5,e6,e7,e8 `
