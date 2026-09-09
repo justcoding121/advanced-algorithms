@@ -196,6 +196,37 @@ namespace Advanced.Algorithms.Tests.Geometry
         }
 
         [TestMethod]
+        public void BentleyOttmann_Corner_Cases_Test()
+        {
+            var algorithm = new BentleyOttmann();
+
+            var empty = algorithm.FindIntersections(new List<Line>());
+            Assert.AreEqual(0, empty.Count);
+
+            var single = algorithm.FindIntersections(new List<Line>
+            {
+                new Line(new Point(0, 0), new Point(10, 10))
+            });
+            Assert.AreEqual(0, single.Count);
+
+            Assert.ThrowsException<ArgumentException>(() =>
+                algorithm.FindIntersections(new List<Line>
+                {
+                    new Line(new Point(-1, 0), new Point(1, 1))
+                }));
+
+            var vertical = new Line(new Point(1, 0), new Point(1, 5));
+            var horizontal = new Line(new Point(0, 2), new Point(5, 2));
+            Assert.IsTrue(vertical.IsVertical);
+            Assert.IsTrue(horizontal.IsHorizontal);
+            Assert.AreEqual(0, horizontal.Slope, 1e-9);
+            Assert.AreEqual(double.MaxValue, vertical.Slope);
+
+            var crossing = algorithm.FindIntersections(new List<Line> { vertical, horizontal });
+            Assert.AreEqual(1, crossing.Count);
+        }
+
+        [TestMethod]
         public void BentleyOttmann_Stress_Test()
         {
             var lines = new List<Line>();

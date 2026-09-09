@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Advanced.Algorithms.DataStructures;
 
 namespace Advanced.Algorithms.Geometry;
@@ -47,7 +48,7 @@ public class BentleyOttmann
             .Select(x =>
             {
                 if (x.Left.X < 0 || x.Left.Y < 0 || x.Right.X < 0 || x.Right.Y < 0)
-                    throw new Exception("Negative coordinates are not supported.");
+                    throw new ArgumentException("Negative coordinates are not supported.");
 
                 return new KeyValuePair<Event, Event>(
                     new Event(x.Left, pointComparer, EventType.Start, x, this),
@@ -184,12 +185,13 @@ public class BentleyOttmann
         SweepLine = new Line(new Point(currentEvent.X, 0), new Point(currentEvent.X, int.MaxValue), Tolerance);
     }
 
-    internal void SwapBstNodes(RedBlackTree<Event> currentlyTrackedLines, Event value1, Event value2)
+    internal static void SwapBstNodes(RedBlackTree<Event> currentlyTrackedLines, Event value1, Event value2)
     {
         var node1 = currentlyTrackedLines.Find(value1).Item1;
         var node2 = currentlyTrackedLines.Find(value2).Item1;
 
-        if (node1 == null || node2 == null) throw new Exception("Value1, Value2 or both was not found in this BST.");
+        if (node1 == null || node2 == null)
+            throw new ArgumentException("Value1, Value2 or both was not found in this BST.");
 
         var tmp = node1.Value;
         node1.Value = node2.Value;
@@ -205,14 +207,14 @@ public class BentleyOttmann
 
         var intersectionEvent = new Event(intersection, pointComparer, EventType.Intersection, null, this);
 
-        if (intersectionEvent.X > SweepLine.Left.X
-            || intersectionEvent.X == SweepLine.Left.X
-            && intersectionEvent.Y > currentEvent.Y)
-            if (!eventQueueLookUp.Contains(intersectionEvent))
-            {
-                eventQueue.Insert(intersectionEvent);
-                eventQueueLookUp.Add(intersectionEvent);
-            }
+        if ((intersectionEvent.X.IsGreaterThan(SweepLine.Left.X, Tolerance)
+             || (intersectionEvent.X.IsEqual(SweepLine.Left.X, Tolerance)
+                 && intersectionEvent.Y.IsGreaterThan(currentEvent.Y, Tolerance)))
+            && !eventQueueLookUp.Contains(intersectionEvent))
+        {
+            eventQueue.Insert(intersectionEvent);
+            eventQueueLookUp.Add(intersectionEvent);
+        }
     }
 
     private Point FindIntersection(Event a, Event b)
@@ -255,6 +257,7 @@ internal enum EventType
 /// </summary>
 internal class Event : Point, IComparable
 {
+    private readonly int hashCode;
     private readonly PointComparer pointComparer;
     private readonly double tolerance;
 
@@ -278,13 +281,17 @@ internal class Event : Point, IComparable
         Type = eventType;
         Segment = lineSegment;
         Algorithm = algorithm;
+
+        hashCode = eventType == EventType.Intersection
+            ? pointComparer.GetHashCode(eventPoint)
+            : RuntimeHelpers.GetHashCode(this);
     }
 
-    public int CompareTo(object that)
+    public int CompareTo(object obj)
     {
-        if (Equals(that)) return 0;
+        if (Equals(obj)) return 0;
 
-        var thatEvent = that as Event;
+        var thatEvent = obj as Event;
 
         var line1 = Segment;
         var line2 = thatEvent.Segment;
@@ -352,11 +359,11 @@ internal class Event : Point, IComparable
         return result;
     }
 
-    public override bool Equals(object that)
+    public override bool Equals(object obj)
     {
-        if (that == this) return true;
+        if (obj == this) return true;
 
-        var thatEvent = that as Event;
+        var thatEvent = obj as Event;
 
         if (Type != EventType.Intersection && thatEvent.Type == EventType.Intersection
             || Type == EventType.Intersection && thatEvent.Type != EventType.Intersection)
@@ -370,12 +377,7 @@ internal class Event : Point, IComparable
 
     public override int GetHashCode()
     {
-        // Intersection events are compared by point location (see Equals),
-        // so the hash must match. Start/End events use reference equality.
-        if (Type == EventType.Intersection)
-            return pointComparer.GetHashCode(this);
-
-        return base.GetHashCode();
+        return hashCode;
     }
 }
 
