@@ -9,9 +9,13 @@ namespace Advanced.Algorithms.Search;
 /// </summary>
 public class BoyerMoore<T> where T : IComparable
 {
+    private BoyerMoore()
+    {
+    }
+
     public static T FindMajority(IEnumerable<T> input)
     {
-        var candidate = FindMajorityCandidate(input, input.Count());
+        var candidate = FindMajorityCandidate(input);
 
         if (Verify(input, input.Count(), candidate)) return candidate;
 
@@ -19,7 +23,7 @@ public class BoyerMoore<T> where T : IComparable
     }
 
     //Find majority candidate
-    private static T FindMajorityCandidate(IEnumerable<T> input, int length)
+    private static T FindMajorityCandidate(IEnumerable<T> input)
     {
         var count = 1;
         var candidate = input.First();

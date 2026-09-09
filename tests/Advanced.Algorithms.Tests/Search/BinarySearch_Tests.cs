@@ -18,5 +18,22 @@ namespace Advanced.Algorithms.Tests.Search
             Assert.AreEqual(15, BinarySearch.Search(test, 53));
             Assert.AreEqual(-1, BinarySearch.Search(test, 80));
         }
+
+        [TestMethod]
+        public void Search_Single_Element()
+        {
+            Assert.AreEqual(0, BinarySearch.Search(new[] { 7 }, 7));
+            Assert.AreEqual(-1, BinarySearch.Search(new[] { 7 }, 8));
+        }
+
+        [TestMethod]
+        public void Search_First_And_Last()
+        {
+            var test = new[] { 1, 3, 5, 7, 9 };
+
+            Assert.AreEqual(0, BinarySearch.Search(test, 1));
+            Assert.AreEqual(4, BinarySearch.Search(test, 9));
+            Assert.AreEqual(-1, BinarySearch.Search(test, 4));
+        }
     }
 }

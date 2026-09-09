@@ -29,5 +29,25 @@ namespace Advanced.Algorithms.Tests.Search
 
             Assert.AreEqual(actual, expected);
         }
+
+        [TestMethod]
+        public void BoyerMoore_No_Majority_Returns_Default()
+        {
+            var actual = BoyerMoore<int>.FindMajority(new[] { 1, 2, 3, 4 });
+
+            Assert.AreEqual(0, actual);
+        }
+
+        [TestMethod]
+        public void BoyerMoore_All_Identical()
+        {
+            Assert.AreEqual(5, BoyerMoore<int>.FindMajority(new[] { 5, 5, 5 }));
+        }
+
+        [TestMethod]
+        public void BoyerMoore_Single_Element()
+        {
+            Assert.AreEqual(9, BoyerMoore<int>.FindMajority(new[] { 9 }));
+        }
     }
 }

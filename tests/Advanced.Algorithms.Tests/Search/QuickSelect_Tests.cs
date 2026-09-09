@@ -25,5 +25,29 @@ namespace Advanced.Algorithms.Tests.Search
 
             Assert.AreEqual(actual, expected);
         }
+
+        [TestMethod]
+        public void QuickSelect_Min_And_Max()
+        {
+            var input = new[] { 9, 1, 5, 3, 7 };
+
+            Assert.AreEqual(1, QuickSelect<int>.FindSmallest(input, 1));
+            Assert.AreEqual(9, QuickSelect<int>.FindSmallest(input, 5));
+        }
+
+        [TestMethod]
+        public void QuickSelect_Single_Element()
+        {
+            Assert.AreEqual(4, QuickSelect<int>.FindSmallest(new[] { 4 }, 1));
+        }
+
+        [TestMethod]
+        public void QuickSelect_With_Duplicates()
+        {
+            var input = new[] { 3, 1, 3, 2, 3 };
+
+            Assert.AreEqual(1, QuickSelect<int>.FindSmallest(input, 1));
+            Assert.AreEqual(3, QuickSelect<int>.FindSmallest(input, 5));
+        }
     }
 }

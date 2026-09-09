@@ -10,14 +10,16 @@ namespace Advanced.Algorithms.Search;
 /// </summary>
 public class QuickSelect<T> where T : IComparable
 {
+    private QuickSelect()
+    {
+    }
+
     public static T FindSmallest(IEnumerable<T> input, int k)
     {
         var inputArray = input.ToArray();
 
         var left = 0;
         var right = inputArray.Length - 1;
-
-        var rnd = new Random();
 
         while (left <= right)
         {
