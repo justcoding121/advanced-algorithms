@@ -71,5 +71,21 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(0, tree.Count());
             Assert.IsFalse(tree.HasItem(1));
         }
+
+        [TestMethod]
+        public void Tree_Promote_Child_On_Delete()
+        {
+            var tree = new Tree<int>();
+            tree.Insert(0, 0);
+            tree.Insert(0, 1);
+            tree.Insert(1, 2);
+
+            tree.Delete(1);
+            Assert.AreEqual(2, tree.Count);
+            Assert.IsFalse(tree.HasItem(1));
+            Assert.IsTrue(tree.HasItem(2));
+            Assert.IsTrue(tree.HasItem(0));
+            CollectionAssert.AreEqual(new[] { 2 }, tree.Children(0).ToList());
+        }
     }
 }
