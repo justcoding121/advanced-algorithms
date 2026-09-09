@@ -135,6 +135,12 @@ public class BinomialHeap<T> : IEnumerable<T> where T : IComparable
 
         Meld();
 
+        foreach (var kv in binomialHeap.heapMapping)
+            if (heapMapping.ContainsKey(kv.Key))
+                heapMapping[kv.Key].AddRange(kv.Value);
+            else
+                heapMapping[kv.Key] = new List<BinomialHeapNode<T>>(kv.Value);
+
         Count += binomialHeap.Count;
     }
 

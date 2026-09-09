@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -95,6 +95,27 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable tests.
             Assert.AreEqual(tree.Count, tree.Count());
+        }
+        [TestMethod]
+        public void BinomialHeap_Extract_Order_And_Merge_Oracle()
+        {
+            var rnd = new Random(11);
+            for (var trial = 0; trial < 20; trial++)
+            {
+                var items = Enumerable.Range(0, rnd.Next(1, 40)).Select(_ => rnd.Next(-200, 200)).ToList();
+                var heap = new BinomialHeap<int>();
+                foreach (var x in items) heap.Insert(x);
+                foreach (var expected in items.OrderBy(x => x))
+                    Assert.AreEqual(expected, heap.Extract());
+            }
+
+            var a = new BinomialHeap<int>();
+            var b = new BinomialHeap<int>();
+            a.Insert(1); a.Insert(5);
+            b.Insert(2); b.Insert(3);
+            a.Merge(b);
+            CollectionAssert.AreEqual(new[] { 1, 2, 3, 5 },
+                new[] { a.Extract(), a.Extract(), a.Extract(), a.Extract() });
         }
     }
 }
