@@ -82,5 +82,25 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.IsFalse(algorithm.HasCycle(graph));
         }
+
+        [TestMethod]
+        public void Cycle_Detection_SelfLoop_And_DAG()
+        {
+            var dag = new DiGraph<char>();
+            dag.AddVertex('A');
+            dag.AddVertex('B');
+            dag.AddVertex('C');
+            dag.AddEdge('A', 'B');
+            dag.AddEdge('A', 'C');
+            dag.AddEdge('B', 'C');
+
+            var detector = new CycleDetector<char>();
+            Assert.IsFalse(detector.HasCycle(dag));
+
+            var loop = new DiGraph<char>();
+            loop.AddVertex('X');
+            loop.AddEdge('X', 'X');
+            Assert.IsTrue(detector.HasCycle(loop));
+        }
     }
 }

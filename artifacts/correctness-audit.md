@@ -47,3 +47,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Sort/KahnTopSort_Tests.cs | pass | topo vs DAG edges oracle; diamond/cycle adversarial |
 | src/Advanced.Algorithms/Graph/Sort/DepthFirstTopSort.cs | fixed | cyclic graphs returned an order; visiting-set cycle throw |
 | tests/Advanced.Algorithms.Tests/Graph/Sort/DepthFirstTopSort_Tests.cs | pass | topo vs DAG edges oracle; cycle throws |
+| src/Advanced.Algorithms/Graph/Cycle/CycleDetection.cs | ok | DFS visiting/visited correct; no code change |
+| tests/Advanced.Algorithms.Tests/Graph/Cycle/CycleDetection_Tests.cs | pass | self-loop + DAG adversarial |
