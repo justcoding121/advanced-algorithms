@@ -99,5 +99,22 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsFalse(tree.HasItem(1));
             CollectionAssert.AreEqual(new[] { 2 }, tree.ToList());
         }
+
+        [TestMethod]
+        public void BinaryTree_TwoChild_Delete_Throws_And_Enumerate()
+        {
+            var tree = new BinaryTree<int>();
+            tree.Insert(0, 0);
+            tree.Insert(0, 1);
+            tree.Insert(0, 2);
+            Assert.ThrowsException<InvalidOperationException>(() => tree.Delete(0));
+
+            tree.Delete(1);
+            Assert.IsFalse(tree.HasItem(1));
+            Assert.AreEqual(2, tree.Count);
+            Assert.AreEqual(2, tree.Count());
+            Assert.IsTrue(tree.HasItem(0));
+            Assert.IsTrue(tree.HasItem(2));
+        }
     }
 }
