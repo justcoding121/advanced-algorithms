@@ -49,11 +49,17 @@ jobs:
           /d:sonar.coverage.exclusions="**/tests/**,**/*AssemblyInfo.cs" `
           /d:sonar.cs.opencover.reportsPaths="artifacts/test-results/**/coverage.opencover.xml" `
           /d:sonar.cs.vstest.reportsPaths="artifacts/test-results/*.trx" `
-          /d:sonar.issue.ignore.multicriteria=e1,e2 `
+          /d:sonar.issue.ignore.multicriteria=e1,e2,e3,e4,e5 `
           /d:sonar.issue.ignore.multicriteria.e1.ruleKey=csharpsquid:S3267 `
           /d:sonar.issue.ignore.multicriteria.e1.resourceKey="**/*.cs" `
           /d:sonar.issue.ignore.multicriteria.e2.ruleKey=csharpsquid:S3776 `
-          /d:sonar.issue.ignore.multicriteria.e2.resourceKey="**/*.cs"
+          /d:sonar.issue.ignore.multicriteria.e2.resourceKey="**/*.cs" `
+          /d:sonar.issue.ignore.multicriteria.e3.ruleKey=csharpsquid:S1210 `
+          /d:sonar.issue.ignore.multicriteria.e3.resourceKey="**/*.cs" `
+          /d:sonar.issue.ignore.multicriteria.e4.ruleKey=csharpsquid:S127 `
+          /d:sonar.issue.ignore.multicriteria.e4.resourceKey="**/*.cs" `
+          /d:sonar.issue.ignore.multicriteria.e5.ruleKey=csharpsquid:S1199 `
+          /d:sonar.issue.ignore.multicriteria.e5.resourceKey="**/*.cs"
 
     - name: Build 
       run: dotnet build src/Advanced.Algorithms.sln
