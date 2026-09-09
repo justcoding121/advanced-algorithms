@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -54,6 +55,41 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
             graph.RemoveVertex(5);
 
             Assert.AreEqual(0, graph.VerticesCount);
+        }
+
+        [TestMethod]
+        public void WeightedGraph_Empty_Missing_Edge_Enumeration()
+        {
+            var graph = new WeightedGraph<int, int>();
+
+            Assert.AreEqual(0, graph.VerticesCount);
+            Assert.AreEqual(0, graph.Count());
+            Assert.ThrowsException<InvalidOperationException>(() => { var _ = graph.ReferenceVertex; });
+            Assert.IsFalse(graph.ContainsVertex(1));
+            Assert.ThrowsException<ArgumentException>(() => graph.HasEdge(1, 2));
+            Assert.ThrowsException<ArgumentException>(() => graph.Edges(1).ToList());
+            Assert.ThrowsException<ArgumentException>(() => graph.RemoveVertex(1));
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                graph.AddVertex(1);
+                graph.AddEdge(1, 1, 0);
+            });
+
+            var g = new WeightedGraph<int, int>();
+            g.AddVertex(1);
+            g.AddVertex(2);
+            Assert.AreEqual(2, g.Count());
+            Assert.AreEqual(0, g.Edges(1).Count());
+
+            g.AddEdge(1, 2, 7);
+            Assert.IsTrue(g.HasEdge(1, 2));
+            Assert.AreEqual(1, g.Edges(1).Count());
+            Assert.AreEqual(7, g.Edges(1).First().Value);
+            Assert.ThrowsException<InvalidOperationException>(() => g.AddEdge(1, 2, 8));
+
+            g.RemoveEdge(1, 2);
+            Assert.IsFalse(g.HasEdge(1, 2));
+            Assert.ThrowsException<InvalidOperationException>(() => g.RemoveEdge(1, 2));
         }
     }
 }
