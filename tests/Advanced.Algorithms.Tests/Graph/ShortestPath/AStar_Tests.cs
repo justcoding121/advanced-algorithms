@@ -235,6 +235,81 @@ namespace Advanced.Algorithms.Tests.Graph
             for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], result.Path[i].Name);
         }
 
+        [TestMethod]
+        public void AStar_Oracle_Matches_Dijkstra_ZeroHeuristic()
+        {
+            var graph = new WeightedDiGraph<char, int>();
+            foreach (var v in "SABCDT") graph.AddVertex(v);
+            graph.AddEdge('S', 'A', 8);
+            graph.AddEdge('S', 'C', 10);
+            graph.AddEdge('A', 'B', 10);
+            graph.AddEdge('A', 'C', 1);
+            graph.AddEdge('A', 'D', 8);
+            graph.AddEdge('B', 'T', 4);
+            graph.AddEdge('C', 'D', 1);
+            graph.AddEdge('D', 'B', 1);
+            graph.AddEdge('D', 'T', 10);
+
+            var op = new IntPathOperators();
+            var zero = new ConstHeuristic(0);
+            var astar = new AStarShortestPath<char, int>(op, zero);
+            var di = new DijikstraShortestPath<char, int>(op);
+
+            foreach (var s in "SABCDT")
+            foreach (var t in "SABCDT")
+            {
+                if (s == t) continue;
+                var a = astar.FindShortestPath(graph, s, t);
+                var d = di.FindShortestPath(graph, s, t);
+                // skip unreachable (single-vertex path)
+                if (d.Path == null || d.Path.Count < 2) continue;
+                Assert.AreEqual(d.Length, a.Length, $"{s}->{t}");
+            }
+        }
+
+        [TestMethod]
+        public void AStar_Oracle_AdmissibleHeuristic_Matches_Dijkstra()
+        {
+            var graph = new WeightedGraph<char, int>();
+            foreach (var v in "SABG") graph.AddVertex(v);
+            graph.AddEdge('S', 'A', 1);
+            graph.AddEdge('A', 'G', 3);
+            graph.AddEdge('S', 'B', 100);
+            graph.AddEdge('B', 'G', 1);
+
+            var op = new IntPathOperators();
+            // admissible: h(A)=2 <= 3, h(B)=1 <= 1
+            var h = new DictHeuristic(new Dictionary<char, int>
+            {
+                ['S'] = 0, ['A'] = 2, ['B'] = 1, ['G'] = 0
+            });
+            var a = new AStarShortestPath<char, int>(op, h).FindShortestPath(graph, 'S', 'G');
+            var d = new DijikstraShortestPath<char, int>(op).FindShortestPath(graph, 'S', 'G');
+            Assert.AreEqual(d.Length, a.Length);
+            Assert.AreEqual(4, a.Length);
+        }
+
+        private class ConstHeuristic : IAStarHeuristic<char, int>
+        {
+            private readonly int value;
+            public ConstHeuristic(int value) => this.value = value;
+            public int HueristicDistanceToTarget(char sourceVertex, char targetVertex) => value;
+        }
+
+        private class DictHeuristic : IAStarHeuristic<char, int>
+        {
+            private readonly Dictionary<char, int> map;
+            public DictHeuristic(Dictionary<char, int> map) => this.map = map;
+            public int HueristicDistanceToTarget(char sourceVertex, char targetVertex) => map[sourceVertex];
+        }
+
+        private class IntPathOperators : IShortestPathOperators<int>
+        {
+            public int DefaultValue => 0;
+            public int MaxValue => int.MaxValue;
+            public int Sum(int a, int b) => checked(a + b);
+        }
+
         public class Location
         {
             public Point Point { get; set; }

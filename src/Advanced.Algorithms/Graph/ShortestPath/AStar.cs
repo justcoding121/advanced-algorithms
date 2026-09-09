@@ -58,7 +58,7 @@ public class AStarShortestPath<T, TW> where TW : IComparable
         }
 
         //start from source vertex as current 
-        var current = new AStarWrap<T, TW>(heuristic, destination)
+        var current = new AStarWrap<T, TW>(@operator, heuristic, destination)
         {
             Distance = @operator.DefaultValue,
             Vertex = source
@@ -98,7 +98,7 @@ public class AStarShortestPath<T, TW> where TW : IComparable
                     if (heapMapping.ContainsKey(neighbour.TargetVertexKey))
                     {
                         //decrement distance to neighbour in heap
-                        var decremented = new AStarWrap<T, TW>(heuristic, destination)
+                        var decremented = new AStarWrap<T, TW>(@operator, heuristic, destination)
                         {
                             Distance = newDistance,
                             Vertex = neighbour.TargetVertexKey
@@ -110,7 +110,7 @@ public class AStarShortestPath<T, TW> where TW : IComparable
                     else
                     {
                         //insert neighbour in heap
-                        var discovered = new AStarWrap<T, TW>(heuristic, destination)
+                        var discovered = new AStarWrap<T, TW>(@operator, heuristic, destination)
                         {
                             Distance = newDistance,
                             Vertex = neighbour.TargetVertexKey
@@ -175,9 +175,11 @@ internal class AStarWrap<T, TW> : IComparable where TW : IComparable
 {
     private readonly T destinationVertex;
     private readonly IAStarHeuristic<T, TW> heuristic;
+    private readonly IShortestPathOperators<TW> @operator;
 
-    internal AStarWrap(IAStarHeuristic<T, TW> heuristic, T destinationVertex)
+    internal AStarWrap(IShortestPathOperators<TW> @operator, IAStarHeuristic<T, TW> heuristic, T destinationVertex)
     {
+        this.@operator = @operator;
         this.heuristic = heuristic;
         this.destinationVertex = destinationVertex;
     }
@@ -185,14 +187,16 @@ internal class AStarWrap<T, TW> : IComparable where TW : IComparable
     internal T Vertex { get; set; }
     internal TW Distance { get; set; }
 
-    //compare distance to target using the heuristic provided
+    // compare f = g + h
     public int CompareTo(object obj)
     {
         if (this == obj) return 0;
 
-        var result1 = heuristic.HueristicDistanceToTarget(Vertex, destinationVertex);
-        var result2 = heuristic.HueristicDistanceToTarget((obj as AStarWrap<T, TW>).Vertex, destinationVertex);
+        var other = obj as AStarWrap<T, TW>;
+        var f1 = @operator.Sum(Distance, heuristic.HueristicDistanceToTarget(Vertex, destinationVertex));
+        var f2 = @operator.Sum(other.Distance,
+            heuristic.HueristicDistanceToTarget(other.Vertex, destinationVertex));
 
-        return result1.CompareTo(result2);
+        return f1.CompareTo(f2);
     }
 }
