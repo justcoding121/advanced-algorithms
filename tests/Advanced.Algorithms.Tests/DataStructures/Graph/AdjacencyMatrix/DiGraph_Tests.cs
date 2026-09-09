@@ -170,5 +170,35 @@ namespace Advanced.Algorithms.Tests.DataStructures.Graph.AdjacencyMatrix
             graph.RemoveVertex(1);
             Assert.AreEqual(0, graph.VerticesCount);
         }
+
+        [TestMethod]
+        public void DiGraph_Adversarial_Vertex0_Clone_Oracle()
+        {
+            var graph = new DiGraph<int>();
+            graph.AddVertex(0);
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(0, 0);
+            graph.AddEdge(2, 0);
+
+            Assert.IsTrue(graph.ContainsVertex(0));
+            CollectionAssert.AreEquivalent(new[] { 0, 1, 2 }, graph.ToList());
+            CollectionAssert.AreEquivalent(new[] { 0, 1 }, graph.OutEdges(0).ToList());
+            CollectionAssert.AreEquivalent(new[] { 0, 2 }, graph.InEdges(0).ToList());
+
+            var clone = graph.Clone();
+            Assert.AreEqual(3, clone.VerticesCount);
+            Assert.IsTrue(clone.HasEdge(0, 1));
+            Assert.IsFalse(clone.HasEdge(1, 0));
+            Assert.IsTrue(clone.HasEdge(0, 0));
+            Assert.IsTrue(clone.HasEdge(2, 0));
+
+            graph.RemoveEdge(2, 0);
+            graph.RemoveVertex(2);
+            Assert.ThrowsException<ArgumentException>(() => graph.OutEdges(2).ToList());
+            Assert.IsTrue(clone.HasEdge(2, 0));
+        }
     }
 }
