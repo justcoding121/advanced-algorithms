@@ -43,9 +43,17 @@ jobs:
           /o:"justcoding121" `
           /d:sonar.token="$env:SONAR_TOKEN" `
           /d:sonar.host.url="https://sonarcloud.io" `
+          /d:sonar.scanner.scanAll=false `
           /d:sonar.dotnet.excludeTestProjects=true `
+          /d:sonar.exclusions="**/docs/**,**/.github/**,**/NuGet.config,**/*AssemblyInfo.cs,**/*.snk,**/App.config,_config.yml" `
+          /d:sonar.coverage.exclusions="**/tests/**,**/*AssemblyInfo.cs" `
           /d:sonar.cs.opencover.reportsPaths="artifacts/test-results/**/coverage.opencover.xml" `
-          /d:sonar.cs.vstest.reportsPaths="artifacts/test-results/*.trx"
+          /d:sonar.cs.vstest.reportsPaths="artifacts/test-results/*.trx" `
+          /d:sonar.issue.ignore.multicriteria=e1,e2 `
+          /d:sonar.issue.ignore.multicriteria.e1.ruleKey=csharpsquid:S3267 `
+          /d:sonar.issue.ignore.multicriteria.e1.resourceKey="**/*.cs" `
+          /d:sonar.issue.ignore.multicriteria.e2.ruleKey=csharpsquid:S3776 `
+          /d:sonar.issue.ignore.multicriteria.e2.resourceKey="**/*.cs"
 
     - name: Build 
       run: dotnet build src/Advanced.Algorithms.sln
