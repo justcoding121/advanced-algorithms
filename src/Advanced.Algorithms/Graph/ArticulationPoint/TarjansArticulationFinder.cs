@@ -64,7 +64,7 @@ public class TarjansArticulationFinder<T>
                 //check if this edge target vertex is not in the current DFS path
                 //even if edge target vertex was already visisted
                 //update this so that ancestors can see it
-                if (parent.ContainsKey(currentVertex.Key) == false
+                if (!parent.ContainsKey(currentVertex.Key)
                     || !edge.TargetVertexKey.Equals(parent[currentVertex.Key]))
                     lowTimeMap[currentVertex.Key] =
                         Math.Min(lowTimeMap[currentVertex.Key], discoveryTimeMap[edge.TargetVertexKey]);
@@ -72,7 +72,7 @@ public class TarjansArticulationFinder<T>
 
         //if root of DFS with two or more children
         //or visitTime of this Vertex <=lowTime of any neighbour 
-        if (parent.ContainsKey(currentVertex.Key) == false && discoveryChildCount >= 2 ||
+        if (!parent.ContainsKey(currentVertex.Key) && discoveryChildCount >= 2 ||
             parent.ContainsKey(currentVertex.Key) && isArticulationPoint)
             result.Add(currentVertex.Key);
 
