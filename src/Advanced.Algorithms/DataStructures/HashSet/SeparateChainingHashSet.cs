@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -57,7 +57,7 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
 
             while (current != null)
             {
-                if (current.Data.Value.Equals(value)) throw new Exception("Duplicate value");
+                if (current.Data.Value.Equals(value)) throw new ArgumentException("Duplicate value");
 
                 current = current.Next;
             }
@@ -68,19 +68,18 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
         Count++;
     }
 
-    public void Remove(T value)
+    public void Remove(T key)
     {
-        var index = Math.Abs(value.GetHashCode()) % BucketSize;
+        var index = Math.Abs(key.GetHashCode()) % BucketSize;
 
-        if (hashArray[index] == null) throw new Exception("No such item for given value");
+        if (hashArray[index] == null) throw new ArgumentException("No such item for given value");
 
         var current = hashArray[index].Head;
 
-        //TODO merge both search and remove to a single loop here!
         DoublyLinkedListNode<HashSetNode<T>> item = null;
         while (current != null)
         {
-            if (current.Data.Value.Equals(value))
+            if (current.Data.Value.Equals(key))
             {
                 item = current;
                 break;
@@ -92,7 +91,7 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
         //remove
         if (item == null)
         {
-            throw new Exception("No such item for given value");
+            throw new ArgumentException("No such item for given value");
         }
 
         hashArray[index].Delete(item);
@@ -126,29 +125,6 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
         return new SeparateChainingHashSetEnumerator<T>(hashArray, BucketSize);
     }
 
-    private void SetValue(T value)
-    {
-        var index = Math.Abs(value.GetHashCode()) % BucketSize;
-
-        if (hashArray[index] == null) throw new Exception("Item not found");
-
-        var current = hashArray[index].Head;
-
-        while (current != null)
-        {
-            if (current.Data.Value.Equals(value))
-            {
-                Remove(value);
-                Add(value);
-                return;
-            }
-
-            current = current.Next;
-        }
-
-        throw new Exception("Item not found");
-    }
-
     private void Grow()
     {
         if (filledBuckets >= BucketSize * 0.7)
@@ -164,29 +140,28 @@ internal class SeparateChainingHashSet<T> : IHashSet<T>
                 var item = hashArray[i];
 
                 //hashcode changes when bucket size changes
-                if (item != null)
-                    if (item.Head != null)
+                if (item != null && item.Head != null)
+                {
+                    var current = item.Head;
+
+                    //find new location for each item
+                    while (current != null)
                     {
-                        var current = item.Head;
+                        var next = current.Next;
 
-                        //find new location for each item
-                        while (current != null)
+                        var newIndex = Math.Abs(current.Data.Value.GetHashCode()) % newBucketSize;
+
+                        if (biggerArray[newIndex] == null)
                         {
-                            var next = current.Next;
-
-                            var newIndex = Math.Abs(current.Data.Value.GetHashCode()) % newBucketSize;
-
-                            if (biggerArray[newIndex] == null)
-                            {
-                                filledBuckets++;
-                                biggerArray[newIndex] = new DoublyLinkedList<HashSetNode<T>>();
-                            }
-
-                            biggerArray[newIndex].InsertFirst(current);
-
-                            current = next;
+                            filledBuckets++;
+                            biggerArray[newIndex] = new DoublyLinkedList<HashSetNode<T>>();
                         }
+
+                        biggerArray[newIndex].InsertFirst(current);
+
+                        current = next;
                     }
+                }
             }
 
             hashArray = biggerArray;
@@ -310,7 +285,16 @@ internal class SeparateChainingHashSetEnumerator<T> : IEnumerator<T>
 
     public void Dispose()
     {
-        length = 0;
-        HashList = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            length = 0;
+            HashList = null;
+        }
     }
 }
