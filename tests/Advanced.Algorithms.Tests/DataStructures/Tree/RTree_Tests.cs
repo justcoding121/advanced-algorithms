@@ -119,6 +119,30 @@ namespace Advanced.Algorithms.Tests.DataStructures
             foreach (var polygon in randomPolygons) tree.Delete(polygon);
         }
 
+        [TestMethod]
+        public void RTree_Corner_Cases()
+        {
+            Assert.ThrowsException<ArgumentException>(() => new RTree(2));
+
+            var tree = new RTree(3);
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+            Assert.ThrowsException<InvalidOperationException>(() => tree.Delete(GetRandomPointOrPolygon()));
+
+            var polygon = new Polygon(new List<Point> { new Point(0, 0), new Point(1, 0), new Point(0, 1) });
+            tree.Insert(polygon);
+            Assert.IsTrue(tree.Exists(polygon));
+            Assert.AreEqual(1, tree.Count());
+
+            var other = new Polygon(new List<Point> { new Point(10, 10), new Point(11, 10), new Point(10, 11) });
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete(other));
+
+            tree.Delete(polygon);
+            Assert.AreEqual(0, tree.Count);
+            tree.Clear();
+            Assert.AreEqual(0, tree.Count);
+        }
+
         /// <summary>
         ///     Verifies that all children have same height.
         /// </summary>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +17,13 @@ public class RTree : IEnumerable<Polygon>
     //If we don't use leaf mappings then deletion/Exists will be slow
     //because searching for deletion leaf is expensive when data is dense.
     private readonly Dictionary<Polygon, RTreeNode> leafMappings = new();
+    private static readonly double AreaTolerance = Math.Round(Math.Pow(0.1, 5), 5);
 
     internal RTreeNode Root;
 
     public RTree(int maxKeysPerNode)
     {
-        if (maxKeysPerNode < 3) throw new Exception("Max keys per node should be atleast 3.");
+        if (maxKeysPerNode < 3) throw new ArgumentException("Max keys per node should be atleast 3.");
 
         this.maxKeysPerNode = maxKeysPerNode;
         minKeysPerNode = maxKeysPerNode / 2;
@@ -138,12 +139,12 @@ public class RTree : IEnumerable<Polygon>
             var leftEnlargementArea = e1.MbRectangle.GetEnlargementArea(current.MbRectangle);
             var rightEnlargementArea = e2.MbRectangle.GetEnlargementArea(current.MbRectangle);
 
-            if (leftEnlargementArea == rightEnlargementArea)
+            if (leftEnlargementArea.IsEqual(rightEnlargementArea, AreaTolerance))
             {
                 var leftArea = e1.MbRectangle.Area();
                 var rightArea = e2.MbRectangle.Area();
 
-                if (leftArea == rightArea)
+                if (leftArea.IsEqual(rightArea, AreaTolerance))
                 {
                     if (e1.KeyCount < e2.KeyCount)
                         e1.AddChild(current);
@@ -207,7 +208,7 @@ public class RTree : IEnumerable<Polygon>
         }
     }
 
-    private void ExpandAncestorMbRs(RTreeNode node)
+    private static void ExpandAncestorMbRs(RTreeNode node)
     {
         while (node.Parent != null)
         {
@@ -220,19 +221,21 @@ public class RTree : IEnumerable<Polygon>
     /// <summary>
     ///     Get the pairs of rectangles farther apart by comparing enlargement areas.
     /// </summary>
-    private Tuple<RTreeNode, RTreeNode> GetDistantPairs(List<RTreeNode> allEntries)
+    private static Tuple<RTreeNode, RTreeNode> GetDistantPairs(List<RTreeNode> allEntries)
     {
         Tuple<RTreeNode, RTreeNode> result = null;
 
         var maxArea = double.MinValue;
         for (var i = 0; i < allEntries.Count; i++)
-        for (var j = i + 1; j < allEntries.Count; j++)
         {
-            var currentArea = allEntries[i].MbRectangle.GetEnlargementArea(allEntries[j].MbRectangle);
-            if (currentArea > maxArea)
+            for (var j = i + 1; j < allEntries.Count; j++)
             {
-                result = new Tuple<RTreeNode, RTreeNode>(allEntries[i], allEntries[j]);
-                maxArea = currentArea;
+                var currentArea = allEntries[i].MbRectangle.GetEnlargementArea(allEntries[j].MbRectangle);
+                if (currentArea > maxArea)
+                {
+                    result = new Tuple<RTreeNode, RTreeNode>(allEntries[i], allEntries[j]);
+                    maxArea = currentArea;
+                }
             }
         }
 
@@ -278,9 +281,9 @@ public class RTree : IEnumerable<Polygon>
     /// </summary>
     public void Delete(Polygon polygon)
     {
-        if (Root == null) throw new Exception("Empty tree.");
+        if (Root == null) throw new InvalidOperationException("Empty tree.");
 
-        if (!Exists(polygon)) throw new Exception("Given polygon do not belong to this tree.");
+        if (!Exists(polygon)) throw new ArgumentException("Given polygon do not belong to this tree.");
 
         var nodeToDelete = leafMappings[polygon];
 
@@ -307,13 +310,13 @@ public class RTree : IEnumerable<Polygon>
         UpdateIndex(nodeToDelete.Parent.Children, nodeToDelete.Parent.KeyCount, nodeToDelete.Index);
     }
 
-    private void RemoveAt(RTreeNode[] array, int index)
+    private static void RemoveAt(RTreeNode[] array, int index)
     {
         //shift elements right by one indice from index
         Array.Copy(array, index + 1, array, index, array.Length - index - 1);
     }
 
-    private void UpdateIndex(RTreeNode[] children, int keyCount, int index)
+    private static void UpdateIndex(RTreeNode[] children, int keyCount, int index)
     {
         for (var i = index; i < keyCount; i++) children[i].Index--;
     }
@@ -354,7 +357,7 @@ public class RTree : IEnumerable<Polygon>
         }
     }
 
-    private void ShrinkMbr(RTreeNode current)
+    private static void ShrinkMbr(RTreeNode current)
     {
         current.MbRectangle = new MbRectangle(current.Children[0].MbRectangle);
         foreach (var node in current.Children.Skip(1).Take(current.KeyCount - 1))
