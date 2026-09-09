@@ -34,9 +34,9 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
 
         var result = @operator.DefaultWeight;
 
-        while (path != null)
+        while (path.Count > 0)
         {
-            result = @operator.AddWeights(result, AugmentResidualGraph(graph, residualGraph, path));
+            result = @operator.AddWeights(result, AugmentResidualGraph(residualGraph, path));
             path = Bfs(residualGraph, source, sink);
         }
 
@@ -60,9 +60,9 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
 
         var result = @operator.DefaultWeight;
 
-        while (path != null)
+        while (path.Count > 0)
         {
-            result = @operator.AddWeights(result, AugmentResidualGraph(graph, residualGraph, path));
+            result = @operator.AddWeights(result, AugmentResidualGraph(residualGraph, path));
             path = Bfs(residualGraph, source, sink);
         }
 
@@ -74,10 +74,9 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
-        if (!graph.IsWeightedGraph)
-            if (@operator.DefaultWeight.GetType() != typeof(int))
-                throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
-                                            "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
+        if (!graph.IsWeightedGraph && @operator.DefaultWeight is not int)
+            throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                                        "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
     }
 
     /// <summary>
@@ -93,10 +92,10 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
         var flow = @operator.DefaultWeight;
 
         var result = new List<List<T>>();
-        while (path != null)
+        while (path.Count > 0)
         {
             result.Add(path);
-            flow = @operator.AddWeights(flow, AugmentResidualGraph(graph, residualGraph, path));
+            flow = @operator.AddWeights(flow, AugmentResidualGraph(residualGraph, path));
             path = Bfs(residualGraph, source, sink);
         }
 
@@ -106,8 +105,7 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
     /// <summary>
     ///     Augment current Path to residual Graph.
     /// </summary>
-    private TW AugmentResidualGraph(IDiGraph<T> graph,
-        WeightedDiGraph<T, TW> residualGraph, List<T> path)
+    private TW AugmentResidualGraph(WeightedDiGraph<T, TW> residualGraph, List<T> path)
     {
         var min = @operator.MaxWeight;
 
@@ -162,6 +160,7 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
             if (currentVertex.Key.Equals(sink)) break;
 
             foreach (var edge in currentVertex.OutEdges)
+            {
                 //visit only if edge have available flow
                 if (!visited.Contains(edge.Key)
                     && edge.Value.CompareTo(@operator.DefaultWeight) > 0)
@@ -171,10 +170,11 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
                     queue.Enqueue(edge.Key);
                     visited.Add(edge.Key);
                 }
+            }
         }
 
         //could'nt find a path
-        if (currentVertex == null || !currentVertex.Key.Equals(sink)) return null;
+        if (!currentVertex.Key.Equals(sink)) return new List<T>();
 
         //traverse back from sink to find path to source
         var path = new Stack<T>();
@@ -198,7 +198,7 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
     /// <summary>
     ///     Clones this graph and creates a residual graph.
     /// </summary>
-    private WeightedDiGraph<T, TW> CreateResidualGraph(IDiGraph<T> graph)
+    private static WeightedDiGraph<T, TW> CreateResidualGraph(IDiGraph<T> graph)
     {
         var newGraph = new WeightedDiGraph<T, TW>();
 
@@ -207,14 +207,16 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
 
         //clone edges
         foreach (var vertex in graph.VerticesAsEnumberable)
+        {
             //Use either OutEdges or InEdges for cloning
             //here we use OutEdges
-        foreach (var edge in vertex.OutEdges)
-        {
-            //original edge
-            newGraph.AddEdge(vertex.Key, edge.TargetVertex.Key, edge.Weight<TW>());
-            //add a backward edge for residual graph with edge value as default(W)
-            newGraph.AddEdge(edge.TargetVertex.Key, vertex.Key, default);
+            foreach (var edge in vertex.OutEdges)
+            {
+                //original edge
+                newGraph.AddEdge(vertex.Key, edge.TargetVertex.Key, edge.Weight<TW>());
+                //add a backward edge for residual graph with edge value as default(W)
+                newGraph.AddEdge(edge.TargetVertex.Key, vertex.Key, default);
+            }
         }
 
         return newGraph;

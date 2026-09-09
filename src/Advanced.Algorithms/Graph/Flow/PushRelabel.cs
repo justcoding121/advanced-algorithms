@@ -27,10 +27,9 @@ public class PushRelabelMaxFlow<T, TW> where TW : IComparable
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
-        if (!graph.IsWeightedGraph)
-            if (@operator.DefaultWeight.GetType() != typeof(int))
-                throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
-                                            "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
+        if (!graph.IsWeightedGraph && @operator.DefaultWeight is not int)
+            throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                                        "Provide an appropriate IFlowOperators<int> operator implementation during initialization.");
 
         //clone to create a residual graph
         var residualGraph = CreateResidualGraph(graph);
@@ -94,7 +93,8 @@ public class PushRelabelMaxFlow<T, TW> where TW : IComparable
                 && edge.Value.CompareTo(@operator.DefaultWeight) > 0)
                 min = vertexStatusMap[edge.Key.Key].Height;
 
-        vertexStatusMap[vertex.Key].Height = min + 1;
+        if (min != int.MaxValue)
+            vertexStatusMap[vertex.Key].Height = min + 1;
     }
 
     /// <summary>
@@ -156,7 +156,7 @@ public class PushRelabelMaxFlow<T, TW> where TW : IComparable
     /// <summary>
     ///     Clones this graph and creates a residual graph.
     /// </summary>
-    private WeightedDiGraph<T, TW> CreateResidualGraph(IDiGraph<T> graph)
+    private static WeightedDiGraph<T, TW> CreateResidualGraph(IDiGraph<T> graph)
     {
         var newGraph = new WeightedDiGraph<T, TW>();
 
@@ -165,14 +165,16 @@ public class PushRelabelMaxFlow<T, TW> where TW : IComparable
 
         //clone edges
         foreach (var vertex in graph.VerticesAsEnumberable)
+        {
             //Use either OutEdges or InEdges for cloning
             //here we use OutEdges
-        foreach (var edge in vertex.OutEdges)
-        {
-            //original edge
-            newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<TW>());
-            //add a backward edge for residual graph with edge value as default(W)
-            newGraph.AddEdge(edge.TargetVertexKey, vertex.Key, default);
+            foreach (var edge in vertex.OutEdges)
+            {
+                //original edge
+                newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<TW>());
+                //add a backward edge for residual graph with edge value as default(W)
+                newGraph.AddEdge(edge.TargetVertexKey, vertex.Key, default);
+            }
         }
 
         return newGraph;
