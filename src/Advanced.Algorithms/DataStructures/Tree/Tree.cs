@@ -56,7 +56,7 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
 
         var parentNode = Find(parent);
 
-        if (parentNode == null) throw new ArgumentNullException();
+        if (parentNode == null) throw new ArgumentNullException(nameof(parent));
 
         var exists = Find(Root, child) != null;
 
@@ -71,6 +71,8 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
+        if (Root == null) throw new InvalidOperationException("Empty tree");
+
         Delete(Root.Value, value);
     }
 
@@ -80,13 +82,6 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
     public IEnumerable<T> Children(T value)
     {
         return Find(value)?.Children.Select(x => x.Value);
-    }
-
-    private TreeNode<T> Find(T value)
-    {
-        if (Root == null) return null;
-
-        return Find(Root, value);
     }
 
     private int GetHeight(TreeNode<T> node)
@@ -111,16 +106,16 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
     {
         var parent = Find(parentValue);
 
-        if (parent == null) throw new Exception("Cannot find parent");
+        if (parent == null) throw new ArgumentException("Cannot find parent");
 
         var itemToRemove = Find(parent, value);
 
-        if (itemToRemove == null) throw new Exception("Cannot find item");
+        if (itemToRemove == null) throw new ArgumentException("Cannot find item");
 
         //if item is root
         if (itemToRemove.Parent == null)
         {
-            if (itemToRemove.Children.Count() == 0)
+            if (itemToRemove.Children.IsEmpty())
             {
                 Root = null;
             }
@@ -133,13 +128,13 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
                 }
                 else
                 {
-                    throw new Exception("Node have multiple children. Cannot delete node unambiguosly");
+                    throw new InvalidOperationException("Node have multiple children. Cannot delete node unambiguosly");
                 }
             }
         }
         else
         {
-            if (itemToRemove.Children.Count() == 0)
+            if (itemToRemove.Children.IsEmpty())
             {
                 itemToRemove.Parent.Children.Delete(itemToRemove);
             }
@@ -155,12 +150,19 @@ public class Tree<T> : IEnumerable<T> where T : IComparable
                 }
                 else
                 {
-                    throw new Exception("Node have multiple children. Cannot delete node unambiguosly");
+                    throw new InvalidOperationException("Node have multiple children. Cannot delete node unambiguosly");
                 }
             }
         }
 
         Count--;
+    }
+
+    private TreeNode<T> Find(T value)
+    {
+        if (Root == null) return null;
+
+        return Find(Root, value);
     }
 
     private TreeNode<T> Find(TreeNode<T> parent, T value)
@@ -193,7 +195,7 @@ internal class TreeNode<T> : IComparable where T : IComparable
     internal TreeNode<T> Parent { get; set; }
     internal SinglyLinkedList<TreeNode<T>> Children { get; set; }
 
-    internal bool IsLeaf => Children.Count() == 0;
+    internal bool IsLeaf => Children.IsEmpty();
 
     public int CompareTo(object obj)
     {
@@ -205,6 +207,7 @@ internal class TreeEnumerator<T> : IEnumerator<T> where T : IComparable
 {
     private readonly TreeNode<T> root;
     private Stack<TreeNode<T>> progress;
+    private bool disposedValue;
 
     internal TreeEnumerator(TreeNode<T> root)
     {
@@ -245,8 +248,24 @@ internal class TreeEnumerator<T> : IEnumerator<T> where T : IComparable
 
     object IEnumerator.Current => Current;
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            progress = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        progress = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
