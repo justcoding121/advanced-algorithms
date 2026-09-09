@@ -20,7 +20,7 @@ public class BiDirectional<T>
     ///     Use breadth First Search from Source and Target until they meet.
     ///     If they could'nt find the element before they meet return false.
     /// </summary>
-    private bool Bfs(IGraph<T> graph, T source, T destination)
+    private static bool Bfs(IGraph<T> graph, T source, T destination)
     {
         var visitedA = new HashSet<T>();
         var visitedB = new HashSet<T>();

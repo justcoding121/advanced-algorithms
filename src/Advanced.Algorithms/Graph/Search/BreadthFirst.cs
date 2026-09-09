@@ -19,7 +19,7 @@ public class BreadthFirst<T>
     /// <summary>
     ///     BFS implementation.
     /// </summary>
-    private bool Bfs(IGraphVertex<T> referenceVertex,
+    private static bool Bfs(IGraphVertex<T> referenceVertex,
         HashSet<T> visited, T searchVertex)
     {
         var bfsQueue = new Queue<IGraphVertex<T>>();
