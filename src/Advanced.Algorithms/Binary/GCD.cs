@@ -7,14 +7,14 @@ public static class Gcd
 {
     public static int Find(int a, int b)
     {
-        if (b == 0) return a;
-
-        if (a == 0) return b;
-
-        //fix negative numbers
+        //fix negative numbers before zero checks so gcd(-a, 0) is positive
         if (a < 0) a = -a;
 
         if (b < 0) b = -b;
+
+        if (b == 0) return a;
+
+        if (a == 0) return b;
 
         // p and q even
         if ((a & 1) == 0 && (b & 1) == 0)
