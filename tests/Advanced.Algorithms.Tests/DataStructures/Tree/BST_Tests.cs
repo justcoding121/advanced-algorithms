@@ -214,5 +214,44 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(0, tree.Count());
             Assert.IsFalse(tree.HasItem(1));
         }
+
+        [TestMethod]
+        public void BST_Index_Next_Desc_Duplicate()
+        {
+            var tree = new Bst<int>();
+
+            Assert.ThrowsException<ArgumentNullException>(() => tree.ElementAt(0));
+            Assert.ThrowsException<ArgumentException>(() => tree.RemoveAt(0));
+            Assert.AreEqual(-1, tree.IndexOf(1));
+            Assert.AreEqual(0, tree.NextLower(1));
+            Assert.AreEqual(0, tree.NextHigher(1));
+
+            tree.Insert(2);
+            tree.Insert(1);
+            tree.Insert(3);
+            Assert.ThrowsException<ArgumentException>(() => tree.Insert(2));
+
+            Assert.AreEqual(0, tree.IndexOf(1));
+            Assert.AreEqual(1, tree.ElementAt(0));
+            Assert.AreEqual(2, tree.ElementAt(1));
+            Assert.AreEqual(3, tree.ElementAt(2));
+            Assert.AreEqual(1, tree.NextLower(2));
+            Assert.AreEqual(3, tree.NextHigher(2));
+            Assert.AreEqual(0, tree.NextLower(1));
+            Assert.AreEqual(0, tree.NextHigher(3));
+            Assert.AreEqual(0, tree.NextHigher(99));
+
+            CollectionAssert.AreEqual(new[] { 3, 2, 1 }, tree.AsEnumerableDesc().ToList());
+
+            Assert.AreEqual(1, tree.RemoveAt(0));
+            Assert.AreEqual(2, tree.Count);
+            Assert.IsFalse(tree.HasItem(1));
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete(99));
+
+            var fromSorted = new Bst<int>(new[] { 1, 2, 3, 4 });
+            Assert.AreEqual(4, fromSorted.Count);
+            Assert.AreEqual(1, fromSorted.FindMin());
+            Assert.AreEqual(4, fromSorted.FindMax());
+        }
     }
 }

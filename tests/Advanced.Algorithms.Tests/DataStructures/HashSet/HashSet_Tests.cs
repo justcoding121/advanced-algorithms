@@ -223,6 +223,48 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(0, hashSet.Count);
         }
 
+        [TestMethod]
+        public void HashSet_SeparateChaining_Grow_Shrink_Enumerator()
+        {
+            var hashSet = new HashSet<CollisionItem>(HashSetType.SeparateChaining, 3);
+
+            Assert.AreEqual(0, hashSet.Count);
+            Assert.IsFalse(hashSet.Contains(new CollisionItem(1, 0)));
+
+            for (var i = 0; i < 30; i++)
+            {
+                hashSet.Add(new CollisionItem(i, i));
+            }
+
+            Assert.IsTrue(hashSet.Count >= 30);
+
+            using (var enumerator = hashSet.GetEnumerator())
+            {
+                Assert.IsTrue(enumerator.MoveNext());
+                enumerator.Reset();
+                Assert.IsTrue(enumerator.MoveNext());
+                Assert.IsNotNull(enumerator.Current);
+            }
+
+            var a = new CollisionItem(100, 0);
+            var b = new CollisionItem(101, 0);
+            hashSet.Add(a);
+            hashSet.Add(b);
+            Assert.IsTrue(hashSet.Contains(a));
+            hashSet.Remove(a);
+            Assert.IsFalse(hashSet.Contains(a));
+            Assert.IsTrue(hashSet.Contains(b));
+
+            while (hashSet.Count > 3)
+            {
+                hashSet.Remove(hashSet.First());
+            }
+
+            Assert.IsTrue(hashSet.Count <= 3);
+            hashSet.Clear();
+            Assert.AreEqual(0, hashSet.Count);
+        }
+
         private sealed class CollisionItem
         {
             private readonly int hash;

@@ -221,6 +221,48 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.AreEqual(0, dictionary.Count);
         }
 
+        [TestMethod]
+        public void Dictionary_SeparateChaining_Indexer_And_Enumerator()
+        {
+            var dictionary = new Dictionary<CollisionKey, int>(DictionaryType.SeparateChaining, 3);
+
+            var a = new CollisionKey(1, 0);
+            var collidingMissing = new CollisionKey(2, 0);
+            var fresh = new CollisionKey(3, 1);
+
+            dictionary.Add(a, 10);
+            Assert.ThrowsException<ArgumentException>(() => { dictionary[collidingMissing] = 30; });
+
+            dictionary.Add(fresh, 20);
+            Assert.AreEqual(20, dictionary[fresh]);
+            dictionary[fresh] = 21;
+            Assert.AreEqual(21, dictionary[fresh]);
+            dictionary[a] = 11;
+            Assert.AreEqual(11, dictionary[a]);
+
+            using (var enumerator = dictionary.GetEnumerator())
+            {
+                Assert.IsTrue(enumerator.MoveNext());
+                enumerator.Reset();
+                Assert.IsTrue(enumerator.MoveNext());
+                Assert.IsNotNull(enumerator.Current);
+            }
+
+            for (var i = 10; i < 40; i++)
+            {
+                dictionary.Add(new CollisionKey(i, i), i);
+            }
+
+            Assert.IsTrue(dictionary.Count >= 32);
+
+            while (dictionary.Count > 4)
+            {
+                dictionary.Remove(dictionary.First().Key);
+            }
+
+            Assert.IsTrue(dictionary.Count <= 4);
+        }
+
         private sealed class CollisionKey
         {
             private readonly int hash;
