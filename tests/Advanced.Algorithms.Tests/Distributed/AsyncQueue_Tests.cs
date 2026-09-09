@@ -88,5 +88,22 @@ namespace Advanced.Algorithms.Tests.Distributed
 
             await Assert.ThrowsExceptionAsync<TaskCanceledException>(async () => await dequeueTask);
         }
+
+        [TestMethod]
+        public async Task AsyncQueue_Adversarial_Cancel_Then_Enqueue_Preserves_Value()
+        {
+            var queue = new AsyncQueue<int>();
+            using var cts = new CancellationTokenSource();
+
+            var cancelled = queue.DequeueAsync(taskCancellationToken: cts.Token);
+            await Task.Delay(30);
+            cts.Cancel();
+            await Assert.ThrowsExceptionAsync<TaskCanceledException>(async () => await cancelled);
+
+            await queue.EnqueueAsync(42);
+            Assert.AreEqual(1, queue.Count);
+            Assert.AreEqual(42, await queue.DequeueAsync(millisecondsTimeout: 1000));
+            Assert.AreEqual(0, queue.Count);
+        }
     }
 }

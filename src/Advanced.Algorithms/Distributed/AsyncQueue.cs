@@ -27,15 +27,18 @@ public class AsyncQueue<T>
     {
         await consumerQueueLock.WaitAsync(millisecondsTimeout, taskCancellationToken);
 
-        if (consumerQueue.Count > 0)
+        //skip cancelled waiters so the value is not lost
+        while (consumerQueue.Count > 0)
         {
             var consumer = consumerQueue.Dequeue();
-            consumer.TrySetResult(value);
+            if (consumer.TrySetResult(value))
+            {
+                consumerQueueLock.Release();
+                return;
+            }
         }
-        else
-        {
-            queue.Enqueue(value);
-        }
+
+        queue.Enqueue(value);
 
         consumerQueueLock.Release();
     }
