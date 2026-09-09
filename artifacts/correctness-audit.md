@@ -53,3 +53,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/ArticulationPoints/TarjansArticulation_Tests.cs | pass | disconnected triangle+path AP oracle |
 | src/Advanced.Algorithms/Graph/Bridge/TarjansBridgeFinder.cs | fixed | only scanned reference component; iterate all DFS roots |
 | tests/Advanced.Algorithms.Tests/Graph/Bridge/TarjansBridge_Tests.cs | pass | disconnected triangle+edge bridge oracle |
+| src/Advanced.Algorithms/Graph/Connectivity/KosarajuStronglyConnected.cs | ok | hand fixture SCCs match; no code change |
+| tests/Advanced.Algorithms.Tests/Graph/Connectivity/KosarajuStronglyConnected_Tests.cs | pass | {A,B}/{C} hand fixture |

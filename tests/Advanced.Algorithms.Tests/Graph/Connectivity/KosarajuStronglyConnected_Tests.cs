@@ -114,5 +114,25 @@ namespace Advanced.Algorithms.Tests.Graph
                 foreach (var vertex in expectation) Assert.IsTrue(actual.Contains(vertex));
             }
         }
+
+        [TestMethod]
+        public void Kosaraju_Hand_Fixture_Components()
+        {
+            // two SCCs: {A,B} cycle and sink C
+            var graph = new DiGraph<char>();
+            graph.AddVertex('A');
+            graph.AddVertex('B');
+            graph.AddVertex('C');
+            graph.AddEdge('A', 'B');
+            graph.AddEdge('B', 'A');
+            graph.AddEdge('B', 'C');
+
+            var result = new KosarajuStronglyConnected<char>().FindStronglyConnectedComponents(graph);
+            Assert.AreEqual(2, result.Count);
+
+            var sets = result.Select(c => new HashSet<char>(c)).ToList();
+            Assert.IsTrue(sets.Any(s => s.SetEquals(new[] { 'A', 'B' })));
+            Assert.IsTrue(sets.Any(s => s.SetEquals(new[] { 'C' })));
+        }
     }
 }
