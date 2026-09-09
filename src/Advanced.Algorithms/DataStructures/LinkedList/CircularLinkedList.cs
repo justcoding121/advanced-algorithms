@@ -141,11 +141,24 @@ public class CircularLinkedList<T> : IEnumerable<T>
     /// </summary>
     public void Union(CircularLinkedList<T> newList)
     {
-        ReferenceNode.Previous.Next = newList.ReferenceNode;
-        ReferenceNode.Previous = newList.ReferenceNode.Previous;
+        if (newList?.ReferenceNode == null)
+            return;
 
-        newList.ReferenceNode.Previous.Next = ReferenceNode;
-        newList.ReferenceNode.Previous = ReferenceNode.Previous;
+        if (ReferenceNode == null)
+        {
+            ReferenceNode = newList.ReferenceNode;
+            return;
+        }
+
+        // save predecessors before rewiring (overwriting Previous first corrupts the splice)
+        var thisPrevious = ReferenceNode.Previous;
+        var otherPrevious = newList.ReferenceNode.Previous;
+
+        thisPrevious.Next = newList.ReferenceNode;
+        ReferenceNode.Previous = otherPrevious;
+
+        otherPrevious.Next = ReferenceNode;
+        newList.ReferenceNode.Previous = thisPrevious;
     }
 }
 
@@ -197,7 +210,7 @@ internal class CircularLinkedListEnumerator<T> : IEnumerator<T>
 
     public void Reset()
     {
-        CurrentNode = ReferenceNode;
+        CurrentNode = null;
     }
 
 
