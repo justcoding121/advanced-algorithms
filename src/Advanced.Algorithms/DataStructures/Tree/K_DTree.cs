@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     public KdTree(int dimensions)
     {
         this.dimensions = dimensions;
-        if (dimensions <= 0) throw new Exception("Dimension should be greater than 0.");
+        if (dimensions <= 0) throw new ArgumentException("Dimension should be greater than 0.");
     }
 
     public int Count { get; private set; }
@@ -90,7 +90,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public void Delete(T[] point)
     {
-        if (root == null) throw new Exception("Empty tree");
+        if (root == null) throw new InvalidOperationException("Empty tree");
 
         Delete(root, point, 0);
         Count--;
@@ -101,13 +101,13 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     private void Delete(KdTreeNode<T> currentNode, T[] point, int depth)
     {
-        if (currentNode == null) throw new Exception("Given deletion point do not exist in this kd tree.");
+        if (currentNode == null) throw new ArgumentException("Given deletion point do not exist in this kd tree.");
 
         var currentDimension = depth % dimensions;
 
         if (DoMatch(currentNode.Points, point))
         {
-            HandleDeleteCases(currentNode, point, depth);
+            HandleDeleteCases(currentNode, depth);
             return;
         }
 
@@ -120,7 +120,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Handle the three cases for deletion.
     /// </summary>
-    private void HandleDeleteCases(KdTreeNode<T> currentNode, T[] point, int depth)
+    private void HandleDeleteCases(KdTreeNode<T> currentNode, int depth)
     {
         //case one node is leaf
         if (currentNode.IsLeaf)
@@ -165,7 +165,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Copy points2 to point1.
     /// </summary>
-    private void CopyPoints(T[] points1, T[] points2)
+    private static void CopyPoints(T[] points1, T[] points2)
     {
         for (var i = 0; i < points1.Length; i++) points1[i] = points2[i];
     }
@@ -196,7 +196,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Returns min of given three nodes on search dimension.
     /// </summary>
-    private KdTreeNode<T> Min(KdTreeNode<T> node,
+    private static KdTreeNode<T> Min(KdTreeNode<T> node,
         KdTreeNode<T> leftMin, KdTreeNode<T> rightMin,
         int searchdimension)
     {
@@ -216,7 +216,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Are these two points matching.
     /// </summary>
-    private bool DoMatch(T[] a, T[] b)
+    private static bool DoMatch(T[] a, T[] b)
     {
         for (var i = 0; i < a.Length; i++)
             if (a[i].CompareTo(b[i]) != 0)
@@ -231,7 +231,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     /// </summary>
     public T[] NearestNeighbour(IDistanceCalculator<T> distanceCalculator, T[] point)
     {
-        if (root == null) throw new Exception("Empty tree");
+        if (root == null) throw new InvalidOperationException("Empty tree");
 
         return FindNearestNeighbour(root, point, 0, distanceCalculator).Points;
     }
@@ -278,7 +278,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
             //now recurse up from leaf updating current Best
             currentBest = GetClosestToPoint(distanceCalculator, currentBest, currentNode, searchPoint);
         }
-        else if (compareResult >= 0)
+        else
         {
             if (currentNode.Right != null)
                 currentBest = FindNearestNeighbour(currentNode.Right,
@@ -311,7 +311,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Returns the closest node between currentBest and CurrentNode to point
     /// </summary>
-    private KdTreeNode<T> GetClosestToPoint(IDistanceCalculator<T> distanceCalculator,
+    private static KdTreeNode<T> GetClosestToPoint(IDistanceCalculator<T> distanceCalculator,
         KdTreeNode<T> currentBest, KdTreeNode<T> currentNode, T[] point)
     {
         if (distanceCalculator.Compare(currentBest.Points,
@@ -371,7 +371,7 @@ public class KdTree<T> : IEnumerable<T[]> where T : IComparable
     /// <summary>
     ///     Is the point in node is within start and end points.
     /// </summary>
-    private bool InRange(KdTreeNode<T> node, T[] start, T[] end)
+    private static bool InRange(KdTreeNode<T> node, T[] start, T[] end)
     {
         for (var i = 0; i < node.Points.Length; i++)
             //if not (start is less than node && end is greater than node)
@@ -408,7 +408,7 @@ internal class KdTreeNode<T> where T : IComparable
 ///     A concrete implementation of this interface is required
 ///     when calling NearestNeigbour() for k-d tree.
 /// </summary>
-public interface IDistanceCalculator<T> where T : IComparable
+public interface IDistanceCalculator<in T> where T : IComparable
 {
     /// <summary>
     ///     Compare the distance between point A to point
@@ -428,6 +428,7 @@ public interface IDistanceCalculator<T> where T : IComparable
 internal class KdTreeEnumerator<T> : IEnumerator<T[]> where T : IComparable
 {
     private readonly KdTreeNode<T> root;
+    private bool disposedValue;
     private Stack<KdTreeNode<T>> progress;
 
     internal KdTreeEnumerator(KdTreeNode<T> root)
@@ -469,8 +470,24 @@ internal class KdTreeEnumerator<T> : IEnumerator<T[]> where T : IComparable
 
     object IEnumerator.Current => Current;
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposedValue)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            progress = null;
+        }
+
+        disposedValue = true;
+    }
+
     public void Dispose()
     {
-        progress = null;
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }

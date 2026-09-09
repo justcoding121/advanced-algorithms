@@ -172,6 +172,29 @@ namespace Advanced.Algorithms.Tests.DataStructures
             }
         }
 
+        [TestMethod]
+        public void KdTree_Corner_Cases()
+        {
+            Assert.ThrowsException<ArgumentException>(() => new KdTree<int>(0));
+
+            var tree = new KdTree<int>(2);
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+            Assert.ThrowsException<InvalidOperationException>(() => tree.Delete(new[] { 1, 2 }));
+            Assert.ThrowsException<InvalidOperationException>(() =>
+                tree.NearestNeighbour(new DistanceCalculator2D(), new[] { 1, 2 }));
+
+            tree.Insert(new[] { 1, 1 });
+            tree.Insert(new[] { 2, 2 });
+            Assert.AreEqual(2, tree.Count);
+            Assert.ThrowsException<ArgumentException>(() => tree.Delete(new[] { 9, 9 }));
+
+            tree.Delete(new[] { 1, 1 });
+            tree.Delete(new[] { 2, 2 });
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+        }
+
         /// <summary>
         ///     gets the actual nearest neighbour by brute force search
         /// </summary>
