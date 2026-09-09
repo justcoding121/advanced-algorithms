@@ -14,9 +14,11 @@ public class Rectangle
 
     public Rectangle(Point leftTop, Point rightBottom)
     {
-        if (rightBottom.Y > leftTop.Y) throw new Exception("Top corner should have higher Y value than bottom.");
+        if (rightBottom.Y > leftTop.Y)
+            throw new ArgumentException("Top corner should have higher Y value than bottom.");
 
-        if (leftTop.X > rightBottom.X) throw new Exception("Right corner should have higher X value than left.");
+        if (leftTop.X > rightBottom.X)
+            throw new ArgumentException("Right corner should have higher X value than left.");
 
         LeftTop = leftTop;
         RightBottom = rightBottom;
