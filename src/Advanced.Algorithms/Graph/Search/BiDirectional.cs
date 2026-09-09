@@ -11,40 +11,42 @@ public class BiDirectional<T>
     /// <summary>
     ///     Returns true if Path exists from source to destination.
     /// </summary>
-    public bool PathExists(IGraph<T> graph, T source, T destination)
+    public bool PathExists(IDiGraph<T> graph, T source, T destination)
     {
         return Bfs(graph, source, destination);
     }
 
     /// <summary>
-    ///     Use breadth First Search from Source and Target until they meet.
-    ///     If they could'nt find the element before they meet return false.
+    ///     Breadth-first search from source (out-edges) and destination (in-edges) until they meet.
     /// </summary>
-    private static bool Bfs(IGraph<T> graph, T source, T destination)
+    private static bool Bfs(IDiGraph<T> graph, T source, T destination)
     {
+        if (source.Equals(destination)) return true;
+
         var visitedA = new HashSet<T>();
         var visitedB = new HashSet<T>();
 
-        var bfsQueueA = new Queue<IGraphVertex<T>>();
-        var bfsQueueB = new Queue<IGraphVertex<T>>();
+        var bfsQueueA = new Queue<IDiGraphVertex<T>>();
+        var bfsQueueB = new Queue<IDiGraphVertex<T>>();
 
-        bfsQueueA.Enqueue(graph.GetVertex(source));
-        bfsQueueB.Enqueue(graph.GetVertex(destination));
+        var sourceVertex = graph.GetVertex(source);
+        var destVertex = graph.GetVertex(destination);
 
-        visitedA.Add(graph.GetVertex(source).Key);
-        visitedB.Add(graph.GetVertex(destination).Key);
+        bfsQueueA.Enqueue(sourceVertex);
+        bfsQueueB.Enqueue(destVertex);
 
-        //search from both ends for a Path
+        visitedA.Add(sourceVertex.Key);
+        visitedB.Add(destVertex.Key);
+
         while (true)
         {
             if (bfsQueueA.Count > 0)
             {
                 var current = bfsQueueA.Dequeue();
 
-                //intersects with search from other end
                 if (visitedB.Contains(current.Key)) return true;
 
-                foreach (var edge in current.Edges)
+                foreach (var edge in current.OutEdges)
                 {
                     if (visitedA.Contains(edge.TargetVertexKey)) continue;
 
@@ -57,10 +59,10 @@ public class BiDirectional<T>
             {
                 var current = bfsQueueB.Dequeue();
 
-                //intersects with search from other end
                 if (visitedA.Contains(current.Key)) return true;
 
-                foreach (var edge in current.Edges)
+                // search backward from destination along in-edges
+                foreach (var edge in current.InEdges)
                 {
                     if (visitedB.Contains(edge.TargetVertexKey)) continue;
 

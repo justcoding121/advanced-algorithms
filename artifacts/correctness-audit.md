@@ -41,3 +41,5 @@
 | tests/Advanced.Algorithms.Tests/Geometry/PointInsidePolygon_Tests.cs | pass | square vertex oracle; known inside/outside incl. left of square |
 | src/Advanced.Algorithms/Graph/Search/BreadthFirst.cs | fixed | missed disconnected components; search all starts; empty-graph guard |
 | tests/Advanced.Algorithms.Tests/Graph/Search/BreadthFirst_Tests.cs | pass | disconnected-component existence oracle |
+| src/Advanced.Algorithms/Graph/Search/BiDirectional.cs | fixed | reverse BFS used out-edges (false paths on digraphs); use InEdges; IDiGraph API |
+| tests/Advanced.Algorithms.Tests/Graph/Search/BiDirectional_Tests.cs | pass | converging A->B<-C adversarial path oracle |

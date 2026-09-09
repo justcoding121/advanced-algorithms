@@ -76,5 +76,24 @@ namespace Advanced.Algorithms.Tests.Graph
 
             Assert.IsFalse(algorithm.PathExists(graph, 'A', 'I'));
         }
+
+        [TestMethod]
+        public void BiDirectional_No_False_Positive_On_Converging_Digraph()
+        {
+            // A -> B <- C : path A to C must be false
+            var graph = new DiGraph<char>();
+            graph.AddVertex('A');
+            graph.AddVertex('B');
+            graph.AddVertex('C');
+            graph.AddEdge('A', 'B');
+            graph.AddEdge('C', 'B');
+
+            var algorithm = new BiDirectional<char>();
+
+            Assert.IsFalse(algorithm.PathExists(graph, 'A', 'C'));
+            Assert.IsTrue(algorithm.PathExists(graph, 'A', 'B'));
+            Assert.IsTrue(algorithm.PathExists(graph, 'C', 'B'));
+            Assert.IsTrue(algorithm.PathExists(graph, 'A', 'A'));
+        }
     }
 }
