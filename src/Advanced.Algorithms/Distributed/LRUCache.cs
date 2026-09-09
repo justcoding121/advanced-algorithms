@@ -45,6 +45,15 @@ public class LruCache<TK, TV>
     /// </summary>
     public void Put(TK key, TV value)
     {
+        //update existing key (move to most-recently used)
+        if (lookUp.ContainsKey(key))
+        {
+            var existing = lookUp[key];
+            dll.Delete(existing);
+            lookUp[key] = dll.InsertFirst(new Tuple<TK, TV>(key, value));
+            return;
+        }
+
         //evict last node of ddl if capacity overflows
         if (lookUp.Count == capacity)
         {
