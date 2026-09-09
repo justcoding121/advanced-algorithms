@@ -9,6 +9,8 @@ public class ConvexHull
 {
     public static List<int[]> Find(List<int[]> points)
     {
+        if (points == null || points.Count == 0) return new List<int[]>();
+
         var currentPointIndex = FindLeftMostPoint(points);
         var startingPointIndex = currentPointIndex;
 
@@ -28,13 +30,25 @@ public class ConvexHull
                 var orientation = GetOrientation(points[currentPointIndex],
                     points[i], points[nextPointIndex]);
 
-                if (orientation == Orientation.ClockWise) nextPointIndex = i;
+                // clockwise candidate, or farther collinear point (skip edge midpoints)
+                if (orientation == Orientation.ClockWise
+                    || (orientation == Orientation.Colinear
+                        && DistanceSq(points[currentPointIndex], points[i])
+                        > DistanceSq(points[currentPointIndex], points[nextPointIndex])))
+                    nextPointIndex = i;
             }
 
             currentPointIndex = nextPointIndex;
         } while (currentPointIndex != startingPointIndex);
 
         return result;
+    }
+
+    private static long DistanceSq(int[] p, int[] q)
+    {
+        long dx = p[0] - q[0];
+        long dy = p[1] - q[1];
+        return dx * dx + dy * dy;
     }
 
     /// <summary>
