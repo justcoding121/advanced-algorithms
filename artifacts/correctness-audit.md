@@ -103,3 +103,20 @@
 | tests/Advanced.Algorithms.Tests/Graph/Flow/PushRelabel_Tests.cs | pass | FF/EK cross-oracle + antiparallel |
 | src/Advanced.Algorithms/Graph/Cut/MinimumCut.cs | ok | cut capacity = max flow; uses Edmonds residual (inherits fix); no code change |
 | tests/Advanced.Algorithms.Tests/Graph/Cut/MinCut_Tests.cs | pass | cut capacity vs Edmonds-Karp max-flow oracle |
+
+| src/Advanced.Algorithms/DataStructures/List/ArrayList.cs | fixed | negative index threw IndexOutOfRange; RemoveAt shifted past Length; InsertAt lacked bounds |
+| tests/Advanced.Algorithms.Tests/DataStructures/Lists/ArrayList_Tests.cs | pass | List<T> random-ops oracle + negative/OOB ArgumentException |
+| src/Advanced.Algorithms/DataStructures/List/SkipList.cs | fixed | Insert used Find().Equals(default) so default(T) duplicates were allowed |
+| tests/Advanced.Algorithms.Tests/DataStructures/Lists/SkipList_Tests.cs | pass | default(0) dup throws; SortedSet random-ops oracle |
+| src/Advanced.Algorithms/DataStructures/LinkedList/SinglyLinkedList.cs | fixed | enumerator Reset set Current=Head (skipped first); now null before-first |
+| tests/Advanced.Algorithms.Tests/DataStructures/LinkedList/SinglyLinkedList_Tests.cs | pass | Reset returns first; List<T> head/tail oracle |
+| src/Advanced.Algorithms/DataStructures/LinkedList/DoublyLinkedList.cs | fixed | same enumerator Reset bug |
+| tests/Advanced.Algorithms.Tests/DataStructures/LinkedList/DoublyLinkedList_Tests.cs | pass | Reset returns first; List<T> oracle + Head/Tail |
+| src/Advanced.Algorithms/DataStructures/LinkedList/CircularLinkedList.cs | fixed | Union overwrote Previous before splice (broke circle); enumerator Reset skipped first |
+| tests/Advanced.Algorithms.Tests/DataStructures/LinkedList/CircularLinkedList_Tests.cs | pass | Union circle integrity; bag oracle; Reset |
+| src/Advanced.Algorithms/DataStructures/Stack/Stack.cs | ok | Array+LinkedList backends; LIFO matches System.Stack; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Stack_Tests.cs | pass | System.Collections.Generic.Stack push/pop/peek oracle |
+| src/Advanced.Algorithms/DataStructures/Queues/Queue.cs | ok | Array+LinkedList backends; FIFO matches System.Queue; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Queues/Queue_Tests.cs | pass | System.Collections.Generic.Queue enqueue/dequeue oracle |
+| src/Advanced.Algorithms/DataStructures/Queues/PriorityQueue.cs | ok | min/max extract order matches sorted List; no code change |
+| tests/Advanced.Algorithms.Tests/DataStructures/Queues/PriorityQueue_Tests.cs | pass | sorted-List extract-order oracle (asc+desc) |
