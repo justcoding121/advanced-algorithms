@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Advanced.Algorithms.DataStructures.Graph;
 
 namespace Advanced.Algorithms.Graph;
@@ -15,11 +16,12 @@ public class DepthFirstTopSort<T>
     {
         var pathStack = new Stack<T>();
         var visited = new HashSet<T>();
+        var visiting = new HashSet<T>();
 
         //we need a loop so that we can reach all vertices
         foreach (var vertex in graph.VerticesAsEnumberable)
             if (!visited.Contains(vertex.Key))
-                Dfs(vertex, visited, pathStack);
+                Dfs(vertex, visited, visiting, pathStack);
 
         //now just pop the stack to result
         var result = new List<T>();
@@ -32,13 +34,21 @@ public class DepthFirstTopSort<T>
     ///     Do a depth first search.
     /// </summary>
     private void Dfs(IDiGraphVertex<T> vertex,
-        HashSet<T> visited, Stack<T> pathStack)
+        HashSet<T> visited, HashSet<T> visiting, Stack<T> pathStack)
     {
-        visited.Add(vertex.Key);
+        visiting.Add(vertex.Key);
 
         foreach (var edge in vertex.OutEdges)
+        {
+            if (visiting.Contains(edge.TargetVertexKey))
+                throw new InvalidOperationException("Graph has a cycle.");
+
             if (!visited.Contains(edge.TargetVertexKey))
-                Dfs(edge.TargetVertex, visited, pathStack);
+                Dfs(edge.TargetVertex, visited, visiting, pathStack);
+        }
+
+        visiting.Remove(vertex.Key);
+        visited.Add(vertex.Key);
 
         //add vertex to stack after all edges are visited
         pathStack.Push(vertex.Key);

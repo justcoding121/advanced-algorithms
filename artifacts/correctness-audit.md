@@ -45,3 +45,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Search/BiDirectional_Tests.cs | pass | converging A->B<-C adversarial path oracle |
 | src/Advanced.Algorithms/Graph/Sort/KahnTopSort.cs | fixed | enqueued every neighbor (dupes); incomplete result on cycles; enqueue at indegree 0 + count check |
 | tests/Advanced.Algorithms.Tests/Graph/Sort/KahnTopSort_Tests.cs | pass | topo vs DAG edges oracle; diamond/cycle adversarial |
+| src/Advanced.Algorithms/Graph/Sort/DepthFirstTopSort.cs | fixed | cyclic graphs returned an order; visiting-set cycle throw |
+| tests/Advanced.Algorithms.Tests/Graph/Sort/DepthFirstTopSort_Tests.cs | pass | topo vs DAG edges oracle; cycle throws |
