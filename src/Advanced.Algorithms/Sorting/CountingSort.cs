@@ -18,6 +18,8 @@ public static class CountingSort
         var length = lengthAndMax.Item1;
         var max = lengthAndMax.Item2;
 
+        if (length == 0) return Array.Empty<int>();
+
         //add one more space for zero
         var countArray = new int[max + 1];
 
