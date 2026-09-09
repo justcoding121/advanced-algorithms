@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -65,9 +65,9 @@ public class HashSet<T> : IEnumerable<T>
     ///     Time complexity: O(1) amortized.
     /// </summary>
     /// <param name="value">The value to remove.</param>
-    public void Remove(T value)
+    public void Remove(T key)
     {
-        hashSet.Remove(value);
+        hashSet.Remove(key);
     }
 
     /// <summary>

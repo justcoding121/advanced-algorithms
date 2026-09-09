@@ -157,16 +157,16 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     ///     add an edge from source to destination vertex
     ///     Time complexity: O(1).
     /// </summary>
-    public void AddEdge(T source, T dest)
+    public void AddEdge(T source, T destination)
     {
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
-        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
+        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(destination))
             throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
-        var destIndex = vertexIndices[dest];
+        var destIndex = vertexIndices[destination];
         if (matrix[sourceIndex].Get(destIndex)) throw new InvalidOperationException("Edge already exists.");
 
         matrix[sourceIndex].Set(destIndex, true);
@@ -176,16 +176,16 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
     ///     remove an existing edge between source and destination
     ///     Time complexity: O(1).
     /// </summary>
-    public void RemoveEdge(T source, T dest)
+    public void RemoveEdge(T source, T destination)
     {
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
-        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
+        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(destination))
             throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
-        var destIndex = vertexIndices[dest];
+        var destIndex = vertexIndices[destination];
         if (!matrix[sourceIndex].Get(destIndex)) throw new InvalidOperationException("Edge do not exists.");
 
         matrix[sourceIndex].Set(destIndex, false);

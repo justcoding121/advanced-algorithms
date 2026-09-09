@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Advanced.Algorithms.DataStructures.Graph;
@@ -14,7 +14,7 @@ public interface IDiGraph<T>
     IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable { get; }
     int VerticesCount { get; }
 
-    bool ContainsVertex(T value);
+    bool ContainsVertex(T key);
     IDiGraphVertex<T> GetVertex(T key);
 
     bool HasEdge(T source, T destination);

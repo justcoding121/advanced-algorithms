@@ -115,37 +115,37 @@ public class WeightedGraph<T, TW> : IGraph<T>, IEnumerable<T> where TW : ICompar
     ///     and between given source and destination vertex.
     ///     Time complexity: O(1).
     /// </summary>
-    public void AddEdge(T source, T dest, TW weight)
+    public void AddEdge(T source, T destination, TW weight)
     {
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
-        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(destination))
             throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
 
-        Vertices[source].Edges.Add(Vertices[dest], weight);
-        Vertices[dest].Edges.Add(Vertices[source], weight);
+        Vertices[source].Edges.Add(Vertices[destination], weight);
+        Vertices[destination].Edges.Add(Vertices[source], weight);
     }
 
     /// <summary>
     ///     Remove given edge.
     ///     Time complexity: O(1).
     /// </summary>
-    public void RemoveEdge(T source, T dest)
+    public void RemoveEdge(T source, T destination)
     {
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
-        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(destination))
             throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
-        if (!Vertices[source].Edges.ContainsKey(Vertices[dest])
-            || !Vertices[dest].Edges.ContainsKey(Vertices[source]))
+        if (!Vertices[source].Edges.ContainsKey(Vertices[destination])
+            || !Vertices[destination].Edges.ContainsKey(Vertices[source]))
             throw new InvalidOperationException("Edge do not exists.");
 
-        Vertices[source].Edges.Remove(Vertices[dest]);
-        Vertices[dest].Edges.Remove(Vertices[source]);
+        Vertices[source].Edges.Remove(Vertices[destination]);
+        Vertices[destination].Edges.Remove(Vertices[source]);
     }
 
     public List<Tuple<T, TW>> GetAllEdges(T vertex)

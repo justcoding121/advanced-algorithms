@@ -113,40 +113,40 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
     ///     Add an edge to this graph.
     ///     Time complexity: O(1).
     /// </summary>
-    public void AddEdge(T source, T dest)
+    public void AddEdge(T source, T destination)
     {
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
-        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(destination))
             throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
-        if (Vertices[source].Edges.Contains(Vertices[dest])
-            || Vertices[dest].Edges.Contains(Vertices[source]))
+        if (Vertices[source].Edges.Contains(Vertices[destination])
+            || Vertices[destination].Edges.Contains(Vertices[source]))
             throw new InvalidOperationException("Edge already exists.");
 
-        Vertices[source].Edges.Add(Vertices[dest]);
-        Vertices[dest].Edges.Add(Vertices[source]);
+        Vertices[source].Edges.Add(Vertices[destination]);
+        Vertices[destination].Edges.Add(Vertices[source]);
     }
 
     /// <summary>
     ///     Remove an edge from this graph.
     ///     Time complexity: O(1).
     /// </summary>
-    public void RemoveEdge(T source, T dest)
+    public void RemoveEdge(T source, T destination)
     {
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
-        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(destination))
             throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
-        if (!Vertices[source].Edges.Contains(Vertices[dest])
-            || !Vertices[dest].Edges.Contains(Vertices[source]))
+        if (!Vertices[source].Edges.Contains(Vertices[destination])
+            || !Vertices[destination].Edges.Contains(Vertices[source]))
             throw new InvalidOperationException("Edge do not exists.");
 
-        Vertices[source].Edges.Remove(Vertices[dest]);
-        Vertices[dest].Edges.Remove(Vertices[source]);
+        Vertices[source].Edges.Remove(Vertices[destination]);
+        Vertices[destination].Edges.Remove(Vertices[source]);
     }
 
     public IEnumerable<T> Edges(T vertex)

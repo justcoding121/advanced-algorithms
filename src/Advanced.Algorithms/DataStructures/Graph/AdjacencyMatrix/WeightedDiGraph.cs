@@ -57,9 +57,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
 
     public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable => GetVerticesAsEnumerable();
 
-    public bool ContainsVertex(T value)
+    public bool ContainsVertex(T key)
     {
-        return vertexIndices.ContainsKey(value);
+        return vertexIndices.ContainsKey(key);
     }
 
     public IDiGraphVertex<T> GetVertex(T key)
@@ -152,18 +152,18 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     ///     Add a new edge to this graph.
     ///     Time complexity: O(1).
     /// </summary>
-    public void AddEdge(T source, T dest, TW weight)
+    public void AddEdge(T source, T destination, TW weight)
     {
         if (weight.Equals(default(TW))) throw new ArgumentException("Cannot add default edge weight.");
 
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
-        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
+        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(destination))
             throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
-        var destIndex = vertexIndices[dest];
+        var destIndex = vertexIndices[destination];
         if (!matrix[sourceIndex, destIndex].Equals(default(TW))) throw new InvalidOperationException("Edge already exists.");
 
         matrix[sourceIndex, destIndex] = weight;
@@ -173,16 +173,16 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     ///     Remove the given edge from this graph.
     ///     Time complexity: O(1).
     /// </summary>
-    public void RemoveEdge(T source, T dest)
+    public void RemoveEdge(T source, T destination)
     {
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
-        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
+        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(destination))
             throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
-        var destIndex = vertexIndices[dest];
+        var destIndex = vertexIndices[destination];
         if (matrix[sourceIndex, destIndex].Equals(default(TW))) throw new InvalidOperationException("Edge do not exists.");
 
         matrix[sourceIndex, destIndex] = default;

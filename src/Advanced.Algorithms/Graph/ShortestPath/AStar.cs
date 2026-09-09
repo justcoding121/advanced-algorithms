@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
@@ -33,7 +33,7 @@ public class AStarShortestPath<T, TW> where TW : IComparable
                                         "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
 
         //regular argument checks
-        if (graph.GetVertex(source) == null || graph.GetVertex(destination) == null)
+        if (!graph.ContainsVertex(source) || !graph.ContainsVertex(destination))
             throw new ArgumentException("Source or destination vertex does not exist in the graph.");
 
         //track progress for distance to each Vertex from source

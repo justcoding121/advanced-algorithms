@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Advanced.Algorithms.DataStructures.Graph;
 using Advanced.Algorithms.DataStructures.Graph.AdjacencyList;
@@ -181,7 +181,7 @@ public class EdmondKarpMaxFlow<T, TW> where TW : IComparable
 
         path.Push(sink);
 
-        while (currentVertex != null && !currentVertex.Key.Equals(source))
+        while (!currentVertex.Key.Equals(source))
         {
             path.Push(parentLookUp[currentVertex].Key);
             currentVertex = parentLookUp[currentVertex];

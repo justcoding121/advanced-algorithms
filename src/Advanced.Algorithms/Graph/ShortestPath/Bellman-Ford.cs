@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Advanced.Algorithms.DataStructures.Graph;
 
@@ -23,8 +23,8 @@ public class BellmanFordShortestPath<T, TW> where TW : IComparable
         T source, T destination)
     {
         //regular argument checks
-        if (graph == null || graph.GetVertex(source) == null
-                          || graph.GetVertex(destination) == null)
+        if (graph == null || !graph.ContainsVertex(source)
+                          || !graph.ContainsVertex(destination))
             throw new ArgumentException("Empty Graph or invalid source/destination.");
 
         if (@operator == null)

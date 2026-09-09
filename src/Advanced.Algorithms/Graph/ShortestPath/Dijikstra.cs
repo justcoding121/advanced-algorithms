@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
@@ -24,7 +24,7 @@ public class DijikstraShortestPath<T, TW> where TW : IComparable
     public ShortestPathResult<T, TW> FindShortestPath(IGraph<T> graph, T source, T destination)
     {
         //regular argument checks
-        if (graph?.GetVertex(source) == null || graph.GetVertex(destination) == null)
+        if (graph == null || !graph.ContainsVertex(source) || !graph.ContainsVertex(destination))
             throw new ArgumentException("Source or destination vertex does not exist in the graph.");
 
         if (@operator == null)

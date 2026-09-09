@@ -53,9 +53,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
                && Vertices[destination].InEdges.ContainsKey(Vertices[source]);
     }
 
-    public bool ContainsVertex(T value)
+    public bool ContainsVertex(T key)
     {
-        return Vertices.ContainsKey(value);
+        return Vertices.ContainsKey(key);
     }
 
     public IDiGraphVertex<T> GetVertex(T key)
@@ -128,41 +128,41 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     ///     Add a new edge to this graph.
     ///     Time complexity: O(1).
     /// </summary>
-    public void AddEdge(T source, T dest, TW weight)
+    public void AddEdge(T source, T destination, TW weight)
     {
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
         if (!Vertices.ContainsKey(source)
-            || !Vertices.ContainsKey(dest))
+            || !Vertices.ContainsKey(destination))
             throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
-        if (Vertices[source].OutEdges.ContainsKey(Vertices[dest])
-            || Vertices[dest].InEdges.ContainsKey(Vertices[source]))
+        if (Vertices[source].OutEdges.ContainsKey(Vertices[destination])
+            || Vertices[destination].InEdges.ContainsKey(Vertices[source]))
             throw new InvalidOperationException("Edge already exists.");
 
-        Vertices[source].OutEdges.Add(Vertices[dest], weight);
-        Vertices[dest].InEdges.Add(Vertices[source], weight);
+        Vertices[source].OutEdges.Add(Vertices[destination], weight);
+        Vertices[destination].InEdges.Add(Vertices[source], weight);
     }
 
     /// <summary>
     ///     Remove the given edge from this graph.
     ///     Time complexity: O(1).
     /// </summary>
-    public void RemoveEdge(T source, T dest)
+    public void RemoveEdge(T source, T destination)
     {
-        if (source is null || dest is null)
+        if (source is null || destination is null)
             throw new ArgumentException("source or destination is null.");
 
-        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(dest))
+        if (!Vertices.ContainsKey(source) || !Vertices.ContainsKey(destination))
             throw new ArgumentException("Source or Destination Vertex is not in this graph.");
 
-        if (!Vertices[source].OutEdges.ContainsKey(Vertices[dest])
-            || !Vertices[dest].InEdges.ContainsKey(Vertices[source]))
+        if (!Vertices[source].OutEdges.ContainsKey(Vertices[destination])
+            || !Vertices[destination].InEdges.ContainsKey(Vertices[source]))
             throw new InvalidOperationException("Edge do not exist.");
 
-        Vertices[source].OutEdges.Remove(Vertices[dest]);
-        Vertices[dest].InEdges.Remove(Vertices[source]);
+        Vertices[source].OutEdges.Remove(Vertices[destination]);
+        Vertices[destination].InEdges.Remove(Vertices[source]);
     }
 
     public IEnumerable<Tuple<T, TW>> OutEdges(T vertex)
