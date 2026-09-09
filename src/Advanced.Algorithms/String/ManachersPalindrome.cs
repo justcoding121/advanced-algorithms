@@ -7,9 +7,9 @@ namespace Advanced.Algorithms.String;
 /// <summary>
 ///     A Manacher's longest palindrome implementation.
 /// </summary>
-public class ManachersPalindrome
+public static class ManachersPalindrome
 {
-    public int FindLongestPalindrome(string input)
+    public static int FindLongestPalindrome(string input)
     {
         if (input.Length <= 1) throw new ArgumentException("Invalid input");
 

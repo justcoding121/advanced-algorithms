@@ -3,7 +3,7 @@
 /// <summary>
 ///     A Z-algorithm implementation for string search.
 /// </summary>
-public class ZAlgorithm
+public static class ZAlgorithm
 {
     /// <summary>
     ///     Returns the start index of first appearance

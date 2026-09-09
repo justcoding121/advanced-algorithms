@@ -302,7 +302,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Insert to a node that is not full.
     /// </summary>
-    private void InsertToNotFullNode(ref BpTreeNode<T> node, T newValue,
+    private static void InsertToNotFullNode(ref BpTreeNode<T> node, T newValue,
         BpTreeNode<T> newValueLeft, BpTreeNode<T> newValueRight)
     {
         var inserted = false;
@@ -584,7 +584,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     do a right rotation
     /// </summary>
-    private void RightRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
+    private static void RightRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
     {
         var parentIndex = GetNextSeparatorIndex(leftSibling);
 
@@ -614,7 +614,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     do a left rotation
     /// </summary>
-    private void LeftRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
+    private static void LeftRotate(BpTreeNode<T> leftSibling, BpTreeNode<T> rightSibling)
     {
         var parentIndex = GetNextSeparatorIndex(leftSibling);
 

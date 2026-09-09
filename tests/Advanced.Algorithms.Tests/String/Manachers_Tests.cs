@@ -10,44 +10,38 @@ namespace Advanced.Algorithms.Tests.String
         [TestMethod]
         public void Manacher_Palindrome_Tests()
         {
-            var manacher = new ManachersPalindrome();
-
-            var length = manacher.FindLongestPalindrome("aacecaaa");
+            var length = ManachersPalindrome.FindLongestPalindrome("aacecaaa");
             Assert.IsTrue(length == 7);
 
-            length = manacher.FindLongestPalindrome("baab");
+            length = ManachersPalindrome.FindLongestPalindrome("baab");
             Assert.IsTrue(length == 4);
 
-            length = manacher.FindLongestPalindrome("abaab");
+            length = ManachersPalindrome.FindLongestPalindrome("abaab");
             Assert.IsTrue(length == 4);
 
-            length = manacher.FindLongestPalindrome("abaxabaxabb");
+            length = ManachersPalindrome.FindLongestPalindrome("abaxabaxabb");
             Assert.IsTrue(length == 9);
 
-            length = manacher.FindLongestPalindrome("abaxabaxabybaxabyb");
+            length = ManachersPalindrome.FindLongestPalindrome("abaxabaxabybaxabyb");
             Assert.IsTrue(length == 11);
 
-            length = manacher.FindLongestPalindrome("abaxabaxabbaxabyb");
+            length = ManachersPalindrome.FindLongestPalindrome("abaxabaxabbaxabyb");
             Assert.IsTrue(length == 10);
         }
 
         [TestMethod]
         public void Manacher_Invalid_Input_Throws()
         {
-            var manacher = new ManachersPalindrome();
-
-            Assert.ThrowsException<ArgumentException>(() => manacher.FindLongestPalindrome(""));
-            Assert.ThrowsException<ArgumentException>(() => manacher.FindLongestPalindrome("a"));
-            Assert.ThrowsException<ArgumentException>(() => manacher.FindLongestPalindrome("a$b"));
+            Assert.ThrowsException<ArgumentException>(() => ManachersPalindrome.FindLongestPalindrome(""));
+            Assert.ThrowsException<ArgumentException>(() => ManachersPalindrome.FindLongestPalindrome("a"));
+            Assert.ThrowsException<ArgumentException>(() => ManachersPalindrome.FindLongestPalindrome("a$b"));
         }
 
         [TestMethod]
         public void Manacher_Two_Chars()
         {
-            var manacher = new ManachersPalindrome();
-
-            Assert.AreEqual(2, manacher.FindLongestPalindrome("aa"));
-            Assert.AreEqual(1, manacher.FindLongestPalindrome("ab"));
+            Assert.AreEqual(2, ManachersPalindrome.FindLongestPalindrome("aa"));
+            Assert.AreEqual(1, ManachersPalindrome.FindLongestPalindrome("ab"));
         }
     }
 }
