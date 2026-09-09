@@ -147,6 +147,23 @@ namespace Advanced.Algorithms.Tests.DataStructures
                 Assert.AreEqual(0, tree.RangeSearch(new Rectangle(new Point(0, 1), new Point(1, 0))).Count);
                 Assert.ThrowsException<ArgumentException>(() => tree.Delete(new Point(0, 0)));
             }
+
+            [TestMethod]
+            public void QuadTree_Range_Delete_Oracle()
+            {
+                var tree = new QuadTree<int>();
+                tree.Insert(new Point(1, 1), 1);
+                tree.Insert(new Point(2, 2), 2);
+                tree.Insert(new Point(10, 10), 3);
+
+                var hits = tree.RangeSearch(new Rectangle(new Point(0, 3), new Point(3, 0)));
+                Assert.AreEqual(2, hits.Count);
+
+                tree.Delete(new Point(2, 2));
+                Assert.AreEqual(2, tree.Count);
+                Assert.AreEqual(1, tree.RangeSearch(new Rectangle(new Point(0, 3), new Point(3, 0))).Count);
+                Assert.AreEqual(2, tree.Count());
+            }
         }
     }
 }
