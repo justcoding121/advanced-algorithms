@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Advanced.Algorithms.DataStructures.Foundation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -72,8 +73,64 @@ namespace Advanced.Algorithms.Tests.DataStructures
             arrayList.Add(1);
 
             Assert.ThrowsException<ArgumentException>(() => { var _ = arrayList[1]; });
+            Assert.ThrowsException<ArgumentException>(() => { var _ = arrayList[-1]; });
             Assert.ThrowsException<ArgumentException>(() => arrayList[1] = 2);
+            Assert.ThrowsException<ArgumentException>(() => arrayList[-1] = 2);
             Assert.ThrowsException<ArgumentException>(() => arrayList.RemoveAt(1));
+            Assert.ThrowsException<ArgumentException>(() => arrayList.RemoveAt(-1));
+            Assert.ThrowsException<ArgumentException>(() => arrayList.InsertAt(2, 9));
+            Assert.ThrowsException<ArgumentException>(() => arrayList.InsertAt(-1, 9));
+        }
+
+        /// <summary>
+        ///     Adversarial random ops oracle vs List&lt;T&gt;.
+        /// </summary>
+        [TestMethod]
+        public void ArrayList_ListOracle_RandomOps()
+        {
+            var rng = new Random(42);
+            var ours = new ArrayList<int>();
+            var oracle = new List<int>();
+
+            for (var step = 0; step < 1000; step++)
+            {
+                var op = rng.Next(5);
+
+                if (op == 0 || oracle.Count == 0)
+                {
+                    var v = rng.Next(1000);
+                    ours.Add(v);
+                    oracle.Add(v);
+                }
+                else if (op == 1)
+                {
+                    var idx = rng.Next(oracle.Count + 1);
+                    var v = rng.Next(1000);
+                    ours.InsertAt(idx, v);
+                    oracle.Insert(idx, v);
+                }
+                else if (op == 2)
+                {
+                    var idx = rng.Next(oracle.Count);
+                    ours.RemoveAt(idx);
+                    oracle.RemoveAt(idx);
+                }
+                else if (op == 3)
+                {
+                    var idx = rng.Next(oracle.Count);
+                    var v = rng.Next(1000);
+                    ours[idx] = v;
+                    oracle[idx] = v;
+                }
+                else
+                {
+                    ours.Clear();
+                    oracle.Clear();
+                }
+
+                Assert.AreEqual(oracle.Count, ours.Length);
+                CollectionAssert.AreEqual(oracle, ours.ToList());
+            }
         }
     }
 }

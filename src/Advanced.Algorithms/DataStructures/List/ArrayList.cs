@@ -68,7 +68,7 @@ public class ArrayList<T> : IEnumerable<T>
 
     private T ItemAt(int i)
     {
-        if (i >= Length)
+        if (i < 0 || i >= Length)
             throw new ArgumentException("Index exeeds array size");
 
         return array[i];
@@ -96,6 +96,9 @@ public class ArrayList<T> : IEnumerable<T>
     ///         <param name="item">The item to insert.</param>
     public void InsertAt(int index, T item)
     {
+        if (index < 0 || index > Length)
+            throw new ArgumentException("Index exeeds array size");
+
         Grow();
 
         Shift(index);
@@ -126,7 +129,7 @@ public class ArrayList<T> : IEnumerable<T>
 
     private void SetItem(int i, T item)
     {
-        if (i >= Length)
+        if (i < 0 || i >= Length)
             throw new ArgumentException("Index exeeds array size");
 
         array[i] = item;
@@ -139,12 +142,13 @@ public class ArrayList<T> : IEnumerable<T>
     /// <param name="i">The index to remove at.</param>
     public void RemoveAt(int i)
     {
-        if (i >= Length)
+        if (i < 0 || i >= Length)
             throw new ArgumentException("Index exeeds array size");
 
-        //shift elements
-        for (var j = i; j < arraySize - 1; j++) array[j] = array[j + 1];
+        //shift elements within the logical length only
+        for (var j = i; j < Length - 1; j++) array[j] = array[j + 1];
 
+        array[Length - 1] = default;
         Length--;
 
         Shrink();
