@@ -171,7 +171,11 @@ public class Graph<T> : IGraph<T>, IEnumerable<T>
         foreach (var vertex in Vertices)
         {
             foreach (var edge in vertex.Value.Edges)
-                newGraph.AddEdge(vertex.Value.Key, edge.Key);
+            {
+                // undirected edges are stored twice; add once
+                if (!newGraph.HasEdge(vertex.Value.Key, edge.Key))
+                    newGraph.AddEdge(vertex.Value.Key, edge.Key);
+            }
         }
 
         return newGraph;
