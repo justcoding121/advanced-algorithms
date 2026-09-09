@@ -27,7 +27,7 @@ public class KahnsTopSort<T>
         }
 
         //no vertices with zero number of in edges
-        if (kahnQueue.Count == 0) throw new Exception("Graph has a cycle.");
+        if (kahnQueue.Count == 0) throw new InvalidOperationException("Graph has a cycle.");
 
         var result = new List<T>();
 
@@ -36,7 +36,7 @@ public class KahnsTopSort<T>
         while (kahnQueue.Count > 0)
         {
             //cannot exceed vertex number of iterations
-            if (visitCount > graph.VerticesCount) throw new Exception("Graph has a cycle.");
+            if (visitCount > graph.VerticesCount) throw new InvalidOperationException("Graph has a cycle.");
 
             //pick a neighbour
             var nextPick = graph.GetVertex(kahnQueue.Dequeue());
