@@ -11,17 +11,19 @@ namespace Advanced.Algorithms.DataStructures.Graph.AdjacencyMatrix;
 /// </summary>
 public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> where TW : IComparable
 {
+    private const string VertexNotInGraph = "vertex is not in this graph.";
+
     private TW[,] matrix;
     private int nextAvailableIndex;
     private Dictionary<int, T> reverseVertexIndices;
     private Dictionary<T, int> vertexIndices;
-    private readonly Dictionary<T, WeightedDiGraphVertex<T, TW>> vertexObjects;
+    private readonly Dictionary<T, WeightedDiGraphVertex> vertexObjects;
 
     public WeightedDiGraph()
     {
         vertexIndices = new Dictionary<T, int>();
         reverseVertexIndices = new Dictionary<int, T>();
-        vertexObjects = new Dictionary<T, WeightedDiGraphVertex<T, TW>>();
+        vertexObjects = new Dictionary<T, WeightedDiGraphVertex>();
 
         matrix = new TW[1, 1];
     }
@@ -37,15 +39,16 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     ///     Do we have an edge between given source and destination?
     ///     Time complexity: O(1).
     /// </summary>
-    public bool HasEdge(T source, T dest)
+    public bool HasEdge(T source, T destination)
     {
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(destination, default))
+            throw new ArgumentException("source or destination is null.");
 
-        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
-            throw new Exception("Source or destination vertex does'nt exist.");
+        if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(destination))
+            throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
-        var destIndex = vertexIndices[dest];
+        var destIndex = vertexIndices[destination];
 
         if (!matrix[sourceIndex, destIndex].Equals(default(TW))) return true;
 
@@ -92,9 +95,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
         return Clone();
     }
 
-    private WeightedDiGraphVertex<T, TW> GetReferenceVertex()
+    private WeightedDiGraphVertex GetReferenceVertex()
     {
-        if (VerticesCount == 0) throw new Exception("Empty graph.");
+        if (VerticesCount == 0) throw new InvalidOperationException("Empty graph.");
 
         return vertexObjects[this.First()];
     }
@@ -105,9 +108,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     /// </summary>
     public void AddVertex(T value)
     {
-        if (value == null) throw new ArgumentNullException();
+        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
 
-        if (vertexIndices.ContainsKey(value)) throw new Exception("Vertex exists.");
+        if (vertexIndices.ContainsKey(value)) throw new ArgumentException("Vertex exists.");
 
         if (VerticesCount < MaxSize / 2) HalfMatrixSize();
 
@@ -115,7 +118,7 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
 
         vertexIndices.Add(value, nextAvailableIndex);
         reverseVertexIndices.Add(nextAvailableIndex, value);
-        vertexObjects.Add(value, new WeightedDiGraphVertex<T, TW>(this, value));
+        vertexObjects.Add(value, new WeightedDiGraphVertex(this, value));
         nextAvailableIndex++;
     }
 
@@ -125,9 +128,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     /// </summary>
     public void RemoveVertex(T value)
     {
-        if (value == null) throw new ArgumentNullException();
+        if (EqualityComparer<T>.Default.Equals(value, default)) throw new ArgumentNullException(nameof(value));
 
-        if (!vertexIndices.ContainsKey(value)) throw new Exception("Vertex does'nt exist.");
+        if (!vertexIndices.ContainsKey(value)) throw new ArgumentException("Vertex does'nt exist.");
 
         if (VerticesCount <= MaxSize / 2) HalfMatrixSize();
 
@@ -151,16 +154,17 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     /// </summary>
     public void AddEdge(T source, T dest, TW weight)
     {
-        if (weight.Equals(default(TW))) throw new Exception("Cannot add default edge weight.");
+        if (weight.Equals(default(TW))) throw new ArgumentException("Cannot add default edge weight.");
 
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+            throw new ArgumentException("source or destination is null.");
 
         if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
-            throw new Exception("Source or destination vertex does'nt exist.");
+            throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
         var destIndex = vertexIndices[dest];
-        if (!matrix[sourceIndex, destIndex].Equals(default(TW))) throw new Exception("Edge already exists.");
+        if (!matrix[sourceIndex, destIndex].Equals(default(TW))) throw new InvalidOperationException("Edge already exists.");
 
         matrix[sourceIndex, destIndex] = weight;
     }
@@ -171,68 +175,87 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     /// </summary>
     public void RemoveEdge(T source, T dest)
     {
-        if (source == null || dest == null) throw new ArgumentException();
+        if (EqualityComparer<T>.Default.Equals(source, default) || EqualityComparer<T>.Default.Equals(dest, default))
+            throw new ArgumentException("source or destination is null.");
 
         if (!vertexIndices.ContainsKey(source) || !vertexIndices.ContainsKey(dest))
-            throw new Exception("Source or destination vertex does'nt exist.");
+            throw new ArgumentException("Source or destination vertex does'nt exist.");
 
         var sourceIndex = vertexIndices[source];
         var destIndex = vertexIndices[dest];
-        if (matrix[sourceIndex, destIndex].Equals(default(TW))) throw new Exception("Edge do not exists.");
+        if (matrix[sourceIndex, destIndex].Equals(default(TW))) throw new InvalidOperationException("Edge do not exists.");
 
         matrix[sourceIndex, destIndex] = default;
     }
 
     public int OutEdgeCount(T vertex)
     {
-        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException(VertexNotInGraph);
 
         var index = vertexIndices[vertex];
 
         var count = 0;
 
         for (var i = 0; i < MaxSize; i++)
+        {
             if (!matrix[index, i].Equals(default(TW)))
                 count++;
+        }
 
         return count;
     }
 
     public IEnumerable<KeyValuePair<T, TW>> OutEdges(T vertex)
     {
-        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException(VertexNotInGraph);
 
+        return OutEdgesIterator(vertex);
+    }
+
+    private IEnumerable<KeyValuePair<T, TW>> OutEdgesIterator(T vertex)
+    {
         var index = vertexIndices[vertex];
 
         for (var i = 0; i < MaxSize; i++)
+        {
             if (!matrix[index, i].Equals(default(TW)))
                 yield return new KeyValuePair<T, TW>(reverseVertexIndices[i], matrix[index, i]);
+        }
     }
 
     public int InEdgeCount(T vertex)
     {
-        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException(VertexNotInGraph);
 
         var index = vertexIndices[vertex];
 
         var count = 0;
 
         for (var i = 0; i < MaxSize; i++)
+        {
             if (!matrix[i, index].Equals(default(TW)))
                 count++;
+        }
 
         return count;
     }
 
     public IEnumerable<KeyValuePair<T, TW>> InEdges(T vertex)
     {
-        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException("vertex is not in this graph.");
+        if (!vertexIndices.ContainsKey(vertex)) throw new ArgumentException(VertexNotInGraph);
 
+        return InEdgesIterator(vertex);
+    }
+
+    private IEnumerable<KeyValuePair<T, TW>> InEdgesIterator(T vertex)
+    {
         var index = vertexIndices[vertex];
 
         for (var i = 0; i < MaxSize; i++)
+        {
             if (!matrix[i, index].Equals(default(TW)))
                 yield return new KeyValuePair<T, TW>(reverseVertexIndices[i], matrix[i, index]);
+        }
     }
 
     private void DoubleMatrixSize()
@@ -253,16 +276,20 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
         nextAvailableIndex = k;
 
         for (var i = 0; i < MaxSize; i++)
-        for (var j = 0; j < MaxSize; j++)
-            if (!matrix[i, j].Equals(default(TW))
-                && reverseVertexIndices.ContainsKey(i)
-                && reverseVertexIndices.ContainsKey(j))
+        {
+            for (var j = 0; j < MaxSize; j++)
             {
-                var newI = newVertexIndices[reverseVertexIndices[i]];
-                var newJ = newVertexIndices[reverseVertexIndices[j]];
+                if (!matrix[i, j].Equals(default(TW))
+                    && reverseVertexIndices.ContainsKey(i)
+                    && reverseVertexIndices.ContainsKey(j))
+                {
+                    var newI = newVertexIndices[reverseVertexIndices[i]];
+                    var newJ = newVertexIndices[reverseVertexIndices[j]];
 
-                newMatrix[newI, newJ] = matrix[i, j];
+                    newMatrix[newI, newJ] = matrix[i, j];
+                }
             }
+        }
 
         matrix = newMatrix;
         vertexIndices = newVertexIndices;
@@ -287,23 +314,27 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
         nextAvailableIndex = k;
 
         for (var i = 0; i < MaxSize; i++)
-        for (var j = 0; j < MaxSize; j++)
-            if (!matrix[i, j].Equals(default(TW))
-                && reverseVertexIndices.ContainsKey(i)
-                && reverseVertexIndices.ContainsKey(j))
+        {
+            for (var j = 0; j < MaxSize; j++)
             {
-                var newI = newVertexIndices[reverseVertexIndices[i]];
-                var newJ = newVertexIndices[reverseVertexIndices[j]];
+                if (!matrix[i, j].Equals(default(TW))
+                    && reverseVertexIndices.ContainsKey(i)
+                    && reverseVertexIndices.ContainsKey(j))
+                {
+                    var newI = newVertexIndices[reverseVertexIndices[i]];
+                    var newJ = newVertexIndices[reverseVertexIndices[j]];
 
-                newMatrix[newI, newJ] = matrix[i, j];
+                    newMatrix[newI, newJ] = matrix[i, j];
+                }
             }
+        }
 
         matrix = newMatrix;
         vertexIndices = newVertexIndices;
         reverseVertexIndices = newReverseIndices;
     }
 
-    private IEnumerable<WeightedDiGraphVertex<T, TW>> GetVerticesAsEnumerable()
+    private IEnumerable<WeightedDiGraphVertex> GetVerticesAsEnumerable()
     {
         return this.Select(x => vertexObjects[x]);
     }
@@ -312,16 +343,21 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
     {
         var graph = new WeightedDiGraph<T, TW>();
 
-        foreach (var vertex in this) graph.AddVertex(vertex);
+        foreach (var vertex in this)
+        {
+            graph.AddVertex(vertex);
+        }
 
         foreach (var vertex in this)
-        foreach (var edge in OutEdges(vertex))
-            graph.AddEdge(vertex, edge.Key, edge.Value);
+        {
+            foreach (var edge in OutEdges(vertex))
+                graph.AddEdge(vertex, edge.Key, edge.Value);
+        }
 
         return graph;
     }
 
-    private class WeightedDiGraphVertex<T, TW> : IDiGraphVertex<T>, IGraphVertex<T> where TW : IComparable
+    private sealed class WeightedDiGraphVertex : IDiGraphVertex<T>, IGraphVertex<T>
     {
         private readonly WeightedDiGraph<T, TW> graph;
         private readonly int vertexIndex;
@@ -329,18 +365,16 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
         internal WeightedDiGraphVertex(WeightedDiGraph<T, TW> graph, T vertexKey)
         {
             if (!graph.vertexIndices.ContainsKey(vertexKey))
-                throw new ArgumentException("vertex is not in this graph.");
+                throw new ArgumentException(VertexNotInGraph);
 
             this.graph = graph;
             Key = vertexKey;
             vertexIndex = graph.vertexIndices[vertexKey];
         }
 
-        private int MaxSize => graph.MaxSize;
         private TW[,] Matrix => graph.matrix;
 
         private Dictionary<T, int> VertexIndices => graph.vertexIndices;
-        private Dictionary<int, T> ReverseVertexIndices => graph.reverseVertexIndices;
 
         public T Key { get; }
 
@@ -356,10 +390,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
         public IDiEdge<T> GetOutEdge(IDiGraphVertex<T> targetVertex)
         {
             if (!VertexIndices.ContainsKey(targetVertex.Key))
-                throw new ArgumentException("vertex is not in this graph.");
+                throw new ArgumentException(VertexNotInGraph);
 
             var index = VertexIndices[targetVertex.Key];
-            var key = targetVertex as WeightedDiGraphVertex<T, TW>;
             return new DiEdge<T, TW>(targetVertex, Matrix[vertexIndex, index]);
         }
 
@@ -369,10 +402,9 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
         public IEdge<T> GetEdge(IGraphVertex<T> targetVertex)
         {
             if (!VertexIndices.ContainsKey(targetVertex.Key))
-                throw new ArgumentException("vertex is not in this graph.");
+                throw new ArgumentException(VertexNotInGraph);
 
             var index = VertexIndices[targetVertex.Key];
-            var key = targetVertex as WeightedDiGraphVertex<T, TW>;
             return new Edge<T, TW>(targetVertex, Matrix[vertexIndex, index]);
         }
     }
