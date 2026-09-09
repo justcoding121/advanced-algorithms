@@ -25,7 +25,8 @@ public class FenwickTree<T> : IEnumerable<T>
     /// </summary>
     public FenwickTree(T[] input, Func<T, T, T> sumOperation)
     {
-        if (input == null || sumOperation == null) throw new ArgumentNullException();
+        if (input == null) throw new ArgumentNullException(nameof(input));
+        if (sumOperation == null) throw new ArgumentNullException(nameof(sumOperation));
 
         this.input = input.Clone() as T[];
 
@@ -69,7 +70,8 @@ public class FenwickTree<T> : IEnumerable<T>
     /// </summary>
     public T PrefixSum(int endIndex)
     {
-        if (endIndex < 0 || endIndex > Length - 1) throw new ArgumentException();
+        if (endIndex < 0 || endIndex > Length - 1)
+            throw new ArgumentException("endIndex is out of range.", nameof(endIndex));
 
         var sum = default(T);
 
@@ -87,7 +89,7 @@ public class FenwickTree<T> : IEnumerable<T>
     /// <summary>
     ///     Get index of next sibling .
     /// </summary>
-    private int GetNextIndex(int currentIndex)
+    private static int GetNextIndex(int currentIndex)
     {
         //add current index with
         //twos complimant of currentIndex AND with currentIndex
@@ -97,7 +99,7 @@ public class FenwickTree<T> : IEnumerable<T>
     /// <summary>
     ///     Get parent node index.
     /// </summary>
-    private int GetParentIndex(int currentIndex)
+    private static int GetParentIndex(int currentIndex)
     {
         //substract current index with
         //twos complimant of currentIndex AND with currentIndex
