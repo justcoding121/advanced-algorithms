@@ -94,6 +94,34 @@ namespace Advanced.Algorithms.Tests.Graph
             for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], testCase.Path[i]);
         }
 
+        [TestMethod]
+        public void FloydWarshall_Oracle_Matches_Dijkstra()
+        {
+            var graph = new WeightedGraph<char, int>();
+            foreach (var v in "SABCDT") graph.AddVertex(v);
+            graph.AddEdge('S', 'A', 8);
+            graph.AddEdge('S', 'C', 10);
+            graph.AddEdge('A', 'B', 10);
+            graph.AddEdge('A', 'C', 1);
+            graph.AddEdge('A', 'D', 8);
+            graph.AddEdge('B', 'T', 4);
+            graph.AddEdge('C', 'D', 1);
+            graph.AddEdge('D', 'B', 1);
+            graph.AddEdge('D', 'T', 10);
+
+            var op = new FloydWarshallShortestPathOperators();
+            var fw = new FloydWarshallShortestPath<char, int>(op).FindAllPairShortestPaths(graph);
+            var di = new DijikstraShortestPath<char, int>(op);
+
+            foreach (var s in "SABCDT")
+            foreach (var t in "SABCDT")
+            {
+                var f = fw.First(x => x.Source == s && x.Destination == t);
+                var d = di.FindShortestPath(graph, s, t);
+                Assert.AreEqual(d.Length, f.Distance, $"{s}->{t}");
+            }
+        }
+
         /// <summary>
         ///     generic operations for int type
         /// </summary>
