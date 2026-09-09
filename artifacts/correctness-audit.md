@@ -49,3 +49,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Sort/DepthFirstTopSort_Tests.cs | pass | topo vs DAG edges oracle; cycle throws |
 | src/Advanced.Algorithms/Graph/Cycle/CycleDetection.cs | ok | DFS visiting/visited correct; no code change |
 | tests/Advanced.Algorithms.Tests/Graph/Cycle/CycleDetection_Tests.cs | pass | self-loop + DAG adversarial |
+| src/Advanced.Algorithms/Graph/ArticulationPoint/TarjansArticulationFinder.cs | fixed | only scanned reference component; iterate all DFS roots |
+| tests/Advanced.Algorithms.Tests/Graph/ArticulationPoints/TarjansArticulation_Tests.cs | pass | disconnected triangle+path AP oracle |

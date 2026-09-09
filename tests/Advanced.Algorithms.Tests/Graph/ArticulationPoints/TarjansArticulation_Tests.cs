@@ -85,5 +85,22 @@ namespace Advanced.Algorithms.Tests.Graph
 
             foreach (var v in result) Assert.IsTrue(expectedResult.Contains(v));
         }
+
+        [TestMethod]
+        public void TarjanArticulation_Disconnected_Components()
+        {
+            var graph = new Graph<char>();
+            foreach (var c in "ABCDEF") graph.AddVertex(c);
+            // triangle (no AP) + path APs in second component: D-E-F => E is AP
+            graph.AddEdge('A', 'B');
+            graph.AddEdge('B', 'C');
+            graph.AddEdge('C', 'A');
+            graph.AddEdge('D', 'E');
+            graph.AddEdge('E', 'F');
+
+            var result = new TarjansArticulationFinder<char>().FindArticulationPoints(graph);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual('E', result[0]);
+        }
     }
 }
