@@ -127,5 +127,24 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.IsTrue(trie.Contains("ab".ToCharArray()));
             Assert.AreEqual(1, trie.StartsWith("a".ToCharArray()).Count);
         }
+
+        [TestMethod]
+        public void Trie_Prefix_Delete_Enumerate_Oracle()
+        {
+            var trie = new Trie<char>();
+            var words = new[] { "a", "ab", "abc", "b", "ba", "cat", "car", "dog" };
+            foreach (var w in words) trie.Insert(w.ToCharArray());
+
+            Assert.AreEqual(words.Length, trie.Count);
+            Assert.AreEqual(words.Length, trie.Count());
+            foreach (var w in words) Assert.IsTrue(trie.Contains(w.ToCharArray()));
+
+            trie.Delete("ab".ToCharArray());
+            Assert.IsFalse(trie.Contains("ab".ToCharArray()));
+            Assert.IsTrue(trie.Contains("a".ToCharArray()));
+            Assert.IsTrue(trie.Contains("abc".ToCharArray()));
+            Assert.AreEqual(words.Length - 1, trie.Count);
+            Assert.AreEqual(trie.Count, trie.Count());
+        }
     }
 }
