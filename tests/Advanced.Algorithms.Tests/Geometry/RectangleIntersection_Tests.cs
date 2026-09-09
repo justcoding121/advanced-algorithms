@@ -71,5 +71,28 @@ namespace Advanced.Algorithms.Tests.Geometry
             Assert.ThrowsException<System.ArgumentException>(() =>
                 new Rectangle(new Point(10, 10), new Point(0, 0)));
         }
+
+        /// <summary>
+        /// Oracle: overlap, containment, disjoint, and edge-touch vs hand-expected rectangles.
+        /// </summary>
+        [TestMethod]
+        public void RectIntersection_Oracle_HandCases_Test()
+        {
+            var comparer = new RectangleComparer();
+            var outer = new Rectangle(new Point(0, 10), new Point(10, 0));
+            var inner = new Rectangle(new Point(2, 8), new Point(8, 2));
+            Assert.IsTrue(comparer.Equals(inner, RectangleIntersection.FindIntersection(outer, inner)));
+
+            var overlap = new Rectangle(new Point(5, 5), new Point(15, 0));
+            Assert.IsTrue(comparer.Equals(
+                new Rectangle(new Point(5, 5), new Point(10, 0)),
+                RectangleIntersection.FindIntersection(outer, overlap)));
+
+            Assert.IsFalse(RectangleIntersection.DoIntersect(outer,
+                new Rectangle(new Point(20, 10), new Point(30, 0))));
+
+            Assert.IsTrue(RectangleIntersection.DoIntersect(outer,
+                new Rectangle(new Point(10, 5), new Point(20, 0))));
+        }
     }
 }
