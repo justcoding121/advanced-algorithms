@@ -83,6 +83,38 @@ namespace Advanced.Algorithms.Tests.Graph
             for (var i = 0; i < expectedPath.Length; i++) Assert.AreEqual(expectedPath[i], testCase.Path[i]);
         }
 
+        [TestMethod]
+        public void Johnsons_Oracle_Matches_BellmanFord_AllPairs()
+        {
+            var graph = new WeightedDiGraph<char, int>();
+            foreach (var v in "SABCDT") graph.AddVertex(v);
+            graph.AddEdge('S', 'A', -5);
+            graph.AddEdge('S', 'C', 10);
+            graph.AddEdge('A', 'B', 10);
+            graph.AddEdge('A', 'C', 1);
+            graph.AddEdge('A', 'D', 8);
+            graph.AddEdge('B', 'T', 4);
+            graph.AddEdge('C', 'D', 1);
+            graph.AddEdge('D', 'B', 1);
+            graph.AddEdge('D', 'T', 10);
+
+            var op = new JohnsonsShortestPathOperators();
+            var johnson = new JohnsonsShortestPath<char, int>(op).FindAllPairShortestPaths(graph);
+            var bf = new BellmanFordShortestPath<char, int>(op);
+
+            foreach (var s in "SABCDT")
+            foreach (var t in "SABCDT")
+            {
+                var b = bf.FindShortestPath(graph, s, t);
+                // Bellman-Ford returns a single-vertex path with length 0 when unreachable.
+                if (!s.Equals(t) && (b.Path == null || b.Path.Count < 2 || !b.Path[0].Equals(s)))
+                    continue;
+
+                var j = johnson.First(x => x.Source == s && x.Destination == t);
+                Assert.AreEqual(b.Length, j.Distance, $"{s}->{t}");
+            }
+        }
+
         /// <summary>
         ///     generic operations for int type
         /// </summary>

@@ -71,9 +71,15 @@ public class JohnsonsShortestPath<T, TW> where TW : IComparable
                 var sp = dijikstras.FindShortestPath(workGraph, source, dest);
 
                 //no path exists
-                if (sp.Length.Equals(@operator.MaxValue)) continue;
+                if (sp.Length.Equals(@operator.MaxValue) || sp.Path == null || sp.Path.Count == 0)
+                    continue;
+                if (!source.Equals(dest) && (sp.Path.Count < 2 || !sp.Path[0].Equals(source)))
+                    continue;
 
-                var distance = sp.Length;
+                // Convert reweighted distance d' back to original: d = d' + h(v) - h(u).
+                var distance = @operator.Substract(
+                    @operator.Sum(sp.Length, bellFordResult[dest]),
+                    bellFordResult[source]);
                 var path = sp.Path;
 
                 finalResult.Add(new AllPairShortestPathResult<T, TW>(source, dest, distance, path));
