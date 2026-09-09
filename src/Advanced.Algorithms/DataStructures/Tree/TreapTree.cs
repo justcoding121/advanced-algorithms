@@ -119,7 +119,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
             }
             else
             {
-                throw new Exception("Item exists");
+                throw new ArgumentException("Item exists");
             }
         }
     }
@@ -147,7 +147,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
-        if (Root == null) throw new Exception("Empty TreapTree");
+        if (Root == null) throw new InvalidOperationException("Empty TreapTree");
 
         Delete(Root, value);
     }
@@ -177,14 +177,14 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
                 //node is less than the search value so move right to find the deletion node
                 if (compareResult < 0)
                 {
-                    node = node.Right ?? throw new Exception("Item do not exist");
+                    node = node.Right ?? throw new ArgumentException("Item do not exist");
                     continue;
                 }
                 //node is less than the search value so move left to find the deletion node
 
                 if (compareResult > 0)
                 {
-                    node = node.Left ?? throw new Exception("Item do not exist");
+                    node = node.Left ?? throw new ArgumentException("Item do not exist");
                     continue;
                 }
             }
@@ -292,7 +292,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
         return FindMax(Root).Value;
     }
 
-    private TreapTreeNode<T> FindMax(TreapTreeNode<T> node)
+    private static TreapTreeNode<T> FindMax(TreapTreeNode<T> node)
     {
         while (true)
         {
@@ -309,7 +309,7 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
         return FindMin(Root).Value;
     }
 
-    private TreapTreeNode<T> FindMin(TreapTreeNode<T> node)
+    private static TreapTreeNode<T> FindMin(TreapTreeNode<T> node)
     {
         while (true)
         {
@@ -319,6 +319,13 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
         }
     }
 
+
+    //find the node with the given identifier among descendants of parent and parent
+    //uses pre-order traversal
+    private BstNodeBase<T> Find(T value)
+    {
+        return Root.Find(value).Item1;
+    }
 
     //find the node with the given identifier among descendants of parent and parent
     //uses pre-order traversal
@@ -428,13 +435,6 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
         if (prevRoot == Root) Root = newRoot;
 
         return newRoot;
-    }
-
-    //find the node with the given identifier among descendants of parent and parent
-    //uses pre-order traversal
-    private BstNodeBase<T> Find(T value)
-    {
-        return Root.Find(value).Item1;
     }
 
     /// <summary>

@@ -165,5 +165,28 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             Assert.IsTrue(tree.Count == 0);
         }
+
+        [TestMethod]
+        public void TreapTree_Empty_SingleNode_DeleteRoot_Enumerate()
+        {
+            var tree = new TreapTree<int>();
+
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+            Assert.IsFalse(tree.HasItem(1));
+            Assert.ThrowsException<InvalidOperationException>(() => tree.Delete(1));
+
+            tree.Insert(1);
+            Assert.AreEqual(1, tree.Count);
+            Assert.IsTrue(tree.HasItem(1));
+            CollectionAssert.AreEqual(new[] { 1 }, tree.ToList());
+            Assert.AreEqual(1, tree.FindMin());
+            Assert.AreEqual(1, tree.FindMax());
+
+            tree.Delete(1);
+            Assert.AreEqual(0, tree.Count);
+            Assert.AreEqual(0, tree.Count());
+            Assert.IsFalse(tree.HasItem(1));
+        }
     }
 }
