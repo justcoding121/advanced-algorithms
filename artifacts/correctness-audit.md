@@ -59,3 +59,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Connectivity/TarjansStronglyConnected_Tests.cs | pass | SCC set equality vs Kosaraju |
 | src/Advanced.Algorithms/Graph/Connectivity/TarjansBiConnected.cs | fixed | disconnected graphs with no APs reported bi-connected; require connectivity |
 | tests/Advanced.Algorithms.Tests/Graph/Connectivity/TarjansBiConnected_Tests.cs | pass | two triangles adversarial |
+| src/Advanced.Algorithms/Graph/Coloring/MColorer.cs | fixed | re-entry threw on already-colored vertices; shared visited + skip if colored; greedy (may false-negative) |
+| tests/Advanced.Algorithms.Tests/Graph/Coloring/MColoring_Tests.cs | pass | odd-cycle 2/3-color + uncolorable no-throw; proper-coloring check |

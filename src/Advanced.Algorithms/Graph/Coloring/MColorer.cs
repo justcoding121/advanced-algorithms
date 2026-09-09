@@ -4,23 +4,22 @@ using Advanced.Algorithms.DataStructures.Graph;
 namespace Advanced.Algorithms.Graph;
 
 /// <summary>
-///     An m-coloring algorithm implementation.
+///     An m-coloring algorithm implementation (greedy; may reject some m-colorable graphs).
 /// </summary>
 public class MColorer<T, TC>
 {
     /// <summary>
-    ///     Returns true if all vertices can be colored using the given colors
-    ///     in such a way so that no neighbours have same color.
+    ///     Returns true if greedy coloring assigns each vertex a color from the given set
+    ///     so that no neighbours share a color.
     /// </summary>
     public MColorResult<T, TC> Color(IGraph<T> graph, TC[] colors)
     {
         var progress = new Dictionary<IGraphVertex<T>, TC>();
+        var visited = new HashSet<IGraphVertex<T>>();
 
         foreach (var vertex in graph.VerticesAsEnumberable)
-            if (!progress.ContainsKey(vertex))
-                ColorRecursively(vertex, colors,
-                    progress,
-                    new HashSet<IGraphVertex<T>>());
+            if (!visited.Contains(vertex))
+                ColorRecursively(vertex, colors, progress, visited);
 
         if (progress.Count != graph.VerticesCount) return new MColorResult<T, TC>(false, null);
 
@@ -42,13 +41,14 @@ public class MColorer<T, TC>
     private void ColorRecursively(IGraphVertex<T> vertex, TC[] colors,
         Dictionary<IGraphVertex<T>, TC> progress, HashSet<IGraphVertex<T>> visited)
     {
-        foreach (var item in colors)
-        {
-            if (!IsSafe(progress, vertex, item)) continue;
+        if (!progress.ContainsKey(vertex))
+            foreach (var item in colors)
+            {
+                if (!IsSafe(progress, vertex, item)) continue;
 
-            progress.Add(vertex, item);
-            break;
-        }
+                progress.Add(vertex, item);
+                break;
+            }
 
         if (!visited.Contains(vertex))
         {
