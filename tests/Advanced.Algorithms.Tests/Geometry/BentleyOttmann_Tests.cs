@@ -226,6 +226,58 @@ namespace Advanced.Algorithms.Tests.Geometry
             Assert.AreEqual(1, crossing.Count);
         }
 
+        /// <summary>
+        /// Oracle: Bentley-Ottmann intersection-point count matches pairwise LineIntersection.
+        /// Includes shared-endpoint set that previously NRE'd in Event.CompareTo.
+        /// </summary>
+        [TestMethod]
+        public void BentleyOttmann_Oracle_VsLineIntersection_Test()
+        {
+            var fixtures = new List<List<Line>>
+            {
+                new List<Line>
+                {
+                    new Line(new Point(0, 0), new Point(10, 10)),
+                    new Line(new Point(0, 10), new Point(10, 0)),
+                    new Line(new Point(0, 5), new Point(10, 5))
+                },
+                new List<Line>
+                {
+                    new Line(new Point(7, 13), new Point(22, 5)),
+                    new Line(new Point(4, 25), new Point(29, 9)),
+                    new Line(new Point(25, 20), new Point(29, 19)),
+                    new Line(new Point(20, 4), new Point(28, 16)),
+                    new Line(new Point(0, 0), new Point(3, 2)),
+                    new Line(new Point(2, 27), new Point(8, 6)),
+                    new Line(new Point(14, 24), new Point(29, 3)),
+                    new Line(new Point(25, 20), new Point(27, 1))
+                }
+            };
+
+            var rnd = new Random(1);
+            for (var t = 0; t < 30; t++)
+            {
+                var lines = new List<Line>();
+                var n = rnd.Next(2, 7);
+                for (var i = 0; i < n; i++)
+                {
+                    double x1 = rnd.Next(0, 40), y1 = rnd.Next(0, 40);
+                    double x2 = rnd.Next(0, 40), y2 = rnd.Next(0, 40);
+                    if (Math.Abs(x1 - x2) < 1e-9 && Math.Abs(y1 - y2) < 1e-9) x2 += 1;
+                    lines.Add(new Line(new Point(x1, y1), new Point(x2, y2)));
+                }
+
+                fixtures.Add(lines);
+            }
+
+            foreach (var lines in fixtures)
+            {
+                var expected = GetExpectedIntersections(lines);
+                var actual = new BentleyOttmann().FindIntersections(lines);
+                Assert.AreEqual(expected.Count, actual.Count);
+            }
+        }
+
         [TestMethod]
         public void BentleyOttmann_Stress_Test()
         {

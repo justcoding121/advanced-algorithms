@@ -295,46 +295,47 @@ internal class Event : Point, IComparable
 
         var line1 = Segment;
         var line2 = thatEvent.Segment;
+        var sweepX = Algorithm.SweepLine.Left.X;
 
-        Point intersectionA;
+        double yA;
         if (Type == EventType.Intersection)
         {
-            intersectionA = this;
+            yA = Y;
         }
         else
         {
             if (LastSweepLine == Algorithm.SweepLine)
             {
-                intersectionA = LastIntersection;
+                yA = LastIntersection.Y;
             }
             else
             {
-                intersectionA = LineIntersection.FindIntersection(line1, Algorithm.SweepLine, tolerance);
+                yA = YAtSweepX(line1, sweepX, tolerance);
                 LastSweepLine = Algorithm.SweepLine;
-                LastIntersection = intersectionA;
+                LastIntersection = new Point(sweepX, yA);
             }
         }
 
-        Point intersectionB;
-        if (Type == EventType.Intersection)
+        double yB;
+        if (thatEvent.Type == EventType.Intersection)
         {
-            intersectionB = thatEvent;
+            yB = thatEvent.Y;
         }
         else
         {
             if (thatEvent.LastSweepLine == thatEvent.Algorithm.SweepLine)
             {
-                intersectionB = thatEvent.LastIntersection;
+                yB = thatEvent.LastIntersection.Y;
             }
             else
             {
-                intersectionB = LineIntersection.FindIntersection(line2, thatEvent.Algorithm.SweepLine, tolerance);
+                yB = YAtSweepX(line2, sweepX, thatEvent.tolerance);
                 thatEvent.LastSweepLine = thatEvent.Algorithm.SweepLine;
-                thatEvent.LastIntersection = intersectionB;
+                thatEvent.LastIntersection = new Point(sweepX, yB);
             }
         }
 
-        var result = intersectionA.Y.CompareTo(intersectionB.Y);
+        var result = yA.CompareTo(yB);
         if (result != 0) return result;
 
         //if Y is same use slope as comparison
@@ -357,6 +358,17 @@ internal class Event : Point, IComparable
         //since we don't let duplicate lines with input HashSet of lines.
         //see line equals override in Line class.
         return result;
+    }
+
+    /// <summary>
+    ///     Y of line at vertical sweep x (avoids null from segment∩finite sweepline).
+    /// </summary>
+    private static double YAtSweepX(Line line, double sweepX, double tolerance)
+    {
+        if (line.Left.X.IsEqual(line.Right.X, tolerance)) return line.Left.Y;
+
+        return line.Left.Y
+               + (line.Right.Y - line.Left.Y) * (sweepX - line.Left.X) / (line.Right.X - line.Left.X);
     }
 
     public override bool Equals(object obj)
