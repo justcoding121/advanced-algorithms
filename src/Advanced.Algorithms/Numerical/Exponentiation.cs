@@ -3,7 +3,7 @@
 /// <summary>
 ///     A fast exponentiation algorithm implementation.
 /// </summary>
-public class FastExponentiation
+public static class FastExponentiation
 {
     /// <summary>
     ///     Computes exponentiation using squaring.

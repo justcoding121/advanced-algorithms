@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Numerical;
 /// <summary>
 ///     A prime number generation algorithm using Sieve of Eratosthenes.
 /// </summary>
-public class PrimeGenerator
+public static class PrimeGenerator
 {
     public static List<int> GetAllPrimes(int max)
     {
@@ -14,7 +14,7 @@ public class PrimeGenerator
 
         var sqrt = Math.Sqrt(max);
 
-        for (var i = 2; i < sqrt; i++)
+        for (var i = 2; i <= sqrt; i++)
         {
             //mark multiples of current number as true
             if (primeTable[i]) continue;

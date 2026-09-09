@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.Numerical;
 /// <summary>
 ///     Tests for Prime in School method optimized.
 /// </summary>
-public class PrimeTester
+public static class PrimeTester
 {
     /// <summary>
     ///     Check if given number is prime.
