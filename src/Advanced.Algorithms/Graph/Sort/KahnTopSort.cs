@@ -27,32 +27,27 @@ public class KahnsTopSort<T>
         }
 
         //no vertices with zero number of in edges
-        if (kahnQueue.Count == 0) throw new InvalidOperationException("Graph has a cycle.");
+        if (graph.VerticesCount > 0 && kahnQueue.Count == 0)
+            throw new InvalidOperationException("Graph has a cycle.");
 
         var result = new List<T>();
 
-        var visitCount = 0;
         //until queue is empty
         while (kahnQueue.Count > 0)
         {
-            //cannot exceed vertex number of iterations
-            if (visitCount > graph.VerticesCount) throw new InvalidOperationException("Graph has a cycle.");
-
-            //pick a neighbour
             var nextPick = graph.GetVertex(kahnQueue.Dequeue());
+            result.Add(nextPick.Key);
 
-            //if in edge count is 0 then ready for result
-            if (inEdgeMap[nextPick.Key] == 0) result.Add(nextPick.Key);
-
-            //decrement in edge count for neighbours
+            //decrement in edge count for neighbours; enqueue when indegree hits 0
             foreach (var edge in nextPick.OutEdges)
             {
                 inEdgeMap[edge.TargetVertexKey]--;
-                kahnQueue.Enqueue(edge.TargetVertexKey);
+                if (inEdgeMap[edge.TargetVertexKey] == 0) kahnQueue.Enqueue(edge.TargetVertexKey);
             }
-
-            visitCount++;
         }
+
+        if (result.Count != graph.VerticesCount)
+            throw new InvalidOperationException("Graph has a cycle.");
 
         return result;
     }

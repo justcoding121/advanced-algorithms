@@ -43,3 +43,5 @@
 | tests/Advanced.Algorithms.Tests/Graph/Search/BreadthFirst_Tests.cs | pass | disconnected-component existence oracle |
 | src/Advanced.Algorithms/Graph/Search/BiDirectional.cs | fixed | reverse BFS used out-edges (false paths on digraphs); use InEdges; IDiGraph API |
 | tests/Advanced.Algorithms.Tests/Graph/Search/BiDirectional_Tests.cs | pass | converging A->B<-C adversarial path oracle |
+| src/Advanced.Algorithms/Graph/Sort/KahnTopSort.cs | fixed | enqueued every neighbor (dupes); incomplete result on cycles; enqueue at indegree 0 + count check |
+| tests/Advanced.Algorithms.Tests/Graph/Sort/KahnTopSort_Tests.cs | pass | topo vs DAG edges oracle; diamond/cycle adversarial |
