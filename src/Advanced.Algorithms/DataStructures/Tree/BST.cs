@@ -98,7 +98,7 @@ public class Bst<T> : IEnumerable<T> where T : IComparable
 
 
     //worst O(n) for unbalanced tree
-    private BstNode<T> Insert(BstNode<T> currentNode, T newNodeValue)
+    private static BstNode<T> Insert(BstNode<T> currentNode, T newNodeValue)
     {
         while (true)
         {
@@ -133,7 +133,7 @@ public class Bst<T> : IEnumerable<T> where T : IComparable
             }
             else
             {
-                throw new Exception("Item exists");
+                throw new ArgumentException("Item exists");
             }
         }
     }
@@ -162,7 +162,7 @@ public class Bst<T> : IEnumerable<T> where T : IComparable
     /// </summary>
     public void Delete(T value)
     {
-        if (Root == null) throw new Exception("Empty BST");
+        if (Root == null) throw new InvalidOperationException("Empty BST");
 
         var deleted = Delete(Root, value);
         deleted.UpdateCounts(true);
@@ -195,14 +195,14 @@ public class Bst<T> : IEnumerable<T> where T : IComparable
                 //node is less than the search value so move right to find the deletion node
                 if (compareResult < 0)
                 {
-                    node = node.Right ?? throw new Exception("Item do not exist");
+                    node = node.Right ?? throw new ArgumentException("Item do not exist");
                     continue;
                 }
 
                 //node is less than the search value so move left to find the deletion node
                 if (compareResult > 0)
                 {
-                    node = node.Left ?? throw new Exception("Item do not exist");
+                    node = node.Left ?? throw new ArgumentException("Item do not exist");
                     continue;
                 }
             }
@@ -306,7 +306,7 @@ public class Bst<T> : IEnumerable<T> where T : IComparable
         return FindMax(Root).Value;
     }
 
-    private BstNode<T> FindMax(BstNode<T> node)
+    private static BstNode<T> FindMax(BstNode<T> node)
     {
         while (true)
         {
@@ -323,7 +323,7 @@ public class Bst<T> : IEnumerable<T> where T : IComparable
         return FindMin(Root).Value;
     }
 
-    private BstNode<T> FindMin(BstNode<T> node)
+    private static BstNode<T> FindMin(BstNode<T> node)
     {
         while (true)
         {
