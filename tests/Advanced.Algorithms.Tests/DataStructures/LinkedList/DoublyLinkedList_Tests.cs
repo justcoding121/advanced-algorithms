@@ -67,5 +67,32 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.ThrowsException<ArgumentException>(() =>
                 list.InsertBefore(null, new DoublyLinkedListNode<string>("a")));
         }
+
+        [TestMethod]
+        public void DoublyLinkedList_InsertAfter_Before_Clear_Enumerate()
+        {
+            var list = new DoublyLinkedList<string>();
+            var first = list.InsertFirst("b");
+            list.InsertBefore(first, new DoublyLinkedListNode<string>("a"));
+            list.InsertAfter(first, new DoublyLinkedListNode<string>("c"));
+            list.InsertLast("d");
+
+            CollectionAssert.AreEqual(new[] { "a", "b", "c", "d" }, list.ToList());
+
+            list.Delete(first);
+            Assert.AreEqual(3, list.Count());
+            Assert.AreEqual("a", list.Head.Data);
+            Assert.AreEqual("d", list.Tail.Data);
+
+            using (var enumerator = list.GetEnumerator())
+            {
+                Assert.IsTrue(enumerator.MoveNext());
+                enumerator.Reset();
+                Assert.IsTrue(enumerator.MoveNext());
+            }
+
+            list.Clear();
+            Assert.IsTrue(list.IsEmpty());
+        }
     }
 }

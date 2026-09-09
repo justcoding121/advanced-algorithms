@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Advanced.Algorithms.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -96,6 +97,47 @@ namespace Advanced.Algorithms.Tests.DataStructures
 
             //IEnumerable tests.
             Assert.AreEqual(maxHeap.Count, maxHeap.Count());
+        }
+
+        [TestMethod]
+        public void FibonacciHeap_Empty_And_Invalid_Update()
+        {
+            var heap = new FibonacciHeap<int>();
+
+            Assert.AreEqual(0, heap.Count);
+            Assert.AreEqual(0, heap.Count());
+            Assert.ThrowsException<InvalidOperationException>(() => heap.Extract());
+            Assert.ThrowsException<InvalidOperationException>(() => heap.Peek());
+            Assert.ThrowsException<KeyNotFoundException>(() => heap.UpdateKey(1, 0));
+
+            heap.Insert(5);
+            heap.Insert(3);
+            heap.Insert(7);
+            Assert.AreEqual(3, heap.Peek());
+            Assert.ThrowsException<ArgumentException>(() => heap.UpdateKey(5, 6));
+            Assert.ThrowsException<KeyNotFoundException>(() => heap.UpdateKey(99, 1));
+
+            heap.UpdateKey(5, 2);
+            Assert.AreEqual(2, heap.Extract());
+            Assert.AreEqual(3, heap.Extract());
+            Assert.AreEqual(7, heap.Extract());
+            Assert.AreEqual(0, heap.Count);
+
+            var left = new FibonacciHeap<int>();
+            left.Insert(2);
+            var right = new FibonacciHeap<int>();
+            right.Insert(4);
+            left.Merge(right);
+            Assert.AreEqual(2, left.Count);
+
+            var maxHeap = new FibonacciHeap<int>(SortDirection.Descending);
+            maxHeap.Insert(1);
+            maxHeap.Insert(3);
+            Assert.ThrowsException<ArgumentException>(() => maxHeap.UpdateKey(3, 2));
+            maxHeap.UpdateKey(1, 5);
+            Assert.AreEqual(5, maxHeap.Peek());
+            Assert.AreEqual(5, maxHeap.Extract());
+            Assert.AreEqual(3, maxHeap.Extract());
         }
     }
 }

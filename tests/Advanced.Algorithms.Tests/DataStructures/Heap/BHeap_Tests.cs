@@ -79,5 +79,40 @@ namespace Advanced.Algorithms.Tests.DataStructures
             //IEnumerable tests.
             Assert.AreEqual(maxHeap.Count, maxHeap.Count());
         }
+
+        [TestMethod]
+        public void BHeap_Empty_Delete_Exists_Peek()
+        {
+            var heap = new BHeap<int>();
+
+            Assert.AreEqual(0, heap.Count);
+            Assert.AreEqual(0, heap.Count());
+            Assert.IsFalse(heap.Exists(1));
+            Assert.ThrowsException<InvalidOperationException>(() => heap.Extract());
+            Assert.ThrowsException<InvalidOperationException>(() => heap.Peek());
+            Assert.ThrowsException<ArgumentException>(() => heap.Delete(1));
+
+            heap.Insert(5);
+            heap.Insert(1);
+            heap.Insert(3);
+            Assert.IsTrue(heap.Exists(3));
+            Assert.IsFalse(heap.Exists(9));
+            Assert.AreEqual(1, heap.Peek());
+
+            heap.Delete(3);
+            Assert.IsFalse(heap.Exists(3));
+            Assert.AreEqual(1, heap.Extract());
+            Assert.AreEqual(5, heap.Extract());
+            Assert.AreEqual(0, heap.Count);
+
+            var maxHeap = new BHeap<int>(SortDirection.Descending);
+            maxHeap.Insert(1);
+            maxHeap.Insert(4);
+            maxHeap.Insert(2);
+            Assert.AreEqual(4, maxHeap.Peek());
+            maxHeap.Delete(4);
+            Assert.AreEqual(2, maxHeap.Extract());
+            Assert.AreEqual(1, maxHeap.Extract());
+        }
     }
 }

@@ -57,5 +57,28 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.ThrowsException<InvalidOperationException>(() => list.Delete("x"));
             Assert.ThrowsException<InvalidOperationException>(() => list.Clear());
         }
+
+        [TestMethod]
+        public void SinglyLinkedList_InsertLast_Clear_Enumerate()
+        {
+            var list = new SinglyLinkedList<string>();
+            list.InsertLast("only");
+            Assert.AreEqual("only", list.Head.Data);
+
+            list.InsertFirst(new SinglyLinkedListNode<string>("first"));
+            Assert.AreEqual("first", list.Head.Data);
+            Assert.AreEqual(2, list.Count());
+
+            using (var enumerator = list.GetEnumerator())
+            {
+                Assert.IsTrue(enumerator.MoveNext());
+                enumerator.Reset();
+                Assert.IsTrue(enumerator.MoveNext());
+            }
+
+            list.Clear();
+            Assert.IsTrue(list.IsEmpty());
+            Assert.AreEqual(0, list.Count());
+        }
     }
 }

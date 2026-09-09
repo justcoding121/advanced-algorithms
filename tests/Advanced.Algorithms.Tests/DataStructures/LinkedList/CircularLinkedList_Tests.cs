@@ -79,5 +79,36 @@ namespace Advanced.Algorithms.Tests.DataStructures
             Assert.ThrowsException<ArgumentException>(() => list.Delete("missing"));
             Assert.AreEqual(1, list.Count());
         }
+
+        [TestMethod]
+        public void CircularLinkedList_Union_Clear_Enumerate()
+        {
+            var list = new CircularLinkedList<string>();
+            var node = list.Insert("a");
+            list.Insert("b");
+            list.Insert("c");
+
+            var other = new CircularLinkedList<string>();
+            other.Insert("x");
+            other.Insert("y");
+            list.Union(other);
+
+            Assert.IsTrue(list.Count() >= 5);
+            Assert.IsFalse(list.IsEmpty());
+
+            list.Delete(node);
+            Assert.IsTrue(list.Count() >= 4);
+
+            using (var enumerator = list.GetEnumerator())
+            {
+                Assert.IsTrue(enumerator.MoveNext());
+                enumerator.Reset();
+                Assert.IsTrue(enumerator.MoveNext());
+            }
+
+            list.Clear();
+            Assert.IsTrue(list.IsEmpty());
+            Assert.AreEqual(0, list.Count());
+        }
     }
 }
