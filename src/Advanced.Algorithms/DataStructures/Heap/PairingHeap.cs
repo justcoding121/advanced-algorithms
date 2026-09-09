@@ -189,7 +189,7 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     Add new child to parent node
     /// </summary>
-    private void AddChild(ref PairingHeapNode<T> parent, PairingHeapNode<T> child)
+    private static void AddChild(ref PairingHeapNode<T> parent, PairingHeapNode<T> child)
     {
         if (parent.ChildrenHead == null)
         {
@@ -211,7 +211,7 @@ public class PairingHeap<T> : IEnumerable<T> where T : IComparable
     /// <summary>
     ///     delete node from parent
     /// </summary>
-    private void DeleteChild(PairingHeapNode<T> node)
+    private static void DeleteChild(PairingHeapNode<T> node)
     {
         //if this node is the child head pointer of parent
         if (node.IsHeadChild)

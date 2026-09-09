@@ -279,7 +279,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
         }
     }
 
-    private void InsertNode(ref FibonacciHeapNode<T> head, FibonacciHeapNode<T> newNode)
+    private static void InsertNode(ref FibonacciHeapNode<T> head, FibonacciHeapNode<T> newNode)
     {
         newNode.Next = newNode.Previous = null;
 
@@ -295,7 +295,7 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
         head = newNode;
     }
 
-    private void DeleteNode(ref FibonacciHeapNode<T> heapForestHead, FibonacciHeapNode<T> deletionNode)
+    private static void DeleteNode(ref FibonacciHeapNode<T> heapForestHead, FibonacciHeapNode<T> deletionNode)
     {
         if (deletionNode == heapForestHead)
         {
