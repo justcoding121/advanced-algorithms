@@ -34,7 +34,7 @@ public class TarjansBridgeFinder<T>
     ///     Do a depth first search to find Bridge edges by keeping track of
     ///     discovery nodes and checking for back edges using low/discovery time maps.
     /// </summary>
-    private List<Bridge<T>> Dfs(IGraphVertex<T> currentVertex,
+    private void Dfs(IGraphVertex<T> currentVertex,
         List<Bridge<T>> result,
         Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
         Dictionary<T, T> parent, ref int discoveryTime)
@@ -73,8 +73,6 @@ public class TarjansBridgeFinder<T>
                     lowTimeMap[currentVertex.Key] =
                         Math.Min(lowTimeMap[currentVertex.Key], discoveryTimeMap[edge.TargetVertexKey]);
             }
-
-        return result;
     }
 }
 

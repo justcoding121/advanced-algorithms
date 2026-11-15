@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +11,8 @@ namespace Advanced.Algorithms.DataStructures.Foundation;
 /// <typeparam name="T">The datatype of this ArrayList.</typeparam>
 public class ArrayList<T> : IEnumerable<T>
 {
+    private const string IndexExceedsArraySizeMessage = "Index exeeds array size";
+
     private readonly int initialArraySize;
     private T[] array;
     private int arraySize;
@@ -69,7 +71,7 @@ public class ArrayList<T> : IEnumerable<T>
     private T ItemAt(int i)
     {
         if (i < 0 || i >= Length)
-            throw new ArgumentException("Index exeeds array size");
+            throw new ArgumentException(IndexExceedsArraySizeMessage);
 
         return array[i];
     }
@@ -97,7 +99,7 @@ public class ArrayList<T> : IEnumerable<T>
     public void InsertAt(int index, T item)
     {
         if (index < 0 || index > Length)
-            throw new ArgumentException("Index exeeds array size");
+            throw new ArgumentException(IndexExceedsArraySizeMessage);
 
         Grow();
 
@@ -130,7 +132,7 @@ public class ArrayList<T> : IEnumerable<T>
     private void SetItem(int i, T item)
     {
         if (i < 0 || i >= Length)
-            throw new ArgumentException("Index exeeds array size");
+            throw new ArgumentException(IndexExceedsArraySizeMessage);
 
         array[i] = item;
     }
@@ -143,7 +145,7 @@ public class ArrayList<T> : IEnumerable<T>
     public void RemoveAt(int i)
     {
         if (i < 0 || i >= Length)
-            throw new ArgumentException("Index exeeds array size");
+            throw new ArgumentException(IndexExceedsArraySizeMessage);
 
         //shift elements within the logical length only
         for (var j = i; j < Length - 1; j++) array[j] = array[j + 1];

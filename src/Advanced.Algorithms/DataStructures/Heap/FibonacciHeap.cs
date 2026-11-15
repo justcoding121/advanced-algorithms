@@ -144,12 +144,9 @@ public class FibonacciHeap<T> : IEnumerable<T> where T : IComparable
             else
                 heapMapping[kv.Key] = new List<FibonacciHeapNode<T>>(kv.Value);
 
-        if (minMaxNode == null)
-        {
-            minMaxNode = fibonacciHeap.minMaxNode;
-        }
-        else if (fibonacciHeap.minMaxNode != null
-                 && comparer.Compare(minMaxNode.Value, fibonacciHeap.minMaxNode.Value) > 0)
+        if (minMaxNode == null
+            || (fibonacciHeap.minMaxNode != null
+                && comparer.Compare(minMaxNode.Value, fibonacciHeap.minMaxNode.Value) > 0))
         {
             minMaxNode = fibonacciHeap.minMaxNode;
         }

@@ -34,7 +34,7 @@ public class TarjansArticulationFinder<T>
     ///     Do a depth first search to find articulation points by keeping track of
     ///     discovery nodes and checking for back edges using low/discovery time maps.
     /// </summary>
-    private List<T> Dfs(IGraphVertex<T> currentVertex,
+    private void Dfs(IGraphVertex<T> currentVertex,
         List<T> result,
         Dictionary<T, int> discoveryTimeMap, Dictionary<T, int> lowTimeMap,
         Dictionary<T, T> parent, ref int discoveryTime)
@@ -84,8 +84,5 @@ public class TarjansArticulationFinder<T>
         if (!parent.ContainsKey(currentVertex.Key) && discoveryChildCount >= 2 ||
             parent.ContainsKey(currentVertex.Key) && isArticulationPoint)
             result.Add(currentVertex.Key);
-
-
-        return result;
     }
 }

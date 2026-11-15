@@ -24,7 +24,7 @@ public class MinVertexCover<T>
     ///     An approximation algorithm for NP complete vertex cover problem.
     ///     Add a random edge vertices until done visiting all edges.
     /// </summary>
-    private List<IGraphVertex<T>> GetMinVertexCover(IGraphVertex<T> vertex,
+    private void GetMinVertexCover(IGraphVertex<T> vertex,
         HashSet<IGraphVertex<T>> visited, List<IGraphVertex<T>> cover)
     {
         visited.Add(vertex);
@@ -39,7 +39,5 @@ public class MinVertexCover<T>
 
             if (!visited.Contains(edge.TargetVertex)) GetMinVertexCover(edge.TargetVertex, visited, cover);
         }
-
-        return cover;
     }
 }
