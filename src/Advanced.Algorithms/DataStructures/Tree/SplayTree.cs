@@ -361,7 +361,7 @@ public class SplayTree<T> : IEnumerable<T> where T : IComparable
                 x = LeftRotate(x.Parent);
             }
             //zig-zag step mirror
-            else //if (x.IsRightChild && x.Parent.IsLeftChild)
+            else if (x.IsRightChild && x.Parent.IsLeftChild)
             {
                 LeftRotate(x.Parent);
                 x = RightRotate(x.Parent);
