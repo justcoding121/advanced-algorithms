@@ -33,7 +33,8 @@ jobs:
 
     - name: Install SonarCloud scanner
       if: env.SONAR_TOKEN != '' && ((github.event_name == 'push' && github.ref == 'refs/heads/develop') || (github.event_name == 'pull_request' && github.base_ref == 'develop' && github.event.pull_request.head.repo.full_name == github.repository))
-      run: dotnet tool install --global dotnet-sonarscanner
+      # Pin to 11.3: last known-good with this project (12.x auto-install broke begin auth)
+      run: dotnet tool install --global dotnet-sonarscanner --version 11.3.*
 
     - name: Begin SonarCloud analysis
       if: env.SONAR_TOKEN != '' && ((github.event_name == 'push' && github.ref == 'refs/heads/develop') || (github.event_name == 'pull_request' && github.base_ref == 'develop' && github.event.pull_request.head.repo.full_name == github.repository))
