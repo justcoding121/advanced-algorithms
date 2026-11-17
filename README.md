@@ -6,7 +6,7 @@ This is a maintained, curiosity-driven personal project that [was originally not
 
 Various important computer science algorithms generically implemented in C#.
 
-[![Build](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml/badge.svg?branch=develop)](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml)
+[![Build](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml/badge.svg?branch=develop&event=push)](https://github.com/justcoding121/advanced-algorithms/actions/workflows/dotnetcore.yml?query=branch%3Adevelop+event%3Apush)
 [![NuGet](https://img.shields.io/nuget/v/Advanced.Algorithms.svg)](https://www.nuget.org/packages/Advanced.Algorithms)
 [![NuGet downloads](https://img.shields.io/nuget/dt/Advanced.Algorithms.svg)](https://www.nuget.org/packages/Advanced.Algorithms)
 
